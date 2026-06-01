@@ -1,0 +1,306 @@
+\chapter{几何专题}
+
+\section{向量}
+数学是从认识和研究图形和数开始的。大体上可以说，图形的优点是直观形象，能更直接地用来描述我们周围的世界，也更容易理解。但图形不便于用于计算，利用几何推理的方法来研究图形，灵活性、偶然性太大，不容易掌握。数的优点是有比较死板的方法进行运算，便于掌握，但比图形更抽象，将客观世界用数来描述的难度更大一些。笛卡尔引进了坐标之后，打破了数与形的界限，将几何图形最基本的元素——点用坐标来表示，将曲线、曲面用方程来表示，通过对坐标和方程的代数运算来研究几何图形的性质，这就是解析几何。
+
+向量也是一种图形，具有直观形象的优点，便于用来描述客观世界．向量又可以直接进行运算。因此向量兼有图形和数的优点。我们可以将几何图形用向量来描述，通过向量的运算来解决几何问题；也可以进一步将向量的运算转化为坐标的运算来解决问题，这是建立解析几何的理论与算法体系的一种简明有效的途径。
+
+向量是一种“价廉物美”的数学工具，学起来很容易，需要花费的时间和精力不多；用处又很大，可以解决很多的几何和代数的问题。
+
+
+\subsection{向量的定义}
+向量，一称矢量，是一类有大小和方向的量。每个向量\(a\)可以用一条有向线段\(A B\)来表示，记作\(a = \vec{A B}\)．从\(A\)到\(B\)的方向表示向量\(a\)的方向；\(A B\)的长度\(\left| A B \right|\)表示向量\(a\)的大小，称为\(a\)的模，记作\(\left| a \right|\)。当\(\left| a \right| = \left| A B \right| = 0\)时\(A\)与\(B\)重合，\(a = \vec{A A}\)，称为零向量，记为\(0\)。零向量的方向不确定，可以为任意方向。
+
+同一个向量\(a\)可以由不同的有向线段\(A B\)、\(C D\)表示，只要\(A B\)、\(C D\)的方向相同，长度也相等，即使出发点\(A\)、\(C\)不同也有\(\vec{A B} = \vec{C D}\)。但从同一点出发表示同一个向量的有向线段是唯一确定的：\(\vec{O A} = \vec{O B} \Longleftrightarrow A\)与\(B\)重合．
+
+当非零向量\(a\)与\(b\)的方向相同或相反时，表示它们的有向线段既可以共线，也可以平行，此时我们称\(a , b\)平行（也可以称\(a , b\)共线）。我们规定：零向量与任意向量平行。
+
+
+\subsection{向量的加法}
+设\(a , b\)是任意两个向量。从任意一点\(O\)出发，作\(O A = a\)，再从\(O A\)的终点\(A\)出发作\(A B = b\)，则定义\(a\)与\(b\)相加所得的和\(a + b = \vec{O A} + \vec{A B} = \vec{O B}\)。向量加法的这个法则称为三角形法则。如果将\(\vec{O A} , \vec{A B}\)理解为位移，则\(\vec{O A} + \vec{A B}\)就表示两个位移的合成：\(O \to A \to B\)总的效果是由\(O\)到\(B\)，也就是\(O B\)。
+
+\begin{center}
+\includegraphics[width=0.92\linewidth]{image10.png}
+\end{center}
+对任意3个向量\(a , b , c\)作\(a = \vec{O A} , b = \vec{A B} , c = \vec{B C}\)，则易见\(\left( a + b \right) + c = O C = a + \left( b + c \right)\)，这也说明了向量加法的结合律成立。
+
+设\(a = \vec{O A}\)与\(b = \vec{A B}\)，再作\(\vec{O C} = b\)，连接\(C B\)。则当\(O A , A B\)不共线时，\(O A B C\)是平行四边形，从而\(\vec{C B} = \vec{O A} = a\)，如右图所示。当\(O A , A B\)共线时，也易见\(\vec{C B} = \vec{O A}\)。因此在所有情况下都有\(b + a = \vec{O C} + \vec{C B} = \vec{O B} = a + b\)。也就是说向量加法交换律成立。
+
+右图中的等式\(a + b = \vec{O A} + \vec{O C} = \vec{O B}\)给出了求向量\(a , b\)的和的另一个法则，称为平行四边形法则：从同一点\(O\)出发，分别作\(\vec{O A} = a , \vec{O D} = b\)，作平行四边形\(O A B D\)，则对角线\(\vec{O B} = a + b\)。
+
+易见\(a + 0 = 0 + a = a\)对任意向量\(a\)成立。
+
+对每个向量\(a = \vec{A B}\)，存在唯一一个与\(a\)大小相等、方向相反的向量\(\vec{B A}\)，记作\(- a\)，也就是\(\vec{B A} = - \vec{A B}\)，称为\(a\)的负向量。我们有\(a + \left( - a \right) = \vec{A B} + \vec{B A} = \vec{A A} = 0 , \left( - a \right) + a = \vec{B A} + \vec{A B} = \vec{B B} = 0\)。反过来，\(a\)也是\(- a\)的负向量，即\(- \left( - a \right) = a\)。
+
+向量的减法：已知向量\(a , b\)，定义它们的差\(a - b = a + \left( - b \right)\)，它满足条件\(\left( a - b \right) + b = a\)。从同一点\(O\)出发，分别作\(\vec{O A} = a , \vec{O B} = b\)，则\(a - b = \vec{B A}\)。
+
+
+\subsection{向量与实数相乘}
+任一向量\(a\)与任一实数\(k\)可以相乘，得到一个向量，记作\(k a\)，定义如下：
+
+\(k a\)的长度\(\left| k a \right| = \left| k \right| \left| a \right|\)。当\(k > 0\)时，\(k a\)与\(a\)的方向相同；当\(k < 0\)时，\(k a\)与\(a\)的方向相反；当\(k = 0\)时，\(k a = 0\)是零向量，方向不确定。
+
+由向量与实数相乘的法则知道：向量\(a , b\)平行\(\Leftrightarrow\)其中一个向量可以写成另一个向量与某个实数的乘积。
+
+如下运算律对任意向量\(a , b\)和实数\(k , s\)成立。
+
+（1）\(1 a = a , - 1 a = - a , k \left( s a \right) = \left( k s \right) a\)；
+
+（2）（对实数加法的分配律）\(\left( k + s \right) a = k a + s a\)；
+
+（3）（对向量加法的分配律）\(k \left( a + b \right) = k a + k b\)。
+
+长度为\(1\)的向量称为单位向量。当\(a \ne 0\)时，\(\frac{1}{\left| a \right|} a\)就是与\(a\)方向相同的单位向量。
+
+例1 （1）已知\(\triangle A B C\)及其两边长\(\left| A B \right| , \left| A C \right|\)。怎样用向量的语言描述：点\(P\)在\(\angle B A C\)的角平分线上。
+
+（2）\(O\)是平面上一定点，\(A , B , C\)是平面上不共线的三个点，动点\(P\)满足$\vec{O P} = \vec{O A} + \lambda \left( \frac{\vec{A B}}{A B} + \frac{\vec{A C}}{A C} \right) , \lambda \in \lbrack 0 , + \infty \rightparen$，则\(P\)点的轨迹一定过\(\triangle A B C\)的
+
+（A）外心 （B）内心      （C）重心  （D）垂心
+
+
+\subsection{向量的数量积}
+任意两个向量\(a , b\)可以作数量积（也称内积），得到一个实数：
+
+\(a \cdot b = \left| a \right| \left| b \right| \cos \left\langle a , b \right\rangle\)，其中\(\left\langle a , b \right\rangle\)表示\(a , b\)的夹角。
+
+物理例子：设物体在恒力\(F\)作用下沿直线前进，产生位移\(s\)，则\(F\)所作功\(W = F \cdot s\)。
+
+有两个特殊情况值得特别注意：
+
+（1）记\(a^{2} = a \cdot a\)，由于向量\(a\)与自身夹角为0，由\(\cos 0 = 1\)知\(a^{2} = \left| a \right|^{2}\)；
+
+（2）当\(a \perp b\)时，\(\cos \left\langle a , b \right\rangle = \cos \frac{\pi}{2} = 0\)，因此\(a \cdot b = 0\)；我们规定零向量与所有向量垂直，这样就有\(a \cdot b = 0 \Longleftrightarrow a \perp b\)。
+
+利用数量积可以表示任意向量\(a\)的长度\(\left| a \right|\)和任意两个非零向量\(a , b\)所成的角\(\theta\)：
+
+\begin{equation}
+\left| a \right| = \sqrt{a^{2}} ; \cos \theta = \frac{a \cdot b}{\left| a \right| \left| b \right|} = \frac{a \cdot b}{\sqrt{a^{2}} \sqrt{b^{2}}}
+\end{equation}
+
+向量的数量积满足一些与数的乘法类似的运算律：
+
+（1）\(a \cdot b = b \cdot a\)；
+
+（2）\(\left( a + b \right) \cdot c = a \cdot c + b \cdot c\)；
+
+（3）\(\left( k a \right) \cdot b = k \left( a \cdot b \right)\)。
+
+例2 对任意向量\(a , b\)证明乘法公式\({\left( a - b \right)}^{2} = a^{2} + b^{2} - 2 a \cdot b\)，并对\(a , b\)不平行的情形解释这个公式的几何意义。
+
+思考：为什么这里向量的运算和数的运算可以混为一谈。
+
+例3 设\(A B C D\)是三维空间中的不重合的任意四个点。求证：\(A C \perp B D \Longleftrightarrow \left| A B \right|^{2} + \left| C D \right|^{2} = \left| B C \right|^{2} + \left| D A \right|^{2}\)。
+
+例4 \(A B C D\)是四面体，\(\angle B A C = \angle A C D\)， \(\angle A B D = \angle B D C\)．求证：\(\left| A B \right| = \left| C D \right|\)。
+
+
+\subsection{向量的坐标表示法}
+一般地，在平面上任意选定两个相互垂直的单位向量\(i , j\)，则平面内每个向量\(a = \vec{O P}\)都可以分解为与\(i\)平行的向量\(\vec{O D}\)和与\(j\)平行的向量\(\vec{D P}\)之和。\(\vec{O D} , \vec{D P}\)可以分别写成\(i , j\)的实数倍\(x i , y j\)。于是\(a = \vec{O P}\)被分解成\(i , j\)的实数倍之和的形式\(\vec{O P} = x i + y j\)，其中的两个系数\(x , y\)由\(\vec{O P}\)唯一决定，可以认为是用\(i , j\)这两个单位向量一起去“度量” \(\vec{O P}\)得到的“量数”。我们称\(i , j\)组成平面上的一组基，\(\left( x , y \right)\)为\(a = \vec{O P}\)在这组基下的坐标。坐标\(\left( x , y \right)\)唯一地代表了向量\(a\)，我们可以直接写\(a = \left( x , y \right)\)。将向量用坐标表示之后，向量的运算就可以转化为坐标的运算。对向量\(a = \left( x_{1} , y_{1} \right) , b = \left( x_{2} , y_{2} \right)\)及实数\(k\)，我们有
+
+\begin{equation}
+a \pm b = \left( x_{1} i + y_{1} j \right) \pm \left( x_{2} i + y_{2} j \right) = \left( x_{1} \pm x_{2} \right) i + \left( y_{1} \pm y_{2} \right) j
+\end{equation}
+
+\begin{equation}
+k a = k \left( x i + y j \right) = \left( k x \right) i + \left( k y \right) j
+\end{equation}
+
+\begin{equation}
+a \cdot b = \left( x_{1} i + y_{1} j \right) \cdot \left( x_{2} i + y_{2} j \right) = x_{1} x_{2} + y_{1} y_{2}
+\end{equation}
+
+可以用坐标的形式简写这三个式子：
+
+\begin{equation}
+\left( x_{1} , y_{1} \right) + \left( x_{2} , y_{2} \right) = \left( x_{1} + x_{2} , y_{1} + y_{2} \right) , k \left( x , y \right) = \left( k x , k y \right) , \left( x_{1} , y_{1} \right) \cdot \left( x_{2} , y_{2} \right) = x_{1} x_{2} + y_{1} y_{2}
+\end{equation}
+
+由向量的数量积公式立即得到：
+
+若\(a = ( x , y )\)，则\(\left| a \right| = \sqrt{x^{2} + y^{2}}\)；
+
+若\(a = \left( x_{1} , y_{1} \right) , b = \left( x_{2} , y_{2} \right)\)，则\(\cos \left\langle a , b \right\rangle = \frac{x_{1} x_{2} + y_{1} y_{2}}{\sqrt{x_{1}^{2} + y_{1}^{2}} \sqrt{x_{2}^{2} + y_{2}^{2}}}\)；
+
+向量\(a = \left( x_{1} , y_{1} \right) , b = \left( x_{2} , y_{2} \right)\)垂直的充分必要条件是\(x_{1} x_{2} + y_{1} y_{2} = 0\)。
+
+设\(A , B , C\)是实数，且\(A , B\)不全为\(0\)，求方程\(A x + B y + C = 0\)的图象。
+
+已知直线\(l_{1} : A_{1} x + B_{1} y + C_{1} = 0\)与\(l_{2} : A_{2} x + B_{2} y + C_{2} = 0\)。求\(l_{1} , l_{2}\)的夹角\(\theta\)以及\(l_{1} \perp l_{2}\)的充分必要条件。
+
+已知直线\(l_{1} , l_{2}\)的斜率分别是\(k_{1} , k_{2}\)，求\(l_{1} , l_{2}\)的夹角\(\theta\)以及\(l_{1} \perp l_{2}\)的充分必要条件。
+
+设\(\alpha\)是任意角，\(n\)是任意正整数且\(\cos \alpha + \cos 2 \alpha + \cdots + \cos n \alpha \ne 0\)。化简
+
+\begin{equation}
+\frac{\sin \alpha + \sin 2 \alpha + \cdots + \sin n \alpha}{\cos \alpha + \cos 2 \alpha + \cdots + \cos n \alpha} .
+\end{equation}
+
+可以很自然地将二维平面的向量坐标表示扩展到三维空间上甚至更高维度上。以三维空间为例。在空间中任意取定3个两两垂直的单位向量\(i , j , k\)，则空间中每个向量\(a\)可以唯一地写成\(a = x i + y j + z k\)的形式，其中\(x , y , z\)是实数，\(i , j , k\)称为空间中的一组基，\(\left( x , y , z \right)\)称为\(a\)在这组基下的坐标，可以看成是用\(i , j , k\)这一组单位向量去“度量”\(a\)得到的“量数”。\(a\)可以用它的坐标\(\left( x , y , z \right)\)完全代表，直接写为\(a = \left( x , y , z \right)\)。与平面向量类似地有空间向量的坐标运算公式：
+
+\begin{equation}
+\left( x_{1} , y_{1} , z_{1} \right) + \left( x_{2} , y_{2} , z_{2} \right) = \left( x_{1} + x_{2} , y_{1} + y_{2} , z_{1} + z_{2} \right) , k \left( x , y , z \right) = \left( k x , k y , k z \right)
+\end{equation}
+
+\begin{equation}
+\left( x_{1} , y_{1} , z_{1} \right) \cdot \left( x_{2} , y_{2} , z_{2} \right) = x_{1} x_{2} + y_{1} y_{2} + z_{1} z_{2} , a = \left( x , y , z \right) \to \left| a \right| = \sqrt{x^{2} + y^{2} + z^{2}}
+\end{equation}
+
+向量\(a = \left( x_{1} , y_{1} , z_{1} \right) , b = \left( x_{2} , y_{2} , z_{2} \right)\)垂直的充分必要条件是\(x_{1} x_{2} + y_{1} y_{2} + z_{1} z_{2} = 0\)。
+
+\begin{center}
+\includegraphics[width=0.92\linewidth]{image11.png}
+\end{center}
+已知正方体\(A B C D - A^{'} B^{'} C^{'} D^{'}\)求：
+
+（1）直线\(A B\)与平面\(B D A^{'}\)所成的角；
+
+（2）平面\(A^{'} B^{'} C D\)与\(B D D^{'} B^{'}\)的夹角。
+
+
+\section{三维空间中的几何关系}
+三维空间中的几何关系主要包含点、线、面之间的位置关系，主要涉及距离、夹角等位置关系。为叙述方便，以下几何关系将在笛卡尔直角坐标系下使用向量语言进行叙述。对于其他坐标系下的描述这里暂不涉及，可由坐标变换关系自行推导。
+
+
+\subsection{点与点的关系}
+点与点的关系较为简单，一般考虑两点间的距离公式：若空间中两点\(A , B\)坐标分别为\(A \left( x_{1} , y_{1} , z_{1} \right) , B \left( x_{2} , y_{2} , z_{2} \right)\)，则\(\left| A B \right| = \left| \vec{A B} \right| = \left| \left( x_{2} - x_{1} , y_{2} - y_{1} , z_{2} - z_{1} \right) \right| = \sqrt{{\left( x_{2} - x_{1} \right)}^{2} + {\left( y_{2} - y_{1} \right)}^{2} + {\left( z_{2} - z_{1} \right)}^{2}}\)。
+
+
+\subsection{点与线的关系}
+如果点 \(P\)的坐标为\(\left( x_{0} , y_{0} , z_{0} \right)\)，直线\(L\)的方向向量为\(l = \left( a , b , c \right)\)，且直线上有一点\(Q\)的坐标为\(\left( x_{1} , y_{1} , z_{1} \right)\)，则点\(P\)到直线\(L\)的距离\(d\)为：
+
+\begin{equation}
+d = \frac{\left| \vec{P Q} \times l \right|}{\left| l \right|}
+\end{equation}
+
+其中\(\vec{P Q} = \left( x_{1} - x_{0} , y_{1} - y_{0} , z_{1} - z_{0} \right)\)。定义两个三维向量\(a , b\)的外积\(a \times b\)（一称向量积）：两个三维向量的外积为一个向量，其模长为\(\left| a \right| \left| b \right| \sin \left\langle a , b \right\rangle\)，方向垂直于\(a , b\)，按从\(a\)到\(b\)的右手定则确定方向。
+
+
+\subsection{点与面的关系}
+如果点\(P\) 的坐标为\(( x_{0} , y_{0} , z_{0} )\)，平面\(\pi\)的方程为\(a x + b y + c z + d = 0\)，则\(P\)到平面\(\pi\)的距离\(d\)为：
+
+\begin{equation}
+d = \frac{\left| a x_{0} + b y_{0} + c z_{0} + d \right|}{\sqrt{a^{2} + b^{2} + c^{2}}}
+\end{equation}
+
+
+\subsection{线与线的关系}
+如果两直线的方向向量分别为\(d_{1} = \left( a_{1} , b_{1} , c_{1} \right)\)和\(d_{2} = \left( a_{2} , b_{2} , c_{2} \right)\)，则两直线夹角\(\theta\)的余弦值为：
+
+\begin{equation}
+\cos \theta = \frac{d_{1} \cdot d_{2}}{\left| d_{1} \right| \left| d_{2} \right|}
+\end{equation}
+
+
+\subsection{线与面的关系}
+如果直线的方向向量为\(d = \left( a , b , c \right)\)，平面的法向量为\(n = \left( A , B , C \right)\)，则直线与平面的夹角\(\theta\)的正弦值为：
+
+\begin{equation}
+\sin \theta = \frac{d \cdot n}{\left| d \right| \left| n \right|}
+\end{equation}
+
+
+\subsection{面与面的关系}
+如果两平面的法向量分别为\(n_{1} = \left( a_{1} , b_{1} , c_{1} \right)\)和\(n_{2} = \left( a_{2} , b_{2} , c_{2} \right)\)，则两平面夹角\(\theta\)的余弦值为：
+
+\begin{equation}
+\cos \theta = \frac{n_{1} \cdot n_{2}}{\left| n_{1} \right| \left| n_{2} \right|}
+\end{equation}
+
+于是可以容易地将三维空间中的线、面之间的平行、垂直等几何关系使用向量语言进行描述：
+
+面与面平行/垂直：其法向量平行/垂直。
+
+线与线平行/垂直：其方向向量平行/垂直。
+
+线与面平行/垂直：线的方向向量与面的法向量垂直/平行。
+
+因此，常见立体几何的题目的一般做法为：
+
+第一步：建立合适的坐标系，使得题目所涉及各点坐标尽可能简单。
+
+第二步：将待求几何量（一般为角度）或待证明几何关系用向量语言进行描述。
+
+第三步：求相关向量的坐标表示。
+
+（1）直线的方向向量：直接选取直线上已知的两点坐标计算；
+
+（2）平面的法向量：
+
+(1)设其法向量为\(n = \left( x , y , z \right)\)，利用平面已知的三点构建在该平面内的两个不平行的向量\(\alpha , \beta\)（或其他点，总的原则是选取使向量的坐标表示尽可能简单的点）。
+
+(2)列式计算\(n \cdot \alpha = 0\)和\(n \cdot \beta = 0\)，令\(x\)（或\(y , z\)）为一个合适的值（总的原则是选取容易求解方程的值，或者使\(n\)成为单位向量），求出该平面的一个法向量。
+
+第四步：将第二步的向量语言描述的几何关系用坐标表示出来，进行相关的运算或列方程/等式，完成证明。
+
+
+\section{线性空间*}
+在讨论线性空间之前，需要先讨论线性方程组以及它有几个解。在实际问题或数学问题中，常常需要求一些未知的量，用字母\(x_{1} , x_{2} , …\)表示它们，根据问题中的等量关系，列出方程组。其中最基本、最常见的一类方程组是未知量\(x_{1} , x_{2} , …\)的线性方程组，我们称它为线性方程组。为了统一地研究它们，我们建立线性方程组的模型，即
+
+\begin{equation}
+\left\{ \begin{matrix}a_{11} x_{1} + a_{12} x_{2} + \cdots + a_{1 n} x_{n} = b_{1} \\ a_{21} x_{1} + a_{22} x_{2} + \cdots + a_{1 n} x_{n} = b_{2} \\ \cdots \cdots \cdots \cdots = \cdots \\ a_{s 1} x_{1} + a_{s 2} x_{2} + \cdots + a_{s n} x_{n} = b_{s}\end{matrix} \right.
+\end{equation}
+
+其中每个方程左边是未知量\(x_{1} , x_{2} , … , x_{n}\)的一次齐次式，右端是常数（称为常数项）。与未知量相乘的数称为系数，\(a_{i j}\)是第\(i\)个方程中\(x_{j}\)的系数，\(i = 1 , 2 , … , s\)；\(j = 1 , 2 , … , n\)。该方程组中，方程的数量\(s\)与未知数的数量\(n\)可以相等，也可以不相等。
+
+对于\(n\)元线性方程组，每个如果未知量\(x_{1} , x_{2} , … , x_{n}\)
+
+
+\section{线性变换*}
+所谓线性变换，其关键理解在于什么是线性。变换是好理解的，即把一个东西映射成另一个东西，比如把一个向量变成另一个向量，把一个空间变成另一个空间。而所谓线性，即是要保证变换的可加性与齐次性。总的来说，可以定义变换\(T\)为线性变换，当且仅当\(T\)满足
+
+\begin{equation}
+T \left( \alpha x + \beta y \right) := \alpha T \left( x \right) + \beta T \left( y \right)
+\end{equation}
+
+其中\(\alpha , \beta\)为标量，\(x , y \in V\)。容易看出，其和“直线”并无太大关联，而只要求映射保证与向量的加法、数乘“可交换”。进一步地，如果考虑直线\(f \left( x \right) = k x\)，可知\(f \left( \alpha x \right) = k \left( \alpha x \right) = \alpha \left( k x \right) = \alpha f \left( x \right)\)，从而\(f\)是一个线性变换，将\(x\)变换为\(k x\)。进一步地，考虑二维空间中的两个变换：
+
+\begin{equation}
+T := \left( x , y \right) \mapsto \left( 2 x , 3 y \right)
+\end{equation}
+
+\begin{equation}
+T := \left( x , y \right) \mapsto \left( x + y , 2 y \right)
+\end{equation}
+
+显然，它们都是将二维空间变换成另一个二维空间的线性变换（一般称之为\(R^{2}\)到\(R^{2}\)的线性变换）。其中第一个便是伸缩变换，如果有一个圆，那么变换之后它就变成了椭圆；第二个则可以将一个长方形拉成平行四边形。
+
+如果考虑\(\left( x , y \right)\)为二维空间中的一个向量，自然地\(\left( 2 x , 3 y \right) , \left( x + y , 2 y \right)\)也都是二维空间中的向量。因此这个变换将一个二维空间中的所有向量映射为另一组向量（这样的映射称为线性映射）。那么参考\(y = k x\)将\(x\)变换为\(y\)，我们能否找到一种运算模式，它可以通过\(y = K x\)来描述这样的变换呢？
+
+首先考虑参数的数量。由于\(y_{i}\)是\(x_{k}\)的线性组合（即\(\forall i , y_{i} = \sum _{k = 1}^{n} \lambda_{k} x_{k} , \lambda\)为参数）故参数数量应该是\(n^{2}\)（\(n\)为向量的维数，这里是二维向量所以取\(n = 2\)）。那么容易定义二维情况下
+
+\begin{equation}
+K = \left[ \begin{matrix}k_{11} & k_{12} \\ k_{21} & k_{22}\end{matrix} \right]
+\end{equation}
+
+并满足如下运算规则：
+
+\begin{equation}
+y = K x = \left[ \begin{matrix}k_{11} & k_{12} \\ k_{21} & k_{22}\end{matrix} \right] \left[ \begin{matrix}x_{1} \\ x_{2}\end{matrix} \right] = \left[ \begin{matrix}k_{11} x_{1} + k_{12} x_{2} \\ k_{21} x_{1} + k_{22} x_{2}\end{matrix} \right] = \left[ \begin{matrix}y_{1} \\ y_{2}\end{matrix} \right]
+\end{equation}
+
+这样，便满足了任意形式的线性变换的运算。这样的情形可以自然而然地推广到高维向量，而\(K\)就是所谓的线性变换矩阵。
+
+以下介绍4种二维空间中的线性变换。应当注意，在高维空间中仍然存在类似作用或性质的变换，这里不详细讲解，有兴趣可以阅读《Linear Algebra Done Right》作为线性代数的入门。
+
+
+\subsection{伸缩变换}
+在之前的学习中，已经知道对坐标轴的伸缩是\(x^{'} = \lambda_{x} x , y^{'} = \lambda_{y} y\)。那么容易知道，此时的变换矩阵为\(\left[ \begin{matrix}\lambda_{x} & 0 \\ 0 & \lambda_{y}\end{matrix} \right]\)。
+
+
+\subsection{旋转变换}
+如果将一个空间旋转\(\theta\)角，其变换矩阵为\(\left[ \begin{matrix}\cos \theta & - \sin \theta \\ \sin \theta & \cos \theta\end{matrix} \right]\)。该矩阵的推导过程主要是将向量的旋转变为标准正交基的旋转，进而计算两组系数。
+
+
+\subsection{翻折变换}
+翻折变换指关于\(y = x\)对称，即交换\(x , y\)坐标，那么容易知道变换矩阵为\(\left[ \begin{matrix}0 & 1 \\ 1 & 0\end{matrix} \right]\)。
+
+
+\subsection{投影变换}
+把向量投影在\(\theta\)角的直线上，仍然是采用旋转变换中类似的推导方式，考虑一组标准正交基的基向量的投影，容易知道该变换矩阵为\(\left[ \begin{matrix}\cos^{2} \theta & \cos \theta \sin \theta \\ \cos \theta \sin \theta & \sin^{2} \theta\end{matrix} \right]\)。
+
+
+\subsection{镜像变换}
+镜像变换是更一般的翻折变换，即对称轴为任意过原点的与\(x\)轴成\(\theta\)角的直线。其变换矩阵为\(\left[ \begin{matrix}2 \cos^{2} \theta - 1 & 2 \cos \theta \sin \theta \\ 2 \cos \theta \sin \theta & 2 \sin^{2} \theta - 1\end{matrix} \right]\)。
+
+大体上，高中数学中常用的线性变换为这五种，而在几何题中比较常见的一般有伸缩、旋转、投影，需要用到翻折的较少，需要用到镜像的很少见。
