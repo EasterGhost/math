@@ -3,14 +3,46 @@
 
 \LoadClass[UTF8,openany]{ctexbook}
 
+\ifdefined\setCJKfamilyfont
+  \setCJKfamilyfont{mathnoteskai}[AutoFakeBold=2]{KaiTi}
+  \providecommand{\kaiti}{}
+  \renewcommand{\kaiti}{\upshape\CJKfamily{mathnoteskai}}
+  \renewcommand{\kaishu}{\kaiti}
+\else
+  \providecommand{\kaiti}{\kaishu}
+\fi
+
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{graphicx}
 \RequirePackage{adjustbox}
 \RequirePackage{geometry}
 \RequirePackage[hidelinks]{hyperref}
+\RequirePackage{amsthm}
+
+% ---- 定理环境 ----
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[chapter]      % 按章编号：定义 1.1, 1.2...
+\newtheorem{example}{例}[chapter]
+\newtheorem{exercise}{习题}[chapter]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{remark}{注}[chapter]
+
+% 证明环境（amsthm 自带，但用中文标签）
+\renewcommand{\proofname}{\textbf{证明}}
 
 \geometry{a4paper,margin=2.5cm}
+
+\raggedbottom
+\tolerance=1000
+\emergencystretch=1em
 
 \AtBeginDocument{
   \linespread{1}\songti\fontsize{12pt}{22pt}\selectfont

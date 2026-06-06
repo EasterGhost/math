@@ -204,7 +204,7 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 
 容易知道两个函数的四则运算和复合运算保持得到的新函数在任一点的连续性。
 
-首先考虑多项式函数：常值函数\(f \left( x \right) = c\)以及线性函数\(f \left( x \right) = x\)是区间\(\left( - \infty , + \infty \right)\)上的连续函数。所有经过四则运算得到的任何\(x\)的多项式函数都是连续的。
+首先考虑多项式函数：常值函数\(f ( x ) = c\)以及线性函数\(f ( x ) = x\)在区间\(( - \infty , + \infty )\)上连续，经四则运算得到的关于\(x\)的多项式也都连续。
 
 然后考虑三角函数：易知\(\sin x\)在\(\left( - \infty , + \infty \right)\)上是连续的，而\(\cos x\)可以看成是\(\sin u\)和\(u = \frac{\pi}{2} - x\)两个函数的复合的结果，所以也是连续的。其他三角函数可以通过\(\sin x\)和\(\cos x\)通过四则运算构造出来，所以也都是连续函数。由定理1，所有的反三角函数在各自的定义域内也都是连续的。
 
@@ -268,9 +268,10 @@ x^{\alpha} = e^{\alpha \ln x}
 
 对于\(\tan x = \frac{\sin x}{\cos x}\)，显然其一定以\(2 \pi\)为周期，但\(2 \pi\)是否仍是其最小正周期呢？注意到\(\tan - x = \frac{\sin - x}{\cos - x} = - \tan x\)，即\(\tan x\)关于原点对称，考虑取\(x \in \left( - \frac{\pi}{2} , \frac{\pi}{2} \right)\)，有
 
-\begin{equation}
-\tan \left( x + \pi \right) = \frac{\sin \left( x + \pi \right)}{\cos \left( x + \pi \right)} = \frac{- \sin \left( \pi - x \right)}{\cos \left( \frac{\pi}{2} + \frac{\pi}{2} + x \right)} = \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos - x} = \frac{\sin x}{\cos x} = \tan x
-\end{equation}
+\begin{multline}
+\tan \left( x + \pi \right) = \frac{\sin \left( x + \pi \right)}{\cos \left( x + \pi \right)} = \frac{- \sin \left( \pi - x \right)}{\cos \left( \frac{\pi}{2} + \frac{\pi}{2} + x \right)} \\
+= \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos - x} = \frac{\sin x}{\cos x} = \tan x
+\end{multline}
 
 这一结论可递推到\(x + k \pi , k \in Z\)。又显然当\(a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
 
