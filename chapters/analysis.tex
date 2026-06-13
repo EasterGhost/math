@@ -139,8 +139,9 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
         \left| a_{m} - a_{n} \right| < \varepsilon
     \end{equation}
     则数列\(\left\{ a_{n} \right\}\)称为基本列.}
-
-\definition{\heiti~Cauchy收敛准则：}{\kaiti~数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
+\begin{theorem}
+    {\heiti~Cauchy收敛准则：}{\kaiti~数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
+\end{theorem}
 
 \begin{example}
     i.  设\(a_{n} = \sum _{i = 1}^{n} \frac{\sin i}{i^{2}}\)，证明：\(\left\{ a_{n} \right\}\)收敛。
@@ -182,25 +183,22 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \section{Cauchy命题与Stolz定理}
 
 \subsection{Cauchy命题}
-设\(\{ x_{n} \}\)收敛于\(l\)，则它的前\(n\)项的算术平均值（所形成的数列）也收敛于\(l\)，即
+\begin{theorem}
+    设\(\{ x_{n} \}\)收敛于\(l\)，则它的前\(n\)项的算术平均值（所形成的数列）也收敛于\(l\)，即
 \begin{equation}
     \underset{n \to + \infty}{\lim} \frac{\sum _{i = 1}^{n} x_{i}}{n} = l
 \end{equation}
-
+\end{theorem}
 {\heiti~证明思路：}
 
-夹逼定理、单调有界原理等似乎都不好证明该命题，因此需要找些新的路径。
-
-首先观察式子
+夹逼定理、单调有界原理等似乎都不好证明该命题，因此需要找些新的路径。首先观察式子
 \begin{equation}
     \frac{x_{1} + x_{2} + \cdots + x_{n}}{n}
 \end{equation}
-
 如果每一项都与\(l\)充分接近，则其算术平均数也会与\(l\)接近。而\(\underset{n \to \infty}{\lim} x_{n} = l\)，只要令\(\varepsilon\)充分小，则从某项开始，后面的所有项将与\(l\)充分接近，即满足\(\left| x_{n} - l \right| < \varepsilon\)。因此对原式进行拆分：
 \begin{equation}
     \frac{x_{1} + x_{2} + \cdots + x_{n}}{n} = \frac{x_{1} + \cdots + x_{N}}{n} + \frac{x_{N + 1} + \cdots + x_{n}}{n}
 \end{equation}
-
 而
 \begin{equation}
     \frac{x_{1} + \cdots + x_{N}}{n} \le \max \left\{ x_{1} , \ldots , x_{N} \right\} \times \frac{N}{n}
@@ -208,7 +206,6 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{equation}
     \left| \frac{x_{N + 1} + \cdots + x_{n}}{n} - l \right| \le \frac{n - N}{n} \varepsilon
 \end{equation}
-
 因此，\(\forall \varepsilon > 0 , \exists N \in N^{*} , s . t . \forall n > N , \left| x_{n} - l \right| < \varepsilon\)成立。在此基础上，可以取足够大的\(n\)，使得\(\frac{N}{n} \to 0\)同时\(\frac{n - N}{n} \to 1\)。
 
 从而确定两步走的思路，即先确定\(N\)，根据\(N\)对数列进行分拆，从而确定\(n\)，使得该式成立。
@@ -378,7 +375,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \end{equation}
 因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列均收敛到\(b\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
 
-Fibonacci数列
+{\fangsong~Fibonacci数列
 
 本题与Fibonacci数列有关。所谓Fibonacci数列，即是由
 \begin{equation}
@@ -389,26 +386,30 @@ Fibonacci数列
     \frac{F_{n + 1}}{F_{n}} = \frac{F_{n} - F_{n - 1}}{F_{n}} = 1 + \frac{1}{\frac{F_{n}}{F_{n - 1}}}
 \end{equation}
 
-定义\(b_{n} = \frac{F_{n + 1}}{F_{n}}\)，则显然有\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}}\).对应本例题可知其极限为\(\frac{\sqrt{5} + 1}{2}\).
+定义\(b_{n} = \frac{F_{n + 1}}{F_{n}}\)，则显然有\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}}\).对应本例题可知其极限为\(\frac{\sqrt{5} + 1}{2}\).}
 
 \subsection{单调性与几何方法}
 关于迭代生成数列的第一个规律可以用如下命题表示。
 
+\begin{theorem}
 （第一律）设数列\(\left\{ x_{n} \right\}\)满足递推公式\(x_{n + 1} = f \left( x_{n} \right) , n \in N^{*}\)。若有\(\underset{n \to \infty}{\lim} x_{n} = \xi\)，同时又成立
 \begin{equation}
     \underset{n \to \infty}{\lim} f \left( x_{n} \right) = f \left( \xi \right)
 \end{equation}
-则极限\(\xi\)一定是方程\(f \left( x \right) = x\)的根（这时称\(\xi\)为函数\(f\)的不动点）。
+则极限\(\xi\)一定是方程\(f \left( x \right) = x\)的根（这时称\(\xi\)为函数\(f\)的{\heiti~不动点}）。
+\end{theorem}
 
 该命题的证明是平凡的，只需在递推公式的两边取\(n \to \infty\)即可。后面我们会知道该命题的条件可替换为\(f\)在点\(\xi\)处连续等条件。
 
 这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述5.1节中的例2中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
 
+\begin{theorem}
 （第二律）设\(\left\{ x_{n} \right\}\)满足关系\(x_{n + 1} = f \left( x_{n} \right) , n \in N^{*}\)，其中的函数\(f\)在区间\(I\)上单调，同时数列\(\left\{ x_{n} \right\}\)的每一项都在区间\(I\)中，则只有两种可能：
 
 （1）当\(f\)为单调增加时，\(\left\{ x_{n} \right\}\)为单调数列；
 
 （2）当\(f\)为单调减少时，\(\left\{ x_{n} \right\}\)的两个子列\(\left\{ x_{2 k - 1} \right\}\)和\(\left\{ x_{2 k} \right\}\)分别为单调数列，且具有相反的单调性。
+\end{theorem}
 
 对于第一种可能，设\(f \left( x \right)\)在区间\(I\)上单调增加。根据条件，有\(x_{n} \in I , n \in N^{*}\)。观察数列的前两项，如果\(x_{1} \le x_{2} = f \left( x_{1} \right)\)，则有\(x_{2} = f \left( x_{1} \right) \le f \left( x_{2} \right) = x_{3}\)。由归纳法，知数列\(\left\{ x_{n} \right\}\)单调增加。类似地，当\(x_{1} \ge x_{2}\)时，数列\(\left\{ x_{n} \right\}\)单调减少。
 
@@ -416,9 +417,11 @@ Fibonacci数列
 
 观察\(x_{1}\)与\(x_{3}\)。如果\(x_{1} = x_{3}\)，则子列\(\left\{ x_{2 k - 1} \right\}\)为常数列。如果\(x_{1} < x_{3}\)，从\(f\)单调减少易推知\(x_{2} = f \left( x_{1} \right) \ge f \left( x_{3} \right) = x_{4}\)，然后推知\(x_{3} \le x_{5}\)。于是有数学归纳法易证此时\(\{ x_{2 k - 1} \}\)单调递增，由于\(f\)单调递减且\(\left\{ x_{2 k} \right\} = \left\{ f \left( x_{2 k - 1} \right) \right\}\)单调递减。对于\(x_{1} > x_{3}\)的情况，讨论完全类似，从略。
 
+\begin{theorem}
 设\(a\)是\(f \left( x \right)\)的不动点，函数\(f\)在\(a\)处连续，在\(a\)的邻域\(\left( a - r , a + r \right)\)中严格单调递增，且在\(\left( a - r , a \right)\)上有\(f \left( x \right) > x\)，而区间\(\left( a , a + r \right)\)上有\(f \left( x \right) < x\)，那么由迭代产生的数列\(x_{n + 1} = f \left( x_{n} \right)\)只要第一项在\(\left( a - r , a + r \right)\)内，且不等于\(a\)，则以后就不会越出这个区间，而且是以\(a\)为极限的严格单调数列。
+\end{theorem}
 
-定理5的证明留给读者自行证明。
+定理1.6的证明留给读者自行证明。
 
 \begin{example}
     完成以下计算或证明：
