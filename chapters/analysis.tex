@@ -38,7 +38,7 @@
 
 {\kaiti\textbf{*子列：}设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in N^{*} , n_{k} \in N^{*}\)），则可以得到另一个数列：
 \begin{equation}
-    a_{n_{1}} , a_{n_{2}} , … , a_{n_{k}} , \cdots
+    a_{n_{1}} , a_{n_{2}} , \ldots , a_{n_{k}} , \cdots
 \end{equation}
 记为\(\left\{ a_{n_{k}} \right\}\)，称\(\left\{ a_{n_{k}} \right\}\)为\(\left\{ a_{n} \right\}\)的\textbf{一个}子列。}
 
@@ -88,14 +88,14 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 
 找出下列运算中的错误：
 \begin{equation}
-    \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} + … + \frac{1}{2 n} \right) = \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} \right) + … + \underset{n \to \infty}{\lim} \left( \frac{1}{2 n} \right) = 0 + … + 0 = 0
+    \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} + \cdots + \frac{1}{2 n} \right) = \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} \right) + \cdots + \underset{n \to \infty}{\lim} \left( \frac{1}{2 n} \right) = 0 + \cdots + 0 = 0
 \end{equation}
 
 设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又对每一个\(n\)有\(b < a_{n} < c\)，问：是否成立\(b < a < c\)？
 
 设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又有\(b \le a \le c\)，问：是否有\(\exists N \in N^{*} , s . t . \forall n > N , b \le a_{n} \le c\)成立？
 
-设已知\(\underset{n \to \infty}{\lim} a_{n} = 0\)，问：是否有\(\underset{n \to \infty}{\lim} \left( a_{1} a_{2} … a_{n} \right) = 0\)？又问：反之如何？
+设已知\(\underset{n \to \infty}{\lim} a_{n} = 0\)，问：是否有\(\underset{n \to \infty}{\lim} \left( a_{1} a_{2} \cdots a_{n} \right) = 0\)？又问：反之如何？
 
 \begin{example}
 
@@ -106,7 +106,7 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
     ii. 若\(\underset{n \to \infty}{\lim} \frac{x_{n} - a}{x_{n} + a} =
     0\)，证明\(\underset{n \to \infty}{\lim} x_{n} = a\).
 
-    iii.设\(s_{n} = a + 3 a^{2} + … + \left( 2 n - 1 \right) a^{n} , \left| a
+    iii.设\(s_{n} = a + 3 a^{2} + \cdots + \left( 2 n - 1 \right) a^{n} , \left| a
     \right| < 1\)，求\(\left\{ s_{n} \right\}\)的极限。
 
     iv.求\(\underset{n \to \infty}{\lim} \prod _{i = 0}^{n} \left( 1 + x^{2^{i}}
@@ -161,7 +161,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{example}
     完成以下证明：
 
-    i. 设\(S_{n} = 1 + \frac{1}{2} + \frac{1}{3} + … + \frac{1}{n} , n \in
+    i. 设\(S_{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} , n \in
     N^{*}\)，证明数列\(\left\{ S_{n} \right\}\)发散。
 
     ii. 证明数列\(\left\{ \sin n \right\}\)发散。
@@ -310,7 +310,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 计算极限：
 \begin{equation}
-    \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} + \frac{1}{n + 2} + … + \frac{1}{2 n} \right)
+    \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} + \frac{1}{n + 2} + \cdots + \frac{1}{2 n} \right)
 \end{equation}
 
 思考：上述数列\(\left\{ \gamma_{n} \right\}\)的极限记为Euler常数\(\gamma\)。那么Euler常数\(\gamma\)是否是无理数？
@@ -371,7 +371,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 不难计算出数列的前几项\(b_{1} = 1 , b_{2} = 2 , b_{3} = \frac{3}{2} , b_{4} = \frac{5}{3}\)，可见\(\left\{ b_{n} \right\}\)的奇子列严格单调递增，偶子列严格单调递减，而且有
 \begin{equation}
-    b_{1} < b_{3} < … < b < … < b_{4} < b_{2}
+    b_{1} < b_{3} < \cdots < b < \cdots < b_{4} < b_{2}
 \end{equation}
 因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列均收敛到\(b\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
 
