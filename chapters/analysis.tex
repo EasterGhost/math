@@ -6,18 +6,18 @@
 \subsection{极限的定义}
 极限通常使用\(\varepsilon - \delta \left( N \right)\)法进行定义。例如数列\(\left\{ a_{n} \right\}\)的极限为\(a\)（或称\(\left\{ a_{n} \right\}\)收敛于\(a\)）的定义如下：
 \begin{equation}
-    \forall \varepsilon > 0 , \exists N \in N^{*} , s . t . \forall n > N , \left| a_{n} - a \right| < \varepsilon
+    \forall \varepsilon > 0 , \exists N \in \mathbb{N}^{*} , \text{s.t.} \forall n > N , \left| a_{n} - a \right| < \varepsilon
 \end{equation}
 记为\(\underset{n \to + \infty}{\lim} a_{n} = a\)。
 
 \subsection{无穷大量与无穷小量}
 {\heiti~在极限过程中}趋于无穷大的量，称为{\heiti~无穷大量}。类似地，可以将在极限过程中趋于0的量，称为{\heiti~无穷小量}。
 
-称极限比任意给定常数大的数列或函数为无穷大量。无穷大有正无穷大和负无穷大。这个定义可以简写为：
+无穷大量又有正无穷大和负无穷大之分，以正无穷大为例，可以简写为：
 \begin{equation}
-    \forall G > 0 , \exists \delta > 0 , s . t . \forall 0 < \left| x - x_{0} \right| < \delta , f \left( x \right) > G
+    \forall M > 0 , \exists \delta > 0 , \text{s.t.} \forall 0 < \left| x - x_{0} \right| < \delta , f \left( x \right) > M
 \end{equation}
-则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷大量。或
+则称\(f ( x )\)是当\(x \to x_{0}\)时的正无穷大量；把\(f \left( x \right) > M\)换成\(f \left( x \right) < - M\)，就是负无穷大量。或
 
 \definition{设\(f ( x )\)在\(x_{0}\)的附近有定义，若\(\forall M > 0 , \exists \delta > 0 , \text{使} \text{得} \text{当} 0 < \left| x - x_{0} \right| < \delta\)时，有\(\left| f \left( x \right) \right| > M\)，则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷大量。}
 
@@ -27,7 +27,7 @@
 
 或者简写为
 \begin{equation}
-    \forall \varepsilon > 0 , \exists \delta > 0 , s . t . \forall 0 < \left| x - x_{0} \right| < \delta , f \left( x \right) < \varepsilon
+    \forall \varepsilon > 0 , \exists \delta > 0 , \text{s.t.} \forall 0 < \left| x - x_{0} \right| < \delta , \left| f \left( x \right) \right| < \varepsilon
 \end{equation}
 若一个数列是无穷大量，也可以称该数列有广义极限（有时记为\(\underset{n \to \infty}{\lim} a_{n} = + \infty \text{或} - \infty\)）。在数列\(a_{n}\)收敛或有广义极限时，认为记号\(\underset{n \to \infty}{\lim} a_{n}\)均有意义。
 
@@ -36,7 +36,7 @@
 
 有极限的数列称为{\heiti~收敛数列}，不收敛的数列称为{\heiti~发散数列}。
 
-{\kaiti\textbf{*子列：}设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in N^{*} , n_{k} \in N^{*}\)），则可以得到另一个数列：
+{\kaiti\textbf{*子列：}设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in \mathbb{N}^{*} , n_{k} \in \mathbb{N}^{*}\)），则可以得到另一个数列：
 \begin{equation*}
     a_{n_{1}} , a_{n_{2}} , \ldots , a_{n_{k}} , \cdots
 \end{equation*}
@@ -59,10 +59,11 @@
     ii.\ 数列\(\left\{ \sqrt[n]{n} \right\}\)的极限是1.
 
     iii.\ \(\underset{n \to \infty}{\lim} \frac{3 n^{2}}{n^{2} - 4} = 3\).
-\end{example}
 
-iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
-\right)\). \newpage
+    iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
+    \right)\).
+\end{example}
+\newpage
 \subsection{收敛数列的基本性质}
 \begin{theorem}
     \kaiti~若\(\left\{ a_{n} \right\}\)是收敛数列，则\(\left\{ a_{n} \right\}\)的极限是唯一的。改变数列中有限多项的值，不影响数列的收敛性及其极限。
@@ -84,7 +85,7 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 
 设\(\left\{ a_{n} \right\} , \left\{ b_{n} \right\}\)均发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
 
-设\(a_{n} < b_{n} < c_{n} , n \in N^{*}\)，若\(\underset{n \to \infty}{\lim} \left( c_{n} - a_{n} \right) = 0\)，问：数列\(b_{n}\)是否收敛？
+设\(a_{n} < b_{n} < c_{n} , n \in \mathbb{N}^{*}\)，若\(\underset{n \to \infty}{\lim} \left( c_{n} - a_{n} \right) = 0\)，问：数列\(b_{n}\)是否收敛？
 
 找出下列运算中的错误：
 \begin{equation*}
@@ -93,7 +94,7 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 
 设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又对每一个\(n\)有\(b < a_{n} < c\)，问：是否成立\(b < a < c\)？
 
-设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又有\(b \le a \le c\)，问：是否有\(\exists N \in N^{*} , s . t . \forall n > N , b \le a_{n} \le c\)成立？
+设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又有\(b \le a \le c\)，问：是否有\(\exists N \in \mathbb{N}^{*} , \text{s.t.} \forall n > N , b \le a_{n} \le c\)成立？
 
 设已知\(\underset{n \to \infty}{\lim} a_{n} = 0\)，问：是否有\(\underset{n \to \infty}{\lim} \left( a_{1} a_{2} \cdots a_{n} \right) = 0\)？又问：反之如何？
 
@@ -134,7 +135,7 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 
 Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
-\definition{\heiti~基本列（柯西列）：}{\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in N^{*} , s . t . \forall m , n > N\)时，有
+\definition{\heiti~基本列（柯西列）：\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in \mathbb{N}^{*} , \text{s.t.} \forall m , n > N\)时，有
     \begin{equation*}
         \left| a_{m} - a_{n} \right| < \varepsilon
     \end{equation*}
@@ -162,7 +163,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
     完成以下证明：
 
     i. 设\(S_{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} , n \in
-    N^{*}\)，证明数列\(\left\{ S_{n} \right\}\)发散。
+    \mathbb{N}^{*}\)，证明数列\(\left\{ S_{n} \right\}\)发散。
 
     ii. 证明数列\(\left\{ \sin n \right\}\)发散。
 \end{example}
@@ -199,15 +200,14 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{equation}
     \frac{x_{1} + x_{2} + \cdots + x_{n}}{n} = \frac{x_{1} + \cdots + x_{N}}{n} + \frac{x_{N + 1} + \cdots + x_{n}}{n}
 \end{equation}
-而
+而（为看清思路，先设各项\(x_{n} > 0\)，一般情形见下面的证明）
 \begin{equation}
     \frac{x_{1} + \cdots + x_{N}}{n} \le \max \left\{ x_{1} , \ldots , x_{N} \right\} \times \frac{N}{n}
 \end{equation}
-故
 \begin{equation}
-    \left| \frac{x_{N + 1} + \cdots + x_{n}}{n} - l \right| \le \frac{n - N}{n} \varepsilon
+    \left| \frac{x_{N + 1} + \cdots + x_{n}}{n - N} - l \right| \le \varepsilon
 \end{equation}
-因此，\(\forall \varepsilon > 0 , \exists N \in N^{*} , s . t . \forall n > N , \left| x_{n} - l \right| < \varepsilon\)成立。在此基础上，可以取足够大的\(n\)，使得\(\frac{N}{n} \to 0\)同时\(\frac{n - N}{n} \to 1\)。
+因此，只要\(n\)取得足够大：前\(N\)项被\(n\)除以后可以任意小；后\(n - N\)项的平均值与\(l\)的差不超过\(\varepsilon\)，且它在整个算术平均值中的权重\(\frac{n - N}{n}\)任意接近1。也就是说：先由\(\underset{n \to \infty}{\lim} x_{n} = l\)取定\(N\)，再把\(n\)取得充分大，使\(\frac{N}{n}\)任意小。
 
 从而确定两步走的思路，即先确定\(N\)，根据\(N\)对数列进行分拆，从而确定\(n\)，使得该式成立。
 
@@ -232,9 +232,9 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{example}
     设\(\underset{n \to \infty}{\lim} x_{n} = + \infty\)，证明：\(\underset{n \to \infty}{\lim} \frac{\sum _{i = 1}^{n} x_{i}}{n} = + \infty\).
 
-    设\(\left\{ a_{n} \right\}\)单调递增，\(\frac{\underset{n \to \infty}{\lim} \sum _{i = 1}^{n} a_{i}}{n} = a\)，证明：\(\left\{ a_{n} \right\}\)收敛到\(a\).
+    设\(\left\{ a_{n} \right\}\)单调递增，\(\underset{n \to \infty}{\lim} \frac{\sum _{i = 1}^{n} a_{i}}{n} = a\)，证明：\(\left\{ a_{n} \right\}\)收敛到\(a\).
 
-    已知\(k \in N^{*}\)，设\(\left\{ a_{2 k - 1} \right\}\)收敛到\(a\)，\(\left\{ a_{2 k} \right\}\)收敛到\(b\)，且\(a \ne b\)，求\(\underset{n \to \infty}{\lim} \frac{\sum _{i = 1}^{n} a_{i}}{n}\).
+    已知\(k \in \mathbb{N}^{*}\)，设\(\left\{ a_{2 k - 1} \right\}\)收敛到\(a\)，\(\left\{ a_{2 k} \right\}\)收敛到\(b\)，且\(a \ne b\)，求\(\underset{n \to \infty}{\lim} \frac{\sum _{i = 1}^{n} a_{i}}{n}\).
 
     设\(\left\{ a_{n} \right\}\)为正数列，且收敛到\(A\)，证明：\(\underset{n \to \infty}{\lim} {\left( \prod _{i = 1}^{n} a_{i} \right)}^{\frac{1}{n}} = A\).
 \end{example}
@@ -242,7 +242,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \subsection{Stolz定理}
 \(\frac{0}{0}\)型的Stolz定理：设\(\left\{ a_{n} \right\} , \left\{ b_{n} \right\}\)都是无穷小量，其中\(\left\{ a_{n} \right\}\)是严格单调递减数列，又存在
 \begin{equation}
-    \underset{n \to \infty}{\lim} \frac{b_{n + 1} - b_{n}}{a_{n} + 1 - a_{n}} = l
+    \underset{n \to \infty}{\lim} \frac{b_{n + 1} - b_{n}}{a_{n + 1} - a_{n}} = l
 \end{equation}
 则有
 \begin{equation}
@@ -252,7 +252,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 \(\frac{*}{\infty}\)型的Stolz定理：设\(\left\{ a_{n} \right\}\)是严格单调递增的无穷大量，又存在
 \begin{equation}
-    \underset{n \to \infty}{\lim} \frac{b_{n + 1} - b_{n}}{a_{n} + 1 - a_{n}} = l
+    \underset{n \to \infty}{\lim} \frac{b_{n + 1} - b_{n}}{a_{n + 1} - a_{n}} = l
 \end{equation}
 则有
 \begin{equation}
@@ -266,14 +266,14 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 若将以上三个命题中的极限值\(l\)改为不带符号的无穷大\(\infty\)，则结论均不成立。试举出反例。
 
 \begin{example}
-    i. 设\(a_{n} = \frac{\sum _{i = 1}^{n} i !}{n !} , n \in N^{*}\)，求\(\underset{n
+    i. 设\(a_{n} = \frac{\sum _{i = 1}^{n} i !}{n !} , n \in \mathbb{N}^{*}\)，求\(\underset{n
         \to \infty}{\lim} a_{n}\).
 
     ii. 已知\(\underset{n \to \infty}{\lim} a_{n} = a\)，证明：\(\underset{n \to
-        \infty}{\lim} \frac{1}{2^{n}} \sum _{k = 0}^{n} \left( \begin{matrix}n \\ k\end{matrix} \right) a_{k} = 0\).
+        \infty}{\lim} \frac{1}{2^{n}} \sum _{k = 0}^{n} \left( \begin{matrix}n \\ k\end{matrix} \right) a_{k} = a\).
 
     iii.设\(a_{1} > 0 , a_{n + 1} = a_{n} + \frac{1}{a_{n}} , n \in
-    N^{*}\)，证明：\(\underset{n \to \infty}{\lim} \frac{a_{n}}{\sqrt{2 n}} = 1\).
+    \mathbb{N}^{*}\)，证明：\(\underset{n \to \infty}{\lim} \frac{a_{n}}{\sqrt{2 n}} = 1\).
 
     iv. 若\(\underset{n \to \infty}{\lim} a_{n} = a , \underset{n \to \infty}{\lim}
     b_{n} = b\)，证明：\(\underset{n \to \infty}{\lim} \frac{\sum _{i = 1}^{n} a_{i}
@@ -291,14 +291,14 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 例题：
 
-已知正数\(a_{1}\)，将其分成若干部分，若要使它们的乘积达到最大，应该怎样分？
+已知正数\(a\)，将其分成若干部分，若要使它们的乘积达到最大，应该怎样分？
 
 \subsection{关于数\texorpdfstring{\(e\)}{e}的几个基本命题}
-设\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n} , n \in N^{*}\)，证明：\(\left\{ e_{n} \right\}\)严格单调递增且收敛.
+设\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n} , n \in \mathbb{N}^{*}\)，证明：\(\left\{ e_{n} \right\}\)严格单调递增且收敛.
 
 证明：\(e = \sum _{n = 0}^{\infty} \frac{1}{n !}\).
 
-记\(\varepsilon_{n} = e - \left( 1 + \sum _{n = 0}^{\infty} \frac{1}{n !} \right)\)，证明：\(\underset{n \to \infty}{\lim} \varepsilon_{n} \left( n + 1 \right) ! = 1\).
+记\(\varepsilon_{n} = e - \sum _{k = 0}^{n} \frac{1}{k !}\)，证明：\(\underset{n \to \infty}{\lim} \varepsilon_{n} \left( n + 1 \right) ! = 1\).
 
 对于上述\(\varepsilon_{n}\)有\(\frac{1}{\left( n + 1 \right) !} < \varepsilon_{n} < \frac{1}{n ! n}\).
 
@@ -307,7 +307,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \(\underset{n \to \infty}{\lim} \frac{n}{\sqrt[n]{n !}} = e\).
 
 \subsection{Euler常数\texorpdfstring{\(\gamma\)}{gamma}}
-证明：数列\(\left\{ \gamma_{n} \right\}\)收敛，其中\(\gamma_{n} = \sum _{i = 1}^{n} \frac{1}{i} - \ln n , n \in N^{*}\).
+证明：数列\(\left\{ \gamma_{n} \right\}\)收敛，其中\(\gamma_{n} = \sum _{i = 1}^{n} \frac{1}{i} - \ln n , n \in \mathbb{N}^{*}\).
 
 计算极限：
 \begin{equation}
@@ -337,10 +337,10 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \end{example}
 
 \section{迭代产生的数列}
-所谓由迭代产生的数列，是指在给出数列的第一项\(a_{1}\)后，用递推公式\(a_{n + 1} = f \left( a_{n} \right) , n \in N^{*}\)通过迭代生成的数列。迭代是近似计算方法的重要实现过程，在数学和其他领域经常出现，有很强的理论和实用价值。
+所谓由迭代产生的数列，是指在给出数列的第一项\(a_{1}\)后，用递推公式\(a_{n + 1} = f \left( a_{n} \right) , n \in \mathbb{N}^{*}\)通过迭代生成的数列。迭代是近似计算方法的重要实现过程，在数学和其他领域经常出现，有很强的理论和实用价值。
 
-\subsection{几个基础的例子}
-1. 设\(a_{1} = \sqrt{2} , a_{n + 1} = \sqrt{2 + a_{n}} , n \in N^{*}\).讨论\(\left\{ a_{n} \right\}\)的敛散性。若收敛，求出其极限。
+\subsection{几个基础的例子}\label{subsec:iteration-examples}
+1. 设\(a_{1} = \sqrt{2} , a_{n + 1} = \sqrt{2 + a_{n}} , n \in \mathbb{N}^{*}\).讨论\(\left\{ a_{n} \right\}\)的敛散性。若收敛，求出其极限。
 
 可以归纳地证明这个数列是严格单调递增的，且以2为上界。
 
@@ -356,13 +356,13 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{equation}
     a_{n + 1} = \sqrt{2 + a_{n}} < \sqrt{2 + 2} = 2
 \end{equation}
-可知\(\forall n \in N^{*} , a_{n} < 2\)成立。即数列以2为上界。因此该数列收敛，记极限为\(a\)。于是有当\(n \to \infty\)时，\(a_{n + 1} = \sqrt{2 + a_{n}}\)且取\(a_{n + 1} = a_{n} = a\)，即
+可知\(\forall n \in \mathbb{N}^{*} , a_{n} < 2\)成立。即数列以2为上界。因此该数列收敛，记极限为\(a\)。于是有当\(n \to \infty\)时，\(a_{n + 1} = \sqrt{2 + a_{n}}\)且取\(a_{n + 1} = a_{n} = a\)，即
 \begin{equation}
-    a = \sqrt{2 + a} , 0 < a < 2
+    a = \sqrt{2 + a} , 0 < a \le 2
 \end{equation}
 解得\(a = 2\)，即为所求之\(\left\{ a_{n} \right\}\)极限。
 
-2. 设数列\(\left\{ b_{n} \right\}\)满足\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}} \left( n \in N^{*} \right)\)。讨论\(\left\{ b_{n} \right\}\)的敛散性，若收敛，求出其极限。
+2. 设数列\(\left\{ b_{n} \right\}\)满足\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}} \left( n \in \mathbb{N}^{*} \right)\)。讨论\(\left\{ b_{n} \right\}\)的敛散性，若收敛，求出其极限。
 
 显然，由递推公式和初始值知，该数列的每一项均为正。先假定该数列收敛到\(b\)，则仿照上例有\(b = 1 + \frac{1}{b} \to b = \frac{1 + \sqrt{5}}{2}\)。由递推公式得\(b_{n + 2} = 2 - \frac{1}{\left( b_{n} + 1 \right)}\)，故有
 \begin{equation}
@@ -380,11 +380,11 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 本题与Fibonacci数列有关。所谓Fibonacci数列，即是由
 \begin{equation}
-    F_{1} = 1 , F_{2} = 1 , F_{n + 2} = F_{n + 1} + F_{n} , n \in N^{*}
+    F_{1} = 1 , F_{2} = 1 , F_{n + 2} = F_{n + 1} + F_{n} , n \in \mathbb{N}^{*}
 \end{equation}
 迭代而成的数列。如计算相邻两项的比值（或称为增长率）的极限，即\(\underset{n \to \infty}{\lim} \frac{F_{n + 1}}{F_{n}}\)，则
 \begin{equation}
-    \frac{F_{n + 1}}{F_{n}} = \frac{F_{n} - F_{n - 1}}{F_{n}} = 1 + \frac{1}{\frac{F_{n}}{F_{n - 1}}}
+    \frac{F_{n + 1}}{F_{n}} = \frac{F_{n} + F_{n - 1}}{F_{n}} = 1 + \frac{1}{\frac{F_{n}}{F_{n - 1}}}
 \end{equation}
 
 定义\(b_{n} = \frac{F_{n + 1}}{F_{n}}\)，则显然有\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}}\).对应本例题可知其极限为\(\frac{\sqrt{5} + 1}{2}\).}
@@ -393,7 +393,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 关于迭代生成数列的第一个规律可以用如下命题表示。
 
 \begin{theorem}
-（第一律）设数列\(\left\{ x_{n} \right\}\)满足递推公式\(x_{n + 1} = f \left( x_{n} \right) , n \in N^{*}\)。若有\(\underset{n \to \infty}{\lim} x_{n} = \xi\)，同时又成立
+（第一律）设数列\(\left\{ x_{n} \right\}\)满足递推公式\(x_{n + 1} = f \left( x_{n} \right) , n \in \mathbb{N}^{*}\)。若有\(\underset{n \to \infty}{\lim} x_{n} = \xi\)，同时又成立
 \begin{equation}
     \underset{n \to \infty}{\lim} f \left( x_{n} \right) = f \left( \xi \right)
 \end{equation}
@@ -402,38 +402,38 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 该命题的证明是平凡的，只需在递推公式的两边取\(n \to \infty\)即可。后面我们会知道该命题的条件可替换为\(f\)在点\(\xi\)处连续等条件。
 
-这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述1.5.1节中的第二个例子中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
+这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果\(f\)连续，而方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述\ref{subsec:iteration-examples}节中的第二个例子中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
 
 \begin{theorem}
-（第二律）设\(\left\{ x_{n} \right\}\)满足关系\(x_{n + 1} = f \left( x_{n} \right) , n \in N^{*}\)，其中的函数\(f\)在区间\(I\)上单调，同时数列\(\left\{ x_{n} \right\}\)的每一项都在区间\(I\)中，则只有两种可能：
+（第二律）设\(\left\{ x_{n} \right\}\)满足关系\(x_{n + 1} = f \left( x_{n} \right) , n \in \mathbb{N}^{*}\)，其中的函数\(f\)在区间\(I\)上单调，同时数列\(\left\{ x_{n} \right\}\)的每一项都在区间\(I\)中，则只有两种可能：
 
 （1）当\(f\)为单调增加时，\(\left\{ x_{n} \right\}\)为单调数列；
 
 （2）当\(f\)为单调减少时，\(\left\{ x_{n} \right\}\)的两个子列\(\left\{ x_{2 k - 1} \right\}\)和\(\left\{ x_{2 k} \right\}\)分别为单调数列，且具有相反的单调性。
 \end{theorem}
 
-对于第一种可能，设\(f \left( x \right)\)在区间\(I\)上单调增加。根据条件，有\(x_{n} \in I , n \in N^{*}\)。观察数列的前两项，如果\(x_{1} \le x_{2} = f \left( x_{1} \right)\)，则有\(x_{2} = f \left( x_{1} \right) \le f \left( x_{2} \right) = x_{3}\)。由归纳法，知数列\(\left\{ x_{n} \right\}\)单调增加。类似地，当\(x_{1} \ge x_{2}\)时，数列\(\left\{ x_{n} \right\}\)单调减少。
+对于第一种可能，设\(f \left( x \right)\)在区间\(I\)上单调增加。根据条件，有\(x_{n} \in I , n \in \mathbb{N}^{*}\)。观察数列的前两项，如果\(x_{1} \le x_{2} = f \left( x_{1} \right)\)，则有\(x_{2} = f \left( x_{1} \right) \le f \left( x_{2} \right) = x_{3}\)。由归纳法，知数列\(\left\{ x_{n} \right\}\)单调增加。类似地，当\(x_{1} \ge x_{2}\)时，数列\(\left\{ x_{n} \right\}\)单调减少。
 
-对于第二种可能，设\(f \left( x \right)\)在区间\(I\)上单调减少。容易知道，复合函数\(f \left( f \left( x \right) \right)\)是单调增加的。严格地说，\(\forall a , b \in I , a < b , f \left( a \right) , f \left( b \right) \in I \to f \left( f \left( a \right) \right) \le f \left( f \left( b \right) \right)\)。
+对于第二种可能，设\(f \left( x \right)\)在区间\(I\)上单调减少。容易知道，复合函数\(f \left( f \left( x \right) \right)\)是单调增加的。严格地说，\(\forall a , b \in I , a < b , f \left( a \right) , f \left( b \right) \in I \Rightarrow f \left( f \left( a \right) \right) \le f \left( f \left( b \right) \right)\)。
 
-观察\(x_{1}\)与\(x_{3}\)。如果\(x_{1} = x_{3}\)，则子列\(\left\{ x_{2 k - 1} \right\}\)为常数列。如果\(x_{1} < x_{3}\)，从\(f\)单调减少易推知\(x_{2} = f \left( x_{1} \right) \ge f \left( x_{3} \right) = x_{4}\)，然后推知\(x_{3} \le x_{5}\)。于是有数学归纳法易证此时\(\{ x_{2 k - 1} \}\)单调递增，由于\(f\)单调递减且\(\left\{ x_{2 k} \right\} = \left\{ f \left( x_{2 k - 1} \right) \right\}\)单调递减。对于\(x_{1} > x_{3}\)的情况，讨论完全类似，从略。
+观察\(x_{1}\)与\(x_{3}\)。如果\(x_{1} = x_{3}\)，则子列\(\left\{ x_{2 k - 1} \right\}\)为常数列。如果\(x_{1} < x_{3}\)，从\(f\)单调减少易推知\(x_{2} = f \left( x_{1} \right) \ge f \left( x_{3} \right) = x_{4}\)，然后推知\(x_{3} \le x_{5}\)。于是用数学归纳法易证此时\(\{ x_{2 k - 1} \}\)单调递增，由于\(f\)单调递减且\(\left\{ x_{2 k} \right\} = \left\{ f \left( x_{2 k - 1} \right) \right\}\)单调递减。对于\(x_{1} > x_{3}\)的情况，讨论完全类似，从略。
 
-\begin{theorem}
+\begin{theorem}\label{thm:iter-fixed}
 设\(a\)是\(f \left( x \right)\)的不动点，函数\(f\)在\(a\)处连续，在\(a\)的邻域\(\left( a - r , a + r \right)\)中严格单调递增，且在\(\left( a - r , a \right)\)上有\(f \left( x \right) > x\)，而区间\(\left( a , a + r \right)\)上有\(f \left( x \right) < x\)，那么由迭代产生的数列\(x_{n + 1} = f \left( x_{n} \right)\)只要第一项在\(\left( a - r , a + r \right)\)内，且不等于\(a\)，则以后就不会越出这个区间，而且是以\(a\)为极限的严格单调数列。
 \end{theorem}
 
-定理1.6的证明留给读者自行证明。
+定理\ref{thm:iter-fixed}的证明留给读者自行证明。
 
 \begin{example}
     完成以下计算或证明：
     
-    设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a + x_{n}} , n \in N^{*}\)，求\(\underset{n \to \infty}{\lim} x_{n}\).
+    设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a + x_{n}} , n \in \mathbb{N}^{*}\)，求\(\underset{n \to \infty}{\lim} x_{n}\).
 
-    设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a x_{n}} , n \in N^{*}\)，求\(\underset{n \to \infty}{\lim} x_{n}\).
+    设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a x_{n}} , n \in \mathbb{N}^{*}\)，求\(\underset{n \to \infty}{\lim} x_{n}\).
 
     设\(x_{1} = b , x_{n + 1} = \frac{1}{2} \left( x_{n}^{2} + 1 \right)\)，问：\(b\)取何值时数列\(\left\{ x_{n} \right\}\)收敛，并求其极限。
 
-    设\(\left\{ a_{n} \right\}\)为正数列，且满足\(x_{n + 1} + \frac{1}{x_{n}} < 2\)，证明：\(\left\{ x_{n} \right\}\)收敛，并求其极限。
+    设\(\left\{ x_{n} \right\}\)为正数列，且满足\(x_{n + 1} + \frac{1}{x_{n}} < 2\)，证明：\(\left\{ x_{n} \right\}\)收敛，并求其极限。
 
-    设\(A > 0 , x_{1} > 0 , x_{n + 1} = \frac{x_{n} \left( x_{n}^{2} + 3 A \right)}{3 x_{n}^{2} + A} , n \in N^{*}\)，证明：\(\left\{ x_{n} \right\}\)收敛于\(\sqrt{A}\)。
+    设\(A > 0 , x_{1} > 0 , x_{n + 1} = \frac{x_{n} \left( x_{n}^{2} + 3 A \right)}{3 x_{n}^{2} + A} , n \in \mathbb{N}^{*}\)，证明：\(\left\{ x_{n} \right\}\)收敛于\(\sqrt{A}\)。
 \end{example}
