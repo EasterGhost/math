@@ -8,6 +8,11 @@
   \providecommand{\kaiti}{}
   \renewcommand{\kaiti}{\upshape\CJKfamily{mathnoteskai}}
   \renewcommand{\kaishu}{\kaiti}
+
+  % 黑体同理：中文没有斜体字形，强制正体，免得在斜体环境（如定理环境）
+  % 里去要 SimHei 的 it 字形而触发 “Font shape ... undefined” 警告
+  \setCJKfamilyfont{mathnoteshei}[AutoFakeBold=2]{SimHei}
+  \renewcommand{\heiti}{\upshape\CJKfamily{mathnoteshei}}
 \else
   \providecommand{\kaiti}{\kaishu}
 \fi

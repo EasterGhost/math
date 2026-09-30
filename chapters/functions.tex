@@ -1,29 +1,25 @@
 \chapter{函数专题}
 
-\section{函数、实变函数}
+\section{函数}
 函数就是量与量之间的对应关系。数学和其他科学中的绝大部分关系都可以抽象成函数关系。例如，自由落体运动中下落时间\(t\)与位置\(h\)的关系是\(h_{0} - h = \frac{1}{2} g t^{2}\)；质量为\(m\)的运动质点的动能是通过它的运动速度\(v\)按照公式\(E = \frac{1}{2} m v^{2}\)给出的；直角三角形一个锐角为\(\alpha\)，与之相邻的直角边长为\(x\)，它的面积\(S\)与\(x\)的关系为\(S = \frac{1}{2} \left( \tan \alpha \right) x^{2}\)；二维平面坐标中顶点在原点的抛物线上点的横纵坐标之间的关系是\(y = \frac{1}{2} a x^{2}\)（\(a\)表示抛物线的开口方向和大小）。虽然考虑的问题不同，但抽象出来的函数都是相同的二次函数。当然，一般的函数更为复杂，表达方式也不尽相同。
 
-
 \subsection{基本概念}
-对于定义在实数集合\(R\)的子集上且取值为实数的函数，严格定义如下：
+对于定义在实数集合\(\mathbb{R}\)的子集上且取值为实数的函数，严格定义如下：
 
-设\(A\)是\(R\)的子集，若对\(A\)中的每一个数\(x\)，都有唯一确定的\(y \in R\)与之对应（即函数的单值性），将\(y\)记为\(f \left( x \right)\)，那么，就称\(f\)是\(A\)上的一个实值函数。集合\(A\)称为\(f\)的定义域，而数\(f ( x )\)称为\(f\)的值。\(f\)的一切值的集合叫做\(f\)的值域，通常记作\(f \left( A \right)\)，即\(f \left( A \right) = \left\{ y y = f \left( x \right) , x \in A \right\}\)。习惯上，称上述的\(x\)为自变量，\(y\)为因变量。
+设\(A\)是\(\mathbb{R}\)的子集，若对\(A\)中的每一个数\(x\)，都有唯一确定的\(y \in \mathbb{R}\)与之对应（即函数的单值性），将\(y\)记为\(f \left( x \right)\)，那么，就称\(f\)是\(A\)上的一个实值函数。集合\(A\)称为\(f\)的定义域，而数\(f ( x )\)称为\(f\)的值。\(f\)的一切值的集合叫做\(f\)的值域，通常记作\(f \left( A \right)\)，即\(f \left( A \right) = \left\{ y \mid y = f \left( x \right) , x \in A \right\}\)。习惯上，称上述的\(x\)为自变量，\(y\)为因变量。
 
-根据上述定义，容易知道函数有3个基本要素，即定义域、值域和（单值的）对应关系。一个函数也可以看成是一个将集合\(A \subset R\)映入\(R\)的一个映射：
-
+根据上述定义，容易知道函数有3个基本要素，即定义域、值域和（单值的）对应关系。一个函数也可以看成是一个将集合\(A \subset \mathbb{R}\)映入\(\mathbb{R}\)的一个映射：
 \begin{equation}
-f : A \longrightarrow R \text{或} f : x \longmapsto y = f \left( x \right)
+f : A \longrightarrow \mathbb{R} \text{或} f : x \longmapsto y = f \left( x \right)
 \end{equation}
 
 设函数的定义域为\(A\)，一般而言，其值域\(f \left( A \right)\)的性态极其复杂，但有三种情形是值得注意的。
 
 1°函数的值域\(f \left( A \right)\)是一个有界数集。若存在一个\(M\)，使得\(f \left( A \right)\)包含在区间\(\left[ - M , M \right]\)中，即对任意的\(x \in A\)，有\(\left| f \left( x \right) \right| \le M\)。称满足这种情形的函数为\(A\)上的有界函数，或者说\(f\)在\(A\)上有界。
 
-2°定义域\(A\)与值域\(f \left( A \right)\)同序（或者反序）。即\(A\)中任意两个数\(x_{1} , x_{2}\)的大小顺序，均与它们对应的值域\(f ( A )\)中的两个数\(y_{1} = f \left( x_{1} \right) , y_{2} = f \left( x_{2} \right)\)的大小顺序相同（或者相反），此时称函数\(f \left( x \right)\)是单调的。确切地说，\(f ( x )\)称为\(A\)上的
-
-单调增函数，对任意的\(x_{1} , x_{2} \in A\)，如果\(x_{1} < x_{2}\)，有\(f \left( x_{1} \right) \le f \left( x_{2} \right)\)；
-
-单调减函数，对任意的\(x_{1} , x_{2} \in A\)，如果\(x_{1} < x_{2}\)，有\(f \left( x_{1} \right) \ge f \left( x_{2} \right)\)；
+2°定义域\(A\)与值域\(f \left( A \right)\)同序（或者反序）。即\(A\)中任意两个数\(x_{1} , x_{2}\)的大小顺序，均与它们对应的值域\(f ( A )\)中的两个数\(y_{1} = f \left( x_{1} \right) , y_{2} = f \left( x_{2} \right)\)的大小顺序相同（或者相反），此时称函数\(f \left( x \right)\)是单调的。确切地说，\(f ( x )\)称为\(A\)上的\\
+\hspace*{\parindent} 单调增函数，对任意的\(x_{1} , x_{2} \in A\)，如果\(x_{1} < x_{2}\)，有\(f \left( x_{1} \right) \le f \left( x_{2} \right)\)；\\
+\hspace*{\parindent} 单调减函数，对任意的\(x_{1} , x_{2} \in A\)，如果\(x_{1} < x_{2}\)，有\(f \left( x_{1} \right) \ge f \left( x_{2} \right)\)；
 
 单调增和单调减函数，统称为单调函数。若上面的不等号为严格不等号，则称\(f \left( x \right)\)为严格单调增（减）函数。
 
@@ -31,59 +27,48 @@ f : A \longrightarrow R \text{或} f : x \longmapsto y = f \left( x \right)
 
 显然，若\(f\)是\(A\)上严格单调的函数，则\(f\)必然是\(A\)到\(f \left( A \right)\)的一个一一映射，因此也就有反函数。
 
-
 \subsection{函数的复合}
 不同的函数在它们公共有定义的区域内是可以进行四则运算的。这里主要介绍函数的另一种运算——函数的复合运算。
 
-设有函数\(y = f \left( u \right)\)，定义域为\(B\)，值域为\(C\)，\(u = g \left( x \right)\)，定义域为\(A\)，如果函数\(g \left( x \right)\)的值域\(g \left( A \right)\)包含在\(B\)内.那么由
-
+设有函数\(y = f \left( u \right)\)，定义域为\(B\)，值域为\(C\)，\(u = g \left( x \right)\)，定义域为\(A\)，如果函数\(g \left( x \right)\)的值域\(g \left( A \right)\)包含在\(B\)内，那么由
 \begin{equation}
 f \circ g \left( x \right) = f \left( g \left( x \right) \right)
 \end{equation}
-
 定义了一个新函数\(f \circ g\)，称之为\(f\)与\(g\)的复合函数，它的定义域是\(A\)，通常记为\(y = f \left( g \left( x \right) \right)\)，而称\(u\)为中间变量。
-
 \begin{center}
 \includegraphics[width=0.92\linewidth]{image3.png}
 \end{center}
-从映射的角度看，复合函数就是一个从\(A\)到\(B\)再到\(C\)的映射
+从映射的角度看，复合函数就是一个从\(A\)到\(B\)再到\(C\)的映射。
 
 注意到，\(f \circ g\)与\(g \circ f\)一般并不相同，但是容易看出，复合运算满足结合律
-
 \begin{equation}
 \left( f \circ g \right) \circ h = f \circ \left( g \circ h \right)
 \end{equation}
-
 因此可以用\(f \circ g \circ h\)表示，或者记为\(f \left( g \left( h \left( x \right) \right) \right)\)，这是3个函数的复合。类似地可以考虑任意有限多个函数的复合。特别地，记\(n\)个\(f\)复合为\(f \circ f \circ \cdots \circ f = f^{n} \left( x \right)\)。
 
-思考    分析上述复合函数\(f \circ g\)的值域如何确定。
+{\kaiti~思考\quad 分析上述复合函数\(f \circ g\)的值域如何确定。}
 
-\(f\)和\(g\)满足什么条件时，\(f \circ g\)与\(g \circ f\)是相同的。
+{\kaiti~\hspace*{\parindent}\(f\)和\(g\)满足什么条件时，\(f \circ g\)与\(g \circ f\)是相同的。}
 
 
 \subsection{初等函数}
 初等函数是一类简单的函数，有简单而良好的性态。其中最基本的函数是多项式函数、幂函数、指数函数、对数函数、三角函数与反三角函数，称它们为基本初等函数。由基本初等函数经过有限次加减乘除和复合运算得出的函数称为初等函数。这里简单介绍几种初等函数，初等函数的具体性质在后续内容中进行分析。
 
 设\(n\)是非负整数，形如
-
 \begin{equation}
 f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \end{equation}
-
 的函数称为多项式函数。两个多项式函数\(f \left( x \right)\)、\(g \left( x \right)\)的商称为有理函数，它的定义域是不包括\(g \left( x \right) = 0\)的所有实数。
 
 形如\(f \left( x \right) = x^{\alpha}\)的函数称为幂函数，其中\(\alpha\)可以是任意实数。试分析不同\(\alpha\)取值下的\(f \left( x \right)\)的性质。
 
-所谓双曲函数是指如下几个函数，它们的定义域是\(R\)。
-
+所谓双曲函数是指如下几个函数，它们的定义域是\(\mathbb{R}\)。
 \begin{equation}
 \sinh x = \frac{e^{x} - e^{- x}}{2} , \cosh x = \frac{e^{x} + e^{- x}}{2} ,
 \end{equation}
-
 \begin{equation}
 \tanh x = \frac{e^{x} - e^{- x}}{e^{x} + e^{- x}} , \coth x = \frac{e^{x} + e^{- x}}{e^{x} - e^{- x}} ( x \ne 0 )
 \end{equation}
-
 双曲函数与三角函数有相似的性质。
 
 求双曲正弦函数\(y = \sinh x\)的反函数\(y = \sinh^{- 1} x\).
@@ -92,32 +77,29 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \subsection{函数的其他表达方式*}
 通常把函数\(y = f \left( x \right)\)的表达方式称为显式表示或者显表示。
 
-1°分段函数   所谓分段函数，简单地讲，就是对于自变量不同的取值范围，相应的函数表达式（即对应关系）不同。
+{\heiti~1°分段函数}\quad 所谓分段函数，简单地讲，就是对于自变量不同的取值范围，相应的函数表达式（即对应关系）不同。
 
-2°函数的隐表示   即自变量和因变量之间的对应关系是通过一个方程给出来的，因此称这类函数为隐函数。
+{\heiti~2°函数的隐表示}\quad 即自变量和因变量之间的对应关系是通过一个方程给出来的，因此称这类函数为隐函数。
 
-3°函数的参数方程表示   所谓参数方程表示，是指曲线上点的两个坐标\(x\)与\(y\)之间的关系是通过一个参数相联系的，即\(x\)和\(y\)可以表示成下列形式
-
+{\heiti~3°函数的参数方程表示}\quad 所谓参数方程表示，是指曲线上点的两个坐标\(x\)与\(y\)之间的关系是通过一个参数相联系的，即\(x\)和\(y\)可以表示成下列形式
 \begin{equation}
-\left\{ \begin{matrix}x = x \left( t \right) , \\ y = y \left( t \right) ,\end{matrix} t \in \left[ \alpha , \beta \right] \right.
+\left\{ \begin{matrix}x = x \left( t \right) , \\ y = y \left( t \right) ,\end{matrix} \quad t \in \left[ \alpha , \beta \right] \right.
 \end{equation}
 
 
 \subsection{通常研究的函数的性质}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{image4.png}
-\end{center}
-1°连续性   函数的连续性需要引入极限的概念。一般情况下，可以朴素地引入一个极限的定义，即考虑函数在无限接近某点时的变化趋势，若\(x\)与\(x_{0}\)无限接近，函数\(f \left( x \right)\)无限接近一个数\(l\)，则说\(f \left( x \right)\)当\(x\)趋近于\(x_{0}\)时，以\(l\)为极限，记为
-
+{\heiti~1°连续性}\quad 函数的连续性需要引入极限的概念。一般情况下，可以朴素地引入一个极限的定义，即考虑函数在无限接近某点时的变化趋势，若\(x\)与\(x_{0}\)无限接近，函数\(f \left( x \right)\)无限接近一个数\(l\)，则说\(f \left( x \right)\)当\(x\)趋近于\(x_{0}\)时，以\(l\)为极限，记为
 \begin{equation}
 \underset{x \to x_{0}}{\lim} f ( x ) = l .
 \end{equation}
-
+\begin{center}
+\includegraphics[width=0.92\linewidth]{image4.png}
+\end{center}
 那么进一步观察以上3个函数的图像。如果考虑这三个函数图像在\(x = 0\)处的连续性，则容易观察到，函数在一点\(x_{0}\)处连续，应该具备两个要素：函数在该点处有极限，且极限值等于函数在这一点的值。
 
-2°单调性   单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
+{\heiti~2°单调性}\quad 单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
 
-3°对称性   我们知道某个图形是轴对称的或者中心对称的，其有相应的对称轴或对称中心。在数学上，对称性可以被函数方程进行描述。设函数\(y = f \left( x \right)\)的定义域是\(A\)，则对于任意满足\(a + x , a - x \in A\)的\(x\)，可知
+{\heiti~3°对称性}\quad 我们知道某个图形是轴对称的或者中心对称的，其有相应的对称轴或对称中心。在数学上，对称性可以被函数方程进行描述。设函数\(y = f \left( x \right)\)的定义域是\(A\)，并设\(A\)关于\(a\)对称（即\(a + x \in A\)当且仅当\(a - x \in A\)；例如\(A = \mathbb{R}\)时对任意\(a\)都成立），则对于任意满足\(a + x , a - x \in A\)的\(x\)，可知
 
 函数\(y = f \left( x \right)\)的图像是关于直线\(x = a\)对称的，当且仅当\(f \left( a + x \right) = f \left( a - x \right)\)
 
@@ -125,7 +107,7 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 
 （奇偶性）特别地，函数关于原点对称称为奇函数，关于\(y\)轴对称称为偶函数。
 
-4°周期性   设函数\(f \left( x \right)\)的定义域是\(A\)，那么称这个函数是周期函数，如果存在一个周期\(T\)，使得对于任意的\(x \in A\)，都有\(f \left( x + T \right) = f \left( x \right)\)。显然满足条件的\(T\)有无数个，因此规定其中满足条件的大于\(0\)的最小的\(T\)称为这个周期函数的最小正周期。
+{\heiti~4°周期性}\quad 设函数\(f \left( x \right)\)的定义域是\(A\)，那么称这个函数是周期函数，如果存在一个非零常数\(T\)，使得对于任意的\(x \in A\)，都有\(x + T \in A\)且\(f \left( x + T \right) = f \left( x \right)\)。显然满足条件的\(T\)有无数个，因此规定：若其中存在大于\(0\)的最小的\(T\)，则称之为这个周期函数的最小正周期。
 
 
 \section{基本初等函数}
@@ -164,12 +146,12 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \end{center}
 让\(O A\)从\(x\)轴开始绕\(O\)点旋转，观察\(A\)点坐标值随\(O A\)转过的角度的变化，可以刻画出\(y = \sin x\)与\(y = \cos x\)的图像：
 
-容易知道，它们的定义域都是\(R\)，值域是\(\left[ - 1 , 1 \right]\)，同时都具有周期性和对称性。我们将在后面的章节具体分析其周期性和对称性。
+容易知道，它们的定义域都是\(\mathbb{R}\)，值域是\(\left[ - 1 , 1 \right]\)，同时都具有周期性和对称性。我们将在后面的章节具体分析其周期性和对称性。
 
 \begin{center}
 \includegraphics[width=0.92\linewidth]{image8.png}
 \end{center}
-由于\(\cos x = 0\)有解，故\(y = \tan x\)的图像并不在\(\left( - \infty , + \infty \right)\)上连续。容易知道，\(y = \tan x\)的值域为\(R\)，定义域为\(\left\{ x \cos x \ne 0 , x \in R \right\}\)，进一步求解方程\(\cos x = 0\)可知其定义域为\(\left\{ x \in R x \ne \frac{\pi}{2} + k \pi , k \in Z \right\}\)。画出其函数图像：
+由于\(\cos x = 0\)有解，故\(y = \tan x\)的图像并不在\(\left( - \infty , + \infty \right)\)上连续。容易知道，\(y = \tan x\)的值域为\(\mathbb{R}\)，定义域为\(\left\{ x \mid \cos x \ne 0 , x \in \mathbb{R} \right\}\)，进一步求解方程\(\cos x = 0\)可知其定义域为\(\left\{ x \in \mathbb{R} \mid x \ne \frac{\pi}{2} + k \pi , k \in \mathbb{Z} \right\}\)。画出其函数图像：
 
 
 \subsection{指数函数}
@@ -180,17 +162,17 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \end{center}
 刻画\(a\)取不同的值时函数的图像如下图所示：
 
-容易观察到其定义域均为\(R\)，值域均为\(\left( 0 , + \infty \right)\)。
+容易观察到其定义域均为\(\mathbb{R}\)，值域均为\(\left( 0 , + \infty \right)\)。
 
 思考：无理数次幂是如何定义的？
 
 
 \subsection{对数函数}
-对数函数是指数函数的反函数。了解对数函数首先要知道对数算符的性质。对数的概念在课本上已有介绍，这里不做额外的阐述。容易知道，对数运算是指数运算的逆运算，自然地，按照对数算符构建的对应关系即对数函数是指数函数的反函数（或者说逆映射）。根据前面对于反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(R\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画，可自行将上述指数函数的图像旋转90°查看。
+对数函数是指数函数的反函数。了解对数函数首先要知道对数算符的性质。对数的概念在课本上已有介绍，这里不做额外的阐述。容易知道，对数运算是指数运算的逆运算，自然地，按照对数算符构建的对应关系即对数函数是指数函数的反函数（或者说逆映射）。根据前面对于反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(\mathbb{R}\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画，可自行将上述指数函数的图像旋转90°查看。
 
 
 \subsection{幂函数}
-幂函数的基本形式为\(y = x^{\alpha} , \alpha \in R\)。课本上已经给出一些具有代表性的幂函数图像，此处不再给出。为避免未定义行为，通常规定幂函数的基本定义域为\(x > 0\)。
+幂函数的基本形式为\(y = x^{\alpha} , \alpha \in \mathbb{R}\)。课本上已经给出一些具有代表性的幂函数图像，此处不再给出。为避免未定义行为，通常规定幂函数的基本定义域为\(x > 0\)。
 
 
 \section{初等函数的基本性质}
@@ -214,7 +196,7 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 
 当\(0 < a < 1\)时，\(f \left( x \right) = a^{x}\)在\(\left( - \infty , + \infty \right)\)上是严格递减的；
 
-而且无论是哪种形式，函数的值域都是\(\left( 0 , + \infty \right)\)。显然\(f \left( x \right) = a^{x}\)在\(R\)上连续，根据定理1，\(f \left( x \right) = a^{x}\)的反函数\(f^{- 1} \left( x \right) = \log_{a} x\)在\(\left( 0 , + \infty \right)\)上是连续的。
+而且无论是哪种形式，函数的值域都是\(\left( 0 , + \infty \right)\)。显然\(f \left( x \right) = a^{x}\)在\(\mathbb{R}\)上连续，根据定理1，\(f \left( x \right) = a^{x}\)的反函数\(f^{- 1} \left( x \right) = \log_{a} x\)在\(\left( 0 , + \infty \right)\)上是连续的。
 
 最后考虑幂函数：对于幂函数\(f \left( x \right) = x^{\alpha} \left( \alpha \ne 0 \right)\)，在其基本定义域\(x > 0\)内，由于
 
@@ -252,7 +234,7 @@ x^{\alpha} = e^{\alpha \ln x}
 
 
 \subsection{幂函数的对称性}
-通常情况下，幂函数不具有对称性。但是考虑到常用的幂函数其定义域可以推广到\(\left\{ x \in R x \ne 0 \right\}\)甚至\(R\)上，可以讨论这些幂函数的对称性。首先考虑正整数次幂
+通常情况下，幂函数不具有对称性。但是考虑到常用的幂函数其定义域可以推广到\(\left\{ x \in \mathbb{R} \mid x \ne 0 \right\}\)甚至\(\mathbb{R}\)上，可以讨论这些幂函数的对称性。首先考虑正整数次幂
 
 取幂次\(\alpha = 2 k , k \in N^{*}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k} = {\left( {\left( - x \right)}^{2} \right)}^{k} = {\left( x^{2} \right)}^{k} = x^{2 k} = x^{\alpha}\)，故此时\(y = x^{\alpha}\)为偶函数；
 
@@ -264,7 +246,7 @@ x^{\alpha} = e^{\alpha \ln x}
 
 
 \subsection{三角函数的周期性与对称性}
-容易知道\(\sin x\)与\(\cos x\)都以\(2 \pi\)为最小正周期。\(\sin x\)有对称轴\(x = k \pi + \frac{\pi}{2} , k \in Z\)，\(\cos x\)有对称轴\(x = k \pi , k \in Z\)；\(\sin x\)关于点\(\left( k \pi , 0 \right) k \in Z\)中心对称，则\(\cos x\)同样有关于点\(\left( k \pi + \frac{\pi}{2} , 0 \right) k \in Z\)中心对称。事实上\(\cos x\)的周期性和对称性可以由\(\sin x\)的周期性和对称性直接推出，由\(\cos x = \sin \left( \frac{\pi}{2} - x \right)\)这一关系进行坐标变换即可。
+容易知道\(\sin x\)与\(\cos x\)都以\(2 \pi\)为最小正周期。\(\sin x\)有对称轴\(x = k \pi + \frac{\pi}{2} , k \in \mathbb{Z}\)，\(\cos x\)有对称轴\(x = k \pi , k \in \mathbb{Z}\)；\(\sin x\)关于点\(\left( k \pi , 0 \right) k \in \mathbb{Z}\)中心对称，则\(\cos x\)同样有关于点\(\left( k \pi + \frac{\pi}{2} , 0 \right) k \in \mathbb{Z}\)中心对称。事实上\(\cos x\)的周期性和对称性可以由\(\sin x\)的周期性和对称性直接推出，由\(\cos x = \sin \left( \frac{\pi}{2} - x \right)\)这一关系进行坐标变换即可。
 
 对于\(\tan x = \frac{\sin x}{\cos x}\)，显然其一定以\(2 \pi\)为周期，但\(2 \pi\)是否仍是其最小正周期呢？注意到\(\tan - x = \frac{\sin - x}{\cos - x} = - \tan x\)，即\(\tan x\)关于原点对称，考虑取\(x \in \left( - \frac{\pi}{2} , \frac{\pi}{2} \right)\)，有
 
@@ -273,7 +255,7 @@ x^{\alpha} = e^{\alpha \ln x}
 = \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos - x} = \frac{\sin x}{\cos x} = \tan x
 \end{multline}
 
-这一结论可递推到\(x + k \pi , k \in Z\)。又显然当\(a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
+这一结论可递推到\(x + k \pi , k \in \mathbb{Z}\)。又显然当\(a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
 
 进一步地，分析较为一般的情况。
 
@@ -292,7 +274,7 @@ x^{\alpha} = e^{\alpha \ln x}
 
 \subsection{诱导公式}
 \begin{equation}
-\sin \left( \alpha + 2 k \pi \right) = \sin \alpha , \cos \left( \alpha + 2 k \pi \right) = \cos \alpha , \tan \left( \alpha + k \pi \right) = \tan \alpha k \in Z .
+\sin \left( \alpha + 2 k \pi \right) = \sin \alpha , \cos \left( \alpha + 2 k \pi \right) = \cos \alpha , \tan \left( \alpha + k \pi \right) = \tan \alpha k \in \mathbb{Z} .
 \end{equation}
 
 \begin{equation}
@@ -334,7 +316,7 @@ x^{\alpha} = e^{\alpha \ln x}
 \end{equation}
 
 \begin{equation}
-\cos \alpha + \cos \beta = 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \cos \alpha - \cos \beta = 2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}
+\cos \alpha + \cos \beta = 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \cos \alpha - \cos \beta = -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}
 \end{equation}
 
 \begin{equation}
@@ -354,7 +336,7 @@ x^{\alpha} = e^{\alpha \ln x}
 \end{equation}
 
 \begin{equation}
-\cos \alpha \cos \beta = \frac{1}{2} \left[ \cos \left( \alpha + \beta \right) + \cos \left( \alpha - \beta \right) \right] , \sin \alpha \sin \beta = \frac{1}{2} \left[ \cos \left( \alpha + \beta \right) - \cos \left( \alpha - \beta \right) \right]
+\cos \alpha \cos \beta = \frac{1}{2} \left[ \cos \left( \alpha + \beta \right) + \cos \left( \alpha - \beta \right) \right] , \sin \alpha \sin \beta = \frac{1}{2} \left[ \cos \left( \alpha - \beta \right) - \cos \left( \alpha + \beta \right) \right]
 \end{equation}
 
 
