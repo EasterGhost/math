@@ -37,9 +37,9 @@
 有极限的数列称为{\heiti~收敛数列}，不收敛的数列称为{\heiti~发散数列}。
 
 {\kaiti\textbf{*子列：}设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in N^{*} , n_{k} \in N^{*}\)），则可以得到另一个数列：
-\begin{equation}
+\begin{equation*}
     a_{n_{1}} , a_{n_{2}} , \ldots , a_{n_{k}} , \cdots
-\end{equation}
+\end{equation*}
 记为\(\left\{ a_{n_{k}} \right\}\)，称\(\left\{ a_{n_{k}} \right\}\)为\(\left\{ a_{n} \right\}\)的\textbf{一个}子列。}
 
 显然，“子列”一词说明，子列中的元素均来源于“父列”，即原数列；且子列不改变元素在原数列中的排列顺序。来源于同一数列的子列可以有无穷多个，数列自身也是该数列的一个子列。（此处可参考集合里的“子集”概念）
@@ -87,9 +87,9 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 设\(a_{n} < b_{n} < c_{n} , n \in N^{*}\)，若\(\underset{n \to \infty}{\lim} \left( c_{n} - a_{n} \right) = 0\)，问：数列\(b_{n}\)是否收敛？
 
 找出下列运算中的错误：
-\begin{equation}
+\begin{equation*}
     \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} + \cdots + \frac{1}{2 n} \right) = \underset{n \to \infty}{\lim} \left( \frac{1}{n + 1} \right) + \cdots + \underset{n \to \infty}{\lim} \left( \frac{1}{2 n} \right) = 0 + \cdots + 0 = 0
-\end{equation}
+\end{equation*}
 
 设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又对每一个\(n\)有\(b < a_{n} < c\)，问：是否成立\(b < a < c\)？
 
@@ -135,9 +135,9 @@ iv.\ \(\underset{n \to \infty}{\lim} \frac{a^{n}}{n !} = 0 \left( a > 0
 Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 \definition{\heiti~基本列（柯西列）：}{\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in N^{*} , s . t . \forall m , n > N\)时，有
-    \begin{equation}
+    \begin{equation*}
         \left| a_{m} - a_{n} \right| < \varepsilon
-    \end{equation}
+    \end{equation*}
     则数列\(\left\{ a_{n} \right\}\)称为基本列.}
 \begin{theorem}
     {\heiti~Cauchy收敛准则：}{\kaiti~数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
@@ -203,6 +203,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{equation}
     \frac{x_{1} + \cdots + x_{N}}{n} \le \max \left\{ x_{1} , \ldots , x_{N} \right\} \times \frac{N}{n}
 \end{equation}
+故
 \begin{equation}
     \left| \frac{x_{N + 1} + \cdots + x_{n}}{n} - l \right| \le \frac{n - N}{n} \varepsilon
 \end{equation}
@@ -401,7 +402,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 该命题的证明是平凡的，只需在递推公式的两边取\(n \to \infty\)即可。后面我们会知道该命题的条件可替换为\(f\)在点\(\xi\)处连续等条件。
 
-这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述5.1节中的例2中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
+这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述1.5.1节中的第二个例子中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
 
 \begin{theorem}
 （第二律）设\(\left\{ x_{n} \right\}\)满足关系\(x_{n + 1} = f \left( x_{n} \right) , n \in N^{*}\)，其中的函数\(f\)在区间\(I\)上单调，同时数列\(\left\{ x_{n} \right\}\)的每一项都在区间\(I\)中，则只有两种可能：
