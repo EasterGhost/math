@@ -6,7 +6,9 @@
 \subsection{基本概念}
 对于定义在实数集合\(\mathbb{R}\)的子集上且取值为实数的函数，严格定义如下：
 
+\begin{definition}
 设\(A\)是\(\mathbb{R}\)的子集，若对\(A\)中的每一个数\(x\)，都有唯一确定的\(y \in \mathbb{R}\)与之对应（即函数的单值性），将\(y\)记为\(f \left( x \right)\)，那么，就称\(f\)是\(A\)上的一个实值函数。集合\(A\)称为\(f\)的定义域，而数\(f ( x )\)称为\(f\)的值。\(f\)的一切值的集合叫做\(f\)的值域，通常记作\(f \left( A \right)\)，即\(f \left( A \right) = \left\{ y \mid y = f \left( x \right) , x \in A \right\}\)。习惯上，称上述的\(x\)为自变量，\(y\)为因变量。
+\end{definition}
 
 根据上述定义，容易知道函数有3个基本要素，即定义域、值域和（单值的）对应关系。一个函数也可以看成是一个将集合\(A \subset \mathbb{R}\)映入\(\mathbb{R}\)的一个映射：
 \begin{equation}
@@ -52,7 +54,7 @@ f \circ g \left( x \right) = f \left( g \left( x \right) \right)
 
 
 \subsection{初等函数}
-初等函数是一类简单的函数，有简单而良好的性态。其中最基本的函数是多项式函数、幂函数、指数函数、对数函数、三角函数与反三角函数，称它们为基本初等函数。由基本初等函数经过有限次加减乘除和复合运算得出的函数称为初等函数。这里简单介绍几种初等函数，初等函数的具体性质在后续内容中进行分析。
+初等函数是一类简单的函数，有简单而良好的性态。其中最基本的函数是多项式函数、幂函数、指数函数、对数函数、三角函数与反三角函数，称它们为{\heiti{}基本初等函数}。由基本初等函数经过有限次加减乘除和复合运算得出的函数称为{\heiti{}初等函数}。这里简单介绍几种初等函数，初等函数的具体性质在后续内容中进行分析。
 
 设\(n\)是非负整数，形如
 \begin{equation}
@@ -77,18 +79,17 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \subsection{函数的其他表达方式*}
 通常把函数\(y = f \left( x \right)\)的表达方式称为显式表示或者显表示。
 
-{\heiti~1°分段函数}\quad 所谓分段函数，简单地讲，就是对于自变量不同的取值范围，相应的函数表达式（即对应关系）不同。
+\paragraph{1°分段函数} 所谓分段函数，简单地讲，就是对于自变量不同的取值范围，相应的函数表达式（即对应关系）不同。
 
-{\heiti~2°函数的隐表示}\quad 即自变量和因变量之间的对应关系是通过一个方程给出来的，因此称这类函数为隐函数。
+\paragraph{2°函数的隐表示} 即自变量和因变量之间的对应关系是通过一个方程给出来的，因此称这类函数为隐函数。
 
-{\heiti~3°函数的参数方程表示}\quad 所谓参数方程表示，是指曲线上点的两个坐标\(x\)与\(y\)之间的关系是通过一个参数相联系的，即\(x\)和\(y\)可以表示成下列形式
+\paragraph{3°函数的参数方程表示} 所谓参数方程表示，是指曲线上点的两个坐标\(x\)与\(y\)之间的关系是通过一个参数相联系的，即\(x\)和\(y\)可以表示成下列形式
 \begin{equation}
 \left\{ \begin{matrix}x = x \left( t \right) , \\ y = y \left( t \right) ,\end{matrix} \quad t \in \left[ \alpha , \beta \right] \right.
 \end{equation}
 
-
 \subsection{通常研究的函数的性质}
-{\heiti~1°连续性}\quad 函数的连续性需要引入极限的概念。一般情况下，可以朴素地引入一个极限的定义，即考虑函数在无限接近某点时的变化趋势，若\(x\)与\(x_{0}\)无限接近，函数\(f \left( x \right)\)无限接近一个数\(l\)，则说\(f \left( x \right)\)当\(x\)趋近于\(x_{0}\)时，以\(l\)为极限，记为
+\paragraph{1°连续性} 函数的连续性需要引入极限的概念。一般情况下，可以朴素地引入一个极限的定义，即考虑函数在无限接近某点时的变化趋势，若\(x\)与\(x_{0}\)无限接近，函数\(f \left( x \right)\)无限接近一个数\(l\)，则说\(f \left( x \right)\)当\(x\)趋近于\(x_{0}\)时，以\(l\)为极限，记为
 \begin{equation}
 \underset{x \to x_{0}}{\lim} f ( x ) = l .
 \end{equation}
@@ -97,74 +98,76 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \end{center}
 那么进一步观察以上3个函数的图像。如果考虑这三个函数图像在\(x = 0\)处的连续性，则容易观察到，函数在一点\(x_{0}\)处连续，应该具备两个要素：函数在该点处有极限，且极限值等于函数在这一点的值。
 
-{\heiti~2°单调性}\quad 单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
+\paragraph{2°单调性} 单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
 
-{\heiti~3°对称性}\quad 我们知道某个图形是轴对称的或者中心对称的，其有相应的对称轴或对称中心。在数学上，对称性可以被函数方程进行描述。设函数\(y = f \left( x \right)\)的定义域是\(A\)，并设\(A\)关于\(a\)对称（即\(a + x \in A\)当且仅当\(a - x \in A\)；例如\(A = \mathbb{R}\)时对任意\(a\)都成立），则对于任意满足\(a + x , a - x \in A\)的\(x\)，可知
+\paragraph{3°对称性} 我们知道某个图形是轴对称的或者中心对称的，其有相应的对称轴或对称中心。在数学上，对称性可以被函数方程进行描述。设函数\(y = f \left( x \right)\)的定义域是\(A\)，并设\(A\)关于\(a\)对称（即\(a + x \in A\)当且仅当\(a - x \in A\)；例如\(A = \mathbb{R}\)时对任意\(a\)都成立），则对于任意满足\(a + x , a - x \in A\)的\(x\)，可知
 
 函数\(y = f \left( x \right)\)的图像是关于直线\(x = a\)对称的，当且仅当\(f \left( a + x \right) = f \left( a - x \right)\)
 
 函数\(y = f \left( x \right)\)的图像是关于点\(\left( a , 0 \right)\)对称的，当且仅当\(f \left( a + x \right) + f \left( a - x \right) = 0\)
 
-（奇偶性）特别地，函数关于原点对称称为奇函数，关于\(y\)轴对称称为偶函数。
+{\kaiti\textbf{（奇偶性）}}特别地，函数关于原点对称称为{\heiti{}奇函数}，关于\(y\)轴对称称为{\heiti{}偶函数}。
 
-{\heiti~4°周期性}\quad 设函数\(f \left( x \right)\)的定义域是\(A\)，那么称这个函数是周期函数，如果存在一个非零常数\(T\)，使得对于任意的\(x \in A\)，都有\(x + T \in A\)且\(f \left( x + T \right) = f \left( x \right)\)。显然满足条件的\(T\)有无数个，因此规定：若其中存在大于\(0\)的最小的\(T\)，则称之为这个周期函数的最小正周期。
+\paragraph{4°周期性} 设函数\(f \left( x \right)\)的定义域是\(A\)，那么称这个函数是周期函数，如果存在一个非零常数\(T\)，使得对于任意的\(x \in A\)，都有\(x + T \in A\)且\(f \left( x + T \right) = f \left( x \right)\)。显然满足条件的\(T\)有无数个，因此规定：若其中存在大于\(0\)的最小的\(T\)，则称之为这个周期函数的最小正周期。
 
 
 \section{基本初等函数}
 
 \subsection{多项式函数}
-多项式函数在前面已有定义。从形式上看，多项式函数是常值函数\(f \left( x \right) = c\)和线性函数\(f \left( x \right) = x\)经过有限次加法和乘法运算得到的。如果为多项式函数引入除法，就构成了有理函数类。有理函数同分数一样，如果分子的最高次项比分母的高，那么称这个函数是一个假分式；相似地，如果分子的最高次项比分母低，则称之为真分式。假分式可以通过待定系数法将这个有理函数转换成一个多项式函数与一个真分式的和。另外值得注意的是，如果分母可以进行因式分解，则真分式可以进一步分解为数个真分式的和，其分母为因式分解的各个因式，而分子由待定系数法确定。
+多项式函数在前面已有定义。从形式上看，多项式函数是常值函数\(f \left( x \right) = c\)和线性函数\(f \left( x \right) = x\)经过有限次加法和乘法运算得到的。如果为多项式函数引入除法，就构成了{\heiti{}有理函数类}。有理函数同分数一样，如果分子的最高次项比分母的低，那么称这个函数是一个真分式，反之则称之为假分式。假分式可以通过带余除法将这个有理函数转换成一个多项式函数与一个真分式的和。另外值得注意的是，如果分母可以进行因式分解，则真分式可以进一步分解为数个真分式的和，其分母为因式分解的各个因式（需考虑重根），而分子由待定系数法确定。
 
 
 \subsection{三角函数}
 在初中阶段我们初步接触了sin、cos、tan函数，并仅在锐角范围内讨论这些问题。这里进一步地引入csc、sec、cot函数分别为上述三个函数的倒数，并取消关于锐角的限制，构成完整的三角函数体系。
 
 在初中阶段，我们对角度的数值范围限定在0--360°之间，然而，这一限定是一种对角度的静态的限定。如果考虑一条射线绕其顶点旋转超过一圈时这条射线旋转的角度，或者考虑反方向的旋转角度，这种静态的限定反而成为一种令人生厌的桎梏。另外，考虑到圆的半径与周长的关系，并放弃古人对整除的执念，自然而然地规范关于角的度量规定：
-
+\begin{definition}
 同种类的两个量的比是一个数，用以表示一个量含另一个量或另一个量的\(\frac{1}{p}\)（\(p\)是整数）的倍数。
-
+\end{definition}
+\begin{theorem}
 在同圆或等圆周上，两圆心角之比等于角的两边的两弧之比。
+\end{theorem}
 
-那么可以得到如下推论：如果取单位弧所对的圆心角作为角的单位，那么任一圆心角和它所对的弧有相同的度量数。或者说：圆心角以它所对的弧来度量。
+那么可以得到如下推论：{\kaiti{}如果取单位弧所对的圆心角作为角的单位，那么任一圆心角和它所对的弧有相同的度量数。或者说：圆心角以它所对的弧来度量。}
 
-因此可以进一步规定，在单位圆上，单位弧所对的圆心角为单位角，记为1。这便是常用的弧度制的单位角的定义。显然在弧度制下，一个圆周角的角度为\(2 \pi\)。如果考虑弧的方向问题，可以人为约定逆时针方向的弧为正，顺时针方向的弧为负。自然地，正的弧对应的角度为正，负的弧对应的角度为负。
+因此可以进一步规定，在单位圆上，单位弧所对的圆心角为单位角，记为1。这便是常用的弧度制的单位角的定义。显然在弧度制下，一个周角的角度为\(2 \pi\)。如果考虑弧的方向问题，可以人为约定逆时针方向的弧为正，顺时针方向的弧为负。自然地，正的弧对应的角度为正，负的弧对应的角度为负。
 
 现在考虑三角函数。三角函数的对应关系是由以下几何关系确定的：
 
+\begin{wrapfigure}{r}{0.38\linewidth}
+\centering
+\includegraphics[width=1.00\linewidth]{image5.png}
+\end{wrapfigure}
 如图所示的单位圆中从圆心引任意一条半径\(O A\)，                                                                      其与坐标轴\(O x\)所成的角记为\(\theta\)，则记\(A\)点的横坐标为                                                                                           \(\cos \theta\)，纵坐标为\(\sin \theta\)。同时定义\(\tan \theta = \frac{\sin \theta}{\cos \theta}\)，                                                                                                              由勾股定理知，对任意的\(\theta\)，均有
 
 \(\sin^{2} \theta + \cos^{2} \theta = 1\)
 
 考虑直角三角形两锐角的余角关系，我们有
-
 \begin{equation}
 \cos \theta = \sin \left( \frac{\pi}{2} - \theta \right)
 \end{equation}
 
-\begin{center}
-\includegraphics[width=0.92\linewidth]{image7.png}
-\end{center}
 让\(O A\)从\(x\)轴开始绕\(O\)点旋转，观察\(A\)点坐标值随\(O A\)转过的角度的变化，可以刻画出\(y = \sin x\)与\(y = \cos x\)的图像：
-
+\begin{center}
+\includegraphics[width=1.00\linewidth]{image7.png}
+\end{center}
 容易知道，它们的定义域都是\(\mathbb{R}\)，值域是\(\left[ - 1 , 1 \right]\)，同时都具有周期性和对称性。我们将在后面的章节具体分析其周期性和对称性。
 
-\begin{center}
-\includegraphics[width=0.92\linewidth]{image8.png}
-\end{center}
 由于\(\cos x = 0\)有解，故\(y = \tan x\)的图像并不在\(\left( - \infty , + \infty \right)\)上连续。容易知道，\(y = \tan x\)的值域为\(\mathbb{R}\)，定义域为\(\left\{ x \mid \cos x \ne 0 , x \in \mathbb{R} \right\}\)，进一步求解方程\(\cos x = 0\)可知其定义域为\(\left\{ x \in \mathbb{R} \mid x \ne \frac{\pi}{2} + k \pi , k \in \mathbb{Z} \right\}\)。画出其函数图像：
-
+\begin{center}
+\includegraphics[width=0.94\linewidth]{image8.png}
+\end{center}
 
 \subsection{指数函数}
-指数函数是一类性态良好的函数，其基本形式是\(y = a^{x} \left( a > 0 , a \ne 1 \right)\)。显然，当\(a = 1\)时，函数退化为\(y = 1\)；\(a = 0\)时，函数退化为\(y = 0 \left( x > 0 \right)\)；\(a < 0\)时，除了非负整数外的\(x\)都将使\(a^{x}\)在实数域上无意义。因此限定指数函数的\(a > 0\)且\(a \ne 1\)。
+指数函数是一类性态良好的函数，其基本形式是\(y = a^{x} \left( a > 0 , a \ne 1 \right)\)。显然，当\(a = 1\)时，函数退化为\(y = 1\)；\(a = 0\)时，函数退化为\(y = 0 \left( x > 0 \right)\)；\(a < 0\)时，只有\(x\)为整数（更一般地，只有\(x\)为分母是奇数的有理数）时，\(a^{x}\)在实数域上才有意义。因此限定指数函数的\(a > 0\)且\(a \ne 1\)。
 
-\begin{center}
-\includegraphics[width=0.92\linewidth]{image9.png}
-\end{center}
 刻画\(a\)取不同的值时函数的图像如下图所示：
-
+\begin{center}
+\includegraphics[width=0.62\linewidth]{image9.png}
+\end{center}
 容易观察到其定义域均为\(\mathbb{R}\)，值域均为\(\left( 0 , + \infty \right)\)。
 
-思考：无理数次幂是如何定义的？
+{\kaiti~思考}\quad 无理数次幂是如何定义的？
 
 
 \subsection{对数函数}
@@ -178,67 +181,66 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \section{初等函数的基本性质}
 
 \subsection{初等函数的连续性}
-设\(y = f \left( x \right)\)是定义在区间\(\left[ a , b \right]\)上的一个连续函数，则\(f \left( x \right)\)在\(\left[ a , b \right]\)上存在反函数的充分必要条件是\(f \left( x \right)\)在\(\left[ a , b \right]\)上严格单调递增（减）。当这个条件成立时，\(f \left( x \right)\)的反函数\(f^{- 1} \left( x \right)\)在其定义域内也是严格单调增（减）的连续函数。
+\begin{theorem}\label{thm:inv-mono}
+设\(y = f \left( x \right)\)是定义在区间\(I\)上的一个连续函数，则\(f \left( x \right)\)在\(I\)上存在反函数的充分必要条件是\(f \left( x \right)\)在\(I\)上严格单调递增（减）。当这个条件成立时，\(f \left( x \right)\)的反函数\(f^{- 1} \left( x \right)\)在其定义域内也是严格单调增（减）的连续函数。
+\end{theorem}
 
 从直观上看，连续函数的反函数也是连续的这个结论是显然的。因为\(y = f \left( x \right)\)和反函数\(x = f^{- 1} \left( y \right)\)在同一坐标平面上的图像是相同的。
-
+\begin{theorem}
 初等函数在其定义域内是连续的。
+\end{theorem}
 
 容易知道两个函数的四则运算和复合运算保持得到的新函数在任一点的连续性。
 
 首先考虑多项式函数：常值函数\(f ( x ) = c\)以及线性函数\(f ( x ) = x\)在区间\(( - \infty , + \infty )\)上连续，经四则运算得到的关于\(x\)的多项式也都连续。
 
-然后考虑三角函数：易知\(\sin x\)在\(\left( - \infty , + \infty \right)\)上是连续的，而\(\cos x\)可以看成是\(\sin u\)和\(u = \frac{\pi}{2} - x\)两个函数的复合的结果，所以也是连续的。其他三角函数可以通过\(\sin x\)和\(\cos x\)通过四则运算构造出来，所以也都是连续函数。由定理1，所有的反三角函数在各自的定义域内也都是连续的。
+然后考虑三角函数：易知\(\sin x\)在\(\left( - \infty , + \infty \right)\)上是连续的，而\(\cos x\)可以看成是\(\sin u\)和\(u = \frac{\pi}{2} - x\)两个函数的复合的结果，所以也是连续的。其他三角函数可以通过\(\sin x\)和\(\cos x\)通过四则运算构造出来，所以也都是连续函数。由定理\ref{thm:inv-mono}，所有的反三角函数在各自的定义域内也都是连续的。
 
-容易知道指对数函数\(f \left( x \right) = a^{x} \left( a > 0 , a \ne 1 \right)\)是其定义域内的连续函数。因为
+容易知道指对数函数\(f \left( x \right) = a^{x} \left( a > 0 , a \ne 1 \right)\)是其定义域内的连续函数。注意到
 
 当\(a > 1\)时，\(f \left( x \right) = a^{x}\)在\(\left( - \infty , + \infty \right)\)上是严格递增的；
 
 当\(0 < a < 1\)时，\(f \left( x \right) = a^{x}\)在\(\left( - \infty , + \infty \right)\)上是严格递减的；
 
-而且无论是哪种形式，函数的值域都是\(\left( 0 , + \infty \right)\)。显然\(f \left( x \right) = a^{x}\)在\(\mathbb{R}\)上连续，根据定理1，\(f \left( x \right) = a^{x}\)的反函数\(f^{- 1} \left( x \right) = \log_{a} x\)在\(\left( 0 , + \infty \right)\)上是连续的。
+而且无论是哪种形式，函数的值域都是\(\left( 0 , + \infty \right)\)。显然\(f \left( x \right) = a^{x}\)在\(\mathbb{R}\)上连续，根据定理\ref{thm:inv-mono}，\(f \left( x \right) = a^{x}\)的反函数\(f^{- 1} \left( x \right) = \log_{a} x\)在\(\left( 0 , + \infty \right)\)上是连续的。
 
 最后考虑幂函数：对于幂函数\(f \left( x \right) = x^{\alpha} \left( \alpha \ne 0 \right)\)，在其基本定义域\(x > 0\)内，由于
-
 \begin{equation}
 x^{\alpha} = e^{\alpha \ln x}
 \end{equation}
-
 所以幂函数在\(x > 0\)时连续。
 
 综上所述，初等函数在其定义域内是连续的。
-
-
+\newpage
 \subsection{基本初等函数的单调性}
 复杂的初等函数单调性较为复杂，这里仅讨论基本初等函数的单调性。
+\paragraph{1°多项式函数} \mbox{}
 
-多项式函数
+多项式函数的单调性取决于各项的系数与次数，可以较为复杂，但当\(x\)足够大时，其单调性取决于多项式的最高次项的系数。
 
-多项式函数的单调性取决于多项式函数的项数，可以较为复杂，但当\(x\)足够大时，其单调性取决于多项式的最高次项的系数。
-
-三角函数
+\paragraph{2°三角函数} \mbox{}
 
 对于\(\sin x\)函数，容易知道在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上，取\(x_{1} , x_{2} \in \left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)，如果\(x_{1} < x_{2}\)，恒有\(f \left( x_{1} \right) \le f \left( x_{2} \right)\)。故\(\sin x\)在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上单调递增，类似地，在\(\left[ \frac{\pi}{2} , \frac{3 \pi}{2} \right]\)上递减。对于其他的三角函数，可以通过对\(\sin x\)的变换得到，留作思考题。
 
-指数函数
+\paragraph{3°指数函数} \mbox{}
 
 指数函数都是严格单调的。对于\(y = a^{x}\)，当\(a > 1\)时，函数是严格单调增的；当\(0 < a < 1\)时，函数是严格单调减的。
 
-对数函数
+\paragraph{4°对数函数} \mbox{}
 
 对数函数都是严格单调的。对于\(y = \log_{a} x\)，当\(a > 1\)时，函数是严格单调增的；当\(0 < a < 1\)时，函数是严格单调减的。
 
-幂函数
+\paragraph{5°幂函数} \mbox{}
 
-幂函数在其基本定义域内都是严格单调的。对于\(y = x^{a}\)，当\(a > 0\)时，函数是严格单调增的；当\(a < 0\)时，函数是严格单调减的；当\(a = 0\)时，函数退化为\(y = 1\)。
+幂函数在其基本定义域内都是单调的。对于\(y = x^{\alpha}\)，当\(\alpha > 0\)时，函数是严格单调增的；当\(\alpha < 0\)时，函数是严格单调减的；当\(\alpha = 0\)时，函数退化为\(y = 1\)。
 
 
 \subsection{幂函数的对称性}
 通常情况下，幂函数不具有对称性。但是考虑到常用的幂函数其定义域可以推广到\(\left\{ x \in \mathbb{R} \mid x \ne 0 \right\}\)甚至\(\mathbb{R}\)上，可以讨论这些幂函数的对称性。首先考虑正整数次幂
 
-取幂次\(\alpha = 2 k , k \in N^{*}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k} = {\left( {\left( - x \right)}^{2} \right)}^{k} = {\left( x^{2} \right)}^{k} = x^{2 k} = x^{\alpha}\)，故此时\(y = x^{\alpha}\)为偶函数；
+取幂次\(\alpha = 2 k , k \in \mathbb{N}^{*}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k} = {\left( {\left( - x \right)}^{2} \right)}^{k} = {\left( x^{2} \right)}^{k} = x^{2 k} = x^{\alpha}\)，故此时\(y = x^{\alpha}\)为偶函数；
 
-再取幂次\(\alpha = 2 k + 1 , k \in N^{*}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k + 1} = {\left( {\left( - x \right)}^{2} \right)}^{k} \cdot \left( - x \right) = - {\left( x^{2} \right)}^{k} \cdot x = - x^{2 k + 1} = - x^{\alpha}\)，故此时\(y = x^{\alpha}\)为奇函数。
+再取幂次\(\alpha = 2 k + 1 , k \in \mathbb{N}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k + 1} = {\left( {\left( - x \right)}^{2} \right)}^{k} \cdot \left( - x \right) = - {\left( x^{2} \right)}^{k} \cdot x = - x^{2 k + 1} = - x^{\alpha}\)，故此时\(y = x^{\alpha}\)为奇函数。
 
 \(\alpha\)为负整数时，有类似的性质，但是注意\(x \ne 0\)。
 
@@ -248,105 +250,93 @@ x^{\alpha} = e^{\alpha \ln x}
 \subsection{三角函数的周期性与对称性}
 容易知道\(\sin x\)与\(\cos x\)都以\(2 \pi\)为最小正周期。\(\sin x\)有对称轴\(x = k \pi + \frac{\pi}{2} , k \in \mathbb{Z}\)，\(\cos x\)有对称轴\(x = k \pi , k \in \mathbb{Z}\)；\(\sin x\)关于点\(\left( k \pi , 0 \right) k \in \mathbb{Z}\)中心对称，则\(\cos x\)同样有关于点\(\left( k \pi + \frac{\pi}{2} , 0 \right) k \in \mathbb{Z}\)中心对称。事实上\(\cos x\)的周期性和对称性可以由\(\sin x\)的周期性和对称性直接推出，由\(\cos x = \sin \left( \frac{\pi}{2} - x \right)\)这一关系进行坐标变换即可。
 
-对于\(\tan x = \frac{\sin x}{\cos x}\)，显然其一定以\(2 \pi\)为周期，但\(2 \pi\)是否仍是其最小正周期呢？注意到\(\tan - x = \frac{\sin - x}{\cos - x} = - \tan x\)，即\(\tan x\)关于原点对称，考虑取\(x \in \left( - \frac{\pi}{2} , \frac{\pi}{2} \right)\)，有
+对于\(\tan x = \frac{\sin x}{\cos x}\)，显然其一定以\(2 \pi\)为周期，但\(2 \pi\)是否仍是其最小正周期呢？注意到\(\tan \left( - x \right) = \frac{\sin \left( - x \right)}{\cos \left( - x \right)} = - \tan x\)，即\(\tan x\)关于原点对称，考虑取\(x \in \left( - \frac{\pi}{2} , \frac{\pi}{2} \right)\)，有
 
 \begin{multline}
 \tan \left( x + \pi \right) = \frac{\sin \left( x + \pi \right)}{\cos \left( x + \pi \right)} = \frac{- \sin \left( \pi - x \right)}{\cos \left( \frac{\pi}{2} + \frac{\pi}{2} + x \right)} \\
-= \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos - x} = \frac{\sin x}{\cos x} = \tan x
+= \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos \left( - x \right)} = \frac{\sin x}{\cos x} = \tan x
 \end{multline}
 
-这一结论可递推到\(x + k \pi , k \in \mathbb{Z}\)。又显然当\(a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
+这一结论可递推到\(x + k \pi , k \in \mathbb{Z}\)。又显然当\(0 < a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
 
 进一步地，分析较为一般的情况。
 
 考虑\(f \left( x \right) = \sin \left( x + \varphi \right)\)，仍然有\(f \left( x + 2 \pi \right) = \sin \left( \left( x + 2 \pi \right) + \varphi \right) = \sin \left( x + \varphi \right)\)，故\(\varphi\)的取值不影响其周期性。由于此时有\(x^{'} = x + \varphi\)，实际上这一变换相当于将函数向左平移\(\varphi\)，也将同时使其对称轴和对称中心向左移动\(\varphi\)。
 
-考虑\(f \left( x \right) = \sin \omega x\)，此时\(f \left( x + 2 \pi \right) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f \left( x \right) = \sin \omega x\)时，有\(f \left( x + \frac{2}{\omega} \pi \right) = f \left( x \right)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
+考虑\(f \left( x \right) = \sin \omega x\)，其中\(\omega \neq 0 \)，此时\(f \left( x + 2 \pi \right) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f \left( x \right) = \sin \omega x\)时，有\(f \left( x + \frac{2}{\omega} \pi \right) = f \left( x \right)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
 
 考虑\(f \left( x \right) = A \sin x\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
 
 对于其它三角函数，可以有类似的推导。由于正（余）弦函数具有优异的性质，且它们可以很好地表征周期性的振动，故通常称正弦函数\(f \left( x \right) = A \sin \left( \omega x + \varphi \right)\)中的\(A\)为振幅，\(\omega\)为角频率，\(\varphi\)为相位角。
-
-
+\newpage
 \section{有关三角函数与解三角形必背的几个公式}
+% 本节是公式表，目标是压在一页内：公式不编号，公式与正文之间的间距收紧
+\begingroup
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
 这些公式要求会默写、会推导，并能够在题目中灵活应用。
 
-
-\subsection{诱导公式}
-\begin{equation}
-\sin \left( \alpha + 2 k \pi \right) = \sin \alpha , \cos \left( \alpha + 2 k \pi \right) = \cos \alpha , \tan \left( \alpha + k \pi \right) = \tan \alpha k \in \mathbb{Z} .
-\end{equation}
-
-\begin{equation}
+\paragraph{1°诱导公式} \mbox{}
+\begin{equation*}
+\sin \left( \alpha + 2 k \pi \right) = \sin \alpha , \cos \left( \alpha + 2 k \pi \right) = \cos \alpha , \tan \left( \alpha + k \pi \right) = \tan \alpha , k \in \mathbb{Z} .
+\end{equation*}
+\begin{equation*}
 \sin \left( \alpha + \pi \right) = - \sin \alpha , \cos \left( \alpha + \pi \right) = - \cos \alpha , \tan \left( \alpha + \pi \right) = \tan \alpha
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 \sin \left( - \alpha \right) = - \sin \alpha , \cos \left( - \alpha \right) = \cos \alpha , \tan \left( - \alpha \right) = - \tan \alpha
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 \sin \left( \pi - \alpha \right) = \sin \alpha , \cos \left( \pi - \alpha \right) = - \cos \alpha , \tan \left( \pi - \alpha \right) = - \tan \alpha
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 \sin \left( \frac{\pi}{2} - \alpha \right) = \cos \alpha , \cos \left( \frac{\pi}{2} - \alpha \right) = \sin \alpha , \sin \left( \frac{\pi}{2} + \alpha \right) = \cos \alpha , \cos \left( \frac{\pi}{2} + \alpha \right) = - \sin \alpha
-\end{equation}
-
-
-\subsection{和差角公式、二倍角公式}
-\begin{equation}
-\sin \left( \alpha + \beta \right) = \sin \alpha \cos \beta + \cos \alpha \sin \beta , \cos \left( \alpha + \beta \right) = \cos \alpha \cos \beta - \sin \alpha \sin \beta
-\end{equation}
-
-\begin{equation}
-\sin \left( \alpha - \beta \right) = \sin \alpha \cos \beta - \cos \alpha \sin \beta , \cos \left( \alpha - \beta \right) = \cos \alpha \cos \beta + \sin \alpha \sin \beta
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+\paragraph{2°和差角公式、二倍角公式} \mbox{}
+\begin{equation*}
+\sin \left( \alpha + \beta \right) = \sin \alpha \cos \beta + \cos \alpha \sin \beta , \quad \cos \left( \alpha + \beta \right) = \cos \alpha \cos \beta - \sin \alpha \sin \beta
+\end{equation*}
+\begin{equation*}
+\sin \left( \alpha - \beta \right) = \sin \alpha \cos \beta - \cos \alpha \sin \beta , \quad \cos \left( \alpha - \beta \right) = \cos \alpha \cos \beta + \sin \alpha \sin \beta
+\end{equation*}
+\begin{equation*}
 \tan \left( \alpha + \beta \right) = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} , \tan \left( \alpha - \beta \right) = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta}
-\end{equation}
+\end{equation*}
 
 请直接写出二倍角公式。
 
-
-\subsection{和差化积/积化和差公式及其他二级公式}
-\begin{equation}
-\sin \alpha + \sin \beta = 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \sin \alpha - \sin \beta = 2 \sin \frac{\alpha - \beta}{2} \cos \frac{\alpha + \beta}{2}
-\end{equation}
-
-\begin{equation}
-\cos \alpha + \cos \beta = 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \cos \alpha - \cos \beta = -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}
-\end{equation}
-
-\begin{equation}
-\tan \alpha + \tan \beta = \frac{\sin \left( \alpha + \beta \right)}{\cos \alpha \cos \beta} , \tan \alpha - \tan \beta = \frac{\sin \left( \alpha - \beta \right)}{\cos \alpha \cos \beta}
-\end{equation}
-
-\begin{equation}
+\paragraph{3°和差化积/积化和差公式及其他二级公式} \mbox{}
+\begin{equation*}
+\sin \alpha + \sin \beta = 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \quad \sin \alpha - \sin \beta = 2 \sin \frac{\alpha - \beta}{2} \cos \frac{\alpha + \beta}{2}
+\end{equation*}
+\begin{equation*}
+\cos \alpha + \cos \beta = 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} , \quad \cos \alpha - \cos \beta = -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}
+\end{equation*}
+\begin{equation*}
+\tan \alpha + \tan \beta = \frac{\sin \left( \alpha + \beta \right)}{\cos \alpha \cos \beta} , \quad \tan \alpha - \tan \beta = \frac{\sin \left( \alpha - \beta \right)}{\cos \alpha \cos \beta}
+\end{equation*}
+\begin{equation*}
 \cos^{2} \beta - \cos^{2} \alpha = \sin^{2} \alpha - \sin^{2} \beta = \sin \left( \alpha + \beta \right) \sin \left( \alpha - \beta \right)
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 \cos^{2} \alpha - \sin^{2} \beta = \cos^{2} \beta - \sin^{2} \alpha = \cos \left( \alpha + \beta \right) \cos \left( \alpha - \beta \right)
-\end{equation}
+\end{equation*}
+\begin{equation*}
+\sin \alpha \cos \beta = \frac{1}{2} \left[ \sin \left( \alpha + \beta \right) + \sin \left( \alpha - \beta \right) \right] , \quad \cos \alpha \sin \beta = \frac{1}{2} \left[ \sin \left( \alpha + \beta \right) - \sin \left( \alpha - \beta \right) \right]
+\end{equation*}
+\begin{equation*}
+\cos \alpha \cos \beta = \frac{1}{2} \left[ \cos \left( \alpha + \beta \right) + \cos \left( \alpha - \beta \right) \right] , \quad \sin \alpha \sin \beta = \frac{1}{2} \left[ \cos \left( \alpha - \beta \right) - \cos \left( \alpha + \beta \right) \right]
+\end{equation*}
 
-\begin{equation}
-\sin \alpha \cos \beta = \frac{1}{2} \left[ \sin \left( \alpha + \beta \right) + \sin \left( \alpha - \beta \right) \right] , \cos \alpha \sin \beta = \frac{1}{2} \left[ \sin \left( \alpha + \beta \right) - \sin \left( \alpha - \beta \right) \right]
-\end{equation}
+\paragraph{4°正/余弦定理} \mbox{}
 
-\begin{equation}
-\cos \alpha \cos \beta = \frac{1}{2} \left[ \cos \left( \alpha + \beta \right) + \cos \left( \alpha - \beta \right) \right] , \sin \alpha \sin \beta = \frac{1}{2} \left[ \cos \left( \alpha - \beta \right) - \cos \left( \alpha + \beta \right) \right]
-\end{equation}
-
-
-\subsection{正余弦定理}
 已知三角形\(A B C\)，角\(A , B , C\)的对边分别为\(a , b , c\)，则下式恒成立：
-
-\begin{equation}
+\begin{equation*}
 \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
-\end{equation}
-
-\begin{equation}
-a^{2} = b^{2} + c^{2} - 2 b c \cos A , b^{2} = a^{2} + c^{2} - 2 a c \cos B , c^{2} = a^{2} + b^{2} - 2 a b \cos C
-\end{equation}
+\end{equation*}
+\begin{equation*}
+a^{2} = b^{2} + c^{2} - 2 b c \cos A , \quad b^{2} = a^{2} + c^{2} - 2 a c \cos B , \quad c^{2} = a^{2} + b^{2} - 2 a b \cos C
+\end{equation*}
+\endgroup

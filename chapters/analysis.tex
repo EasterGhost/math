@@ -19,11 +19,15 @@
 \end{equation}
 则称\(f ( x )\)是当\(x \to x_{0}\)时的正无穷大量；把\(f \left( x \right) > M\)换成\(f \left( x \right) < - M\)，就是负无穷大量。或
 
-\definition{设\(f ( x )\)在\(x_{0}\)的附近有定义，若\(\forall M > 0 , \exists \delta > 0 , \text{使} \text{得} \text{当} 0 < \left| x - x_{0} \right| < \delta\)时，有\(\left| f \left( x \right) \right| > M\)，则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷大量。}
+\begin{definition}
+设\(f ( x )\)在\(x_{0}\)的附近有定义，若\(\forall M > 0 , \exists \delta > 0 , \text{使} \text{得} \text{当} 0 < \left| x - x_{0} \right| < \delta\)时，有\(\left| f \left( x \right) \right| > M\)，则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷大量。
+\end{definition}
 
 类似地，可以定义无穷小量：
 
-\definition{设\(f ( x )\)在\(x_{0}\)附近有定义，若\(\underset{x \to x_{0}}{\lim} f \left( x \right) = 0\)则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷小量。}
+\begin{definition}
+设\(f ( x )\)在\(x_{0}\)附近有定义，若\(\underset{x \to x_{0}}{\lim} f \left( x \right) = 0\)则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷小量。
+\end{definition}
 
 或者简写为
 \begin{equation}
@@ -135,11 +139,13 @@
 
 Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
-\definition{\heiti~基本列（柯西列）：\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in \mathbb{N}^{*} , \text{s.t.} \forall m , n > N\)时，有
+\begin{definition}
+\heiti~基本列（柯西列）：\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in \mathbb{N}^{*} , \text{s.t.} \forall m , n > N\)时，有
     \begin{equation*}
         \left| a_{m} - a_{n} \right| < \varepsilon
     \end{equation*}
-    则数列\(\left\{ a_{n} \right\}\)称为基本列.}
+    则数列\(\left\{ a_{n} \right\}\)称为基本列.
+\end{definition}
 \begin{theorem}
     {\heiti~Cauchy收敛准则：}{\kaiti~数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
 \end{theorem}
