@@ -11,7 +11,7 @@
 记为\(\underset{n \to + \infty}{\lim} a_{n} = a\)。
 
 \subsection{无穷大量与无穷小量}
-{\heiti~在极限过程中}趋于无穷大的量，称为{\heiti~无穷大量}。类似地，可以将在极限过程中趋于0的量，称为{\heiti~无穷小量}。
+{\heiti{}在极限过程中}趋于无穷大的量，称为{\heiti{}无穷大量}。类似地，可以将在极限过程中趋于0的量，称为{\heiti{}无穷小量}。
 
 无穷大量又有正无穷大和负无穷大之分，以正无穷大为例，可以简写为：
 \begin{equation}
@@ -38,7 +38,7 @@
 \section{数列极限}
 上面已经介绍了数列极限的基本定义，其他形式的等价定义请参考教材叙述。
 
-有极限的数列称为{\heiti~收敛数列}，不收敛的数列称为{\heiti~发散数列}。
+有极限的数列称为{\heiti{}收敛数列}，不收敛的数列称为{\heiti{}发散数列}。
 
 {\kaiti\textbf{*子列：}设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in \mathbb{N}^{*} , n_{k} \in \mathbb{N}^{*}\)），则可以得到另一个数列：
 \begin{equation*}
@@ -70,7 +70,7 @@
 \newpage
 \subsection{收敛数列的基本性质}
 \begin{theorem}
-    \kaiti~若\(\left\{ a_{n} \right\}\)是收敛数列，则\(\left\{ a_{n} \right\}\)的极限是唯一的。改变数列中有限多项的值，不影响数列的收敛性及其极限。
+    \kaiti{}若\(\left\{ a_{n} \right\}\)是收敛数列，则\(\left\{ a_{n} \right\}\)的极限是唯一的。改变数列中有限多项的值，不影响数列的收敛性及其极限。
 
     收敛数列一定有界。
 
@@ -83,7 +83,7 @@
 
 相关定理及其证明请自行查阅教材。其中的证明方法应当熟悉，这些方法均是极限有关证明中较为常用的方法。
 
-{\heiti~思考题：}
+{\heiti{}思考题：}
 
 设\(\left\{ a_{n} \right\}\)收敛，\(\left\{ b_{n} \right\}\)发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
 
@@ -119,7 +119,7 @@
 \end{example}
 
 \subsection{数列收敛性的研究工具}
-{\kaiti~i. 夹逼原理（也称两边夹原理等）}
+{\kaiti{}i. 夹逼原理（也称两边夹原理等）}
 
 该定理的思想是，难以直接处理某一数列时，寻求两个较为简单的数列将其从一大一小两边夹住。如果这两个数列收敛于同一极限，则该数列也收敛于这个极限。
 
@@ -127,7 +127,7 @@
     设\(a > 0 , b > 0\)，求极限\(\underset{n \to \infty}{\lim} {\left( a^{n} + b^{n} \right)}^{\frac{1}{n}}\).
 \end{example}
 
-{\kaiti~ii. 单调有界原理}
+{\kaiti{}ii. 单调有界原理}
 
 单调递增（减）的数列，若其有上（下）界，则该数列收敛。类似地，单调无界数列一定是有确定符号的无穷大量。
 
@@ -135,19 +135,19 @@
     证明：若\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n}\)，\(n \ge 1\)，则数列\(\left\{ e_{n} \right\}\)收敛。
 \end{example}
 
-{\kaiti~iii. Cauchy收敛准则}
+{\kaiti{}iii. Cauchy收敛准则}
 
 Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 \begin{definition}
-\heiti~基本列（柯西列）：\kaiti~若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in \mathbb{N}^{*} , \text{s.t.} \forall m , n > N\)时，有
+\heiti{}基本列（柯西列）：\kaiti{}若\(\forall \varepsilon > 0 , \exists N = N \left( \varepsilon \right) \in \mathbb{N}^{*} , \text{s.t.} \forall m , n > N\)时，有
     \begin{equation*}
         \left| a_{m} - a_{n} \right| < \varepsilon
     \end{equation*}
     则数列\(\left\{ a_{n} \right\}\)称为基本列.
 \end{definition}
 \begin{theorem}
-    {\heiti~Cauchy收敛准则：}{\kaiti~数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
+    {\heiti{}Cauchy收敛准则：}{\kaiti{}数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列.}
 \end{theorem}
 
 \begin{example}
@@ -157,13 +157,13 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \end{example}
 
 \subsection{判断数列发散的方法}
-{\kaiti~无界数列一定发散。
+{\kaiti{}无界数列一定发散。
 
     有一个发散子列的数列一定发散。
 
     数列的其中两个子列收敛于不同的极限，则该数列一定发散。}
 
-{\heiti~※ 数列收敛的定义及Cauchy收敛准则仍然可以用来判断数列是否发散。}
+{\heiti{}※ 数列收敛的定义及Cauchy收敛准则仍然可以用来判断数列是否发散。}
 
 \begin{example}
     完成以下证明：
@@ -174,13 +174,13 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
     ii. 证明数列\(\left\{ \sin n \right\}\)发散。
 \end{example}
 
-\textbf{\kaiti~补充：无穷级数}
+\textbf{\kaiti{}补充：无穷级数}
 
-{\fangsong~对于给定的数列\(\left\{ a_{n} \right\}\)，将记号
+{\fangsong{}对于给定的数列\(\left\{ a_{n} \right\}\)，将记号
 \begin{equation}
     \sum _{n = 1}^{\infty} a_{n} = a_{1} + a_{2} + \cdots + a_{n} + \cdots
 \end{equation}
-称为以\(a_{n}\)为通项的{\heiti~无穷级数}。
+称为以\(a_{n}\)为通项的{\heiti{}无穷级数}。
 
 从\(\left\{ a_{n} \right\}\)出发，如果定义数列\(\left\{ S_{n} \right\}\)满足\(S_{n} = \sum _{i = 1}^{n} a_{i}\)，则称\(S_{n}\)为该无穷级数的部分和，\(\left\{ S_{n} \right\}\)为该无穷级数的部分和数列。如果\(\left\{ S_{n} \right\}\)收敛到\(S\)（即\(\underset{n \to \infty}{\lim} S_{n} = S\)），则定义该无穷级数收敛，且称\(S\)为该无穷级数的和，记为}
 \begin{equation}
@@ -196,7 +196,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
     \underset{n \to + \infty}{\lim} \frac{\sum _{i = 1}^{n} x_{i}}{n} = l
 \end{equation}
 \end{theorem}
-{\heiti~证明思路：}
+{\heiti{}证明思路：}
 
 夹逼定理、单调有界原理等似乎都不好证明该命题，因此需要找些新的路径。首先观察式子
 \begin{equation}
@@ -217,7 +217,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 从而确定两步走的思路，即先确定\(N\)，根据\(N\)对数列进行分拆，从而确定\(n\)，使得该式成立。
 
-{\heiti~证明：}
+{\heiti{}证明：}
 
 根据条件\(\underset{n \to \infty}{\lim} x_{n} = l\)，可知可以对任意给定的\(\varepsilon > 0\)，取定\(N\)，使得当\(n > N\)时，\(\left| x_{n} - l \right| < \varepsilon / 2\)成立。于是当\(n > N\)时，有如下估计：
 \begin{multline}
@@ -267,7 +267,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 
 其中\(l\)为有限值或\(\pm \infty\).
 
-    {\heiti~思考题：}
+    {\heiti{}思考题：}
 
 若将以上三个命题中的极限值\(l\)改为不带符号的无穷大\(\infty\)，则结论均不成立。试举出反例。
 
@@ -382,7 +382,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \end{equation}
 因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列均收敛到\(b\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
 
-{\fangsong~Fibonacci数列
+{\fangsong{}Fibonacci数列
 
 本题与Fibonacci数列有关。所谓Fibonacci数列，即是由
 \begin{equation}
@@ -403,7 +403,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{equation}
     \underset{n \to \infty}{\lim} f \left( x_{n} \right) = f \left( \xi \right)
 \end{equation}
-则极限\(\xi\)一定是方程\(f \left( x \right) = x\)的根（这时称\(\xi\)为函数\(f\)的{\heiti~不动点}）。
+则极限\(\xi\)一定是方程\(f \left( x \right) = x\)的根（这时称\(\xi\)为函数\(f\)的{\heiti{}不动点}）。
 \end{theorem}
 
 该命题的证明是平凡的，只需在递推公式的两边取\(n \to \infty\)即可。后面我们会知道该命题的条件可替换为\(f\)在点\(\xi\)处连续等条件。
