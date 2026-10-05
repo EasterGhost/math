@@ -376,11 +376,11 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \end{equation}
 容易看出\(b_{n + 2} - b_{n}\)与\(b_{n} - b_{n - 2}\)同号，故\(\left\{ b_{n} \right\}\)的奇子列和偶子列各自单调。
 \newpage
-不难计算出数列的前几项\(b_{1} = 1 , b_{2} = 2 , b_{3} = \frac{3}{2} , b_{4} = \frac{5}{3}\)，可见\(\left\{ b_{n} \right\}\)的奇子列严格单调递增，偶子列严格单调递减，而且有
+不难计算出数列的前几项\(b_{1} = 1 , b_{2} = 2 , b_{3} = \frac{3}{2} , b_{4} = \frac{5}{3}\)，可见\(\left\{ b_{n} \right\}\)的奇子列严格单调递增，偶子列严格单调递减，由归纳法易证
 \begin{equation}
     b_{1} < b_{3} < \cdots < b < \cdots < b_{4} < b_{2}
 \end{equation}
-因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列均收敛到\(b\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
+因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列分别单调有界，均收敛。由\(b_{n + 2} = 2 - \frac{1}{b_{n} + 1}\)，在两个子列上分别取极限，可知它们的极限均满足\(l = 2 - \frac{1}{l + 1}\)。又两个极限均为正，故均等于\(b = \frac{1 + \sqrt{5}}{2}\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
 
 {\fangsong{}Fibonacci数列
 
@@ -425,7 +425,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 观察\(x_{1}\)与\(x_{3}\)。如果\(x_{1} = x_{3}\)，则子列\(\left\{ x_{2 k - 1} \right\}\)为常数列。如果\(x_{1} < x_{3}\)，从\(f\)单调减少易推知\(x_{2} = f \left( x_{1} \right) \ge f \left( x_{3} \right) = x_{4}\)，然后推知\(x_{3} \le x_{5}\)。于是用数学归纳法易证此时\(\{ x_{2 k - 1} \}\)单调递增，由于\(f\)单调递减且\(\left\{ x_{2 k} \right\} = \left\{ f \left( x_{2 k - 1} \right) \right\}\)单调递减。对于\(x_{1} > x_{3}\)的情况，讨论完全类似，从略。
 
 \begin{theorem}\label{thm:iter-fixed}
-设\(a\)是\(f \left( x \right)\)的不动点，函数\(f\)在\(a\)处连续，在\(a\)的邻域\(\left( a - r , a + r \right)\)中严格单调递增，且在\(\left( a - r , a \right)\)上有\(f \left( x \right) > x\)，而区间\(\left( a , a + r \right)\)上有\(f \left( x \right) < x\)，那么由迭代产生的数列\(x_{n + 1} = f \left( x_{n} \right)\)只要第一项在\(\left( a - r , a + r \right)\)内，且不等于\(a\)，则以后就不会越出这个区间，而且是以\(a\)为极限的严格单调数列。
+设\(a\)是\(f \left( x \right)\)的不动点，函数\(f\)在\(a\)的邻域\(\left( a - r , a + r \right)\)中连续且严格单调递增，且在\(\left( a - r , a \right)\)上有\(f \left( x \right) > x\)，而区间\(\left( a , a + r \right)\)上有\(f \left( x \right) < x\)，那么由迭代产生的数列\(x_{n + 1} = f \left( x_{n} \right)\)只要第一项在\(\left( a - r , a + r \right)\)内，且不等于\(a\)，则以后就不会越出这个区间，而且是以\(a\)为极限的严格单调数列。
 \end{theorem}
 
 定理\ref{thm:iter-fixed}的证明留给读者自行证明。

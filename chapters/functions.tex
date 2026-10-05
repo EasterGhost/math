@@ -264,7 +264,7 @@ x^{\alpha} = e^{\alpha \ln x}
 
 考虑\(f \left( x \right) = \sin \omega x\)，其中\(\omega \neq 0 \)，此时\(f \left( x + 2 \pi \right) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f \left( x \right) = \sin \omega x\)时，有\(f \left( x + \frac{2}{\omega} \pi \right) = f \left( x \right)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
 
-考虑\(f \left( x \right) = A \sin x\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
+考虑\(f \left( x \right) = A \sin x\)，其中\(A \ne 0\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
 
 对于其它三角函数，可以有类似的推导。由于正（余）弦函数具有优异的性质，且它们可以很好地表征周期性的振动，故通常称正弦函数\(f \left( x \right) = A \sin \left( \omega x + \varphi \right)\)中的\(A\)为振幅，\(\omega\)为角频率，\(\varphi\)为相位角。
 \newpage
@@ -338,3 +338,162 @@ x^{\alpha} = e^{\alpha \ln x}
 a^{2} = b^{2} + c^{2} - 2 b c \cos A , \quad b^{2} = a^{2} + c^{2} - 2 a c \cos B , \quad c^{2} = a^{2} + b^{2} - 2 a b \cos C
 \end{equation*}
 \endgroup
+
+\newpage
+\section{综合习题}
+以下习题涵盖本章的主要内容，不再按小节分类。解题时应注意定义域与各公式的适用条件，并说明所用的函数性质。
+
+\begin{exercise}
+求下列函数的定义域：
+
+（1）\(f \left( x \right) = \sqrt{\ln \left( 2 x - 1 \right)}\)；
+
+（2）\(g \left( x \right) = \ln \frac{x + 1}{x - 1}\)；
+
+（3）\(h \left( x \right) = \sqrt{1 - 2 \sin x}\)。
+\end{exercise}
+
+\begin{exercise}
+设\(f \left( x \right) = x^{2}\)，定义域为\(A = [-2 , 1]\)。
+
+（1）求\(f\)的值域，判断其是否有界，是否为奇函数或偶函数，以及是否存在反函数。
+
+（2）将定义域限制为\([-2 , 0]\)，求此时的反函数及其定义域、值域。说明同一个表达式在不同定义域下，函数的性质会发生哪些变化。
+\end{exercise}
+
+\begin{exercise}
+设\(f \left( x \right) = \ln x\)，\(g \left( x \right) = x^{2} - 1\)，两者均取使表达式有意义的最大实数定义域。
+
+（1）求\(f \circ g\)与\(g \circ f\)的表达式、定义域和值域。
+
+（2）判断这两个复合函数是否相同，并求它们的单调区间。
+\end{exercise}
+
+\begin{exercise}
+设\(f \left( x \right) = a x + b\)，\(g \left( x \right) = c x + d\)，定义域均为\(\mathbb{R}\)。
+
+（1）求\(f \circ g = g \circ f\)成立的充要条件。
+
+（2）举出\(f \ne g\)但复合运算可交换的例子，再举出不可交换的例子。
+
+（3）当\(a \ne 0\)时求\(f^{-1}\)，并验证\(f \circ f^{-1}\)与\(f^{-1} \circ f\)的作用。
+\end{exercise}
+
+\begin{exercise}
+考虑方程\(\left( x - 1 \right)^{2} + y^{2} = 4\)。
+
+（1）这个方程是否在\([-1 , 3]\)上确定了一个以\(x\)为自变量的函数？若再要求\(y \ge 0\)，写出对应函数的显式表示、定义域和值域。
+
+（2）曲线还可以用参数方程
+\begin{equation*}
+    \left\{ \begin{aligned}
+        x &= 1 + 2 \cos t , \\
+        y &= 2 \sin t
+    \end{aligned} \right.
+\end{equation*}
+表示。分别取\(t \in [0 , \pi]\)与\(t \in [0 , 2 \pi]\)，说明所表示的图形，以及它们能否整体看成以\(x\)为自变量的函数图像。
+\end{exercise}
+
+\begin{exercise}
+设
+\begin{equation*}
+    f \left( x \right) = \begin{cases}
+        x^{2} , & x < 1 , \\
+        a x + b , & x \ge 1 .
+    \end{cases}
+\end{equation*}
+
+（1）求\(f\)在\(x = 1\)处连续的充要条件。
+
+（2）取\(a = 2\)，\(b = -1\)，画出函数图像，求其值域和最大单调区间，并判断其在\(\mathbb{R}\)上是否有界、是否存在反函数。
+\end{exercise}
+
+\begin{exercise}
+分别讨论\(x^{-2}\)、\(x^{1/3}\)、\(x^{\sqrt{2}}\)与\(x^{0}\)在基本定义域\(x > 0\)上的连续性、单调性和值域。
+
+再讨论这些幂函数能否扩展到\(x < 0\)或\(x = 0\)，以及扩展后能否讨论奇偶性。对于无理数次幂，说明它与有理数次幂之间的联系。
+\end{exercise}
+
+\begin{exercise}
+利用双曲函数的定义完成下列问题：
+
+（1）判断\(\sinh x\)、\(\cosh x\)与\(\tanh x\)的奇偶性，并证明\(\cosh^{2} x - \sinh^{2} x = 1\)。
+
+（2）求\(\sinh x\)、\(\cosh x\)与\(\tanh x\)的值域，并判断哪些函数在\(\mathbb{R}\)上有界。
+
+（3）证明\(\sinh x\)严格递增，求其反函数；\(\cosh x\)在\(\mathbb{R}\)上是否有反函数？若限制在\([0 , + \infty)\)上，情形如何？
+\end{exercise}
+
+\begin{exercise}
+设\(A\)是一个关于原点对称的非空实数集合，\(f\)是\(A\)上的任意实值函数。定义
+\begin{equation*}
+    u \left( x \right) = \frac{f \left( x \right) + f \left( -x \right)}{2} , \qquad
+    v \left( x \right) = \frac{f \left( x \right) - f \left( -x \right)}{2} .
+\end{equation*}
+
+（1）证明\(u\)为偶函数，\(v\)为奇函数，且\(f = u + v\)。
+
+（2）这种“一个偶函数与一个奇函数之和”的表示是否唯一？
+
+（3）若\(f\)在\(A\)上有界，\(u\)与\(v\)是否也有界？若\(f\)连续，它们是否也连续？
+\end{exercise}
+
+\begin{exercise}
+列出\(\tan x\)、\(\cot x\)、\(\sec x\)与\(\csc x\)的定义域、值域、奇偶性与最小正周期。
+
+分别求这四个函数在\((0 , \pi)\)内的最大单调区间，注意将没有定义的点排除。
+\end{exercise}
+
+\begin{exercise}
+设\(f \left( x \right) = 2 \sin \left( 3 x - \frac{\pi}{4} \right) + 1\)。
+
+（1）说明可以怎样从\(y = \sin x\)的图像得到\(f\)的图像，并求\(f\)的值域与最小正周期。
+
+（2）求\(f\)的最大单调增区间、最大单调减区间，以及图像的全部对称轴和对称中心。
+
+（3）判断\(f\)是否为奇函数或偶函数，并求它在\([0 , \pi]\)上取最大值的所有自变量。
+\end{exercise}
+
+\begin{exercise}
+设
+\begin{equation*}
+    f \left( x \right) = \ln \left( 3 + \sin 2 x + \sqrt{3} \cos 2 x \right) .
+\end{equation*}
+
+（1）利用和差角公式化简对数内部的表达式，求\(f\)的定义域、值域与最小正周期，并说明其连续性。
+
+（2）将\(f\)限制在区间\(I = \left[ - \frac{5 \pi}{12} , \frac{\pi}{12} \right]\)上，说明为什么此时存在反函数，并求反函数及其定义域、值域。
+
+（3）求方程\(f \left( x \right) = \ln 4\)的全部实数解，并指出其中位于\(I\)内的解。
+\end{exercise}
+
+\begin{exercise}
+利用三角公式完成下列问题：
+
+（1）推导\(\sin 3 x = 3 \sin x - 4 \sin^{3} x\)。
+
+（2）证明
+\begin{equation*}
+    \frac{\sin \alpha + \sin \beta}{\cos \alpha + \cos \beta}
+    = \tan \frac{\alpha + \beta}{2} ,
+\end{equation*}
+并说明等式的适用条件。
+
+（3）在\([0 , 2 \pi]\)内求解方程\(\cos 2 x = \sin x\)，以及不等式\(\sin x + \cos x \ge 1\)。
+\end{exercise}
+
+\begin{exercise}
+在\(\triangle A B C\)中，\(b = 2\)，\(c = 3\)，\(A = \frac{\pi}{3}\)。
+
+（1）求边长\(a\)、三角形的面积及外接圆半径。
+
+（2）保持\(b = 2\)、\(c = 3\)不变，让\(A\)在\((0 , \pi)\)内变化。讨论边长\(a\)如何随\(A\)变化，并求面积的最大值及取到最大值时的\(A\)。
+\end{exercise}
+
+\begin{exercise}
+在\(\triangle A B C\)中，\(a = 1\)，\(b = \sqrt{2}\)，\(A = \frac{\pi}{6}\)。
+
+（1）这样的三角形有几个？分别求所有可能的\(B\)、\(C\)与\(c\)。
+
+（2）说明为什么由正弦定理求出\(\sin B\)之后，不能直接认定\(B\)只有一个取值，并与已知两边及其夹角的情形比较。
+\end{exercise}
