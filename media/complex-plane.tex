@@ -1,0 +1,23 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\special{pdf:minorversion 5}
+\begin{tikzpicture}[scale=1.1, every node/.style={font=\small}]
+    \draw[->] (-0.7,0) -- (3.7,0) node[right] {$\operatorname{Re} z$};
+    \draw[->] (0,-1.9) -- (0,2.0) node[above] {$\operatorname{Im} z$};
+    \node[below left] at (0,0) {$O$};
+    \draw[dashed] (0,1.3) -- (2.3,1.3) -- (2.3,-1.3) -- (0,-1.3);
+    \draw[->,thick] (0,0) -- (2.3,1.3);
+    \draw[->] (0,0) -- (2.3,-1.3);
+    \draw (0.68,0) arc[start angle=0,end angle=29.4759,radius=0.68];
+    \node at (0.9,0.23) {$\theta$};
+    \node[above,sloped] at (1.15,0.65) {$r$};
+    \fill (2.3,1.3) circle (1.5pt);
+    \fill (2.3,-1.3) circle (1.5pt);
+    \node[above right] at (2.3,1.3) {$z=a+bi$};
+    \node[below right] at (2.3,-1.3) {$\overline z=a-bi$};
+    \node[below left] at (2.3,0) {$a$};
+    \node[left] at (0,1.3) {$b$};
+    \node[left] at (0,-1.3) {$-b$};
+\end{tikzpicture}
+\end{document}
