@@ -1,0 +1,436 @@
+\section{复数与复平面}
+在实数范围内，方程\(x^{2} + 1 = 0\)没有解，因为实数的平方不小于零。能否扩充数系，使这样的方程也有解，同时保留原来熟悉的运算规律？
+
+前面讨论过，将平面绕原点旋转90°，连续做两次就将每个向量变成它的负向量。如果希望用乘以一个数来表示这种旋转，那么这个数的平方就应当等于\(- 1\)。数系的扩充与平面的变换，由此有了共同的线索。
+
+\subsection{复数及其运算}
+\begin{definition}\label{def:complex-number}
+将实数组\(\left( a , b \right)\)记为\(z = a + b i\)，称为复数，其中\(a\)称为实部，\(b\)称为虚部，分别记为\(\operatorname{Re} z\)与\(\operatorname{Im} z\)。全体复数组成的集合记为\(\mathbb{C}\)。
+\end{definition}
+
+这里\(i\)对应数组\(\left( 0 , 1 \right)\)，实数\(a\)对应数组\(\left( a , 0 \right)\)，所以实数可以看成复数的一部分。两个复数相等，当且仅当它们的实部、虚部分别相等。虚部是实数\(b\)；实部为零的非零复数称为{\heiti{}纯虚数}。
+
+加法沿用数组的加法，乘法则规定为
+\begin{equation}
+    \left( a + b i \right) + \left( c + d i \right) = \left( a + c \right) + \left( b + d \right) i ,
+\end{equation}
+\begin{equation}\label{eq:complex-product}
+    \left( a + b i \right) \left( c + d i \right) = \left( a c - b d \right) + \left( a d + b c \right) i .
+\end{equation}
+当两个数都是实数时，这些运算正好成为原来的实数运算。特别地，\(i^{2} = - 1\)，所以\(i\)称为{\heiti{}虚数单位}。
+
+由实数的运算律，可以验证复数的加法、乘法也满足交换律与结合律，乘法对加法满足分配律。因此，计算时仍然可以展开括号、合并同类项，只需将\(i^{2}\)换成\(- 1\)。例如，
+\begin{equation}
+    \left( 1 + i \right)^{2} = 1 + 2 i + i^{2} = 2 i .
+\end{equation}
+虚数单位的幂有简单的规律：\(i , i^{2} , i^{3} , i^{4}\)依次为\(i , - 1 , - i , 1\)，以后每隔\(4\)次重复。
+
+将与\(z = a + b i\)对应的复数\(a - b i\)称为它的{\heiti{}共轭复数}，记为\(\overline{z}\)。由运算公式可得
+\begin{equation}
+    \overline{z_{1} + z_{2}} = \overline{z_{1}} + \overline{z_{2}} , \qquad
+    \overline{z_{1} z_{2}} = \overline{z_{1}} \, \overline{z_{2}} , \qquad
+    z \overline{z} = a^{2} + b^{2} .
+\end{equation}
+
+称\(\sqrt{z \overline{z}}\)为复数\(z\)的{\heiti{}模}，记为
+\begin{equation}
+    \left| z \right| = \sqrt{z \overline{z}} = \sqrt{a^{2} + b^{2}} .
+\end{equation}
+由共轭运算的性质，
+\begin{equation}
+    \left| z w \right|^{2} = z w \overline{z w}
+    = \left( z \overline{z} \right) \left( w \overline{w} \right)
+    = \left| z \right|^{2} \left| w \right|^{2} ,
+\end{equation}
+所以\(\left| z w \right| = \left| z \right| \left| w \right|\)。特别地，\(\left| i z \right| = \left| z \right|\)，乘以\(i\)保持模。
+
+共轭也给出了除法的方法。对\(z \ne 0\)，有
+\begin{equation}
+    \frac{1}{z} = \frac{\overline{z}}{\left| z \right|^{2}} , \qquad
+    \frac{z_{1}}{z_{2}} = \frac{z_{1} \overline{z_{2}}}{\left| z_{2} \right|^{2}} \quad \left( z_{2} \ne 0 \right) .
+\end{equation}
+也就是说，将分子、分母同乘分母的共轭复数，就使分母成为实数。例如，
+\begin{equation}
+    \frac{2 - i}{1 + 2 i}
+    = \frac{\left( 2 - i \right) \left( 1 - 2 i \right)}{\left( 1 + 2 i \right) \left( 1 - 2 i \right)}
+    = \frac{- 5 i}{5} = - i .
+\end{equation}
+由模的乘法性质，商的模也等于模的商：
+\begin{equation}
+    \left| \frac{z_{1}}{z_{2}} \right| = \frac{\left| z_{1} \right|}{\left| z_{2} \right|} .
+\end{equation}
+
+在直角坐标系中，将复数\(z = a + b i\)对应到点\(Z \left( a , b \right)\)，也可以对应到位置向量\(\vec{O Z}\)。这样得到的平面称为{\heiti{}复平面}，横轴称为实轴，纵轴称为虚轴。复数的加法与实数数乘分别对应平面向量的加法与数乘。
+
+模\(\left| z \right| = \sqrt{a^{2} + b^{2}}\)就是点\(Z\)到原点的距离，\(\left| z_{1} - z_{2} \right|\)就是两个复数所对应的点之间的距离。共轭复数\(z\)与\(\overline{z}\)关于实轴对称。由复数加法的几何意义，还得到三角不等式：
+\begin{equation}
+    \left| z_{1} + z_{2} \right| \le \left| z_{1} \right| + \left| z_{2} \right| .
+\end{equation}
+复平面的这种几何表示与复数代数结构的联系，将在下一小节进一步说明。
+
+\begin{samepage}
+\begin{example}
+（1）计算\(\frac{3 + 4 i}{1 - 2 i}\)，并求它的模。
+\par\nopagebreak[4]
+
+（2）解方程\(\left( z - 1 \right)^{2} + 4 = 0\)，在复平面上标出两个根。
+\par\nopagebreak[4]
+
+（3）什么时候\(\left| z_{1} + z_{2} \right| = \left| z_{1} \right| + \left| z_{2} \right|\)？用图形说明。
+\end{example}
+\par
+\end{samepage}
+
+{\kaiti{}思考\quad 分别用复数乘法与旋转变换解释\(i^{2} = - 1\)，并说明乘以\(- i\)对应怎样的变换。}
+
+\subsection{复数的线性结构与几何表示*}
+由复数的加法与实数数乘，\(\mathbb{C}\)可以看成一个实线性空间。若实数\(a , b\)满足\(a \cdot 1 + b \cdot i = 0\)，由复数相等的定义，必有\(a = b = 0\)，所以\(1 , i\)线性无关。又因为每个复数都能写成\(a + b i\)，它们张成整个空间，因而\(1 , i\)是一组基，\(\mathbb{C}\)是二维实线性空间。
+
+复数的乘法又提供了一类线性变换。固定复数\(z\)，令\(L_{z} \left( w \right) = z w\)。由分配律，对任意复数\(u , v\)及实数\(t\)，有
+\begin{equation}
+    L_{z} \left( u + v \right) = L_{z} \left( u \right) + L_{z} \left( v \right) , \qquad
+    L_{z} \left( t u \right) = t L_{z} \left( u \right) .
+\end{equation}
+因此，\(L_{z}\)是这个实线性空间上的线性变换。若\(z = a + b i\)，则\(L_{z} \left( 1 \right) = a + b i\)，\(L_{z} \left( i \right) = - b + a i\)，所以它在基\(1 , i\)下的矩阵为
+\begin{equation}\label{eq:complex-matrix}
+    A \left( z \right) = \left[ \begin{matrix}a & - b \\ b & a\end{matrix} \right] .
+\end{equation}
+
+对二阶矩阵\(A , B\)，按行列式公式直接展开可得\(\det \left( A B \right) = \det A \det B\)。若新基向量在原基下的坐标组成矩阵\(P\)，同一变换在新基下的矩阵就是\(P^{- 1} A P\)，其行列式仍为\(\det A\)。因此，行列式给出了一个与基的选择无关的量。将乘法变换的这个量记为
+\begin{equation}
+    N \left( z \right) = \det A \left( z \right) = a^{2} + b^{2} ,
+\end{equation}
+称为复数的{\heiti{}代数范数}。它由复数乘法得到，且\(z \ne 0\)时为正数。由\(L_{z w} = L_{z} \circ L_{w}\)，又有
+\begin{equation}
+    N \left( z w \right) = N \left( z \right) N \left( w \right) .
+\end{equation}
+
+这个量正好等于\(z \overline{z}\)，所以前面定义的模也可以写为
+\begin{equation}
+    \left| z \right| = \sqrt{N \left( z \right)} .
+\end{equation}
+这从乘法变换的行列式说明了模的乘法性质。
+
+现在要由模确定内积，可以利用前面数量积的平方展开关系。对\(z = a + b i\)，\(w = c + d i\)，定义实内积
+\begin{equation}
+    \begin{aligned}
+        \left\langle z , w \right\rangle
+        &= \frac{N \left( z + w \right) - N \left( z \right) - N \left( w \right)}{2} \\
+        &= \operatorname{Re} \left( z \overline{w} \right) = a c + b d .
+    \end{aligned}
+\end{equation}
+由这个表达式可以验证，它满足数量积的运算律，且\(\left\langle z , z \right\rangle = N \left( z \right) = \left| z \right|^{2}\)。特别地，
+\begin{equation}
+    \left\langle 1 , i \right\rangle = \operatorname{Re} \left( - i \right) = 0 , \qquad
+    \left\langle 1 , 1 \right\rangle = \left\langle i , i \right\rangle = 1 .
+\end{equation}
+这说明基向量\(1 , i\)相互正交，长度都为\(1\)，即构成一组{\heiti{}标准正交基}。
+
+以\(1 , i\)作为坐标轴的正向单位向量，就得到前面的复平面表示；模\(\left| z \right| = \sqrt{\left\langle z , z \right\rangle}\)也正好成为这个平面上的长度。
+
+\subsection{复数的几种表示法}
+\paragraph{1°代数形式} \mbox{}\nopagebreak[4]
+
+\(z = a + b i\)称为复数的{\heiti{}代数形式}。它直接给出实部与虚部，便于进行加减、比较对应坐标，以及由复数等式列出实数方程。
+
+\paragraph{2°三角形式} \mbox{}\nopagebreak[4]
+
+对非零复数\(z = a + b i\)，记\(r = \left| z \right|\)。由实轴正方向转到\(\vec{O Z}\)的角\(\theta\)称为\(z\)的{\heiti{}辐角}。由三角函数的定义，
+\begin{equation}
+    a = r \cos \theta , \quad b = r \sin \theta ,
+\end{equation}
+于是
+\begin{equation}\label{eq:complex-trig}
+    z = r \left( \cos \theta + i \sin \theta \right) .
+\end{equation}
+这称为复数的{\heiti{}三角形式}，也称极形式。它用到原点的距离和方向来描述同一个点。
+
+\begin{center}
+    \includegraphics[width=0.58\linewidth]{complex-plane.pdf}
+\end{center}
+
+同一个非零复数的辐角相差\(2 k \pi\)，其中\(k \in \mathbb{Z}\)。通常选取\(\left( - \pi , \pi \right]\)中的那个值，称为{\heiti{}主辐角}，记为\(\operatorname{Arg} z\)。例如，\(- \sqrt{3} + i\)的模是\(2\)，主辐角为\(\frac{5 \pi}{6}\)，所以
+\begin{equation}
+    - \sqrt{3} + i = 2 \left( \cos \frac{5 \pi}{6} + i \sin \frac{5 \pi}{6} \right) .
+\end{equation}
+
+\paragraph{3°指数形式} \mbox{}\nopagebreak[4]
+
+在实指数函数的基础上，将指数函数扩充到复数，规定
+\begin{equation}
+    e^{x + i y} = e^{x} \left( \cos y + i \sin y \right) , \quad x , y \in \mathbb{R} .
+\end{equation}
+它与实指数函数相容。由和角公式，容易验证
+\begin{equation}
+    e^{z_{1} + z_{2}} = e^{z_{1}} e^{z_{2}} .
+\end{equation}
+特别地，
+\begin{equation}\label{eq:euler-formula}
+    e^{i \theta} = \cos \theta + i \sin \theta .
+\end{equation}
+这个等式称为{\heiti{}欧拉公式}，将三角函数与指数运算联系起来。取\(\theta = \pi\)，便有\(e^{i \pi} + 1 = 0\)。
+
+利用欧拉公式，三角形式可以简写为
+\begin{equation}
+    z = r e^{i \theta} ,
+\end{equation}
+称为复数的{\heiti{}指数形式}。例如，上面的复数也可以写成\(- \sqrt{3} + i = 2 e^{5 \pi i / 6}\)。代数形式、三角形式与指数形式表示的是同一个复数，计算时可以根据问题选择方便的形式。
+
+由定义还可以看出，\(\left| e^{x + i y} \right| = e^{x}\)。指数中的实部决定模，虚部决定方向；共轭与倒数则可以写成
+\begin{equation}
+    \overline{r e^{i \theta}} = r e^{- i \theta} , \qquad
+    \frac{1}{r e^{i \theta}} = \frac{1}{r} e^{- i \theta} .
+\end{equation}
+
+\begin{example}
+将\(- 1 + i\)，\(\sqrt{3} - i\)，\(- 2 i\)分别写成三角形式与指数形式，并指出它们的主辐角。
+\end{example}
+
+{\kaiti{}思考\quad 用模与辐角说明：\(e^{z_{1}} = e^{z_{2}}\)，当且仅当\(z_{1} - z_{2} = 2 k \pi i\)，其中\(k \in \mathbb{Z}\)。}
+
+\subsection{乘除运算与平面变换}
+设两个非零复数为\(z_{1} = r_{1} e^{i \theta_{1}}\)，\(z_{2} = r_{2} e^{i \theta_{2}}\)。由指数运算可得
+\begin{equation}
+    z_{1} z_{2} = r_{1} r_{2} e^{i \left( \theta_{1} + \theta_{2} \right)} , \qquad
+    \frac{z_{1}}{z_{2}} = \frac{r_{1}}{r_{2}} e^{i \left( \theta_{1} - \theta_{2} \right)} .
+\end{equation}
+也就是说，乘法将模相乘、辐角相加；除法将模相除、辐角相减。所得角度是一个辐角，需要主辐角时，再取\(\left( - \pi , \pi \right]\)中的代表。
+
+\begin{samepage}
+乘以固定复数\(c = r e^{i \theta}\)，对应伸缩\(r\)倍与绕原点逆时针旋转\(\theta\)角。例如，乘以\(i\)就是旋转90°；乘以\(1 + i = \sqrt{2} e^{\pi i / 4}\)，就是伸长\(\sqrt{2}\)倍并旋转45°。
+\par
+\end{samepage}
+
+\begin{samepage}
+共轭变换\(z \mapsto \overline{z}\)是关于实轴的镜像。如果镜像轴过原点且与实轴成\(\alpha\)角，先旋转\(- \alpha\)，关于实轴作镜像，再旋转\(\alpha\)，所得变换为
+\par
+\end{samepage}
+\begin{equation}
+    z \longmapsto e^{i \alpha} \overline{e^{- i \alpha} z} = e^{2 i \alpha} \overline{z} .
+\end{equation}
+要绕另一点\(z_{0}\)旋转，只需先用\(z - z_{0}\)表示相对于它的位置，再旋转并移回，所以绕\(z_{0}\)逆时针旋转\(\theta\)角的表达式是
+\begin{equation}\label{eq:complex-rotation-center}
+    z^{\prime} = z_{0} + e^{i \theta} \left( z - z_{0} \right) .
+\end{equation}
+
+{\kaiti{}思考\quad 乘以一个非零复数能将圆变成非圆的椭圆吗？}
+
+\paragraph{矩阵解释*} \mbox{}\nopagebreak[4]
+
+将\(c = a + b i = r e^{i \theta}\)代入前面的矩阵表示，得到
+\begin{equation}
+    A \left( c \right) = \left[ \begin{matrix}a & - b \\ b & a\end{matrix} \right]
+    = r \left[ \begin{matrix}\cos \theta & - \sin \theta \\ \sin \theta & \cos \theta\end{matrix} \right] .
+\end{equation}
+这正好是前一节的伸缩与旋转矩阵。\(\det A \left( c \right) = a^{2} + b^{2} = \left| c \right|^{2}\)，当\(c \ne 0\)时变换可逆，逆变换就是乘以\(1 / c\)。
+
+把复数与式\eqref{eq:complex-matrix}中的矩阵对应，复数的加法与乘法，分别对应矩阵的加法与乘法：
+\begin{equation}
+    A \left( c_{1} + c_{2} \right) = A \left( c_{1} \right) + A \left( c_{2} \right) , \qquad
+    A \left( c_{1} c_{2} \right) = A \left( c_{1} \right) A \left( c_{2} \right) .
+\end{equation}
+第二个等式也可以直接由两个乘法变换的复合得到。数的运算与变换的运算，在这里成为同一个关系的两种表示。镜像公式中的二倍角，也与前一节的镜像矩阵一致。
+
+{\kaiti{}思考\quad 将乘以非零复数的变换与前一节沿两个坐标方向作不同伸缩的变换比较。}
+
+\subsection{代数基本定理*}
+\label{subsec:fundamental-theorem-of-algebra}
+复数使方程\(z^{2} + 1 = 0\)有了解。对于一般的多项式方程，复数范围内也有一个基本的存在性结论。
+
+设
+\begin{equation}
+    P \left( z \right) = a_{n} z^{n} + a_{n - 1} z^{n - 1} + \cdots + a_{1} z + a_{0} ,
+\end{equation}
+其中\(a_{0} , \ldots , a_{n} \in \mathbb{C}\)，\(a_{n} \ne 0\)，\(n \ge 1\)。满足\(P \left( \zeta \right) = 0\)的复数\(\zeta\)称为多项式\(P\)的{\heiti{}零点}，也称方程\(P \left( z \right) = 0\)的{\heiti{}根}。
+
+\begin{theorem}[代数基本定理]\label{thm:fundamental-theorem-of-algebra}
+每个非常数复系数多项式至少有一个复零点。
+\end{theorem}
+
+本节引用这一定理，下面证明它关于因式分解与根的直接推论。
+
+由恒等式
+\begin{equation}
+    z^{k} - \zeta^{k}
+    = \left( z - \zeta \right) \sum_{j = 0}^{k - 1} z^{k - 1 - j} \zeta^{j} ,
+    \quad k \ge 1 ,
+\end{equation}
+可见\(P \left( z \right) - P \left( \zeta \right)\)含有因式\(z - \zeta\)。因此，\(\zeta\)是\(P\)的根，当且仅当\(P\)含有因式\(z - \zeta\)；提出这个因式后，剩下的多项式次数降低一。
+
+\begin{corollary}\label{cor:complex-polynomial-factorization}
+每个\(n\)次复系数多项式都可以分解为\(n\)个一次因式与首项系数的乘积：
+\begin{equation}\label{eq:complex-polynomial-factorization}
+    P \left( z \right) = a_{n} \left( z - \zeta_{1} \right) \left( z - \zeta_{2} \right) \cdots \left( z - \zeta_{n} \right) ,
+    \quad \zeta_{1} , \ldots , \zeta_{n} \in \mathbb{C} .
+\end{equation}
+其中各\(\zeta_{k}\)可以相同。
+\end{corollary}
+
+\begin{proof}
+由代数基本定理，\(P\)有根\(\zeta_{1}\)，所以可以提出因式\(z - \zeta_{1}\)，得到一个\(n - 1\)次多项式。若剩下的多项式仍非常数，再应用代数基本定理并提出一个一次因式。重复这一过程，每次次数降低一，最终得到\(n\)个一次因式；剩下的常数由首项系数确定，等于\(a_{n}\)。
+\end{proof}
+
+在分解式中，同一个根可能重复出现。若正整数\(m\)满足
+\begin{equation}
+    P \left( z \right) = \left( z - \zeta \right)^{m} Q \left( z \right) ,
+    \quad Q \left( \zeta \right) \ne 0 ,
+\end{equation}
+则称\(\zeta\)是\(P\)的{\heiti{}\(m\)重根}，\(m\)称为这个根的{\heiti{}重数}。因此，\(n\)次复系数多项式计重数时恰有\(n\)个根，不同的根至多有\(n\)个。
+
+\begin{proposition}\label{prop:complex-conjugate-roots}
+实系数多项式的非实根成共轭对出现，且一对共轭根的重数相同。
+\end{proposition}
+
+\begin{proof}
+由共轭运算的性质与系数为实数，有\(P \left( \overline{z} \right) = \overline{P \left( z \right)}\)。所以\(P \left( \zeta \right) = 0\)时，也有\(P \left( \overline{\zeta} \right) = 0\)。若\(\zeta\)是\(m\)重根，对分解式取共轭并将变量换为\(\overline{z}\)，得到
+\begin{equation}
+    P \left( z \right) = \left( z - \overline{\zeta} \right)^{m} \overline{Q \left( \overline{z} \right)} .
+\end{equation}
+右侧余下的因式在\(z = \overline{\zeta}\)处等于\(\overline{Q \left( \zeta \right)} \ne 0\)，所以\(\overline{\zeta}\)的重数也等于\(m\)。
+\end{proof}
+
+把一对非实共轭根的因式合并，得到
+\begin{equation}
+    \left( z - \zeta \right) \left( z - \overline{\zeta} \right)
+    = z^{2} - 2 \operatorname{Re} \zeta \cdot z + \left| \zeta \right|^{2} .
+\end{equation}
+这是一个没有实根的实系数二次因式。因此，实系数多项式可以分解为实一次因式与没有实根的实二次因式的乘积；在复数范围内，每个因式都可以分解到一次。
+
+\subsection{乘方与开方}
+将\(z = r e^{i \theta}\)连续相乘，模连续相乘，辐角连续相加。由归纳法易证，对正整数\(n\)，有{\heiti{}棣莫弗公式}：
+\begin{equation}\label{eq:de-moivre}
+    z^{n} = r^{n} e^{i n \theta} = r^{n} \left( \cos n \theta + i \sin n \theta \right) .
+\end{equation}
+利用倒数，公式也适用于负整数次幂。例如，
+\begin{equation}
+    \left( 1 + i \right)^{8} = \left( \sqrt{2} e^{\pi i / 4} \right)^{8} = 16 e^{2 \pi i} = 16 .
+\end{equation}
+三角形式与指数形式，因而特别适合乘方计算。
+
+现在反过来，求满足\(z^{n} = w\)的复数，称为求\(w\)的\(n\)次方根。设\(w = \rho e^{i \varphi} \ne 0\)，\(n \ge 2\)。若\(z = r e^{i \theta}\)，比较模与辐角，就得到
+\begin{equation}
+    r^{n} = \rho , \qquad n \theta = \varphi + 2 k \pi , \quad k \in \mathbb{Z} .
+\end{equation}
+所以全部的根为
+\begin{equation}\label{eq:complex-nth-roots}
+    z_{k} = \rho^{1 / n} e^{i \left( \varphi + 2 k \pi \right) / n} , \qquad k = 0 , 1 , \ldots , n - 1 .
+\end{equation}
+它们互不相同；\(k\)增加\(n\)后，辐角增加\(2 \pi\)，就回到同一个根。这些根的模相同，相邻辐角相差\(2 \pi / n\)，因此在同一个圆周上均匀分布。
+
+\begin{samepage}
+例如，\(- 8 = 8 e^{\pi i}\)，它的三个立方根为
+\begin{equation}
+    2 e^{\pi i / 3} = 1 + \sqrt{3} i , \quad
+    2 e^{\pi i} = - 2 , \quad
+    2 e^{5 \pi i / 3} = 1 - \sqrt{3} i .
+\end{equation}
+它们在半径为\(2\)的圆上构成一个正三角形。
+\par
+\end{samepage}
+
+\(1\)的\(n\)次方根称为{\heiti{}\(n\)次单位根}，由上面的公式得到
+\begin{equation}
+    z_{k} = e^{2 k \pi i / n} , \qquad k = 0 , 1 , \ldots , n - 1 .
+\end{equation}
+\noindent\begin{minipage}{\linewidth}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{6pt}
+例如，六次单位根在单位圆上构成正六边形：
+\begin{center}
+    \includegraphics[width=0.48\linewidth]{complex-roots.pdf}
+\end{center}
+\end{minipage}
+
+\begin{samepage}
+\begin{example}
+（1）计算\(\left( 1 + i \right)^{10}\)。
+\par\nopagebreak[4]
+
+（2）求方程\(z^{4} + 16 = 0\)的全部根，分别写出代数形式与指数形式，并在复平面上标出它们。
+\end{example}
+\par
+\end{samepage}
+
+{\kaiti{}思考\quad 设\(\omega = e^{2 \pi i / n}\)，\(n \ge 2\)。从运算与几何两方面说明\(1 + \omega + \cdots + \omega^{n - 1} = 0\)。}
+
+\subsection{复数在平面几何中的应用}
+复数与平面向量有相同的加法，而复数除法又能同时比较长度与方向。因此，几何关系可以进一步用复数运算表达。
+
+\begin{samepage}
+设互异的点\(A , B , C\)对应复数\(a , b , c\)，则\(b - a\)，\(c - a\)分别表示\(\vec{A B}\)，\(\vec{A C}\)。若从\(\vec{A B}\)转到\(\vec{A C}\)的有向角为\(\theta\)，就有
+\par
+\end{samepage}
+\begin{equation}
+    \frac{c - a}{b - a} = \frac{\left| c - a \right|}{\left| b - a \right|} e^{i \theta} .
+\end{equation}
+商的模给出两边的长度比，辐角给出它们的有向夹角。于是，
+\begin{equation}
+    A , B , C\text{共线} \quad \Longleftrightarrow \quad \frac{c - a}{b - a} \in \mathbb{R} ,
+\end{equation}
+\begin{equation}
+    A B \perp A C \quad \Longleftrightarrow \quad \frac{c - a}{b - a}\text{为纯虚数} .
+\end{equation}
+相应的数量积与面积也可以由同一个乘积得到：
+\begin{equation}
+    \overline{b - a} \left( c - a \right)
+    = \left| b - a \right| \left| c - a \right| \left( \cos \theta + i \sin \theta \right) .
+\end{equation}
+比较实部与虚部，有
+\begin{align}
+    \vec{A B} \cdot \vec{A C} &= \operatorname{Re} \left( \overline{b - a} \left( c - a \right) \right) , \\
+    S_{\triangle A B C} &= \frac{1}{2} \left| \operatorname{Im} \left( \overline{b - a} \left( c - a \right) \right) \right| .
+\end{align}
+
+直线与线段的表示仍然来自向量。过\(a , b\)两点的直线可以写成
+\begin{equation}
+    z = a + t \left( b - a \right) , \quad t \in \mathbb{R} .
+\end{equation}
+取\(0 \le t \le 1\)就得到线段\(A B\)，取\(t = 1 / 2\)就得到中点\(\left( a + b \right) / 2\)。
+
+以\(z_{0}\)为圆心、\(R\)为半径的圆，直接由距离写成
+\begin{equation}
+    \left| z - z_{0} \right| = R .
+\end{equation}
+利用模与共轭的关系，也可以写成
+\begin{equation}
+    z \overline{z} - \overline{z_{0}} z - z_{0} \overline{z} + \left| z_{0} \right|^{2} = R^{2} .
+\end{equation}
+同样，\(\left| z - a \right| = \left| z - b \right|\)表示到两点距离相等，即线段\(A B\)的垂直平分线。这些表达式都直接来自所要描述的几何关系。
+
+\begin{example}
+点\(A , B , C\)分别对应\(a = 1 + i\)，\(b = 3 + i\)，\(c = 2 + \left( 1 + \sqrt{3} \right) i\)。用复数的模与辐角证明\(\triangle A B C\)是正三角形，并求其面积。
+\end{example}
+\begin{exercise}
+（1）计算\(\left( 2 - i \right) \left( 1 + 3 i \right)\)，\(\frac{3 + 4 i}{2 - i}\)，\(i^{2026}\)，\(\left( 1 - i \right)^{12}\)。
+
+（2）设\(z\)满足\(\left( 1 + i \right) z + \left( 2 - i \right) \overline{z} = 5 + i\)，求\(z\)。
+
+（3）将\(- 1 + \sqrt{3} i\)，\(1 - i\)，\(- 3 i\)分别写成三角形式与指数形式；将\(2 e^{3 \pi i / 4}\)，\(e^{- \pi i / 6}\)写成代数形式。
+
+（4）证明\(\operatorname{Re} z = \frac{z + \overline{z}}{2}\)，\(\operatorname{Im} z = \frac{z - \overline{z}}{2 i}\)，并证明\(\left| \left| z_{1} \right| - \left| z_{2} \right| \right| \le \left| z_{1} - z_{2} \right|\)。
+
+（5）设\(z_{1} = 2 e^{5 \pi i / 6}\)，\(z_{2} = 3 e^{\pi i / 3}\)，求\(z_{1} z_{2}\)，\(z_{1} / z_{2}\)的模与主辐角。
+
+（6）说明变换\(z \mapsto \left( \sqrt{3} + i \right) z\)的几何意义，求逆变换，并说明面积怎样变化。\mbox{（*）写出}它在基\(1 , i\)下的矩阵。
+
+（7）以\(1 + i\)为中心，将点\(3 + i\)逆时针旋转\(\pi / 2\)角，求像点的复数。再写出关于过原点、与实轴成\(\pi / 6\)角的直线作镜像的复数表达式。\mbox{（*）写出}镜像变换的矩阵。
+
+（8）用棣莫弗公式推导\(\cos 3 \theta = 4 \cos^{3} \theta - 3 \cos \theta\)与\(\sin 3 \theta = 3 \sin \theta - 4 \sin^{3} \theta\)。
+
+（9）求\(z^{3} = 8 i\)与\(z^{4} = 16 i\)的全部根，画出它们在复平面上的位置。
+
+（10）设\(\omega = e^{2 \pi i / 5}\)，证明\(1 + \omega + \omega^{2} + \omega^{3} + \omega^{4} = 0\)，并由此求\(\cos \frac{2 \pi}{5}\)的值。
+
+（11）说明下列集合表示什么图形，并写出相应的直角坐标方程：\\
+（a）\(\left| z - \left( 1 + i \right) \right| = 2\)；\\
+（b）\(\left| z - 1 \right| = \left| z + 1 \right|\)；\\
+（c）\(\operatorname{Re} \left( \left( 1 - i \right) z \right) = 1\)。
+
+（12）已知不同的两点\(A , B\)对应复数\(a , b\)。求以\(A B\)为边的两个正三角形的第三个顶点，并求它们的重心。
+
+（13）点\(A , B , C\)分别对应\(1 + i\)，\(4 + i\)，\(2 + 3 i\)。用复数求\(\triangle A B C\)的面积与\(\angle B A C\)的余弦。
+
+（14）设\(\left| z - 1 \right| = 2\)，求\(\left| z \right|\)的最大值与最小值，并求取到极值时的\(z\)。
+
+（15*）将\(\mathbb{C}\)看成二维实线性空间。证明任意线性变换都可以写成\(T \left( z \right) = \alpha z + \beta \overline{z}\)，其中\(\alpha , \beta \in \mathbb{C}\)。若它在基\(1 , i\)下的矩阵为\(\left[ \begin{smallmatrix}p & q \\ r & s\end{smallmatrix} \right]\)，求\(\alpha , \beta\)。
+\end{exercise}

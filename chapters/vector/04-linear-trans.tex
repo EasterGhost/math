@@ -1,0 +1,317 @@
+\section{线性变换*}
+有了向量的加法与数乘，就可以用线性组合描述空间中的向量。现在考虑空间之间的映射：如果先做线性组合再进行映射，与先进行映射再做同样的线性组合，所得结果一致，这样的映射就保持了线性空间的运算结构。
+
+\subsection{线性变换}
+\begin{definition}\label{def:linmap}
+设\(V , W\)是实线性空间。如果映射\(T : V \longrightarrow W\)对任意\(a , b \in V\)和实数\(k , s\)都满足
+\begin{equation}
+    T \left( k a + s b \right) = k T \left( a \right) + s T \left( b \right) ,
+\end{equation}
+则称\(T\)为线性映射，也称线性变换。当\(W = V\)时，称为\(V\)上的线性变换。
+\end{definition}
+
+上式也可以分为两个要求：可加性\(T \left( a + b \right) = T \left( a \right) + T \left( b \right)\)与齐次性\(T \left( k a \right) = k T \left( a \right)\)。自然地，线性变换将零向量映为零向量，并且保持任意有限个向量的线性组合。
+
+例如，平面上的伸缩\(T \left( x , y \right) = \left( 2 x , 3 y \right)\)是线性变换，\(T \left( x , y \right) = \left( x + y , y \right)\)也是线性变换。前者将单位圆变成椭圆，后者将单位正方形变成平行四边形。
+
+线性变换还与直线有直接联系。将直线上的点写成\(a + t b\)，则
+\begin{equation}
+    T \left( a + t b \right) = T \left( a \right) + t T \left( b \right) .
+\end{equation}
+所以直线的像仍是直线，或在\(T \left( b \right) = \vec{0}\)时成为一个点。线性变换的定义从运算出发，而直线、平面等几何对象的变化也就随之确定。
+
+{\kaiti{}思考\quad 平移\(T \left( a \right) = a + b\)（\(b \ne \vec{0}\)）为什么不是线性变换？}
+
+\subsection{线性变换的矩阵表示}
+一组基能够表示整个空间，因此，要确定一个线性变换，只需知道这组基中的向量被映到哪里。
+
+\begin{theorem}\label{thm:linmap-basis}
+设\(e_{1} , \ldots , e_{n}\)是\(V\)的一组基，则线性映射\(T : V \longrightarrow W\)由\(T \left( e_{1} \right) , \ldots , T \left( e_{n} \right)\)完全决定。反过来，任意给定\(w_{1} , \ldots , w_{n} \in W\)，都恰好确定一个满足\(T \left( e_{j} \right) = w_{j}\)的线性映射。
+\end{theorem}
+
+证明是直接的。将任意向量写成\(a = x_{1} e_{1} + \cdots + x_{n} e_{n}\)，由线性性有
+\begin{equation}\label{eq:linmap-basis-expansion}
+    T \left( a \right) = x_{1} T \left( e_{1} \right) + \cdots + x_{n} T \left( e_{n} \right) .
+\end{equation}
+所以基向量的像确定后，任意向量的像都确定了。反过来，任取\(w_{1} , \ldots , w_{n} \in W\)，按\(T \left( a \right) = x_{1} w_{1} + \cdots + x_{n} w_{n}\)规定映射，坐标的唯一性保证它有确定的意义，且由坐标的运算容易验证它是线性的。
+
+当\(W\)也是有限维空间时，取它的一组基\(f_{1} , \ldots , f_{m}\)，将每个像\(T \left( e_{j} \right)\)写成坐标形式：
+\begin{equation}
+    T \left( e_{j} \right) = a_{1 j} f_{1} + a_{2 j} f_{2} + \cdots + a_{m j} f_{m} .
+\end{equation}
+将这些坐标按列排列，得到
+\begin{equation}
+    A = \left[ \begin{matrix}
+        a_{11} & a_{12} & \cdots & a_{1 n} \\
+        a_{21} & a_{22} & \cdots & a_{2 n} \\
+        \vdots & \vdots & & \vdots \\
+        a_{m 1} & a_{m 2} & \cdots & a_{m n}
+    \end{matrix} \right] .
+\end{equation}
+这样的长方形数表称为{\heiti{}矩阵}，这里有\(m\)行、\(n\)列，称为\(m \times n\)矩阵。它就是\(T\)在所选两组基下的矩阵。
+
+将式\eqref{eq:linmap-basis-expansion}中的各个像用坐标展开，得到
+\begin{equation}
+    T \left( a \right)
+    = \sum_{i = 1}^{m} \left( \sum_{j = 1}^{n} a_{i j} x_{j} \right) f_{i} .
+\end{equation}
+所以，如果\(T \left( a \right)\)的坐标为\(\left( y_{1} , \ldots , y_{m} \right)\)，就有\(y_{i} = \sum_{j = 1}^{n} a_{i j} x_{j}\)。将坐标写成列的形式，分别记为\(X , Y\)，便可以记作
+\begin{equation}
+    Y = A X .
+\end{equation}
+例如二维情况下，这个运算就是
+\begin{equation}
+    \left[ \begin{matrix}y_{1} \\ y_{2}\end{matrix} \right]
+    = \left[ \begin{matrix}a_{11} & a_{12} \\ a_{21} & a_{22}\end{matrix} \right]
+      \left[ \begin{matrix}x_{1} \\ x_{2}\end{matrix} \right]
+    = \left[ \begin{matrix}a_{11} x_{1} + a_{12} x_{2} \\ a_{21} x_{1} + a_{22} x_{2}\end{matrix} \right] .
+\end{equation}
+矩阵与坐标列的乘法规则，就是由线性变换自然导出的。求一个线性变换的矩阵，基本方法也是求各个基向量的像，将它们的坐标按列排列。矩阵表示依赖于基的选择，同一个变换在不同基下的矩阵一般不同。
+
+\begin{example}
+设\(T\)是\(\mathbb{R}^{2}\)上的线性变换，已知\(T \left( 1 , 0 \right) = \left( 1 , 2 \right)\)，\(T \left( 0 , 1 \right) = \left( 3 , - 1 \right)\)，求\(T \left( 2 , 1 \right)\)与\(T\)在标准基下的矩阵。
+\end{example}
+
+\subsection{几种平面上的线性变换}
+以下固定原点，以点的位置向量表示该点，并使用通常的正交单位基。这样，平面上点的变换就可以用向量的线性变换描述。
+
+\paragraph{1°伸缩变换} \mbox{}
+
+将横、纵坐标分别伸缩为原来的\(a , b\)倍（\(a , b > 0\)），即
+\begin{equation}
+    x^{\prime} = a x , \quad y^{\prime} = b y .
+\end{equation}
+两个标准基向量的像分别为\(\left( a , 0 \right)\)与\(\left( 0 , b \right)\)，故矩阵为
+\begin{equation}
+    \left[ \begin{matrix}a & 0 \\ 0 & b\end{matrix} \right] .
+\end{equation}
+单位圆上的点满足\(x^{2} + y^{2} = 1\)，变换后便满足
+\begin{equation}
+    \frac{\left( x^{\prime} \right)^{2}}{a^{2}} + \frac{\left( y^{\prime} \right)^{2}}{b^{2}} = 1 .
+\end{equation}
+所以沿两个坐标方向作不同的伸缩，就将圆变成了椭圆。用变换研究曲线，就是先描述点怎样变化，再求所有像点满足的关系。
+
+\paragraph{2°旋转变换} \mbox{}
+
+将平面绕原点逆时针旋转\(\theta\)角。直接追踪任意一个点，需要处理它的位置与角度；但只需看两个标准基向量，问题就简单了。它们旋转后的坐标分别为
+\begin{equation}
+    \left( \cos \theta , \sin \theta \right) , \quad
+    \left( - \sin \theta , \cos \theta \right) .
+\end{equation}
+因此旋转矩阵为
+\begin{equation}
+    R_{\theta} = \left[ \begin{matrix}
+        \cos \theta & - \sin \theta \\
+        \sin \theta & \cos \theta
+    \end{matrix} \right] .
+\end{equation}
+任意点的像由这个矩阵直接计算，不必再对每个点作几何推导。
+
+\paragraph{3°投影变换} \mbox{}
+
+设过原点的直线与\(x\)轴成\(\theta\)角，沿它的一个单位向量为\(u = \left( \cos \theta , \sin \theta \right)\)。向量\(v\)在这条直线上的正交投影为
+\begin{equation}
+    P \left( v \right) = \left( v \cdot u \right) u .
+\end{equation}
+由数量积的运算律，容易验证\(P\)是线性变换。两个标准基向量的投影分别为
+\begin{equation}
+    \cos \theta \, u = \left( \cos^{2} \theta , \cos \theta \sin \theta \right) ,
+    \quad
+    \sin \theta \, u = \left( \cos \theta \sin \theta , \sin^{2} \theta \right) ,
+\end{equation}
+所以投影矩阵为
+\begin{equation}
+    P_{\theta} = \left[ \begin{matrix}
+        \cos^{2} \theta & \cos \theta \sin \theta \\
+        \cos \theta \sin \theta & \sin^{2} \theta
+    \end{matrix} \right] .
+\end{equation}
+垂直于这条直线的分量被投影为零，而沿直线的分量保持原样。因此，投影后通常无法恢复原向量：许多不同的向量会有相同的投影。
+
+\paragraph{4°镜像变换} \mbox{}
+
+将向量关于上述直线作镜像。若将\(v\)分成沿直线与垂直直线的两个分量，镜像保持前者而将后者反向，故
+\begin{equation}
+    M \left( v \right) = P \left( v \right) - \left( v - P \left( v \right) \right)
+    = 2 P \left( v \right) - v .
+\end{equation}
+由投影矩阵和二倍角公式，得到镜像矩阵
+\begin{equation}
+    M_{\theta} = \left[ \begin{matrix}
+        \cos 2 \theta & \sin 2 \theta \\
+        \sin 2 \theta & - \cos 2 \theta
+    \end{matrix} \right] .
+\end{equation}
+特别地，关于\(y = x\)的翻折对应\(\theta = \frac{\pi}{4}\)，矩阵为\(\left[ \begin{matrix}0 & 1 \\ 1 & 0\end{matrix} \right]\)，作用就是交换两个坐标。
+
+\paragraph{5°错切变换} \mbox{}
+
+变换\(x^{\prime} = x + k y\)，\(y^{\prime} = y\)的矩阵为
+\begin{equation}
+    H_{k} = \left[ \begin{matrix}1 & k \\ 0 & 1\end{matrix} \right] .
+\end{equation}
+它保持纵坐标，将高度为\(y\)的点沿水平方向移动\(k y\)。因此\(x\)轴上的点不动，单位正方形变成平行四边形。这种变换称为错切变换。
+
+{\kaiti{}思考\quad 上述变换中，哪些保持向量的长度与夹角？错切变换保持图形的面积吗？}
+
+\subsection{变换的复合与矩阵乘法}
+先做一个变换，再做另一个变换，就是第二章中的映射复合。设\(T : \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}\)的矩阵为\(A\)，\(S : \mathbb{R}^{m} \longrightarrow \mathbb{R}^{p}\)的矩阵为\(B\)，中间空间使用同一组基。由
+\begin{equation}
+    Y = A X , \quad Z = B Y
+\end{equation}
+可知，复合变换\(S \circ T\)应当由一个\(p \times n\)矩阵表示。它的第\(j\)列，就是\(S \left( T \left( e_{j} \right) \right)\)的坐标。将\(T \left( e_{j} \right)\)的坐标\(a_{1 j} , \ldots , a_{m j}\)代入\(S\)，得到第\(i\)个坐标
+\begin{equation}
+    c_{i j} = \sum_{k = 1}^{m} b_{i k} a_{k j} .
+\end{equation}
+以这些数为元素的矩阵称为\(B\)与\(A\)的乘积，记为\(B A\)，于是\(Z = \left( B A \right) X\)。这就是{\heiti{}矩阵乘法}：左边矩阵的第\(i\)行与右边矩阵的第\(j\)列，对应相乘再相加，得到乘积的第\(i\)行、第\(j\)列元素。
+
+矩阵乘法之所以要求左边矩阵的列数等于右边矩阵的行数，是因为前一个变换的像，必须能作为后一个变换的输入。注意，先做\(T\)再做\(S\)，对应的乘积是\(B A\)，次序与复合\(S \circ T\)一致。
+
+\begin{example}
+将横坐标伸长为原来的\(2\)倍，纵坐标不变，再绕原点逆时针旋转90°。如果交换这两个变换的次序，结果相同吗？
+\end{example}
+
+记伸缩矩阵为\(D = \left[ \begin{matrix}2 & 0 \\ 0 & 1\end{matrix} \right]\)，旋转矩阵为\(R = \left[ \begin{matrix}0 & - 1 \\ 1 & 0\end{matrix} \right]\)，则
+\begin{equation}
+    R D = \left[ \begin{matrix}0 & - 1 \\ 2 & 0\end{matrix} \right] ,
+    \quad
+    D R = \left[ \begin{matrix}0 & - 2 \\ 1 & 0\end{matrix} \right] .
+\end{equation}
+前者将\(\left( x , y \right)\)映为\(\left( - y , 2 x \right)\)，后者映为\(\left( - 2 y , x \right)\)，结果不同。矩阵乘法一般不满足交换律；但由映射复合的结合律，矩阵乘法满足结合律。
+
+矩阵的加法与数乘按各个元素进行：\(\left( A + B \right)_{i j} = a_{i j} + b_{i j}\)，\(\left( k A \right)_{i j} = k a_{i j}\)。它们分别对应线性映射的相加与数乘。乘法对加法的分配律，也可以由变换的作用直接验证。
+
+将每个向量保持原样的变换称为恒等变换，它在同一组基下的矩阵为
+\begin{equation}
+    I_{n} = \left[ \begin{matrix}
+        1 & 0 & \cdots & 0 \\
+        0 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & 1
+    \end{matrix} \right] ,
+\end{equation}
+称为\(n\)阶单位矩阵。容易知道，\(A I_{n} = I_{m} A = A\)，其中\(A\)为\(m \times n\)矩阵。
+
+{\kaiti{}思考\quad 用变换的几何意义说明\(R_{\alpha} R_{\beta} = R_{\alpha + \beta}\)，并通过矩阵乘法重新得到正弦、余弦的和角公式。}
+
+\subsection{像、核与线性方程组}
+投影将整个平面映到一条直线上，并将垂直于该直线的向量全部映为零。一般地，线性变换所能得到的向量，与被它映为零的向量，分别组成两个重要的子空间。
+
+设\(T : V \longrightarrow W\)是线性映射。它的值域称为{\heiti{}像}，记为
+\begin{equation}
+    \operatorname{Im} T = T \left( V \right) = \left\{ T \left( a \right) \mid a \in V \right\} .
+\end{equation}
+被映为零向量的向量组成的集合称为{\heiti{}核}，记为
+\begin{equation}
+    \ker T = \left\{ a \in V \mid T \left( a \right) = \vec{0} \right\} .
+\end{equation}
+由线性性，容易验证像是\(W\)的子空间，核是\(V\)的子空间。像由各个基向量的像张成，因而在矩阵表示中，就是由矩阵各列张成的空间。
+
+当\(V\)有限维时，像的维数称为\(T\)的{\heiti{}秩}，也称它的矩阵的秩。例如，可逆伸缩的秩是\(2\)，投影到直线的秩是\(1\)。投影后少了一个独立的坐标，恰好对应核中的一个方向。
+
+\begin{theorem}\label{thm:rank-nullity}
+设\(T : V \longrightarrow W\)是线性映射，且\(\dim V = n\)，则
+\begin{equation}
+    \dim \ker T + \dim \operatorname{Im} T = n .
+\end{equation}
+\end{theorem}
+
+证明的想法是先取核的一组基，再将它补成\(V\)的一组基。设核的基为\(e_{1} , \ldots , e_{k}\)，补成\(e_{1} , \ldots , e_{k} , e_{k + 1} , \ldots , e_{n}\)。前\(k\)个基向量的像全为零，所以后面\(n - k\)个像张成\(\operatorname{Im} T\)。它们又线性无关：如果
+\begin{equation}
+    c_{k + 1} T \left( e_{k + 1} \right) + \cdots + c_{n} T \left( e_{n} \right) = \vec{0} ,
+\end{equation}
+则\(c_{k + 1} e_{k + 1} + \cdots + c_{n} e_{n}\)属于核，可以用前\(k\)个基向量表示。由整组基的线性无关性，所有\(c_{i}\)都为零。因此像的维数是\(n - k\)，定理得证。
+
+现在回到线性方程组。将未知量与常数项分别写成列\(X , B\)，系数写成矩阵\(A\)，方程组就可以记为
+\begin{equation}
+    A X = B .
+\end{equation}
+它有解，当且仅当\(B\)属于\(A\)的各列张成的空间。齐次方程组\(A X = 0\)的解集，就是相应线性映射的核。
+
+如果已经找到非齐次方程组的一个解\(X_{0}\)，那么
+\begin{equation}
+    A X = B \quad \Longleftrightarrow \quad A \left( X - X_{0} \right) = 0 .
+\end{equation}
+所以全部解就是\(X_{0}\)加上齐次方程组的全部解。若核的基为\(u_{1} , \ldots , u_{k}\)，就可以写成
+\begin{equation}
+    X = X_{0} + t_{1} u_{1} + \cdots + t_{k} u_{k} .
+\end{equation}
+这里自由参数的个数为\(k = n - \operatorname{rank} A\)。于是，线性空间中的基、维数、像与核，都有了方程组中的具体含义。
+
+{\kaiti{}思考\quad 对投影到\(x\)轴的变换，给定一个像点后，原来的点有哪些？用方程组的解与核分别描述。}
+
+\subsection{可逆变换}
+伸缩可以用反向的伸缩恢复，旋转可以用反向的旋转恢复；投影却丢失了垂直方向的信息。这就引出可逆性的问题。
+
+设\(T\)是\(n\)维空间\(V\)上的线性变换。如果它是一一对应的，就有逆映射\(T^{- 1}\)，称\(T\)为{\heiti{}可逆线性变换}。若\(T \left( a \right) = u\)，\(T \left( b \right) = v\)，则\(T \left( k a + s b \right) = k u + s v\)，故\(T^{- 1} \left( k u + s v \right) = k a + s b\)。因此逆映射也线性。
+
+判断可逆性仍可从基向量入手：\(T\)可逆，当且仅当一组基的像仍是一组基。如果这些像线性无关，就构成\(V\)的一组基，每个目标向量都有唯一的原像；而它们线性无关，当且仅当\(\ker T = \left\{ \vec{0} \right\}\)。因此，对有限维空间上的线性变换，核只含零向量、秩等于\(n\)、变换可逆是等价的。
+
+若\(A\)是\(T\)在同一组基下的矩阵，则\(T^{- 1}\)的矩阵记为\(A^{- 1}\)，称为\(A\)的{\heiti{}逆矩阵}。由两个变换的复合是恒等变换，得到
+\begin{equation}
+    A^{- 1} A = A A^{- 1} = I_{n} .
+\end{equation}
+例如，伸缩矩阵的逆矩阵为\(\left[ \begin{matrix}1 / a & 0 \\ 0 & 1 / b\end{matrix} \right]\)，旋转矩阵\(R_{\theta}\)的逆矩阵为\(R_{- \theta}\)。
+
+对二阶矩阵，有具体的计算公式：
+\begin{equation}
+    A = \left[ \begin{matrix}a & b \\ c & d\end{matrix} \right] ,
+    \qquad
+    A^{- 1} = \frac{1}{a d - b c} \left[ \begin{matrix}d & - b \\ - c & a\end{matrix} \right]
+    \quad \left( a d - b c \ne 0 \right) .
+\end{equation}
+直接相乘即可验证。当\(a d - b c = 0\)时，两列线性相关，故不可逆。数\(a d - b c\)称为这个矩阵的二阶行列式，记为\(\det A\)。这里，它判断的是两个列向量能否构成一组基。
+
+若\(A\)可逆，线性方程组\(A X = B\)就有唯一解\(X = A^{- 1} B\)。这也可以由核只含零向量、像为整个空间直接看出。
+
+{\kaiti{}思考\quad 若\(A , B\)都可逆，证明\(\left( B A \right)^{- 1} = A^{- 1} B^{- 1}\)，并从连续做两个变换、再恢复原向量的过程说明次序为什么如此。}
+
+\begin{exercise}
+（1）判断下列映射是否为\(\mathbb{R}^{2}\)上的线性变换：\\
+（a）\(T \left( x , y \right) = \left( x + 1 , y \right)\)；\\
+（b）\(T \left( x , y \right) = \left( x^{2} , y \right)\)；\\
+（c）\(T \left( x , y \right) = \left( 2 x - y , x + 3 y \right)\)。
+
+（2）写出下列变换在标准基下的矩阵，并判断是否可逆：\\
+（a）横坐标伸长为原来的\(3\)倍，纵坐标不变；\\
+（b）绕原点逆时针旋转90°；\\
+（c）正交投影到直线\(y = x\)上；\\
+（d）关于直线\(y = - x\)作镜像；\\
+（e）\(x^{\prime} = x + 2 y\)，\(y^{\prime} = y\)。
+
+（3）设\(e_{1} = \left( 1 , 0 \right)\)，\(e_{2} = \left( 0 , 1 \right)\)，线性变换\(T\)满足\(T \left( e_{1} \right) = \left( 2 , - 1 \right)\)，\(T \left( e_{2} \right) = \left( 1 , 1 \right)\)。求\(T \left( 3 , 2 \right)\)、\(T\)的矩阵与逆矩阵，并求满足\(T \left( x , y \right) = \left( 1 , 2 \right)\)的向量。
+
+（4）对线性映射\(T : \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2}\)，\(T \left( x , y , z \right) = \left( x + z , y + z \right)\)，求矩阵、像与核，并写出方程\(T \left( x , y , z \right) = \left( 1 , 2 \right)\)的全部解。
+
+\begin{samepage}
+（5）先将平面绕原点逆时针旋转\(\theta\)角，再沿两个坐标方向分别伸缩\(a , b\)倍（\(a , b > 0\)），写出复合变换的矩阵。如果交换次序，什么条件下矩阵相同？
+\par
+\end{samepage}
+
+（6）证明：投影矩阵满足\(P_{\theta}^{2} = P_{\theta}\)，镜像矩阵满足\(M_{\theta}^{2} = I_{2}\)。从几何上解释这两个等式，并求它们各自的像与核。
+
+（7）设\(f_{1} = \left( 1 , 1 \right)\)，\(f_{2} = \left( 1 , 2 \right)\)。求旋转90°的变换在这组基下的矩阵，与标准基下的矩阵比较。
+
+（8）设\(T\)是\(\mathbb{R}^{2}\)上的线性变换，已知\(T \left( 1 , 1 \right) = \left( 3 , 1 \right)\)，\(T \left( 1 , - 1 \right) = \left( 1 , 3 \right)\)。求\(T \left( 2 , 3 \right)\)与\(T\)在标准基下的矩阵，并判断是否可逆。
+
+（9）设\(T : \mathbb{R}^{4} \longrightarrow \mathbb{R}^{3}\)是线性映射，核的维数为\(2\)。求\(T\)的秩，判断它能否将\(\mathbb{R}^{4}\)映满\(\mathbb{R}^{3}\)。若\(T \left( X \right) = B\)有解，写出全部解的一般形式，并说明独立参数的个数。
+
+（10）对线性变换
+\begin{equation*}
+    T \left( x , y , z \right) = \left( x + z , y + z , x + y + t z \right) ,
+\end{equation*}
+讨论\(t\)取何值时\(T\)可逆；不可逆时，求像与核的一组基。对不同的\(t\)，求方程\(T \left( x , y , z \right) = \left( 1 , 1 , 2 \right)\)的全部解。
+
+（11）将单位圆\(x^{2} + y^{2} = 1\)先沿\(x\)轴伸长为原来的\(2\)倍，再绕原点逆时针旋转45°。记像点为\(\left( x^{\prime} , y^{\prime} \right)\)，求变换的矩阵与像曲线的方程，并求原点到像曲线上点的距离的最大值与最小值。
+
+（12）设\(T\)是线性空间\(V\)上的线性变换，满足\(T^{2} = T\)。证明：对任意\(v \in V\)，\(T \left( v \right)\)属于像，而\(v - T \left( v \right)\)属于核；像与核的交集只含零向量。由此证明，每个向量都可以唯一地表示为像中的一个向量与核中的一个向量之和。
+
+（13）设\(T \left( x , y \right) = \left( x + y , y \right)\)。分别求直线\(y = x\)的像与原像的方程，并求单位圆的像方程。判断像曲线是否关于坐标轴对称。
+
+（14）设\(S , T\)是有限维空间\(V\)上的线性变换。证明：若\(S \circ T\)可逆，则\(S\)与\(T\)都可逆。指出证明中使用有限维条件的步骤。
+
+（15）在\(P_{2}\)上规定\(T \left( p \right) \left( x \right) = p \left( x + 1 \right)\)。求\(T\)在基\(1 , x , x^{2}\)下的矩阵与逆变换，并与平面上的平移比较。
+
+（16）在函数空间\(V = \operatorname{span}\left( \sin x , \cos x \right)\)上规定\(T_{\varphi} \left( f \right) \left( x \right) = f \left( x + \varphi \right)\)。证明它是线性变换，求其在基\(\sin x , \cos x\)下的矩阵、逆变换，并与平面旋转比较。
+\end{exercise}
+\newpage
