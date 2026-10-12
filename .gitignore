@@ -20,3 +20,5 @@
 *.eps
 *.xdv
 .vscode/
+docs/
+tmp/

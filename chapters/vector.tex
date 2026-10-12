@@ -1,4 +1,4 @@
-\chapter{几何专题}
+\chapter{向量代数}
 
 \section{向量}
 数学是从认识和研究图形和数开始的。大体上可以说，图形的优点是直观形象，能更直接地用来描述我们周围的世界，也更容易理解。但图形不便于用于计算，利用几何推理的方法来研究图形，灵活性、偶然性太大，不容易掌握。数的优点是有比较死板的方法进行运算，便于掌握，但比图形更抽象，将客观世界用数来描述的难度更大一些。笛卡尔引进了坐标之后，打破了数与形的界限，将几何图形最基本的元素——点用坐标来表示，将曲线、曲面用方程来表示，通过对坐标和方程的代数运算来研究几何图形的性质，这就是解析几何。
@@ -1017,6 +1017,69 @@
 第二个等式也可以直接由两个乘法变换的复合得到。数的运算与变换的运算，在这里成为同一个关系的两种表示。镜像公式中的二倍角，也与前一节的镜像矩阵一致。
 
 {\kaiti{}思考\quad 将乘以非零复数的变换与前一节沿两个坐标方向作不同伸缩的变换比较。}
+
+\subsection{代数基本定理*}
+\label{subsec:fundamental-theorem-of-algebra}
+复数使方程\(z^{2} + 1 = 0\)有了解。对于一般的多项式方程，复数范围内也有一个基本的存在性结论。
+
+设
+\begin{equation}
+    P \left( z \right) = a_{n} z^{n} + a_{n - 1} z^{n - 1} + \cdots + a_{1} z + a_{0} ,
+\end{equation}
+其中\(a_{0} , \ldots , a_{n} \in \mathbb{C}\)，\(a_{n} \ne 0\)，\(n \ge 1\)。满足\(P \left( \zeta \right) = 0\)的复数\(\zeta\)称为多项式\(P\)的{\heiti{}零点}，也称方程\(P \left( z \right) = 0\)的{\heiti{}根}。
+
+\begin{theorem}[代数基本定理]\label{thm:fundamental-theorem-of-algebra}
+每个非常数复系数多项式至少有一个复零点。
+\end{theorem}
+
+本节引用这一定理，下面证明它关于因式分解与根的直接推论。
+
+由恒等式
+\begin{equation}
+    z^{k} - \zeta^{k}
+    = \left( z - \zeta \right) \sum_{j = 0}^{k - 1} z^{k - 1 - j} \zeta^{j} ,
+    \quad k \ge 1 ,
+\end{equation}
+可见\(P \left( z \right) - P \left( \zeta \right)\)含有因式\(z - \zeta\)。因此，\(\zeta\)是\(P\)的根，当且仅当\(P\)含有因式\(z - \zeta\)；提出这个因式后，剩下的多项式次数降低一。
+
+\begin{corollary}\label{cor:complex-polynomial-factorization}
+每个\(n\)次复系数多项式都可以分解为\(n\)个一次因式与首项系数的乘积：
+\begin{equation}\label{eq:complex-polynomial-factorization}
+    P \left( z \right) = a_{n} \left( z - \zeta_{1} \right) \left( z - \zeta_{2} \right) \cdots \left( z - \zeta_{n} \right) ,
+    \quad \zeta_{1} , \ldots , \zeta_{n} \in \mathbb{C} .
+\end{equation}
+其中各\(\zeta_{k}\)可以相同。
+\end{corollary}
+
+\begin{proof}
+由代数基本定理，\(P\)有根\(\zeta_{1}\)，所以可以提出因式\(z - \zeta_{1}\)，得到一个\(n - 1\)次多项式。若剩下的多项式仍非常数，再应用代数基本定理并提出一个一次因式。重复这一过程，每次次数降低一，最终得到\(n\)个一次因式；剩下的常数由首项系数确定，等于\(a_{n}\)。
+\end{proof}
+
+在分解式中，同一个根可能重复出现。若正整数\(m\)满足
+\begin{equation}
+    P \left( z \right) = \left( z - \zeta \right)^{m} Q \left( z \right) ,
+    \quad Q \left( \zeta \right) \ne 0 ,
+\end{equation}
+则称\(\zeta\)是\(P\)的{\heiti{}\(m\)重根}，\(m\)称为这个根的{\heiti{}重数}。因此，\(n\)次复系数多项式计重数时恰有\(n\)个根，不同的根至多有\(n\)个。
+
+\begin{proposition}\label{prop:complex-conjugate-roots}
+实系数多项式的非实根成共轭对出现，且一对共轭根的重数相同。
+\end{proposition}
+
+\begin{proof}
+由共轭运算的性质与系数为实数，有\(P \left( \overline{z} \right) = \overline{P \left( z \right)}\)。所以\(P \left( \zeta \right) = 0\)时，也有\(P \left( \overline{\zeta} \right) = 0\)。若\(\zeta\)是\(m\)重根，对分解式取共轭并将变量换为\(\overline{z}\)，得到
+\begin{equation}
+    P \left( z \right) = \left( z - \overline{\zeta} \right)^{m} \overline{Q \left( \overline{z} \right)} .
+\end{equation}
+右侧余下的因式在\(z = \overline{\zeta}\)处等于\(\overline{Q \left( \zeta \right)} \ne 0\)，所以\(\overline{\zeta}\)的重数也等于\(m\)。
+\end{proof}
+
+把一对非实共轭根的因式合并，得到
+\begin{equation}
+    \left( z - \zeta \right) \left( z - \overline{\zeta} \right)
+    = z^{2} - 2 \operatorname{Re} \zeta \cdot z + \left| \zeta \right|^{2} .
+\end{equation}
+这是一个没有实根的实系数二次因式。因此，实系数多项式可以分解为实一次因式与没有实根的实二次因式的乘积；在复数范围内，每个因式都可以分解到一次。
 
 \subsection{乘方与开方}
 将\(z = r e^{i \theta}\)连续相乘，模连续相乘，辐角连续相加。由归纳法易证，对正整数\(n\)，有{\heiti{}棣莫弗公式}：
