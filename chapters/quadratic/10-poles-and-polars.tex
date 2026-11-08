@@ -1,0 +1,323 @@
+\newpage
+\section{极点极线}
+\label{sec:quadratic-poles-and-polars}
+
+上一节中，曲线上一点给出一条切线，曲线外一点又可以给出一条切点弦所在直线，而它们的方程具有相同形式。现在将这个形式用于一般点，建立点与直线之间的对应，再用它重新研究弦、直径、焦点与准线。
+
+\subsection{极点与极线}
+\label{subsec:quadratic-poles-and-polars}
+
+设二次曲线\(C\)的方程为
+\begin{equation*}
+ \Phi(x,y)=Ax^2+Bxy+Cy^2+Dx+Ey+F=0.
+\end{equation*}
+对任意点\(P=(u,v)\)，在式\eqref{eq:quadratic-symmetric-tangent}中将切点坐标换成\((u,v)\)，得到
+\begin{equation}\label{eq:quadratic-general-polar}
+ T(P,X)=Aux+\frac B2(uy+vx)+Cvy
+ +\frac D2(x+u)+\frac E2(y+v)+F=0.
+\end{equation}
+
+\begin{definition}
+对给定的非退化二次曲线，若式\eqref{eq:quadratic-general-polar}表示一条直线，则称其为点\(P\)关于该曲线的{\heiti{}极线}，记为\(\ell_P\)；称\(P\)为这条直线关于该曲线的{\heiti{}极点}。
+\end{definition}
+
+定义中始终固定所研究的曲线。同一点关于不同曲线的极线通常不同。极点也不是极坐标系中的坐标原点，后者是另一种用途的名称。
+
+由定义，曲线上一点的极线就是该点处的切线；若从一点可以作两条不同的实切线，则其极线就是切点弦所在直线。定义还适用于没有实切线的点，并不要求先作出两个切点。
+
+各类标准方程的极线如下：
+\begin{center}
+\renewcommand{\arraystretch}{1.65}
+\begin{tabular}{c|c}
+曲线 & 点\(P=(u,v)\)的极线 \\ \hline
+\(x^2+y^2=R^2\) & \(ux+vy=R^2\) \\
+\(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\) & \(\dfrac{ux}{a^2}+\dfrac{vy}{b^2}=1\) \\
+\(\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\) & \(\dfrac{ux}{a^2}-\dfrac{vy}{b^2}=1\) \\
+\(y^2=2px\) & \(vy=p(x+u)\)
+\end{tabular}
+\end{center}
+
+以圆为例，\(P\ne O\)时，极线垂直于\(OP\)，与\(OP\)的交点\(H\)满足\(\overrightarrow{OH}=R^2\overrightarrow{OP}/|OP|^2\)。所以\(P\)在圆外时极线穿过圆，在圆上时极线与圆相切，在圆内时极线位于圆外。点的位置改变，统一方程仍然成立。
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=.60\linewidth]{conic-polar}
+ \caption{圆外点的极线是切点弦所在直线}
+ \label{fig:quadratic-polar}
+\end{figure}
+
+若给定直线而求极点，可以比较系数。例如，椭圆的直线
+\begin{equation*}
+ \alpha x+\beta y=\gamma,\qquad \gamma\ne0,
+\end{equation*}
+归一化后与极线公式比较，便得极点
+\begin{equation}\label{eq:quadratic-ellipse-pole-of-line}
+ P=\left(\frac{a^2\alpha}{\gamma},\frac{b^2\beta}{\gamma}\right).
+\end{equation}
+双曲线则将第二个坐标换成\(-b^2\beta/\gamma\)。对抛物线，直线\(\alpha x+\beta y+\gamma=0\)在\(\alpha\ne0\)时的极点为
+\begin{equation}\label{eq:quadratic-parabola-pole-of-line}
+ P=\left(\frac\gamma\alpha,-\frac{p\beta}\alpha\right).
+\end{equation}
+
+在普通平面中，这个对应并不覆盖所有点、线。椭圆、双曲线的中心代入极线公式得到\(0=1\)，不表示直线；过中心的直线也没有有限的极点。抛物线的每个有限点都有极线，但平行于轴的直线没有有限极点。这些是坐标公式直接给出的范围限制；4.11将通过扩充平面进一步解释。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对圆\(x^2+y^2=4\)，分别求\((1,0)\)、\((2,0)\)、\((4,0)\)的极线，比较它们与圆的位置关系。再求直线\(x+y=1\)关于椭圆\(x^2/9+y^2/4=1\)的极点。
+\end{example}
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求直线\(2x-3y+4=0\)关于抛物线\(y^2=4x\)的极点。设该直线与抛物线交于\(A,B\)，求两点处切线的交点，并核对其与极点的关系。
+\end{example}
+\end{minipage}\par
+
+可逆仿射变换不仅将切线送到切线，也将极点、极线送到像曲线对应的极点、极线。一个不依赖矩阵的验证如下：对任意点\(P,X\)，展开二次式得到
+\begin{equation}\label{eq:quadratic-polar-midpoint-identity}
+ T(P,X)=2\Phi\left(\frac{P+X}{2}\right)
+       -\frac{\Phi(P)+\Phi(X)}{2}.
+\end{equation}
+仿射变换保持中点，在新坐标下将\(\Phi\)作同样代换，等式两边仍相应成立，所以\(T(P,X)=0\)随之保持。极线因此可以通过将圆伸缩为椭圆等方式研究。
+
+对椭圆\(x^2/a^2+y^2/b^2=1\)，伸缩\(\xi=x/a,\eta=y/b\)将极线变成单位圆中点\(P'=(u/a,v/b)\)的极线。记
+\begin{equation*}
+ \rho^2=\frac{u^2}{a^2}+\frac{v^2}{b^2},\qquad P\ne O,
+\end{equation*}
+则这条极线到单位圆圆心的距离为\(1/\rho\)。因此\(\rho>1\)、\(\rho=1\)、\(\rho<1\)时，原极线分别与椭圆相交、相切、相离。内点虽然不能作实切线，仍有确定的极线。
+
+不过，圆中极线垂直于\(OP'\)的关系不能直接伸缩回来：椭圆极线的法向量为\((u/a^2,v/b^2)\)，通常不与\(OP\)平行。使用圆的模型时，点线关系可以随变换保留，垂直关系则须重新判断。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）分别求\((1,1)\)关于圆\(x^2+y^2=1\)、椭圆\(x^2/4+y^2=1\)和双曲线\(x^2-y^2=1\)的极线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求\(x+2y=3\)关于椭圆\(x^2/9+y^2/4=1\)的极点，并判断该极点能否向椭圆作两条实切线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求点\((u,v)\)关于圆\((x-h)^2+(y-k)^2=R^2\)的极线。由此研究圆心与过圆心的直线在极点极线对应中的情形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）对抛物线\(y^2=8x\)，分别求直线\(x-y+1=0\)、\(x=2\)的极点；说明\(y=2\)为什么没有有限极点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设\(P\)在圆\(x^2+y^2=R^2\)外，极线与\(OP\)交于\(H\)。证明\(|OP|\,|OH|=R^2\)，并比较\(H\)与两切点的弦中点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）对\(xy=1\)，由定义求点\((u,v)\)的极线。分别研究\(uv=0\)与\(uv\ne0\)时极线和曲线的实交点，并与上一节的过点切线条数比较。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）验证式\eqref{eq:quadratic-polar-midpoint-identity}。再将\(x^2/4+y^2=1\)作变换\(X=x+y+1,Y=y-1\)，求点\((2,1)\)及其极线的像，核对像曲线的极线方程。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\newpage
+\subsection{二次型与极点极线*}
+\label{subsec:quadratic-quadratic-forms-and-polarity}
+
+将完整齐次二次式写成\(Q(Z)=Z^TMZ\)，其中\(M\)可逆且对称，并记
+\begin{equation*}
+ \mathcal B(U,V)=U^TMV.
+\end{equation*}
+与二次部分的双线性表达相比，这里同时包含一次项和常数项。对于\(Z_P=(u,v,1)^T\)，极线正是
+\begin{equation}\label{eq:quadratic-matrix-polar}
+ \mathcal B(Z_P,Z)=Z_P^TMZ=0.
+\end{equation}
+因此点的坐标向量经线性映射\(Z_P\mapsto MZ_P\)，成为极线的系数向量。因为直线方程乘以非零常数不改变直线，系数向量只需确定到非零倍数。
+
+反过来，设直线的系数向量为\(l=(\alpha,\beta,\gamma)^T\)，令
+\begin{equation}\label{eq:quadratic-matrix-pole}
+ W=M^{-1}l=(r,s,t)^T.
+\end{equation}
+若\(t\ne0\)，将\(W\)除以\(t\)，得到有限极点\((r/t,s/t)\)。若\(t=0\)，则不存在最后一坐标为\(1\)的向量与\(W\)成比例，所以这条直线没有有限极点。这也给出有限极点的唯一性。
+
+对中心在原点的椭圆，\(M=\operatorname{diag}(1/a^2,1/b^2,-1)\)。原点的向量\((0,0,1)^T\)被送到\((0,0,-1)^T\)，方程为\(z=0\)，在\(z=1\)的普通平面中没有点。另一方面，过中心直线的系数为\((\alpha,\beta,0)^T\)，逆像的最后一坐标为零。这两种缺失来自同一个矩阵对应，并非彼此无关的例外。
+
+完整二次式的极化恒等式为
+\begin{equation}\label{eq:quadratic-full-polarization}
+ \mathcal B(U,V)=\frac{Q(U+V)-Q(U)-Q(V)}2.
+\end{equation}
+在两个向量的最后一坐标均为\(1\)时，\(U+V\)的最后一坐标为\(2\)。利用齐次性除以\(2\)，便回到普通路线中的中点恒等式\eqref{eq:quadratic-polar-midpoint-identity}。
+
+再作可逆仿射变换\(Z=KW\)，新矩阵\(M'=K^TMK\)，点\(P\)的新坐标为\(W_P=K^{-1}Z_P\)。于是
+\begin{equation*}
+ M'W_P=K^TMZ_P.
+\end{equation*}
+而一条直线\(l^TZ=0\)在新坐标下恰为\((K^Tl)^TW=0\)。因此矩阵变换同时给出点和极线的正确变换关系。极点极线的对应来自完整二次式，与所用仿射坐标无关。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对\(x^2+2xy+2y^2-2x=0\)，写出完整矩阵，求\((1,1)\)的极线与直线\(y=1\)的极点。再找出没有普通极线的有限点，并求所有没有有限极点的直线。
+\end{example}
+\end{minipage}\par
+
+% 原习题4.47暂不排版，不再占号，保留题目供后续安排。
+% \begin{exercise}
+% \mbox{}\par\nobreak
+% \begin{samepage}
+% （1）用式\eqref{eq:quadratic-matrix-pole}分别推导椭圆与抛物线的极点公式，说明归一化所用的非零条件来自哪里。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （2）证明对可逆对称矩阵\(M\)，不同的有限点不可能有同一条普通极线。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （3）设非零系数向量\(l\)满足\(l^TM^{-1}l=0\)。若\(M^{-1}l\)的最后一坐标非零，证明它归一化后给出曲线上一点，且\(l^TZ=0\)为该点处切线。联系相切的判别条件解释此式。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （4）设椭圆\(X^THX=1\)上\(P,Q\)为共轭半径端点，即\(P^THQ=0\)。证明两点处切线交于\(S=P+Q\)，从而\(S^THS=2\)。再用三角参数说明这样的交点取遍椭圆\(X^THX=2\)。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （5）设\(\Phi(P)\ne0\)，直线\(P+tV\)与二次曲线交于不同两点，对应非零参数\(t_1,t_2\)。若该直线与\(P\)的极线交于参数\(t_H\)对应的点，证明在交点存在时
+% \(\displaystyle \frac1{t_H}=\frac12\left(\frac1{t_1}+\frac1{t_2}\right)\)。当右端为零时，在普通平面中发生了什么？
+% \par
+% \end{samepage}
+% \end{exercise}
+
+
+
+\subsection{极点极线的相互关系}
+\label{subsec:quadratic-reciprocity}
+
+式\eqref{eq:quadratic-general-polar}中，\(P=(u,v)\)与\(X=(x,y)\)的地位对称。因此
+\begin{equation}\label{eq:quadratic-polar-reciprocity}
+ T(P,Q)=T(Q,P).
+\end{equation}
+由此立即得到极点极线的{\heiti{}互反关系}：在相应普通极线存在时，点\(Q\)在\(P\)的极线上，当且仅当点\(P\)在\(Q\)的极线上。
+
+设一条直线\(\ell\)的有限极点为\(S\)，\(P\)在\(\ell\)上。因为\(P\in\ell_S\)，由互反关系知\(S\in\ell_P\)。所以同一直线上的点，其极线都经过该直线的极点。反过来，若若干极线都经过一个有普通极线的点\(S\)，则它们的极点都在\(\ell_S\)上。这样，点的共线关系转化成了极线的共点关系。
+
+例如，对椭圆，取不过中心的定直线，沿其移动的点的极线通过一个定点；若定直线经过中心，则非中心点的极线彼此平行。后一种情形可直接由\(P=tU\)代入极线方程看出，不对应普通平面中的一个公共点。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+点\(P\)在直线\(x+2y=3\)上移动，求它关于椭圆\(x^2/9+y^2/4=1\)的极线经过的定点。若改为\(x+2y=0\)，求这些极线的公共方向。
+\end{example}
+\end{minipage}\par
+
+互反关系也给出切点弦的另一种证明。设曲线上两点\(A,B\)处的切线交于\(S\)。因为\(S\in\ell_A\)且\(S\in\ell_B\)，所以\(A,B\in\ell_S\)，即\(\ell_S\)就是\(AB\)。因此“求弦两端切线的交点”与“求弦所在直线的极点”是同一件事。
+
+下面将它与直径联系起来。对椭圆
+\begin{equation*}
+ \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,
+\end{equation*}
+设一组平行弦的方向为\(d=(r,s)\)，弦的中点为\(M\)。前面已由联立得到
+\begin{equation}\label{eq:quadratic-polar-diameter}
+ \frac{rM_x}{a^2}+\frac{sM_y}{b^2}=0,
+\end{equation}
+这就是与该方向对应的直径。若弦不过中心，端点切线交于\(S\)，则弦所在直线为
+\begin{equation*}
+ \frac{S_xx}{a^2}+\frac{S_yy}{b^2}=1.
+\end{equation*}
+弦的方向\(d\)与它的法向量垂直，因而\(S\)也满足式\eqref{eq:quadratic-polar-diameter}。所以这组平行弦的中点与端点切线交点落在同一条直径上。
+
+还可以写出它们的具体关系。记\(q(M)=M_x^2/a^2+M_y^2/b^2\)。因为\(M\)在弦上，且\(S,M\)在同一直径上，便有
+\begin{equation}\label{eq:quadratic-polar-midpoint-inversion}
+ S=\frac{M}{q(M)}.
+\end{equation}
+弦过中心时，端点切线互相平行，没有有限交点；这与上式的分母为零一致。对中心在原点的双曲线，将\(q(M)\)改为\(M_x^2/a^2-M_y^2/b^2\)，对具有两个不同有限端点且不过中心的弦，同样的直径关系与式\eqref{eq:quadratic-polar-midpoint-inversion}仍成立。
+
+最后回到焦点与准线。椭圆、双曲线的右焦点为\(F=(c,0)\)，其极线均为
+\begin{equation*}
+ \frac{cx}{a^2}=1,\qquad\text{即}\quad x=\frac{a^2}{c},
+\end{equation*}
+恰为对应准线。左焦点同理。抛物线\(y^2=2px\)的焦点为\((p/2,0)\)，极线为\(x=-p/2\)，同样是准线。因此，对非圆的圆锥曲线，焦点与其对应准线构成极点极线的一对。
+
+若一条焦弦\(AB\)两端的切线交于\(S\)，则\(F\in AB=\ell_S\)。由互反关系，\(S\in\ell_F\)，所以\(S\)在准线上。反过来，准线上一点若有两条不同实切线，其切点弦必过焦点。对抛物线，准线上各点确有两条实切线，它们还互相垂直；上一节的轨迹结论因而与焦准线关系接在了一起。
+
+轴上的点还可以把极线与等角关系联系起来。对椭圆\(x^2/a^2+y^2/b^2=1\)，取\(P=(h,0)\)，其中\(h>a\)，并令\(Q=(a^2/h,0)\)。点\(Q\)是\(P\)的极线与轴的交点。过\(Q\)作割线，交椭圆于\(M,N\)。对非轴向割线，将原点移到\(P\)，记\(\xi=x-h,\eta=y\)，再按割线条件齐次化，其方向方程中的\(\xi\eta\)系数为零，因为
+\begin{equation*}
+ h\,x_Q=a^2.
+\end{equation*}
+所以\(PM,PN\)的斜率互为相反数；两条射线均指向\(P\)左侧，故\(\angle MPQ=\angle NPQ\)。反过来，若要求过固定轴上点\(Q\)的各条弦都具有这种等角关系，齐次化中的交叉项必须消去，也就找回\(h x_Q=a^2\)。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对抛物线\(y^2=4x\)，点\(Q=(1,0)\)。求轴上点\(P\)，使过\(Q\)的各条割线所截端点\(M,N\)满足\(k_{PM}+k_{PN}=0\)。用移轴齐次化求解，再验证\(Q\)在\(P\)的极线上，并解释相应的等角关系。
+\end{example}
+\end{minipage}\par
+
+这里的焦点、准线是由欧氏距离选出的特殊极点极线。一般仿射变换保持极点极线关系，却不一定把焦点变成像曲线的焦点；这与它不保持一般距离和角度是一致的。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对椭圆\(x^2/9+y^2/4=1\)，求过右焦点且斜率为\(1\)的弦两端切线的交点。再改变弦的斜率，说明这些交点所在的直线，并判断焦点所在轴的情形。
+\end{example}
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+回到例\ref{ex:quadratic-gaokao-parabola-contact}，将点\(D\)所在直线看成抛物线的准线，仅用焦点与准线的极点极线关系证明切点弦经过定点。再用坐标方法核对定点。
+\end{example}
+\end{minipage}\par
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）点\(P=(2,1)\)关于圆\(x^2+y^2=1\)的极线为\(\ell\)。任取\(Q\in\ell\)，写出其极线，并直接验证它经过\(P\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设\(A,B,C\)是椭圆上三个不同点，三条端点切线两两交于\(P,Q,R\)。证明三条边\(AB,BC,CA\)分别是相应切线交点的极线。若\(P,Q,R\)均存在，它们能否共线？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求椭圆\(x^2/16+y^2/9=1\)中斜率为\(1\)的平行弦中点所在直径，以及各弦端点切线交点所在直线。若某弦中点为\((4/5,-9/20)\)，求切线交点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）设抛物线\(y^2=2px\)上一条弦的端点切线交于\(S\)，弦中点为\(M\)。证明\(S_y=M_y\)，并解释平行弦的中点轨迹及端点切线交点轨迹之间的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）椭圆\(x^2/25+y^2/9=1\)的一条焦弦两端切线交于\(S\)，且\(S\)在直线\(y=2x\)上。求\(S\)及焦弦方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）抛物线\(y^2=4x\)的焦弦\(AB\)两端切线交于\(S\)。证明\(S\)在准线上且\(SA\perp SB\)。若\(|SA|=|SB|\)，求\(S\)和\(AB\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）设\(P\)在椭圆\(x^2/a^2+y^2/b^2=1\)外，切点弦为\(AB\)。取\(Q\)在线段\(AB\)内部，从\(Q\)还能否向椭圆作实切线？\(Q\)的极线与\(P\)有什么关系？说明这些结论如何同时成立。
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）对双曲线\(x^2/9-y^2/4=1\)，求右焦点、右准线对应的极线和极点。取过右焦点的一条实焦弦，若两端切线相交，证明其交点在右准线上，并说明何种方向只产生一个有限交点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（9）过椭圆内一个非中心点\(P\)作两条弦\(AB,CD\)，令\(U=AC\cap BD,V=AD\cap BC\)，设交点均存在。证明\(U,V\)在\(P\)的极线上。可先圆化，再由坐标证明。若\(P\)取为焦点，指出\(U,V\)所在直线，并说明如何将这个结论用于抛物线的两条焦弦。
+\par
+\end{samepage}
+\end{exercise}

@@ -1,0 +1,601 @@
+\newpage
+\section{交点与曲线系}
+\label{sec:quadratic-intersections-and-families}
+
+直线与二次曲线的交点可以由联立方程求出，但问题往往只需要交点的和、积、方向或中点。参数表示与齐次化使这些关系能够直接从系数中读出。进一步，将两个曲线方程作线性组合，还可以保留共同交点而改变曲线的形状，从中选择容易处理的成员。
+
+\subsection{交点与弦}
+\label{subsec:quadratic-intersections-and-chords}
+
+\paragraph{1°将曲线限制到直线上} \mbox{}
+
+设二次曲线方程为
+\begin{equation*}
+    \Phi(x,y)=Ax^2+Bxy+Cy^2+Dx+Ey+F=0 .
+\end{equation*}
+过\(P=(x_0,y_0)\)、方向为\(d=(u,v)\)的直线写为\(x=x_0+tu,y=y_0+tv\)。代入后，\(t\)满足
+\begin{equation}\label{eq:quadratic-line-restriction-polynomial}
+    \alpha t^2+\beta t+\gamma=0 ,
+\end{equation}
+其中
+\begin{equation}\label{eq:quadratic-line-restriction-coefficients}
+    \begin{aligned}
+    \alpha&=Au^2+Buv+Cv^2,\\
+    \beta&=(2Ax_0+By_0+D)u+(Bx_0+2Cy_0+E)v,\\
+    \gamma&=\Phi(x_0,y_0).
+    \end{aligned}
+\end{equation}
+一个实根对应一个交点。当\(\alpha\ne0\)时，由判别式\(\Delta=\beta^2-4\alpha\gamma\)判断：\(\Delta>0\)有两个不同实交点，\(\Delta=0\)有一个二重根，\(\Delta<0\)没有实交点。
+
+当\(\alpha=0\)时，需回到一次方程。例如，双曲线\(x^2-y^2=1\)与直线\(y=x+c\)联立，得到\(-2cx-c^2=1\)。\(c\ne0\)时只有一个交点，\(c=0\)时没有交点。这里一次方程给出的单个交点，与二次方程的二重根不同；直线平行于渐近线，不能据交点个数将它当作切线。切线将在下一节建立。
+
+若\(\alpha=\beta=\gamma=0\)，直线上的每一点都满足曲线方程，直线就是曲线的一个组成部分。除此以外，直线与二次曲线至多有两个不同交点。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+（据2024年北京卷第13题）若直线\(y=k(x-3)\)与双曲线\(x^2/4-y^2=1\)只有一个公共点，求\(k\)的所有可能值，并解释它们与渐近线方向的关系。
+\end{example}
+\end{minipage}\par
+
+
+\paragraph{2°根与弦的几何量} \mbox{}
+
+若两个不同交点为\(A=P+t_1d\)、\(B=P+t_2d\)，则由韦达定理，
+\begin{equation*}
+    t_1+t_2=-\frac\beta\alpha,\qquad
+    t_1t_2=\frac\gamma\alpha,\qquad
+    |t_1-t_2|=\frac{\sqrt\Delta}{|\alpha|} .
+\end{equation*}
+因此弦长与中点分别为
+\begin{equation}\label{eq:quadratic-chord-length-midpoint}
+    |AB|=\frac{\sqrt\Delta}{|\alpha|}|d|,
+    \qquad M=P-\frac\beta{2\alpha}d .
+\end{equation}
+不必先求两个根，便能求出这些量。若\(P=M\)已是弦中点，参数根互为相反数，条件就简化为\(\beta=0\)。即
+\begin{equation}\label{eq:quadratic-midpoint-chord-condition}
+    (2Ax_M+By_M+D)u+(Bx_M+2Cy_M+E)v=0 .
+\end{equation}
+这正是4.3由端点方程作差得到的中点弦关系。方向确定后，还要使\(-\Phi(M)/\alpha>0\)，才能得到两个不同实端点。
+
+用斜截式\(y=kx+m\)消去\(y\)时，所求根是横坐标，故弦长应乘以\(\sqrt{1+k^2}\)。使用单位方向参数时，根差本身就是长度。两种方法的区别只在参数的尺度。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+（2016年江苏卷第21题选修4-4部分）直线\(l\)的参数方程为\(x=1+t/2,y=\sqrt3t/2\)，椭圆\(C\)的参数方程为\(x=\cos\theta,y=2\sin\theta\)。求直线\(l\)截椭圆所得弦\(AB\)的长。
+\end{example}
+\end{minipage}\par
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求以\(M=(1,1/2)\)为中点、端点在椭圆\(x^2/9+y^2/4=1\)上的弦所在直线及弦长。若中点改为\(N=(3,1)\)，能否仍得到这样的实弦？解释中点条件与交点存在条件各自的作用。
+\end{example}
+\end{minipage}\par
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）讨论直线\(y=kx+1\)与抛物线\(y^2=4x\)的交点个数，分别处理\(k=0\)与\(k\ne0\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求直线\(x+y=1\)截椭圆\(x^2/9+y^2/4=1\)所得弦的中点与长度，不分别求端点坐标。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）过抛物线\(y^2=4x\)的焦点作弦\(AB\)，其中点为\(M\)。求\(M\)的轨迹及实际范围，说明边界点对应哪条弦。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）求椭圆\(x^2/9+y^2/4=1\)中以\((1,0)\)、\((0,1)\)为中点的弦。若中点为原点，方向是否唯一？
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）一条直线依次与两个同心位似椭圆\(x^2/a^2+y^2/b^2=1\)、\(x^2/a^2+y^2/b^2=4\)相交。证明两条弦具有相同中点，从而直线上位于两椭圆之间的两段长度相等。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）设\(d\)是单位向量，将它改为\(2d\)后，式\eqref{eq:quadratic-line-restriction-coefficients}中的三个系数、根及弦长公式分别如何变化？
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）直线\(x=1+2t,y=t\)截椭圆\(x^2/9+y^2/4=1\)于\(A,B\)。不分别求两个交点，求弦长、中点及\(|PA|\,|PB|\)，其中\(P=(1,0)\)。用有向长度参数核对。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\paragraph{3°移轴与齐次化} \mbox{}
+
+4.2已用直线条件将二次方程齐次化。若研究的是从一个指定点\(P_0\)看交点的方向，可以先把原点平移到\(P_0\)。设新坐标为\((u,v)\)，曲线方程为
+\begin{equation*}
+    Au^2+Buv+Cv^2+Du+Ev+F=0,
+\end{equation*}
+直线不过新原点，将其写为\(lu+mv=1\)。在保留直线条件时，曲线方程等价于
+\begin{equation}\label{eq:quadratic-shifted-homogenization}
+    Au^2+Buv+Cv^2+(Du+Ev)(lu+mv)+F(lu+mv)^2=0 .
+\end{equation}
+这给出两交点相对\(P_0\)的方向。若整理为\(A'u^2+B'uv+C'v^2=0\)，且两方向的斜率均存在、\(C'\ne0\)，则
+\begin{equation}\label{eq:quadratic-homogenized-slope-sum-product}
+    k_1+k_2=-\frac{B'}{C'},\qquad
+    k_1k_2=\frac{A'}{C'} .
+\end{equation}
+竖直方向则直接从齐次方程判断。若曲线经过\(P_0\)，平移后的常数项\(F=0\)，齐次化式也随之简化。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+椭圆\(x^2/4+y^2=1\)与直线\(x+2y=1\)交于\(A,B\)，\(P=(0,1)\)。将原点移到\(P\)，求\(PA,PB\)的斜率之和与积，再用直接代入核对。
+\end{example}
+\end{minipage}\par
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+设\(P=(0,1)\)，\(A,B\)为椭圆\(x^2/4+y^2=1\)上异于\(P\)的两个不同点，两连线的斜率满足\(k_{PA}k_{PB}=-1/2\)。证明弦\(AB\)经过定点\((0,-1/3)\)。
+\end{example}
+\end{minipage}\par
+
+
+这里的方向方程把对两个交点的条件，转化为直线方程的系数关系。固定点、斜率和与斜率积问题常能由此联系起来；具体坐标未必是必经的中间量。
+
+\begingroup
+\setlength{\parskip}{2pt}
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）从\(P=(0,1)\)观察椭圆\(x^2/4+y^2=1\)与直线\(y=kx+m\)的两个交点。用移轴齐次化求两方向的斜率和与积，明确所用表达的范围。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）椭圆\(x^2/9+y^2/4=1\)上两点\(A,B\)均异于\(P=(3,0)\)。若\(k_{PA}+k_{PB}=s\)为定值，判断弦\(AB\)的直线系特征，是平行还是过定点，并求相应方向或定点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）抛物线\(y^2=4x\)与直线\(3x-2y=4\)交于\(A,B\)。先用齐次化求\(OA,OB\)的方向，再求两交点坐标。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）圆\(x^2+y^2=4\)与直线\(x+y=1\)交于\(A,B\)，\(P=(1,1)\)。以\(P\)为新原点作齐次化，求\(PA,PB\)的方向方程、斜率和与斜率积。
+\par
+\end{samepage}
+
+
+\begin{samepage}
+（5）椭圆\(x^2/a^2+y^2/b^2=1\)（\(a>b>0\)）内，过非中心点\(S=(s,0)\)作两条垂直弦，中点为\(M,N\)。求\(MN\)的定点，再取\(S\)为焦点。提示：先求中点轨迹。
+\par
+\end{samepage}
+\end{exercise}
+\endgroup
+
+\newpage
+\paragraph{4°推广圆幂关系} \mbox{}
+
+在直线上选定单位方向\(d=(u,v)\)，则参数\(t_1,t_2\)就是从\(P\)到交点的有向长度。式\eqref{eq:quadratic-line-restriction-coefficients}的根积给出
+\begin{equation}\label{eq:quadratic-general-directional-power}
+    \overline{PA}\,\overline{PB}\,(Au^2+Buv+Cv^2)=\Phi(P) .
+\end{equation}
+这是4.6圆幂推广式的一般形式。对固定点\(P\)，方向改变时，欧氏长度乘积一般也改变；二次部分在单位方向上的取值，给出相应的方向因素。
+
+对三种标准方程，上式分别成为
+\begin{align}\label{eq:quadratic-three-directional-powers}
+    \text{椭圆：}\quad&\overline{PA}\,\overline{PB}
+        \left(\frac{u^2}{a^2}+\frac{v^2}{b^2}\right)
+        =\frac{x_P^2}{a^2}+\frac{y_P^2}{b^2}-1,\notag\\
+    \text{双曲线：}\quad&\overline{PA}\,\overline{PB}
+        \left(\frac{u^2}{a^2}-\frac{v^2}{b^2}\right)
+        =\frac{x_P^2}{a^2}-\frac{y_P^2}{b^2}-1,\\
+    \text{抛物线：}\quad&\overline{PA}\,\overline{PB}\,v^2
+        =y_P^2-2px_P.\notag
+\end{align}
+方向因素为零时，代入后不再有二次项；对非退化曲线，就不能形成两个不同有限端点的弦。双曲线的渐近方向、抛物线的轴向在这里自然出现。
+
+对椭圆，过中心沿单位方向\(d\)的半径长记为\(R_d\)，则\(R_d^{-2}=u^2/a^2+v^2/b^2\)。所以两条过同一不在椭圆上的点的割线还满足
+\begin{equation*}
+    \frac{\overline{PA}\,\overline{PB}}
+         {\overline{PC}\,\overline{PD}}
+    =\frac{R_{d_1}^2}{R_{d_2}^2} .
+\end{equation*}
+这将割线的长度乘积之比转化为平行半径的平方比；方向因素相同时，原长度乘积才相等。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+过\(P=(2,0)\)的两条直线分别交双曲线\(x^2-y^2=1\)于\(A,B\)和\(C,D\)，方向分别为\((1,0)\)、\((2,1)\)。求两组有向长度乘积之比，并说明为何要先将方向单位化。再讨论过\(P=(1,0)\)的直线截抛物线\(y^2=4x\)时，长度乘积如何随方向变化。
+\end{example}
+\end{minipage}\par
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）过\(P=(1,0)\)的两条不同直线，分别与抛物线\(y^2=4x\)交于\(A,B\)和\(C,D\)。若两组无向长度乘积相等，证明两条直线关于\(x\)轴对称。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）过\(P=(0,0)\)的直线与双曲线\(x^2/4-y^2=1\)相交。求可作割线的方向范围，并求\(|PA|\,|PB|\)的取值范围。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）对椭圆\(x^2/9+y^2/4=1\)，过内点\(P\)作两条互相垂直的弦\(AB,CD\)。证明\((|PA|\,|PB|)^{-1}+(|PC|\,|PD|)^{-1}\)与方向无关，写出它与\(P\)的关系。
+\par
+\end{samepage}
+
+\end{exercise}
+
+
+\newpage
+\paragraph{5°一般蝴蝶定理} \mbox{}
+
+弦中点还给出一个跨越三类曲线的关系。其图形由两条相交弦与两条交叉连线组成，通常称为蝴蝶图形。
+
+\begin{theorem}[蝴蝶定理]\label{thm:quadratic-butterfly}
+设\(M\)是非退化实二次曲线一条弦\(AB\)的中点。过\(M\)另作两条不同的弦\(CD,EF\)，四端点互不相同。若直线\(CE,DF\)分别与\(AB\)所在直线交于\(U,V\)，则\(M\)也是\(UV\)的中点，即\(\overrightarrow{MU}+\overrightarrow{MV}=0\)。
+\end{theorem}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.60\linewidth]{conic-butterfly.pdf}
+    \caption{蝴蝶定理的配置，以椭圆为例}
+    \label{fig:quadratic-butterfly}
+\end{figure}
+
+\begin{proof}
+以\(M\)为原点，\(AB\)所在直线为\(y\)轴，取直角坐标。设\(A=(0,h)\)、\(B=(0,-h)\)。曲线与\(y\)轴联立时的两根互为相反数，故\(y\)的一次项系数为零。曲线方程可写成
+\begin{equation*}
+    ax^2+bxy+cy^2+dx+f=0,
+    \qquad f=-ch^2\ne0 .
+\end{equation*}
+若\(CD,EF\)中有一条就是\(AB\)，结论直接成立。否则设这两条直线为\(y=kx\)、\(y=lx\)，并记
+\begin{equation*}
+    C=(r,kr),\quad D=(s,ks),\qquad
+    E=(u,lu),\quad F=(v,lv) .
+\end{equation*}
+将直线代入曲线，沿第一方向的两个横坐标满足
+\begin{equation*}
+    (a+bk+ck^2)x^2+dx+f=0 .
+\end{equation*}
+由根的和与积，得到与方向无关的倒数和
+\begin{equation}\label{eq:quadratic-butterfly-reciprocal-sums}
+    \frac1r+\frac1s=-\frac df
+       =\frac1u+\frac1v .
+\end{equation}
+设\(U=(0,p)\)、\(V=(0,q)\)。两点式给出
+\begin{equation*}
+    p=\frac{ru(k-l)}{u-r},\qquad
+    q=\frac{sv(k-l)}{v-s} .
+\end{equation*}
+所以
+\begin{equation*}
+    \frac1p+\frac1q
+    =\frac1{k-l}\left(\frac1r+\frac1s-\frac1u-\frac1v\right)=0 .
+\end{equation*}
+于是\(p+q=0\)，即\(M\)平分\(UV\)。
+\end{proof}
+
+证明只使用中点使一次项消去，以及根的倒数和与方向无关。因此它同时适用于椭圆、双曲线与抛物线。对椭圆，也可以从圆的蝴蝶定理经仿射变换得到；一般证明则不要求曲线能够化为实圆。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+椭圆\(E:x^2/9+y^2/4=1\)与直线\(l:16x+18y=25\)交于\(A,B\)，\(l\)与\(x=1\)交于\(M\)。过\(M\)作两条不同的弦\(CD,EF\)，直线\(CE,DF\)分别与\(l\)交于\(U,V\)。证明\(x_U+x_V=2\)、\(y_U+y_V=1\)。
+\end{example}
+\end{minipage}\par
+
+这里需先从已知直线与交点关系中识别中点。4.6的圆化方法或本节的中点弦条件，都可以为蝴蝶定理提供所需的起始弦。
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）抛物线\(y^2=4x\)上取\(A=(1,2)\)、\(B=(1,-2)\)，中点为\(M=(1,0)\)。过\(M\)任取两条不同的非水平弦\(CD,EF\)，直线\(CE,DF\)与\(x=1\)分别交于\(U,V\)。证明\(y_U+y_V=0\)。若改以\(A=(1,2),B=(4,4)\)为起始弦，结论应怎样表述？
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）对双曲线\(x^2/4-y^2=1\)，取竖直弦\(x=3\)及其中点\(M\)。写出适用蝴蝶定理的配置，说明为什么不应将渐近方向当作其中的弦方向。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）在证明中交换\(E,F\)，证明\(CF,DE\)与\(AB\)的两交点也被\(M\)平分。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）在蝴蝶定理的证明中，若把\(AB\)所在直线改为任意过\(M\)的直线，方程中通常会重新出现\(y\)的一次项。解释中点条件如何使这一项消失，并将它与4.3的直径方程联系起来。
+\par
+\end{samepage}
+
+
+\begin{samepage}
+（5）曲线\((y-x)^2=4(x+y)\)上一条弦的中点为\(M=(1,1)\)。求这条弦所在直线，再写出相应蝴蝶配置中\(U,V\)的坐标和。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\newpage
+\subsection{二次曲线系}
+\label{subsec:quadratic-conic-families}
+
+\begingroup
+\setlength{\parskip}{2pt}
+\paragraph{1°公共分量与交点个数} \mbox{}
+
+两条曲线可以有无穷多个共同点。例如，\(xy=0\)与\(x(x+y-1)=0\)都包含直线\(x=0\)。从方程看，两个二次多项式有共同的一次因子。一般地，若两个方程的多项式含有共同的非恒定因子，就称它们具有{\heiti{}公共分量}。对于二次式，这可以是公共直线，也可以是两个方程本来就成比例。
+
+\begin{theorem}\label{thm:quadratic-four-intersections}
+两条没有公共分量的实二次曲线，至多有四个不同实交点。
+\end{theorem}
+
+\begin{proof}
+无实点时结论成立。以下先设其中一条是有实点的非退化曲线。由平移、旋转可将它化为标准方程，这些变换不改变共同点的数目。另一条的二次多项式记为\(G(x,y)\)。
+
+对椭圆，代入式\eqref{eq:quadratic-ellipse-rational-parametric}，乘以\((1+t^2)^2\)，得到次数至多为\(4\)的多项式\(g(t)\)。每个被参数覆盖的共同点给出一个不同的实根。参数遗漏的点只有\(P_0=(-a,0)\)；\(g(t)\)的四次项系数恰是\(G(-a,0)\)。所以，若\(P_0\)也是共同点，\(g\)的次数便至多为\(3\)，其余共同点至多三个；若不是共同点，则全部共同点至多四个。
+
+双曲线同理：代入式\eqref{eq:quadratic-hyperbola-rational-parametric}，乘以\((1-t^2)^2\)，仍得到至多四次的多项式，其四次项系数也是\(G(-a,0)\)。排除\(t=\pm1\)不增加根数，基点的计数与椭圆相同。对抛物线，直接代入\(x=pt^2/2,y=pt\)，所得次数至多为\(4\)，且每个点都被唯一覆盖。
+
+这里还须说明所得多项式不恒为零。如果它恒为零，\(G\)在第一条曲线的所有点上都为零。对椭圆或双曲线，从\(G\)中减去适当倍数的标准二次式，可将余式写成\(L(x)y+R(x)\)，其中\(L\)至多一次、\(R\)至多二次。同一横坐标对应的上下两个点都使余式为零，便知\(L,R\)在无穷多个\(x\)上为零，故均恒为零。于是\(G\)是原二次式的倍数。对抛物线，将\(x=pt^2/2,y=pt\)代入一般二次式，比较各次项系数，也得到同样结论。这与没有公共分量矛盾。
+
+若第一条曲线退化为两条实直线或重直线，每条直线与第二条曲线至多有两个交点，否则该直线就是公共分量，故总数仍至多为四。其余退化实图形只有单点或空集，结论也成立。
+\end{proof}
+
+四是不同实交点数目的上限，不保证交点一定存在，也不保证恰有四个。例如，同心而半径不同的圆没有交点；两个相交圆只有两个交点。重合交点的进一步计数将在后面的选讲内容中研究。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求\(x^2+y^2=5\)与\(x^2+4y^2=8\)的全部交点。能否不求四次方程，而从两个方程的线性组合先找出包含这些点的直线？
+\end{example}
+\end{minipage}\par
+
+
+\endgroup
+\newpage
+\paragraph{2°保留共同交点的线性组合} \mbox{}
+
+设\(F,G\)是两个不成比例的二次多项式。方程族
+\begin{equation}\label{eq:quadratic-conic-pencil}
+    \lambda F(x,y)+\mu G(x,y)=0,
+    \qquad (\lambda,\mu)\ne(0,0)
+\end{equation}
+称为由\(F=0,G=0\)生成的{\heiti{}曲线束}。当二次部分没有全部消去时，其成员是二次曲线；二次项全部消去时，另得到降为一次或常数的特殊方程，需要按实际次数处理。
+
+两条生成曲线的共同点使\(F=G=0\)，因此属于所有成员，称为曲线束的{\heiti{}基点}。反过来，若一点属于两个系数对不成比例的成员，解关于\(F,G\)的两个一次方程，得到该点必为共同点。因而选用另一个独立成员，与一条生成曲线联立，不改变共同解。
+
+通常先用\(F+tG=0\)计算，另补\(G=0\)。若还要求成员经过点\(T\)，就有\(\lambda F(T)+\mu G(T)=0\)。当\(T\)不是基点时，这个一次关系唯一确定系数比；若\(T\)已经是基点，则过点条件不再提供新限制。
+
+在前一例中，记\(F=x^2+y^2-5\)、\(G=x^2+4y^2-8\)，则
+\begin{equation*}
+    G-F=3(y-1)(y+1),\qquad
+    G-4F=-3(x-2)(x+2) .
+\end{equation*}
+两个成员分别退化为两条水平线、两条竖直线，四个共同点就位于两组直线的交点。选择退化成员，是将两个二次方程的联立变成直线与曲线联立的一种方法。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\linewidth]{conic-pencil-members.pdf}
+    \caption{两条生成曲线及曲线束中的两组退化直线}
+    \label{fig:quadratic-conic-pencil}
+\end{figure}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对\(F=x^2+y^2-5\)、\(G=x^2+4y^2-8\)，求曲线束中经过原点的成员，并判断其类型。这个成员能否再与\(F=0\)联立，恢复全部基点？为什么？
+\end{example}
+\end{minipage}\par
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+利用曲线束求\(y=x^2\)与\(x=y^2\)的全部实交点，再求束中过\((2,0)\)的成员，并判断类型。
+\end{example}
+\end{minipage}\par
+
+\newpage
+\paragraph{3°四点共圆与二次项的比较} \mbox{}
+
+曲线束还可以反过来用于寻找经过四个交点的圆。把两条割线的方程相乘，得到一条退化二次曲线；再与原曲线方程作线性组合。若能使\(xy\)项消去、\(x^2,y^2\)系数相同，就得到了所需圆的方程，而不必先求出四个交点。
+
+以抛物线\(\Phi=y^2-2px=0\)为例。过点\(P=(u,v)\)作两条不同割线
+\begin{equation*}
+ L_i=y-v-k_i(x-u)=0\quad(i=1,2),
+\end{equation*}
+分别交曲线于\(A,B\)和\(C,D\)，四点互不相同。若\(k_1=-k_2=k\)，则\(k\ne0\)，并且
+\begin{equation}\label{eq:quadratic-four-concyclic-pencil}
+ -L_1L_2+(1+k^2)\Phi=0
+\end{equation}
+的两个平方项系数同为\(k^2\)，没有\(xy\)项，所以它表示圆。四个交点都满足此式，且四点中没有三点共线，因此所得圆是实圆。
+
+反过来，若四点共圆，圆幂定理与式\eqref{eq:quadratic-general-directional-power}给出
+\begin{equation*}
+ \overline{PA}\,\overline{PB}
+ =\Phi(P)\frac{1+k_1^2}{k_1^2},\qquad
+ \overline{PC}\,\overline{PD}
+ =\Phi(P)\frac{1+k_2^2}{k_2^2}.
+\end{equation*}
+\(P\)不在抛物线上，故\(\Phi(P)\ne0\)。两式左边相等，便有\(k_1^2=k_2^2\)；两直线不同，故\(k_1+k_2=0\)。于是四点共圆恰好对应两割线关于轴方向的对称。这里使用标准坐标，不能在任意旋转后仍原样套用斜率公式。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+过\(P=(1,1)\)作\(y-1=\pm(x-1)\)，与抛物线\(y^2=2x\)交于四点。不求四点坐标，求经过它们的圆。再将两条直线改为\(y-1=\pm k(x-1)\)，求四点互不相同的\(k\)的范围及对应圆系。
+\end{example}
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+过\(P=(0,0)\)作两条不同直线，分别交椭圆\(x^2/9+y^2/4=1\)于\(A,B\)和\(C,D\)。在两斜率均存在时，证明四点共圆当且仅当两斜率互为相反数。分别用推广圆幂与曲线束比较二次项处理。
+\end{example}
+\end{minipage}\par
+
+四点共圆问题中的圆幂与曲线束具有不同作用：前者将共圆转成两个有向乘积相等，后者直接构造通过四点的圆。前面分别建立的根积、方向因子与方程线性组合，在这个配置中共同参与解题。
+
+\begingroup
+\setlength{\parskip}{2pt}
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）抛物线\(y^2=4x\)与\(y=\pm(x-1)\)交于四点。不求交点坐标，求经过它们的圆。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）双曲线\(x^2/4-y^2=1\)与\(y=\pm x/3\)交于四点。用曲线束比较二次项，求经过它们的圆。
+\par
+\end{samepage}
+\end{exercise}
+\endgroup
+
+\newpage
+\paragraph{4°圆系与共同弦} \mbox{}
+
+设不同心两圆的方程为\(\Phi_i=x^2+y^2+D_ix+E_iy+C_i=0\)（\(i=1,2\)）。两式相减，得到直线\(L=\Phi_2-\Phi_1=0\)。由圆幂的坐标公式，\(\Phi_i(P)\)是点\(P\)对相应圆的幂，所以\(L=0\)是等幂点的轨迹，称为两圆的{\heiti{}根轴}；两圆有两个不同交点时，它就是共同弦所在直线。同心不同半径的两圆，方程之差为非零常数，没有等幂点。
+
+已知圆\(F=0\)与直线\(L=0\)有两个不同交点，则经过两交点的全部圆组成圆系
+\begin{equation}\label{eq:quadratic-circle-family-common-chord}
+    F+tL=0 .
+\end{equation}
+另一个过两交点的圆与\(F\)的标准式作差，所得一次式也过这两点，故必为\(L\)的倍数。
+
+更一般地，对固定圆\(F\)和直线\(L\)，\(F+tL=0\)中任意两圆的根轴都是\(L\)，称为{\heiti{}同轴圆系}。由一次项的系数可知，圆心沿一条垂直于根轴的直线变化。以圆心所在直线为\(x\)轴、根轴为\(y\)轴，方程可统一写成
+\begin{equation}\label{eq:quadratic-coaxial-circle-family}
+    x^2+y^2-2ux+\kappa=0,\qquad r^2=u^2-\kappa ,
+\end{equation}
+其中\(\kappa\)固定，圆心为\((u,0)\)。若\(\kappa<0\)，各圆共有\((0,\pm\sqrt{-\kappa})\)，最小圆以共同弦为直径；若\(\kappa=0\)，非退化成员在原点有共同切线\(x=0\)；若\(\kappa>0\)，没有共同实点，且仅\(u^2>\kappa\)时为实圆。这将共同点、圆心轨迹与半径变化联系起来。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求经过圆\(x^2+y^2=5\)与直线\(x+y=1\)两交点、且经过原点的圆。再研究经过这两个交点的圆系的圆心轨迹。
+\end{example}
+\end{minipage}\par
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）对\(F=x^2+y^2-5\)、\(G=x^2+4y^2-8\)，求\(F+tG=0\)中全部实直线对成员。只令\(x^2\)或\(y^2\)的系数为零，能否找全？
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求经过圆\(x^2+y^2=4\)与直线\(x=1\)两交点、且圆心在\(y=x\)上的圆。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求圆\(x^2+y^2-2x=0\)、\(x^2+y^2-2y=0\)的根轴与共同点，再求经过共同点及\((2,1)\)的圆。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）求\(x^2+y^2=5\)与\(x^2+y^2+xy+x=5\)的全部实交点。选择合适的曲线束成员，说明为什么不必先将两条曲线分别化为标准方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）（据2012年辽宁卷文科第20题第（1）问）动圆\(x^2+y^2=t^2\)（\(1<t<3\)）与椭圆\(x^2/9+y^2=1\)交于四点。求这四点所成矩形面积的最大值及对应的\(t\)。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\newpage
+\subsection{二次曲线束的矩阵表示*}
+\label{subsec:quadratic-conic-pencil-matrices}
+
+普通路线中，线性组合使某些项消去，退化成员又使交点问题容易处理。完整齐次矩阵将这两种操作接到同一个线性空间中。
+
+记生成曲线的齐次二次式为\(Q_i(Z)=Z^TM_iZ\)，其中\(Z=(x,y,z)^T\)，\(M_i\)为三阶实对称矩阵。曲线束成为
+\begin{equation}\label{eq:quadratic-matrix-pencil}
+    Q_{\lambda,\mu}(Z)=Z^T(\lambda M_1+\mu M_2)Z,
+    \qquad M_{\lambda,\mu}=\lambda M_1+\mu M_2 .
+\end{equation}
+所以曲线束是对称矩阵线性组合在方程中的体现。一个基点\(P=(x,y)\)对应\(Z=(x,y,1)^T\)，它同时使两个生成二次式为零，也就使所有线性组合为零。
+
+由4.3的退化判据，完整矩阵秩小于\(3\)时，完整二次式退化。可用行变换找出这些系数比；若使用三阶行列式，则条件为
+\begin{equation*}
+    \det(\lambda M_1+\mu M_2)=0 .
+\end{equation*}
+行列式的逐项计算可以由讲者补充。它是\(\lambda,\mu\)的三次齐次式；在\(\lambda=1\)时至多是三次多项式。它也可能恒为零，此时不能按“三次方程至多三个根”判断成员数目，仍须检查整个矩阵族。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对\(F=x^2+y^2-5\)、\(G=x^2+4y^2-8\)，写出完整矩阵\(M_F+tM_G\)，用秩判据找出全部退化成员，再将方程分解为直线。说明第三个退化成员与前面两组水平、竖直直线的关系。
+\end{example}
+\end{minipage}\par
+
+
+这个例子的矩阵是对角矩阵：三个对角元分别为\(1+t,1+4t,-5-8t\)。哪个对角元为零，就失去相应的一个齐次方向。常数项为零而二次部分不定时，退化为经过原点的相交直线对；二次部分失去一个方向而其余项异号时，则可得到平行直线对。完整方程的退化与二次部分退化仍须区别。
+
+若作可逆仿射坐标变换，对应的齐次矩阵为\(K\)，则
+\begin{equation*}
+    K^T(\lambda M_1+\mu M_2)K
+    =\lambda K^TM_1K+\mu K^TM_2K .
+\end{equation*}
+坐标变换与取线性组合可以交换，且完整矩阵的秩保持。因此某个系数比是否给出退化成员，与选择哪套仿射坐标无关。
+
+两个不同退化成员的直线分解，有时给出基点之间不同的配对。这在前面的四交点例子中已经出现。后面引入齐次坐标与射影参数后，将进一步解释这些配对及点线关系；本节先保留其矩阵与方程依据。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）求\(x^2+y^2-1+t(x^2+2y^2-3)=0\)的完整矩阵，找出全部退化成员并判断实图形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）对两圆\(x^2+y^2-1=0\)、\(x^2+y^2-2x=0\)，写出平方项消去时的齐次二次式，说明它为什么仍由秩小于\(3\)的矩阵表示。其\(z=1\)部分是什么？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设\(M_1,M_2\)线性无关。证明用它们的两个线性无关组合重新作为生成矩阵，所得完整曲线束不变。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）对\(F=x^2-y^2\)、\(G=xy\)，证明曲线束的全部完整矩阵均退化。写出实图形，说明没有公共直线因子为什么仍可能出现这种情形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）在式\eqref{eq:quadratic-matrix-pencil}中，设\(M_1\)可逆。证明若某个实数\(t\ne0\)使\(M_1+tM_2\)不可逆，则\(-1/t\)是\(M_1^{-1}M_2\)的特征值。这个关系如何帮助寻找退化成员？
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）对\(F=(x-1)^2+(y+1)^2-1\)、\(G=(x-1)^2+2(y+1)^2-3\)，写出完整矩阵\(M_F+tM_G\)。先平移坐标寻找退化参数，再用原矩阵的秩核对，并解释为何参数不随平移改变。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）设\(F=x^2+y^2-1\)、\(G=x^2\)。求完整曲线束\(\lambda F+\mu G=0\)的全部退化成员，分别判断其秩与实图形。若只使用\(F+tG=0\)，会遗漏哪个退化成员？
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）设三个一次齐次式为\(L=a^TZ\)、\(L_1=b^TZ\)、\(L_2=c^TZ\)。写出\(F=LL_1\)、\(G=LL_2\)的对称矩阵，证明\(\lambda F+\mu G\)的矩阵秩不超过\(2\)，并联系公共直线因子解释。
+\par
+\end{samepage}
+
+\begin{samepage}
+（9）若曲线束有一个正定的完整矩阵成员，证明生成曲线没有共同实点。反过来，没有共同实点是否必有这样的成员？考察\(F=x^2-y^2-1\)、\(G=x^2-y^2-2\)，分别从方程与矩阵作出判断。
+\par
+\end{samepage}
+
+\end{exercise}

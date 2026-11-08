@@ -1,0 +1,509 @@
+\newpage
+\section{极坐标}
+\label{sec:quadratic-polar-coordinates}
+
+直角坐标用两个方向上的分量确定点的位置，也可以用到定点的距离和方向来确定位置。这两种表示描述同一个平面，却适合不同的问题。本节先建立极坐标，再按研究对象选择坐标原点，用距离与角度重新表达二次曲线、极线和焦弦的关系。
+
+\subsection{极坐标系与坐标转换}
+\label{subsec:quadratic-coordinates}
+
+\begin{definition}
+在平面上选定一点\(O\)、从\(O\)出发的一条射线和长度单位，分别称\(O\)为{\heiti{}极点}，该射线为{\heiti{}极轴}。对\(P\ne O\)，记\(r=|OP|\)，从极轴逆时针转到射线\(OP\)的角为\(\theta\)，则\((r,\theta)\)称为\(P\)的{\heiti{}极坐标}。其中\(r\)称为极径，\(\theta\)称为极角。
+\end{definition}
+
+本节通常取\(r\ge0\)，角以弧度为单位。角度相差\(2k\pi\)（\(k\in\mathbb Z\)）给出同一方向，因此同一点的极坐标不唯一。极点对应\(r=0\)，此时极角任意。若需使非极点的表示唯一，可以将极角限制在\([0,2\pi)\)等半开区间内。
+
+以极点为直角坐标原点、极轴为\(x\)轴正方向，建立同一长度单位的直角坐标系。由三角函数的定义，两个坐标之间有
+\begin{equation}\label{eq:quadratic-polar-cartesian-conversion}
+ x=r\cos\theta,\qquad y=r\sin\theta;
+ \qquad r^2=x^2+y^2.
+\end{equation}
+由\((x,y)\)求极角时，还须用坐标的正负确定所在象限，不能只由\(\tan\theta=y/x\)确定方向。
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=.60\linewidth]{conic-polar-coordinates}
+ \caption{用距离与方向确定点的位置}
+ \label{fig:quadratic-polar-coordinates}
+\end{figure}
+
+若极点在原直角坐标的\((h,k)\)，极轴与原\(x\)轴正向成角\(\alpha\)，则
+\begin{equation}\label{eq:quadratic-shifted-polar-conversion}
+ x=h+r\cos(\alpha+\theta),\qquad
+ y=k+r\sin(\alpha+\theta).
+\end{equation}
+这相当于先平移、旋转直角坐标，再使用式\eqref{eq:quadratic-polar-cartesian-conversion}。选定极点和极轴是建系的一部分，可以根据曲线的中心、焦点或问题中的定点来决定。
+
+两点\(P_1(r_1,\theta_1),P_2(r_2,\theta_2)\)之间的距离，由余弦定理或坐标计算得到
+\begin{equation}\label{eq:quadratic-polar-distance}
+ |P_1P_2|^2=r_1^2+r_2^2-2r_1r_2\cos(\theta_1-\theta_2).
+\end{equation}
+特别地，夹角为直角时，右边成为\(r_1^2+r_2^2\)。
+
+\paragraph{1°曲线方程的转换} \mbox{}
+
+曲线上的点在两种坐标下相同，将式\eqref{eq:quadratic-polar-cartesian-conversion}代入直角坐标方程，就得到极坐标方程。反过来，利用\(r\cos\theta=x\)、\(r\sin\theta=y\)及\(r^2=x^2+y^2\)，也可以还原直角坐标方程。
+
+例如，圆心在极点、半径为\(R\)的圆表示为\(r=R\)。圆\((x-a)^2+y^2=a^2\)（\(a>0\)）则给出
+\begin{equation*}
+ r^2-2ar\cos\theta=0.
+\end{equation*}
+非极点部分满足\(r=2a\cos\theta\)，取\(-\pi/2\le\theta\le\pi/2\)可表示整个圆，端点角度给出极点。这说明约去\(r\)后，应检查极点是否仍由新方程表示。
+
+对不过极点的直线，取其单位法向量方向角为\(\beta\)，方程可写成
+\begin{equation}\label{eq:quadratic-polar-line-normal}
+ x\cos\beta+y\sin\beta=d
+ \quad\Longleftrightarrow\quad
+ r\cos(\theta-\beta)=d.
+\end{equation}
+选择法向量使\(d>0\)时，\(d\)就是极点到直线的距离。过极点、方向角为\(\alpha\)的整条直线，由相反的两个方向\(\theta=\alpha\)、\(\theta=\alpha+\pi\)组成。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+分别将直线\(x+y=2\)、圆\(x^2+y^2-4x=0\)、曲线\(x^2-y^2=4\)写成极坐标方程，并说明各自允许的极角范围。再将\(r\cos(\theta-\pi/3)=2\)还原为直角坐标方程。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\paragraph{2°沿直线的有向距离} \mbox{}
+
+研究一条过极点的直线时，取单位方向向量\(d=(\cos\theta,\sin\theta)\)，将线上点写成
+\begin{equation}\label{eq:quadratic-polar-signed-radius}
+ X=O+td,\qquad t\in\mathbb R.
+\end{equation}
+\begin{samepage}
+\(t\)是沿该方向的有向距离：\(t>0\)对应极角\(\theta\)，\(t<0\)对应极角\(\theta+\pi\)，实际长度为\(|t|\)。这也可以理解为允许负极径，并约定\((t,\theta)\)与\((-t,\theta+\pi)\)表示同一点。下面研究整条割线时使用\(t\)，研究射线上的距离时仍使用\(r\ge0\)。
+\par\end{samepage}
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+以\((1,-1)\)为极点、平行于原\(x\)轴正向的射线为极轴，将\((x-1)^2+2(y+1)^2=4\)写成极坐标方程。求曲线上极角相差\(\pi/2\)的两点到极点距离的平方倒数之和，判断它是否为定值。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）写出\((-\sqrt3,1)\)、\((0,-2)\)在\(0\le\theta<2\pi\)内的极坐标，再求极坐标为\((2,5\pi/6)\)、\((3,-\pi/2)\)的点的直角坐标。
+\par\end{samepage}
+\begin{samepage}
+（2）将\(r=4\sin\theta\)、\(r^2\cos2\theta=2\)、\(r(2\cos\theta-\sin\theta)=3\)化为直角坐标方程，说明各自表示的曲线。
+\par\end{samepage}
+\begin{samepage}
+（3）将\(x^2/9+y^2/4=1\)写成以中心为极点的极坐标方程，求极径的最大值与最小值及相应方向。
+\par\end{samepage}
+\begin{samepage}
+（4）两点的极坐标为\((2,\pi/6)\)、\((3,5\pi/6)\)。求两点距离和它们与极点组成的三角形面积。
+\par\end{samepage}
+\begin{samepage}
+（5）将圆\((x-2)^2+(y+1)^2=9\)分别写成以原点、以圆心为极点的极坐标方程，比较两种表示。极轴均取平行于原\(x\)轴正向的射线。
+\par\end{samepage}
+\begin{samepage}
+（6）直线\(r\cos(\theta-\pi/4)=1\)与圆\(r=2\)相交。求交点的极坐标与弦长，并求极点到弦的距离。
+\par\end{samepage}
+
+\begin{samepage}
+（7）圆的极坐标方程为\(r^2-4r\cos\theta+3=0\)。求有实交点的射线方向，判断哪些射线与圆有两个不同交点，并说明这条曲线能否在全部这些方向上写成单值的\(r=f(\theta)\)。
+\par\end{samepage}
+\begin{samepage}
+（8）以椭圆\(x^2/9+y^2/4=1\)的中心为极点，将极轴取为与\(x\)轴正向成\(\pi/4\)角的射线。写出极坐标方程，求极角为\(0\)、\(\pi/2\)的两点的直角坐标。
+\par\end{samepage}
+\begin{samepage}
+（9）取圆\(x^2+y^2=4\)上点\(A=(2,0)\)为极点，指向圆心的射线为极轴，写出圆的极坐标方程。从\(A\)作两条射线，与圆分别再交于\(B,C\)，且\(\angle BAC=\pi/3\)。用极坐标证明\(|BC|\)为定值。
+\par\end{samepage}
+
+\begin{samepage}
+（10）椭圆\(x^2/a^2+y^2/b^2=1\)（\(a>b>0\)）的中心为\(O\)。曲线上两点\(A,B\)满足\(OA\perp OB\)，用中心极坐标求\(\triangle OAB\)面积的最大值、最小值及相应方向，并与共轭半径的面积关系比较。
+\par\end{samepage}
+\end{exercise}
+
+\newpage
+\subsection{极线与径向方程}
+\label{subsec:quadratic-polar-line-and-radial-equation}
+
+极坐标系的极点可以任意选取；点关于二次曲线的极线，则由曲线和该点决定。现在选定一点\(O\)作为极坐标原点，研究它的极线怎样进入沿各个方向的交点方程。
+
+平移后以\(O\)为直角坐标原点，将所研究的非退化二次曲线写为
+\begin{equation}\label{eq:quadratic-polar-origin-equation}
+ Ax^2+Bxy+Cy^2+Dx+Ey+F=0.
+\end{equation}
+沿方向\(\theta\)代入\(x=t\cos\theta,y=t\sin\theta\)，得到
+\begin{equation}\label{eq:quadratic-radial-scalar-equation}
+ a(\theta)t^2+b(\theta)t+F=0,
+\end{equation}
+其中
+\begin{equation*}
+ \begin{aligned}
+ a(\theta)&=A\cos^2\theta+B\cos\theta\sin\theta+C\sin^2\theta,\\
+ b(\theta)&=D\cos\theta+E\sin\theta.
+ \end{aligned}
+\end{equation*}
+这就是该方向上的{\heiti{}径向方程}。取\(t\ge0\)时得到相应射线上的曲线点；允许\(t\)取负值时，同时研究整条直线的交点。
+
+根据4.10的极线公式，原点\(O=(0,0)\)的极线为
+\begin{equation}\label{eq:quadratic-radial-polar-line}
+ Dx+Ey+2F=0.
+\end{equation}
+可见径向方程的一次项由极线决定，而二次项还包含曲线在各个方向上的信息。只知道极线，通常还不足以确定整条曲线。
+
+\paragraph{1°交点的倒数关系} \mbox{}
+
+设\(O\)不在曲线上，一条过\(O\)的直线与曲线交于两个不同的有限点\(U,V\)，有向距离为\(t_1,t_2\)。由根与系数的关系，
+\begin{equation}\label{eq:quadratic-radial-reciprocal-sum}
+ \frac1{t_1}+\frac1{t_2}=-\frac{b(\theta)}F.
+\end{equation}
+若这条直线与\(O\)的极线交于\(H\)，设其有向距离为\(h\)，由式\eqref{eq:quadratic-radial-polar-line}得\(b(\theta)h+2F=0\)。所以
+\begin{equation}\label{eq:quadratic-radial-harmonic-mean}
+ \boxed{\ \frac1{t_1}+\frac1{t_2}=\frac2h\ }.
+\end{equation}
+这正是4.10中割线与极线的距离关系。现在看出，它是径向二次方程的根与系数关系，与坐标原点取在何处无关。
+
+若\(b(\theta)=0\)，两根互为相反数；当\(O\)有极线时，该方向与极线平行。
+
+中心处\(D=E=0\)，各方向的交点均关于中心成对。
+
+有向距离不能直接替换为长度。例如，\(U,V\)在\(O\)两侧时，\(t_1,t_2\)异号，上式对应两个长度倒数之差；在同侧时则对应倒数之和。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对椭圆\(x^2/9+y^2/4=1\)，取\(O=(1,0)\)为极点，极轴平行于\(x\)轴正向。写出径向方程及\(O\)的极线，分别沿水平、竖直方向计算交点，核对式\eqref{eq:quadratic-radial-reciprocal-sum}。水平割线上的有向距离与实际长度有什么不同？
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\paragraph{2°由交点研究方向} \mbox{}
+
+当\(a(\theta)\ne0\)时，径向方程的判别式为\(\Delta(\theta)=b(\theta)^2-4a(\theta)F\)，其正、零、负分别表示该直线有两个不同实交点、在一个点相切、没有实交点。若只研究某条射线，还要看所得根是否为正。若\(a(\theta)=0\)，则直接研究剩余方程的有限交点。
+
+这与4.8的联立方法相同，而方向角也包括了竖直方向。计算时可按任务选取根、根的和与积，或判别式。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对圆\(x^2+y^2=1\)，以\(O=(2,0)\)为极点，极轴取从\(O\)指向圆心的方向。求径向方程、能与圆相交的射线方向，以及两条切线的夹角。再求每条实割线的两交点到\(O\)的距离之积，并与圆幂比较。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）曲线为\(x^2+2y^2=4\)，极点取\(O=(1,1)\)，极轴平行于\(x\)轴正向。写出径向方程及\(O\)的极线，并求方向角\(\pi/4\)的直线与极线的交点。
+\par\end{samepage}
+\begin{samepage}
+（2）对抛物线\(y^2=4x\)，取\(O=(-1,0)\)。求从\(O\)出发的切线方向，并写出两条切线的方程。
+\par\end{samepage}
+\begin{samepage}
+（3）在椭圆\(x^2/9+y^2/4=1\)中，\(O=(1,0)\)。证明过\(O\)的各条弦，两个端点到\(O\)的距离之积为\(8/(\cos^2\theta+\tfrac94\sin^2\theta)\)，并求其范围。这里\(\theta\)是弦的方向角。
+\par\end{samepage}
+\begin{samepage}
+（4）过双曲线\(x^2-y^2=1\)上点\(O=(1,0)\)作直线。直接从径向方程分离恒有的根\(t=0\)，求另一交点的有向距离，说明相切方向与平行于渐近线的方向在计算中有何不同。
+\par\end{samepage}
+\begin{samepage}
+（5）设\(O\)不在非退化二次曲线上，沿两条不同方向的实割线分别取交点有向距离的倒数和。若这两个和都为零，证明\(O\)是曲线的中心。
+\par\end{samepage}
+\begin{samepage}
+（6）对椭圆\(x^2/a^2+y^2/b^2=1\)，以中心为极点，求方向角为\(\theta\)的半径长\(r(\theta)\)。证明\(r(\theta)^{-2}+r(\theta+\pi/2)^{-2}\)为定值，并解释相应两条半径互相垂直。
+\par\end{samepage}
+\end{exercise}
+
+\newpage
+\subsection{焦点极坐标方程}
+\label{subsec:quadratic-focal-polar-equation}
+
+极点若取在焦点，点到焦点的距离就成为极径，焦准线关系因而可以直接用于写方程。这一选择与上小节相连：4.10已经证明，非圆圆锥曲线的焦点与相应准线互为极点、极线。
+
+\paragraph{1°由焦准线关系建立方程} \mbox{}
+
+取焦点\(S\)为极点，从\(S\)垂直指向对应准线的射线为极轴。设焦点到准线的距离为\(d>0\)，离心率为\(e>0\)。在相应的直角坐标中，\(S=(0,0)\)，准线为\(x=d\)。曲线上点\(P(r,\theta)\)满足
+\begin{equation}\label{eq:quadratic-focal-polar-absolute}
+ r=e|d-r\cos\theta|.
+\end{equation}
+记\(\ell=ed\)。当\(P\)与焦点在准线同侧时，上式成为\(r=e(d-r\cos\theta)\)，故
+\begin{equation}\label{eq:quadratic-focal-polar-equation}
+ \boxed{\ r=\frac{\ell}{1+e\cos\theta}\ },
+ \qquad 1+e\cos\theta>0.
+\end{equation}
+将\(\theta=\pi/2\)或\(3\pi/2\)代入，得\(r=\ell\)。对应两点组成通径，所以\(\ell\)是通径长的一半，称为{\heiti{}半通径}。由4.5中的通径公式，
+\begin{equation}\label{eq:quadratic-semilatus-rectum}
+ \ell=\frac{b^2}{a}\quad\text{（椭圆、双曲线）},
+ \qquad \ell=p\quad\text{（抛物线\(y^2=2px\)）}.
+\end{equation}
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=.65\linewidth]{conic-focal-polar}
+ \caption{以焦点为极点、朝向准线的方向为极轴}
+ \label{fig:quadratic-focal-polar}
+\end{figure}
+
+当\(0<e<1\)时，分母对所有角度均为正，式\eqref{eq:quadratic-focal-polar-equation}表示整条椭圆；当\(e=1\)时，取\(\theta\ne\pi+2k\pi\)，表示整条抛物线。在后一情形中，\(\theta=\pi\)方向的射线没有曲线点。
+
+当\(e>1\)时，还可能有点在准线另一侧，此时
+\begin{equation}\label{eq:quadratic-hyperbola-second-polar-radius}
+ r=\frac{\ell}{e\cos\theta-1},
+ \qquad e\cos\theta>1.
+\end{equation}
+因此双曲线的完整表示需合用式\eqref{eq:quadratic-focal-polar-equation}与式\eqref{eq:quadratic-hyperbola-second-polar-radius}。某些方向的射线会与双曲线的两支各交一次，极径不再是极角的单值函数。
+
+若将极轴反向，式中的\(\cos\theta\)随之换号；若将极轴旋转，则相应改变角度。常见的\(1-e\cos\theta\)、\(1+e\sin\theta\)等形式，由同一焦准线关系在不同建系下得到。
+
+将式\eqref{eq:quadratic-focal-polar-absolute}平方，再使用坐标转换，得到
+\begin{equation}\label{eq:quadratic-focal-polar-cartesian}
+ (1-e^2)x^2+y^2+2e\ell x-\ell^2=0.
+\end{equation}
+反过来，这个方程等价于\(r^2=e^2(d-x)^2\)，因两边的距离非负，仍等价于焦准线关系。这使离心率分类、直角坐标方程与极坐标表示接在了一起。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+曲线的极坐标方程为\(r=6/(2+\cos\theta)\)。求焦点、对应准线、离心率和通径长，再求直角坐标标准方程以及另一焦点的位置。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+焦点为原点、准线为\(x=3\)、离心率为\(2\)的双曲线，以\(x\)轴正向为极轴。写出两种正极径表达，求\(\theta=0\)、\(\pi/2\)、\(\pi\)时射线上的全部交点。将焦准线关系还原为标准方程，核对两支的位置。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\paragraph{2°焦弦与方向} \mbox{}
+
+对椭圆和抛物线，设焦弦\(UV\)的两端极角为\(\theta,\theta+\pi\)，相应焦半径为\(r_1,r_2\)，则
+\begin{equation*}
+ r_1=\frac{\ell}{1+e\cos\theta},\qquad
+ r_2=\frac{\ell}{1-e\cos\theta}.
+\end{equation*}
+因此
+\begin{align}
+ \frac1{r_1}+\frac1{r_2}&=\frac2\ell,
+ \label{eq:quadratic-focal-polar-reciprocals}\\
+ |UV|=r_1+r_2&=\frac{2\ell}{1-e^2\cos^2\theta}.
+ \label{eq:quadratic-focal-polar-chord-length}
+\end{align}
+抛物线中焦弦不能平行于轴，式中的分母自然排除了这一方向。椭圆的焦弦长介于\(2\ell\)与\(2\ell/(1-e^2)=2a\)之间，最短者为通径，最长者为长轴。抛物线的焦弦长为\(2p/\sin^2\theta\)，最小值仍在通径处取得。
+
+这里的倒数和与上小节的有向倒数和不同。两端极角相差\(\pi\)，实际长度都为正；若在整条直线上采用同一个正方向，另一端的有向距离应取负值。
+
+双曲线仍可按焦弦方向分两种情况。若\(|e\cos\theta|<1\)，两个端点在焦点两侧，上述两式仍成立，且它们位于同一支上。若\(|e\cos\theta|>1\)，可反向选取\(\theta\)使\(e\cos\theta>1\)，两个交点在同一射线上，其距离为
+\begin{equation*}
+ r_1=\frac{\ell}{e\cos\theta+1},\qquad
+ r_2=\frac{\ell}{e\cos\theta-1}.
+\end{equation*}
+此时\(1/r_1-1/r_2=2/\ell\)，而弦长为
+\begin{equation}\label{eq:quadratic-hyperbola-focal-polar-chord}
+ |UV|=r_2-r_1=\frac{2\ell}{e^2\cos^2\theta-1}.
+\end{equation}
+当\(|e\cos\theta|=1\)时，该直线平行于一条渐近线，只有一个有限交点。两种焦弦的长度关系不同，原因正是焦点在线段内部或外部的位置不同。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+椭圆\(x^2/9+y^2/5=1\)的右焦点为\(S\)。过\(S\)的弦\(UV\)满足\(|UV|=5\)，求弦与长轴夹角的余弦绝对值，以及两段焦半径的长度。分别考虑如何使用焦点极坐标和直角坐标处理。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\paragraph{3°垂直方向与距离最值} \mbox{}
+
+若抛物线\(y^2=2px\)的一条焦弦与轴的夹角为\(\theta\)，另一条与之垂直，则两弦长度为
+\begin{equation*}
+ L_1=\frac{2p}{\sin^2\theta},\qquad
+ L_2=\frac{2p}{\cos^2\theta}.
+\end{equation*}
+所以\(1/L_1+1/L_2=1/(2p)\)，并可进一步研究长度和、长度积的最小值。角度把垂直条件变成了\(\pi/2\)的差，再由三角恒等式进入计算。
+
+极坐标也适用于过焦点的三角形。若两条焦半径夹角为\(\varphi\)，面积为\(r_1r_2|\sin\varphi|/2\)；若需要第三边，则使用式\eqref{eq:quadratic-polar-distance}。是否简便，要看距离、角度条件在所选坐标中能否直接表达。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+抛物线\(y^2=4x\)的焦点为\(S\)，过\(S\)作两条互相垂直的焦弦，长度分别为\(L_1,L_2\)。求\(L_1+L_2\)、\(L_1L_2\)的最小值，并说明等号时两条弦的方向。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}\label{ex:quadratic-focal-projection-minimum}
+椭圆\(x^2/3+y^2=1\)的左焦点为\(S\)。过\(S\)且斜率为正的直线交椭圆于\(A,B\)，过两端分别作弦的垂线，与\(x\)轴交于\(M,N\)。用焦点极坐标求\(|MN|\)的最小值，并说明等号时焦弦的方向。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\newpage
+\paragraph{4°弦的方程与角度关系} \mbox{}
+
+极坐标也可以表示不经过极点的弦。以椭圆\(r=\ell/(1+e\cos\theta)\)为例，设两个不同端点的极角为\(\alpha,\beta\)，记
+\begin{equation*}
+ m=\frac{\alpha+\beta}{2},\qquad
+ \delta=\frac{\alpha-\beta}{2}.
+\end{equation*}
+对任一端点，\(\cos(\theta-m)=\cos\delta\)，且\(r+er\cos\theta=\ell\)，所以两端都满足
+\begin{equation}\label{eq:quadratic-focal-polar-chord}
+ r\bigl[\cos(\theta-m)+e\cos\delta\cos\theta\bigr]
+ =\ell\cos\delta.
+\end{equation}
+左边使用\(r\cos\theta=x,r\sin\theta=y\)展开，成为
+\begin{equation*}
+ (\cos m+e\cos\delta)x+\sin m\,y=\ell\cos\delta.
+\end{equation*}
+这是经过两个端点的直线，因而就是弦所在直线。\(\cos\delta=0\)时两端方向相反，式子相应表示过焦点的弦。推导的关键是先用焦点方程替换极径，再将两端的角度关系写入一次方程。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}\label{ex:quadratic-focal-cross-chord-angles}
+椭圆的两条焦弦\(AB,CD\)交于同一焦点\(S\)，四端点互异。设\(U=AC\cap BD\)、\(V=AD\cap BC\)均为有限点。以\(S\)为极点，用弦的极坐标方程证明\(SU,SV\)分别沿两条焦弦所在直线的两条角平分线，因而\(SU\perp SV\)。再求\(U,V\)所在定直线，并与极点极线方法比较。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+以\(SA,SC\)的方向角为\(\alpha,\beta\)，则\(SB,SD\)分别增加\(\pi\)。两组弦方程中的和角、差角由此相互联系；相加可以消去方向项，相减可以消去常数项。这个配置中，准线可以由坐标计算或极线关系找到，角平分关系则进一步使用了方向角的信息。
+
+\begingroup
+\setlength{\parskip}{4pt}
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）求\(r=4/(2+\sin\theta)\)的离心率、对应准线与直角坐标方程，求曲线上点到极点距离的范围。
+\par\end{samepage}
+\begin{samepage}
+（2）对椭圆\(x^2/25+y^2/9=1\)，分别以左、右焦点为极点、原\(x\)轴正向为极轴，写出极坐标方程。说明两个方程中余弦项的符号为何不同。
+\par\end{samepage}
+\begin{samepage}
+（3）曲线满足\(r=3/(1+\cos\theta)\)。求直角坐标方程、顶点与焦点；再求过极点、与极轴成\(\pi/3\)角的焦弦长。
+\par\end{samepage}
+\begin{samepage}
+（4）椭圆的离心率为\(1/2\)，通径长为\(6\)。求长、短半轴长。若某焦弦被焦点分成长度比为\(2:1\)的两段，求两段长度及弦与长轴的夹角。
+\par\end{samepage}
+\begin{samepage}
+（5）双曲线\(x^2/4-y^2/5=1\)的左焦点为\(S\)。求过\(S\)且与实轴成\(\pi/3\)角的焦弦长，判断两端位于同一支还是不同支；再对实轴方向作同样判断。
+\par\end{samepage}
+\begin{samepage}
+（6）抛物线\(y^2=2px\)的一条焦弦两端为\(U,V\)，证明\(|UV|=2|SU||SV|/p\)。若\(|SU|:|SV|=3:1\)，求弦长及其与轴夹角的余弦绝对值。
+\par\end{samepage}
+\begin{samepage}
+（7）在椭圆上取三条过同一焦点的弦，方向角依次为\(\theta,\theta+\pi/3,\theta+2\pi/3\)，长度为\(L_1,L_2,L_3\)。证明\(1/L_1+1/L_2+1/L_3\)为定值，并用离心率和半通径表示这个定值。
+\par\end{samepage}
+\begin{samepage}
+（8）抛物线的焦点为\(S\)，\(P,Q\)在曲线上且\(SP\perp SQ\)。用\(p\)表示\(\triangle SPQ\)面积的最小值，其中抛物线的通径长为\(2p\)。提示：设两点的极角为\(\theta,\theta+\pi/2\)，研究\((1+\cos\theta)(1-\sin\theta)\)的最大值。
+\par\end{samepage}
+
+\begin{samepage}
+（9）椭圆\(x^2/16+y^2/7=1\)的右焦点为\(S\)。曲线上两点\(P,Q\)满足\(SP\perp SQ\)，求\(1/|SP|+1/|SQ|\)的取值范围，并说明等号时两条射线的方向。
+\par\end{samepage}
+\begin{samepage}
+（10）椭圆的长、短半轴长分别为\(a,b\)，焦点为\(S_1,S_2\)。用焦点极坐标求曲线上点\(P\)所对应的\(|PS_1||PS_2|\)的最大值与最小值，以及相应点的位置。
+\par\end{samepage}
+\begin{samepage}
+（11）椭圆的离心率为\(e\)，半通径为\(\ell\)。过同一焦点作两条互相垂直的焦弦，长为\(L_1,L_2\)。证明\(1/L_1+1/L_2\)为定值，进一步求\(L_1L_2\)的取值范围。
+\par\end{samepage}
+\begin{samepage}
+（12）抛物线\(y^2=2px\)的顶点为\(V\)，焦弦\(AB\)的长度为\(8p\)。求焦弦与轴的夹角及\(\triangle VAB\)的面积。
+\par\end{samepage}
+\begin{samepage}
+（13）对双曲线\(x^2/a^2-y^2/b^2=1\)，分别研究两端在同一支、两端在不同支的焦弦。证明两类焦弦的最短长度分别为\(2b^2/a\)、\(2a\)，并指出相应方向。
+\par\end{samepage}
+
+\begin{samepage}
+（14）非圆圆锥曲线的离心率为\(e\)，焦点为\(S\)。一条焦弦\(AB\)的中垂线与焦点所在的对称轴交于唯一点\(D\)。证明\(|SD|=e|AB|/2\)。用焦点极坐标分别处理\(S\)在线段\(AB\)内部和外部的情形。
+\par\end{samepage}
+\begin{samepage}
+（15）双曲线的离心率为\(e\)，半通径为\(\ell\)。过同一焦点作两条互相垂直的实焦弦，长为\(L_1,L_2\)。令\(\varepsilon_i=1\)或\(-1\)，分别对应两端在同一支或不同支，证明\(\varepsilon_1/L_1+\varepsilon_2/L_2=(2-e^2)/(2\ell)\)。再取\(e=2,\ell=6\)，比较方向角为\(0\)与\(\pi/4\)时两条垂直焦弦的实际长度倒数和。
+\par\end{samepage}
+\end{exercise}
+\endgroup
+
+\newpage
+\subsection{二次型与径向方程*}
+\label{subsec:quadratic-quadratic-forms-and-radial-equation}
+
+前面的径向方程由坐标代入得到。现在将原点、方向与二次曲线分开，用二次型说明这些系数各自表示什么。
+
+设在原直角坐标中，曲线方程为
+\begin{equation*}
+ \Phi(x)=x^THx+L^Tx+F=0,\qquad H=H^T.
+\end{equation*}
+选点\(P\)为极坐标原点，记\(d\)为某一方向的单位向量。展开\(\Phi(P+td)\)，得到
+\begin{equation}\label{eq:quadratic-radial-matrix-equation}
+ \Phi(P+td)=a(d)t^2+2b_P(d)t+c_P,
+\end{equation}
+其中
+\begin{equation}\label{eq:quadratic-radial-matrix-coefficients}
+ a(d)=d^THd,\qquad
+ b_P(d)=d^T\left(HP+\frac L2\right),\qquad
+ c_P=\Phi(P).
+\end{equation}
+二次项只依赖方向和曲线的二次部分，一次项同时依赖基点与方向，常数项只依赖基点。改变极点，二次部分\(H\)不变；改变方向，基点处的值\(c_P\)不变。
+
+由4.10.2的双线性表达，点\(P\)的极线在点\(X=P+td\)处满足
+\begin{equation}\label{eq:quadratic-radial-matrix-polar}
+ T(P,P+td)=c_P+t\,b_P(d)=0.
+\end{equation}
+这就是径向方程中的一次项与极线的联系。对\(c_P\ne0\)及非零交点参数，令\(z=1/t\)，则交点方程成为
+\begin{equation}\label{eq:quadratic-reciprocal-radial-equation}
+ c_Pz^2+2b_P(d)z+a(d)=0.
+\end{equation}
+两个倒数根的平均为\(-b_P(d)/c_P\)，而极线交点\(h\)满足\(1/h=-b_P(d)/c_P\)。式\eqref{eq:quadratic-radial-harmonic-mean}因而由二次型再次得到；4.11中的调和关系也正是在这条直线上对同一关系的射影表述。
+
+\paragraph{1°中心与方向} \mbox{}
+
+若\(P\)是中心，则\(HP+L/2=0\)，所有方向的一次项都消失。以中心为原点时，
+\begin{equation}\label{eq:quadratic-centered-radial-form}
+ t^2=-\frac{\Phi(P)}{d^THd},
+\end{equation}
+只要右边为正，就有关于中心对称的两个实交点。
+
+对椭圆，化为标准方程后\(H=\operatorname{diag}(a^{-2},b^{-2})\)，方向向量为\((\cos\theta,\sin\theta)^T\)，所以
+\begin{equation*}
+ \frac1{r(\theta)^2}=\frac{\cos^2\theta}{a^2}+\frac{\sin^2\theta}{b^2}.
+\end{equation*}
+对双曲线，相应变为\(\cos^2\theta/a^2-\sin^2\theta/b^2\)。它大于零的方向有实半径，等于零的方向就是渐近线方向。一般中心双曲线的渐近线也由\(d^THd=0\)确定；在非中心的基点处，同一方向使径向二次项消失，但所得一次方程通常仍给出一个有限交点。
+
+若\(d,e\)是一组互相垂直的单位向量，二次型在这组正交基下的两个对角系数为\(d^THd,e^THe\)。将\(d=(\cos\theta,\sin\theta)^T\)、\(e=(-\sin\theta,\cos\theta)^T\)代入，混合项相消，得到
+\begin{equation}\label{eq:quadratic-orthogonal-radial-trace}
+ d^THd+e^THe=H_{11}+H_{22}.
+\end{equation}
+因此，椭圆中两条互相垂直的中心半径的平方倒数之和为定值；普通部分中的三角恒等式，在这里表现为同一个二次型在不同正交基下的关系。
+
+\par\addvspace{6pt}\noindent\begin{minipage}{\linewidth}
+\begin{example}
+以曲线\(5x^2+4xy+2y^2=1\)的中心为极点，写出\(r(\theta)\)，求半径长的最大值与最小值及相应方向。再证明任意两条互相垂直的中心半径满足\(r_1^{-2}+r_2^{-2}=7\)，将结果与旋转化简相比较。
+\end{example}
+\end{minipage}\par\addvspace{6pt}
+
+\paragraph{2°焦点建系的二次型解释} \mbox{}
+
+以焦点为原点、朝向准线的方向为\(x\)轴，式\eqref{eq:quadratic-focal-polar-cartesian}对应
+\begin{equation*}
+ H=\begin{pmatrix}1-e^2&0\\0&1\end{pmatrix},\qquad
+ L=\begin{pmatrix}2e\ell\\0\end{pmatrix},\qquad
+ F=-\ell^2.
+\end{equation*}
+所以其沿单位方向\(\widehat u=(\cos\theta,\sin\theta)^T\)的方程为
+\begin{equation}\label{eq:quadratic-focal-radial-factorization}
+ (1-e^2\cos^2\theta)t^2+2e\ell\cos\theta\,t-\ell^2
+ =\bigl((1+e\cos\theta)t-\ell\bigr)
+  \bigl((1-e\cos\theta)t+\ell\bigr)=0.
+\end{equation}
+两个有向根是\(\ell/(1+e\cos\theta)\)与\(-\ell/(1-e\cos\theta)\)。它们异号时交点在焦点两侧，同号时在同一侧；二次项为零时，只剩一个有限交点。这统一了前面双曲线焦弦中需要区分的方向。
+
+原点的极线为\(e\ell x-\ell^2=0\)，即\(x=\ell/e=d\)，恰是准线。二次型的方向系数、焦点的极线及焦准线定义，由此共同给出同一个径向方程。
+
+\paragraph{3°变换下的参数与长度} \mbox{}
+
+设仿射变换为\(y=Kx+q\)，\(K\)可逆。射线\(P+td\)变为\(KP+q+tKd\)。参数\(t\)仍保留了线上点的线性关系，但\(Kd\)通常不是单位向量。若以像平面的实际有向距离\(s\)作参数，则
+\begin{equation*}
+ s=t|Kd|,\qquad \widehat d=\frac{Kd}{|Kd|}.
+\end{equation*}
+因此同一方向上各距离乘以同一个因子，倒数关系\(1/t_1+1/t_2=2/h\)在像图形中仍成立；不同方向的长度因子则通常不同。仿射变换保持割线、极线之间的关系，却不能据此把一个焦点直接当作像曲线的焦点。这与4.6中处理长度和垂直条件的原则相同。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）对\(x^2+2xy+3y^2-4x+2y-1=0\)，以\(P=(1,0)\)为极点。计算\(a(d),b_P(d),c_P\)，写出径向方程与\(P\)的极线。沿\(d=(1,0)^T\)核对交点的有向倒数关系。
+\par\end{samepage}
+\begin{samepage}
+（2）设\(\Phi(P)\ne0\)。证明径向方程的判别式为\(4(b_P(d)^2-a(d)c_P)\)。若某方向有二重实根，说明对应直线为何为切线，并证明切点在\(P\)的极线上。
+\par\end{samepage}
+\begin{samepage}
+（3）设椭圆\(x^THx=1\)，其中\(H\)正定。在任一组互相垂直的单位方向上取中心半径\(r_1,r_2\)，证明其平方倒数之和等于\(H_{11}+H_{22}\)。它们的乘积是否也与方向无关？
+\par\end{samepage}
+\begin{samepage}
+（4）将\(y^2=4x\)平移到以焦点为原点的坐标系，写出\(H,L,F\)，再由式\eqref{eq:quadratic-radial-matrix-equation}分解径向方程，得到焦点极坐标表示。
+\par\end{samepage}
+\begin{samepage}
+（5）在非退化中心双曲线中，设基点\(P\)不在曲线上。对渐近线方向\(d\)，讨论\(b_P(d)\ne0\)与\(b_P(d)=0\)时的有限交点个数，并解释后一情形中\(P\)与相应渐近线的位置关系。
+\par\end{samepage}
+\begin{samepage}
+（6）伸缩\((x,y)\mapsto(2x,y)\)将单位圆变为椭圆。取圆内非中心点\(P\)，过\(P\)作一条与其极线相交的割线，证明交点与极线交点的有向倒数关系在伸缩后保持。再比较圆心的像与像椭圆的两个焦点，说明焦点不能直接通过这个伸缩得到。
+\par\end{samepage}
+\end{exercise}

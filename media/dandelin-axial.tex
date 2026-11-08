@@ -1,0 +1,61 @@
+\documentclass[tikz,border=3pt]{standalone}
+\usepackage[UTF8,fontset=windows]{ctex}
+\usepackage{amsmath}
+\definecolor{sectionblue}{HTML}{245C86}
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,font=\small]
+\begin{scope}[shift={(0.000,0)}]
+\begin{scope}[scale=1.42857,shift={(0,0.20000)}]
+% Geometry is bounded explicitly; leave labels unclipped.
+\draw[gray!75] (0.11547,-0.20000)--(-1.50111,2.60000);
+\draw[gray!75] (-0.11547,-0.20000)--(1.50111,2.60000);
+\draw[dashed,gray!60] (0.00000,-0.20000)--(0.00000,2.60000);
+\draw[sectionblue,thick] (-1.15500,0.21812)--(1.15500,1.05889);
+\draw[fill=sectionblue!7,draw=black!65] (0.00000,0.41676) circle[radius=0.20838];
+\draw[dotted,gray!70] (-0.18046,0.31257)--(0.18046,0.31257);
+\draw[gray!60] (0.00000,0.41676)--(-0.07127,0.61257);
+\fill[sectionblue] (-0.07127,0.61257) circle[radius=1.05000pt] node[below left] {$F_{1}$};
+\draw[fill=sectionblue!7,draw=black!65] (0.00000,1.36459) circle[radius=0.68229];
+\draw[dotted,gray!70] (-0.59088,1.02344)--(0.59088,1.02344);
+\draw[gray!60] (0.00000,1.36459)--(0.23336,0.72344);
+\fill[sectionblue] (0.23336,0.72344) circle[radius=1.05000pt] node[below right] {$F_{2}$};
+\fill (0,0) circle[radius=1pt] node[below right] {$O$};
+\end{scope}
+\node at (0,-.45) {椭圆};
+\end{scope}
+\begin{scope}[shift={(4.400,0)}]
+\begin{scope}[scale=1.42857,shift={(0,0.20000)}]
+% Geometry is bounded explicitly; leave labels unclipped.
+\draw[gray!75] (0.11547,-0.20000)--(-1.50111,2.60000);
+\draw[gray!75] (-0.11547,-0.20000)--(1.50111,2.60000);
+\draw[dashed,gray!60] (0.00000,-0.20000)--(0.00000,2.60000);
+\draw[sectionblue,thick] (-0.80829,-0.20000)--(0.80829,2.60000);
+\draw[fill=sectionblue!7,draw=black!65] (0.00000,0.60000) circle[radius=0.30000];
+\draw[dotted,gray!70] (-0.25981,0.45000)--(0.25981,0.45000);
+\draw[gray!60] (0.00000,0.60000)--(-0.25981,0.75000);
+\fill[sectionblue] (-0.25981,0.75000) circle[radius=1.05000pt] node[above left] {$F_{1}$};
+\fill (0,0) circle[radius=1pt] node[below right] {$O$};
+\end{scope}
+\node at (0,-.45) {抛物线};
+\end{scope}
+\begin{scope}[shift={(8.800,0)}]
+\begin{scope}[scale=0.80000,shift={(0,3.00000)}]
+% Geometry is bounded explicitly; leave labels unclipped.
+\draw[gray!75] (1.73205,-3.00000)--(-1.15470,2.00000);
+\draw[gray!75] (-1.73205,-3.00000)--(1.15470,2.00000);
+\draw[dashed,gray!60] (0.00000,-3.00000)--(0.00000,2.00000);
+\draw[sectionblue,thick] (-1.13824,-3.00000)--(-0.25660,2.00000);
+\draw[fill=sectionblue!7,draw=black!65] (0.00000,0.89067) circle[radius=0.44534];
+\draw[dotted,gray!70] (-0.38567,0.66800)--(0.38567,0.66800);
+\draw[gray!60] (0.00000,0.89067)--(-0.43857,0.96800);
+\fill[sectionblue] (-0.43857,0.96800) circle[radius=1.87500pt] node[above left] {$F_{1}$};
+\draw[fill=sectionblue!7,draw=black!65] (0.00000,-1.83851) circle[radius=0.91925];
+\draw[dotted,gray!70] (-0.79610,-1.37888)--(0.79610,-1.37888);
+\draw[gray!60] (0.00000,-1.83851)--(-0.90529,-1.67888);
+\fill[sectionblue] (-0.90529,-1.67888) circle[radius=1.87500pt] node[above left] {$F_{2}$};
+\fill (0,0) circle[radius=1pt] node[below right] {$O$};
+\end{scope}
+\node at (0,-.45) {双曲线};
+\end{scope}
+\end{tikzpicture}
+\end{document}

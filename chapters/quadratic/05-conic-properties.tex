@@ -1,34 +1,405 @@
+\newpage
 \section{圆锥曲线的基本性质}
 \label{sec:quadratic-conic-properties}
 
-% 本节导言写在此处。
+前面从一般方程得到二次曲线的分类，又从圆锥面的截线找到了焦点与准线。现在将这两种表达对应起来，分别研究椭圆、双曲线和抛物线。方程中的参数不只是系数，它们还记录着曲线的大小、形状及焦点的位置。
 
 \subsection{椭圆}
 \label{subsec:quadratic-ellipse}
 
-% 正文待写。
+\begin{definition}
+平面内到两个定点\(F_1,F_2\)的距离之和等于常数\(2a\)的点的轨迹称为{\heiti{}椭圆}，其中\(2a>|F_1F_2|\)。两个定点称为焦点；两焦点重合时得到圆。
+\end{definition}
+
+先研究非圆情形。取两焦点的中点为原点，焦点所在直线为\(x\)轴，设\(F_1=(-c,0)\)、\(F_2=(c,0)\)，则\(a>c>0\)。记\(r_1=|PF_1|\)、\(r_2=|PF_2|\)，由
+\begin{equation*}
+    r_1+r_2=2a ,\qquad r_1^2-r_2^2=4cx
+\end{equation*}
+得\(r_1=a+cx/a\)、\(r_2=a-cx/a\)。将后一式平方，并代入\(r_2^2=(x-c)^2+y^2\)，整理得
+\begin{equation}\label{eq:quadratic-ellipse-standard-properties}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1 ,\qquad b^2=a^2-c^2 .
+\end{equation}
+反过来，方程给出\(|x|\le a\)，故\(a\pm cx/a>0\)。由方程可得\(|PF_1|=a+cx/a\)、\(|PF_2|=a-cx/a\)，两者之和为\(2a\)。因此距离和条件与方程\eqref{eq:quadratic-ellipse-standard-properties}等价。
+
+方程不因\(x\)、\(y\)各自变号而改变，故两坐标轴是对称轴，原点是中心。椭圆的范围为\(|x|\le a\)、\(|y|\le b\)，与坐标轴的交点为\((\pm a,0)\)、\((0,\pm b)\)，这四点称为{\heiti{}顶点}。两焦点所在的轴称为长轴，另一条称为短轴，相应的轴长为\(2a,2b\)；\(a,b\)称为半长轴长、半短轴长。长轴在\(y\)轴上时，标准方程为\(y^2/a^2+x^2/b^2=1\)，其中仍约定\(a>b>0\)。
+
+由右焦点对应的焦半径
+\begin{equation}\label{eq:quadratic-ellipse-focal-radius}
+    |PF_2|=a-\frac ca x
+        =\frac ca\left(\frac{a^2}{c}-x\right)
+\end{equation}
+可知，右焦点的准线为\(x=a^2/c\)，离心率为\(e=c/a\)；左焦点的准线为\(x=-a^2/c\)。这里\(0<e<1\)，且
+\begin{equation}\label{eq:quadratic-ellipse-shape}
+    \frac ba=\sqrt{1-e^2} .
+\end{equation}
+因此在长轴长相同时，离心率越大，椭圆越扁。当\(a=b\)时，方程成为圆，两焦点合于中心，离心率为零。
+
+\begin{samepage}
+\begin{example}\label{ex:quadratic-ellipse-determination}
+一椭圆的中心为原点，焦点在\(x\)轴上，短轴长为\(2\)，离心率为\(\sqrt2/2\)。求椭圆方程及两条准线。若已知的是长轴、短轴的两个端点\(A(3,0)\)、\(B(0,2)\)，应怎样确定椭圆？
+\end{example}
+\end{samepage}
+
+椭圆还是圆的伸缩像。将单位圆上的点\((u,v)\)变为\((au,bv)\)，所得曲线就是式\eqref{eq:quadratic-ellipse-standard-properties}。由4.2的面积关系，椭圆及其内部的面积为
+\begin{equation}\label{eq:quadratic-ellipse-area}
+    S=ab\cdot\pi=\pi ab .
+\end{equation}
+圆内部的点则对应于椭圆内部，即\(x^2/a^2+y^2/b^2<1\)的区域。
+
+\begin{samepage}
+\begin{example}
+设\(A,B\)是两定点，\(|AB|=6\)。动点\(P\)满足\(|PA|+|PB|=10\)。选择坐标系，求点\(P\)的轨迹方程及所围区域的面积，求\(|PA|\)的取值范围。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）分别求\(x^2/25+y^2/9=1\)与\(x^2/9+y^2/25=1\)的焦点、顶点、准线、离心率及面积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）椭圆两焦点为\((\pm2,0)\)，且经过\((0,3)\)。求其方程，并求曲线上点到右焦点距离的最大值与最小值。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）椭圆的一个焦点为\((0,\sqrt5)\)，一条准线为\(y=9/\sqrt5\)。已知中心为原点，求椭圆方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）设\(P\)在椭圆\(x^2/9+y^2/4=1\)上，两焦点为\(F_1,F_2\)。若\(\angle F_1PF_2=90^\circ\)，求\(\triangle PF_1F_2\)的面积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）面积相同的两个椭圆，若其中一个的离心率较大，它的长轴、短轴分别怎样变化？说明理由。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{双曲线}
 \label{subsec:quadratic-hyperbola}
 
-% 正文待写。
+\begin{definition}
+平面内到两个定点\(F_1,F_2\)的距离之差的绝对值等于常数\(2a\)的点的轨迹称为{\heiti{}双曲线}，其中\(0<2a<|F_1F_2|\)。两个定点称为焦点。
+\end{definition}
+
+仍取\(F_1=(-c,0)\)、\(F_2=(c,0)\)，此时\(c>a>0\)。先研究\(r_1-r_2=2a\)的部分。由\(r_1^2-r_2^2=4cx\)得
+\begin{equation*}
+    r_1+r_2=\frac{2cx}{a} ,\qquad
+    r_1=\frac{cx}{a}+a ,\quad r_2=\frac{cx}{a}-a .
+\end{equation*}
+平方整理，并记\(b^2=c^2-a^2\)，得到
+\begin{equation}\label{eq:quadratic-hyperbola-standard-properties}
+    \frac{x^2}{a^2}-\frac{y^2}{b^2}=1 .
+\end{equation}
+此部分在右半平面，方程给出\(x\ge a\)。反过来，在方程的右支上，\(cx/a\pm a>0\)，平方关系还原为上面的距离表达，故\(r_1-r_2=2a\)。由对称性，左支上\(r_2-r_1=2a\)。因此完整的距离差条件与式\eqref{eq:quadratic-hyperbola-standard-properties}等价。
+
+双曲线以原点为中心，两坐标轴为对称轴。它只有\((\pm a,0)\)两个顶点，所在的轴称为{\heiti{}实轴}；另一条对称轴称为{\heiti{}虚轴}，其轴长分别记为\(2a,2b\)。曲线在\(|x|\ge a\)的区域内，分为两支，其渐近线为
+\begin{equation}\label{eq:quadratic-hyperbola-asymptotes-standard}
+    y=\pm\frac ba x .
+\end{equation}
+焦点在\(y\)轴上时，标准方程为\(y^2/a^2-x^2/b^2=1\)。参数始终满足\(c^2=a^2+b^2\)。
+
+两焦点对应的准线为\(x=\pm a^2/c\)，离心率为\(e=c/a>1\)。对任意一点\(P(x,y)\)，有
+\begin{equation}\label{eq:quadratic-hyperbola-focal-radius}
+    |PF_1|=|ex+a| ,\qquad |PF_2|=|ex-a| .
+\end{equation}
+这也直接给出焦准线关系。当\(a=b\)时，两渐近线相互垂直，称为{\heiti{}等轴双曲线}，其离心率为\(\sqrt2\)。
+
+\begin{samepage}
+\begin{example}
+双曲线的渐近线为\(y=\pm2x\)，一个焦点为\((\sqrt5,0)\)。求双曲线方程及准线方程。若只知道两条渐近线，能否唯一确定双曲线？
+\end{example}
+\end{samepage}
+
+将式\eqref{eq:quadratic-hyperbola-standard-properties}右端的\(1\)改为\(-1\)，所得双曲线与原双曲线有相同的渐近线，但实轴、虚轴互换，称为原双曲线的{\heiti{}共轭双曲线}。再作坐标代换
+\begin{equation}\label{eq:quadratic-asymptotic-coordinates}
+    u=\frac xa+\frac yb ,\qquad v=\frac xa-\frac yb ,
+\end{equation}
+则原方程成为\(uv=1\)，共轭双曲线成为\(uv=-1\)。\(u=0\)、\(v=0\)正是两条渐近线。反过来，\(x=a(u+v)/2\)、\(y=b(u-v)/2\)，所以新的两条坐标轴沿渐近线方向；除等轴情形外，它们一般不正交。这个表示保留了平行与分比，而长度、夹角仍须由原直角坐标计算。
+
+\begin{samepage}
+\begin{example}
+两定点\(F_1,F_2\)间的距离为\(10\)，动点\(P\)满足\(\bigl||PF_1|-|PF_2|\bigr|=6\)。求其轨迹方程、渐近线与离心率。若改为\(|PF_1|-|PF_2|=6\)，轨迹有何变化？
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）求\(x^2/9-y^2/16=1\)的焦点、顶点、准线、离心率和渐近线，并写出其共轭双曲线方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）一双曲线的中心在原点，焦点在\(y\)轴上，离心率为\(2\)，且经过\((3,2)\)。求其方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）分别讨论\(x^2-4y^2=t\)在\(t>0\)、\(t<0\)、\(t=0\)时的图形，说明这些图形与同一对直线的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）双曲线\(x^2/4-y^2/5=1\)右支上一点到右焦点的距离为\(5\)。求该点到左焦点的距离及横坐标。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）把\(x^2/9-y^2/4=1\)化为\(uv=1\)。求\(u=v\)在原坐标中的图形，并说明能否在新坐标中直接用\(\sqrt{u^2+v^2}\)计算原点到点的距离。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{抛物线}
 \label{subsec:quadratic-parabola}
 
-% 正文待写。
+\begin{definition}
+平面内到定点\(F\)与定直线\(\ell\)的距离相等的点的轨迹称为{\heiti{}抛物线}，其中\(F\notin\ell\)。\(F\)称为焦点，\(\ell\)称为准线。
+\end{definition}
+
+设焦点到准线的距离为\(p>0\)。取焦点到准线的垂线为\(x\)轴，垂足与焦点的中点为原点，由准线指向焦点为正方向，则
+\begin{equation*}
+    F=\left(\frac p2,0\right) ,\qquad \ell:\ x=-\frac p2 .
+\end{equation*}
+距离相等的条件为
+\begin{equation*}
+    \sqrt{\left(x-\frac p2\right)^2+y^2}=\left|x+\frac p2\right| ,
+\end{equation*}
+平方整理得
+\begin{equation}\label{eq:quadratic-parabola-standard-properties}
+    y^2=2px .
+\end{equation}
+反过来，方程中的\(x\ge0\)，且\((x-p/2)^2+y^2=(x+p/2)^2\)，故距离相等。于是方程与几何定义等价，且
+\begin{equation}\label{eq:quadratic-parabola-focal-radius}
+    |PF|=x+\frac p2 .
+\end{equation}
+
+抛物线关于\(x\)轴对称，原点称为{\heiti{}顶点}；它向\(x\)轴正方向开口，没有对称中心。若开口沿负方向，标准方程为\(y^2=-2px\)；交换两坐标，得到\(x^2=\pm2py\)。这四种表示中，\(p\)都表示焦点到准线的距离。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{conic-foci-and-directrices.pdf}
+    \caption{三类曲线的焦点与准线：虚线表示准线，双曲线中另画出两条渐近线}
+    \label{fig:quadratic-foci-and-directrices}
+\end{figure}
+
+\begin{samepage}
+\begin{example}
+（2025年全国II卷第6题）设抛物线\(C:y^2=2px\)（\(p>0\)）的焦点为\(F\)，点\(A\)在\(C\)上，过\(A\)作准线的垂线，垂足为\(B\)。若直线\(BF\)的方程为\(y=-2x+2\)，求\(|AF|\)。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）分别写出\(y^2=8x\)、\(x^2=-4y\)的顶点、焦点、准线与对称轴。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）抛物线顶点为\((1,-2)\)，焦点为\((3,-2)\)。求其方程和准线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）（2024年上海卷第7题）抛物线\(y^2=4x\)上一点到准线的距离为\(9\)，求该点到\(x\)轴的距离。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）一拱形截面为抛物线，拱顶高出水面\(2\)米，水面处宽\(4\)米。若水位下降\(1\)米，求新的水面宽度，并说明所选坐标系的作用。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{焦半径、焦弦与通径}
 \label{subsec:quadratic-focal-chords}
 
-% 正文待写。
+连接曲线上一点与焦点的线段称为{\heiti{}焦半径}；过焦点且两个端点都在曲线上的弦称为{\heiti{}焦弦}。垂直于相应对称轴的焦弦称为{\heiti{}通径}。
+
+在椭圆\(x^2/a^2+y^2/b^2=1\)中，过右焦点的通径所在直线为\(x=c\)。代入得\(y=\pm b^2/a\)，故通径长为\(2b^2/a\)。双曲线\(x^2/a^2-y^2/b^2=1\)代入\(x=c\)得到相同的长度表达。抛物线\(y^2=2px\)的通径所在直线为\(x=p/2\)，端点为\((p/2,\pm p)\)，通径长为\(2p\)。
+
+焦准线关系使焦半径可以用一个坐标的一次式表达。将这些表达与共线关系配合，常可避免直接计算两点间距离。
+
+\begin{samepage}
+\begin{proposition}\label{prop:quadratic-focal-chord-reciprocals}
+设\(A,B\)为过焦点\(F\)的焦弦端点。对椭圆\(x^2/a^2+y^2/b^2=1\)与抛物线\(y^2=2px\)，分别有
+\begin{align}
+    \frac1{|AF|}+\frac1{|BF|}&=\frac{2a}{b^2} ,\label{eq:quadratic-ellipse-focal-reciprocals}\\
+    \frac1{|AF|}+\frac1{|BF|}&=\frac2p .\label{eq:quadratic-parabola-focal-reciprocals}
+\end{align}
+\end{proposition}
+\end{samepage}
+
+\begin{proof}
+焦点位于这两种曲线的焦弦内部。记\(r_1=|AF|\)、\(r_2=|BF|\)，由\(\overrightarrow{FA}/r_1+\overrightarrow{FB}/r_2=0\)，比较横坐标即可。
+
+对椭圆，由\(r_i=a-ex_i\)、\(c=ae\)，得
+\begin{equation*}
+    0=\frac{x_1-c}{r_1}+\frac{x_2-c}{r_2}
+     =\frac1e\left[\left(a-ec\right)\left(\frac1{r_1}+\frac1{r_2}\right)-2\right] .
+\end{equation*}
+由\(a-ec=b^2/a\)得式\eqref{eq:quadratic-ellipse-focal-reciprocals}。对抛物线，\(x_i=r_i-p/2\)，同理
+\begin{equation*}
+    0=\frac{x_1-p/2}{r_1}+\frac{x_2-p/2}{r_2}
+     =2-p\left(\frac1{r_1}+\frac1{r_2}\right) .
+\end{equation*}
+\end{proof}
+
+由\((r_1+r_2)(1/r_1+1/r_2)\ge4\)，等号在\(r_1=r_2\)时成立，知椭圆与抛物线的焦弦中通径最短。倒数和关系直接来自焦半径表达与共线关系，无需求出弦端点。
+
+\begin{samepage}
+\begin{example}
+\begin{samepage}
+（1）（2012年安徽卷文科第14题）过抛物线\(y^2=4x\)焦点\(F\)的直线交抛物线于\(A,B\)。若\(|AF|=3\)，求\(|BF|\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）过椭圆\(x^2/9+y^2/4=1\)右焦点的弦\(AB\)满足\(|AF|=2|BF|\)。求两段焦半径及弦长，并判断这样的弦是否存在。
+\par
+\end{samepage}
+\end{example}
+\end{samepage}
+
+\begin{samepage}
+\begin{example}
+设\(F_1,F_2\)是椭圆\(x^2/a^2+y^2/b^2=1\)的两焦点，\(P\)是椭圆上一点。求\(|PF_1|\,|PF_2|\)的取值范围；若\(\angle F_1PF_2=90^\circ\)，求三角形面积，并讨论这种位置的点何时存在。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）求\(x^2/16+y^2/7=1\)、\(x^2/9-y^2/16=1\)、\(y^2=6x\)的通径端点与通径长。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）过\(y^2=4x\)焦点的弦长为\(8\)。求两段焦半径的长度及弦所在直线的方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设\(P\)是椭圆\(x^2/25+y^2/9=1\)上一点。若\(|PF_1|=2|PF_2|\)，求点\(P\)的坐标和\(\triangle PF_1F_2\)的面积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）对抛物线的一条焦弦\(AB\)，以\(AB\)为直径作圆。证明此圆与准线相切，并说明圆心到准线的距离与半径的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）对双曲线\(x^2/9-y^2/16=1\)，分别考察过右焦点的直线\(y=0\)与\(x=5\)截出的弦，判断焦点与弦的位置关系，说明上述倒数和公式能否直接用于双曲线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）设\(A(x_1,y_1),B(x_2,y_2)\)是抛物线\(y^2=2px\)（\(p>0\)）的一条焦弦的端点。证明\(y_1y_2=-p^2\)，并求\(x_1x_2\)。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{相似关系与曲线的生成}
 \label{subsec:quadratic-similarity-and-generation}
 
-% 正文待写。
+相似变换将所有长度乘以同一个正数，保持夹角与长度比。因此椭圆、双曲线的\(a,b,c\)同时乘以这一倍数，离心率不变；抛物线中的\(p\)也按相同比例变化。
 
+反过来，两个非圆椭圆若离心率相同，则\(b/a=\sqrt{1-e^2}\)相同，将中心、长轴对齐后，一次伸缩便可使它们重合。双曲线由\(b/a=\sqrt{e^2-1}\)得到同样的结论。对抛物线，作\(x=tX,y=tY\)，方程\(y^2=2px\)变为\(Y^2=2(p/t)X\)。选择\(t\)即可把\(p\)变为任意给定的正数，故所有抛物线都相似。
+
+\begin{samepage}
+\begin{proposition}
+椭圆之间、双曲线之间，相似的充要条件是离心率相同；所有抛物线相似。
+\end{proposition}
+\end{samepage}
+
+这个结论也说明，抛物线开口的“宽窄”随所取的长度单位变化，并不是与椭圆离心率相仿的形状参数。
+
+几何定义与坐标变换还给出了曲线的生成方法。用一条闭合的定长细绳绕过两个固定焦点，用笔尖拉紧，笔尖的运动可以实现距离和不变；圆上点沿一个方向作固定比例的伸缩，则直接生成椭圆。将半径为\(R\)的圆所在平面绕一条直径倾斜\(\theta\)，再正投影到原平面，在直径方向长度不变，在垂直方向长度乘以\(\cos\theta\)。当\(0<\theta<90^\circ\)时，投影为半轴长\(R,R\cos\theta\)的椭圆。
+
+\begin{samepage}
+\begin{example}
+定长为\(L\)的线段\(AB\)两端分别沿互相垂直的两条直线滑动，点\(P\)在线段上，且\(AP=tL\)，其中\(0<t<1\)固定。求点\(P\)的轨迹，并说明\(t=1/2\)时有什么特点。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）判断\(x^2/9+y^2/4=1\)与\(x^2/18+y^2/8=1\)是否相似，写出一个将前者变为后者的变换。再与\(x^2/9+y^2=1\)比较。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）写出把\(y^2=4x\)变为\(y^2=12x\)的一次相似变换。若要求变换后的方程为\(y^2=12x+8\)，应再作怎样的平移？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）半径为\(4\)的圆经上述正投影后得到离心率为\(\sqrt3/2\)的椭圆。求倾角、椭圆面积，并解释面积倍率。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）证明一条双曲线与其共轭双曲线相似，当且仅当它是等轴双曲线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）长为\(5\)的线段\(AB\)两端分别沿\(x\)轴、\(y\)轴滑动，点\(P\)在线段上且\(AP=2\)。求\(P\)的轨迹；若改为\(AP=3\)，所得两条轨迹是否相似？写出一个将它们对应起来的变换。
+\par
+\end{samepage}
+\end{exercise}
+
+\newpage
 \subsection{度量性质与仿射性质*}
 \label{subsec:quadratic-metric-and-affine-properties}
 
-% 正文待写。
+相似变换与一般仿射变换保持的关系不同。圆与任意椭圆仿射等价，但不同离心率的椭圆并不相似。中心、平行弦中点、分比、共轭直径和面积比可以随仿射变换传递；焦点、离心率、长度与夹角则依赖平面的度量。
+
+以椭圆为例，令\(X=SU\)，其中\(S=\operatorname{diag}(a,b)\)，则
+\begin{equation*}
+    q(X)=\frac{x^2}{a^2}+\frac{y^2}{b^2}=U^TU .
+\end{equation*}
+曲线二次型变为单位圆的二次型，而原平方长度变为
+\begin{equation*}
+    X^TX=U^TS^TSU=a^2u^2+b^2v^2 .
+\end{equation*}
+因此在圆化坐标中，描述曲线的二次型与描述原长度的二次型不同。原椭圆的共轭方向满足\(X_1^THX_2=0\)，其中\(H=\operatorname{diag}(a^{-2},b^{-2})\)，变换后成为\(U_1^TU_2=0\)；原欧氏正交则成为\(U_1^TS^TSU_2=0\)。这解释了共轭方向为何在圆上表现为垂直，而原图中的直角一般不会保留。
+
+\begin{samepage}
+\begin{example}
+将椭圆\(x^2/9+y^2/4=1\)化为单位圆。分别求两条直线\(y=x\)、\(y=-x\)的像，判断变换前后是否垂直；再对\(y=x\)、\(y=-4x/9\)作同样研究，并联系共轭直径解释结果。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）写出将\(x^2/9+y^2/4=1\)变为单位圆的矩阵，求两焦点的像，并说明这两个点在像圆中的位置。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设\(q(X)=X^THX\)正定，\(H=S^{-T}S^{-1}\)。证明变换\(X=SU\)将\(q(X)=1\)及其内部变为单位圆及其内部，并将\(H\)的双线性正交关系变为普通内积的正交关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）证明可逆线性变换\(X=SU\)保持所有向量的长度，当且仅当\(S^TS=I\)；若所有长度都乘以固定正数\(t\)，相应条件是什么？
+\par
+\end{samepage}
+\end{exercise}

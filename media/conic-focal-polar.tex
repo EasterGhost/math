@@ -1,0 +1,19 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath}
+\definecolor{curveblue}{HTML}{245C86}
+\begin{document}
+\begin{tikzpicture}[scale=1.15,font=\small,line cap=round]
+% e=3/5, d=3: center=-27/16, a=45/16, b=9/4.
+\draw[curveblue,thick](-1.6875,0)ellipse[x radius=2.8125,y radius=2.25];
+\draw[->,gray](-4.8,0)--(3.65,0)node[right]{$x$};
+\draw[thick](3,-2.6)--(3,2.65)node[above]{$x=d$};
+\coordinate(S)at(0,0);\coordinate(P)at(.5,1.41421356);\coordinate(H)at(3,1.41421356);
+\draw[thick](S)--node[above left]{$r$}(P);
+\draw[dashed](P)--node[above]{$d-r\cos\theta$}(H);
+\draw[dashed,gray](P)--(.5,0);
+\draw[curveblue,->](.45,0)arc[start angle=0,end angle=70.5288,radius=.45];
+\node at(.65,.45){$\theta$};
+\draw(2.85,1.41421356)--(2.85,1.26421356)--(3,1.26421356);
+\foreach \N/\pos in {S/below left,P/above left,H/right}{\fill(\N)circle(1pt)node[\pos]{$\N$};}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath}
+\definecolor{curveblue}{HTML}{245C86}
+\begin{document}
+\begin{tikzpicture}[scale=1.65,font=\small,line cap=round]
+\draw[->,gray](-.35,0)--(3.45,0)node[right]{$x$};
+\draw[->,gray](0,-.3)--(0,2.7)node[above]{$y$};
+\coordinate(O)at(0,0);\coordinate(P)at(2.6,2);\coordinate(H)at(2.6,0);
+\draw[curveblue,thick](O)--node[above left]{$r$}(P);
+\draw[dashed,gray](P)--(H);
+\draw[curveblue,->](.65,0)arc[start angle=0,end angle=37.57,radius=.65];
+\node at(.91,.29){$\theta$};
+\draw(2.46,0)--(2.46,.14)--(2.6,.14);
+\node[below]at(1.35,0){$r\cos\theta$};
+\node[right]at(2.6,.95){$r\sin\theta$};
+\fill(O)circle(.9pt)node[below left]{$O$};
+\fill(P)circle(.9pt)node[above right]{$P(r,\theta)$};
+\end{tikzpicture}
+\end{document}

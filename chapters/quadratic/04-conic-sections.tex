@@ -1,29 +1,363 @@
+﻿\newpage
 \section{圆锥曲线}
 \label{sec:quadratic-conic-sections}
 
-% 本节导言写在此处。
+章首由圆锥面的截线引入了几种曲线，前面又从二次方程将它们分类。这两种认识有什么联系？本节先研究截平面怎样决定曲线的类型，再在空间构造中找到焦点与准线，由此说明距离条件与二次方程之间的关系。
 
 \subsection{正圆锥面的截平面}
 \label{subsec:quadratic-plane-sections}
 
-% 正文待写。
+在空间中固定一点\(O\)和一条过\(O\)的轴。将一条过\(O\)、与轴成定角\(\alpha\)的直线绕轴旋转，所得曲面称为{\heiti{}正圆锥面}。其中\(0<\alpha<90^\circ\)，\(O\)称为锥顶，旋转中的直线称为母线；两条相反方向的母线射线分别形成圆锥面的上、下两部分。
+
+以轴为\(Z\)轴、锥顶为原点，设\(k=\tan\alpha\)。由水平截面的半径与高度的关系，圆锥面的方程为
+\begin{equation}\label{eq:quadratic-cone-equation}
+    X^2+Y^2=k^2Z^2 .
+\end{equation}
+记截平面与水平面的夹角为\(\beta\)，其中\(0\le\beta\le90^\circ\)。先考察不经过锥顶的截平面。由圆锥面的旋转对称性，非竖直截平面可以写为
+\begin{equation*}
+    Z=mX+c , \qquad m=\tan\beta\ge0 , \quad c\ne0 .
+\end{equation*}
+将它代入圆锥面方程，以\(x=X\)、\(y=Y\)作截平面上的坐标，得到
+\begin{equation}\label{eq:quadratic-cone-section-substitution}
+    (1-k^2m^2)x^2+y^2-2k^2mcx-k^2c^2=0 .
+\end{equation}
+这里两个坐标方向是\((1,0,m)\)、\((0,1,0)\)，相互垂直，但第一个坐标单位的长度为\(\sqrt{1+m^2}\)。对\(x\)作相应伸缩，即可得到平面直角单位坐标；这种伸缩不改变前面建立的仿射类型。
+
+若\(1-k^2m^2>0\)，配方后有
+\begin{equation*}
+    (1-k^2m^2)\left(x-\frac{k^2mc}{1-k^2m^2}\right)^2+y^2
+    =\frac{k^2c^2}{1-k^2m^2}>0 ,
+\end{equation*}
+所以截线为椭圆。\(\beta=0\)时，截平面水平，方程直接成为圆。若\(1-k^2m^2=0\)，平方项只剩\(y^2\)，而\(x\)的一次项不为零，截线为抛物线。若\(1-k^2m^2<0\)，两平方项异号，且配方后的右端非零，截线为双曲线。
+
+\newpage
+临界条件\(km=1\)等价于\(\beta=90^\circ-\alpha\)，此时截平面平行于一条母线。竖直截平面可写成\(X=d\)（\(d\ne0\)），截线方程为\(k^2Z^2-Y^2=d^2\)，也是双曲线。因此，不经过锥顶时有
+\begin{equation}\label{eq:quadratic-section-angle-types}
+    \begin{array}{c|c}
+        \text{截平面倾角} & \text{截线类型}\\ \hline
+        \beta=0 & \text{圆}\\
+        0<\beta<90^\circ-\alpha & \text{非圆椭圆}\\
+        \beta=90^\circ-\alpha & \text{抛物线}\\
+        90^\circ-\alpha<\beta\le90^\circ & \text{双曲线}
+    \end{array}
+\end{equation}
+椭圆截平面只截圆锥面的一部分，所得截线封闭；抛物线处于临界位置；双曲线截平面同时截圆锥面的上、下两部分，形成两支。这里圆也属于椭圆，只在表中单独列出其特殊位置。
+
+\begin{example}
+圆锥面为\(X^2+Y^2=Z^2\)。分别求截平面\(Z=2\)、\(Z=X/2+2\)、\(Z=X+2\)、\(Z=2X+2\)上的截线方程，判断类型，并解释临界倾角。
+\end{example}
+
+如果截平面经过锥顶，则\(c=0\)，式\eqref{eq:quadratic-cone-section-substitution}成为
+\begin{equation*}
+    (1-k^2m^2)x^2+y^2=0 .
+\end{equation*}
+当\(\beta<90^\circ-\alpha\)时，交集只有锥顶；等于临界角时，交集为一条母线，二次方程表现为重直线；大于临界角时，交集为两条相交母线。竖直且过轴的平面也截出两条相交母线。这些正是上一节的单点、重直线与相交直线对。
+
+{\kaiti{}思考\quad 不经过锥顶的截平面能否截出两条平行直线？为什么仅改变倾角，而不说明是否经过锥顶，还不能完整确定截线类型？}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）圆锥母线与轴成\(30^\circ\)。截平面分别与水平面成\(0^\circ,45^\circ,60^\circ,75^\circ\)，且不经过锥顶，判断各截线类型。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）对圆锥面\(X^2+Y^2=4Z^2\)，讨论截平面\(Z=mX+1\)随\(m\ge0\)变化时的截线类型，再将截平面改为\(Z=mX\)比较。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）将圆锥面与截平面同时以锥顶为中心放大\(t\)倍（\(t>0\)），说明截线如何变化。对一组相互平行且不经过锥顶的截平面，所得截线之间有什么关系？
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{圆锥二次型在截平面上的限制*}
 \label{subsec:quadratic-restricted-quadratic-forms}
 
-% 正文待写。
+圆锥面是三元二次型
+\begin{equation*}
+    Q(X,Y,Z)=X^2+Y^2-k^2Z^2
+\end{equation*}
+的零点集。设截平面上一点的位置列为\(P_0\)，平面的两个正交单位方向为\(e_1,e_2\)，记以它们为列的\(3\times2\)矩阵为\(B\)。平面上的点便可写成
+\begin{equation*}
+    P=P_0+BU , \qquad U=\left[\begin{matrix}u\\v\end{matrix}\right] .
+\end{equation*}
+令\(H=\left[\begin{smallmatrix}1&0&0\\0&1&0\\0&0&-k^2\end{smallmatrix}\right]\)，则
+\begin{equation}\label{eq:quadratic-cone-restriction}
+    Q(P_0+BU)=U^T(B^THB)U+2P_0^THBU+P_0^THP_0 .
+\end{equation}
+这就是将空间二次型限制到一个平面上。矩阵\(B^THB\)决定截线的二次部分，另外两项记录截平面的位置。
+
+利用轴对称性，可以取
+\begin{equation*}
+    e_1=(\cos\beta,0,\sin\beta)^T , \qquad e_2=(0,1,0)^T .
+\end{equation*}
+直接计算得
+\begin{equation}\label{eq:quadratic-section-restriction-matrix}
+    B^THB=\left[\begin{matrix}\lambda&0\\0&1\end{matrix}\right] , \qquad
+    \lambda=\cos^2\beta-k^2\sin^2\beta
+           =\frac{\cos^2\alpha-\sin^2\beta}{\cos^2\alpha} .
+\end{equation}
+随着\(\beta\)增大，\(\lambda\)由正变为零，再变为负。因而截平面上的二次部分依次正定、秩为\(1\)、不定，这就从二次型结构解释了椭圆、抛物线与双曲线的转变。
+
+还可以把截平面的位置写得更具体。取单位法向量
+\begin{equation*}
+    n=(-\sin\beta,0,\cos\beta)^T ,
+\end{equation*}
+将平面写为\(n^TP=d\)，并取\(P_0=dn\)，即锥顶在截平面上的垂足。于是\(|d|\)是锥顶到截平面的距离，式\eqref{eq:quadratic-cone-restriction}成为
+\begin{equation}\label{eq:quadratic-section-normal-offset}
+    \lambda u^2+v^2-2d(1+k^2)\sin\beta\cos\beta\,u
+    +d^2(\sin^2\beta-k^2\cos^2\beta)=0 .
+\end{equation}
+\newpage
+固定\(\beta\)而改变\(d\)，二次部分不变，改变的是一次项与常数项。当\(\lambda=0\)且\(d\ne0\)时，\(u\)的一次项不为零，故仍能得到抛物线；二次部分的退化并没有使整条曲线退化。当\(d\)变为\(td\)（\(t\ne0\)）时，将\((u,v)\)同时变为\((tu,tv)\)，方程各项都乘以\(t^2\)。因此平行截平面所得截线之间的相似关系，也直接记录在限制式中。
+
+若截平面经过锥顶，可以取\(P_0=0\)，完整截线方程就是\(\lambda u^2+v^2=0\)。三种符号分别给出单点、重直线与相交直线对。
+
+若截平面不经过锥顶，将\(e_1,e_2,P_0\)按列组成三阶矩阵\(C\)。三列线性无关：前两列张成过原点且平行于截平面的平面，而\(P_0\)不在其中。截线的完整齐次矩阵为
+\begin{equation*}
+    M=C^THC .
+\end{equation*}
+因为\(H,C\)都可逆，\(M\)的秩为\(3\)。所以所有不经过锥顶的截线都代数非退化，包括二次部分只有秩\(1\)的抛物线。二次部分的秩与完整方程的秩，再次体现出不同的作用。
+
+截平面的改变，与固定平面内的坐标变换不同。前者改变了空间二次型所限制的平面，可以使正负方向的个数发生变化；后者由可逆方阵给出合同变换，保持二次型的正负结构。因此，倾斜截平面能够改变曲线类型，并不意味着同一平面内存在将实椭圆变成实双曲线的可逆仿射变换。
+
+\begin{example}
+对\(Q=X^2+Y^2-Z^2\)，分别将它限制到平面\(Z=1\)、\(Z=X+1\)、\(X=1\)上，求二次部分与完整齐次矩阵的秩，并与截线类型对应。
+\end{example}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）设\(k=1\)。求\(\beta=30^\circ,45^\circ,60^\circ\)时\(B^THB\)的特征值及正负系数个数。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设截平面\(Z=X+1\)上的点写成\(P=(u,v,u+1)^T\)。求\(B\)、\(P_0\)及式\eqref{eq:quadratic-cone-restriction}，说明这里的\(u\)与单位坐标之间的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）证明截平面的两个正交单位方向改变后，限制二次型的矩阵虽然改变，其秩与正负系数个数仍不变。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）在式\eqref{eq:quadratic-section-normal-offset}中取\(k=1\)，分别讨论\(\beta=0^\circ,45^\circ,90^\circ\)。求\(d\ne0\)时的截线方程及类型，再与\(d=0\)比较。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）在同一截平面上，将原点从\(P_0\)移到\(P_0+BW\)。证明限制式的二次部分仍为\(B^THB\)，一次项系数列则增加\(2B^THBW\)。联系4.3的中心条件，说明何时能把一次项全部消去。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{焦点的几何来源}
 \label{subsec:quadratic-focus-origins}
 
-% 正文待写。
+坐标计算说明了截线的类型，但还没有解释它们为什么具有特殊的距离关系。一个空间中的相切构造，可以将这些关系直接联系起来。
+
+在圆锥面内部放入一个同时与截平面相切的球，称为{\heiti{}丹德林球}。球心在圆锥轴上，它与圆锥面沿一个水平圆相切，与截平面相切于一点\(F\)。取包含圆锥轴和截平面法线方向的轴截面，圆锥面变为两条母线，球变为圆，截平面变为一条直线。于是找丹德林球，就转化为在这个剖面中作与母线和截线相切、圆心在轴上的圆；利用角平分线即可完成，再绕轴旋转还原为空间构造。
+
+不经过锥顶时，椭圆情形有两个丹德林球，位于同一部分圆锥面内、截平面的两侧；双曲线情形也有两个，分别位于圆锥面的上、下两部分；抛物线情形只有一个。图\ref{fig:quadratic-dandelin-axial}画出相应的轴截面，球与截平面的切点称为截线的{\heiti{}焦点}。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\linewidth]{dandelin-axial.pdf}
+    \caption{丹德林球构造的轴截面：圆表示球的剖面，蓝线表示截平面的剖线}
+    \label{fig:quadratic-dandelin-axial}
+\end{figure}
+
+现在取截线上的任意点\(P\)，过它的母线与丹德林球相切于\(T\)。因为截平面与球相切，\(PF\)是球的一条切线段；母线与球相切，\(PT\)是另一条切线段。由同一点引出的切线段等长，得到
+\begin{equation}\label{eq:quadratic-dandelin-tangents}
+    |PF|=|PT| .
+\end{equation}
+这里\(P\)可以位于整个空间截线的任意位置，不限于图示的轴截面。
+
+\paragraph{1°椭圆的距离和} \mbox{}
+
+先考虑非圆椭圆。两个丹德林球与截平面的切点为\(F_1,F_2\)，与过\(P\)的母线的切点为\(T_1,T_2\)。点\(P\)位于\(T_1,T_2\)之间，故
+\begin{equation}\label{eq:quadratic-dandelin-ellipse}
+    |PF_1|+|PF_2|=|PT_1|+|PT_2|=|T_1T_2| .
+\end{equation}
+两相切圆所在的水平面固定，它们之间沿母线的距离也固定。因此\(|T_1T_2|\)与\(P\)无关，截线上点到两个焦点的距离之和为常数。
+
+\paragraph{2°双曲线的距离差} \mbox{}
+
+两个丹德林球分处圆锥面的上、下两部分。对同一条母线，截线上的点\(P\)位于\(T_1,T_2\)所成线段之外。因此
+\begin{equation}\label{eq:quadratic-dandelin-hyperbola}
+    \bigl||PF_1|-|PF_2|\bigr|
+    =\bigl||PT_1|-|PT_2|\bigr|=|T_1T_2| .
+\end{equation}
+两相切圆在母线上的间距仍为定长，所以截线上点到两个焦点的距离之差的绝对值为常数。
+
+抛物线只有一个丹德林球，不能照搬两焦点的距离和、距离差；但式\eqref{eq:quadratic-dandelin-tangents}仍成立。下一小节将利用这个球的相切圆，为三类非圆曲线建立共同的距离关系。水平圆截线的两个球与截平面相切于同一点，即圆心，与圆上各点到圆心距离相等的性质一致。
+
+\begin{example}
+一条椭圆截线对应的两个相切圆沿母线的间距为\(10\)，两焦点距离为\(6\)。求截线上位于两焦点连线上的两个点到各焦点的距离，并说明使用了哪些相切关系。
+\end{example}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）证明从球外一点引出的任意两条切线段等长，并用球心到切点的半径说明理由。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）在椭圆情形，设两个相切圆所在水平面的高度差为\(h\)，圆锥半顶角为\(\alpha\)。求\(|PF_1|+|PF_2|\)。在双曲线情形，相同的高度差给出怎样的距离差？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）在不经过锥顶的非圆椭圆截线中，说明距离和为什么严格大于两焦点距离；在双曲线截线中，距离差的绝对值为什么严格小于两焦点距离？
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{准线与离心率}
 \label{subsec:quadratic-directrices-and-eccentricity}
 
-% 正文待写。
+取一个丹德林球。设它与圆锥面相切的圆所在水平面为\(\sigma\)，截平面为\(\pi\)，二者相交于直线\(\ell\)。对非圆截线，\(\beta>0\)，因此这条交线存在。截线上的点\(P\)到\(\sigma\)的距离记为\(h_P\)。母线与水平面成\(90^\circ-\alpha\)，故
+\begin{equation*}
+    h_P=|PT|\cos\alpha .
+\end{equation*}
+在截平面内，作\(PS\perp\ell\)，\(S\in\ell\)。因为\(PS\)与水平面成\(\beta\)，有
+\begin{equation*}
+    h_P=|PS|\sin\beta .
+\end{equation*}
+结合\(|PF|=|PT|\)，得到
+\begin{equation}\label{eq:quadratic-eccentricity-angle}
+    \frac{|PF|}{|PS|}=\frac{\sin\beta}{\cos\alpha} .
+\end{equation}
+右端只依赖圆锥与截平面的角度，与点\(P\)的位置无关。这就是焦点与准线距离比的来源。
+
+\begin{definition}\label{def:quadratic-focus-directrix}
+平面上给定一点\(F\)、一条不过\(F\)的直线\(\ell\)及常数\(e>0\)。满足
+\begin{equation}\label{eq:quadratic-focus-directrix}
+    |PF|=e\,d(P,\ell)
+\end{equation}
+的点\(P\)所成轨迹，称为以\(F\)为{\heiti{}焦点}、\(\ell\)为{\heiti{}准线}、\(e\)为{\heiti{}离心率}的圆锥曲线。其中\(d(P,\ell)\)表示点到直线的距离，\(|PF|\)称为相应的{\heiti{}焦半径}。
+\end{definition}
+
+前面的空间构造已经证明，每个非圆截线都满足这一关系；准线正是截平面与球、锥面相切圆所在平面的交线。椭圆与双曲线的两个丹德林球分别给出两组焦点、准线，离心率相同；抛物线只有一组。
+
+由式\eqref{eq:quadratic-eccentricity-angle}，有
+\begin{equation}\label{eq:quadratic-eccentricity-types}
+    0<e<1\ \text{对应非圆椭圆},\qquad
+    e=1\ \text{对应抛物线},\qquad
+    e>1\ \text{对应双曲线} .
+\end{equation}
+圆的离心率取\(e=0\)，它与水平截线\(\beta=0\)相对应。此时两个水平面平行，不能由上述相交构造得到有限准线，圆仍由圆心和半径描述。
+
+\begin{example}
+（1）圆锥母线与轴成\(45^\circ\)，截平面不经过锥顶。分别求\(\beta=30^\circ,45^\circ,60^\circ,90^\circ\)时的离心率，并判断曲线类型。
+
+（2）平面上取\(F=(0,0)\)、\(\ell:x=3\)，动点\(P\)满足\(|PF|=\frac23d(P,\ell)\)。不先求曲线的标准方程，求\(|PF|\)的取值范围，指出取得两端值的点。
+\end{example}
+
+在同一正圆锥面上，离心率随截平面倾角增大而增大，但不是任意大的：由\(\sin\beta\le1\)，可得\(e\le1/\cos\alpha\)。改变圆锥的半顶角，则可以实现任意给定的正离心率。离心率描述的是截线自身的形状，倾角与半顶角则是实现这种形状的一组空间条件。
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）点\(P\)到焦点与准线的距离分别为\(3\)、\(5\)。求离心率并判断类型。若焦半径变为\(6\)，点到同一准线的距离是多少？
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）圆锥半顶角为\(60^\circ\)。若截线离心率为\(1\)、\(\sqrt3\)，分别求截平面倾角。该圆锥能否截出离心率为\(3\)的双曲线？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）一条非圆椭圆和一条双曲线分别满足\(|PF|=e\,d(P,\ell)\)。比较曲线上点到焦点、准线的距离大小，并说明这一判断是否取决于点在曲线上的位置。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）设\(F\)到准线\(\ell\)的距离为\(d\)，曲线满足\(|PF|=e\,d(P,\ell)\)，其中\(0<e<1\)。设\(P\)在\(\ell\)上的垂足为\(Q\)，比较\(|FQ|\)、\(|PQ|\)与\(|PF|\)，求\(|PF|\)的最小可能值，并说明这个值怎样取得。
+\par
+\end{samepage}
+\end{exercise}
 
 \subsection{几何定义与方程定义的联系}
 \label{subsec:quadratic-geometric-and-algebraic-definitions}
 
-% 正文待写。
+现在只从平面上的焦准线关系出发，推导曲线方程。以焦点为原点，以垂直于准线、由准线指向焦点的方向为\(x\)轴正方向，设准线为\(x=-d\)，其中\(d>0\)。对\(P(x,y)\)，有
+\begin{equation*}
+    |PF|=\sqrt{x^2+y^2} , \qquad d(P,\ell)=|x+d| .
+\end{equation*}
+因此焦准线条件等价于
+\begin{equation}\label{eq:quadratic-common-focus-equation}
+    x^2+y^2=e^2(x+d)^2 ,
+\end{equation}
+即
+\begin{equation}\label{eq:quadratic-common-eccentricity-equation}
+    (1-e^2)x^2+y^2-2e^2dx-e^2d^2=0 .
+\end{equation}
+等价性来自两边距离都非负，所以平方没有引入额外点。此处的坐标是截线自身平面内的直角坐标，与空间圆锥面的坐标无关。
+
+当\(e\ne1\)时，配方得
+\begin{equation}\label{eq:quadratic-focus-equation-completed}
+    (1-e^2)\left(x-\frac{e^2d}{1-e^2}\right)^2+y^2
+    =\frac{e^2d^2}{1-e^2} .
+\end{equation}
+若\(0<e<1\)，两平方项同号、右端为正，得到非圆椭圆；若\(e>1\)，两平方项异号、右端非零，得到双曲线。当\(e=1\)时，方程成为
+\begin{equation*}
+    y^2=2d\left(x+\frac d2\right) ,
+\end{equation*}
+将原点移到\((-d/2,0)\)，就得到抛物线的标准方程。这与圆锥截线的角度分类完全一致。
+
+\begin{example}\label{ex:quadratic-focus-directrix-equations}
+以\(F(0,0)\)为焦点、\(x=-2\)为准线，分别取\(e=1/2,1,2\)。求三条曲线的方程，化为标准形式，并求其中心或对称轴。
+\end{example}
+
+反过来，对于非圆椭圆\(X^2/a^2+Y^2/b^2=1\)（\(a>b>0\)），取\(e=\sqrt{1-b^2/a^2}\)；对于双曲线\(X^2/a^2-Y^2/b^2=1\)，取\(e=\sqrt{1+b^2/a^2}\)。分别令\(d=a|1-e^2|/e\)，式\eqref{eq:quadratic-focus-equation-completed}在移到中心后就得到相应的标准方程。抛物线也可由\(e=1\)、\(d>0\)的方程经平移、旋转得到。因此每条非圆的非退化实二次曲线，都可以用焦点、准线与离心率描述。下一节将分别确定这些几何量的位置，研究各类曲线的具体性质。
+
+这些平面曲线也都能实现为某个正圆锥面的截线。给定\(e>0\)，先选\(\alpha\)使\(e\cos\alpha\le1\)，再取\(\sin\beta=e\cos\alpha\)，即可得到同一离心率的非圆截线。平行移动截平面，相当于对原截线作以锥顶为中心的伸缩，可以调整其大小；同一\(e\)下，上述方程中改变\(d\)也只改变整体尺度。因此再经刚体运动，就能使空间截线与给定平面曲线重合。圆则直接由水平截面实现。
+
+两焦点距离和、距离差条件与标准方程的双向对应，将在下一节分别完成。
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）求到\(F(1,0)\)的距离等于到直线\(x=-1\)距离的点的轨迹方程，并指出对称轴。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求以原点为焦点、\(x=-3\)为准线、离心率为\(1/2\)的曲线方程，并求中心与两条坐标方向上的半轴长度。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）对\(x^2+y^2=4(x+1)^2\)，恢复其焦点、准线与离心率，化为标准方程，并求两条渐近线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）由式\eqref{eq:quadratic-focus-equation-completed}推导椭圆与双曲线的半轴参数\(a,b\)与\(e,d\)的关系，再说明保持\(e\)不变、改变\(d\)时，为什么所得曲线相似。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）对给定的\(e>1\)，选择一个可以实现它的圆锥半顶角\(\alpha\)，求相应截平面倾角。这样的圆锥是否唯一？
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）求到\(F(1,1)\)的距离为到直线\(x+y=0\)距离的\(2\)倍的点的轨迹。选择以\(F\)为原点、垂直于准线的方向为一条坐标轴的坐标系，先写出新方程，再与原直角坐标中的方程比较。
+\par
+\end{samepage}
+\end{exercise}
+\newpage

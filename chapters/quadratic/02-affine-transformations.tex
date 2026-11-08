@@ -1,33 +1,408 @@
+﻿\newpage
 \section{仿射变换}
 \label{sec:quadratic-affine-transformations}
 
-% 本节导言写在此处。
+上一节中，将原点移到圆心，就使圆的方程得到简化。进一步改变坐标轴的方向，或将图形沿不同方向伸缩，也会改变方程的形式。本节研究这些变化的共同表达，并说明它们保持哪些几何关系。
 
 \subsection{平移与旋转坐标}
 \label{subsec:quadratic-translation-and-rotation}
 
-% 正文待写。
+设原坐标系为\(Oxy\)，取\(O'(h,k)\)为新原点，新坐标轴与原坐标轴同向。同一点\(P\)在两个坐标系中的坐标分别为\((x,y)\)、\((u,v)\)，则由\(\overrightarrow{OP}=\overrightarrow{OO'}+\overrightarrow{O'P}\)，有
+\begin{equation}\label{eq:quadratic-coordinate-translation}
+    x=u+h , \qquad y=v+k .
+\end{equation}
+将这一关系代入原方程，就得到图形在新坐标系中的方程。例如，\((x-2)^2+(y+1)^2=4\)在以\((2,-1)\)为原点的新坐标系中成为\(u^2+v^2=4\)。这里改变的是坐标系，圆上的点并没有移动。
+
+再保持原点不变，将两条坐标轴同时逆时针旋转\(\theta\)角。新坐标轴方向上的单位向量，在原坐标系中分别为
+\begin{equation*}
+    \vec e_1=(\cos\theta,\sin\theta) , \qquad
+    \vec e_2=(-\sin\theta,\cos\theta) .
+\end{equation*}
+若\(P\)的新坐标为\((u,v)\)，则\(\overrightarrow{OP}=u\vec e_1+v\vec e_2\)，故
+\begin{equation}\label{eq:quadratic-coordinate-rotation}
+    \begin{cases}
+        x=u\cos\theta-v\sin\theta ,\\
+        y=u\sin\theta+v\cos\theta .
+    \end{cases}
+\end{equation}
+反过来，分别与\(\vec e_1\)、\(\vec e_2\)作数量积，可得
+\begin{equation}\label{eq:quadratic-coordinate-rotation-inverse}
+    \begin{cases}
+        u=x\cos\theta+y\sin\theta ,\\
+        v=-x\sin\theta+y\cos\theta .
+    \end{cases}
+\end{equation}
+若还需平移原点，只须在式\eqref{eq:quadratic-coordinate-rotation}的右端分别加上\(h\)、\(k\)。
+
+与改变坐标系相对应，也可以固定坐标系，将图形中的每个点移动。例如，平移\((h,k)\)将\(P(x,y)\)变成\(P'(x',y')\)，有\(x'=x+h\)、\(y'=y+k\)；绕原点逆时针旋转\(\theta\)角，则有
+\begin{equation}\label{eq:quadratic-point-rotation}
+    \begin{cases}
+        x'=x\cos\theta-y\sin\theta ,\\
+        y'=x\sin\theta+y\cos\theta .
+    \end{cases}
+\end{equation}
+这时\((x,y)\)与\((x',y')\)表示两个点在同一坐标系中的坐标。求像图形的方程，需要由像点恢复原来的点，再代入原方程。
+
+\begin{example}\label{ex:quadratic-translation-distinction}
+圆\(\Gamma\)的方程为\((x-2)^2+(y+1)^2=4\)。分别求下列方程，并比较它们的几何意义：
+
+（1）以\((1,2)\)为新原点，坐标轴方向不变时，\(\Gamma\)在新坐标系中的方程；
+
+（2）坐标系不变，将\(\Gamma\)沿向量\((1,2)\)平移后所得圆的方程。
+\end{example}
+
+{\kaiti{}思考\quad 将坐标轴逆时针旋转\(\theta\)角，与将图形顺时针旋转\(\theta\)角，所得方程的表达有何联系？}
+
 \subsection{仿射变换}
 \label{subsec:quadratic-affine-transformations}
 
-% 正文待写。
+平移与旋转都将点的坐标变为原坐标的一次表达式。伸缩也有这一性质，例如\(x'=ax\)、\(y'=by\)。将它们统一起来，得到如下定义。
+
+\begin{definition}\label{def:quadratic-affine-transformation}
+平面上的变换\(T:P(x,y)\longmapsto P'(x',y')\)，若具有形式
+\begin{equation}\label{eq:quadratic-affine-map}
+    \begin{cases}
+        x'=ax+by+h ,\\
+        y'=cx+dy+k ,
+    \end{cases}
+    \qquad ad-bc\ne0 ,
+\end{equation}
+则称为一个{\heiti{}仿射变换}。
+\end{definition}
+
+条件\(ad-bc\ne0\)保证每个像点有唯一的原像。事实上，消元得到
+\begin{equation}\label{eq:quadratic-affine-inverse}
+    x=\frac{d(x'-h)-b(y'-k)}{ad-bc} , \qquad
+    y=\frac{-c(x'-h)+a(y'-k)}{ad-bc} .
+\end{equation}
+因此逆变换仍是仿射变换。两个仿射变换依次进行，所得坐标仍是原坐标的一次表达式，且仍可逆，故复合也是仿射变换。
+
+除平移、旋转和各方向的非零伸缩外，\(x'=x+sy\)、\(y'=y\)也是仿射变换，称为{\heiti{}错切变换}。高度为\(y\)的点沿水平方向移动\(sy\)，正方形因此变成平行四边形。图\ref{fig:quadratic-affine-images}同时给出了圆与正方形的伸缩和错切。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.94\linewidth]{affine-transformations.pdf}
+    \caption{同一圆和正方形在伸缩、错切下的像}
+    \label{fig:quadratic-affine-images}
+\end{figure}
+
+\newpage
+仿射变换的一个基本性质，是保持同一直线上点之间的比例关系。设\(A\)、\(B\)、\(P\)的位置向量分别为\(\vec a\)、\(\vec b\)、\(\vec p\)，且
+\begin{equation*}
+    \vec p=(1-t)\vec a+t\vec b .
+\end{equation*}
+将这一关系代入式\eqref{eq:quadratic-affine-map}，注意到\((1-t)+t=1\)，平移项也恰好按同样的系数合成，故像点满足
+\begin{equation}\label{eq:quadratic-affine-ratio}
+    \vec p\,'=(1-t)\vec a\,'+t\vec b\,' .
+\end{equation}
+当\(t\)遍历实数时，\(P\)遍历直线\(AB\)，\(P'\)也遍历直线\(A'B'\)。所以仿射变换将直线变为直线，并保持共线关系。若\(0<t<1\)，则
+\begin{equation*}
+    \frac{|A'P'|}{|P'B'|}=\frac{t}{1-t}=\frac{|AP|}{|PB|} .
+\end{equation*}
+特别地，线段的中点仍变为像线段的中点。
+
+若两条直线有相同的方向向量\((r,s)\)，变换后它们都有方向向量\((ar+bs,cr+ds)\)，故平行关系也保持。由中点关系还知，关于某一点成中心对称的两个点，变换后仍关于该点的像成中心对称。因此，一个图形的对称中心变为像图形的对称中心。
+
+一般的仿射变换不保持长度和夹角。例如，将横坐标伸长为原来的\(2\)倍，纵坐标不变，横、纵两方向的单位线段会有不同的像长；原来方向为\((1,1)\)、\((1,-1)\)的两条垂直直线，其像的方向为\((2,1)\)、\((2,-1)\)，不再垂直。
+
+\begin{example}\label{ex:quadratic-affine-three-points}
+求将\(O(0,0)\)、\(A(1,0)\)、\(B(0,1)\)分别变为\(O'(1,-1)\)、\(A'(3,0)\)、\(B'(2,1)\)的仿射变换。若\(M\)是\(AB\)的中点，求\(M\)的像，并写出直线\(AB\)的像的方程。
+\end{example}
+
+
+
 \subsection{仿射变换的高维线性表示*}
 \label{subsec:quadratic-homogeneous-linear-representation}
 
-% 正文待写。
+用第三章的矩阵记号，式\eqref{eq:quadratic-affine-map}可以写为
+\begin{equation*}
+    X'=SX+t , \qquad
+    S=\left[\begin{matrix}a&b\\c&d\end{matrix}\right] , \qquad
+    t=\left[\begin{matrix}h\\k\end{matrix}\right] .
+\end{equation*}
+其中\(S\)可逆。平移项\(t\)使这个映射一般不具有线性性。若增加一个坐标，将点\((x,y)\)表示为\((x,y,1)\)，则有
+\begin{equation}\label{eq:quadratic-affine-lift}
+    \left[\begin{matrix}x'\\y'\\1\end{matrix}\right]
+    =\left[\begin{matrix}a&b&h\\c&d&k\\0&0&1\end{matrix}\right]
+     \left[\begin{matrix}x\\y\\1\end{matrix}\right] .
+\end{equation}
+右侧的三阶矩阵在整个\(\mathbb R^3\)上给出一个线性变换，并将平面\(z=1\)映到自身。将原平面与\(z=1\)上的点一一对应，这个线性变换在该平面上的作用，就是原来的仿射变换。
+
+平面\(z=1\)不经过三维空间的原点，也不是线性子空间。因此，高一维的线性表示并没有使平面上的平移成为二维线性变换。两个点的坐标列之差则形如\((r,s,0)^T\)，有
+\begin{equation*}
+    \left[\begin{matrix}a&b&h\\c&d&k\\0&0&1\end{matrix}\right]
+    \left[\begin{matrix}r\\s\\0\end{matrix}\right]
+    =\left[\begin{matrix}ar+bs\\cr+ds\\0\end{matrix}\right] .
+\end{equation*}
+平移项在点的差中消失，向量只受线性部分\(S\)的作用。这也解释了上一小节中方向与分比关系的保持。
+
+将式\eqref{eq:quadratic-affine-lift}的矩阵简记为\(K=\left[\begin{smallmatrix}S&t\\0&1\end{smallmatrix}\right]\)，其中末行的\(0\)表示两个零元素。由分块乘法，
+\begin{equation}\label{eq:quadratic-affine-composition}
+    \left[\begin{matrix}S_2&t_2\\0&1\end{matrix}\right]
+    \left[\begin{matrix}S_1&t_1\\0&1\end{matrix}\right]
+    =\left[\begin{matrix}S_2S_1&S_2t_1+t_2\\0&1\end{matrix}\right] .
+\end{equation}
+这正是先做\(X'=S_1X+t_1\)，再做\(X''=S_2X'+t_2\)的结果。相应的逆矩阵为
+\begin{equation*}
+    K^{-1}=\left[\begin{matrix}S^{-1}&-S^{-1}t\\0&1\end{matrix}\right] .
+\end{equation*}
+
+\begin{example}
+先沿向量\((1,-2)\)平移，再绕原点逆时针旋转\(90^\circ\)。用三阶矩阵表示这一复合变换及其逆变换，并与交换两步次序后的结果比较。
+\end{example}
+
+
+
 \subsection{曲线方程的变换}
 \label{subsec:quadratic-equation-transformation}
 
-% 正文待写。
+设曲线\(\Gamma\)的方程为\(\Phi(x,y)=0\)。若新旧坐标满足
+\begin{equation}\label{eq:quadratic-coordinate-affine}
+    x=au+bv+h , \qquad y=cu+dv+k , \qquad ad-bc\ne0 ,
+\end{equation}
+则同一点的新坐标\((u,v)\)在曲线上，当且仅当
+\begin{equation}\label{eq:quadratic-substitution}
+    \Phi(au+bv+h,cu+dv+k)=0 .
+\end{equation}
+所以这就是\(\Gamma\)在新坐标下的方程。若坐标轴只经过平移与旋转，新坐标系仍为平面直角坐标系；一般的式\eqref{eq:quadratic-coordinate-affine}也可以表示沿两个独立方向选取的坐标，两方向的单位长度可以不同。
+
+例如，将坐标轴逆时针旋转\(45^\circ\)，对\(xy=1\)作代换
+\begin{equation*}
+    x=\frac{u-v}{\sqrt2} , \qquad y=\frac{u+v}{\sqrt2} ,
+\end{equation*}
+得到\(u^2-v^2=2\)。原方程中的交叉项消失了，新坐标轴也成为图形的对称轴。下一节将用这一方法化简一般的二次方程。
+
+若固定坐标系，对图形作式\eqref{eq:quadratic-affine-map}中的变换，则像点\((x',y')\)的原像由式\eqref{eq:quadratic-affine-inverse}确定。故像曲线的方程为
+\begin{equation}\label{eq:quadratic-image-equation}
+    \Phi\left(\frac{d(x'-h)-b(y'-k)}{ad-bc},
+              \frac{-c(x'-h)+a(y'-k)}{ad-bc}\right)=0 .
+\end{equation}
+例如，将单位圆沿横、纵方向分别伸缩为原来的\(a,b\)倍（\(a,b>0\)），有\(x'=ax\)、\(y'=by\)。将\(x=x'/a\)、\(y=y'/b\)代入原方程，得到
+\begin{equation*}
+    \frac{x'^2}{a^2}+\frac{y'^2}{b^2}=1 .
+\end{equation*}
+这给出圆与椭圆之间的仿射联系。原方程中的代入关系，来自原像点与像点的对应。
+
+\begin{proposition}\label{prop:quadratic-affine-degree}
+可逆仿射变换将二次曲线变为二次曲线。
+\end{proposition}
+
+将一次表达式代入二次方程，所得方程至多为二次。其二次部分也不会全部消失：若代入后至多为一次，再作逆代换，仍至多为一次，不可能恢复原来的二次方程。因此所得方程仍是二元二次方程。由点与像点的一一对应，它的实解集恰好是原曲线的像。
+
+\begin{example}\label{ex:quadratic-parabola-shear}
+将曲线\(y=x^2\)依次作如下变换：先沿向量\((1,2)\)平移，再作错切\(x'=x+y\)、\(y'=y\)。求最后得到的曲线方程，并求原曲线上点\((1,1)\)的像。
+\end{example}
+
+\newpage
+\begin{exercise}
+\mbox{}
+
+（1）以\((2,-1)\)为新原点，再将坐标轴逆时针旋转\(45^\circ\)。写出同一点的新旧坐标关系，并求点\((3,0)\)的新坐标。
+
+（2）设新旧坐标满足\(x=(u-v)/\sqrt2\)、\(y=(u+v)/\sqrt2\)。求\(xy=1\)在新坐标系中的方程，并说明新坐标轴在原坐标系中的位置。
+
+（3）判断下列坐标表达是否给出仿射变换；若是，写出逆变换：\\
+（a）\(x'=2x+y+1\)，\(y'=x+y-1\)；\\
+（b）\(x'=x+2y\)，\(y'=2x+4y+1\)；\\
+（c）\(x'=x+y^2\)，\(y'=y\)。
+
+（4）在错切变换\(x'=x+2y\)、\(y'=y\)下，求正方形\(O(0,0)\)、\(A(1,0)\)、\(B(1,1)\)、\(C(0,1)\)四个顶点的像。比较变换前后的边长、对角线中点与面积。
+
+（5）设\(G\)是\(\triangle ABC\)的重心。证明：任意仿射变换都将\(G\)变为\(\triangle A'B'C'\)的重心。
+
+（6）证明：给定两组三个不共线的点\(A,B,C\)与\(A',B',C'\)，存在唯一的仿射变换将前一组点依次变为后一组点。
+
+（7）将圆\(x^2+y^2=4\)先沿横坐标方向伸长为原来的\(2\)倍，再沿向量\((-1,3)\)平移，求像曲线的方程。
+
+（8）对曲线\(xy=1\)，分别求关于直线\(y=x\)镜像、绕原点逆时针旋转\(90^\circ\)后所得曲线的方程。
+
+（9）将曲线\(y=x^2\)作变换\(x'=2x+1\)、\(y'=3y-2\)。求像曲线的方程，并求原曲线上横坐标在\([0,1]\)内的部分的像。
+
+（10）设\(x=u+v+1\)、\(y=u-v-2\)。将\((x-1)^2+(y+2)^2=8\)化为\(u,v\)的方程。新坐标的两个正方向是否垂直？每个坐标单位在原平面中的长度是多少？
+
+（11）在错切变换\(x'=x+y\)、\(y'=y\)下，求单位圆的像方程，并验证像曲线关于原点成中心对称。原圆的一对垂直直径的像是否仍然垂直？
+
+（12）* 将错切变换\(x'=x+2y+1\)、\(y'=y-1\)写成高维线性表示，求其逆矩阵，并分别计算它对\((0,0,1)^T\)与\((0,1,0)^T\)的作用。
+
+（13）* 设三阶可逆矩阵给出的线性变换将平面\(z=1\)映到自身。证明它的末行必为\((0,0,1)\)，并说明它在该平面上诱导一个仿射变换。
+\end{exercise}
+\newpage
+
 \subsection{仿射变换的面积关系}
 \label{subsec:quadratic-area-relations}
 
-% 正文待写。
+长度与夹角虽可改变，仿射变换对所有图形的面积却有共同的倍率。先考察三角形。设从同一顶点出发的两边向量为\((r,s)\)、\((u,v)\)，由向量的坐标计算，三角形面积为
+\begin{equation*}
+    S_{\triangle}=\frac12|rv-su| .
+\end{equation*}
+在式\eqref{eq:quadratic-affine-map}下，两边向量分别变为\((ar+bs,cr+ds)\)、\((au+bv,cu+dv)\)。计算得
+\begin{align*}
+    &(ar+bs)(cu+dv)-(cr+ds)(au+bv)\\
+    &\qquad=(ad-bc)(rv-su) .
+\end{align*}
+于是有
+\begin{equation}\label{eq:quadratic-affine-area}
+    S'_{\triangle}=|ad-bc|\,S_{\triangle} .
+\end{equation}
+倍率只与变换有关，与三角形的位置、方向及形状无关。平移对边向量没有影响，因而不改变面积。
+
+将多边形分割为三角形，仿射变换后这些三角形仍构成像多边形，故面积同样乘以\(|ad-bc|\)。对于圆及本章讨论的曲线所围成的有界区域，可以用内、外多边形逐步逼近其面积。变换保持包含关系，内、外多边形的面积都乘以同一个常数，因而所夹区域的面积也乘以这个常数。所以
+\begin{equation}\label{eq:quadratic-affine-region-area}
+    S'=|ad-bc|\,S .
+\end{equation}
+
+例如，横、纵方向分别伸缩\(a,b\)倍时，面积乘以\(|ab|\)；错切\(x'=x+sy\)、\(y'=y\)的面积倍率为\(1\)。这也说明等面积图形的仿射像仍等面积，任意两个正面积区域的面积比保持不变。
+
+{\kaiti{}*\quad 在矩阵语言中，\(ad-bc=\det S\)，因此\(|\det S|\)是线性部分的面积倍率。若使用有向面积，其倍率就是\(\det S\)；行列式的正负还记录了平面定向是否改变。}
+
+\begin{example}\label{ex:quadratic-inscribed-square-area}
+单位圆内接正方形的顶点为\((1,0)\)、\((0,1)\)、\((-1,0)\)、\((0,-1)\)。将整个图形作变换\(x'=2x+y+1\)、\(y'=x+2y-1\)，求像曲线的方程及像四边形的面积，并比较变换前后四边形与曲线所围区域的面积比。
+\end{example}
+
+\newpage
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）分别求下列变换的面积倍率：\\
+（a）\(x'=3x+2\)、\(y'=-2y+1\)；\\
+（b）\(x'=x+2y\)、\(y'=2x+y\)；\\
+（c）\(x'=x\cos\theta-y\sin\theta\)、\(y'=x\sin\theta+y\cos\theta\)。
+\par
+\end{samepage}
+
+（2）一个三角形的面积为\(5\)。先作\(x'=x+3y\)、\(y'=y\)，再将横坐标缩为原来的\(1/2\)，纵坐标伸长为原来的\(4\)倍。求最后所得三角形的面积。
+
+（3）设\(A,B,C\)不共线，\(P\)为平面上一点。证明：仿射变换保持\(\triangle PAB\)与\(\triangle ABC\)的面积比。结合分比关系，说明三角形中线将面积平分这一性质为什么在变换后仍成立。
+
+（4）三条中线将一个三角形分成六个小三角形。先在方便的坐标下证明它们等面积，再用仿射变换将结论推广到任意三角形。
+\end{exercise}
+
 \subsection{二次方程的齐次化}
 \label{subsec:quadratic-homogenization}
 
-% 正文待写。
+在\(x^2+xy-2y^2=0\)中，各项的次数都为二次，这样的方程称为{\heiti{}二次齐次方程}。将\((x,y)\)同时乘以一个数，各项乘以相同的倍数，故非零解的方向可由坐标比来研究。
+
+二次曲线与直线联立时，直线提供的一次关系有时可以用来补齐次数。例如，求
+\begin{equation*}
+    \begin{cases}
+        x^2+y^2=5 ,\\
+        x+y=3
+    \end{cases}
+\end{equation*}
+的交点。在直线条件下，\(1=(x+y)/3\)，于是圆的方程可以改写为
+\begin{equation*}
+    x^2+y^2=\frac59(x+y)^2 ,
+\end{equation*}
+整理得\((2x-y)(x-2y)=0\)。所以交点分别位于\(y=2x\)、\(x=2y\)两条过原点的直线上；再与\(x+y=3\)联立，得到\((1,2)\)、\((2,1)\)。
+
+一般地，将\(lx+my=1\)与二次曲线\(\Phi(x,y)=0\)联立，便可以把后者改写为
+\begin{equation}\label{eq:quadratic-line-homogenization}
+    Ax^2+Bxy+Cy^2+(Dx+Ey)(lx+my)+F(lx+my)^2=0 .
+\end{equation}
+所有项都变为二次项，这一操作称为{\heiti{}齐次化}。所得方程可以先给出交点的方向，再通过原直线确定交点。两个二次方程是在保留直线条件时等价的，单独的齐次方程通常表示另一个点集。
+
+\begin{example}\label{ex:quadratic-line-homogenization}
+求曲线\(x^2+2y^2=9\)与直线\(x+y=3\)的交点。用直线条件将二次方程齐次化，先求交点的坐标比，再求坐标。
+\end{example}
+
+另一种补齐次数的方式，是增加一个辅助变量\(z\)。将常数项乘以\(z^2\)，一次项乘以\(z\)，得到
+\begin{equation}\label{eq:quadratic-homogeneous-polynomial}
+    Q(x,y,z)=Ax^2+Bxy+Cy^2+Dxz+Eyz+Fz^2 .
+\end{equation}
+这个三元二次齐次式满足
+\begin{equation*}
+    Q(x,y,1)=\Phi(x,y) , \qquad
+    Q(tx,ty,tz)=t^2Q(x,y,z) .
+\end{equation*}
+因而原方程就是\(Q(x,y,z)=0\)在\(z=1\)上的部分。例如，圆\(x^2+y^2-2x=0\)对应\(x^2+y^2-2xz=0\)。
+
+若\(z\ne0\)，则
+\begin{equation}\label{eq:quadratic-homogeneous-recovery}
+    Q(x,y,z)=z^2\Phi\left(\frac{x}{z},\frac{y}{z}\right) .
+\end{equation}
+所以辅助变量不仅补齐次数，还使原平面上的点\((x/z,y/z)\)与三元齐次表达联系起来。前面的直线齐次化，正是以\(z=lx+my\)代入式\eqref{eq:quadratic-homogeneous-polynomial}。这些表达将在后面的曲线系、切线与极线中继续使用。
+
+\begin{exercise}
+\mbox{}
+
+（1）用齐次化求圆\(x^2+y^2=10\)与直线\(x+3y=10\)的交点，并解释所得齐次方程为什么是一条重直线。
+
+（2）求曲线\(xy=2\)与直线\(x+y=3\)的交点。分别用直接消元与齐次化计算，比较所得方程。
+
+（3）写出\(x^2+2xy-3y^2+4x-2y+1=0\)对应的三元二次齐次方程，分别写出\(z=1\)、\(z=0\)时的方程，并求\(z=0\)时的解。
+
+（4）设\(Q\)由\(\Phi\)按式\eqref{eq:quadratic-homogeneous-polynomial}得到。若\(Q(r,s,t)=0\)且\(t\ne0\)，证明\((r/t,s/t)\)在原曲线上。反过来，由原曲线上的一点，可以得到哪些满足\(Q=0\)的三元坐标？
+
+（5）求圆\(x^2+y^2-2x=0\)与直线\(x+y=2\)的交点。利用直线条件将一次项补成二次项，并将所得齐次方程因式分解。
+
+（6）用齐次化讨论直线\(x+y=t\)（\(t\ne0\)）与单位圆的实交点个数。
+\end{exercise}
+
+\newpage
 \subsection{二次式的矩阵变换*}
 \label{subsec:quadratic-matrix-transformation}
 
-% 正文待写。
+由\ref{subsec:quadratic-quadratic-forms}节，二次曲线的方程可以写成
+\begin{equation*}
+    \Phi(X)=X^THX+L^TX+F=0 , \qquad H^T=H .
+\end{equation*}
+将新旧坐标关系统一写为\(X=SU+t\)，其中\(S\)可逆。代入并展开，有
+\begin{align*}
+    \Phi(SU+t)
+    &=U^TS^THSU+U^TS^THt+t^THSU\\
+    &\qquad+t^THt+L^TSU+L^Tt+F .
+\end{align*}
+由于\(H\)对称，中间两个标量相等。故新方程可以写为\(U^TH'U+L'^TU+F'=0\)，其中
+\begin{equation}\label{eq:quadratic-affine-matrix-coefficients}
+    \begin{cases}
+        H'=S^THS ,\\
+        L'=S^T(2Ht+L) ,\\
+        F'=t^THt+L^Tt+F .
+    \end{cases}
+\end{equation}
+这三个式子分别描述二次、一次与常数部分的变化。特别地，平移不改变二次部分；只改变线性坐标时，二次型的矩阵由\(H\)变为\(S^THS\)。这种矩阵关系称为{\heiti{}合同}。
+
+还可以将完整的齐次二次式写成一个矩阵表达。记
+\begin{equation}\label{eq:quadratic-full-symmetric-matrix}
+    Z=\left[\begin{matrix}X\\z\end{matrix}\right] , \qquad
+    M=\left[\begin{matrix}H&L/2\\L^T/2&F\end{matrix}\right] .
+\end{equation}
+则式\eqref{eq:quadratic-homogeneous-polynomial}就是\(Q(Z)=Z^TMZ\)。矩阵\(M\)是三阶实对称矩阵，其中包含了完整二次方程的六个系数。
+
+由\(X=SU+t\)，增加辅助变量后的线性关系为
+\begin{equation*}
+    Z=KW , \qquad
+    K=\left[\begin{matrix}S&t\\0&1\end{matrix}\right] , \qquad
+    W=\left[\begin{matrix}U\\z\end{matrix}\right] .
+\end{equation*}
+这里前两行表示\(X=SU+tz\)，在\(z=1\)时恢复原代换。于是
+\begin{equation}\label{eq:quadratic-full-matrix-congruence}
+    Q(KW)=W^T(K^TMK)W , \qquad M'=K^TMK .
+\end{equation}
+将右端按块展开，恰好得到式\eqref{eq:quadratic-affine-matrix-coefficients}。完整二次式的合同变换将平移与线性部分统一起来，也把普通路线中的坐标代入与\ref{subsec:quadratic-homogeneous-linear-representation}节的高维线性表示联系起来。
+
+\begin{samepage}
+\begin{example}\label{ex:quadratic-matrix-substitution}
+将圆\(x^2+y^2=1\)作坐标代换\(x=u+v+1\)、\(y=v\)。分别由直接代入、式\eqref{eq:quadratic-affine-matrix-coefficients}和完整齐次矩阵计算新方程，并比较三种计算。
+\end{example}
+\end{samepage}
+
+\begin{exercise}
+\mbox{}
+
+（1）设\(q(x,y)=x^2+2xy+3y^2\)。作代换\(x=u-v\)、\(y=v\)，分别用代入与矩阵乘法求新二次型，并写出新旧矩阵间的合同关系。
+
+（2）设\(q(X)=X^THX\)正定，\(S\)可逆。证明二次型\(U^TS^THSU\)也正定，并说明可逆条件在证明中的作用。
+
+（3）对\(\Phi(x,y)=x^2+2y^2-4x+4y+1\)，求使新方程没有一次项的平移\(X=U+t\)。分别用配方与式\eqref{eq:quadratic-affine-matrix-coefficients}验证结果。
+
+（4）写出\(xy-1=0\)的完整齐次矩阵，再用逆时针旋转\(45^\circ\)的坐标代换计算\(M'\)，与4.2.4节的结果比较。
+
+（5）若\(H\)对应的对称双线性型为\(b\)，\(H'=S^THS\)对应的为\(b'\)，证明\(b'(U,V)=b(SU,SV)\)。据此说明\(b'(U,V)=0\)与变换后的两个向量之间有什么关系。
+
+（6）设\(H_1,H_2,H_3\)为同阶实对称矩阵。证明：\(H_1\)与自身合同；若\(H_1\)与\(H_2\)合同，则\(H_2\)与\(H_1\)合同；若\(H_1\)与\(H_2\)、\(H_2\)与\(H_3\)分别合同，则\(H_1\)与\(H_3\)合同。
+
+（7）设\(q(x,y)=x^2/4+y^2\)，变换\(T(x,y)=(-2y,x/2)\)的矩阵为\(S\)。求\(q\)的对称矩阵\(H\)，验证\(S^THS=H\)，并说明曲线\(q=1\)在\(T\)下保持不变。这个变换是否保持通常的长度与夹角？它是否保持由\(q\)确定的内积？
+\end{exercise}
+\newpage

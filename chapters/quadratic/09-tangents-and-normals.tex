@@ -1,0 +1,565 @@
+\newpage
+\section{切线、法线及其几何应用}
+\label{sec:quadratic-tangents-and-normals}
+
+直线与曲线相交时，两个交点可以彼此靠近，割线的位置也随之变化。由这种变化得到切线，便能在曲线上一点附近用直线研究曲线。本节先建立切线与法线的方程，再将它们与焦点、轨迹和面积联系起来。
+
+\subsection{切线与法线}
+\label{subsec:quadratic-tangents-and-normals}
+
+\begin{definition}
+设\(P\)是曲线上的一点，\(Q\)沿曲线趋近\(P\)。若割线\(PQ\)趋于一条确定的直线，则称这条直线为曲线在\(P\)处的{\heiti{}切线}，\(P\)称为切点。经过\(P\)且垂直于切线的直线，称为曲线在\(P\)处的{\heiti{}法线}。
+\end{definition}
+
+下面讨论有实点的非退化二次曲线。设其方程为
+\begin{equation*}
+ \Phi(x,y)=Ax^2+Bxy+Cy^2+Dx+Ey+F=0,
+\end{equation*}
+\(P=(x_0,y_0)\)在曲线上，记
+\begin{equation}\label{eq:quadratic-tangent-normal-vector}
+ n_P=(2Ax_0+By_0+D,\;Bx_0+2Cy_0+E).
+\end{equation}
+对另一曲线点\(Q=P+h\)，展开并利用\(\Phi(P)=0\)，得到
+\begin{equation}\label{eq:quadratic-secant-expansion}
+ 0=\Phi(P+h)-\Phi(P)=n_P\cdot h+Ah_x^2+Bh_xh_y+Ch_y^2.
+\end{equation}
+令\(q(h)=Ah_x^2+Bh_xh_y+Ch_y^2\)。由于
+\begin{equation*}
+ |q(h)|\le (|A|+|B|+|C|)|h|^2,
+\end{equation*}
+将式\eqref{eq:quadratic-secant-expansion}除以\(|h|\)，便知\(h\to0\)时，割线的单位方向与\(n_P\)的内积趋于零。因此割线趋于经过\(P\)、垂直于\(n_P\)的直线。这里\(n_P\ne0\)：否则平移到\(P\)后只剩齐次二次式，实图形只能是直线、直线对或一个点，不是所讨论的非退化曲线。前面各类曲线的参数表示保证曲线上有趋近\(P\)的点。
+
+由此得到切线方程
+\begin{equation}\label{eq:quadratic-general-tangent}
+ (2Ax_0+By_0+D)(x-x_0)+(Bx_0+2Cy_0+E)(y-y_0)=0.
+\end{equation}
+再用\(\Phi(x_0,y_0)=0\)整理，可写成对称的形式
+\begin{equation}\label{eq:quadratic-symmetric-tangent}
+ Ax_0x+\frac B2(x_0y+y_0x)+Cy_0y
+ +\frac D2(x+x_0)+\frac E2(y+y_0)+F=0.
+\end{equation}
+将各标准方程的系数代入，得到
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{c|c}
+曲线 & 在\((x_0,y_0)\)处的切线 \\ \hline
+\((x-h)^2+(y-k)^2=R^2\) & \((x_0-h)(x-h)+(y_0-k)(y-k)=R^2\) \\
+\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\) & \(\frac{x_0x}{a^2}+\frac{y_0y}{b^2}=1\) \\
+\(\frac{x^2}{a^2}-\frac{y^2}{b^2}=1\) & \(\frac{x_0x}{a^2}-\frac{y_0y}{b^2}=1\) \\
+\(y^2=2px\) & \(y_0y=p(x+x_0)\)
+\end{tabular}
+\end{center}
+
+若\(n_P=(n_x,n_y)\)，法线以\(n_P\)为方向向量，其方程为
+\begin{equation}\label{eq:quadratic-general-normal}
+ n_y(x-x_0)-n_x(y-y_0)=0.
+\end{equation}
+例如，椭圆的法线为\(\frac{y_0}{b^2}(x-x_0)-\frac{x_0}{a^2}(y-y_0)=0\)，抛物线\(y^2=2px\)的法线为
+\begin{equation}\label{eq:quadratic-parabola-normal}
+ y_0(x-x_0)+p(y-y_0)=0.
+\end{equation}
+这些写法不需要分别讨论直线的斜率是否存在。
+
+\vspace{6pt}
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+分别求椭圆\(x^2/9+y^2/4=1\)在\((3\sqrt2/2,\sqrt2)\)处、双曲线\(x^2/4-y^2=1\)在\((2\sqrt2,1)\)处及抛物线\(y^2=4x\)在\((1,2)\)处的切线和法线。
+\end{example}
+\end{minipage}\par
+\vspace{6pt}
+
+切线也可以通过联立方程确定。将直线参数代入，若得到真正的二次方程\(\alpha t^2+\beta t+\gamma=0\)，则相切当且仅当它有二重根，即\(\beta^2-4\alpha\gamma=0\)。事实上，在交点参数\(t_0\)附近重新以\(\tau=t-t_0\)为参数，由式\eqref{eq:quadratic-secant-expansion}，一次项系数就是\(n_P\)与直线方向的内积；二重根恰好使该内积为零，方向也就成为切方向。
+
+但“一条直线与曲线只有一个实交点”并不足以说明相切。例如\(xy=1\)与\(x=1\)只有一个交点，而该点处的切线是\(x+y=2\)。联立后一次项、二次项是否消失，同样影响交点个数。
+
+可逆仿射变换保持割线及其极限位置，因而将切线变为像曲线的切线；圆的切线关系由此可送到椭圆上。一般仿射变换不保持垂直，法线须按变换后的度量重新确定。
+
+\vspace{6pt}
+
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求椭圆\(x^2/9+y^2/4=1\)上切线平行于\(x+y=0\)的点。再将椭圆伸缩为单位圆，从圆上的相应点出发，核对所得切线。
+\end{example}
+\end{minipage}\par
+
+% 原习题4.41保留作存档，不再占号；题目已整合进后续练习，被替换的备选题另存docs/question-bank/chapter-selection/方法补强时替换的备选题.txt。
+% \begin{exercise}
+% \mbox{}\par\nobreak
+% \begin{samepage}
+% （1）求圆\((x-1)^2+(y+2)^2=5\)在\((2,0)\)处的切线和法线。说明圆的法线与圆心的关系。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （2）求平行于\(2x+y+1=0\)且与圆\(x^2+y^2=5\)相切的直线。（2015年广东高考题改编）
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （3）求抛物线\(y^2=8x\)上切线与\(x\)轴成\(45^\circ\)角的点，并求相应法线。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （4）求曲线\(xy=1\)在\((t,1/t)\)处的切线。联立\(x=2\)与曲线，说明为何不能仅按实交点个数判断相切。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （5）设\(P\)在椭圆\(x^2/a^2+y^2/b^2=1\)上，\(a>b>0\)。证明法线经过原点当且仅当\(P\)为顶点。
+% \par
+% \end{samepage}
+%
+% \begin{samepage}
+% （6）将圆\(u^2+v^2=1\)作变换\(x=2u+v,y=v\)。求像曲线在\((2,0)\)处的切线与法线，并比较它们与原来切线、法线的像。
+% \par
+% \end{samepage}
+% \end{exercise}
+
+
+
+\newpage
+\subsection{直线上的二次式与相切条件*}
+\label{subsec:quadratic-tangency-and-quadratic-forms}
+
+令
+\begin{equation*}
+ \Phi(X)=q(X)+L^TX+F,\qquad q(X)=X^THX,\qquad b(U,V)=U^THV,
+\end{equation*}
+其中\(H\)为二次部分的对称矩阵。将直线写成\(X=P+tV\)，便有
+\begin{equation}\label{eq:quadratic-tangent-restriction}
+ \Phi(P+tV)=q(V)t^2+\bigl(2b(P,V)+L^TV\bigr)t+\Phi(P).
+\end{equation}
+这就是4.8中直线联立的二次式，现在用它考察相切。
+
+若\(P\)在曲线上，则\(t=0\)已经是一个根。切线方向满足
+\begin{equation}\label{eq:quadratic-tangent-direction-bilinear}
+ 2b(P,V)+L^TV=0.
+\end{equation}
+此时式\eqref{eq:quadratic-tangent-restriction}只剩\(q(V)t^2\)。非退化曲线没有整条直线作为分量，所以这里\(q(V)\ne0\)，\(t=0\)恰为二重根。
+
+\begin{definition}
+将直线参数代入曲线方程后，若所得非零多项式以\(t_0\)为\(m\)重根，就称相应交点的{\heiti{}交点重数}为\(m\)。
+\end{definition}
+
+交点重数不依赖直线参数的起点与单位。若限制多项式为\(f(t)=(t-t_0)^mg(t)\)，其中\(g(t_0)\ne0\)，改用\(t=\alpha s+\beta\)（\(\alpha\ne0\)），并令\(s_0=(t_0-\beta)/\alpha\)，则
+\begin{equation*}
+ f(\alpha s+\beta)=\alpha^m(s-s_0)^m g(\alpha s+\beta).
+\end{equation*}
+最后一个因子在\(s_0\)处仍不为零，所以根的重数仍为\(m\)。重数描述的是交点处的关系，而非参数表示的某种选择。
+
+因而二次曲线的切点是直线联立二次式的二重交点。对一般直线，写出\(\alpha t^2+\beta t+\gamma\)后，在\(\alpha\ne0\)时，相切条件就是\(\beta^2-4\alpha\gamma=0\)。若\(\alpha=0\)，则须回到一次式或常数式本身判断，不能将次数已经降低的表达式仍当作二次方程。
+
+将限制式齐次化，记\(\beta=2b(P,V)+L^TV\)，所得二次式\(q(V)t^2+\beta ts+\Phi(P)s^2\)的矩阵及其行列式为
+\begin{equation*}
+ N=\begin{pmatrix}q(V)&\beta/2\\\beta/2&\Phi(P)\end{pmatrix},
+ \qquad \det N=q(V)\Phi(P)-\frac{\beta^2}{4}.
+\end{equation*}
+当\(q(V)\ne0\)时，相切条件等价于\(\det N=0\)。此时配方后只剩一个一次式的平方，矩阵的秩为\(1\)；两个交点参数合并为二重根，表现为限制二次型的退化。
+
+相切条件还可以接到完整齐次二次式上。记
+\begin{equation*}
+ M=\begin{pmatrix}A&B/2&D/2\\B/2&C&E/2\\D/2&E/2&F\end{pmatrix},
+ \qquad Z_P=(x_0,y_0,1)^T,\qquad Z=(x,y,1)^T.
+\end{equation*}
+曲线方程为\(Z^TMZ=0\)，而切线为
+\begin{equation}\label{eq:quadratic-homogeneous-tangent-pairing}
+ Z_P^TMZ=0.
+\end{equation}
+在二次表达式的两个位置分别放入切点和动点，便将二次方程变为直线方程；对称性来自\(M\)的对称性。
+
+若可逆仿射变换写成\(Z=KW\)，新矩阵为\(K^TMK\)，相应切点为\(W_P=K^{-1}Z_P\)，则
+\begin{equation*}
+ W_P^T(K^TMK)W=Z_P^TMZ.
+\end{equation*}
+所以切线方程随坐标变换自然对应。式\eqref{eq:quadratic-tangent-direction-bilinear}描述切线的方向，式\eqref{eq:quadratic-homogeneous-tangent-pairing}同时保留了切线的位置。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+对曲线\(x^2+2xy+2y^2=1\)，用二次型与双线性表达求\((1,0)\)处的切线，再把切线参数代入曲线，核对交点的重数。
+\end{example}
+\end{minipage}\par
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）对\(y^2=4x\)在\((1,2)\)处的任意直线\(X=(1,2)+t(u,v)\)，写出限制多项式，并找出切线方向。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）对\(xy=1\)，分别研究直线\(y=x\)、\(y=2-x\)、\(x=1\)、\(x=0\)的限制多项式，比较次数、实根及重数。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设二次曲线非退化，\(P\)在曲线上。证明切线方向不可能同时满足\(q(V)=0\)，并用整条直线成为分量解释原因。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）若\(\Phi(P)\ne0\)，证明经过\(P\)、方向为\(V\)的直线在\(q(V)\ne0\)时相切的条件为
+\(\bigl(2b(P,V)+L^TV\bigr)^2=4q(V)\Phi(P)\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）对\(x^2+2xy+2y^2-2x=0\)，写出完整矩阵，求原点处切线，并用\(u=x+y-1,v=y\)将曲线化为圆，核对切线的变换。
+\par
+\end{samepage}
+
+
+\end{exercise}
+
+\newpage
+\subsection{切线、法线与焦点}
+\label{subsec:quadratic-focal-properties}
+
+切线方程含有点的坐标，焦点定义则含有点到焦点的距离。将这两种表达接起来，可以得到切线与焦半径之间的角度关系。
+
+先看一个向量事实：若\(u_1,u_2\)是两个不同且不相反的单位向量，则\(u_1+u_2\)沿它们的内角平分线，\(u_1-u_2\)沿外角平分线，且
+\begin{equation*}
+ (u_1+u_2)\cdot(u_1-u_2)=|u_1|^2-|u_2|^2=0.
+\end{equation*}
+因此只须判断切线或法线的方向与哪个和、差向量平行。
+
+对椭圆\(x^2/a^2+y^2/b^2=1\)，设\(F_1=(-c,0),F_2=(c,0)\)，\(P=(x,y)\)，并记
+\begin{equation*}
+ r_i=|PF_i|,\qquad u_i=\frac{P-F_i}{r_i}.
+\end{equation*}
+由焦半径公式\(r_1=a+ex,r_2=a-ex\)及\(c^2=a^2-b^2\)，整理得
+\begin{equation*}
+ u_1+u_2=\frac{2ab^2}{r_1r_2}
+ \left(\frac{x}{a^2},\frac{y}{b^2}\right).
+\end{equation*}
+右边与法线方向平行。所以椭圆的法线平分两条焦半径所成的内角，切线平分外角。顶点处相应结论直接由对称轴确定。
+
+对双曲线\(x^2/a^2-y^2/b^2=1\)，在右支有\(r_1=ex+a,r_2=ex-a\)，从而
+\begin{equation*}
+ u_1-u_2=\frac{2ab^2}{r_1r_2}
+ \left(\frac{x}{a^2},-\frac{y}{b^2}\right).
+\end{equation*}
+此时法线沿外角平分线，切线沿内角平分线；左支同理。
+
+对抛物线\(y^2=2px\)，焦点为\(F=(p/2,0)\)。令\(r=|PF|=x+p/2\)，\(u=(P-F)/r\)，\(e_0=(1,0)\)，则
+\begin{equation*}
+ u-e_0=\frac{1}{r}(-p,y),
+\end{equation*}
+恰与法线方向平行。故切线平分\(u\)与\(e_0\)所成的角；在顶点处，切线垂直于轴。
+
+把光线反射看成关于切线的方向对称，上面的角度关系给出圆锥曲线的{\heiti{}反射性质}：从椭圆一个焦点射出的光线，经曲线反射后通过另一焦点；双曲线相应反射光线所在直线的反向延长线通过另一焦点；从抛物线开口一侧沿轴的平行方向射入的光线，反射后通过焦点。反过来，从抛物线焦点射出的光线，经反射后平行于轴。
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=.88\linewidth]{conic-reflection}
+ \caption{椭圆与抛物线的焦点、切线及反射方向}
+ \label{fig:quadratic-reflection}
+\end{figure}
+
+反射性质也能用来研究垂足。设\(Q\)是椭圆左焦点\(F_1\)在动切线上的垂足，将\(F_1\)关于切线反射为\(S\)。由角平分关系，\(S,P,F_2\)共线，且\(P\)在线段\(F_2S\)上，因此
+\begin{equation*}
+ |F_2S|=|F_2P|+|PS|=|F_2P|+|PF_1|=2a.
+\end{equation*}
+\(Q\)为\(F_1S\)的中点，椭圆中心\(O\)为\(F_1F_2\)的中点，于是\(|OQ|=a\)。反之，任取\(|OQ|=a\)，令\(S=2Q-F_1\)，便有\(|F_2S|=2a\)。线段\(F_2S\)与\(F_1S\)的垂直平分线恰交于一点\(P\)：在\(F_2\)端到\(F_1\)比到\(S\)近，在\(S\)端则相反。由\(|PF_1|=|PS|\)知\(P\)在椭圆上，该垂直平分线就是其切线。因此垂足的轨迹是整个圆
+\begin{equation}\label{eq:quadratic-ellipse-pedal-circle}
+ x^2+y^2=a^2,
+\end{equation}
+即椭圆的长轴辅助圆。
+
+抛物线的垂足轨迹更简单。将切点写成\(P=(pt^2/2,pt)\)，切线为
+\begin{equation}\label{eq:quadratic-parabola-parameter-tangent}
+ x-ty+\frac p2t^2=0.
+\end{equation}
+焦点\(F=(p/2,0)\)到该直线的垂足为\(Q=(0,pt/2)\)。随着\(t\)取遍实数，\(Q\)取遍顶点处的切线\(x=0\)。
+
+再看折纸构造。固定一点\(F\)和一条不过\(F\)的直线\(\ell\)，取\(Q\in\ell\)，将\(F\)折到\(Q\)，折痕就是\(FQ\)的垂直平分线。过\(Q\)作\(\ell\)的垂线，与折痕交于\(P\)。由于\(|PF|=|PQ|\)，点\(P\)属于以\(F\)为焦点、\(\ell\)为准线的抛物线；折痕平分焦半径与轴方向所成的相应角，因而是抛物线在\(P\)处的切线。改变\(Q\)，便得到这条抛物线的各条切线。
+
+最后考虑共焦的椭圆与双曲线。在交点\(P\)处，二者使用同一对单位向量\(u_1,u_2\)，椭圆法线沿\(u_1+u_2\)，双曲线法线沿\(u_1-u_2\)。两向量内积为零，所以两条曲线的切线互相垂直。我们称这种相交为{\heiti{}正交相交}。共焦关系将两种曲线的焦点定义与局部方向联系了起来。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+椭圆\(x^2/9+y^2/4=1\)与双曲线\(x^2-y^2/4=1\)有相同的焦点。求第一象限的交点及两条切线，并从坐标计算与焦点角平分关系两方面验证正交相交。
+\end{example}
+\end{minipage}\par
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）求圆\((x-1)^2+(y+2)^2=5\)在\((2,0)\)处的切线和法线。说明圆的法线与圆心的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求抛物线\(y^2=8x\)上切线与\(x\)轴成\(45^\circ\)角的点，并求相应法线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设\(P\)在椭圆\(x^2/a^2+y^2/b^2=1\)上，\(a>b>0\)。证明法线经过原点当且仅当\(P\)为顶点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）将圆\(u^2+v^2=1\)作变换\(x=2u+v,y=v\)。求像曲线在\((2,0)\)处的切线与法线，并比较它们与原来切线、法线的像。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）椭圆\(x^2/25+y^2/9=1\)上一点\(P\)的横坐标为\(3\)。求两条焦半径的长度，并求两焦点到\(P\)处切线的距离之积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）证明椭圆两焦点到任意切线的距离之积为\(b^2\)。可以利用切线的单位法向量，也可以利用焦点的反射点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）求抛物线\(y^2=8x\)的焦点在各条切线上的垂足轨迹。若垂足为\((0,2)\)，求切点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）固定\(F_1,F_2\)，取\(2a>|F_1F_2|\)。在以\(F_2\)为圆心、\(2a\)为半径的圆上取\(S\)，将\(S\)折到\(F_1\)。证明折痕与线段\(F_2S\)的交点属于以\(F_1,F_2\)为焦点的椭圆，且折痕是该点处的切线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（9）证明双曲线\(x^2/a^2-y^2/b^2=1\)的一个焦点在各条切线上的垂足均在圆\(x^2+y^2=a^2\)上。这个圆是否被全部覆盖？将未覆盖的位置与渐近线联系起来。
+\par
+\end{samepage}
+
+\begin{samepage}
+（10）设\(a>b>0,\lambda>0\)。证明椭圆\(x^2/a^2+y^2/b^2=1\)与双曲线\(x^2/(a^2-\lambda)-y^2/(\lambda-b^2)=1\)在\(b^2<\lambda<a^2\)时共焦，并求证其交点处切线互相垂直。
+\par
+\end{samepage}
+\end{exercise}
+
+\subsection{过定点的切线与切点弦}
+\label{subsec:quadratic-tangents-from-a-point}
+
+曲线上一点处的切线已经确定。若给定曲线外的一点，要求经过它的切线，可以先求切点，再写切线；也可以设经过该点的直线，通过相切条件确定方向。
+
+以椭圆为例，设定点\(P=(u,v)\)，切点\(Q=(s,t)\)。切线经过\(P\)等价于
+\begin{equation*}
+ \frac{s^2}{a^2}+\frac{t^2}{b^2}=1,\qquad
+ \frac{us}{a^2}+\frac{vt}{b^2}=1.
+\end{equation*}
+将\((s/a,t/b)\)看成单位圆上的点，第二个方程成为一条直线。因此过\(P\)的实切线条数取决于\(u^2/a^2+v^2/b^2\)：大于\(1\)时有两条，等于\(1\)时有一条，小于\(1\)时没有。
+
+\begin{definition}
+若从一点向曲线作两条不同的切线，切点分别为\(Q_1,Q_2\)，则直线\(Q_1Q_2\)称为该点对应的{\heiti{}切点弦所在直线}，线段\(Q_1Q_2\)称为{\heiti{}切点弦}。
+\end{definition}
+
+上面的两个切点都满足同一个一次方程，所以椭圆的切点弦所在直线为
+\begin{equation}\label{eq:quadratic-ellipse-contact-chord}
+ \frac{ux}{a^2}+\frac{vy}{b^2}=1.
+\end{equation}
+对双曲线，相同的代入给出\(ux/a^2-vy/b^2=1\)；对抛物线\(y^2=2px\)，则为
+\begin{equation}\label{eq:quadratic-parabola-contact-chord}
+ vy=p(x+u).
+\end{equation}
+这里仍以存在两个不同实切点为前提；下一节会将这些直线推广到一般点。
+
+用抛物线参数式还可以直接看清切线条数。将\(P=(u,v)\)代入式\eqref{eq:quadratic-parabola-parameter-tangent}，切点参数满足
+\begin{equation}\label{eq:quadratic-parabola-tangent-parameters}
+ \frac p2t^2-vt+u=0.
+\end{equation}
+判别式\(v^2-2pu\)为正、零、负时，分别有两条、一条、零条实切线。两根之和与积又能直接用于角度、切点弦及面积问题。
+
+双曲线须同时考虑方向。对\(xy=1\)，在\((t,1/t)\)处的切线是\(x/t+ty=2\)，经过\(P=(u,v)\)的条件为
+\begin{equation*}
+ vt^2-2t+u=0,\qquad t\ne0.
+\end{equation*}
+例如，过\((2,2)\)没有实切线，过\((2,0)\)只有一条，过原点则没有。若\(uv\ne0\)，可由判别式\(4(1-uv)\)判断；在坐标轴上还须注意次数降低或出现被排除的根。椭圆的内外部条数结论不能直接搬到双曲线上。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+（2025年天津卷第18题）椭圆\(x^2/a^2+y^2/b^2=1\)的左焦点为\(F\)，右顶点为\(A\)，离心率为\(1/2\)。点\(P\)在\(x=a\)上，\(PF\)斜率为\(1/3\)，且\(S_{\triangle PFA}=3/2\)。求椭圆方程；过\(P\)的另一条切线切于\(B\)，证明\(FP\)平分\(\angle AFB\)。
+\end{example}
+\end{minipage}\par
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}\label{ex:quadratic-gaokao-parabola-contact}
+设\(D\)在直线\(y=-1/2\)上，过\(D\)作抛物线\(C:y=x^2/2\)的两条切线，切点为\(A,B\)。
+
+（1）证明\(AB\)经过定点；
+
+（2）若以\(E=(0,5/2)\)为圆心的圆在\(AB\)的中点处与\(AB\)相切，求该圆的方程。
+
+（2019年全国卷III文科高考题改编）
+\end{example}
+\end{minipage}\par
+
+求过点切线时，切点参数适合处理根的和、积；切点弦方程则适合处理两切点的共同关系。若问题只问切点弦是否经过定点，往往不需要分别求出两个切点。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）从椭圆外一点\(P=(u,v)\)作两条切线，切点为\(A,B\)，右焦点为\(F=(c,0)\)。利用切点弦与焦半径公式证明\(\displaystyle (P-F)\cdot\frac{A-F}{|AF|}=a-\frac{cu}{a}\)，再将\(A\)换成\(B\)，说明\(\angle AFP=\angle BFP\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）从\(P=(0,3)\)向椭圆\(x^2/9+y^2/4=1\)作切线，求切点弦方程及弦长。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求过\((-1,2)\)且与抛物线\(y^2=4x\)相切的两条直线，并求切点弦方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）求\(xy=1\)在\((t,1/t)\)处的切线，完整分类讨论过\((u,v)\)的实切线条数，并用渐近线方向解释次数降低的情形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设\(P\)在椭圆外，\(PA\)为切线，另一条直线交椭圆于\(B,C\)，相应单位方向为\(d_1,d_2\)。记\(q(u,v)=u^2/a^2+v^2/b^2\)，证明\(|PA|^2q(d_1)=\overline{PB}\,\overline{PC}\,q(d_2)\)，并说明何时能得到通常的切割线长度关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）抛物线\(C:x^2=2py\)的焦点为\(F\)，圆\(M:x^2+(y+4)^2=1\)。已知\(F\)到圆\(M\)上各点的距离最小值为\(4\)。求\(p\)；若\(P\)在圆\(M\)上，过\(P\)作\(C\)的两条切线，切点为\(A,B\)，求\(\triangle PAB\)面积的最大值。（2021年全国乙卷理科高考题改编）
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）椭圆\(E:x^2/a^2+y^2/b^2=1\)的左、右焦点为\(F_1,F_2\)。过\(F_1\)的竖直直线与上半椭圆交于\(P\)，过\(F_2\)且垂直于\(PF_2\)的直线与右准线交于\(Q\)。若\(Q=(4,4)\)，求\(E\)的方程，并证明\(PQ\)是其切线。（2012年安徽理科高考题改编）
+\par
+\end{samepage}
+\end{exercise}
+
+\subsection{切线的轨迹与面积关系}
+\label{subsec:quadratic-loci-and-areas}
+
+切线将曲线上的点与曲线外的图形联系起来。本小节分别研究垂直切线的交点、外切图形的面积，以及抛物线与弦围成的面积；选择坐标时，仍以使所研究的关系容易表达为准。
+
+先求椭圆\(x^2/a^2+y^2/b^2=1\)两条互相垂直切线的交点轨迹。若切线写成
+\begin{equation*}
+ n_xx+n_yy=c,\qquad n_x^2+n_y^2=1,
+\end{equation*}
+由椭圆上线性式的取值范围，其相切条件为
+\begin{equation*}
+ c^2=a^2n_x^2+b^2n_y^2.
+\end{equation*}
+设两切线的单位法向量为\(n_1,n_2\)，交点为\(P\)。因\(n_1\perp n_2\)，在这组正交单位基下有
+\begin{equation*}
+ |P|^2=(n_1\cdot P)^2+(n_2\cdot P)^2=a^2+b^2.
+\end{equation*}
+反之，若\(|P|^2=a^2+b^2\)，则\(P\)在椭圆外。取过\(P\)的一条切线，设其单位法向量为\(n\)，再取垂直于\(n\)的单位向量\(n'\)。从上述恒等式减去\((n\cdot P)^2\)，便得\((n'\cdot P)^2=a^2(n'_x)^2+b^2(n'_y)^2\)，故过\(P\)、法向量为\(n'\)的直线也是切线。因此轨迹恰为圆
+\begin{equation}\label{eq:quadratic-ellipse-director-circle}
+ x^2+y^2=a^2+b^2,
+\end{equation}
+称为椭圆的{\heiti{}准圆}，也称{\heiti{}蒙日圆}。
+
+对抛物线\(y^2=2px\)，两条切线的法向量分别为\((1,-t_1)\)、\((1,-t_2)\)，垂直条件为\(t_1t_2=-1\)。由式\eqref{eq:quadratic-parabola-tangent-parameters}，其交点\((u,v)\)满足\(2u/p=-1\)，即\(u=-p/2\)。反之，在直线\(u=-p/2\)上，切点参数方程的判别式为\(v^2+p^2>0\)，两条切线确实存在且垂直。因此抛物线两条垂直切线的交点轨迹就是准线。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+过椭圆\(x^2/9+y^2/4=1\)的两个不同点分别作切线，两切线互相垂直且交点在\(y=x\)上。求所有交点及相应的切点弦。
+\end{example}
+\end{minipage}\par
+
+再看双曲线\(x^2/a^2-y^2/b^2=1\)的切线与两条渐近线围成的三角形。使用渐近线方向坐标
+\begin{equation*}
+ u=\frac xa+\frac yb,\qquad v=\frac xa-\frac yb,
+\end{equation*}
+双曲线成为\(uv=1\)，两渐近线成为坐标轴。在\((u_0,v_0)\)处的切线为
+\begin{equation*}
+ v_0u+u_0v=2,
+\end{equation*}
+截距为\(2u_0,2v_0\)，因\(u_0v_0=1\)，三角形在\(uv\)坐标平面中的面积为\(2\)。变回原坐标时，面积乘以
+\begin{equation*}
+ \left|\det\begin{pmatrix}a/2&a/2\\b/2&-b/2\end{pmatrix}\right|=\frac{ab}{2}.
+\end{equation*}
+所以原三角形的面积恒为
+\begin{equation}\label{eq:quadratic-hyperbola-tangent-triangle-area}
+ S=ab.
+\end{equation}
+切点还是切线被两渐近线所截线段的中点，这从两个截距的平均值即可看出。
+
+椭圆的共轭直径也给出一个外切面积关系。设\(OP,OQ\)为一对共轭半径，在\(P,Q,-P,-Q\)处作四条切线。将椭圆伸缩为单位圆，共轭半径成为互相垂直的单位半径，四条切线围成边长为\(2\)的正方形。变回原坐标，面积乘以\(ab\)，故所得外切平行四边形面积恒为
+\begin{equation}\label{eq:quadratic-conjugate-tangent-parallelogram}
+ S=4ab.
+\end{equation}
+这与4.7中共轭半径所成三角形的面积关系出自同一个伸缩模型。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+双曲线\(x^2/9-y^2/4=1\)在\(P\)处的切线与两渐近线交于\(A,B\)。证明\(P\)是\(AB\)的中点，求\(\triangle OAB\)的面积，并求\(|AB|\)的最小值。
+\end{example}
+\end{minipage}\par
+
+下面求抛物线与一条弦围成的面积，这一部分通常称为{\heiti{}抛物弓形}。先将抛物线化为\(y=x^2\)。若弦端点的横坐标为\(m-h,m+h\)，其中\(h>0\)，作仿射变换
+\begin{equation*}
+ u=\frac{x-m}{h},\qquad
+ v=\frac{y-2mx+m^2}{h^2}.
+\end{equation*}
+曲线成为\(v=u^2\)，弦成为\(v=1\)，端点成为\((-1,1),(1,1)\)。所有非退化抛物线均可先作可逆仿射变换化为\(y=x^2\)，所以只须研究这个标准图形中的面积比。
+
+在抛物线上找切线平行于该弦的点\(P\)，以弦为底、\(P\)为顶点作三角形。对\(y=x^2\)上横坐标为\(s,t\)的两个端点，弦斜率为\(s+t\)，而横坐标为\(w\)处的切线斜率为\(2w\)。故所取顶点的横坐标为\((s+t)/2\)。利用三点坐标计算，其三角形面积为
+\begin{equation}\label{eq:quadratic-parabolic-inscribed-triangle}
+ T(s,t)=\frac{|t-s|^3}{8}.
+\end{equation}
+在标准图形中，初始三角形的面积\(T=1\)。
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=.62\linewidth]{conic-parabolic-segment}
+ \caption{逐次加入三角形，逼近抛物弓形}
+ \label{fig:quadratic-parabolic-segment}
+\end{figure}
+
+初始三角形之外还剩两个较小的抛物弓形。对它们重复同样的构造，每个新区间的长度都是原来的一半，由式\eqref{eq:quadratic-parabolic-inscribed-triangle}，每个新三角形面积是原来三角形的\(1/8\)，两个合计为\(1/4\)。继续操作，各层新添面积依次为
+\begin{equation*}
+ T,\quad \frac T4,\quad \frac T{4^2},\quad\ldots.
+\end{equation*}
+
+还须说明没有遗漏一块始终不被填入的面积。对任意剩余小弓形，在横坐标区间\([s,t]\)内，用其弦、平行切线及两端的竖直线围成平行四边形。曲线在弦下、该切线上方：两者分别由\((x-s)(x-t)\le0\)与\((x-(s+t)/2)^2\ge0\)得到。这个平行四边形的面积恰为相应内接三角形面积的\(2\)倍。加入前\(n\)层三角形后，剩余小弓形对应的下一层三角形总面积为\(T/4^n\)，所以剩余面积不超过\(2T/4^n\)，趋于零。于是弓形面积为
+\begin{equation}\label{eq:quadratic-parabolic-segment-area}
+ S=T\left(1+\frac14+\frac1{4^2}+\cdots\right)=\frac43T.
+\end{equation}
+仿射变换保持面积比，故对任意抛物线及其弦，抛物弓形的面积均为上述内接三角形面积的\(4/3\)。这也展示了第一章的几何级数与极限怎样进入一个几何面积问题。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+求抛物线\(y^2=4x\)与直线\(x=4\)围成的面积。若将直线改为\(x-y=2\)，仍用平行于弦的切线确定内接三角形，再求弓形面积。
+\end{example}
+\end{minipage}\par
+
+\begin{exercise}
+\mbox{}\par\nobreak
+\begin{samepage}
+（1）求椭圆\(x^2/16+y^2/9=1\)的准圆。若两条垂直切线的交点在\(x\)轴上，求切点弦长。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设双曲线为\(x^2/a^2-y^2/b^2=1\)。仿照单位法向量的方法，研究两条互相垂直的实切线的交点轨迹，并比较\(a>b\)、\(a=b\)、\(a<b\)三种情形。注意哪些位置不能产生两条实切线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求双曲线\(xy=3\)在\((t,3/t)\)处的切线与两渐近线所成三角形面积，并求其周长的最小值。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）证明任意外切于椭圆\(x^2/a^2+y^2/b^2=1\)的平行四边形面积不小于\(4ab\)，并说明等号与共轭直径的关系。提示：先变成单位圆的外切平行四边形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设\(y=x^2\)上弦端点的横坐标之差为\(d>0\)。求弓形面积，说明它是否取决于弦的斜率。再求\(y=\alpha x^2+\beta x+\gamma\)中相应的面积公式，其中\(\alpha\ne0\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）抛物线\(y^2=4x\)在\(A,B\)处的两条切线交于\(P\)。证明弦\(AB\)与抛物线围成的弓形面积为\(\triangle PAB\)面积的\(2/3\)。
+\par
+\end{samepage}
+\end{exercise}

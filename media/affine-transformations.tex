@@ -1,0 +1,24 @@
+\documentclass[tikz,border=3pt]{standalone}
+\usepackage[UTF8,fontset=windows]{ctex}
+\usepackage{amsmath}
+\definecolor{curveblue}{HTML}{245C86}
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round,font=\small]
+  \foreach \panel/\aa/\bb/\cc/\dd in {0/1/0/0/1,5.2/1.5/0/0/0.8,10.6/1/0/0.7/1} {
+    \begin{scope}[shift={(\panel,0)}]
+      \draw[->,gray!75] (-1.9,0)--(2.1,0) node[right] {$x$};
+      \draw[->,gray!75] (0,-1.5)--(0,1.9) node[above] {$y$};
+      \node[below left] at (0,0) {$O$};
+      \begin{scope}[cm={\aa,\bb,\cc,\dd,(0,0)}]
+        \draw[curveblue,line width=1pt] (0,0) circle[radius=1];
+        \draw[black!65,dashed,line width=0.6pt,fill=gray!12] (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+        \fill[curveblue] (1,0) circle[radius=1.4pt];
+        \fill[curveblue] (0,1) circle[radius=1.4pt];
+      \end{scope}
+    \end{scope}
+  }
+  \node at (0,-2.05) {原图形};
+  \node[align=center] at (5.2,-2.05) {伸缩\\$x'=\frac32x,\quad y'=\frac45y$};
+  \node[align=center] at (10.6,-2.05) {错切\\$x'=x+\frac7{10}y,\quad y'=y$};
+\end{tikzpicture}
+\end{document}

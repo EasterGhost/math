@@ -1,0 +1,464 @@
+\newpage
+\section{参数方程}
+\label{sec:quadratic-parametric-equations}
+
+前面用两个坐标之间的方程表示曲线，也通过变换将一种表示化为另一种表示。现在引入一个变量，同时给出点的两个坐标。这样既能描述点怎样在曲线上变化，也能利用参数之间的关系研究弦、面积与方向。
+
+\subsection{参数方程}
+\label{subsec:quadratic-parametric-equations}
+
+\begin{definition}
+设\(f,g\)是定义在同一集合\(T\subseteq\mathbb R\)上的函数。当\(t\)取遍\(T\)时，点\((f(t),g(t))\)组成一条曲线，则称
+\begin{equation}\label{eq:quadratic-parametric-definition}
+    \begin{cases}x=f(t),\\y=g(t),\end{cases}\qquad t\in T
+\end{equation}
+为这条曲线的{\heiti{}参数方程}，\(t\)称为参数。
+\end{definition}
+
+例如，\(x=t,y=t^2\)（\(t\in\mathbb R\)）表示抛物线\(y=x^2\)。若只取\(t\ge0\)，表示的就是其中\(x\ge0\)的部分。参数的取值范围是表示的一部分。
+
+将参数从两式中消去，得到坐标之间的关系，称为{\heiti{}消参}。消参所得方程可能包含原参数表示没有覆盖的点。例如，\(x=t^2,y=t^4\)虽然给出\(y=x^2\)，却只覆盖\(x\ge0\)的部分。确认表示范围，需要同时研究两个方向：参数给出的点满足什么关系，满足这些关系的点又能否找到相应参数。
+
+参数不一定是点的横坐标，也不一定表示时间。同一个点可以对应不同参数值，同一条曲线也可以有不同的参数表示。选取参数，应使题目中有关的条件容易表达。
+
+以过点\(P_0(x_0,y_0)\)、方向向量为\(d=(u,v)\)的直线为例，其参数方程为
+\begin{equation}\label{eq:quadratic-line-parametric}
+    x=x_0+tu,\qquad y=y_0+tv,\qquad t\in\mathbb R .
+\end{equation}
+记相应点为\(P(t)\)，则\(\overrightarrow{P_0P(t)}=td\)。因此
+\begin{equation}\label{eq:quadratic-parametric-distance}
+    |P(t_1)P(t_2)|=|t_1-t_2|\sqrt{u^2+v^2} .
+\end{equation}
+当\(d\)为单位向量时，\(t\)就是沿该方向从\(P_0\)量起的有向长度；否则须保留方向向量的模。取\(0\le t\le1\)，将\(d\)换成\(P_1-P_0\)，便得到线段\(P_0P_1\)的表示。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+直线的参数方程为\(x=1+2t,y=-1+t\)。求其普通方程，说明参数增加\(1\)时点移动的距离，并分别写出直线上\(x\ge3\)的部分及从\((1,-1)\)到\((5,1)\)的线段所对应的参数范围。
+\end{example}
+\end{minipage}\par
+
+
+若重新选取参数\(t=\alpha s+\beta\)（\(\alpha\ne0\)），同一曲线可改写为\(x=f(\alpha s+\beta),y=g(\alpha s+\beta)\)，其中\(\alpha s+\beta\in T\)。新旧参数一一对应，点集不变；对直线，这改变了参数的起点、单位及取向，距离仍由式\eqref{eq:quadratic-parametric-distance}计算。
+
+4.1的曲线系也使用参数，但作用不同。在\(x^2+y^2=r^2\)（\(r>0\)）中，\(r\)选取一条圆；固定\(r\)后，用\(x=r\cos t,y=r\sin t\)选取这条圆上的点。下面先研究后一种表示，随后再联系直线系建立新的参数。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）将\(x=2+3t,y=1-2t\)化为普通方程。求参数\(t=-1,2\)对应的两点间距离，并将方向向量单位化，重新选取一个有向长度参数。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）分别求\(x=t^2,y=t\)与\(x=t^2,y=t^2\)的轨迹，说明消参后还须保留什么条件。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）\(x=\cos t,y=\sin t\)与\(x=\cos2t,y=\sin2t\)在\(0\le t<2\pi\)上是否表示同一条曲线？每个点被表示的次数是否相同？
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）用参数方程表示线段\(AB\)，其中\(A=(-1,2)\)、\(B=(3,-2)\)。求其中满足\(x\ge y\)的部分及其长度。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）求\(x=t+t^{-1},y=t-t^{-1}\)（\(t>0\)）的轨迹方程及实际表示范围。将范围改为\(t\ne0\)，图形如何变化？
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）（2019年北京卷理科第3题）直线\(l\)的参数方程为\(x=1+3t,y=2+4t\)。求点\((1,0)\)到\(l\)的距离，并指出直线的一个单位方向向量。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\subsection{二次曲线的常用参数表示}
+\label{subsec:quadratic-conic-parametrizations}
+
+圆上点到圆心的距离固定，适合用方向角作参数。圆心为\((h,k)\)、半径为\(R\)的圆可写为
+\begin{equation}\label{eq:quadratic-circle-parametric}
+    x=h+R\cos\theta,\qquad y=k+R\sin\theta,
+    \qquad 0\le\theta<2\pi .
+\end{equation}
+单位圆沿两坐标轴伸缩，便得到椭圆的表示
+\begin{equation}\label{eq:quadratic-ellipse-trig-parametric}
+    x=a\cos\theta,\qquad y=b\sin\theta,
+    \qquad 0\le\theta<2\pi .
+\end{equation}
+反过来，椭圆上任一点满足\((x/a)^2+(y/b)^2=1\)，故存在这样的\(\theta\)。所以它覆盖整个椭圆。
+
+对\(a>b>0\)，作同心的两个圆\(x^2+y^2=a^2\)、\(x^2+y^2=b^2\)，称为椭圆的{\heiti{}辅助圆}。在同一条与\(x\)轴正方向成角\(\theta\)的射线上，取两圆上的点\(Q,R\)，则
+\begin{equation*}
+    Q=(a\cos\theta,a\sin\theta),\qquad
+    R=(b\cos\theta,b\sin\theta) .
+\end{equation*}
+过\(Q\)作竖直线、过\(R\)作水平线，交点就是\(P=(a\cos\theta,b\sin\theta)\)。角\(\theta\)称为点\(P\)的{\heiti{}参数角}；它是辅助圆上对应点的方向角，一般不等于\(OP\)与\(x\)轴正方向的夹角。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.48\linewidth]{conic-auxiliary-circles.pdf}
+    \caption{由辅助圆上的同一方向确定椭圆上的点}
+    \label{fig:quadratic-auxiliary-circles}
+\end{figure}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+在椭圆\(x^2/9+y^2/4=1\)上求参数角为\(\pi/3\)的点，并求其位置向量与\(x\)轴正方向夹角的正切。再用参数表示求曲线上点到\((0,1)\)距离的最大值、最小值及取等点，与4.6的圆化方法比较。
+\end{example}
+\end{minipage}\par
+
+
+参数还可以直接表达椭圆上的弦。设两端点的参数角为\(\theta_1,\theta_2\)，记\(\sigma=(\theta_1+\theta_2)/2\)、\(\delta=(\theta_1-\theta_2)/2\)。由和差化积公式，弦的中点为
+\begin{equation}\label{eq:quadratic-ellipse-parametric-midpoint}
+    M=(a\cos\sigma\cos\delta,\ b\sin\sigma\cos\delta),
+\end{equation}
+而两端点都满足直线方程
+\begin{equation}\label{eq:quadratic-ellipse-parametric-chord}
+    \frac xa\cos\sigma+\frac yb\sin\sigma=\cos\delta .
+\end{equation}
+因此参数角的半和决定弦的方向，半差决定中点在相应直径上的位置；求弦时可以先组合两个参数，而不必分别求出端点坐标。
+
+抛物线\(y^2=2px\)（\(p>0\)）中，一个纵坐标确定一个点。令\(y=pt\)，即得
+\begin{equation}\label{eq:quadratic-parabola-parametric}
+    x=\frac p2t^2,\qquad y=pt,\qquad t\in\mathbb R .
+\end{equation}
+这里\(t=y/p\)，并不是角。它使坐标成为多项式，适合处理点之间的代数关系。例如，两不同参数\(t_1,t_2\)对应点的弦斜率为\(2/(t_1+t_2)\)；\(t_1+t_2=0\)时弦竖直。直接代入两点，还可得到弦所在直线的方程
+\begin{equation}\label{eq:quadratic-parabola-parameter-chord}
+    2x-(t_1+t_2)y+pt_1t_2=0 .
+\end{equation}
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+在抛物线\(y^2=4x\)上取参数为\(t_1,t_2\)的两点，其中\(x=t^2,y=2t\)。证明两点连线经过焦点的充要条件是\(t_1t_2=-1\)，再用参数表达这条焦弦的长度，接回4.5的最短焦弦结论。
+\end{example}
+\end{minipage}\par
+
+
+双曲线可以利用\(\cosh^2t-\sinh^2t=1\)表示为
+\begin{equation}\label{eq:quadratic-hyperbola-hyperbolic-parametric}
+    x=\varepsilon a\cosh t,\qquad y=b\sinh t,
+    \qquad t\in\mathbb R,\quad\varepsilon\in\{1,-1\} .
+\end{equation}
+\(\varepsilon=1,-1\)分别给出右、左两支。也可以不用双曲函数，取
+\begin{equation}\label{eq:quadratic-hyperbola-sec-parametric}
+    x=\frac a{\cos\theta},\qquad y=b\tan\theta,
+    \qquad \cos\theta\ne0 .
+\end{equation}
+后式由\(\sec^2\theta-\tan^2\theta=1\)得到。\(\cos\theta\)的符号选取左右两支；在一个长为\(2\pi\)的半开区间内去掉无定义的参数，就覆盖整条双曲线。4.5建立的渐近线坐标则给出更直接的表示：\(uv=1\)可写为\(u=t,v=1/t\)，其中\(t\ne0\)。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）分别写出\((x-1)^2/9+(y+2)^2/4=1\)、\(x^2=8y\)、\(y^2/4-x^2/9=1\)的参数方程，说明参数范围。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）在椭圆\(x^2/16+y^2/9=1\)上，参数角为\(\theta\)的点关于两坐标轴及中心的对称点，参数角分别怎样变化？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设\(P=(a\cos\theta,b\sin\theta)\)。利用参数表示求椭圆上一点到右焦点距离的范围；再从焦半径公式求解，比较两种表达。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）在\(y^2=4x\)上，参数为\(1,3\)的两点连线交两坐标轴于何处？若保持参数和为\(4\)，弦的方向怎样变化？
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设\(A,B\)为\(y^2=2px\)上的两个不同点，参数分别为\(t_1,t_2\)。求其中点坐标，并证明\(OA\perp OB\)等价于\(t_1t_2=-4\)（\(A,B\ne O\)）。在这一条件下，弦\(AB\)经过哪个定点？
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）分别将\(xy=2\)写成以\(x\)为参数和以双曲函数为参数的形式，说明两支的覆盖关系。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\subsection{直线系}
+\label{subsec:quadratic-line-families}
+
+4.1已将随参数变化的一族曲线称为曲线系。其中的曲线均为直线时，称为{\heiti{}直线系}。例如，\(Ax+By=c\)中固定\(A,B\)而改变\(c\)，得到一组平行直线；过定点\((x_0,y_0)\)的直线则可统一写为
+\begin{equation*}
+    \lambda(x-x_0)+\mu(y-y_0)=0,
+    \qquad (\lambda,\mu)\ne(0,0) .
+\end{equation*}
+将\(\lambda,\mu\)同时乘以非零数不改变直线，决定方向的是二者的比。
+
+更一般地，设两条相交直线的方程为\(L_1(x,y)=0\)、\(L_2(x,y)=0\)，交点为\(P_0\)。则
+\begin{equation}\label{eq:quadratic-line-pencil}
+    \lambda L_1(x,y)+\mu L_2(x,y)=0,
+    \qquad (\lambda,\mu)\ne(0,0)
+\end{equation}
+表示过\(P_0\)的全体直线，称为以\(P_0\)为中心的{\heiti{}直线束}。这些直线都经过\(P_0\)；反过来，平移到\(P_0\)后，\(L_1,L_2\)的系数向量线性无关，所以任一直线的一次齐次式都能由二者线性组合得到。
+
+常用的\(L_1+tL_2=0\)对应\(\lambda\ne0\)的情形，另补\(L_2=0\)便得到整个直线束。这与点斜式表示过定点的直线时另补竖直线，是同一件事。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+直线系\((x+y-1)+t(x-2y+2)=0\)是否经过定点？求其中经过\((2,1)\)的直线，并判断\(x-2y+2=0\)能否由某个有限\(t\)得到。再用两个系数的线性组合写出完整直线束。
+\end{example}
+\end{minipage}\par
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+（2024年全国甲卷理科第12题）已知\(b\)是\(a,c\)的等差中项，直线\(ax+by+c=0\)与圆\(x^2+y^2+4y-1=0\)交于\(A,B\)。求\(|AB|\)的最小值。先研究系数条件使直线经过哪个定点，再利用圆中弦长与圆心到直线距离的关系。
+\end{example}
+\end{minipage}\par
+
+
+\paragraph{1°从直线束到有理参数} \mbox{}
+
+在单位圆上固定\(A=(-1,0)\)，过\(A\)作直线\(y=t(x+1)\)。代入圆方程，有
+\begin{equation*}
+    (x+1)\bigl[(1+t^2)x-(1-t^2)\bigr]=0 .
+\end{equation*}
+一个交点已知，除去对应的一次因子，另一个交点便给出
+\begin{equation}\label{eq:quadratic-circle-rational-parametric}
+    x=\frac{1-t^2}{1+t^2},\qquad
+    y=\frac{2t}{1+t^2},\qquad t\in\mathbb R .
+\end{equation}
+每个有限参数都给出圆上异于\(A\)的一点；反过来，对任意这样的点，\(t=y/(x+1)\)，故表达唯一。点\(A\)不在有限参数的表示中，当\(|t|\to\infty\)时点趋于\(A\)。直线束中另补的竖直线\(x=-1\)，恰好对应这个未被表示的点。
+
+坐标都由参数的有理函数表示时，称为{\heiti{}有理参数表示}。这里的“有理”指函数形式，不要求曲线上先有有理数坐标的点。对实椭圆，固定一个实点即可作上述构造，所得有理函数的系数可以是实数。
+
+伸缩后，椭圆可写为
+\begin{equation}\label{eq:quadratic-ellipse-rational-parametric}
+    x=a\frac{1-t^2}{1+t^2},\qquad
+    y=\frac{2bt}{1+t^2},\qquad t\in\mathbb R ,
+\end{equation}
+另补\((-a,0)\)。由\(t=\tan(\theta/2)\)及半角公式，也可将它与三角参数表示对应起来。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+（据2019年全国I卷理科第22题）曲线的参数方程为\(x=(1-t^2)/(1+t^2),y=4t/(1+t^2)\)，其中\(t\in\mathbb R\)。求曲线的直角坐标方程及实际表示的点集，说明为什么只消参还不足以完成这个问题。
+\end{example}
+\end{minipage}\par
+
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+单位圆上一点\(P\)由式\eqref{eq:quadratic-circle-rational-parametric}表示。求使\(P\)位于直线\(x+2y=1\)上的所有参数及相应点，并检查未被有限参数表示的基点是否在这条直线上。
+\end{example}
+\end{minipage}\par
+
+对双曲线，从\((-a,0)\)出发作直线束\(y/b=t(x/a+1)\)，同样除去已知交点的因子，得到
+\begin{equation}\label{eq:quadratic-hyperbola-rational-parametric}
+    x=a\frac{1+t^2}{1-t^2},\qquad
+    y=\frac{2bt}{1-t^2},\qquad t\ne\pm1 .
+\end{equation}
+它覆盖除\((-a,0)\)外的双曲线。\(t=\pm1\)时，直线平行于渐近线，没有第二个有限交点；\(|t|\to\infty\)时仍趋于基点。抛物线的式\eqref{eq:quadratic-parabola-parametric}已经是有理参数表示。因而三类非退化实二次曲线都能用实系数有理函数表示。
+
+\paragraph{2°参数的算术用途} \mbox{}
+
+在式\eqref{eq:quadratic-circle-rational-parametric}中取有理数\(t=m/n\)，得到
+\begin{equation*}
+    x=\frac{n^2-m^2}{n^2+m^2},\qquad
+    y=\frac{2mn}{n^2+m^2} .
+\end{equation*}
+因此\((n^2-m^2)^2+(2mn)^2=(n^2+m^2)^2\)，产生整数勾股数组。反过来，圆上的有理点（除基点外）给出有理斜率\(t=y/(x+1)\)。几何中的直线束，把曲线上的点与一个参数联系起来，也为整数关系提供了构造方法。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）写出经过\(x+y=1\)与\(2x-y=2\)交点的直线束，求其中平行于\(x-3y=0\)的直线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）在单位圆上改取基点\((1,0)\)，用直线\(y=t(x-1)\)重新求有理参数。说明它与式\eqref{eq:quadratic-circle-rational-parametric}的联系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求\(x=2(1-t^2)/(1+t^2),y=6t/(1+t^2)\)表示的点集。若只取\(t\ge0\)，范围如何变化？
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）从\((-2,0)\)出发，为\(x^2/4-y^2=1\)建立有理参数表示，分别指出左右两支的参数范围。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）取\(m=1,n=2,3,4\)，分别构造勾股数组。若取正整数\(m<n\)，要使三个整数没有共同因子，\(m,n\)应满足哪些条件？证明你的判断。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）椭圆\(x^2/9+y^2/4=1\)上一点为\(P=(3(1-t^2)/(1+t^2),4t/(1+t^2))\)。分别求\(P\)与两顶点\((3,0),(-3,0)\)连线的斜率，用参数重新验证斜率积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）过\((0,1)\)作直线\(y=kx+1\)，同时取直线\(x=t\)。令\(k=t\)，求这两条直线交点的轨迹。说明这里的参数怎样同时选取直线与点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）（据2017年全国III卷理科第22题第（1）问）直线\(l_1\)经过\((2,0)\)，方向为\((1,k)\)；直线\(l_2\)经过\((-2,0)\)，方向为\((1,1/k)\)。求它们交点\(P\)随\(k\)变化的轨迹，确定允许的\(k\)及轨迹中没有取到的点。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\subsection{参数表示与共轭直径}
+\label{subsec:quadratic-conjugate-diameters}
+
+在4.3中，共轭直径由平行弦的中点定义；4.6又将它联系到圆上的垂直关系。现在利用参数角，将这一关系直接写出来。
+
+设椭圆上两点为\(P=(a\cos\theta,b\sin\theta)\)、\(Q=(a\cos\varphi,b\sin\varphi)\)。两半径方向共轭，等价于
+\begin{equation*}
+    \frac{x_Px_Q}{a^2}+\frac{y_Py_Q}{b^2}
+    =\cos(\theta-\varphi)=0 .
+\end{equation*}
+因此共轭直径的参数角之差是\(\pi/2\)的奇数倍。取一组端点为
+\begin{equation}\label{eq:quadratic-conjugate-parametric-pair}
+    P=(a\cos\theta,b\sin\theta),\qquad
+    Q=(-a\sin\theta,b\cos\theta) .
+\end{equation}
+这表示两条共轭半径，并不表示它们在原平面中夹直角。
+
+\begin{proposition}\label{prop:quadratic-conjugate-radius-invariants}
+椭圆\(x^2/a^2+y^2/b^2=1\)的任意一对共轭半径满足
+\begin{equation}\label{eq:quadratic-conjugate-sum-area}
+    |OP|^2+|OQ|^2=a^2+b^2,\qquad
+    S_{\triangle OPQ}=\frac{ab}{2} .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+将式\eqref{eq:quadratic-conjugate-parametric-pair}代入，平方和中\(a^2,b^2\)的系数各为\(\cos^2\theta+\sin^2\theta=1\)。又由坐标面积公式，
+\begin{equation*}
+    2S_{\triangle OPQ}=|x_Py_Q-y_Px_Q|
+        =ab(\cos^2\theta+\sin^2\theta)=ab .
+\end{equation*}
+\end{proof}
+
+这是4.6习题中长度与面积关系的统一证明。以\(\pm P,\pm Q\)为顶点的内接平行四边形面积为\(2ab\)，正是前面得到的最大值。共轭半径在变化，平方和与面积却保持不变。
+
+若记两半径长度为\(r,s\)，夹角为\(\gamma\)，则\(rs|\sin\gamma|=ab\)，而\(r^2+s^2=a^2+b^2\)。因此
+\begin{equation}\label{eq:quadratic-conjugate-product-range}
+    ab\le rs\le\frac{a^2+b^2}{2} .
+\end{equation}
+左端对应两半径垂直，即非圆椭圆的两轴；右端在\(\theta=\pi/4\)时取得，此时两半径等长。
+
+这些不变量也能控制共轭半径的夹角。由\(rs|\sin\gamma|=ab\)及式\eqref{eq:quadratic-conjugate-product-range}，有
+\begin{equation}\label{eq:quadratic-conjugate-angle-bound}
+    |\sin\gamma|\ge\frac{2ab}{a^2+b^2} .
+\end{equation}
+等号在两半径等长时取得。因此共轭方向之间的较小夹角有正的下界，等长共轭半径正好给出最小夹角；这把方向关系与原平面中的长度、角度联系起来。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+椭圆为\(x^2/16+y^2/9=1\)。求点\(P=(2,3\sqrt3/2)\)所在半径的一条共轭半径的端点，验证平方和与面积关系；再求等长共轭半径及其夹角余弦的绝对值。
+\end{example}
+\end{minipage}\par
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）写出椭圆\(x^2/9+y^2/4=1\)中参数角为\(\pi/6\)的半径及其一条共轭半径的端点，求两半径的长度和所成三角形面积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）证明椭圆的内接平行四边形达到最大面积，当且仅当它的两条对角线相互共轭。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）求椭圆\(x^2/9+y^2/4=1\)共轭半径所夹锐角的最小值，并给出取等位置。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）若一条椭圆存在垂直且等长的一对共轭半径，证明它是圆。这个结论能否只由平方和不变推出？
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）双曲线\(x^2/a^2-y^2/b^2=1\)上取\(P=(a\cosh t,b\sinh t)\)，在其共轭双曲线上取\(Q=(a\sinh t,b\cosh t)\)。证明两方向共轭，求\(\overrightarrow{OP},\overrightarrow{OQ}\)所成平行四边形的面积，并解释\(Q\)为什么不在原双曲线上。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）椭圆\(x^2/9+y^2/4=1\)的两条共轭半径满足\(|OP|=\sqrt5\)。求\(|OQ|\)及两半径夹角余弦的绝对值。
+\par
+\end{samepage}
+
+\end{exercise}
+
+\newpage
+\subsection{参数表示与线性变换*}
+\label{subsec:quadratic-linear-transformation}
+
+轴向伸缩不是椭圆参数表示的唯一来源。设\(S\)为可逆二阶实矩阵，取其两列为\(u,v\)，则单位圆的仿射像可以写为
+\begin{equation}\label{eq:quadratic-affine-ellipse-parametric}
+    X=C+u\cos t+v\sin t .
+\end{equation}
+其中\(C\)为中心，\(u,v\)线性无关。令\(Y=X-C\)，由\(Y=S(\cos t,\sin t)^T\)，可得
+\begin{equation*}
+    Y^THY=1,\qquad H=S^{-T}S^{-1} .
+\end{equation*}
+\(H\)正定，故式\eqref{eq:quadratic-affine-ellipse-parametric}表示整条椭圆。反过来，正定二次型可以圆化，所以每条椭圆都有这种表示。
+
+由\(S^THS=I\)，有\(u^THu=v^THv=1\)、\(u^THv=0\)。因此\(u,v\)正是一对共轭半径，不必是长短轴。参数增加\(\pi/2\)时，另一条共轭半径为\(Y(t+\pi/2)=-u\sin t+v\cos t\)。展开平方得到
+\begin{equation*}
+    |Y(t)|^2+|Y(t+\pi/2)|^2=|u|^2+|v|^2 .
+\end{equation*}
+以两半径为列的矩阵为\(S R_t\)，其中\(R_t\)是旋转矩阵，故其行列式仍为\(\det S\)。平方和与面积不变，分别来自交叉项的消去与行列式的乘法关系。
+
+正交的\(u,v\)为轴向半径；一般共轭半径不必沿对称轴，轴仍由\(H\)的正交特征方向确定。
+
+\par\noindent\begin{minipage}{\linewidth}
+\begin{example}
+曲线的参数方程为\(x=\cos t+\sin t,y=\sin t\)。求其普通方程与面积，指出一对共轭半径，并判断这两个方向是否为对称轴。再用\(H\)的特征方向求轴的方向。
+\end{example}
+\end{minipage}\par
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\begin{samepage}
+（1）对\(X=(1,-1)^T+(2,1)^T\cos t+(1,2)^T\sin t\)，求中心、普通方程与面积，并给出一对共轭半径。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设\(u,v\)是一条椭圆的一对共轭半径。证明\(C+u\cos t+v\sin t\)覆盖整个椭圆，并说明只要求\(u,v\)线性无关为何还不足以保证表示的是指定的那条椭圆。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）证明曲线\(X=u\cos t+v\sin t\)（\(u,v\)线性无关）为圆，当且仅当\(u\perp v\)且\(|u|=|v|\)。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）若可逆矩阵\(S_1,S_2\)将单位圆映成同一条中心在原点的椭圆，证明\(S_2^{-1}S_1\)正交，解释两种参数表示之间的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）对\(Y^THY=1\)，设\(H\)的两个特征值为\(\lambda_1,\lambda_2>0\)。将任意一对共轭半径的平方和与所成三角形面积，分别用这两个特征值表示。
+\par
+\end{samepage}
+
+\end{exercise}

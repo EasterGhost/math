@@ -1,18 +1,31 @@
-\chapter{二次曲线}
+﻿\chapter{二次曲线}
 \label{chap:quadratic}
 
 % 各节独立成文件，所属小节直接写在对应节文件内。
 % 下层文件使用 \input，保持章节连续排版与自动编号。
-% 章首引入写在此处，位于第一节之前。
+
+将正圆锥的母线向两端延长，可以得到上下两部分组成的圆锥面。用不经过顶点的平面截这个曲面，当截平面与圆锥的轴垂直时，交线是圆；改变截平面的倾斜程度，还可以得到椭圆、抛物线和双曲线。这些截线称为圆锥曲线。同一个曲面为何能够产生这些不同的曲线，它们之间又有什么联系？
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.62\linewidth]{conic-sections.pdf}
+    \caption{正圆锥面的不同平面截线}
+    \label{fig:quadratic-conic-sections}
+\end{figure}
+
+我们在初中已经通过二次函数的图像认识了抛物线，通过反比例函数的图像认识了双曲线的一种情形。圆也可以由点到定点的距离关系写出方程。建立坐标系之后，空间中的截线和平面上的几何条件，都可以转化为两个坐标之间的代数关系。我们将看到，上述曲线的方程具有共同的二次形式。
+
+同一条曲线可以有不同的坐标或参数表示。研究这些表示之间的关系，可以帮助我们选择更便于计算的方程，并由代数运算认识图形的性质。
 
 \input{chapters/quadratic/01-equations}
 \input{chapters/quadratic/02-affine-transformations}
 \input{chapters/quadratic/03-reduction-and-classification}
 \input{chapters/quadratic/04-conic-sections}
 \input{chapters/quadratic/05-conic-properties}
-\input{chapters/quadratic/06-parametric-equations}
-\input{chapters/quadratic/07-intersections-and-families}
-\input{chapters/quadratic/08-tangents-and-normals}
-\input{chapters/quadratic/09-poles-and-polars}
-\input{chapters/quadratic/10-projective-structure}
-\input{chapters/quadratic/11-polar-coordinates}
+\input{chapters/quadratic/06-affine-applications}
+\input{chapters/quadratic/07-parametric-equations}
+\input{chapters/quadratic/08-intersections-and-families}
+\input{chapters/quadratic/09-tangents-and-normals}
+\input{chapters/quadratic/10-poles-and-polars}
+\input{chapters/quadratic/11-projective-structure}
+\input{chapters/quadratic/12-polar-coordinates}

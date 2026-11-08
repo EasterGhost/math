@@ -1,39 +1,571 @@
+﻿\newpage
 \section{二次曲线的化简、分类与几何结构}
 \label{sec:quadratic-reduction-and-classification}
 
-% 本节导言写在此处。
+前一节建立了坐标与方程的变换方法。现在从一般二次方程出发，选择坐标系，使方程中的项尽可能少。由化简后的方程，可以认识曲线的类型，并研究中心、对称轴、平行弦与渐近线等几何结构。
 
 \subsection{二次曲线的化简}
 \label{subsec:quadratic-reduction}
 
-% 正文待写。
+设二次曲线的方程为
+\begin{equation}\label{eq:quadratic-reduction-general}
+    Ax^2+Bxy+Cy^2+Dx+Ey+F=0 .
+\end{equation}
+平移可以改变一次项，旋转则可以改变二次项的系数。先旋转坐标轴，令
+\begin{equation*}
+    x=u\cos\theta-v\sin\theta , \qquad
+    y=u\sin\theta+v\cos\theta .
+\end{equation*}
+代入二次部分并整理，得到
+\begin{equation*}
+    Ax^2+Bxy+Cy^2=A'u^2+B'uv+C'v^2 ,
+\end{equation*}
+其中
+\begin{equation}\label{eq:quadratic-rotated-coefficients}
+    \begin{aligned}
+        A'&=A\cos^2\theta+B\sin\theta\cos\theta+C\sin^2\theta ,\\
+        B'&=(C-A)\sin2\theta+B\cos2\theta ,\\
+        C'&=A\sin^2\theta-B\sin\theta\cos\theta+C\cos^2\theta .
+    \end{aligned}
+\end{equation}
+选择\(\theta\)使\(B'=0\)，就能消去交叉项。若\(A\ne C\)，可以取\(\tan2\theta=B/(A-C)\)；若\(A=C\)且\(B\ne0\)，可以取\(\theta=45^\circ\)。原来没有交叉项时，无须旋转。
+
+旋转之后的方程具有形式
+\begin{equation}\label{eq:quadratic-diagonal-equation}
+    \alpha u^2+\gamma v^2+du+ev+f=0 ,
+\end{equation}
+且\(\alpha,\gamma\)不全为零。接下来按非零平方项配方。
+
+若\(\alpha\gamma\ne0\)，则
+\begin{equation*}
+    \alpha\left(u+\frac d{2\alpha}\right)^2
+    +\gamma\left(v+\frac e{2\gamma}\right)^2
+    =\frac{d^2}{4\alpha}+\frac{e^2}{4\gamma}-f .
+\end{equation*}
+平移原点后，得到\(\alpha U^2+\gamma V^2=k\)。若只有一个平方项，例如\(\alpha\ne0\)、\(\gamma=0\)，先对\(u\)配方，再考察\(ev\)：当\(e\ne0\)时，还可以平移\(v\)，得到\(\alpha U^2+eV=0\)；当\(e=0\)时，得到\(\alpha U^2=k\)。因此，一般二次方程最终可以化为
+\begin{equation}\label{eq:quadratic-reduced-three-types}
+    \alpha U^2+\gamma V^2=k , \qquad
+    U^2=2pV , \qquad U^2=k ,
+\end{equation}
+其中第一式\(\alpha\gamma\ne0\)，第二式\(p\ne0\)。这里各个坐标系仍由平移与旋转得到，保留了原平面的长度与夹角。
+
+\begin{example}\label{ex:quadratic-reduce-ellipse}
+通过旋转与平移化简方程\(5x^2-6xy+5y^2-8x-8y=0\)，写出所用的新旧坐标关系，并画出曲线的示意图。
+\end{example}
+
+配方中的平移还有几何意义。若图形中每一点\(P\)关于点\(C\)的对称点仍在图形上，则称\(C\)为图形的{\heiti{}对称中心}。以\(C(h,k)\)为原点，中心对称就是\((U,V)\mapsto(-U,-V)\)。只有平方项与常数项的方程在这个变换下保持不变，故消去一次项后，新原点就是曲线的中心。
+
+在式\eqref{eq:quadratic-reduction-general}中直接代入\(x=U+h\)、\(y=V+k\)，一次项的系数分别为
+\begin{equation*}
+    2Ah+Bk+D , \qquad Bh+2Ck+E .
+\end{equation*}
+因此求解
+\begin{equation}\label{eq:quadratic-center-equations}
+    \begin{cases}
+        2Ah+Bk+D=0 ,\\
+        Bh+2Ck+E=0
+    \end{cases}
+\end{equation}
+即可找到消去一次项的平移，也就找到相应的对称中心。
+
+对于不包含在一条直线内的非空二次曲线，这也是中心的必要条件。事实上，若以中心为原点，曲线上的\((U,V)\)、\((-U,-V)\)都满足方程，两式相减可知全部点都满足\(dU+eV=0\)。若\((d,e)\ne(0,0)\)，曲线便包含在这条直线内，产生矛盾。因此必有\(d=e=0\)。
+
+若式\eqref{eq:quadratic-center-equations}有解，可以先移到中心，再旋转化简二次部分。例如，\(xy=1\)的中心为原点；\(y=x^2\)则无法通过平移消去一次项。中心的存在与否，反映了两种不同的方程结构。
+
+\begin{example}
+分别求\(x^2+2xy+2y^2-2x=0\)与\(x^2-2xy+y^2-x-y=0\)的中心；若不存在，说明原因。选择适当坐标，将两个方程分别化简。
+\end{example}
+
+
 
 \subsection{二次型的标准形*}
 \label{subsec:quadratic-normal-form}
 
-% 正文待写。
+旋转消去交叉项，在矩阵语言中就是为二次型选择一组适当的正交单位基。设
+\begin{equation*}
+    q(X)=X^THX , \qquad
+    H=\left[\begin{matrix}A&B/2\\B/2&C\end{matrix}\right] .
+\end{equation*}
+若非零向量\(e\)满足\(He=\lambda e\)，则称\(e\)为\(H\)的一个{\heiti{}特征向量}，\(\lambda\)为对应的{\heiti{}特征值}。这表示\(H\)作用后，向量成为自身的一个倍数。
 
+有非零解的条件为\(H-\lambda I\)不可逆，即
+\begin{equation*}
+    (A-\lambda)(C-\lambda)-\frac{B^2}{4}=0 .
+\end{equation*}
+于是两个特征值为
+\begin{equation}\label{eq:quadratic-eigenvalues}
+    \lambda_{1,2}=\frac{A+C\pm\sqrt{(A-C)^2+B^2}}2 .
+\end{equation}
+它们都是实数。若二者不同，取对应的特征向量\(e_1,e_2\)，由\(H^T=H\)，有
+\begin{equation*}
+    \lambda_1 e_1^Te_2=(He_1)^Te_2=e_1^THe_2=\lambda_2 e_1^Te_2 .
+\end{equation*}
+故\(e_1\perp e_2\)。若二者相同，则\(A=C\)、\(B=0\)，此时\(H=AI\)，任意方向都是特征方向。
+
+将特征向量单位化，并选择方向使它们组成旋转后的坐标基。记以两向量为列的矩阵为\(R\)，则\(R^TR=I\)，且
+\begin{equation}\label{eq:quadratic-orthogonal-diagonalization}
+    R^THR=\left[\begin{matrix}\lambda_1&0\\0&\lambda_2\end{matrix}\right] .
+\end{equation}
+作代换\(X=RU\)，即得\(q(X)=\lambda_1u^2+\lambda_2v^2\)。这种只含平方项的表达称为二次型的{\heiti{}标准形}。特征方向给出了消去交叉项的正交方向，特征值则是这些方向上的平方项系数。
+
+再考察完整方程\(X^THX+L^TX+F=0\)。平移\(X=U+t\)后，一次项的系数列为\(2Ht+L\)，故中心条件为
+\begin{equation}\label{eq:quadratic-center-matrix}
+    2Ht+L=0 .
+\end{equation}
+当\(H\)可逆时，唯一的解是\(t=-\frac12H^{-1}L\)。当\(H\)不可逆时，则由\(L\)是否属于\(H\)的像决定有无解；有解时，全部解相差一个核中的向量。这与配方及中心方程是同一个过程。
+
+\begin{example}
+对例\ref{ex:quadratic-reduce-ellipse}中的方程，求二次部分的特征值与单位特征向量，利用矩阵计算中心及化简后的完整方程，并与旋转、配方的结果比较。
+\end{example}
+
+
+
+\newpage
 \subsection{二次曲线的分类}
 \label{subsec:quadratic-classification}
 
-% 正文待写。
+由式\eqref{eq:quadratic-reduced-three-types}，只须研究平方项系数与右端常数的符号。以下允许交换坐标轴、将方程两边同乘非零常数，并以\(a,b\)表示正数。
 
+\paragraph{1°两个平方项同号} \mbox{}
+
+方程可以写成\(U^2/a^2+V^2/b^2=k\)。若\(k>0\)，将常数并入分母，得到
+\begin{equation}\label{eq:quadratic-ellipse-standard}
+    \frac{U^2}{a^2}+\frac{V^2}{b^2}=1 ,
+\end{equation}
+称为{\heiti{}椭圆}的标准方程；\(a=b\)时为圆。若\(k=0\)，只有原点一个实点；若\(k<0\)，无实点。
+
+\paragraph{2°两个平方项异号} \mbox{}
+
+若右端非零，可以整理为
+\begin{equation}\label{eq:quadratic-hyperbola-standard}
+    \frac{U^2}{a^2}-\frac{V^2}{b^2}=1 ,
+\end{equation}
+称为{\heiti{}双曲线}的标准方程。若右端为零，则
+\begin{equation*}
+    \frac{U^2}{a^2}-\frac{V^2}{b^2}
+    =\left(\frac Ua-\frac Vb\right)\left(\frac Ua+\frac Vb\right)=0 ,
+\end{equation*}
+表示两条相交直线。
+
+\paragraph{3°只有一个平方项} \mbox{}
+
+若另一个变量仍有一次项，得到
+\begin{equation}\label{eq:quadratic-parabola-standard}
+    U^2=2pV , \qquad p\ne0 ,
+\end{equation}
+称为{\heiti{}抛物线}的标准方程。若另一个变量不出现，则只须考察\(U^2=k\)：当\(k>0\)时是两条平行直线；当\(k=0\)时是重直线\(U^2=0\)；当\(k<0\)时无实点。
+
+因此，实二次曲线的点集类型包括椭圆、双曲线、抛物线、相交直线对、平行直线对、直线（重直线情形）、单点与空集。重直线的实点集虽然是一条直线，方程仍保留了重数信息。一般地，
+\begin{equation*}
+    (ax+by+c)(dx+ey+f)=0
+\end{equation*}
+表示两个一次因子各自对应的直线的并；两因子成比例时，就是一条重直线。
+
+在本章中，椭圆、双曲线与抛物线称为{\heiti{}非退化实二次曲线}。直线对、重直线与单点是退化的情形。无实点只描述实数解的情况，不能单凭它判断代数上是否退化。例如，\(x^2+y^2+1=0\)与\(x^2+1=0\)都没有实点，但前者在复数范围内不能分解为两个一次因子，后者可以分解为\((x+i)(x-i)=0\)。下一小节将用完整二次式的矩阵统一判断。
+
+\begin{example}
+讨论\(x^2+2txy+y^2=1\)随实参数\(t\)变化时的曲线类型，并在\(t=0,1,2\)时分别写出简化后的方程。
+\end{example}
+
+不必每次完成化简，二次部分的系数已经给出了一部分分类信息。由式\eqref{eq:quadratic-rotated-coefficients}可验证
+\begin{equation*}
+    A'+C'=A+C , \qquad A'C'-\frac{B'^2}{4}=AC-\frac{B^2}{4} .
+\end{equation*}
+消去交叉项后，\(\alpha\gamma=AC-B^2/4\)。于是称
+\begin{equation}\label{eq:quadratic-discriminant}
+    \Delta=B^2-4AC
+\end{equation}
+为二次部分的{\heiti{}判别式}。\(\Delta<0\)时，两平方项同号；\(\Delta>0\)时异号；\(\Delta=0\)时只有一个非零平方项。它分别对应椭圆型、双曲型和抛物型，但完整曲线的类型仍须结合一次项与常数项确定。
+
+\begin{example}
+分别构造判别式相同的三个二次方程，使它们表示椭圆、单点与空集；再构造两个二次方程，使它们分别表示抛物线与两条平行直线，且都有\(\Delta=0\)。
+\end{example}
+
+待定系数法还可以由此得到一个确定曲线的结论。
+
+\begin{proposition}\label{prop:quadratic-five-points}
+平面上无三点共线的五个点，确定唯一一条非退化二次曲线，其方程的系数相差一个共同的非零倍数。
+\end{proposition}
+
+将五个点分别代入一般方程，得到关于六个系数的五个齐次一次方程，所以有不全为零的解。关键在于这五个条件相互独立。固定其中一点\(P_i\)，将其余四点两两配对，以两条连线的方程之积记为\(f_i(x,y)\)。它在其余四点的值都为零，在\(P_i\)处却非零，因为无三点共线。若五个过点条件之间有一个恒成立的一次关系，将\(f_i\)的系数代入，就知道第\(i\)个条件的系数为零。依次取\(i=1,\ldots,5\)，可知五个条件独立。
+
+因此消元后恰有一个自由参数，非零解彼此成比例。这一解不可能只是一次式，否则五点都在一条直线上；也不可能是退化二次曲线，因为两条直线至多容纳其中四点，单点与空集也不满足条件。故所得曲线非退化，结论得证。
+
+
+
+\newpage
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）将\(x^2+2xy+y^2-2x+2y=0\)化为不含交叉项和常数项的方程，写出坐标关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）将\(3x^2+2xy+3y^2-8=0\)化简，并求曲线上点到原点距离的最大值与最小值。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）对\(x^2+2xy+y^2-4x-4y+3=0\)，求式\eqref{eq:quadratic-center-equations}的全部解，并说明这些点与曲线的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）对例\ref{ex:quadratic-reduce-ellipse}中的方程，分别采用先旋转后平移、先求中心再旋转的顺序化简，比较所得坐标关系与方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）分别判断\(x^2+y^2=0\)、\(x^2-y^2=0\)、\(x^2=4\)、\((x-y-1)^2=0\)、\(x^2+y^2=-1\)、\(x^2=-1\)的图形，并比较后两个方程。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）讨论\(x^2+y^2-2x+4y+t=0\)随\(t\)变化时的曲线类型。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）对\(x^2-2xy+y^2+dx+ey+f=0\)，按\(d+e\)是否为零分类；当\(d+e=0\)时，再讨论\(f\)的影响。
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）求经过\((0,0)\)、\((1,0)\)、\((0,1)\)、\((1,1)\)、\((2,3)\)的二次曲线方程，并判断类型。
+\par
+\end{samepage}
+
+\begin{samepage}
+（9）若五个给定点中有三点共线，一定不能唯一确定二次曲线吗？考察其中恰有三点共线、另两点均不在该直线上的情形。
+\par
+\end{samepage}
+
+\begin{samepage}
+（10）将\(x^2+4xy+5y^2=1\)通过可逆一次坐标代换化为单位圆方程。这个代换是否保持长度与夹角？再用旋转化简，与前一种方法比较。
+\par
+\end{samepage}
+
+\begin{samepage}
+（11）证明非退化实二次曲线至多有一个对称中心，并说明两条平行直线组成的图形为什么可以有无穷多个中心。
+\par
+\end{samepage}
+
+\begin{samepage}
+（12）求以\((1,-1)\)为中心，且经过\((3,-1)\)、\((1,0)\)、\((2,0)\)的二次曲线方程，并判断类型。
+\par
+\end{samepage}
+
+\begin{samepage}
+（13）* 求\(q(x,y)=2x^2+2xy+2y^2\)的特征方向与标准形，并用标准形证明\(q\)正定。
+\par
+\end{samepage}
+
+\begin{samepage}
+（14）* 设实二阶对称矩阵\(H\)的两个特征值分别为\(\lambda_1,\lambda_2\)。证明\(\lambda_1+\lambda_2=A+C\)、\(\lambda_1\lambda_2=AC-B^2/4\)，并说明正定性与这两个特征值的关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（15）* 设\(H\)不可逆而\(2Ht+L=0\)有解。证明解集是一条直线，并在\(q(x,y)=(x+y)^2\)上举例说明。
+\par
+\end{samepage}
+
+\end{exercise}
+\newpage
 \subsection{二次型的符号与仿射分类*}
 \label{subsec:quadratic-affine-classification}
 
-% 正文待写。
+标准形\(q=\lambda_1u^2+\lambda_2v^2\)中的非零系数个数，就是矩阵\(H\)的秩。分别记正、负系数个数为\(n_+,n_-\)，则\(\operatorname{rank}H=n_++n_-\)。秩等于变量个数时，称二次型非退化；既能取正值又能取负值时，称二次型不定。同号、异号与零方向，是二次部分在实数范围内的不同结构。
 
+这些个数在可逆线性代换下保持不变。秩的保持来自\(H'=S^THS\)两侧所乘矩阵都可逆。正负个数的保持，也可以从子空间理解：在标准形中，所有正系数方向张成一个\(n_+\)维空间，\(q\)在其中每个非零向量上为正；任何维数超过\(n_+\)的子空间，都与非正系数方向张成的空间有非零交点，因此不可能处处为正。故\(n_+\)是具有这种正定性质的子空间的最大维数。可逆代换保持子空间维数及二次型的取值关系，所以保持\(n_+\)，同理保持\(n_-\)。
+
+将每个非零坐标再乘以适当的常数，可将系数化为\(1\)或\(-1\)。于是，正定二次型都与\(u^2+v^2\)合同，不定的非退化二次型都与\(u^2-v^2\)合同。结合平移，任意实椭圆都能通过仿射变换化为圆，任意实双曲线都能化为\(uv=1\)，任意抛物线都能化为\(v=u^2\)。不同的半轴长度与开口大小，在仿射分类中不再区分。
+
+对于完整二次式，使用前一节的三阶矩阵
+\begin{equation*}
+    M=\left[\begin{matrix}A&B/2&D/2\\B/2&C&E/2\\D/2&E/2&F\end{matrix}\right] .
+\end{equation*}
+它的秩同样在\(M'=K^TMK\)下保持不变。通过上一小节的各个简化方程，直接计算可知：椭圆、双曲线、抛物线及椭圆型的无实点方程，其\(M\)的秩都是\(3\)；直线对、重直线、单点及平行直线型的无实点方程，其秩都小于\(3\)。因此用
+\begin{equation}\label{eq:quadratic-degenerate-rank}
+    \operatorname{rank}M<3
+\end{equation}
+刻画完整二次方程的{\heiti{}代数退化}。它同时包含实直线对，以及扩充到复数后才出现的直线对。这里\(H\)控制二次部分的方向结构，\(M\)则记录完整方程，两种秩有不同的用途。
+
+例如，\(x^2+y^2+1=0\)的\(M=I_3\)，秩为\(3\)，虽无实点却不退化；\(x^2+y^2=0\)的矩阵为\(\left[\begin{smallmatrix}1&0&0\\0&1&0\\0&0&0\end{smallmatrix}\right]\)，秩为\(2\)，在复数范围内分解为\((x+iy)(x-iy)=0\)。
+\newpage
+\paragraph{复数范围内的变换} \mbox{}
+
+将两个坐标分别允许取复数，方程的解集就从\(\mathbb R^2\)扩展到\(\mathbb C^2\)，称为曲线的{\heiti{}复化}。仍使用可逆的一次坐标代换，但系数可以为复数，便得到复仿射变换。
+
+对\(x^2/a^2+y^2/b^2=1\)，代入\(x=au\)、\(y=ibv\)，即得\(u^2-v^2=1\)。所以椭圆与双曲线的复化在复仿射变换下等价。这里是先允许两个坐标取复数，再比较复曲线；该代换并没有将实椭圆上的点直接变成实双曲线上的点。
+
+在复数范围内，\(i^2=-1\)使平方项的正负不再构成区别，但可逆代换仍保持二次部分的秩。抛物线的二次部分秩为\(1\)，圆的为\(2\)，故二者即使复化，也不能通过可逆复仿射变换互相变成。它们更进一步的联系，将在后面的选学内容中研究。
+
+这里的\(\mathbb C^2\)有两个复坐标。它与第三章以一个复数\(z=x+iy\)表示实平面上的点不同；后者乘以\(i\)是实平面上的旋转，保持实圆的形状。
+
+\begin{example}
+分别求\(x^2+4y^2=4\)、\(x^2-4y^2=4\)、\(y=x^2\)的\(H\)与\(M\)的秩。给出前两条曲线在复数范围内的一个可逆坐标代换，并说明为什么不能用同类代换将第三条曲线变成前两条曲线。
+\end{example}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）将\(2u^2+3v^2\)、\(2u^2-3v^2\)、\(2u^2\)分别通过实可逆线性代换化为系数只含\(1,-1,0\)的形式，记录各自的正负系数个数与秩。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）比较\(x^2+y^2+1=0\)、\(x^2+y^2=0\)、\(x^2+1=0\)的\(H\)与\(M\)的秩，并在复数范围内判断能否分解为一次因子的乘积。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）证明\(u^2+v^2\)与\(u^2-v^2\)在实数范围内不合同，在复数范围内却合同。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）若一个二次方程整体乘以\(-1\)，其矩阵的正负系数个数如何变化？曲线是否变化？据此说明分类二次型与分类方程的实解集有什么区别。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）比较\(x^2+y^2=1\)与\(x^2-y^2=1\)的\(H\)、\(M\)的秩。仅凭这两个秩能否判断它们仿射等价？再利用二次部分的符号结构作出判断。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）代换\(x=u\)、\(y=iv\)将复曲线\(x^2+y^2=1\)化为\(u^2-v^2=1\)。原实圆上哪些点对应实双曲线上的点？据此解释复化后等价与实仿射等价的区别。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）对方程\(x^2+y^2-2tx+1=0\)，讨论实参数\(t\)变化时完整齐次矩阵\(M\)的秩与实图形的类型，并说明代数退化发生在何时。
+\par
+\end{samepage}
+\end{exercise}
+
+\newpage
 \subsection{对称轴、平行弦与直径}
 \label{subsec:quadratic-axes-and-diameters}
 
-% 正文待写。
+以下主要研究非退化实二次曲线。若图形关于一条直线镜像后保持不变，则称这条直线为图形的{\heiti{}对称轴}。在适当坐标中，检验关于坐标轴的对称性，只须分别比较\((x,y)\)与\((-x,y)\)、\((x,-y)\)是否同时满足方程。
 
+例如，椭圆\(x^2/a^2+y^2/b^2=1\)与双曲线\(x^2/a^2-y^2/b^2=1\)都关于两条坐标轴对称；抛物线\(x^2=2py\)关于\(y\)轴对称。两条相互垂直的对称轴连续作镜像，效果是关于交点作中心对称，因此前两类曲线的原点也是中心。
+
+曲线上两个不同点之间的线段称为{\heiti{}弦}。固定一个方向，考察所有平行于这一方向的弦，它们的中点往往具有比端点简单的关系。以\(y=x^2\)为例，设一条弦的端点为\((x_1,x_1^2)\)、\((x_2,x_2^2)\)，斜率为\(m\)，则
+\begin{equation*}
+    m=\frac{x_2^2-x_1^2}{x_2-x_1}=x_1+x_2 .
+\end{equation*}
+所以弦中点的横坐标恒为\(m/2\)，所有中点都在直线\(x=m/2\)上。这条直线平行于抛物线的对称轴。竖直线与该抛物线只有一个交点，因此没有竖直方向的弦。
+
+一般地，设弦的中点为\((h,k)\)，方向向量为\((r,s)\)。两端点可以写成
+\begin{equation*}
+    P=(h+tr,k+ts) , \qquad Q=(h-tr,k-ts) , \qquad t\ne0 .
+\end{equation*}
+将它们代入\(\Phi(x,y)=0\)并作差，除以\(2t\)，得到
+\begin{equation}\label{eq:quadratic-diameter-equation}
+    (2Ah+Bk+D)r+(Bh+2Ck+E)s=0 .
+\end{equation}
+对于存在弦的固定方向，这给出了弦中点所在的一条直线，称为该方向的弦所对应的{\heiti{}直径}。这里直径指整条直线；实际弦中点可以只占其中的一部分。
+
+若曲线有中心，将原点移到中心，\(D=E=0\)，式\eqref{eq:quadratic-diameter-equation}成为
+\begin{equation*}
+    (2Ar+Bs)h+(Br+2Cs)k=0 .
+\end{equation*}
+它经过原点，因此有中心二次曲线的直径都经过中心。对于椭圆，任意方向都有弦；对于双曲线，平行于渐近线的方向没有弦，这一点将在\ref{subsec:quadratic-asymptotes}节中说明。
+
+对于有中心的非退化实二次曲线，若一条直径平分所有平行于另一条直径的弦，则称这两条直径{\heiti{}共轭}。这一关系是相互的。事实上，对于两条过中心的直线，设方向分别为\((r,s)\)、\((u,v)\)。第一方向的弦中点在第二条直线上，条件是
+\begin{equation}\label{eq:quadratic-conjugate-coordinate}
+    2Aru+B(rv+su)+2Csv=0 .
+\end{equation}
+交换两个方向，等式保持不变，所以第二方向的弦也被第一条直径平分。圆的共轭直径相互垂直；椭圆和双曲线的共轭关系则一般不等于垂直关系。
+
+\begin{example}\label{ex:quadratic-conjugate-diameters}
+对椭圆\(x^2/4+y^2=1\)，求斜率为\(1\)的弦所对应的直径，并求与这条直径共轭的直径。比较两条直径的夹角与圆中相应的结论。
+\end{example}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\linewidth]{conic-diameters.pdf}
+    \caption{平行弦的中点在同一条直径上，虚线表示整条直径的一部分}
+    \label{fig:quadratic-diameters}
+\end{figure}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）求椭圆\(x^2/9+y^2/4=1\)的水平弦与竖直弦分别对应的直径。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求抛物线\(y=x^2\)上斜率为\(2\)的弦中点的轨迹，明确轨迹与整条直径的区别。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）对椭圆\(x^2/a^2+y^2/b^2=1\)，推导两条斜率均存在的共轭直径之间的斜率关系。对双曲线\(x^2/a^2-y^2/b^2=1\)作同样的研究。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）将圆作变换\(x'=2x+y\)、\(y'=y\)。证明原圆的一对垂直直径变为像曲线的一对共轭直径，并说明一般的仿射变换为什么保持共轭直径关系。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）椭圆的任意两条互相垂直的直径是否一定共轭？分别讨论圆与非圆椭圆。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）求椭圆\(x^2/4+y^2=1\)上以\((1,1/2)\)为中点的弦所在直线，并求弦长。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）求双曲线\(xy=1\)上以\((2,1)\)为中点的弦所在直线及两个端点。若中点改为\((1,1)\)，这样的弦是否存在？说明理由。
+\par
+\end{samepage}
+\end{exercise}
+
+\newpage
 \subsection{直径与共轭关系的二次型解释*}
 \label{subsec:quadratic-conjugacy-and-quadratic-forms}
 
-% 正文待写。
+记\(\Phi(X)=q(X)+L^TX+F\)，\(q\)对应的对称双线性型为\(b\)。弦端点为\(M+td\)、\(M-td\)，两式相减即得
+\begin{equation}\label{eq:quadratic-diameter-bilinear}
+    2b(M,d)+L^Td=0 .
+\end{equation}
+若原点为中心，则\(L=0\)，直径方程简化为\(b(M,d)=0\)。这表示弦中点所在的方向，与弦方向在双线性型\(b\)下共轭。
 
+对有中心的非退化实二次曲线，\(H\)可逆。固定\(d\ne0\)，\(b(M,d)=M^THd=0\)是一个非零线性方程，解集为一维子空间。若这个子空间由\(e\)张成，就有
+\begin{equation*}
+    b(e,d)=0 .
+\end{equation*}
+当\(d\)为弦方向时，这就是对应的直径方向。由\(b(e,d)=b(d,e)\)，共轭关系互反；由\(H'=S^THS\)，还有\(b'(u,v)=b(Su,Sv)\)，所以这种关系在可逆线性坐标代换下保持。
+
+对称轴与共轭直径也由此联系起来。沿两个正交单位方向\(e_1,e_2\)取坐标，交叉项的系数就是\(2b(e_1,e_2)\)。两个方向共轭，恰好使交叉项消失；它们又相互垂直时，就是前面由实对称矩阵得到的特征方向。这解释了为什么椭圆和双曲线的两条坐标轴既正交，又共轭。圆的二次型是通常平方长度的常数倍，因此每一对正交方向都共轭。
+
+\begin{example}
+设\(q(x,y)=2x^2+2xy+2y^2\)。求\(d=(1,0)\)的共轭方向，再求与自身的共轭方向垂直的所有方向，并联系\(q=1\)的对称轴解释结果。
+\end{example}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）对\(q(x,y)=x^2-y^2\)，分别求\((1,0)\)、\((1,2)\)、\((1,1)\)在\(b\)下的共轭方向。最后一种情形与前两种有什么不同？
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）设\(H\)可逆、\(d\ne0\)，且\(q(d)\ne0\)。证明\(d\)与其共轭方向线性无关。若\(q(d)=0\)，共轭方向又是什么？
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设\(S\)可逆，证明\(q'(u)=q(Su)\)的共轭方向经\(S\)映射后，成为\(q\)的共轭方向。结合弦中点说明这一结论的几何意义。
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）对\(x^2+2xy+2y^2-2x=0\)，写出\(H\)、\(L\)，利用双线性型求水平弦所对应的直径，并验证它经过曲线的中心。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设二元二次型\(q\)不定且非退化，\(d,e\)线性无关并满足\(b(d,e)=0\)。以\(d,e\)为基写出\(q\)的表达式，并证明\(q(d)q(e)<0\)。
+\par
+\end{samepage}
+\end{exercise}
+
+\newpage
 \subsection{渐近线}
 \label{subsec:quadratic-asymptotes}
 
-% 正文待写。
+有些无界曲线的某一部分向无穷远延伸时，逐渐靠近一条固定直线。如果曲线上点沿这一部分趋于无穷远时，到这条直线的距离趋于\(0\)，那么称这条直线为该曲线的一条{\heiti{}渐近线}。
+
+以双曲线
+\begin{equation*}
+    \frac{x^2}{a^2}-\frac{y^2}{b^2}=1
+\end{equation*}
+为例。当\(x\to+\infty\)时，上、下两部分分别有
+\begin{equation*}
+    y=\pm\frac ba\sqrt{x^2-a^2} .
+\end{equation*}
+对上面的部分，
+\begin{equation*}
+    \left|y-\frac bax\right|
+    =\frac ba\left(x-\sqrt{x^2-a^2}\right)
+    =\frac{ab}{x+\sqrt{x^2-a^2}}\longrightarrow0 .
+\end{equation*}
+除以\(\sqrt{1+b^2/a^2}\)，就是点到直线\(y=(b/a)x\)的距离。因此该直线是渐近线。其余部分同理，得到两条渐近线
+\begin{equation}\label{eq:quadratic-hyperbola-asymptotes}
+    y=\frac bax , \qquad y=-\frac bax .
+\end{equation}
+它们都经过中心，与方程\(x^2/a^2-y^2/b^2=0\)对应的两条直线相同。两条渐近线不是曲线的一部分，而是描述曲线在无穷远处趋向的直线。
+
+由平移与旋转保持距离，若以中心\((h,k)\)平移后的双曲线方程为
+\begin{equation*}
+    AX^2+BXY+CY^2+F_0=0 ,
+\end{equation*}
+则令常数项为零，得到\(AX^2+BXY+CY^2=0\)，分解后就是两条渐近线的方程。再代回\(X=x-h\)、\(Y=y-k\)，可在原坐标系中表示它们。
+
+例如，\(xy=1\)的渐近线为\(x=0\)、\(y=0\)。一条平行于\(x\)轴或\(y\)轴的直线与曲线至多有一个交点，故没有平行于渐近线的弦。标准双曲线可以通过旋转与伸缩变为\(xy=1\)，仿射变换保持平行关系及交点对应，因此一般双曲线也有这一性质。
+
+\begin{example}
+求\(x^2-2xy-3y^2-2x+10y-7=0\)的中心与两条渐近线，并求两条渐近线的夹角。
+\end{example}
+
+{\kaiti{}*\quad 在中心坐标下，双曲线的方程为\(q(X)=k\)，其中\(q\)不定且非退化，\(k\ne0\)。方程\(q(d)=0\)给出两个零方向，恰好是两条渐近线的方向。在二维中，每个零方向与自身共轭，其共轭方向仍是本方向；所以它不能与另一个独立方向组成前述的共轭直径对。这也解释了普通路线中为何要将渐近方向与弦方向区分。}
+
+\begin{exercise}
+\mbox{}
+
+\begin{samepage}
+（1）求\((x-1)^2/4-(y+2)^2/9=1\)的中心与渐近线。
+\par
+\end{samepage}
+
+\begin{samepage}
+（2）求\(xy-2x+y-3=0\)的渐近线，并以平移后的坐标说明曲线各部分相对渐近线的位置。
+\par
+\end{samepage}
+
+\begin{samepage}
+（3）设双曲线的渐近线为\(y=2x\)与\(y=-2x\)，且经过\((1,1)\)。求它的方程。若只给出两条渐近线，方程是否唯一确定？
+\par
+\end{samepage}
+
+\begin{samepage}
+（4）证明抛物线\(y=x^2\)没有直线渐近线。先考察竖直线，再对任意非竖直线使用点到直线的距离公式。
+\par
+\end{samepage}
+
+\begin{samepage}
+（5）设双曲线在中心坐标下的方程为\(q(X)=1\)。证明任一条渐近线与双曲线没有公共点，并说明平行于渐近线的直线为什么至多有一个交点。
+\par
+\end{samepage}
+
+\begin{samepage}
+（6）求\((x-y)(2x+y)=3\)的两条渐近线。设曲线上一点到两条渐近线的距离分别为\(d_1,d_2\)，证明\(d_1d_2\)为常数，并求其值。
+\par
+\end{samepage}
+
+\begin{samepage}
+（7）讨论\(xy+tx+y+1=0\)随实参数\(t\)变化时的曲线类型。非退化时，求中心与渐近线；退化时，写出两个一次因子，并联系此前的渐近线解释。
+\par
+\end{samepage}
+
+\begin{samepage}
+（8）证明双曲线\(x^2/a^2-y^2/b^2=1\)除\(y=\pm(b/a)x\)外没有其他直线渐近线。可从曲线上点到一般直线\(lx+my+n=0\)的距离出发。
+\par
+\end{samepage}
+\end{exercise}
+\newpage

@@ -1,17 +1,223 @@
 \section{二次曲线及其方程}
 \label{sec:quadratic-equations}
 
-% 本节导言写在此处。
+在平面直角坐标系中，直线可以用两个坐标之间的一次方程表示。进一步考虑二次关系，就得到本章研究的对象。
 
 \subsection{二次曲线的定义}
 \label{subsec:quadratic-definition}
 
-% 正文待写。
+\begin{definition}\label{def:quadratic-curve}
+在平面直角坐标系中，实系数二元二次方程
+\begin{equation}\label{eq:quadratic-general}
+    A x^{2} + B x y + C y^{2} + D x + E y + F = 0
+\end{equation}
+的全体实数解所对应的点组成的集合，称为一条{\heiti{}二次曲线}。其中\(A , B , C\)不全为\(0\)，式\eqref{eq:quadratic-general}称为二次曲线的一般方程。
+\end{definition}
+
+单项式的次数是其中各未知数的次数之和，多项式的次数取各项次数的最大值。例如，\(x y\)也是二次项。一般方程可以分为三个部分：
+\begin{equation}
+    \underbrace{A x^{2} + B x y + C y^{2}}_{\text{二次部分}}
+    + \underbrace{D x + E y}_{\text{一次部分}}
+    + \underbrace{F}_{\text{常数项}} = 0 .
+\end{equation}
+选择不同的系数，可以得到不同类型的曲线。例如，
+\begin{equation}
+    x^{2} + y^{2} = 1 , \qquad x^{2} - y = 0 , \qquad x y - 1 = 0
+\end{equation}
+分别给出单位圆、二次函数\(y = x^{2}\)的图像和反比例函数\(y = \frac{1}{x}\)的图像。它们的形状不同，却有共同的方程形式。
+
+按上述定义，实解集也可能是一些更特殊的图形：\(x y = 0\)表示两条坐标轴的并，\(x^{2} + y^{2} = 0\)只表示原点，而\(x^{2} + y^{2} + 1 = 0\)的实解集为空。二次方程的各种情形将在\ref{subsec:quadratic-classification}节中分类讨论。
+
+方程给出的是两个坐标之间的关系，不必具有函数的单值性。圆上同一个横坐标可以对应两个纵坐标，因此整个圆并不是一个函数\(y = f(x)\)的图像。第二章中函数的隐表示，是用方程描述坐标关系的一种情形。
+
+{\kaiti{}思考\quad 将单位圆表示为两个函数的图像的并，写出相应的函数及其定义域。}
+
 \subsection{曲线、方程与坐标系}
 \label{subsec:quadratic-curves-and-coordinates}
 
-% 正文待写。
+给定一条曲线，建立方程的过程，是将点满足的几何条件转化为坐标关系的过程。如果方程\(\Phi(x,y) = 0\)是曲线\(\Gamma\)的方程，就应有
+\begin{equation}
+    P(x,y) \in \Gamma \quad\Longleftrightarrow\quad \Phi(x,y) = 0 .
+\end{equation}
+因此，由几何条件推出方程之后，还需确认满足方程的点都符合原来的几何条件，才能确定所得的点集恰好是要求的轨迹。
+
+以圆为例。圆是到定点的距离等于定长的点的集合。设圆心为\(M(h,k)\)，半径为\(r > 0\)，则\(P(x,y)\)在圆上的条件是\(|MP| = r\)。由两点间的距离公式，这等价于
+\begin{equation}\label{eq:quadratic-circle}
+    (x-h)^{2} + (y-k)^{2} = r^{2} .
+\end{equation}
+展开式\eqref{eq:quadratic-circle}，可将圆的方程写为
+\begin{equation}
+    x^{2} + y^{2} + D x + E y + F = 0 .
+\end{equation}
+其中\(D = -2h\)、\(E = -2k\)、\(F = h^{2} + k^{2} - r^{2}\)。由方程求圆心和半径时，可以反过来作配方：
+\begin{equation}
+    \left(x + \frac{D}{2}\right)^{2}
+    + \left(y + \frac{E}{2}\right)^{2}
+    = \frac{D^{2} + E^{2}}{4} - F .
+\end{equation}
+当右端为正数时，圆心为\(\left(-\frac{D}{2},-\frac{E}{2}\right)\)，半径为\(\frac{\sqrt{D^{2}+E^{2}-4F}}{2}\)。
+
+图形的方程还与坐标系的选择有关。对于式\eqref{eq:quadratic-circle}中的圆，以\(M\)为新原点，取与原坐标轴同向的坐标轴。若同一点的新坐标为\((X,Y)\)，则
+\begin{equation}
+    X = x - h , \qquad Y = y - k ,
+\end{equation}
+圆的方程就成为\(X^{2} + Y^{2} = r^{2}\)。同一图形在不同坐标系中可以有不同的方程。选择坐标系，可以使几何条件的表达和计算简化；下一节将进一步研究坐标与方程的变换。
+
+在固定的坐标系中，同一个方程也有不同的写法。例如，将式\eqref{eq:quadratic-general}的两边同乘一个非零实数，实解集保持不变。因此，一般方程的六个系数同时乘以一个非零数，仍表示同一条曲线。
+
+若要由几何条件确定方程，可以先保留尚未确定的系数，再将条件逐一代入。例如，要求二次曲线经过\(P_i(x_i,y_i)\)，就有
+\begin{equation}
+    A x_i^{2} + B x_i y_i + C y_i^{2} + D x_i + E y_i + F = 0 .
+\end{equation}
+每个过点条件都给出系数之间的一个一次关系。这就是{\heiti{}待定系数法}在求曲线方程中的基本用法。
+
+在固定坐标系中，让方程的系数随一个或几个参数变化，可以得到一族曲线，称为{\heiti{}曲线系}。附加的几何条件，可以用来确定其中的成员。
+
+例如，方程
+\begin{equation}\label{eq:quadratic-circle-family}
+    x^{2} + y^{2} - 2tx + t^{2} - 1 = 0 , \qquad t \in \mathbb{R}
+\end{equation}
+可以写为\((x-t)^{2}+y^{2}=1\)，给出一个半径为\(1\)、圆心随\(t\)在\(x\)轴上移动的圆系。
+
+\begin{example}\label{ex:quadratic-circle-family}
+求所有经过\(O(0,0)\)、\(A(2,0)\)的圆的方程，并求出其中经过\(B(0,2)\)的圆。
+\end{example}
+
+\begin{example}\label{ex:quadratic-distance-ratio}
+已知\(A(-1,0)\)、\(B(1,0)\)，动点\(P\)满足\(|PA|=2|PB|\)，求点\(P\)的轨迹方程及其圆心和半径。
+\end{example}
+
+\begin{exercise}
+\mbox{}
+
+（1）曲线\(x^{2} + y^{2} = 16\)（\(y > 0\)）上的动点\(P\)向\(x\)轴作垂线，垂足为\(P'\)。求线段\(PP'\)的中点\(M\)的轨迹方程。
+% 根据2024年新高考II卷第5题改编；对应题库G2024-new_gaokao_paper_2-Q05。
+
+（2）设圆系的方程为\(x^{2} + y^{2} - 2\lambda x + 2\lambda y - 1 = 0\)，其中\(\lambda \in \mathbb{R}\)。求所有成员的共同点，并求其中经过\((1,0)\)的圆。
+
+（3）求圆\(x^{2}+y^{2}-4x+6y-3=0\)的圆心和半径。以圆心为新原点，坐标轴方向不变，写出该圆在新坐标系中的方程。
+
+（4）直线\(2x-y-2=0\)与圆\(x^{2}+y^{2}-6x-8y=0\)相交于\(A\)、\(B\)两点，求\(|AB|\)。
+% 根据2024年全国甲卷（文）第9题改编；对应题库G2024-national_paper_a_liberal-Q09。
+
+（5）求经过\(A(1,1)\)、\(B(3,1)\)，且圆心在直线\(x+y=0\)上的圆的方程。
+
+（6）已知\(A(-2,0)\)、\(B(2,0)\)，动点\(P\)满足\(\overrightarrow{PA}\cdot\overrightarrow{PB}=3\)，求点\(P\)的轨迹方程。
+
+（7）方程\(x+y-1=0\)与\((x+y-1)^{2}=0\)是否表示同一点集？后一个方程是否是二元二次方程？
+
+（8）设曲线系为\((1-t)(x^{2}+y^{2}-1)+t[(x-2)^{2}+y^{2}-1]=0\)，其中\(t\in\mathbb{R}\)。讨论其成员表示的图形，并求其中各圆的圆心轨迹和所有成员的共同点。
+\end{exercise}
+
+\newpage
 \subsection{二次型与对称矩阵*}
 \label{subsec:quadratic-quadratic-forms}
 
-% 正文待写。
+二次曲线的一般方程由二次部分、一次部分与常数项组成。先将二次部分作为一个整体来研究，可以把它的系数组织成矩阵，并从中得到与前一章的数量积相联系的表达。
+
+\begin{definition}\label{def:quadratic-form}
+形如
+\begin{equation}
+    q(x,y) = A x^{2} + B x y + C y^{2} ,
+    \qquad A , B , C \in \mathbb{R}
+\end{equation}
+的式子称为一个{\heiti{}实二元二次型}。
+\end{definition}
+
+二次型的各项都是二次项，因此同时将两个变量乘以\(t\)，有
+\begin{equation}
+    q(tx,ty) = t^{2} q(x,y) .
+\end{equation}
+这称为二次型的{\heiti{}二次齐次性}。
+
+将矩阵的行与列互换，所得矩阵称为原矩阵的{\heiti{}转置}，用上标\(T\)表示。若实方阵\(H\)满足\(H^{T} = H\)，则称\(H\)为{\heiti{}实对称矩阵}。例如，
+\begin{equation}
+    H = \left[\begin{matrix}a & b \\ b & c\end{matrix}\right]
+\end{equation}
+就是一个实对称矩阵。
+
+将坐标写成列矩阵\(X = \left[\begin{matrix}x \\ y\end{matrix}\right]\)，其转置为\(X^{T} = \left[\begin{matrix}x & y\end{matrix}\right]\)。根据矩阵乘法，
+\begin{equation}
+    X^{T} H X = a x^{2} + 2bxy + c y^{2} .
+\end{equation}
+于是，每个实二元二次型都可以表示为
+\begin{equation}\label{eq:quadratic-matrix-form}
+    q(X) = X^{T} H X , \qquad
+    H = \left[\begin{matrix}A & B/2 \\ B/2 & C\end{matrix}\right] .
+\end{equation}
+这里将\(q(x,y)\)也记作\(q(X)\)。交叉项的系数由两个非对角元的和决定，令它们都等于\(B/2\)，可以在保持二次型不变的同时，使矩阵对称。反过来，在对称矩阵中比较\(x^{2}\)、\(xy\)、\(y^{2}\)的系数，可以唯一确定\(a\)、\(b\)、\(c\)。所以，二次型与实对称矩阵一一对应。
+
+现在考察向量相加时二次型如何变化。对列向量\(U\)、\(V\)，利用\(H\)的对称性展开，得
+\begin{equation}
+    q(U+V) = q(U) + 2U^{T} H V + q(V) .
+\end{equation}
+二次型一般不具有线性性，多出的交叉项却对\(U\)、\(V\)分别是线性的。因此定义
+\begin{equation}\label{eq:quadratic-polarization}
+    b(U,V) = \frac{q(U+V)-q(U)-q(V)}{2} = U^{T} H V .
+\end{equation}
+称为与\(q\)对应的{\heiti{}对称双线性型}。事实上，固定其中一个向量，\(b\)关于另一个向量是线性的，例如
+\begin{equation}
+    b(sU+tV,W) = s\,b(U,W) + t\,b(V,W) .
+\end{equation}
+又由\(H^{T} = H\)，有\(b(U,V) = b(V,U)\)，这就是对称性。取\(V = U\)，可得
+\begin{equation}
+    b(U,U) = q(U) .
+\end{equation}
+反过来，对称双线性型的展开也必有\(q(U+V) = q(U) + 2b(U,V) + q(V)\)，故式\eqref{eq:quadratic-polarization}由\(q\)唯一确定了\(b\)。这种由平方表达式恢复交叉项的方法称为{\heiti{}极化}。
+
+前一章由复数的代数范数构造内积，使用的正是这个思路。对于\(q(x,y) = x^{2} + y^{2}\)，若\(U = \left[\begin{matrix}u_1 \\ u_2\end{matrix}\right]\)、\(V = \left[\begin{matrix}v_1 \\ v_2\end{matrix}\right]\)，就得到通常的坐标数量积
+\begin{equation}
+    b(U,V) = u_1 v_1 + u_2 v_2 .
+\end{equation}
+一般的二次型还可以取负值。例如，\(q(x,y) = x^{2} - y^{2}\)给出
+\begin{equation}
+    b(U,V) = u_1 v_1 - u_2 v_2 , \qquad q(0,1) = -1 ,
+\end{equation}
+所以它不能作为内积的平方长度。对应的对称双线性型是内积，当且仅当任意非零向量\(U\)都满足\(q(U) > 0\)；此时称\(q\)为{\heiti{}正定二次型}。
+
+\begin{example}\label{ex:quadratic-form-matrix}
+求二次型\(q(x,y) = 2x^{2} + 2xy + 2y^{2}\)的对称矩阵和对应的双线性型，并证明\(q\)是正定的。
+\end{example}
+
+\begin{example}\label{ex:quadratic-polarization-values}
+设\(q\)是一个二次型，\(b\)是对应的对称双线性型。已知向量\(U\)、\(V\)满足
+\begin{equation*}
+    q(U)=1 , \qquad q(V)=-1 , \qquad q(U+V)=4 ,
+\end{equation*}
+求\(b(U,V)\)与\(q(2U-V)\)。
+\end{example}
+
+相同的矩阵表达可以用于更多变量：对\(n\)阶实对称矩阵\(H\)和\(n\)维坐标列\(X\)，式\(q(X) = X^{T} H X\)给出实\(n\)元二次型，上述齐次性和极化关系仍然成立。本章后面还会用到三元二次型。
+
+回到二次曲线的一般方程，记\(L = \left[\begin{matrix}D \\ E\end{matrix}\right]\)，便有
+\begin{equation}
+    \Phi(X) = X^{T} H X + L^{T}X + F = 0 .
+\end{equation}
+对于前面得到的圆系\eqref{eq:quadratic-circle-family}，有
+\begin{equation}
+    H = \left[\begin{matrix}1 & 0 \\ 0 & 1\end{matrix}\right] , \qquad
+    L = \left[\begin{matrix}-2t \\ 0\end{matrix}\right] , \qquad F = t^{2}-1 .
+\end{equation}
+所有成员具有相同的二次型\(q(x,y) = x^{2} + y^{2}\)。参数\(t\)改变一次部分与常数项，使圆心沿\(x\)轴移动，半径保持不变。因此，二次型给出了方程中共同的二次部分，确定完整的曲线仍需保留\(L\)与\(F\)；研究方程的变换时，也需要同时考察这三个部分的变化。
+
+\begin{exercise}
+\mbox{}
+
+（1）按通常的加法与实数数乘，证明全体实二元二次型构成一个线性空间，给出一组基。它与全体实二阶对称矩阵之间的对应是否为线性映射？
+
+（2）设\(q\)为二次型，证明对任意向量\(U\)、\(V\)，有
+\begin{equation*}
+    q(U+V)+q(U-V)=2q(U)+2q(V) .
+\end{equation*}
+若对任意\(U\)、\(V\)又有\(q(U+V)=q(U)+q(V)\)，证明\(q\)恒为零。
+
+（3）设\(q(x,y)=x^{2}-y^{2}\)。求满足\(q(X)=0\)的全部向量，并判断它们是否构成线性子空间。
+
+（4）设三元二次型\(q(x,y,z)=(x+y)^{2}+(y+z)^{2}+(z+x)^{2}\)。求其对称矩阵和对应的双线性型，并证明\(q\)是正定的。
+
+（5）设二次型\(q\)满足\(q(1,0)=q(1,1)=1\)、\(q(2,1)=2\)。求\(q\)并证明其正定。以对应的双线性型为内积，向量\((1,0)\)与\((1,1)\)是否正交？与通常数量积下的结论作比较。
+
+（6）设\(q_t(x,y)=x^{2}+2txy+y^{2}\)，其中\(t\in\mathbb{R}\)。求使\(q_t\)正定的\(t\)的取值范围，并在\(t=\pm1\)时求满足\(q_t(X)=0\)的全部向量。
+
+（7）设\(M\)为实二阶矩阵。证明：\(X^{T}MX=0\)对任意二元坐标列\(X\)成立，当且仅当\(M^{T}=-M\)。据此说明，同一个二次型为什么可以由不同的矩阵表示。
+\end{exercise}
