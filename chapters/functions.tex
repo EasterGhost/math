@@ -76,7 +76,7 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 求双曲正弦函数\(y = \sinh x\)的反函数\(y = \sinh^{- 1} x\).
 
 
-\subsection{函数的其他表达方式*}
+\subsection{函数的其他表达方式}
 通常把函数\(y = f \left( x \right)\)的表达方式称为显式表示或者显表示。
 
 \paragraph{1°分段函数} 所谓分段函数，简单地讲，就是对于自变量不同的取值范围，相应的函数表达式（即对应关系）不同。
@@ -89,14 +89,11 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \end{equation}
 
 \subsection{通常研究的函数的性质}
-\paragraph{1°连续性} 函数的连续性需要引入极限的概念。一般情况下，可以朴素地引入一个极限的定义，即考虑函数在无限接近某点时的变化趋势，若\(x\)与\(x_{0}\)无限接近，函数\(f \left( x \right)\)无限接近一个数\(l\)，则说\(f \left( x \right)\)当\(x\)趋近于\(x_{0}\)时，以\(l\)为极限，记为
-\begin{equation}
-\underset{x \to x_{0}}{\lim} f ( x ) = l .
-\end{equation}
+\paragraph{1°连续性} 第一章已经给出了函数极限的定义。极限考察自变量接近某点时，函数值是否接近一个确定的数；连续性进一步要求这个数就是函数在该点的值。观察下面三个函数在\(x=0\)附近的图像：
 \begin{center}
 \includegraphics[width=0.92\linewidth]{image4.png}
 \end{center}
-那么进一步观察以上3个函数的图像。如果考虑这三个函数图像在\(x = 0\)处的连续性，则容易观察到，函数在一点\(x_{0}\)处连续，应该具备两个要素：函数在该点处有极限，且极限值等于函数在这一点的值。
+图像中的区别来自函数在该点附近的极限与该点函数值的关系。函数在\(x_0\)处连续，应当满足\(\lim_{x\to x_0}f(x)=f(x_0)\)。下一节将进一步研究这一性质及其对函数取值的影响。
 
 \paragraph{2°单调性} 单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
 
@@ -111,13 +108,410 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \paragraph{4°周期性} 设函数\(f \left( x \right)\)的定义域是\(A\)，那么称这个函数是周期函数，如果存在一个非零常数\(T\)，使得对于任意的\(x \in A\)，都有\(x + T \in A\)且\(f \left( x + T \right) = f \left( x \right)\)。显然满足条件的\(T\)有无数个，因此规定：若其中存在大于\(0\)的最小的\(T\)，则称之为这个周期函数的最小正周期。
 
 
+\newpage
+\section{单变量函数的连续性}
+\label{sec:functions-continuity}
+
+函数的连续性把自变量的接近与函数值的接近联系起来。在某一点附近，这种联系可以保证函数值不突然改变符号；在一个区间上，它又能保证函数取得两个函数值之间的所有值。第一章研究数列时建立的收敛性工具，将帮助我们从局部的定义得到这些整体的结论。
+
+\subsection{连续性的定义}
+\label{subsec:functions-continuity-definition}
+
+\begin{definition}
+设\(f\)在\(x_0\)及其附近有定义。若\(\lim_{x\to x_0}f(x)=f(x_0)\)，称\(f\)在\(x_0\)处{\heiti{}连续}。也就是说，对任意\(\varepsilon>0\)，都存在\(\delta>0\)，使
+\begin{equation}\label{eq:functions-continuity-definition}
+ |x-x_0|<\delta\quad\Longrightarrow\quad|f(x)-f(x_0)|<\varepsilon.
+\end{equation}
+\end{definition}
+
+与极限的定义相比，这里已经给出了极限应等于的数\(f(x_0)\)。当\(x=x_0\)时，上式自然成立，所以不必排除这一点。写成增量的形式，就是\(\Delta x\to0\)时，\(f(x_0+\Delta x)-f(x_0)\to0\)。
+
+定义中的\(\varepsilon\)是函数值的误差要求，\(\delta\)是为此选定的自变量范围，可以随\(\varepsilon\)和\(x_0\)改变。证明时，通常先估计函数值之差，再反过来确定这个范围；选定的\(\delta\)要对范围内所有自变量同时有效。这样的\(\delta\)并不唯一，取更小的正数也都适用。
+
+若只从\(x_0\)左侧或右侧接近，便分别得到{\heiti{}左极限}与{\heiti{}右极限}，记为
+\begin{equation*}
+ \lim_{x\to x_0^-}f(x),\qquad \lim_{x\to x_0^+}f(x).
+\end{equation*}
+相应地，只在\(x<x_0\)或\(x>x_0\)的范围内要求式\eqref{eq:functions-continuity-definition}，就是左连续或右连续。对区间内点，函数连续当且仅当左右极限都等于该点的函数值。
+
+若函数在区间的每一点都连续，称它在该区间上连续。闭区间\([a,b]\)的端点分别按右连续与左连续理解，考察的自变量始终在区间内。例如，\(\sqrt x\)在\([0,+\infty)\)上连续，在\(x=0\)处只须从右侧考察。
+
+\begin{example}
+设
+\begin{equation*}
+ f(x)=\begin{cases}
+ x+1,&x<0,\\
+ a,&x=0,\\
+ x^2+b,&x>0.
+ \end{cases}
+\end{equation*}
+求\(f\)在\(x=0\)处的左右极限，并分别求它在该点左连续、右连续及连续的条件。改变\(a\)能否改变左右极限？
+\end{example}
+
+判断连续性时，应分别考察点附近的变化与该点的取值。两侧极限相同而函数值不同，可以通过改变一个点的取值恢复连续；两侧极限不同，则不能这样处理。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用定义证明\(f(x)=x^2\)在\(x=1\)处连续。可先限制\(|x-1|<1\)，再控制\(|x+1|\)。
+
+（2）当\(x\ne1\)时，设\(g(x)=(x^2-1)/(x-1)\)。应怎样定义\(g(1)\)，才能使它在\(1\)处连续？
+
+\end{exercise}
+
+\subsection{连续函数的基本性质}
+\label{subsec:functions-continuity-properties}
+
+第一章的数列极限运算法则，是通过误差估计得到的。同样的估计也适用于函数极限，因此得到以下结论。
+
+\begin{theorem}\label{thm:functions-continuity-operations}
+若\(f,g\)在\(x_0\)处连续，则它们的和、差、积也在\(x_0\)处连续；当\(g(x_0)\ne0\)时，商\(f/g\)也在该点连续。若\(g\)在\(x_0\)处连续，\(f\)在\(g(x_0)\)处连续，则复合函数\(f\circ g\)在\(x_0\)处连续。
+\end{theorem}
+
+加法、乘法等可以沿用第一章的证明。对于复合，先确定外层允许的误差，再由内层保证它。给定\(\varepsilon>0\)，先对外层函数选取\(\eta>0\)，使
+\begin{equation*}
+ |u-g(x_0)|<\eta\quad\Longrightarrow\quad
+ |f(u)-f(g(x_0))|<\varepsilon.
+\end{equation*}
+再对内层函数选取\(\delta>0\)，使\(|x-x_0|<\delta\)时有\(|g(x)-g(x_0)|<\eta\)。把\(u=g(x)\)代入，就得到所需结论。
+
+常值函数与\(f(x)=x\)由定义知连续，所以多项式函数连续，有理函数在分母不为零的地方连续。这样，前面分段函数两侧的极限都可以由相应表达式在连接点的取值求得。
+
+\begin{proposition}[局部保号性]\label{prop:functions-continuity-sign}
+若\(f\)在\(x_0\)处连续且\(f(x_0)>0\)，则在\(x_0\)的某个邻域内都有\(f(x)>0\)。负值情形类似。
+\end{proposition}
+
+\begin{proof}
+在连续性定义中取\(\varepsilon=f(x_0)/2\)，便有\(f(x)>f(x_0)/2>0\)。
+\end{proof}
+
+同样，连续性还保证函数在一点附近有界：取\(\varepsilon=1\)，便有\(|f(x)|<|f(x_0)|+1\)。这一结论只在局部成立，例如\(f(x)=x\)在每点连续，却在\(\mathbb R\)上无界。
+
+这说明连续函数在非零值附近保持符号。将它用于\(f-g\)，也可知：若\(f(x_0)>g(x_0)\)，则在充分小的邻域内仍有\(f(x)>g(x)\)。
+
+\begin{proposition}\label{prop:functions-continuity-sequence}
+若\(f\)在\(x_0\)处连续，且定义域中的数列\(x_n\to x_0\)，则\(f(x_n)\to f(x_0)\)。
+\end{proposition}
+
+\begin{proof}
+对给定误差，连续性提供\(\delta\)；由\(x_n\to x_0\)，充分靠后的项都满足\(|x_n-x_0|<\delta\)，因而相应的函数值也满足误差要求。
+\end{proof}
+
+第一章在递推式中取极限时，已经使用过这种关系。这里也可以把它理解为：连续函数将趋向同一点的自变量数列，变为趋向相应函数值的数列。
+
+\begin{example}
+设\(g\)在\(x=0\)附近有界。定义\(f(0)=0\)，\(x\ne0\)时令\(f(x)=xg(x)\)。用连续性定义证明\(f\)在\(x=0\)处连续。是否需要\(g\)本身在\(x=0\)处连续？
+\end{example}
+
+\subsection{介值定理}
+\label{subsec:functions-intermediate-value}
+
+在区间上连续，意味着函数从一个值变化到另一个值时，不会跳过中间的值。这个几何认识可以由第一章的二分法与区间套得到证明。
+
+\begin{theorem}[介值定理]\label{thm:functions-intermediate-value}
+设\(f\)在\([a,b]\)上连续。若\(k\)介于\(f(a)\)与\(f(b)\)之间，则存在\(\xi\in[a,b]\)，使\(f(\xi)=k\)。当\(k\)严格介于两端值之间时，可取\(\xi\in(a,b)\)。
+\end{theorem}
+
+\begin{proof}
+端点值等于\(k\)时结论已成立，以下设\(f(a)<k<f(b)\)。令\(g(x)=f(x)-k\)。从\([a,b]\)开始二分，若中点处\(g=0\)，便找到所求的点；否则保留左端为负、右端为正的一半。这样得到闭区间套\([a_n,b_n]\)，其长度为\((b-a)/2^n\)，且\(g(a_n)<0<g(b_n)\)。
+
+由闭区间套定理，\(a_n,b_n\)趋于同一点\(\xi\)。连续性给出\(g(a_n),g(b_n)\to g(\xi)\)，故\(g(\xi)\le0\)且\(g(\xi)\ge0\)，于是\(g(\xi)=0\)。两端值次序相反时同理。
+\end{proof}
+
+取\(k=0\)，立即得到常用的零点存在定理。
+
+\begin{corollary}[零点存在定理]\label{cor:functions-zero-existence}
+若\(f\)在\([a,b]\)上连续，且\(f(a)f(b)<0\)，则\(f\)在\((a,b)\)内至少有一个零点。若它还严格单调，则该零点唯一。
+\end{corollary}
+
+端点异号给出存在性，严格单调给出唯一性。二分法还可以逐步缩小零点所在区间；进行\(n\)次二分后，取区间中点近似零点，误差不超过\((b-a)/2^{n+1}\)。
+
+\begin{example}
+证明方程\(x^3+x-1=0\)在\((0,1)\)内有唯一实根。不使用导数，怎样通过两点函数值之差判断严格单调？再写出进行三次二分后保留的区间。
+\end{example}
+
+\begin{example}
+设\(f\)在\([0,1]\)上连续，且对所有\(x\in[0,1]\)都有\(0\le f(x)\le1\)。证明存在\(\xi\in[0,1]\)，使\(f(\xi)=\xi\)。这个结论是否保证从任意初值出发的迭代都收敛？
+\end{example}
+
+若区间上的连续函数处处不为零，它就只能始终为正或始终为负：否则，由异号的两点就能得到零点。这将局部保号性推进为整个区间上的判断。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）证明对任意实数\(t\)，方程\(x^3+x=t\)都有唯一实根。端点不再固定时，应怎样根据\(t\)选择一个有根的区间？
+
+（2）设\(f,g\)在\([a,b]\)上连续，且\(f(a)<g(a)\)、\(f(b)>g(b)\)。证明两函数的图像在\((a,b)\)内相交。
+
+（3）端点同号的连续函数能否在区间内部有零点？若没有连续性，端点异号是否仍能保证存在零点？分别举例说明。
+
+（4）（2013年重庆卷理科第6题改编）若\(a<b<c\)，函数\(f(x)=(x-a)(x-b)+(x-b)(x-c)+(x-c)(x-a)\)的两个零点分别位于哪两个相邻区间内？
+\end{exercise}
+
+\begingroup
+\setlength{\parskip}{4pt}
+\subsection{闭区间上的连续函数}
+\label{subsec:functions-extreme-values}
+
+介值定理说明，连续函数不会遗漏两个函数值之间的值。接下来考虑取值范围的两端：函数值是否有界？如果有界，是否一定存在最大的函数值和最小的函数值？
+
+\begin{example}
+比较\(f(x)=x\)在\((0,1)\)与\([0,1]\)上的取值，再考察\(g(x)=1/x\)在\((0,1]\)上的取值。它们分别是否有界，是否有最大值和最小值？
+\end{example}
+
+有界与取得最值是两件事。例如，\(x\in(0,1)\)时，\(f(x)=x\)的值始终小于\(1\)，却没有最大的函数值；每选定一个函数值，总还能找到更大的。若把两个端点都包含进来，最大值与最小值就都能取到。下面的定理表明，闭区间上连续函数的一般情形也是如此。
+
+\begin{theorem}[最值定理]\label{thm:functions-extreme-values}
+若\(f\)在闭区间\([a,b]\)上连续，则它在该区间上有界，且存在\(u,v\in[a,b]\)，使对所有\(x\in[a,b]\)，都有
+\begin{equation*}
+ f(u)\le f(x)\le f(v).
+\end{equation*}
+也就是说，\(f\)在\([a,b]\)上有最小值和最大值。
+\end{theorem}
+
+函数值可以越来越接近某个高度，但这个高度是否对应图像上的一点？证明的关键是把函数值的逼近与自变量的收敛联系起来：先选取逼近这个高度的函数值，再从对应的自变量中找出收敛子列，最后利用连续性确定极限处的函数值。
+
+\begin{proof}
+先证有界。若函数无界，便能选出\(x_n\in[a,b]\)，使\(|f(x_n)|>n\)。这些自变量未必收敛，但它们都在同一个闭区间内，故可取收敛子列\(x_{n_j}\to c\in[a,b]\)。连续性给出\(f(x_{n_j})\to f(c)\)，与\(|f(x_{n_j})|>n_j\)矛盾。
+
+有界之后，还须证明函数值能够到达最高位置。记\(M\)为全部函数值的最小上界，即\(M\)是上界，而任何更小的数都不是上界。这样的数可由二分得到：在一个函数值与某个上界之间取中点，若中点仍是上界，就向下缩小范围；否则向上缩小，闭区间套便确定\(M\)。
+
+现在先选函数值逼近\(M\)，再寻找对应自变量的聚集位置。由最小上界的意义，可取\(y_n\in[a,b]\)，使\(M-1/n<f(y_n)\le M\)。抽取收敛子列\(y_{n_j}\to v\in[a,b]\)，连续性使函数值也趋于\(f(v)\)，而夹逼原理给出同一极限为\(M\)，故\(f(v)=M\)。对\(-f\)使用此结论，即得最小值。
+\end{proof}
+
+这里用到了第一章的结论：闭区间中的自变量数列有收敛子列，且极限仍在区间内；连续性则把自变量的极限与函数值的极限联系起来。两者共同保证了逼近的高度能够真正取到。
+
+若最小值为\(m\)、最大值为\(M\)，再由介值定理，函数的值域恰为\([m,M]\)。所以要判断\(f(x)=k\)是否在闭区间内有解，可以转化为判断\(m\le k\le M\)。
+
+\paragraph{恒成立与存在性} \mbox{}
+
+设\(f\)在\([a,b]\)上连续，最小值与最大值分别为\(m,M\)。则
+\begin{equation*}
+ \begin{aligned}
+ \text{对所有 }x\in[a,b],\ f(x)\ge t
+ &\quad\Longleftrightarrow\quad t\le m,\\
+ \text{存在 }x\in[a,b],\ f(x)\ge t
+ &\quad\Longleftrightarrow\quad t\le M.
+ \end{aligned}
+\end{equation*}
+前者要求控制全部取值，后者只须有一个取值满足条件。对于严格不等式，最值能够取到也必须计入判断。
+
+\begin{example}
+设\(f(x)=x^2-2x+2\)，\(x\in[0,3]\)。用配方法求值域，并分别求实数\(t\)的范围，使下列条件成立：
+
+（1）对所有\(x\in[0,3]\)，都有\(f(x)\ge t\)。
+
+（2）存在\(x\in[0,3]\)，使\(f(x)<t\)。
+
+（3）方程\(f(x)=t\)在\([0,3]\)上有解，并进一步讨论不同\(t\)对应的根的个数。
+\end{example}
+
+\begin{example}
+求实数\(t\)的范围，使不等式\(x^2-2tx+2\ge0\)对所有\(x\in[0,2]\)成立。再求存在\(x\in[0,2]\)使该表达式小于零的\(t\)的范围。将参数分离与直接求最小值两种方法进行比较。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(h(x)=x^2-4x+5\)在\([0,3]\)上的值域，并分别求使\(h(x)>t\)恒成立、至少存在一个\(x\)使\(h(x)>t\)的参数范围。
+
+（2）设\(f\)在\([a,b]\)上连续且处处为正。证明存在常数\(c>0\)，使所有函数值都不小于\(c\)。将闭区间换为开区间，结论是否仍成立？
+
+（3）设\(f\)在\([0,1]\)上连续，且\(f(0)=f(1)\)。证明存在\(\xi\in[0,1/2]\)，使\(f(\xi+1/2)=f(\xi)\)。应对哪个函数使用零点存在定理？
+\end{exercise}
+
+\begin{example}
+设连续函数\(f,g\)在两个闭区间\(I,J\)上的值域分别为\([m,M]\)、\([p,P]\)。分别求实数\(t\)的范围，使下列条件成立：
+
+（1）对所有\(x\in I\)、\(y\in J\)，都有\(f(x)\ge t+g(y)\)。
+
+（2）对每个\(x\in I\)，都存在\(y\in J\)，使\(f(x)\ge t+g(y)\)。
+
+（3）存在\(x\in I\)，使对所有\(y\in J\)，都有\(f(x)\ge t+g(y)\)。
+\end{example}
+
+判断这些条件时，应分别确定两个自变量各自受哪个量词约束，再用相应的最大值或最小值表达条件。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）（2012年福建卷文科第15题）已知关于\(x\)的不等式\(x^2-ax+2a>0\)在\(\mathbb R\)上恒成立，则实数\(a\)的取值范围是\underline{\hspace{1.5cm}}。
+
+（2）（2025年天津卷第15题）已知\(a,b\in\mathbb R\)，且\((2a+b)x^2+bx-a-1\le0\)对任意\(x\in[-2,2]\)成立，则\(2a+b\)的最小值为\underline{\hspace{1.2cm}}。
+\end{exercise}
+
+\endgroup
+\begingroup
+\setlength{\parskip}{3pt}
+\subsection{连续函数的反函数}
+\label{subsec:functions-continuous-inverse}
+
+讨论反函数时，先要判断能否由函数值唯一确定自变量；在此基础上，再考察这种反过来的对应是否连续。对于区间上的连续函数，这两个问题可以联系起来研究。
+
+\begin{theorem}\label{thm:inv-mono}
+设\(f\)在区间\(I\)上连续。它在\(I\)上存在反函数的充要条件是严格单调。当此条件成立时，\(f^{-1}\)在其定义域\(f(I)\)上也连续，且与\(f\)具有相同的单调方向。
+\end{theorem}
+
+\begin{proof}
+严格单调保证不同自变量对应不同的值，所以反函数存在。反过来，若反函数存在，连续图像就不能发生折返，否则会重复经过某个高度。具体地，对\(x_1<x_2<x_3\)，若\(f(x_2)>\max\{f(x_1),f(x_3)\}\)，取介于这个最大值与\(f(x_2)\)之间的\(k\)，介值定理便分别在两段内给出函数值为\(k\)的点，与一一对应矛盾。中间值低于两端的情况同理。因此中间点的函数值总严格介于两端值之间，固定一对点的增减方向后，再插点或向两侧延伸都保持该方向，故\(f\)严格单调。
+
+再证明反函数连续。反函数以\(y\)为自变量、以\(x\)为函数值，所以先限制\(x\)的误差，再寻找能保证它的\(y\)的范围。设\(f\)严格递增，固定\(y_0=f(x_0)\)。在\(x_0\)两侧取\(x_-,x_+\in I\)，使它们与\(x_0\)的距离小于给定的\(\varepsilon\)。由单调性，\(f(x_-)<y_0<f(x_+)\)。取\(\delta\)不大于两侧函数值与\(y_0\)的距离，则
+\begin{equation*}
+ |y-y_0|<\delta\quad\Longrightarrow\quad
+ x_-<f^{-1}(y)<x_+\quad\Longrightarrow\quad
+ |f^{-1}(y)-x_0|<\varepsilon.
+\end{equation*}
+端点处只保留相应一侧的估计，递减情形同理。由介值定理，\(f(I)\)也是区间，以上估计均在反函数的定义域内使用。
+\end{proof}
+
+研究反函数不一定要先写出它的表达式。若\(f\)递增，由原函数值的大小就能估计反函数值：
+\begin{equation*}
+ f(a)<y<f(b)\quad\Longleftrightarrow\quad a<f^{-1}(y)<b.
+\end{equation*}
+求\(f^{-1}(y)\)就是求方程\(f(x)=y\)的唯一解，可以用二分法逐步确定；反函数连续则说明解随\(y\)连续变化。这样，方程的存在性、唯一性以及解随右端的变化，就能在同一个函数关系中得到解释。
+
+\begin{example}
+证明\(f(x)=x^3+x\)在\(\mathbb R\)上有连续反函数，求其反函数的定义域和值域。若不求出反函数的表达式，能否判断\(\lim_{y\to2}f^{-1}(y)\)？
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）将\(f(x)=x^2\)分别限制在\([-2,0]\)与\([0,2]\)上，写出两种反函数，并说明它们的单调方向与连续性。
+
+（2）构造一个区间上的严格单调函数，使其值域不是区间。它的图像怎样说明，严格单调本身不能代替连续性？
+
+\end{exercise}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）（2015年上海卷文科第4题）设\(f^{-1}(x)\)为\(f(x)=x/(2x+1)\)的反函数，则\(f^{-1}(2)=\underline{\hspace{1.2cm}}\)。
+
+（2）（2013年上海卷理科第14题）对区间\(I\)上有定义的函数\(g(x)\)，记\(g(I)=\{y\mid y=g(x),x\in I\}\)。已知定义域为\([0,3]\)的函数\(y=f(x)\)有反函数\(y=f^{-1}(x)\)，且\(f^{-1}([0,1))=[1,2)\)，\(f^{-1}((2,4])=[0,1)\)。若方程\(f(x)-x=0\)有解\(x_0\)，则\(x_0=\underline{\hspace{1.2cm}}\)。
+\end{exercise}
+
+\endgroup
+\newpage
+\subsection{连续性的数列刻画*}
+\label{subsec:functions-sequential-continuity}
+
+前面已知，连续函数保持数列的极限。反过来，若所有趋近于同一点的自变量数列都给出相应的函数值极限，也足以确定连续性。
+
+\begin{theorem}\label{thm:functions-sequential-continuity}
+函数\(f\)在定义域中的点\(x_0\)处连续，当且仅当：对定义域内任意满足\(x_n\to x_0\)的数列，都有\(f(x_n)\to f(x_0)\)。
+\end{theorem}
+
+\begin{proof}
+必要性已由命题\ref{prop:functions-continuity-sequence}证明。若\(f\)不连续，则存在\(\varepsilon_0>0\)，使无论把邻域取得多小，其中总能找到一点，其函数值与\(f(x_0)\)的距离不小于\(\varepsilon_0\)。对每个\(n\)，取这样的一点\(x_n\)，使
+\begin{equation*}
+ |x_n-x_0|<\frac1n,\qquad
+ |f(x_n)-f(x_0)|\ge\varepsilon_0.
+\end{equation*}
+于是\(x_n\to x_0\)，函数值却不趋于\(f(x_0)\)，与条件矛盾。
+\end{proof}
+
+这里把定义中“任意小的邻域”转化为一列逐步缩小的邻域。它既能用来证明连续，也能通过适当选择趋近数列来否定连续；后者尤其适合在同一点附近有不同变化方式的函数。
+
+使用这个刻画证明连续时，必须考察任意趋于\(x_0\)的数列；仅沿某一列点得到正确极限，并不能控制其他趋近方式。否定连续性则只须找到一列点，使相应函数值不趋于\(f(x_0)\)。上面的证明还说明，不连续时总能让自变量越来越接近\(x_0\)，而函数值始终与\(f(x_0)\)相隔至少一个固定的正数。
+
+\begin{example}
+设\(f(x)=\sin(1/x)\)，\(x\ne0\)。分别选取趋于零的数列，使函数值恒等于\(1\)与\(-1\)，由此说明无论怎样定义\(f(0)\)，都不能使它在\(x=0\)处连续。再比较\(g(x)=x\sin(1/x)\)、\(g(0)=0\)的情形。
+\end{example}
+
+\begin{exercise}
+设\(f\)在\([0,1]\)上连续，数列\(x_n\)满足\(x_{n+1}=f(x_n)\)，且各项都在\([0,1]\)内。
+
+（1）若\(x_n\)收敛，证明其极限必为\(f\)的不动点。
+
+（2）取\(f(x)=1-x\)，讨论不同初值产生的数列，并说明不动点的存在为什么不能保证迭代收敛。
+
+（3）若偶数项与奇数项分别趋于\(u,v\)，证明\(f(u)=v\)、\(f(v)=u\)。此时整个数列收敛的充要条件是什么？结合上一问解释\(u\ne v\)时的行为。
+\end{exercise}
+
+\subsection{一致连续*}
+\label{subsec:functions-uniform-continuity}
+
+在一点处讨论连续性时，先固定基点，再按函数值的误差要求选取自变量的范围。改变基点，允许的范围也可能改变。若要同时控制整个区间内的变化，就需要进一步问：能否选取同一个范围，使它对所有基点都适用？
+
+\begin{definition}
+设函数\(f\)定义在\(A\subseteq\mathbb R\)上。若对任意\(\varepsilon>0\)，都存在\(\delta>0\)，使对任意\(x,y\in A\)，都有
+\begin{equation*}
+ |x-y|<\delta\quad\Longrightarrow\quad|f(x)-f(y)|<\varepsilon,
+\end{equation*}
+则称\(f\)在\(A\)上{\heiti{}一致连续}。
+\end{definition}
+
+这里的\(\delta\)可以随\(\varepsilon\)改变，但必须对\(A\)中任意一对点同时有效。一致连续自然保证每一点处连续；反过来，分别为每一点找到合适的\(\delta\)，却未必能得到一个对所有点都有效的正数。
+
+例如，对\(f(x)=x^2\)，当\(x,y\in[0,1]\)时，
+\begin{equation*}
+ |f(x)-f(y)|=|x-y||x+y|\le2|x-y|.
+\end{equation*}
+给定\(\varepsilon>0\)，取\(\delta=\varepsilon/2\)，就能同时保证整个区间内的误差要求。因此\(x^2\)在\([0,1]\)上一致连续。
+
+但在\(\mathbb R\)上，取\(x_n=n\)、\(y_n=n+1/n\)，便有
+\begin{equation*}
+ |x_n-y_n|=\frac1n\to0,\qquad
+ |f(x_n)-f(y_n)|=2+\frac1{n^2}>2.
+\end{equation*}
+所以，对\(\varepsilon=1\)，无论选取多小的\(\delta>0\)，总能找到距离小于\(\delta\)而函数值相差大于\(1\)的两点。这个函数在每一点都连续，却在\(\mathbb R\)上不一致连续。
+
+同一个函数在不同范围上表现不同。对于闭区间，前面用于证明最值定理的收敛子列工具，还能把逐点的连续性推进为整个区间上的一致连续性。
+
+\begin{theorem}\label{thm:functions-uniform-continuity}
+闭区间上的连续函数一致连续。
+\end{theorem}
+
+如果结论不成立，就能找到越来越接近、函数值却始终相隔一定距离的两列点。闭区间保证它们有共同的聚集位置，连续性则使两列函数值必须趋向同一个数，由此得到矛盾。
+
+\newpage
+\begin{proof}
+设\(f\)在\([a,b]\)上连续，却不一致连续。则存在\(\varepsilon_0>0\)，使对每个正整数\(n\)，都能选出\(x_n,y_n\in[a,b]\)，满足
+\begin{equation*}
+ |x_n-y_n|<\frac1n,\qquad |f(x_n)-f(y_n)|\ge\varepsilon_0.
+\end{equation*}
+由第一章的收敛子列定理，可取\(x_{n_j}\to c\in[a,b]\)。又因为
+\begin{equation*}
+ |y_{n_j}-c|\le|y_{n_j}-x_{n_j}|+|x_{n_j}-c|\to0,
+\end{equation*}
+所以\(y_{n_j}\to c\)。由连续性，\(f(x_{n_j})\)与\(f(y_{n_j})\)都趋于\(f(c)\)，故它们之差趋于零，与上述不等式矛盾。
+\end{proof}
+
+这一结论使我们能够把闭区间分成足够短的小段，同时控制每一段内函数值的波动。以后用有限求和研究整体累积时，这种统一的控制将成为估计总误差的依据。
+
+一致连续也可以用数列刻画。前一小节固定一个趋近位置，研究函数值是否趋于该位置的函数值；这里则允许两列点的位置不断移动，只要求它们彼此越来越接近。
+
+\begin{proposition}\label{prop:functions-uniform-continuity-sequences}
+函数\(f\)在\(A\)上一致连续，当且仅当：对\(A\)中任意两列满足\(|x_n-y_n|\to0\)的点，都有\(|f(x_n)-f(y_n)|\to0\)。
+\end{proposition}
+
+\begin{proof}
+若\(f\)一致连续，给定\(\varepsilon>0\)，选取定义中的\(\delta\)。由\(|x_n-y_n|\to0\)，充分靠后的项都满足\(|x_n-y_n|<\delta\)，因而函数值之差小于\(\varepsilon\)。
+
+反过来，若\(f\)不一致连续，就能像前面定理的证明一样，选出\(x_n,y_n\in A\)，使\(|x_n-y_n|<1/n\)，而\(|f(x_n)-f(y_n)|\ge\varepsilon_0>0\)，与条件矛盾。
+\end{proof}
+
+这里不要求两列点各自收敛，例如\(n\)与\(n+1/n\)都趋于无穷，却彼此接近。闭区间定理的证明则利用收敛子列，将移动的比较归到同一点，再使用该点的连续性。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）证明\(f(x)=\sqrt x\)在\([0,+\infty)\)上一致连续。可先证明\(|\sqrt x-\sqrt y|\le\sqrt{|x-y|}\)。
+
+（2）判断\(g(x)=1/x\)在\([1,+\infty)\)与\((0,1)\)上是否一致连续，并给出证明。
+
+（3）设\(f\)在\(A\)上一致连续，\(x_n\)是\(A\)中的Cauchy数列。证明\(f(x_n)\)也是Cauchy数列。用\(g(x)=1/x\)及\(x_n=1/(n+1)\)说明，逐点连续不能保证这一结论。
+\end{exercise}
+
+\newpage
 \section{基本初等函数}
 
 \subsection{多项式函数}
 多项式函数在前面已有定义。从形式上看，多项式函数是常值函数\(f \left( x \right) = c\)和线性函数\(f \left( x \right) = x\)经过有限次加法和乘法运算得到的。如果为多项式函数引入除法，就构成了{\heiti{}有理函数类}。有理函数同分数一样，如果分子的最高次项比分母的低，那么称这个函数是一个真分式，反之则称之为假分式。假分式可以通过带余除法将这个有理函数转换成一个多项式函数与一个真分式的和。另外值得注意的是，如果分母可以进行因式分解，则真分式可以进一步分解为数个真分式的和，其分母为因式分解的各个因式（需考虑重根），而分子由待定系数法确定。
 
 
-\subsection{三角函数}
+\subsection{三角函数与反三角函数}
 在初中阶段我们初步接触了sin、cos、tan函数，并仅在锐角范围内讨论这些问题。这里进一步地引入csc、sec、cot函数分别为上述三个函数的倒数，并取消关于锐角的限制，构成完整的三角函数体系。
 
 在初中阶段，我们对角度的数值范围限定在0--360°之间，然而，这一限定是一种对角度的静态的限定。如果考虑一条射线绕其顶点旋转超过一圈时这条射线旋转的角度，或者考虑反方向的旋转角度，这种静态的限定反而成为一种令人生厌的桎梏。另外，考虑到圆的半径与周长的关系，并放弃古人对整除的执念，自然而然地规范关于角的度量规定：
@@ -158,56 +552,62 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \includegraphics[width=0.94\linewidth]{image8.png}
 \end{center}
 
-\subsection{指数函数}
+\paragraph{反三角函数} \mbox{}
+
+三角函数在整个定义域上会重复取值。为了反过来由函数值确定一个角，需要先限制到严格单调的区间。通常将正弦、余弦与正切分别限制在\([-\pi/2,\pi/2]\)、\([0,\pi]\)与\((-\pi/2,\pi/2)\)上，它们在这些区间上的值域分别为\([-1,1]\)、\([-1,1]\)与\(\mathbb R\)。相应的反函数记为
+\begin{equation*}
+ \begin{aligned}
+ y=\arcsin x&\quad\Longleftrightarrow\quad x=\sin y,
+ &&x\in[-1,1],\quad y\in[-\pi/2,\pi/2],\\
+ y=\arccos x&\quad\Longleftrightarrow\quad x=\cos y,
+ &&x\in[-1,1],\quad y\in[0,\pi],\\
+ y=\arctan x&\quad\Longleftrightarrow\quad x=\tan y,
+ &&x\in\mathbb R,\quad y\in(-\pi/2,\pi/2).
+ \end{aligned}
+\end{equation*}
+这些函数称为{\heiti{}反三角函数}。它们的定义域来自原函数的值域，值域来自选定的角度区间。由连续反函数定理，它们连续；反正弦、反正切严格递增，反余弦严格递减。例如\(\arcsin(1/2)=\pi/6\)，而方程\(\sin y=1/2\)在全部实数范围内还有其他解。
+
+\subsection{指数函数与对数函数}
 指数函数是一类性态良好的函数，其基本形式是\(y = a^{x} \left( a > 0 , a \ne 1 \right)\)。显然，当\(a = 1\)时，函数退化为\(y = 1\)；\(a = 0\)时，函数退化为\(y = 0 \left( x > 0 \right)\)；\(a < 0\)时，只有\(x\)为整数（更一般地，只有\(x\)为分母是奇数的有理数）时，\(a^{x}\)在实数域上才有意义。因此限定指数函数的\(a > 0\)且\(a \ne 1\)。
 
 刻画\(a\)取不同的值时函数的图像如下图所示：
 \begin{center}
-\includegraphics[width=0.62\linewidth]{image9.png}
+\includegraphics[width=0.56\linewidth]{image9.png}
 \end{center}
 容易观察到其定义域均为\(\mathbb{R}\)，值域均为\(\left( 0 , + \infty \right)\)。
 
 {\kaiti{}思考\quad 无理数次幂是如何定义的？}
 
-\subsection{对数函数}
-对数函数是指数函数的反函数。了解对数函数首先要知道对数算符的性质。对数的概念在课本上已有介绍，这里不做额外的阐述。容易知道，对数运算是指数运算的逆运算，自然地，按照对数算符构建的对应关系即对数函数是指数函数的反函数（或者说逆映射）。根据前面对于反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(\mathbb{R}\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画。
+\paragraph{对数函数} \mbox{}
+
+对数运算是指数运算的逆运算，对数函数也就是指数函数的反函数。根据前面对反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(\mathbb{R}\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画。
 
 \subsection{幂函数}
 幂函数的基本形式为\(y = x^{\alpha} , \alpha \in \mathbb{R}\)。课本上已经给出一些具有代表性的幂函数图像，此处不再给出。为避免未定义行为，通常规定幂函数的基本定义域为\(x > 0\)。
 
 \section{初等函数的基本性质}
 
+\begingroup
+\setlength{\parskip}{3pt}
 \subsection{初等函数的连续性}
-\begin{theorem}\label{thm:inv-mono}
-设\(y = f \left( x \right)\)是定义在区间\(I\)上的一个连续函数，则\(f \left( x \right)\)在\(I\)上存在反函数的充分必要条件是\(f \left( x \right)\)在\(I\)上严格单调递增（减）。当这个条件成立时，\(f \left( x \right)\)的反函数\(f^{- 1} \left( x \right)\)在其定义域内也是严格单调增（减）的连续函数。
-\end{theorem}
-
-从直观上看，连续函数的反函数也是连续的这个结论是显然的。因为\(y = f \left( x \right)\)和反函数\(x = f^{- 1} \left( y \right)\)在同一坐标平面上的图像是相同的。
 \begin{theorem}
 初等函数在其定义域内是连续的。
 \end{theorem}
 
-容易知道两个函数的四则运算和复合运算保持得到的新函数在任一点的连续性。
+由前面连续函数的运算性质，只须先考察基本初等函数，再通过有限次四则运算与复合得到一般初等函数。
 
 首先考虑多项式函数：常值函数\(f ( x ) = c\)以及线性函数\(f ( x ) = x\)在区间\(( - \infty , + \infty )\)上连续，经四则运算得到的关于\(x\)的多项式也都连续。
 
-然后考虑三角函数：易知\(\sin x\)在\(\left( - \infty , + \infty \right)\)上是连续的，而\(\cos x\)可以看成是\(\sin u\)和\(u = \frac{\pi}{2} - x\)两个函数的复合的结果，所以也是连续的。其他三角函数可以通过\(\sin x\)和\(\cos x\)通过四则运算构造出来，所以也都是连续函数。由定理\ref{thm:inv-mono}，所有的反三角函数在各自的定义域内也都是连续的。
+再看三角函数。用弧度制量角，单位圆上两点的纵坐标差不超过弦长，弦长又不超过连接它们的弧长，故\(|\sin x-\sin y|\le|x-y|\)。在连续性定义中取\(\delta=\varepsilon\)，即知\(\sin x\)处处连续。由\(\cos x=\sin(\pi/2-x)\)及连续函数的运算性质，其余三角函数也在各自定义域内连续；再由定理\ref{thm:inv-mono}，反三角函数也连续。
 
-容易知道指数函数\(f \left( x \right) = a^{x} \left( a > 0 , a \ne 1 \right)\)是其定义域内的连续函数。注意到
+实数次幂由有理数次幂经极限扩充，前面关于无理数次幂的思考正涉及这一过程。指数函数连续性的关键是\(h\to0\)时\(a^h\to1\)：当\(a>1\)、\(|h|<1/n\)时，有\(a^{-1/n}\le a^h\le a^{1/n}\)，而由伯努利不等式，\(0<a^{1/n}-1\le(a-1)/n\)，故两端都趋于\(1\)。再用\(a^{x_0+h}=a^{x_0}a^h\)，即得任意点的连续性；\(0<a<1\)时取倒数即可。当\(a>1\)时指数函数严格递增，\(0<a<1\)时严格递减，值域均为\((0,+\infty)\)。由定理\ref{thm:inv-mono}，其反函数\(\log_a x\)在\((0,+\infty)\)上连续。
 
-当\(a > 1\)时，\(f \left( x \right) = a^{x}\)在\(\left( - \infty , + \infty \right)\)上是严格递增的；
-
-当\(0 < a < 1\)时，\(f \left( x \right) = a^{x}\)在\(\left( - \infty , + \infty \right)\)上是严格递减的；
-
-而且无论是哪种形式，函数的值域都是\(\left( 0 , + \infty \right)\)。显然\(f \left( x \right) = a^{x}\)在\(\mathbb{R}\)上连续，根据定理\ref{thm:inv-mono}，\(f \left( x \right) = a^{x}\)的反函数\(f^{- 1} \left( x \right) = \log_{a} x\)在\(\left( 0 , + \infty \right)\)上是连续的。
-
-最后考虑幂函数：对于幂函数\(f \left( x \right) = x^{\alpha} \left( \alpha \ne 0 \right)\)，在其基本定义域\(x > 0\)内，由于
+最后，在基本定义域\(x>0\)内，幂函数\(y=x^\alpha\)可写为
 \begin{equation}
 x^{\alpha} = e^{\alpha \ln x}
 \end{equation}
-所以幂函数在\(x > 0\)时连续。
-
-综上所述，初等函数在其定义域内是连续的。
+所以幂函数在\(x > 0\)时连续。综上所述，初等函数在其定义域内是连续的。
+\endgroup
 \newpage
 \subsection{基本初等函数的单调性}
 复杂的初等函数单调性较为复杂，这里仅讨论基本初等函数的单调性。
@@ -255,15 +655,15 @@ x^{\alpha} = e^{\alpha \ln x}
 
 这一结论可递推到\(x + k \pi , k \in \mathbb{Z}\)。又显然当\(0 < a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
 
-进一步地，分析较为一般的情况。
+进一步地，分析较为一般的情况。以下统一取\(A>0\)、\(\omega>0\)。
 
 考虑\(f \left( x \right) = \sin \left( x + \varphi \right)\)，仍然有\(f \left( x + 2 \pi \right) = \sin \left( \left( x + 2 \pi \right) + \varphi \right) = \sin \left( x + \varphi \right)\)，故\(\varphi\)的取值不影响其周期性。由于此时有\(x^{'} = x + \varphi\)，实际上这一变换相当于将函数向左平移\(\varphi\)，也将同时使其对称轴和对称中心向左移动\(\varphi\)。
 
-考虑\(f \left( x \right) = \sin \omega x\)，其中\(\omega \neq 0 \)，此时\(f \left( x + 2 \pi \right) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f \left( x \right) = \sin \omega x\)时，有\(f \left( x + \frac{2}{\omega} \pi \right) = f \left( x \right)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
+考虑\(f \left( x \right) = \sin \omega x\)，其中\(\omega > 0\)，此时\(f \left( x + 2 \pi \right) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f \left( x \right) = \sin \omega x\)时，有\(f \left( x + \frac{2}{\omega} \pi \right) = f \left( x \right)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
 
-考虑\(f \left( x \right) = A \sin x\)，其中\(A \ne 0\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
+考虑\(f \left( x \right) = A \sin x\)，其中\(A > 0\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
 
-对于其它三角函数，可以有类似的推导。由于正（余）弦函数具有优异的性质，且它们可以很好地表征周期性的振动，故通常称正弦函数\(f \left( x \right) = A \sin \left( \omega x + \varphi \right)\)中的\(A\)为振幅，\(\omega\)为角频率，\(\varphi\)为相位角。
+对于其它三角函数，可以有类似的推导。由于正（余）弦函数具有优异的性质，且它们可以很好地表征周期性的振动，故通常称正弦函数\(f \left( x \right) = A \sin \left( \omega x + \varphi \right)\)中的\(A\)为振幅，\(\omega\)为角频率，\(\omega x+\varphi\)为相位，\(\varphi\)为初相位。
 \newpage
 \section{有关三角函数与解三角形必背的几个公式}
 \begingroup
