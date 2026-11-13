@@ -1,0 +1,337 @@
+\newpage
+\section{极线束的参数方法*}
+\label{sec:quadratic-polar-pencil-method}
+
+前面分别用参数表示曲线上的点、经过定点的直线，以及曲线束中的成员。极点极线则把点与直线联系起来。现在将这些表示放在同一套坐标中：选取容易描述的对象作为参数的起点，再借助极性，把问题转到另一侧研究。
+
+本节在实射影平面中讨论。固定非退化二次曲线
+\begin{equation*}
+ \mathcal C:\quad Q(X)=X^TMX=0,\qquad M=M^T,\quad\det M\ne0.
+\end{equation*}
+点与直线均用非零列向量表示，向量的非零倍数代表同一对象；直线\(l\)的方程为\(l^TX=0\)。极性对应为\(P\mapsto MP\)、\(l\mapsto M^{-1}l\)。下文的矩阵等式对所选代表向量成立，几何对象的相等则只要求成比例。
+
+\subsection{从点列到极线束}
+\label{subsec:quadratic-polar-pencil-parameters}
+
+取两个不同的点\(U,V\)，令\(A=(U\ V)\)。直线\(UV\)上的点可以完整地表示为
+\begin{equation}\label{eq:quadratic-polar-pencil-point}
+ P(u)=Au=sU+tV,\qquad u=(s,t)^T,\quad[s:t]\in\mathbb P^1(\mathbb R).
+\end{equation}
+其极线随之成为
+\begin{equation}\label{eq:quadratic-polar-pencil-line}
+ l(u)=MAu=sMU+tMV.
+\end{equation}
+由于\(M\)可逆，\(MU,MV\)线性无关。这些极线取遍经过\(S=(MU)\times(MV)\)的全部直线，称为由这条点列确定的{\heiti{}极线束}。其中\(S\)就是直线\(UV\)的极点。叉积在这里用于求两直线的交点，正如4.11中用叉积表示两点的连线。
+
+反过来，给定线束\(l(u)=sl_0+tl_1\)，其极点为
+\begin{equation*}
+ P(u)=M^{-1}l(u)=sM^{-1}l_0+tM^{-1}l_1,
+\end{equation*}
+因而极点都在一条直线上。点列与线束具有相同的参数，不必分别为两侧引入互不相关的变量。
+
+普通参数\(\tau=t/s\)给出\(P=U+\tau V\)、\(l=MU+\tau MV\)，而\([0:1]\)补入\(V\)及其极线。更换生成点，写成\(A'=AR\)，其中\(R\)是可逆二阶矩阵，只是将参数换为\(u=Ru'\)。因此参数原点与无穷远参数都可以按计算需要选择。
+
+\paragraph{普通坐标中的写法} \mbox{}\par\nopagebreak[4]
+
+对椭圆\(x^2/a^2+y^2/b^2=1\)，若点列为\(P(\tau)=(h+\tau r,k+\tau s)\)，其极线为
+\begin{equation*}
+ \left(\frac h{a^2}x+\frac k{b^2}y-1\right)
+ +\tau\left(\frac r{a^2}x+\frac s{b^2}y\right)=0.
+\end{equation*}
+线束的公共点由括号内的两个一次式同时为零确定。若公共点在无穷远处，这两式在齐次坐标中仍然正常求解，普通平面中的各线则互相平行。
+
+\begin{example}
+对椭圆\(x^2/4+y^2=1\)，取\(P(\tau)=(1+\tau,1-\tau)\)。写出极线束的齐次参数表示，求公共点，找出参数无穷远所对应的极点与极线。再将点列改为\(P(\tau)=(\tau,2\tau)\)，比较两个极线束的公共点。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）取单位圆，令\(U=(2,0,1)^T,V=(0,2,1)^T\)。求\(P([s:t])\)与\(l([s:t])\)，找出点列及极线束中的无穷远元素。
+
+（2）对\(y^2=4x\)，从直线束\(y=mx+1\)出发，求对应极点的轨迹，并补入竖直线所对应的参数。
+
+（3）证明更换点列的两个生成点，同时也更换极线束的两个生成直线；两侧的参数变换相同。结合4.11的交比说明，点列与对应极线束的交比相等。
+\end{exercise}
+
+\subsection{把曲线条件压到两个参数上}
+\label{subsec:quadratic-polar-pencil-restriction}
+
+在式\eqref{eq:quadratic-polar-pencil-point}中记
+\begin{equation}\label{eq:quadratic-polar-pencil-gram}
+ H=A^TMA=
+ \begin{pmatrix}Q(U)&U^TMV\\U^TMV&Q(V)\end{pmatrix}.
+\end{equation}
+则\(Q(P(u))=u^THu\)。原来在平面中研究的二次曲线，限制到这条点列上，只剩一个二元二次齐次式。
+
+\begin{proposition}
+点\(P(u)\)在\(\mathcal C\)上，当且仅当\(u^THu=0\)；同一参数对应的极线\(l(u)\)是曲线的切线，当且仅当这个条件成立。
+\end{proposition}
+
+\begin{proof}
+前一个等价关系由代入得到。对于后一个，4.11的对偶曲线给出相切条件\(l^TM^{-1}l=0\)，而
+\begin{equation*}
+ l(u)^TM^{-1}l(u)=u^TA^TMAu=u^THu.
+\end{equation*}
+此时切点就是\(P(u)\)。
+\end{proof}
+
+因此，一条直线与曲线的交点参数，同时也是对应极线束的切线参数。若\(H=\left(\begin{smallmatrix}\alpha&\beta\\\beta&\gamma\end{smallmatrix}\right)\)，只需求解\(\alpha s^2+2\beta st+\gamma t^2=0\)。
+它有两个、一个二重或没有实射影根，分别对应线束中有两条、一条或没有实切线。\(H\)不会是零矩阵，否则整条\(UV\)都在非退化二次曲线上，与4.11的交点计数矛盾。
+
+更一般地，两个参数点\(P(u),P(v)\)满足互相共轭的条件为
+\begin{equation}\label{eq:quadratic-polar-pencil-conjugacy}
+ P(v)\in l(u)\quad\Longleftrightarrow\quad u^THv=0.
+\end{equation}
+令\(J=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)\)。当\(H\)可逆时，给定\(u\)，另一个共轭参数可取\(v=JHu\)，且
+\begin{equation}\label{eq:quadratic-polar-pencil-involution}
+ (JH)^2=-\det(H)I.
+\end{equation}
+所以连续取两次共轭参数便回到原参数，形成射影直线上的对合。其不动参数恰满足\(u^THu=0\)，也就是刚才的交点与切线参数。相切时\(H\)退化，此对应不再是可逆对合，应直接使用式\eqref{eq:quadratic-polar-pencil-conjugacy}。
+
+\begin{example}
+对单位圆，取点列\(P(\tau)=(\tau,c)\)。求\(H\)，分别讨论\(|c|<1\)、\(|c|=1\)、\(|c|>1\)时点列与圆的交点及极线束中的实切线。\(H\)可逆时，写出共轭参数之间的对应，并解释不动参数的几何意义。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）直接验证式\eqref{eq:quadratic-polar-pencil-involution}。在换基\(A'=AR\)后，证明\(H'=R^THR\)，说明交点及相切判定不依赖生成点的选取。
+
+（2）设单位圆上的点列为\(P(\tau)=(\tau,0)\)。求共轭参数对应。再将点列改为\(P(\tau)=(1,\tau)\)，解释切点为何没有唯一的共轭参数点。
+
+（3）对抛物线\(YZ=X^2\)，取\(U=(0,0,1)^T,V=(1,1,0)^T\)。求\(H\)，求过线束中心的全部实切线，并核对切点。
+\end{exercise}
+
+\subsection{弦、切线交点与参数对应}
+\label{subsec:quadratic-polar-pencil-chords}
+
+极线束中的直线是由点列取极线得到的；若原来的点沿二次曲线运动，其极线则构成切线族。两种参数运动不同，但都由\(P\mapsto MP\)处理。现在用单位圆把弦、切线与参数配对写在一起，再通过仿射或射影变换送到其他曲线。
+
+取单位圆的齐次参数
+\begin{equation*}
+ C([s:t])=(s^2-t^2,2st,s^2+t^2)^T.
+\end{equation*}
+有限参数记作\(C(t)=(1-t^2,2t,1+t^2)^T\)。其切线的系数为\((1-t^2,2t,-1-t^2)^T\)。直接求连线、交点，得到下列统一表达：
+\begin{equation}\label{eq:quadratic-circle-chord-pole-parameters}
+ \begin{aligned}
+ C(t)C(u):\quad &(1-tu)X+(t+u)Y-(1+tu)Z=0,\\
+ \text{两端切线交点：}\quad &T(t,u)=[1-tu:t+u:1+tu].
+ \end{aligned}
+\end{equation}
+两个表达恰好互为极线与极点。\(u=t\)时，第一式成为切线，第二式成为切点；从割线到切线，由同一个公式描述。
+
+若两个参数分别为\([s:t]\)、\([r:v]\)，相应的弦方程与切线交点写成
+\begin{equation*}
+ (sr-tv)X+(sv+tr)Y-(sr+tv)Z=0,
+ \qquad T=[sr-tv:sv+tr:sr+tv].
+\end{equation*}
+这也包含无穷远参数，不必再另列垂直弦的斜率。
+
+固定普通点\(S=(h,k)\)，弦通过\(S\)的条件是
+\begin{equation*}
+ (h-1)+k(t+u)-(h+1)tu=0.
+\end{equation*}
+当\(S\)不在圆上时，它给出端点参数的对合
+\begin{equation}\label{eq:quadratic-circle-chord-involution-final}
+ u=\frac{kt+h-1}{(h+1)t-k},\qquad
+ B=\begin{pmatrix}k&h-1\\h+1&-k\end{pmatrix},\qquad
+ B^2=(h^2+k^2-1)I.
+\end{equation}
+分母为零时用齐次参数继续计算。对合的不动参数给出过\(S\)的切线，所有弦的两端切线交点则落在\(S\)的极线\(hX+kY-Z=0\)上。
+
+这与上一小节的共轭参数对合有区别：那里配对的是一条直线上的共轭点，这里配对的是曲线上同一条过定点弦的两个端点。两者都来自二次关系，但参数所代表的对象不同。
+
+\begin{example}
+取单位圆与\(S=(2,0)\)。由式\eqref{eq:quadratic-circle-chord-involution-final}求弦端点的参数对应、两条切线及切点。再求所有弦的两端切线交点的轨迹，并说明哪些轨迹点可以由两条不同实切线得到。将图形伸缩为椭圆\(x^2/4+y^2=1\)，写出对应的结论。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）推导式\eqref{eq:quadratic-circle-chord-pole-parameters}及其齐次形式，解释两个端点参数相同时各式的含义。
+
+（2）分别取\(S=(0,0)\)、\((1,0)\)，研究过\(S\)的弦所给出的参数关系。为何后一情形不再是互换两个自由端点的可逆对应？
+
+（3）在单位圆上，证明弦\(C(t)C(u)\)过圆心的条件为\(tu=-1\)，并用齐次参数补全含无穷远参数的情形。它与三角参数中的相差\(\pi\)有何联系？
+
+（4）将圆作可逆仿射变换\(x=K\xi+q\)，证明上述弦、切线交点和定点极线的对应随之保持。若题目还要求两条弦垂直，应在圆化坐标中加入怎样的度量条件？
+\end{exercise}
+
+\subsection{曲线束与共同自极三角形}
+\label{subsec:quadratic-conic-pencil-polar-pencil}
+
+现在固定点\(P\)，让曲线变化。设二次曲线束的矩阵为
+\begin{equation*}
+ M(\lambda,\mu)=\lambda M_0+\mu M_1,
+ \qquad[\lambda:\mu]\in\mathbb P^1(\mathbb R).
+\end{equation*}
+设这个曲线束至少有一个非退化成员。在非退化成员上，点\(P\)的极线为
+\begin{equation}\label{eq:quadratic-conic-pencil-polar-linear}
+ l_P(\lambda,\mu)=\lambda M_0P+\mu M_1P.
+\end{equation}
+若\(M_0P,M_1P\)线性无关，这些线性组合构成直线束。仅取非退化曲线成员时，可能缺少其中有限条极线；将非零的退化成员极化表达也纳入，便补全这个线束。若两向量成比例，非零表达则表示同一条直线。
+
+式\eqref{eq:quadratic-conic-pencil-polar-linear}对退化矩阵仍能计算，但若\(M(\lambda,\mu)P=0\)，所得是恒等式\(0=0\)，不能将它当作一条极线。退化成员可用于计算和构造，极点极线的一一对应则只属于非退化成员。
+
+\begin{example}
+对曲线束\(X^2+Y^2-Z^2+\tau XZ=0\)，固定\(P=(0,1,1)^T\)。求\(P\)的极线束及公共点，找出参数无穷远所对应的成员与极化直线。若将\(P\)改为\((0,1,0)^T\)，极线族有何变化？
+\end{example}
+
+\paragraph{共同自极三角形} \mbox{}
+
+若三个不共线的点\(P_1,P_2,P_3\)各自的极线恰为另外两点的连线，则称其为该曲线的{\heiti{}自极三角形}。这等价于\(P_i^TMP_j=0\ (i\ne j)\)。取这三个点为坐标基，曲线矩阵便成为对角矩阵。
+
+设\(M_0\)可逆，令\(T=M_0^{-1}M_1\)。若\(T\)有三个不同的实特征值\(\rho_i\)，对应特征向量\(P_i\)线性无关，则
+\begin{equation*}
+ M_1P_i=\rho_iM_0P_i.
+\end{equation*}
+利用对称性，对\(i\ne j\)有
+\begin{equation*}
+ \rho_jP_i^TM_0P_j=P_i^TM_1P_j
+ =\rho_iP_i^TM_0P_j,
+\end{equation*}
+故\(P_i^TM_0P_j=P_i^TM_1P_j=0\)。因此，在基\((P_1,P_2,P_3)\)下，整个曲线束都成为
+\begin{equation}\label{eq:quadratic-common-self-polar-diagonal}
+ (\lambda+\mu\rho_1)d_1z_1^2+
+ (\lambda+\mu\rho_2)d_2z_2^2+
+ (\lambda+\mu\rho_3)d_3z_3^2=0,
+ \quad d_i=P_i^TM_0P_i\ne0.
+\end{equation}
+三个点于是组成全体非退化成员的共同自极三角形；三个特殊参数分别使一个对角系数消失，产生退化成员。这里同时化简的是两个二次型，所用坐标基通常并不正交。并非每个实曲线束都满足三个不同实特征值的条件；不满足时，仍使用原来的矩阵束与极线表达。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）取\(M_0=\operatorname{diag}(1,1,-1)\)、\(M_1=\operatorname{diag}(1,2,-3)\)。求共同自极三角形与全部退化成员，并分别判断退化成员的实图形。
+
+（2）证明共同自极三角形的每个顶点，关于曲线束中所有非退化成员的极线均相同。将它与式\eqref{eq:quadratic-conic-pencil-polar-linear}中的向量成比例情形联系起来。
+
+（3）若两条生成曲线有共同点\(P\)，证明其极线束中的每条非零直线都经过\(P\)。对非退化成员，这些直线有怎样的几何意义？
+\end{exercise}
+
+\subsection{固定直线的极点轨迹}
+\label{subsec:quadratic-fixed-line-poles}
+
+固定点关于曲线束的极线，系数随曲线参数线性变化。反过来固定直线\(l\)，它关于各非退化成员的极点为
+\begin{equation*}
+ P(\lambda,\mu)=[(\lambda M_0+\mu M_1)^{-1}l].
+\end{equation*}
+求逆一般不会保留线性形式。为消去分母，可使用矩阵的{\heiti{}伴随矩阵}：将各代数余子式排成的矩阵转置，得到\(\operatorname{adj}M\)，满足\(M\operatorname{adj}M=(\det M)I\)。因此在非退化参数上，同一个极点可以写成
+\begin{equation}\label{eq:quadratic-conic-pencil-pole-quadratic}
+ P(\lambda,\mu)=
+ [\operatorname{adj}(\lambda M_0+\mu M_1)l].
+\end{equation}
+三阶矩阵的余子式是二阶行列式，故右边三个坐标都是\(\lambda,\mu\)的二次齐次式。这将变化曲线中的极点问题，转成4.11已经研究过的二次齐次参数。
+
+若三个坐标多项式线性无关，它们就是\(\lambda^2,\lambda\mu,\mu^2\)的可逆线性组合，因而轨迹位于一条非退化二次曲线上。若线性相关，轨迹则位于一条直线上，或退化为一个点。退化曲线参数原本不在极性的一一对应范围内；若其参数使右边非零，可作为轨迹的极限点补入。若三个坐标同时为零，应先检查公共因子或直接研究邻近参数的极限。
+
+在共同自极三角形坐标下，这一关系尤其清楚。设固定直线为\(l_1z_1+l_2z_2+l_3z_3=0\)，由式\eqref{eq:quadratic-common-self-polar-diagonal}，极点可以表示为
+\begin{equation*}
+ \begin{pmatrix}
+ \dfrac{l_1}{d_1}(\lambda+\mu\rho_2)(\lambda+\mu\rho_3)\\[4pt]
+ \dfrac{l_2}{d_2}(\lambda+\mu\rho_1)(\lambda+\mu\rho_3)\\[4pt]
+ \dfrac{l_3}{d_3}(\lambda+\mu\rho_1)(\lambda+\mu\rho_2)
+ \end{pmatrix}.
+\end{equation*}
+若\(l_1l_2l_3\ne0\)，三个坐标多项式线性无关：分别代入\(\lambda=-\mu\rho_i\)，恰好只有第\(i\)个坐标非零。补全后的极点轨迹因而是一条经过共同自极三角形三个顶点的二次曲线。固定直线经过某个顶点时，相应的\(l_i=0\)，轨迹就出现降为直线等情形。
+
+\begin{example}
+仍取\(M_0=\operatorname{diag}(1,1,-1)\)、\(M_1=\operatorname{diag}(1,2,-3)\)。求直线\(X+Y+Z=0\)关于曲线束各非退化成员的极点参数，并消去参数，写出轨迹方程。分别解释三个退化曲线参数在这条轨迹上补入的点。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）在上例中，将固定直线依次改为\(X+Y=0\)、\(X=0\)，求极点轨迹，说明二次参数如何约去公共因子或退化为常点。
+
+（2）为什么不能由固定点的极线形成线束，直接断言固定直线的极点也必共线？从矩阵对参数的线性依赖与求逆两个步骤说明。
+\end{exercise}
+
+\subsection{一般极线族与包络}
+\label{subsec:quadratic-general-polar-envelope}
+
+点沿直线运动时，其极线形成线束；点沿一般曲线运动时，得到的是一般极线族，未必共点。参数表示仍适用，只需把线性点参数换为相应的曲线参数。
+
+\begin{definition}
+设直线族为\(l(t)^TX=0\)，系数随\(t\)可微，且\(l(t),l'(t)\)线性无关。由
+\begin{equation}\label{eq:quadratic-envelope-contact-equations}
+ l(t)^TX=0,\qquad l'(t)^TX=0
+\end{equation}
+确定的点\(X(t)\)，称为该参数的{\heiti{}特征点}。这些点形成的轨迹在其正则部分称为直线族的{\heiti{}包络}。
+\end{definition}
+
+导数的系统定义与运算法则将在第五章讨论。这里先将\(l'(t)\)理解为系数对参数的变化率；以下二次曲线族都可选取多项式或有理参数直接计算。若\(X(t)\)可微且\(X,X'\)线性无关，将第一式求导，再用第二式，得\(l(t)^TX'(t)=0\)，所以该族直线正是特征点轨迹的切线。由此也说明包络与直线族的关系。
+
+当\(l(t)=MP(t)\)时，式\eqref{eq:quadratic-envelope-contact-equations}成为
+\begin{equation*}
+ P(t)^TMX=0,\qquad P'(t)^TMX=0.
+\end{equation*}
+因此，\(MX\)是轨迹在\(P\)处的切线系数：{\heiti{}极线族的特征点，就是原点轨迹切线关于\(\mathcal C\)的极点}。
+
+设点轨迹为另一条非退化二次曲线\(\mathcal D:P^TNP=0\)，并取其一个实参数分支。在\(P\)处切线为\(NP\)，故特征点可以取为
+\begin{equation*}
+ X=M^{-1}NP.
+\end{equation*}
+消去\(P=N^{-1}MX\)，得到包络方程
+\begin{equation}\label{eq:quadratic-polar-envelope-conic}
+ X^TMN^{-1}MX=0.
+\end{equation}
+而极线族在对偶平面中的方程为
+\begin{equation*}
+ l^TM^{-1}NM^{-1}l=0.
+\end{equation*}
+两个矩阵互为逆矩阵，与4.11的对偶二次曲线完全一致。当\(N=M\)时，包络就是\(\mathcal C\)本身，恢复了曲线上点的极线为切线的结论。
+
+对于一般点轨迹，上述关系依然可以用于构造包络；若轨迹本身是一条直线，其切线恒定，特征点便恒为同一点，恢复为极线束的公共点。
+
+\begin{example}
+以单位圆确定极性。令点\(P\)沿椭圆\(x^2/a^2+y^2/b^2=1\)运动，求其极线族的包络。再取\(a=b=R\)，用圆的极线公式解释包络圆的半径为何是\(1/R\)。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对直线族\(y=2tx-t^2\)，由式\eqref{eq:quadratic-envelope-contact-equations}求特征点及包络。它与抛物线\(y=x^2\)的切线族有何关系？
+
+（2）仍以单位圆确定极性，令点轨迹为\(y=x^2\)。分别用多项式参数和式\eqref{eq:quadratic-polar-envelope-conic}求包络，写出其普通坐标方程。
+
+（3）证明将\(l(t)\)换为\(c(t)l(t)\)，其中\(c(t)\ne0\)，不改变式\eqref{eq:quadratic-envelope-contact-equations}所确定的特征点。在参数作可微换元且导数非零时，同样验证这一点。
+\end{exercise}
+
+\subsection{参数的选择与综合运用}
+
+至此，参数可以选取直线上的点、线束中的直线、曲线上的点，或曲线束中的成员。它们之间的转换有明确的代数依据：
+\begin{equation*}
+ \begin{aligned}
+ \text{点与极线：}&\quad P\longleftrightarrow MP;
+ &\text{关联：}&\quad l^TP=0;\\
+ \text{曲线与切线：}&\quad P^TMP=0,\ l=MP;
+ &\text{束的参数：}&\quad Au,\ MAu,\ \lambda M_0+\mu M_1.
+ \end{aligned}
+\end{equation*}
+选择参数时，给出直线族，就从直线系数求极点；给出点的轨迹，就先参数化轨迹；涉及两个弦端点，就用对称的端点参数；涉及多条曲线，就先保留曲线束的线性结构。
+
+射影坐标处理共线、共点、相切及交比。需要长度、面积、夹角时，再回到普通坐标，使用4.2与4.6的变换及度量关系。参数中的无穷远值、方程的退化值和题目排除的重合配置，也应在解释参数结果时对应到几何对象。
+
+\begin{example}
+设椭圆\(x^2/a^2+y^2/b^2=1\)，其中\(a>b>0\)，固定圆化坐标中的点\(S'=(h,k)\)，其像为\(S=(ah,bk)\)。过\(S\)作弦\(AB\)，两端切线交于\(T\)。
+
+（1）圆化后用单位圆参数\(t,u\)表示\(A,B,T\)，写出弦过\(S\)的参数关系及\(T\)的轨迹方程。
+
+（2）若再要求\(TA\perp TB\)，在圆化坐标中写出正确的二次条件。为何不能直接要求\(T'A'\perp T'B'\)？
+
+（3）将两条弦\(AB,CD\)所对应的切线交点记为\(T_1,T_2\)。证明\(T_1T_2\)是\(S\)的极线，且\(T_1,T_2\)的极线都经过\(S\)，说明所用结论来自哪一个点线对应。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对单位圆，给定直线束\(X+\tau Y-2Z=0\)。求极点轨迹、切线参数，以及这些直线与圆的交点参数。比较从直线束直接联立与先转到极点一侧两条路径。
+
+（2）对椭圆\(x^2/9+y^2/4=1\)，点\(P\)在\(x+y=3\)上运动。求极线束的公共点及其中的两条实切线，并说明哪些参数对应穿过椭圆的割线。
+
+（3）设\(Q(X)=X^TMX\)，\(P\)不在曲线上。证明曲线束\(Q(X)+\tau(P^TMX)^2=0\)中有一个退化成员，其退化点为\(P\)。求该参数，并说明\(P\)的极线为什么在这个曲线束中具有特殊地位。
+
+（4）选取4.11的一个帕斯卡或布里昂雄配置，用本节点线参数表达其关联条件，区分其中的线性关系与二次关系。
+\end{exercise}
