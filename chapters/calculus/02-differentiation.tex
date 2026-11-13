@@ -1,0 +1,356 @@
+\FloatBarrier
+\newpage
+\section{导数的计算}
+\label{sec:calculus-differentiation}
+
+\begingroup
+\setlength{\parskip}{3.5pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+
+按定义求导，关键是研究函数增量与自变量增量的比。若函数由若干已知函数组合而成，可以先研究这些组合如何改变增量，再把所得法则反复使用。
+
+\subsection{四则运算法则}
+
+\begin{theorem}\label{thm:calculus-derivative-rules}
+若\(f,g\)在所考察的点可导，则
+\begin{equation*}
+ \begin{aligned}
+ (af+bg)'&=af'+bg',\\
+ (fg)'&=f'g+fg',\\
+ \left(\frac fg\right)'&=\frac{f'g-fg'}{g^2}\quad(g\ne0),
+ \end{aligned}
+\end{equation*}
+其中\(a,b\)为常数。
+\end{theorem}
+
+线性性质由极限运算法则直接得到。设两个因子的增量为\(\Delta f,\Delta g\)，乘积的增量为
+\begin{equation*}
+ \Delta(fg)=g\Delta f+f\Delta g+\Delta f\Delta g.
+\end{equation*}
+除以\(h\)，前两项分别趋于\(gf'\)、\(fg'\)，而\((\Delta f/h)\Delta g\to0\)，便得到乘积法则。这里的\(f,g\)均在固定基点取值。
+
+非零处的倒数满足
+\begin{equation*}
+ \frac{1/g(x+h)-1/g(x)}h
+ =-\frac{g(x+h)-g(x)}{h\,g(x+h)g(x)}
+ \longrightarrow-\frac{g'(x)}{g(x)^2}.
+\end{equation*}
+再对\(f\cdot(1/g)\)使用乘积法则，就得到商法则。
+
+由\((x)'=1\)及乘积法则，归纳可得
+\begin{equation}\label{eq:calculus-integer-power}
+ (x^n)'=nx^{n-1}\qquad(n\in\mathbb N^*).
+\end{equation}
+负整数幂由倒数法则得到同样形式。因此，多项式与有理函数的求导都归结到这些法则。
+
+乘积法则可以逐次使用。例如，对三个可导函数，先把前两个看作一个整体，得到
+\begin{equation*}
+ (fgh)'=(fg)'h+fgh'=f'gh+fg'h+fgh'.
+\end{equation*}
+每一项恰有一个因子被求导，其余因子保留。若两个因子相同，则\((f^2)'=2ff'\)。例如\(\bigl((x^2+1)^2\bigr)'=4x(x^2+1)\)，也可先展开为多项式再求导。
+
+\begin{example}
+求\(f(x)=(x^2+1)/(x-1)\)的导函数。比较直接用商法则与先将分式写成\(x+1+2/(x-1)\)两种计算。
+\end{example}
+
+\newpage
+\subsection{复合函数的导数}
+\label{subsec:calculus-chain-rule}
+
+设\(u=g(x)\)、\(y=f(u)\)。自变量增量\(h\)先引起\(\Delta u\)，再由\(\Delta u\)引起\(\Delta y\)。两步的一次近似应当依次复合。
+
+\begin{theorem}[链式法则]\label{thm:calculus-chain-rule}
+若\(g\)在\(x_0\)处可导，\(f\)在\(u_0=g(x_0)\)处可导，则复合函数在\(x_0\)处可导，且
+\begin{equation*}
+ (f\circ g)'(x_0)=f'(u_0)g'(x_0).
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+由\(f\)可导，可写
+\begin{equation*}
+ f(u_0+k)-f(u_0)=\bigl(f'(u_0)+\varepsilon(k)\bigr)k,
+ \qquad\varepsilon(k)\to0,
+\end{equation*}
+并规定\(\varepsilon(0)=0\)。令\(k=\Delta u=g(x_0+h)-g(x_0)\)。由\(g\)连续，\(\Delta u\to0\)，故
+\begin{equation*}
+ \frac{\Delta y}h=\bigl(f'(u_0)+\varepsilon(\Delta u)\bigr)\frac{\Delta u}h
+ \longrightarrow f'(u_0)g'(x_0).
+\end{equation*}
+这个表达式在\(\Delta u=0\)时也成立。
+\end{proof}
+
+由此，\(y=f(u)\)、\(u=g(x)\)满足
+\begin{equation}\label{eq:calculus-differential-invariance}
+ dy=f'(u)g'(x)\,dx=f'(u)\,du.
+\end{equation}
+无论\(u\)是独立变量还是中间变量，微分都保持\(dy=f'(u)\,du\)的形式，称为{\heiti{}一阶微分形式不变性}。当\(u\)是中间变量时，\(du=g'(x)\,dx\)，它表示的是\(u\)的微分。
+
+例如，\(y=(1+x^2)^3\)中，令\(u=1+x^2\)，便有
+\begin{equation*}
+ dy=3u^2\,du=6x(1+x^2)^2\,dx.
+\end{equation*}
+识别中间变量，可以使复合结构和每一步变化率的取值位置同时明确。
+
+对更多层的复合，可以逐层使用链式法则。设\(y=f(u)\)、\(u=g(v)\)、\(v=p(x)\)，则
+\begin{equation*}
+ \frac{dy}{dx}=f'(u)g'(v)p'(x)
+ =f'(g(p(x)))g'(p(x))p'(x).
+\end{equation*}
+每个导数都在相应的中间值处取值。例如，对\(y=\bigl(1+(2x-1)^2\bigr)^3\)，依次令\(v=2x-1\)、\(u=1+v^2\)，便有\(y'=3u^2\cdot2v\cdot2=12(2x-1)\bigl(1+(2x-1)^2\bigr)^2\)。微分记号中的逐层替换与复合函数的计算次序一致。
+
+\begin{example}
+分别求\((1+x^2)^3\)、\(1+(x^2)^3\)及\((1+x^3)^2\)的导数。再设\(s=f(t)\)、\(t=2\tau+1\)，写出位置对\(\tau\)的变化率，解释系数\(2\)的作用。
+\end{example}
+
+\newpage
+\subsection{反函数的导数}
+
+第二章已经证明，区间上的连续严格单调函数有连续反函数。现在比较对应位置附近的变化率。
+
+\begin{theorem}\label{thm:calculus-inverse-derivative}
+设\(f\)在区间上连续且严格单调，在内点\(x_0\)处可导，且\(f'(x_0)\ne0\)。令\(y_0=f(x_0)\)，则反函数在\(y_0\)处可导，且
+\begin{equation*}
+ (f^{-1})'(y_0)=\frac1{f'(x_0)}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+令\(x=f^{-1}(y)\)。由反函数连续性，\(y\to y_0\)时\(x\to x_0\)，且\(y\ne y_0\)时\(x\ne x_0\)。所以
+\begin{equation*}
+ \frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}
+ =\frac{x-x_0}{f(x)-f(x_0)}\longrightarrow\frac1{f'(x_0)}.\qedhere
+\end{equation*}
+\end{proof}
+
+原函数与反函数的导数在对应点互为倒数。得到可导性之后，也可以对恒等式\(f(f^{-1}(y))=y\)求导，整理出同一关系。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.45\linewidth]{calculus-inverse}
+\caption{\(x>0\)时的平方函数及其反函数：图像和对应切线均关于\(y=x\)对称，切线斜率互为倒数。}
+\label{fig:calculus-inverse}
+\end{figure}
+
+\begin{example}
+设\(f(x)=x^3+x\)，其反函数为\(g\)。不求\(g\)的显式表达式，求\(g'(2)\)，并写出\(y=g(x)\)在\(x=2\)处的切线。
+\end{example}
+
+\subsection{三角函数的导数}
+
+三角函数的求导公式以弧度制为基础。对\(0<h<\pi/2\)，比较单位圆中内接三角形、扇形及外切三角形的面积，得到
+\begin{equation*}
+ \sin h<h<\tan h,
+ \qquad \cos h<\frac{\sin h}{h}<1.
+\end{equation*}
+由夹逼及奇偶性，
+\begin{equation}\label{eq:calculus-sine-limit}
+ \lim_{h\to0}\frac{\sin h}{h}=1.
+\end{equation}
+又由\(\cos h-1=-2\sin^2(h/2)\)，有\((\cos h-1)/h\to0\)。将这两个极限用于和角公式，便有
+\begin{equation*}
+ \frac{\sin(x+h)-\sin x}{h}
+ =\sin x\frac{\cos h-1}h+\cos x\frac{\sin h}h\longrightarrow\cos x.
+\end{equation*}
+对余弦作相同展开，得到\((\cos x)'=-\sin x\)。其余由商法则和倒数法则直接推出：
+\begin{equation*}
+ \begin{aligned}
+ (\sin x)'&=\cos x,&(\cos x)'&=-\sin x,\\
+ (\tan x)'&=\frac1{\cos^2x},&(\cot x)'&=-\frac1{\sin^2x},\\
+ (\sec x)'&=\sec x\tan x,&(\csc x)'&=-\csc x\cot x.
+ \end{aligned}
+\end{equation*}
+例如，\((\tan x)'=(\cos^2x+\sin^2x)/\cos^2x\)，化简即得。
+
+\begin{example}
+求\(y=\sin(2x+\pi/3)\)、\(y=x\cos x\)及\(y=\tan^2x\)的导数。
+\end{example}
+
+\subsection{指数函数与对数函数的导数}
+
+第一章以数列\(e_n=(1+1/n)^n\)的极限定义了\(e\)。求导时需要的是连续变化的增量，因此先把这一数列极限转为函数极限。
+
+当\(h>0\)充分小时，选取正整数\(n\)，使\(1/(n+1)<h\le1/n\)。由正底数幂的单调性，
+\begin{equation*}
+ \left(1+\frac1{n+1}\right)^n
+ \le(1+h)^{1/h}\le
+ \left(1+\frac1n\right)^{n+1}.
+\end{equation*}
+左端为\(e_{n+1}/(1+1/(n+1))\)，右端为\(e_n(1+1/n)\)，两者均趋于\(e\)，故中间项也趋于\(e\)。再由对数连续性，
+\begin{equation*}
+ \lim_{h\to0^+}\frac{\ln(1+h)}h=1.
+\end{equation*}
+对于\(-1<h<0\)，令\(t=-h/(1+h)>0\)，则
+\begin{equation*}
+ \frac{\ln(1+h)}h=(1+t)\frac{\ln(1+t)}t\longrightarrow1.
+\end{equation*}
+因此这个极限两侧均成立，也得到\((1+h)^{1/h}\to e\)。
+
+现在对\(x>0\)，令\(t=h/x\)，便有
+\begin{equation*}
+ \frac{\ln(x+h)-\ln x}h
+ =\frac1x\frac{\ln(1+t)}t\longrightarrow\frac1x.
+\end{equation*}
+所以\((\ln x)'=1/x\)。自然指数是自然对数的反函数，在对应点\(y=e^x\)处使用反函数公式，得到\((e^x)'=e^x\)。一般底数由换底与复合关系整理：
+\begin{equation}\label{eq:calculus-exponential-logarithmic}
+ (a^x)'=a^x\ln a,\qquad
+ (\log_a x)'=\frac1{x\ln a}\quad(a>0,\ a\ne1).
+\end{equation}
+
+\begin{example}
+求\(y=e^{-x^2}\)、\(y=\ln(1+x^2)\)及\(y=\ln\frac{1+x}{1-x}\)的导数，分别说明选择的中间变量。
+\end{example}
+
+\begin{example}
+根据第二章的指数表示，求\(\sinh x\)、\(\cosh x\)、\(\tanh x\)、\(\coth x\)的导数，并用双曲函数表示结果。
+\end{example}
+
+\begin{example}[2014年广东卷理科第10题]
+求曲线\(y=e^{-5x}+2\)在点\((0,3)\)处的切线方程。
+\end{example}
+
+\begin{example}[2014年重庆卷理科第20题第（1）问]
+\label{ex:calculus-chongqing-even-derivative}
+设\(f(x)=ae^{2x}-be^{-2x}-cx\)，其中\(a,b,c\in\mathbb R\)。已知\(f'\)为偶函数，且曲线在\((0,f(0))\)处的切线斜率为\(4-c\)，求\(a,b\)。
+\end{example}
+
+\subsection{幂函数的导数}
+
+对实数\(\alpha\)，在\(x>0\)上有\(x^\alpha=e^{\alpha\ln x}\)，由链式法则，
+\begin{equation*}
+ (x^\alpha)'=e^{\alpha\ln x}\frac\alpha x=\alpha x^{\alpha-1}.
+\end{equation*}
+它与前面整数幂公式一致。整数幂在负半轴、原点的可用范围，由原来的函数定义与式\eqref{eq:calculus-integer-power}确定。
+
+\(x^x\)的指数随\(x\)改变，不能把它当作固定指数的幂函数。但在\(x>0\)时，\(x^x=e^{x\ln x}\)，求导得到
+\begin{equation*}
+ (x^x)'=x^x(1+\ln x).
+\end{equation*}
+这个计算体现了表达式外形与函数组成方式之间的区别。
+
+\subsection{反三角函数的导数}
+
+设\(y=\arcsin x\)，则\(x=\sin y\)、\(-\pi/2\le y\le\pi/2\)。在\(-1<x<1\)时，\(\cos y>0\)，故
+\begin{equation*}
+ (\arcsin x)'=\frac1{\cos y}=\frac1{\sqrt{1-x^2}}.
+\end{equation*}
+这里根号的正号由选定的反函数分支确定。同理由反余弦、反正切的对应关系，得到
+\begin{equation*}
+ (\arccos x)'=-\frac1{\sqrt{1-x^2}},\qquad
+ (\arctan x)'=\frac1{1+x^2}.
+\end{equation*}
+前两式用于\((-1,1)\)，后一式用于\(\mathbb R\)。
+
+\subsection{隐函数求导}
+
+曲线方程未必直接写成\(y=f(x)\)，但若在所考察的位置附近，它已经确定了一个可导函数，就可以把\(y\)看成\(x\)的函数，对等式两侧求导。
+
+例如，圆\(x^2+y^2=R^2\)在\(y\ne0\)的点附近，可由\(y=\pm\sqrt{R^2-x^2}\)确定相应的可导分支。沿这个分支求导，
+\begin{equation*}
+ 2x+2yy'=0,\qquad y'=-\frac xy.
+\end{equation*}
+求导时，\((y^2)'=2yy'\)，已经使用了链式法则。
+
+同样，椭圆\(x^2/a^2+y^2/b^2=1\)在\(y\ne0\)处有
+\begin{equation*}
+ \frac x{a^2}+\frac y{b^2}y'=0.
+\end{equation*}
+代入切线方程并利用切点在椭圆上，就还原第四章的\(x_0x/a^2+y_0y/b^2=1\)。这里先由显式分支确认局部可导性，再利用原方程简化计算。
+
+\begin{example}
+在双曲线\(x^2/4-y^2=1\)的点\((2\sqrt2,1)\)附近求\(dy/dx\)，并确定该点处的切线。再用\(y\)作为自变量，说明圆在\((R,0)\)处的切线方向。
+\end{example}
+
+\subsection{参数方程求导}
+
+设\(x=\varphi(t)\)、\(y=\psi(t)\)，两个函数在\(t_0\)附近可导，且\(\varphi\)有连续的局部反函数。当\(\varphi'(t_0)\ne0\)时，链式法则与反函数公式给出
+\begin{equation*}
+ \left.\frac{dy}{dx}\right|_{t=t_0}=\frac{\psi'(t_0)}{\varphi'(t_0)}.
+\end{equation*}
+若坐标导数连续且\(\varphi'(t_0)\ne0\)，则它在附近同号，后面的单调性判据保证所需的局部反函数存在。
+
+坐标的一次近似表明，非零向量\((\varphi'(t_0),\psi'(t_0))\)给出切线方向，也适用于斜率不存在的位置。例如，椭圆\(x=a\cos t\)、\(y=b\sin t\)的切向量为\((-a\sin t,b\cos t)\)。
+
+\begin{example}
+用参数求导求上述椭圆在\(t=\pi/4\)和\(t=0\)处的切线。再将参数换为\(t=2s\)，比较对应位置的切向量与切线。
+\end{example}
+
+\subsection{求导方法整理}
+
+求导先识别函数结构：四则运算用相应法则，复合用链式法则，反函数在对应点使用倒数关系。隐式关系和参数表示的计算也以这些法则为依据。
+
+同一个函数的不同表达式，可能对应不同的计算次序。例如，\(\ln\sqrt{1+x^2}\)可以逐层使用链式法则，也可以先利用对数性质化简。选择表达式时，应让各层运算更清楚；计算完成后，还可以用另一种表示核对结果。
+
+设\(u(x)>0\)，对函数\(y=u(x)^{v(x)}\)取对数可得\(\ln y=v\ln u\)，因此
+\begin{equation*}
+ y'=u^v\left(v'\ln u+v\frac{u'}u\right).
+\end{equation*}
+这种先取对数再求导的方法，称为{\heiti{}对数求导法}。它也适合整理若干正因子的乘积。
+
+\begin{exercise}[本节习题]
+\mbox{}\par\nobreak
+
+（1）求导：\(x^2e^{-x}\)，\(\sin(x^2)\)，\(\sin^2x\)，\(\ln(\ln x)\)，\(\arctan\sqrt x\)。
+
+（2）设\(y=(1+x^2)^{\sin x}\)，用指数表示和对数求导两种方法求导。
+
+（3）设\(f\)可导，求\(f(x^2+1)\)及\([f(x)]^2\)的导数。两式中的\(f'\)分别在哪里取值？
+
+（4）设\(f(1)=2\)、\(f'(1)=3\)，且\(f\)在\(1\)附近有可导反函数\(g\)。求\(g'(2)\)及\(\left.\frac d{dx}g(x^2+1)\right|_{x=1}\)。
+
+（5）参数曲线\(x=t^2\)、\(y=t^3\)在\(t=1\)处的切线是什么？在\(t=0\)处，坐标导数同时为零，此时能否仍由割线极限判断切线？
+
+（6）设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x^2\sin(1/x)\)。求\(f'\)，并判断\(f'\)在原点是否连续。
+
+（7）（2013年广东卷理科第10题）若曲线\(y=kx+\ln x\)在点\((1,k)\)处的切线平行于\(x\)轴，求\(k\)。
+
+（8）（2024年全国甲卷文科第7题改编）设\(f(x)=(e^x+2\sin x)/(1+x^2)\)。求曲线\(y=f(x)\)在点\((0,1)\)处的切线与两坐标轴所围成的三角形面积。
+
+（9）（2024年新课标I卷第13题）若曲线\(y=e^x+x\)在点\((0,1)\)处的切线也是曲线\(y=\ln(x+1)+a\)的切线，求\(a\)。
+
+（10）设\(y=x^2\sqrt{1+x^2}/(1+x)^3\)，\(x>0\)。用对数求导法求\(y'/y\)，再求\(y'(1)\)。比较这种方法与直接使用乘积、商法则的计算。
+
+（11）由双曲函数的指数表达式求\((\tanh x)'\)、\((\coth x)'\)。再对恒等式\(\cosh^2x-\sinh^2x=1\)求导，核对\(\sinh x\)、\(\cosh x\)的导数公式。
+
+（12）（2012年新课标卷文科第13题）求曲线\(y=x(3\ln x+1)\)在点\((1,1)\)处的切线方程。
+
+（13）（2013年福建卷理科第17题第（1）问）设\(f(x)=x-2\ln x\)，求曲线在\((1,f(1))\)处的切线方程。
+
+（14）（2013年新课标I卷理科第21题第（1）问）设\(f(x)=x^2+ax+b\)、\(g(x)=e^x(cx+d)\)。两曲线都过\(P=(0,2)\)，且在该点有相同的切线\(y=4x+2\)，求\(a,b,c,d\)。
+
+（15）由\(x^2+xy+y^2=3\)确定经过\((1,1)\)的局部可导曲线，求该点处的切线与法线。再用隐式求导计算椭圆\(x^2/a^2+y^2/b^2=1\)在\(y\ne0\)处的斜率，与参数求导核对。
+
+（16）设可导函数\(f\)满足\(f(2x)=2f(x)\)，对等式求导。再设\(f\)在零点可导，利用\(f(x)=2^nf(x/2^n)\)证明\(f(x)=f'(0)x\)。
+\end{exercise}
+\endgroup
+
+\FloatBarrier
+\newpage
+\subsection{线性主部的运算*}
+
+设\(g\)在\(x_0\)处的线性主部为\(L_g(h)=g'(x_0)h\)，\(f\)在\(u_0=g(x_0)\)处的线性主部为\(L_f(k)=f'(u_0)k\)。链式法则说明
+\begin{equation*}
+ L_{f\circ g}=L_f\circ L_g.
+\end{equation*}
+导数的乘积，是两个一维线性映射复合后的系数。用微分写\(dy=f'(u)\,du\)，正是在中间增量上先作用\(L_g\)，再作用\(L_f\)；一阶微分形式不变性也就获得线性映射复合的解释。
+
+若\(f'(x_0)\ne0\)，则\(L_f\)可逆。反函数求导公式相应地写成
+\begin{equation*}
+ L_{f^{-1}}=(L_f)^{-1},
+\end{equation*}
+两边都在对应基点处理解。求导法则把函数的局部运算送到了线性映射的运算中，而函数本身仍可以是非线性的。
+
+这个结构还说明，求导时引入中间变量不会改变最终的线性主部，但各主部必须在正确的基点复合。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设\(f(u)=u^2\)、\(g(x)=1+x^3\)。分别求\(g\)在\(1\)处、\(f\)在\(g(1)\)处的线性主部，再复合得到\(f\circ g\)在\(1\)处的线性主部。
+
+（2）设平面可逆线性变换\(A\)作用在参数曲线\(r(t)\)上。由一次近似证明，像曲线的切向量为\(Ar'(t)\)，并与第四章仿射变换保持切线的结论联系起来。
+
+（3）设\(f(a)=a\)、\(f'(a)=\lambda\)，记\(F_n\)为\(f\)与自身复合\(n\)次所得的函数。求\(F_n\)在\(a\)处的线性主部，并说明不动点条件在复合中的作用。
+
+（4）设\(f(a)=a\)、\(f'(a)\ne0\)，且\(f\)在\(a\)附近有可导反函数\(g\)。用线性主部的加法与求逆证明\(|(f+g)'(a)|\ge2\)，并确定等号成立的条件。
+\end{exercise}

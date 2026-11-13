@@ -1,0 +1,246 @@
+\FloatBarrier
+\newpage
+\section{导数}
+\label{sec:calculus-derivatives}
+
+\begingroup
+\setlength{\parskip}{5pt}
+
+\subsection{平均变化率}
+
+设自变量由\(x_0\)变到\(x_0+h\)。相应的自变量增量与函数增量分别为
+\begin{equation*}
+ \Delta x=h,\qquad \Delta y=f(x_0+h)-f(x_0).
+\end{equation*}
+当\(h\ne0\)时，称
+\begin{equation}\label{eq:calculus-average-rate}
+ \frac{\Delta y}{\Delta x}=\frac{f(x_0+h)-f(x_0)}h
+\end{equation}
+为这一段上的{\heiti{}平均变化率}。在函数图像上，它是两点\((x_0,f(x_0))\)、\((x_0+h,f(x_0+h))\)所确定割线的斜率；当\(f\)表示位置、\(x\)表示时间时，它就是平均速度。
+
+例如，\(f(x)=x^2\)时，
+\begin{equation*}
+ \frac{(x_0+h)^2-x_0^2}{h}=2x_0+h.
+\end{equation*}
+固定\(x_0\)，缩短所考察的范围，平均变化率就趋于\(2x_0\)；改变\(x_0\)，这个数也随之改变。前者是在一个位置附近确定变化率，后者则是比较不同位置处的变化。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.43\linewidth]{calculus-secants}
+\caption{固定点\(P\)，另一点沿曲线趋近它；割线斜率趋于切线\(\ell\)的斜率。}
+\label{fig:calculus-secants}
+\end{figure}
+
+\begin{example}
+某质点的位置为\(s(t)=t^2+2t\)。分别计算从\(t=1\)到\(t=1+h\)及从\(t=2\)到\(t=2+h\)的平均速度。令\(h\)分别取正数和负数，解释所比较的时间范围。
+\end{example}
+
+\subsection{一点处的导数}
+
+\begin{definition}
+设\(f\)在\(x_0\)附近有定义。若有限极限
+\begin{equation}\label{eq:calculus-derivative-definition}
+ f'(x_0)=\lim_{h\to0}\frac{f(x_0+h)-f(x_0)}h
+\end{equation}
+存在，则称\(f\)在\(x_0\)处{\heiti{}可导}，这个极限称为\(f\)在该点的{\heiti{}导数}。
+\end{definition}
+
+令\(x=x_0+h\)，定义也可以写为
+\begin{equation*}
+ f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}.
+\end{equation*}
+这里始终固定\(x_0\)，让另一个点向它靠近。瞬时速度由这样的极限给出；它的确定并不需要令时间增量等于零。
+
+只取\(h\to0^-\)或\(h\to0^+\)，分别得到左导数与右导数。函数在内点可导，当且仅当两者都存在且相等。区间端点处需要导数时，按相应的单侧导数理解。
+
+由定义直接得到，常值函数的导数为零，\(f(x)=kx+b\)在每一点的导数均为\(k\)，而\(f(x)=x^2\)在\(x_0\)处的导数为\(2x_0\)。对于\(f(x)=|x|\)，原点处的差商为\(|h|/h\)，左右极限分别为\(-1\)与\(1\)，所以它在原点不可导。
+
+\begin{example}
+用定义求\(f(x)=x^3\)在\(x_0\)处的导数。再设\(g(x)=\sqrt{x}\)，用有理化求\(g'(x_0)\)，其中\(x_0>0\)。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用定义求\(f(x)=1/x\)在\(x_0\ne0\)处的导数。
+
+（2）设\(f(x)=x|x|\)。判断它在原点是否可导，并与\(|x|\)比较。
+
+（3）设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x\sin(1/x)\)。判断\(f\)在原点是否连续、可导。
+\end{exercise}
+
+\subsection{可导函数的连续性}
+
+可导性研究的是函数增量与自变量增量的比。若这个比趋于有限的数，那么自变量增量趋零时，函数增量本身也必趋零。
+
+\begin{theorem}\label{thm:calculus-differentiable-continuous}
+若\(f\)在\(x_0\)处可导，则它在该点连续。
+\end{theorem}
+
+\begin{proof}
+当\(h\ne0\)时，
+\begin{equation*}
+ f(x_0+h)-f(x_0)=\frac{f(x_0+h)-f(x_0)}h\,h\longrightarrow f'(x_0)\cdot0=0.
+\end{equation*}
+因此\(f(x_0+h)\to f(x_0)\)。
+\end{proof}
+
+反过来，连续只要求函数增量趋零，并未规定它与\(h\)之间的比例。\(|x|\)在原点连续而不可导，就是一个例子。
+
+比较\(|x|\)、\(x\sin(1/x)\)与\(x^2\sin(1/x)\)，后两者在原点补定义为零。三者都在原点连续，但差商分别为\(|h|/h\)、\(\sin(1/h)\)、\(h\sin(1/h)\)，只有最后一个趋于零。
+
+\subsection{导函数}
+
+\begin{definition}
+将\(f\)在各可导点处的导数与该点对应，得到的函数称为\(f\)的{\heiti{}导函数}，记为\(f'\)。其定义域是\(f\)所有可导点组成的集合。
+\end{definition}
+
+例如，\(f(x)=x^2\)的导函数为\(f'(x)=2x\)。原函数的图像是一条抛物线，导函数的图像则是一条直线；后者的纵坐标记录前者在相应横坐标处的变化率。\(f'(1)=2\)是一个数，\(f'\)则是一个新的函数。
+
+若记\(y=f(x)\)，也常写
+\begin{equation*}
+ y'=f'(x)=\frac{dy}{dx},\qquad \frac{d}{dx}f(x)=f'(x).
+\end{equation*}
+其中\(d/dx\)表示对\(x\)求导。正的导数与函数上升、负的导数与函数下降之间的联系，可以从图像观察；要把这一观察推进为区间上的判据，还需要后面的中值定理。
+
+\begin{example}
+求\(f(x)=|x|\)的导函数及其定义域。已知某函数在\((-1,0)\)上导数为负、在\((0,1)\)上导数为正，试画出可能的原函数图像，并考虑\(x=0\)处的取值是否已被这些信息确定。
+\end{example}
+
+\subsection{切线}
+
+图像上经过\(P=(x_0,f(x_0))\)与\(Q=(x_0+h,f(x_0+h))\)的割线，可以取方向向量
+\begin{equation*}
+ \left(1,\frac{f(x_0+h)-f(x_0)}h\right).
+\end{equation*}
+若\(f\)在\(x_0\)处可导，割线方向趋于\((1,f'(x_0))\)，所以切线方程为
+\begin{equation}\label{eq:calculus-tangent}
+ y-f(x_0)=f'(x_0)(x-x_0).
+\end{equation}
+法线的方向向量可取\((-f'(x_0),1)\)，因而其方程可写为
+\begin{equation*}
+ (x-x_0)+f'(x_0)(y-f(x_0))=0.
+\end{equation*}
+切线由局部方向确定，不要求图像始终位于直线同一侧。例如，\(y=x^3\)在原点的切线为\(y=0\)，图像却穿过这条切线。
+
+\begin{example}
+用导数求抛物线\(y=x^2\)在\((1,1)\)处的切线和法线，并用第四章的方法核对。再求\(y=x^3\)在原点的切线。
+\end{example}
+
+\begin{example}[2012年广东卷理科第12题]
+\label{ex:calculus-gaokao-polynomial-tangent}
+求曲线\(y=x^3-x+3\)在点\((1,3)\)处的切线方程。用导数定义确定切线斜率。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）（2013年大纲卷文科第10题改编）曲线\(y=x^4+ax^2+1\)在点\((-1,a+2)\)处切线的斜率为\(8\)，求\(a\)。用差商极限完成计算。
+
+（2）（2012年安徽卷文科第17题第（2）问）设\(f(x)=ax+1/(ax)+b\)，\(a>0\)。若曲线\(y=f(x)\)在点\((1,f(1))\)处的切线方程为\(y=3x/2\)，求\(a,b\)。
+\end{exercise}
+
+\subsection{微分}
+\label{subsec:calculus-differential}
+
+平方函数的增量满足
+\begin{equation*}
+ (x_0+h)^2-x_0^2=2x_0h+h^2.
+\end{equation*}
+其中\(2x_0h\)关于\(h\)线性，而余下的\(h^2\)与\(h\)之比趋零。一般可导函数也有这种结构。
+
+\begin{proposition}\label{prop:calculus-first-order}
+函数\(f\)在\(x_0\)处可导，当且仅当存在常数\(a\)，使
+\begin{equation}\label{eq:calculus-first-order}
+ f(x_0+h)=f(x_0)+ah+r(h),\qquad \lim_{h\to0}\frac{r(h)}h=0.
+\end{equation}
+此时\(a=f'(x_0)\)。
+\end{proposition}
+
+\begin{proof}
+若可导，取\(a=f'(x_0)\)，将定义中的差商减去\(a\)，就得到\(r(h)/h\to0\)。反过来，将式\eqref{eq:calculus-first-order}减去\(f(x_0)\)并除以\(h\)，差商便趋于\(a\)。
+\end{proof}
+
+\begin{definition}
+对可导函数\(y=f(x)\)，称\(dx=\Delta x\)为自变量的微分，称函数增量的线性部分
+\begin{equation*}
+ dy=f'(x)\,dx
+\end{equation*}
+为函数在\(x\)处的{\heiti{}微分}。
+\end{definition}
+
+因此，一次近似为\(f(x+h)\approx f(x)+f'(x)h\)。\(\Delta y\)是实际增量，\(dy\)是线性近似，两者之差与\(\Delta x\)之比趋零。导数记号\(dy/dx\)也就与这个线性关系相容。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.47\linewidth]{calculus-differential}
+\caption{同一自变量增量下，\(\Delta y\)由曲线确定，\(dy\)由切线确定，两者之差为余项。}
+\label{fig:calculus-differential}
+\end{figure}
+
+例如，\(x=4\)时，\(\sqrt{x}\)的导数为\(1/4\)，于是
+\begin{equation*}
+ \sqrt{4+h}=2+\frac h4+r(h),\qquad \frac{r(h)}h\to0.
+\end{equation*}
+还可以由有理化直接检验误差：
+\begin{equation*}
+ \sqrt{4+h}-2-\frac h4=-\frac{h^2}{4(\sqrt{4+h}+2)^2}.
+\end{equation*}
+近似值的意义与误差的控制，在这里来自同一个增量表达式。
+
+一次近似也可以估计测量误差。正方形边长由\(a\)变为\(a+h\)，面积的实际增量为\(2ah+h^2\)，微分为\(2ah\)。当\(a>0\)固定、\(|h|\)很小时，面积的相对变化约为\(2h/a\)，是边长相对变化的两倍。
+
+若\(f'(x_0)=0\)，一次近似成为\(f(x_0+h)\approx f(x_0)\)。这表示增量比\(h\)更快趋零，并不表示函数在附近恒定。\(x^2\)与\(x^3\)在原点的线性部分都为零，实际增量却分别为\(h^2\)、\(h^3\)。要继续区分这些变化，后面需要更高阶的近似。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用微分近似计算\(\sqrt{4.04}\)，再用上式给出误差上界。
+
+（2）对\(f(x)=1/x\)，写出在\(x=1\)处的增量、微分及两者之差。
+
+（3）设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x^2\sin(1/x)\)。证明\(f\)在原点可导，并写出其在原点的一次近似。
+
+（4）设\(f(a)=2\)、\(f'(a)=3\)。分别写出\(f(a+2h)\)与\(f(a-h)\)在\(h\to0\)时的一次近似，并求\(\displaystyle\lim_{h\to0}\frac{f(a+2h)-f(a-h)}h\)。
+
+（5）圆的半径为\(r>0\)，测量误差为\(h\)。写出面积的实际增量与微分；若半径的相对误差不超过\(1\%\)，估计面积的相对误差，并给出由精确增量得到的上界。
+
+（6）设\(f\)在\(a\)处可导，证明\(\bigl(f(a+h)+f(a-h)-2f(a)\bigr)/h\to0\)。这一结论能否推出\(f\)在\(a\)附近为常值？
+
+（7）设\(x<0\)时\(f(x)=ax+b\)，\(x\ge0\)时\(f(x)=x^2\)。分别求\(f\)在原点连续、可导的条件，并用增量的线性部分解释所得结果。
+\end{exercise}
+
+\endgroup
+\FloatBarrier
+\newpage
+\subsection{局部线性模型*}
+\label{subsec:calculus-linear-model}
+
+第三章的线性映射要求保持加法与数乘。实数线上的线性映射必形如\(L(h)=ah\)：事实上，\(L(h)=hL(1)\)。于是式\eqref{eq:calculus-first-order}表明，可导性就是在基点附近存在一个线性映射，使函数增量与它之差相对于输入增量可以忽略。
+
+这个线性部分是唯一的。若\(L_1(h)=a_1h\)、\(L_2(h)=a_2h\)都满足该余项条件，相减再除以\(h\)，便有\(a_1-a_2=0\)。因此导数\(f'(x_0)\)是线性映射的系数，而微分是这个映射对给定增量的作用。
+
+切线对应的映射为
+\begin{equation*}
+ x\longmapsto f(x_0)+L(x-x_0).
+\end{equation*}
+它在基点和平移后的增量之间建立联系，具有仿射形式。线性主部描述变化，基点决定这段近似放在什么位置。
+
+对于参数曲线\(r(t)=(x(t),y(t))\)，若两个坐标函数在\(t_0\)可导，逐坐标使用一次近似就得到
+\begin{equation*}
+ r(t_0+h)=r(t_0)+h\bigl(x'(t_0),y'(t_0)\bigr)+R(h),\qquad
+ \frac{|R(h)|}{|h|}\to0.
+\end{equation*}
+这里的主部仍是线性映射，只是输出成为平面向量。曲线的切向量由此与实函数导数获得相同的局部解释。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(f(x)=x^3\)在\(x_0=1\)处的线性主部，并区分它与切线所给的仿射映射。
+
+（2）对\(r(t)=(t,t^2)\)，求\(t_0=1\)处的向量一次近似，直接检验余项条件。
+
+（3）回看例\ref{ex:calculus-gaokao-polynomial-tangent}，写出函数在\(x=1\)处的线性主部，并求原函数与切线在\(x=1+h\)处的高度差。当\(|h|\le1/10\)时，给出这个误差关于\(h^2\)的上界。
+
+（4）对参数曲线\(r(t)=(t^2,t^3)\)，分别求\(t_0=1\)与\(t_0=0\)处的线性主部。零点处的线性主部能否给出非零切向量？再由割线方向判断该处的切线。
+\end{exercise}

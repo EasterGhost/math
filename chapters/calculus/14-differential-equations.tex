@@ -1,0 +1,523 @@
+\FloatBarrier
+\newpage
+\section{微分方程}
+\label{sec:calculus-differential-equations}
+
+前面给定一个函数，研究它怎样变化；现在反过来，给定变化规律，寻找符合规律的函数。例如，已知一个种群的增长速度与当前数量成正比，能否确定数量随时间的变化？变化率与未知函数同时出现，就形成了新的方程。
+
+\subsection{微分方程}
+
+设\(y(t)\)表示时刻\(t\)的种群数量。若单位数量在单位时间内的增长率为常数\(k\)，则短时间内的增量近似为\(ky(t)\Delta t\)。将这一规律写成瞬时变化率，就是
+\begin{equation*}
+ y'(t)=ky(t).
+\end{equation*}
+方程中的未知对象是函数，等式同时约束它的取值与变化率。
+
+\begin{definition}
+含有未知函数及其导数的方程，称为{\heiti{}微分方程}。未知函数只有一个自变量时，称为{\heiti{}常微分方程}；方程中出现的最高阶导数的阶数，称为方程的{\heiti{}阶数}。
+\end{definition}
+
+先研究可以写成
+\begin{equation}\label{eq:calculus-ode-normal-form}
+ y'=F(t,y)
+\end{equation}
+的一阶方程，其中\(F\)是给定的连续函数。若可导函数\(y=y(t)\)在区间\(I\)上满足此等式，就称它为方程在\(I\)上的一个{\heiti{}解}。例如，\(y=Ce^{kt}\)对任意常数\(C\)都满足\(y'=ky\)，所以同一方程可以有一族解。
+
+实际问题通常还给出某一时刻的状态。方程连同条件\(y(t_0)=y_0\)，组成一个{\heiti{}初值问题}；\((t_0,y_0)\)称为初值。对于增长方程，初值确定\(C\)，得到
+\begin{equation*}
+ y(t)=y_0e^{k(t-t_0)}.
+\end{equation*}
+这确实给出了全部解：若\(y'=ky\)，则\((e^{-kt}y)'=0\)，由中值定理，\(e^{-kt}y\)在区间上为常数。
+
+还可以从图像理解式\eqref{eq:calculus-ode-normal-form}。若解的图像经过\((t,y)\)，该处切线斜率就必须是\(F(t,y)\)。因此即使暂时求不出表达式，也可以由\(F\)的符号判断解在哪里上升、在哪里下降。若常数\(c\)满足\(F(t,c)=0\)，则\(y(t)=c\)是一个常值解，也称为{\heiti{}平衡解}。
+
+\begin{example}
+验证\(y=t-1+Ce^{-t}\)满足\(y'=t-y\)，再求其中满足\(y(0)=2\)的解。根据方程判断解的图像在直线\(y=t\)的上、下方分别怎样变化。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）验证\(y=\tan(t+C)\)满足\(y'=1+y^2\)。求其中满足\(y(0)=0\)的解，并写出包含零点、使此解有定义的最大区间。
+
+（2）某种群满足\(P'=kP\)、\(P(0)=P_0>0\)，经过\(3\)个时间单位数量翻倍。求\(k\)，并求数量达到\(3P_0\)所需的时间。
+
+（3）对方程\(y'=y(2-y)\)，求平衡解，并按\(y\)的取值判断解的增减。若只知道\(y(0)=1\)，能否由当前斜率直接断定\(y(1)=2\)？
+\end{exercise}
+
+\subsection{可分离变量的方程}
+
+设\(a,b\)连续。若方程具有形式
+\begin{equation*}
+ y'=a(t)b(y),
+\end{equation*}
+就可以尝试将两种变量分别放入一个原函数。在\(b(y)\ne0\)的范围内，取\(H'(y)=1/b(y)\)、\(A'(t)=a(t)\)。链式法则给出
+\begin{equation*}
+ \frac{d}{dt}H(y(t))=\frac{y'(t)}{b(y(t))}=a(t),
+ \qquad H(y(t))=A(t)+C.
+\end{equation*}
+这样就把微分方程转化为\(y\)与\(t\)的关系。计算时常简记为
+\begin{equation}\label{eq:calculus-ode-separation}
+ \frac{dy}{b(y)}=a(t)\,dt,
+ \qquad \int\frac{dy}{b(y)}=\int a(t)\,dt.
+\end{equation}
+这称为{\heiti{}分离变量法}，其依据正是上面的复合函数求导。若\(b(c)=0\)，还应保留在相除前已经得到的平衡解\(y=c\)。
+
+例如，\(y'=ky\)在\(y\ne0\)时给出\(\ln|y|=kt+C\)，从而\(y=Ce^{kt}\)、\(C\ne0\)；补入平衡解\(y=0\)，就得到前面研究的整个解族。
+
+\paragraph{有限容量下的增长} \mbox{}
+
+当资源有限时，可以让单位数量的增长率随数量增加而降低。设\(K>0\)表示环境容量，取模型
+\begin{equation}\label{eq:calculus-logistic-equation}
+ y'=ky\left(1-\frac yK\right),\qquad k>0.
+\end{equation}
+当\(0<y<K\)时增长，接近\(K\)时增长率趋小；\(y=0\)与\(y=K\)是平衡解。
+
+设初值为\(y(0)=y_0\)、\(0<y_0<K\)。在\(0<y<K\)内分离变量，利用
+\begin{equation*}
+ \frac1{y(1-y/K)}=\frac1y+\frac1{K-y},
+\end{equation*}
+得到\(\ln\frac{y}{K-y}=kt+C\)。代入初值并整理，便得
+\begin{equation}\label{eq:calculus-logistic-solution}
+ y(t)=\frac{K}{1+(K/y_0-1)e^{-kt}}.
+\end{equation}
+这个函数始终位于\(0\)与\(K\)之间，代回可验证它满足原方程。对\(t\ge0\)，它单调增加并趋于\(K\)。与指数增长相比，变化规律中的容量限制决定了长期行为。
+
+\begin{example}
+环境温度恒为\(20\)，物体温度\(T\)满足\(T'=-k(T-20)\)、\(k>0\)。已知\(T(0)=80\)、\(T(10)=50\)，求温度函数及降到\(35\)所需的时间，并解释它为什么持续下降却不会在有限时间内达到环境温度。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求初值问题\(y'=2t(1+y^2)\)、\(y(0)=0\)的解，并确定包含零点的最大解区间。
+
+（2）求\(y'=y^2\)、\(y(0)=1\)的解及包含零点的最大解区间。再求平衡解，比较它们随时间的变化。
+
+（3）设\(y\)由式\eqref{eq:calculus-logistic-solution}给出。求\(y''\)，判断增长速度在哪个数量水平最大，并讨论图像的凸性。
+
+（4）对\(y'=ky(1-y/K)\)，设\(K/2<y_0<K\)。求达到\((y_0+K)/2\)所需的时间，再与从\(y_0\)增长到\(2y_0\)的要求比较，说明容量限制的作用。
+\end{exercise}
+
+\subsection{一阶线性微分方程}
+
+若未知函数及其一阶导数以一次形式出现，整理为
+\begin{equation}\label{eq:calculus-linear-ode}
+ y'+p(t)y=q(t),
+\end{equation}
+就得到{\heiti{}一阶线性微分方程}。以下设\(p,q\)在所讨论的区间连续。
+
+分离变量适合将变量拆开；这里可以利用另一条已有结构：乘积求导。若能找到函数\(\mu\)，使
+\begin{equation*}
+ (\mu y)'=\mu y'+\mu' y=\mu(y'+py),
+\end{equation*}
+原方程就可以化为一个乘积的导数。比较系数，只须令\(\mu'=p\mu\)。固定区间内的\(t_0\)，取
+\begin{equation*}
+ P(t)=\int_{t_0}^t p(s)\,ds,\qquad \mu(t)=e^{P(t)},
+\end{equation*}
+便有\(\mu'=p\mu\)、\(\mu(t_0)=1\)。\(\mu\)称为{\heiti{}积分因子}。
+
+两边乘以\(\mu\)，方程化为\((\mu y)'=\mu q\)。从\(t_0\)积分到\(t\)，再用初值\(y(t_0)=y_0\)，得到
+\begin{equation}\label{eq:calculus-linear-ode-solution}
+ y(t)=e^{-P(t)}\left(y_0+\int_{t_0}^t e^{P(s)}q(s)\,ds\right).
+\end{equation}
+右端是已知函数，求导即可验证它满足方程与初值；反过来，任何解都必须满足刚才的积分等式。因此这个初值问题在该区间上恰有一个解。
+
+例如，\(y'+ky=r\)、\(k>0\)，其中\(r\)为常数，取\(t_0=0\)，公式给出
+\begin{equation*}
+ y(t)=\frac rk+\left(y_0-\frac rk\right)e^{-kt}.
+\end{equation*}
+平衡值\(r/k\)由持续补充与按比例减少相抵消得到，初值决定偏离平衡值的幅度。令\(z=y-r/k\)，又回到\(z'=-kz\)。
+
+将右端置零所得的方程称为{\heiti{}齐次方程}。若\(y_1,y_2\)满足原方程，则差\(z=y_1-y_2\)满足\(z'+pz=0\)，从而\(z=Ce^{-P}\)。因此其他解都由一个给定解加上齐次解得到；相同初值使差中的常数为零。
+
+\begin{example}
+容器内原有\(100\)升清水，每分钟流入\(2\)升浓度为\(3\)克/升的盐水，同时流出\(2\)升充分混合的溶液。设\(m(t)\)为\(t\)分钟后的盐量，建立初值问题，求\(m(t)\)，并判断盐量是否能在有限时间内达到\(300\)克。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(y'+2y=e^t\)、\(y(0)=0\)的解。
+
+（2）求\(ty'+y=t^2\)、\(y(1)=0\)在\(t>0\)上的解，比较直接辨认乘积导数与使用积分因子的计算。
+
+（3）求\(y'-2ty=2t\)、\(y(0)=1\)的解，并研究它的最小值及图像的对称性。
+
+（4）设\(p,q\)在\([0,T]\)上连续，且\(q\ge0\)。利用式\eqref{eq:calculus-linear-ode-solution}证明，\(y_0\ge0\)时，解在整个区间上非负；若\(y_0>0\)，则始终为正。
+
+（5）设\(f\)连续且满足\(f(x)=1+\int_0^x(2t-f(t))\,dt\)。求\(f\)、它在\([0,2]\)上的最小值及\(\int_0^2 f(x)\,dx\)。从原式说明\(f\)为什么可导。
+\end{exercise}
+
+\begingroup
+\subsection{二阶常系数线性微分方程}
+\label{subsec:calculus-second-order-ode}
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+
+速度的变化率是加速度。若物体偏离平衡位置的位移为\(y\)，质量为\(m\)，回复力为\(-ky\)，则运动规律给出\(my''=-ky\)。这里除了初始位置，还要给出初始速度，才能描述物体从怎样的状态开始运动。
+
+将这类关系推广，考虑
+\begin{equation}\label{eq:calculus-second-order-ode}
+ y''+ay'+by=f(t),
+\end{equation}
+其中\(a,b\)为实常数，\(f\)连续。这称为{\heiti{}二阶常系数线性微分方程}。它的解是满足等式的二阶连续可导函数；相应的初始条件为\(y(t_0)=y_0\)、\(y'(t_0)=v_0\)。先研究\(f=0\)的{\heiti{}齐次方程}。
+
+\paragraph{特征方程} \mbox{}
+
+指数函数求导后只改变常数因子，因此尝试\(y=e^{rt}\)。代入齐次方程，得到
+\begin{equation}\label{eq:calculus-ode-characteristic}
+ r^2+ar+b=0.
+\end{equation}
+它称为原方程的{\heiti{}特征方程}。根的类型将决定解的形式。记\(\Delta=a^2-4b\)，令\(y=e^{-at/2}u\)，直接求导可将齐次方程化为
+\begin{equation*}
+ u''-\frac\Delta4u=0.
+\end{equation*}
+下面分别求出三种情形的全部解，即{\heiti{}通解}。
+
+1°\(\Delta>0\)。令\(\beta=\sqrt\Delta/2\)，则\(u''-\beta^2u=0\)。置\(z=u'-\beta u\)，有\(z'=-\beta z\)。先求\(z\)，再解\(u'-\beta u=z\)，得到\(u=C_1e^{\beta t}+C_2e^{-\beta t}\)。所以，若特征方程有不同实根\(r_1,r_2\)，通解为
+\begin{equation*}
+ y=C_1e^{r_1t}+C_2e^{r_2t}.
+\end{equation*}
+
+2°\(\Delta=0\)。此时\(u''=0\)，故\(u=C_1+C_2t\)。特征方程有重根\(r=-a/2\)，通解为
+\begin{equation*}
+ y=(C_1+C_2t)e^{rt}.
+\end{equation*}
+重根时，\(te^{rt}\)提供了另一个解。
+
+3°\(\Delta<0\)。记\(\alpha=-a/2\)、\(\beta=\sqrt{-\Delta}/2\)，则\(u''+\beta^2u=0\)。正弦、余弦满足此式，给出
+\begin{equation*}
+ y=e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t).
+\end{equation*}
+这已经包含全部解。事实上，任给\(u''+\beta^2u=0\)的解，选取正弦、余弦的组合与它具有相同的初始值和初始导数。两者之差\(w\)满足\(w''+\beta^2w=0\)，且初始值与初始导数都为零。由于
+\begin{equation*}
+ \frac{d}{dt}\bigl((w')^2+\beta^2w^2\bigr)=2w'(w''+\beta^2w)=0,
+\end{equation*}
+括号内恒为零，故\(w=0\)。特征方程的共轭复根\(\alpha\pm i\beta\)中，实部决定指数因子，虚部的绝对值决定振荡部分的周期\(2\pi/\beta\)。
+
+上述三种通解各含两个任意常数。代入\(y(t_0)=y_0\)、\(y'(t_0)=v_0\)，所得两个线性方程都能唯一确定这两个常数，因而齐次初值问题有唯一解。
+
+例如，\(y''+\omega^2y=0\)、\(\omega>0\)，在\(y(0)=y_0\)、\(y'(0)=v_0\)下的解为
+\begin{equation*}
+ y(t)=y_0\cos\omega t+\frac{v_0}{\omega}\sin\omega t.
+\end{equation*}
+由三角函数的合成可知它作周期运动；初始位置与速度共同决定振幅和相位。加入\(ay'\)、\(a>0\)后，若仍有共轭复根，则指数因子\(e^{-at/2}\)使振幅随时间衰减。
+
+\begin{example}
+分别求下列初值问题的解，比较特征根与图像变化的关系：
+\begin{equation*}
+ \begin{aligned}
+ &y''-3y'+2y=0,&&y(0)=1,\quad y'(0)=0;\\
+ &y''+2y'+y=0,&&y(0)=0,\quad y'(0)=1;\\
+ &y''+2y'+5y=0,&&y(0)=1,\quad y'(0)=-1.
+ \end{aligned}
+\end{equation*}
+\end{example}
+
+\paragraph{非齐次方程} \mbox{}
+
+若已经找到式\eqref{eq:calculus-second-order-ode}的一个解\(y_p\)，则任意其他解与\(y_p\)之差都满足齐次方程。反过来，将\(y_p\)与任意齐次解相加，仍满足原方程。因此非齐次方程的通解为
+\begin{equation*}
+ y=y_p+y_h,
+\end{equation*}
+其中\(y_h\)为齐次通解，\(y_p\)称为一个{\heiti{}特解}。加上初始条件后，两个常数仍由函数值与导数唯一确定。
+
+寻找特解时，可以利用求导后表达式的结构。例如，右端为\(Ae^{\lambda t}\)时，先尝试\(y_p=Be^{\lambda t}\)。若\(\lambda^2+a\lambda+b\ne0\)，代入便得\(B=A/(\lambda^2+a\lambda+b)\)。右端为多项式或正弦、余弦时，也可以先设同类表达式，再代入比较系数。
+
+若试设的表达式已经是齐次解，代入后左端恒为零，就需要改变试设。例如，对
+\begin{equation*}
+ y''-3y'+2y=e^t,
+\end{equation*}
+\(Be^t\)不能产生右端，但代入\(Bte^t\)后左端为\(-Be^t\)，从而可取\(y_p=-te^t\)。特解提供方程要求的变化，齐次解则保留调节初始状态的自由。
+
+\begin{example}
+求\(y''+y=\sin t\)、\(y(0)=y'(0)=0\)的解。先尝试\(y_p=A\cos t+B\sin t\)，再尝试\(y_p=Ct\cos t\)，比较两次代入的结果，并判断解在\(t\ge0\)时是否有界。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）分别求\(y''-4y=0\)、\(y''-4y'+4y=0\)、\(y''+4y=0\)的通解，说明它们的特征根怎样决定解的形式。
+
+（2）求\(y''+4y=0\)、\(y(0)=1\)、\(y'(0)=2\)的解、振幅及最小正周期。证明\((y')^2+4y^2\)为常数，并由它核对振幅。
+
+（3）求\(y''+3y'+2y=2\)、\(y(0)=y'(0)=0\)的解，研究它在\(t\ge0\)上的增减与极限。
+
+（4）分别为\(y''-y=t\)与\(y''-y=e^t\)寻找特解，再写出通解。比较两题中选择试设表达式的依据。
+
+（5）求\(y''-2y'+y=e^t\)的通解。比较试设\(Be^t\)、\(Bte^t\)、\(Bt^2e^t\)时的结果，说明重根怎样影响特解的选择。
+\end{exercise}
+
+\subsection{Euler方法}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+
+解的表达式不易求出时，还可以从初值逐步计算。设\(y'=F(t,y)\)、\(y(t_0)=y_0\)。在\(t_0\)附近，局部一次近似为
+\begin{equation*}
+ y(t_0+h)\approx y_0+hF(t_0,y_0).
+\end{equation*}
+将这个近似值作为下一步的起点，再按该处的斜率前进，就得到递推
+\begin{equation}\label{eq:calculus-euler-method}
+ t_n=t_0+nh,\qquad y_{n+1}=y_n+hF(t_n,y_n),\qquad h>0.
+\end{equation}
+它称为{\heiti{}Euler方法}，\(h\)称为步长。将相邻点\((t_n,y_n)\)用线段相连，便得到近似解的折线。每段斜率由起点处的方程给出，计算本身只需反复代入已知函数\(F\)。
+
+对二阶方程\(y''+ay'+by=f(t)\)，引入速度\(v=y'\)，就得到\(y'=v\)、\(v'=f(t)-av-by\)。以\(Y_n,V_n\)近似位置与速度，分别使用一次近似，得到同时更新的递推
+\begin{equation*}
+ Y_{n+1}=Y_n+hV_n,\qquad
+ V_{n+1}=V_n+h\bigl(f(t_n)-aV_n-bY_n\bigr).
+\end{equation*}
+两个新值都由第\(n\)步的状态计算，初始位置与初始速度共同确定整个递推。
+
+例如，对\(y'=y\)、\(y(0)=1\)，有\(y_{n+1}=(1+h)y_n\)，所以\(y_n=(1+h)^n\)。若把\([0,T]\)分成\(N\)段，终点近似为
+\begin{equation*}
+ y_N=\left(1+\frac TN\right)^N.
+\end{equation*}
+当\(T=1\)时，这正是第一章引入\(e\)的数列。这里它来自用递推近似连续增长：每一步按当前数量增长，再以更新后的数量继续计算。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.76\linewidth]{calculus-euler-method}
+\caption{对\(y'=y\)、\(y(0)=1\)作Euler折线。蓝线为精确解\(e^t\)，橙线分别取步长\(1/2\)与\(1/4\)。}
+\label{fig:calculus-euler-method}
+\end{figure}
+
+这个例子的误差可以直接估计。由
+\begin{equation*}
+ 0\le u-\ln(1+u)=\int_0^u\frac{s}{1+s}\,ds\le\frac{u^2}2
+ \qquad(u\ge0),
+\end{equation*}
+得到\(0\le T-N\ln(1+T/N)\le T^2/(2N)\)。再用\(1-e^{-v}\le v\)、\(v\ge0\)，可得
+\begin{equation*}
+ 0\le e^T-\left(1+\frac TN\right)^N\le\frac{e^TT^2}{2N}.
+\end{equation*}
+因此固定终点、不断缩短步长时，近似值趋于精确值。对一般方程，也需要同时控制每步产生的误差和已有误差在后续计算中的传播。
+
+\begin{example}
+\label{ex:calculus-euler-values}
+用Euler方法近似\(y'=t-y\)、\(y(0)=1\)在\(t=1\)处的解，分别取\(h=1/2\)与\(h=1/4\)。再求精确解，比较误差，并画出两条近似折线。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对\(y'=y\)、\(y(0)=1\)，计算\(h=1,1/2,1/4\)时在\(t=1\)处的近似值。利用\(e^t\)的凸性解释折线为什么位于精确解下方。
+
+（2）设\(y'=-ky\)、\(y(0)=1\)、\(k>0\)。写出Euler递推的通项，求使所有近似值非负且单调不增的步长范围。再比较\(h=1/(2k)\)与\(h=3/(2k)\)时的变化。
+
+（3）对\(y'=1+t^2\)、\(y(0)=0\)，把\([0,1]\)等分为\(N\)段。写出终点近似值，说明它与左端点矩形求积的关系，并估计误差。
+
+（4）对\(y''+y=0\)、\(y(0)=1\)、\(y'(0)=0\)使用上述递推。证明\(Y_n^2+V_n^2=(1+h^2)^n\)，并与精确解的\(y^2+(y')^2=1\)比较。
+\end{exercise}
+\endgroup
+
+\FloatBarrier
+\newpage
+\begingroup
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+\subsection{线性微分算子*}
+\label{subsec:calculus-linear-differential-operators}
+
+\paragraph{一阶方程的算子表示} \mbox{}
+
+第\ref{sec:calculus-function-spaces}节把求导与积分看作作用在函数空间上的运算。现在取连续函数\(p\)，定义乘法算子\(M_p:C[a,b]\to C[a,b]\)、\((M_pu)(t)=p(t)u(t)\)。将\(D\)与限制在\(C^1[a,b]\)上的\(M_p\)相加，就得到线性算子
+\begin{equation*}
+ L=D+M_p,\qquad Lu=u'+pu.
+\end{equation*}
+一阶线性方程就是\(Ly=q\)，相应的齐次方程\(Ly=0\)研究\(L\)的核。由前面的解法，固定\(t_0\in[a,b]\)，记\(P(t)=\int_{t_0}^t p(s)\,ds\)，则
+\begin{equation*}
+ \ker L=\{Ce^{-P}:C\in\mathbb R\}.
+\end{equation*}
+因此只要找到一个解\(y_*\)，全部解便构成\(y_*+\ker L\)。初值\(y(t_0)=y_0\)从中确定唯一的一个函数。
+
+积分因子也有相应的运算解释。乘积法则表明
+\begin{equation*}
+ Lu=e^{-P}D(e^Pu).
+\end{equation*}
+先乘以\(e^P\)，再求导，最后乘以\(e^{-P}\)，就得到\(L\)。求解\(Ly=q\)因而可以依次化为乘法、求原函数和确定初值。若限制输入为
+\begin{equation*}
+ C^1_{t_0}=\{u\in C^1[a,b]:u(t_0)=0\},
+\end{equation*}
+则\(L:C^1_{t_0}\to C[a,b]\)为双射，其逆由式\eqref{eq:calculus-linear-ode-solution}取\(y_0=0\)给出。第5.11节对求导算子的讨论，正对应这里\(p=0\)的情形。
+
+\paragraph{二阶方程的算子分解} \mbox{}
+
+记\(C^2[a,b]\)为具有二阶连续导数的函数组成的线性空间。对实常数\(a_1,a_0\)，定义
+\begin{equation*}
+ L_2:C^2[a,b]\to C[a,b],\qquad L_2u=u''+a_1u'+a_0u.
+\end{equation*}
+以\(\mathrm{Id}\)表示恒等运算，将各项的结果都看作连续函数，就可以记为\(L_2=D^2+a_1D+a_0\mathrm{Id}\)。若特征方程有实根\(r_1,r_2\)，则
+\begin{equation*}
+ L_2=(D-r_1\mathrm{Id})(D-r_2\mathrm{Id}).
+\end{equation*}
+右侧先将\(C^2\)中的函数送入\(C^1\)，再送入\(C\)。这正对应先令\(z=y'-r_2y\)，再依次求解两个一阶方程。重根时两个因子相同，第二次求解产生\(te^{rt}\)。
+
+若根为\(\alpha\pm i\beta\)、\(\beta>0\)，则在实函数空间上仍可写成
+\begin{equation*}
+ L_2=(D-\alpha\mathrm{Id})^2+\beta^2\mathrm{Id},\qquad
+ L_2(e^{\alpha t}u)=e^{\alpha t}(u''+\beta^2u).
+\end{equation*}
+乘以指数函数将方程化为振荡方程，这就是前面实变量换元的算子解释。常系数使这些一阶因子的顺序可以交换；若把常数\(r\)换成可导函数\(p(t)\)，则乘积求导会多出\(p'u\)，分解必须据实际运算重新核对。
+
+第\ref{subsec:calculus-second-order-ode}小节的三种通解，分别给出\(\ker L_2\)的一组基：
+\begin{equation*}
+ \begin{aligned}
+ &e^{r_1t},\ e^{r_2t}&&\text{（不同实根）},\\
+ &e^{rt},\ te^{rt}&&\text{（重根）},\\
+ &e^{\alpha t}\cos\beta t,\ e^{\alpha t}\sin\beta t
+ &&\text{（共轭复根）}.
+ \end{aligned}
+\end{equation*}
+三种情形中的核都是二维实线性空间；若有一个特解\(y_p\)，方程\(L_2y=f\)的全部解就是\(y_p+\ker L_2\)。取初值的映射
+\begin{equation*}
+ \ker L_2\longrightarrow\mathbb R^2,\qquad
+ y\longmapsto\bigl(y(t_0),y'(t_0)\bigr)
+\end{equation*}
+是线性双射。两个初始数值因此与齐次解中的两个自由参数一一对应。
+
+\paragraph{零初值下的逆运算} \mbox{}
+
+\begingroup
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\setlength{\jot}{1pt}
+为使累积量一次求导无端点项、二次求导产生\(f(t)\)，取齐次解\(S\)满足\(S(0)=0\)、\(S'(0)=1\)。由三种根型，
+\begin{equation*}
+ S(t)=\begin{cases}
+ \dfrac{e^{r_1t}-e^{r_2t}}{r_1-r_2},&r_1\ne r_2\text{为实根},\\[3pt]
+ te^{rt},&r\text{为重根},\\[2pt]
+ e^{\alpha t}\dfrac{\sin\beta t}{\beta},&\alpha\pm i\beta\text{为共轭复根}.
+ \end{cases}
+\end{equation*}
+对连续函数\(f\)，按时间差累积：
+\begin{equation*}
+ (Gf)(t)=\int_{t_0}^t S(t-s)f(s)\,ds.
+\end{equation*}
+展开\(S(t-s)\)，由基本定理与乘积法则，得
+\begin{equation*}
+ \begin{aligned}
+ (Gf)'(t)&=\int_{t_0}^t S'(t-s)f(s)\,ds,\\
+ (Gf)''(t)&=f(t)+\int_{t_0}^t S''(t-s)f(s)\,ds.
+ \end{aligned}
+\end{equation*}
+\endgroup
+因此\(L_2Gf=f\)，且\((Gf)(t_0)=(Gf)'(t_0)=0\)。对振荡方程，\(S(t)=\sin(\omega t)/\omega\)，可用正弦的差角公式展开。
+
+于是，限制在
+\begin{equation*}
+ C^2_{t_0,0}=\{u\in C^2[a,b]:u(t_0)=u'(t_0)=0\}
+\end{equation*}
+之后，\(L_2:C^2_{t_0,0}\to C[a,b]\)与\(G\)互为逆映射。若初值为一般的\(y_0,v_0\)，再加上具有这两个初值的齐次解即可。这也证明连续右端下二阶常系数初值问题的存在与唯一。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）初始时刻取\(0\)。对\(L_2=(D-\mathrm{Id})^2\)，写出零初值下的逆运算\(G\)。利用分部积分证明\((Gf)(t)=e^tI^2(e^{-t}f(t))\)，其中\((Ig)(t)=\int_0^t g(s)\,ds\)。再取\(f(t)=e^t\)，核对重根情形的特解。
+
+（2）设\(p,q\)一阶连续可导。分别计算\((D-M_p)(D-M_q)u\)与\((D-M_q)(D-M_p)u\)，求它们的差，并判断这两个运算何时可以交换。
+
+（3）设\(\omega,\nu>0\)。用\(G\)求\(y''+\omega^2y=\sin\nu t\)、\(y(0)=y'(0)=0\)的解，比较\(\nu\ne\omega\)与\(\nu=\omega\)时解的有界性，解释相同频率的持续输入怎样改变运动。
+\end{exercise}
+
+\subsection{逐次逼近*}
+\label{subsec:calculus-successive-approximations}
+\begingroup
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+
+\paragraph{从微分关系到积分关系} \mbox{}
+
+前面的解法与近似都在研究同一个初值问题。现在把它整体地写成累积关系：若\(y'=F(t,y)\)、\(y(t_0)=y_0\)，由基本定理，
+\begin{equation}\label{eq:calculus-ode-integral-equation}
+ y(t)=y_0+\int_{t_0}^t F(s,y(s))\,ds.
+\end{equation}
+反过来，若连续函数\(y\)满足此式，由\(F\)连续，右侧可导，求导并代入\(t=t_0\)便得到原方程与初值。因此这两种表达等价。
+
+这里的被积函数仍然包含未知的\(y\)。可以先给出一个近似函数\(u\)，用它计算变化率，再积分得到新的函数：
+\begin{equation*}
+ (\mathcal Tu)(t)=y_0+\int_{t_0}^t F(s,u(s))\,ds.
+\end{equation*}
+在固定区间\([a,b]\)上，若\(F\)在\([a,b]\times\mathbb R\)连续，这就定义了从\(C[a,b]\)到自身的映射。在这一运算下保持不变的函数，即\(\mathcal Tu=u\)的{\heiti{}不动点}，正是初值问题的解。对于线性方程，\(F(t,u)=q(t)-p(t)u\)。以\(M_p\)记乘以\(p\)的运算，则
+\begin{equation*}
+ \mathcal Tu=y_0+I_{t_0}q-I_{t_0}M_pu,
+ \qquad (I_{t_0}f)(t)=\int_{t_0}^t f(s)\,ds.
+\end{equation*}
+它由线性积分运算和固定函数的相加组成。Euler方法逐个更新离散的函数值；这里则从一个近似函数出发，更新整个函数。
+
+\paragraph{从逐次积分到指数函数} \mbox{}
+
+对\(y'=y\)、\(y(0)=1\)，在固定的\([0,T]\)上取\(u_0(t)=1\)，并递推定义
+\begin{equation*}
+ u_{n+1}(t)=1+\int_0^t u_n(s)\,ds.
+\end{equation*}
+于是\(u_1=1+t\)、\(u_2=1+t+t^2/2\)，由归纳法易证
+\begin{equation*}
+ u_n(t)=\sum_{j=0}^n\frac{t^j}{j!}.
+\end{equation*}
+这些函数恰是\(e^t\)在零点的Taylor多项式。由Lagrange余项，
+\begin{equation*}
+ \max_{0\le t\le T}|e^t-u_n(t)|\le\frac{e^TT^{n+1}}{(n+1)!}\longrightarrow0.
+\end{equation*}
+因此它们在整个区间上一致逼近\(e^t\)。积分误差满足
+\begin{equation*}
+ \left|\int_0^t(u_n(s)-e^s)\,ds\right|
+ \le T\max_{0\le s\le T}|u_n(s)-e^s|,
+\end{equation*}
+可以在递推等式中取极限，得到\(e^t=1+\int_0^t e^s\,ds\)。有限次积分产生多项式，统一误差控制使它们的极限保留积分关系。
+
+\paragraph{初值与唯一性} \mbox{}
+
+若\(u,v\)都是上述积分方程的连续解，记\(\delta=\max_{[0,T]}|u-v|\)，则
+\begin{equation*}
+ |u(t)-v(t)|\le\int_0^t|u(s)-v(s)|\,ds.
+\end{equation*}
+先用\(|u-v|\le\delta\)得到\(|u(t)-v(t)|\le\delta t\)，再代回得到\(\delta t^2/2\)。由归纳法易证
+\begin{equation*}
+ |u(t)-v(t)|\le\frac{\delta t^n}{n!}\le\frac{\delta T^n}{n!}\qquad(n\ge1).
+\end{equation*}
+右端趋零，故\(u=v\)。这从积分关系证明了解的唯一性：初值相同，可能的差在反复累积估计下被压到零。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对\(y'=2ty\)、\(y(0)=1\)，从\(u_0=1\)出发作逐次积分。证明\(u_n(t)=\sum_{j=0}^nt^{2j}/j!\)，并在\([0,T]\)上给出它逼近精确解的统一误差界。
+
+（2）若连续函数\(F\)满足\(|F(t,u)-F(t,v)|\le L|u-v|\)，仿照正文的反复积分估计，证明\([0,T]\)上具有相同初值的两个解相同。指出每次积分怎样产生新的阶乘因子。
+
+\begin{samepage}
+（3）对\(y'=2\sqrt{|y|}\)、\(y(0)=0\)，验证任意\(c\ge0\)都给出一个解：\(t\le c\)时取零，\(t>c\)时取\((t-c)^2\)。若从零函数开始逐次积分，会得到哪个解？比较本题的\(F\)与第（2）题的条件。
+\end{samepage}
+\end{exercise}
+\endgroup
+
+\subsection{Euler方法的误差估计*}
+\label{subsec:calculus-euler-error}
+
+Euler方法每一步产生的近似误差，会随递推继续传播。下面分别控制这两部分误差。设精确解在\([t_0,T]\)上二阶连续可导，\(|y''|\le M\)，且对该区间内的每个\(t\)以及任意实数\(u,v\)，有
+\begin{equation*}
+ |F(t,u)-F(t,v)|\le L|u-v|,\qquad L>0.
+\end{equation*}
+令\(h=(T-t_0)/N\)，用\(Y_n\)表示Euler近似值，\(E_n=|y(t_n)-Y_n|\)。Taylor公式表明每一步从精确值出发造成的误差不超过\(Mh^2/2\)，因而
+\begin{equation*}
+ E_{n+1}\le(1+Lh)E_n+\frac M2h^2,\qquad E_0=0.
+\end{equation*}
+反复代入并求有限等比和，得到
+\begin{equation*}
+ E_n\le\frac{Mh}{2L}\bigl((1+Lh)^n-1\bigr)
+ \le\frac{Mh}{2L}\bigl(e^{L(T-t_0)}-1\bigr),\qquad 0\le n\le N.
+\end{equation*}
+固定区间后，误差至多为步长的一个常数倍。局部的二次误差经过许多步累积，成为整体的一次误差；控制增长因子，才能从局部近似得到整个区间上的结论。
+
+\begin{example}
+对\(y'=-y\)、\(y(0)=1\)，用上述估计确定一个步长，使\([0,1]\)上所有网格点的误差都小于\(10^{-2}\)。再由\(Y_n=(1-h)^n\)直接比较，判断一般误差界是否给出了必要的步长要求。
+\end{example}
+
+\begin{exercise}
+对例\ref{ex:calculus-euler-values}，用Euler误差估计选择步长，再与实际误差比较。
+\end{exercise}
+\endgroup

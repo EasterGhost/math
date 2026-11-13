@@ -1,0 +1,230 @@
+\FloatBarrier
+\newpage
+\section{定积分}
+\label{sec:calculus-integrals}
+
+导数研究一点附近的变化率。现在固定一段区间，研究各小段的贡献怎样合成一个总量。先把区间分成有限段，再使每段足够短，是建立这种累积运算的出发点。
+
+\subsection{从有限求和到累积}
+
+若质点在三个相邻时间段内的速度分别为\(v_1,v_2,v_3\)，持续时间分别为\(\Delta t_1,\Delta t_2,\Delta t_3\)，则总位移为
+\begin{equation*}
+ v_1\Delta t_1+v_2\Delta t_2+v_3\Delta t_3.
+\end{equation*}
+这里各项可以为负，正负表示位置变化的方向。若求路程，则应把各段速度换成速率\(|v_i|\)。
+
+速度连续变化时，可以先在每个短时间段内选取一个时刻，用该时刻的速度近似整段速度，仍得到同样形式的和式。分段越短，局部近似越准确；还需要判断不同的分段与取样，是否会给出同一个极限。
+
+曲边图形的面积也提出同一问题。以\(y=x\)在\([0,1]\)上与横轴围成的区域为例，将区间\(n\)等分，分别用每小段的左、右端点高度作矩形，得到
+\begin{equation*}
+ L_n=\frac1n\sum_{k=0}^{n-1}\frac kn=\frac{n-1}{2n},\qquad
+ U_n=\frac1n\sum_{k=1}^{n}\frac kn=\frac{n+1}{2n}.
+\end{equation*}
+两种近似之差为\(1/n\)，都趋于\(1/2\)。区域的面积被夹在两者之间，因而也被确定。一般累积量未必已有几何公式，但有限和式及其误差仍然可以研究。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.83\linewidth]{calculus-riemann-sums}
+\caption{在各小段内取样形成矩形和；分割加细后，矩形更贴近曲线。一般定义还要求结果不依赖分割与取样。}
+\label{fig:calculus-riemann-sums}
+\end{figure}
+
+\begin{example}
+某质点在\(0\le t<1\)时速度为\(2\)，在\(1\le t\le3\)时速度为\(-1\)。求总位移与总路程。再对速度\(v(t)=t\)、\(0\le t\le2\)，分别用四个等长时间段的左、右端点速度估计位移。
+\end{example}
+
+\subsection{定积分的定义}
+
+\begin{definition}
+设\(a<b\)。一组分点
+\begin{equation*}
+ P:\quad a=x_0<x_1<\cdots<x_n=b
+\end{equation*}
+称为\([a,b]\)的一个{\heiti{}分割}。记\(\Delta x_i=x_i-x_{i-1}\)，称\(\|P\|=\max_i\Delta x_i\)为分割的{\heiti{}最大子区间长度}。在每段中任选\(\xi_i\in[x_{i-1},x_i]\)，得到{\heiti{}Riemann和}
+\begin{equation*}
+ S(f;P,\xi)=\sum_{i=1}^n f(\xi_i)\Delta x_i.
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+设\(f\)在\([a,b]\)上有界。若存在实数\(J\)，使对任意\(\varepsilon>0\)，均有\(\delta>0\)，只要\(\|P\|<\delta\)，无论怎样选取分割及取样点，都有
+\begin{equation*}
+ |S(f;P,\xi)-J|<\varepsilon,
+\end{equation*}
+就称\(f\)在\([a,b]\)上{\heiti{}Riemann可积}，称\(J\)为\(f\)在该区间上的{\heiti{}定积分}，记为
+\begin{equation}\label{eq:calculus-riemann-definition}
+ \int_a^b f(x)\,dx=\lim_{\|P\|\to0}\sum_{i=1}^n f(\xi_i)\Delta x_i.
+\end{equation}
+\end{definition}
+
+最大子区间长度趋零，要求所有小段都变短，仅使分段数增加还不够。定义也要求全部足够细的取样和接近同一个数，仅算出一列等分和的极限，并未证明可积性。
+
+式\eqref{eq:calculus-riemann-definition}中的\(x\)是积分变量，可以换成\(t\)或其他记号；固定函数和上下限后，定积分是一个数。
+
+常值函数\(f(x)=c\)的任意取样和都是\(c(b-a)\)，所以积分等于这个数。对\(f(x)=x\)，注意到
+\begin{equation*}
+ \frac{b^2-a^2}{2}=\sum_{i=1}^n\frac{x_{i-1}+x_i}{2}\Delta x_i.
+\end{equation*}
+每个取样点与相应中点的距离不超过\(\Delta x_i/2\)，故
+\begin{equation*}
+ \left|S(f;P,\xi)-\frac{b^2-a^2}{2}\right|
+ \le\frac12\sum_i(\Delta x_i)^2
+ \le\frac{b-a}{2}\|P\|\longrightarrow0.
+\end{equation*}
+这证明了\(\int_a^b x\,dx=(b^2-a^2)/2\)，且结果不依赖分割和取样。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用定义求\(\int_a^b(kx+c)\,dx\)，并给出取样和误差关于\(\|P\|\)的界。
+
+（2）设分割\(P_n\)始终保留\([0,1/2]\)这一整段，只将\([1/2,1]\)不断细分。分段数趋于无穷时，\(\|P_n\|\)是否趋零？对\(f(x)=x\)，改变第一段的取样能否产生不消失的差异？
+
+（3）对\(f(x)=x^2\)，计算\([0,1]\)上等分分割的左右端点和及其极限。区分这个计算与证明一般定义所需完成的任务。
+\end{exercise}
+
+\subsection{可积函数类}
+
+定义给出了可积性的统一要求，还需要认识哪些函数满足它。以下记\(\mathcal R[a,b]\)为\([a,b]\)上全体Riemann可积函数组成的集合；连续函数是其中首先研究的一类。
+
+\begin{theorem}\label{thm:calculus-continuous-integrable}
+闭区间上的连续函数Riemann可积。
+\end{theorem}
+
+连续函数在每一点附近变化很小。要控制整段的取样和，还需要让所有小段的波动同时变小：若每段内最大值与最小值之差都不超过\(\eta\)，则同一分割的任意两个取样和相差不超过
+\begin{equation*}
+ \sum_{i=1}^n\eta\Delta x_i=\eta(b-a).
+\end{equation*}
+闭区间连续性保证，当各段都足够短时，可以得到这样的统一控制。再比较不同分割，就能建立同一个和式极限。完整证明在下一节用第二章的一致连续性完成；以下主讲内容直接使用本定理。
+
+定理保证了\(x^2\)、\(\sin x\)、\(e^{-x^2}\)等连续函数在任意有限闭区间上的积分存在，即使暂时没有算出其值，也可以研究其大小和性质。
+
+\begin{theorem}\label{thm:calculus-other-integrable-classes}
+在闭区间上，有界单调函数以及只有有限个间断点的有界函数都可积。
+\end{theorem}
+
+单调函数可以发生跳跃，但各段的上、下波动不能任意累积，因为它们受整个区间内总增量的控制。有限个间断点附近的函数值则未必接近，但可以将这些位置放进总长度很小的区间中，用有界性控制其贡献。这两种控制与连续函数的小段波动控制不同，证明统一放在下一节。
+
+有限分段连续且有界的函数属于后一类。定理的适用范围还更广：只要在有限个分点之外连续并保持有界，分点处甚至可以没有单侧极限。例如
+\begin{equation*}
+ f(x)=\begin{cases}\sin(1/x),&0<x\le1,\\0,&x=0\end{cases}
+\end{equation*}
+在零点附近不断振荡，却只有这一个间断点，因而在\([0,1]\)上可积。可积性要求累积误差能够控制，并不要求每一点附近都没有振荡。
+
+反过来，有界还不足以保证可积。考察\([0,1]\)上的函数
+\begin{equation*}
+ D(x)=\begin{cases}1,&x\in\mathbb Q,\\0,&x\notin\mathbb Q.\end{cases}
+\end{equation*}
+每个非零长度区间内都有有理数和无理数。因此同一分割上，全部选有理取样点的和为\(1\)，全部选无理取样点的和为\(0\)，无论分割多细都不能趋于同一个数。这个函数不Riemann可积。
+
+\begin{example}
+判断下列函数在\([0,1]\)上是否可积，并说明所用的函数类：\(|x-1/2|\)；在\(x<1/2\)时为\(0\)、其余位置为\(1\)的阶跃函数；在正半轴为\(\sin(1/x)\)、零点补零的函数。比较它们的连续性与可积性。
+\end{example}
+
+有限个间断点是一个充分条件，不是全部可积函数的共同限制。例如，令\(g(0)=0\)，并在\(1/(n+1)<x\le1/n\)时取\(g(x)=1/n\)。它在\([0,1]\)上有界且单调不减，在无穷多个分点处发生跳跃，仍由单调函数的可积性得到积分存在。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）画出上述\(g\)在\([1/4,1]\)上的图像，证明它单调不减，并判断在零点是否连续。
+
+（2）在\([0,1]\)上，令\(h(1/2)=1\)，其余位置\(h(x)=0\)。用取样和定义证明\(h\)可积且积分为零。
+
+（3）分别说明“连续”“只有有限个间断点”“单调”“有界”与Riemann可积之间已经建立的蕴含关系，指出哪些条件不能反过来推得。
+\end{exercise}
+
+\subsection{积分的基本性质}
+
+以下各式均在相应积分存在的范围内使用。由有限和式的加法、数乘及大小关系，取极限便得到积分的共同性质。
+
+\begin{theorem}\label{thm:calculus-integral-properties}
+若\(f,g\)在\([a,b]\)上可积，则对常数\(\alpha,\beta\)，有
+\begin{equation*}
+ \int_a^b(\alpha f+\beta g)=\alpha\int_a^b f+\beta\int_a^b g.
+\end{equation*}
+若\(f(x)\le g(x)\)，则\(\int_a^b f\le\int_a^b g\)。对\(a<c<b\)，积分还满足区间可加性：
+\begin{equation}\label{eq:calculus-integral-additivity}
+ \int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx.
+\end{equation}
+函数\(|f|\)也可积，且
+\begin{equation}\label{eq:calculus-integral-absolute-bound}
+ \left|\int_a^b f(x)\,dx\right|\le\int_a^b|f(x)|\,dx.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+线性性与保序性分别来自同一分割、同一取样下的和式运算。对于区间可加性，先将分割在\(c\)处分开，两部分的和分别趋于对应积分；若原分割没有\(c\)，插入它只影响包含\(c\)的一段，其误差受常数乘\(\|P\|\)控制，趋于零。此论证也说明，两侧分别可积的有界函数可以拼接为可积函数。\(|f|\)的可积性将在下一节由小段波动证明；再由\(-|f|\le f\le|f|\)得到绝对值估计。
+\end{proof}
+
+规定
+\begin{equation*}
+ \int_a^a f=0,\qquad \int_b^a f=-\int_a^b f.
+\end{equation*}
+这样式\eqref{eq:calculus-integral-additivity}对各端点的不同次序仍然成立。积分上下限的方向，与被积函数的正负共同决定累积的符号。
+
+改变有限个点的函数值不改变积分：这些点只影响有限个小区间，所对应的和式差随最大子区间长度趋零。因此，有限分段连续的有界函数也可逐段积分，分点处的取值不影响结果。
+
+若\(f\ge0\)，定积分给出图像与横轴之间的面积；若\(f\)有正有负，则积分是上方区域面积减去下方区域面积，几何总面积由\(\int_a^b|f|\)给出。
+
+\begin{example}
+不使用原函数，利用几何及区间可加性计算\(\int_{-1}^1x\,dx\)、\(\int_{-1}^1|x|\,dx\)和\(\int_0^2|x-1|\,dx\)。解释三个积分的符号与面积意义。
+\end{example}
+
+\subsection{积分估计}
+
+若\(m\le f(x)\le M\)，保序性立即给出
+\begin{equation}\label{eq:calculus-integral-bounds}
+ m(b-a)\le\int_a^b f(x)\,dx\le M(b-a).
+\end{equation}
+特别地，若\(|f|\le K\)，则\(|\int_a^b f|\le K(b-a)\)。
+
+函数近似的误差也可以这样累积。若\(|f(x)-g(x)|\le\eta\)，则
+\begin{equation}\label{eq:calculus-integral-approximation-bound}
+ \left|\int_a^b f-\int_a^b g\right|\le\eta(b-a).
+\end{equation}
+一个对全区间有效的函数值误差界，乘以区间长度，就得到总累积量的误差界。
+
+若一个全局界过于粗糙，可以先拆分区间。设第\(i\)段上\(m_i\le f\le M_i\)，则
+\begin{equation*}
+ \sum_i m_i\Delta x_i\le\int_a^b f(x)\,dx\le\sum_i M_i\Delta x_i.
+\end{equation*}
+不同位置使用不同的界，可以保留函数在各段上的实际大小。积分的计算与估计都从同一个累积过程产生，估计并不以已经求得原函数为前提。
+
+若连续函数\(f\ge0\)，且在某点取正值，则在一小段上仍有正的下界，故\(\int_a^b f>0\)。因此，连续函数\(f\le g\)只要不恒等，就有严格的积分大小关系。
+
+\begin{example}
+不求精确值，利用\(0\le x\le1\)时\(1-x^2\le e^{-x^2}\le1\)，估计\(\int_0^1 e^{-x^2}\,dx\)。再将区间分成两半，分别用每段的函数值上下界估计，比较所得范围。
+\end{example}
+
+\subsection{积分中值定理}
+
+\begin{definition}
+称\(\displaystyle\frac1{b-a}\int_a^b f(x)\,dx\)为\(f\)在\([a,b]\)上的{\heiti{}平均值}。
+\end{definition}
+
+\begin{theorem}[积分中值定理]\label{thm:calculus-integral-mean-value}
+若\(f\)在\([a,b]\)上连续，则存在\(\xi\in[a,b]\)，使
+\begin{equation*}
+ \int_a^b f(x)\,dx=f(\xi)(b-a).
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+记\(f\)的最小值、最大值为\(m,M\)。由式\eqref{eq:calculus-integral-bounds}，平均值介于\(m,M\)之间，再由介值定理，它等于某点的函数值。
+\end{proof}
+
+平均值使一个变化的函数与一个常值函数具有相同总累积。它由整个区间决定，一般不等于端点值的平均。例如，\(x^2\)在\([0,1]\)上的平均值为\(1/3\)，两个端点值的平均却为\(1/2\)。这里\(\int_0^1x^2\,dx=1/3\)可由前面的等分和与可积性定理确定。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）已知\(\int_0^1f=2\)、\(\int_1^3f=-1\)，求\(\int_0^3f\)、\(\int_3^0f\)及\(\int_0^1(3f-2)\)。
+
+（2）设\(f\)连续且\(1\le f(x)\le3\)，\(x\in[0,2]\)。估计其积分和平均值。若积分等于\(2\)，能否确定\(f\)？
+
+（3）设\(f\)在\([a,b]\)上连续。证明\(\int_a^b f^2=0\)当且仅当\(f\equiv0\)。
+
+（4）若\(|f(x)-g(x)|\le10^{-3}\)，\(x\in[-2,3]\)，估计两积分之差。若只知道某一点的误差很小，能否得到同样结论？
+
+（5）构造一个有界的分段常值函数，其平均值不等于任何一点的函数值，说明积分中值定理中连续性的作用。
+\end{exercise}

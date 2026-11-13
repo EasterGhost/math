@@ -1,0 +1,147 @@
+\FloatBarrier
+\newpage
+\section{微积分基本定理}
+\label{sec:calculus-fundamental-theorem}
+
+导数由差商极限定义，定积分由分割求和定义。现在让累积的终点变化，研究所得函数的导数，从而建立这两种运算之间的联系。
+
+\subsection{累积函数}
+
+设\(f\)在\([a,b]\)上Riemann可积。固定起点\(a\)，定义
+\begin{equation}\label{eq:calculus-accumulation}
+ A(x)=\int_a^x f(t)\,dt,\qquad x\in[a,b].
+\end{equation}
+这里\(x\)决定累积到哪里，\(t\)是在积分内部使用的变量。改变\(x\)会改变区间，因而定积分的值随之形成一个新的函数。
+
+显然\(A(a)=0\)。由区间可加性，
+\begin{equation}\label{eq:calculus-accumulation-increment}
+ A(x+h)-A(x)=\int_x^{x+h}f(t)\,dt.
+\end{equation}
+即累积函数的增量，恰好等于新增加的有向小段上的累积。若\(f\ge0\)，增大终点会使累积函数单调不减；若\(f\)变号，则新增部分也可能使已有总量减小。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.83\linewidth]{calculus-accumulation}
+\caption{左图为\(f(t)=t-1\)，右图为\(A(x)=\int_0^x f(t)\,dt\)。橙色窄带给出\(A(x+h)-A(x)\)，其除以\(h\)后的极限为\(f(x)\)。}
+\label{fig:calculus-accumulation}
+\end{figure}
+
+又设\(|f|\le M\)，则\(|A(y)-A(x)|\le M|y-x|\)，所以\(A\)连续。这一结论只用了积分估计，还没有使用导数。
+
+即使\(f\)在少数位置跳跃，累积函数也不会因此发生跳跃。单个点没有宽度，真正改变累积量的是一段区间上的贡献。若两个可积函数只在有限点取值不同，它们从同一起点得到的累积函数完全相同。
+
+\begin{example}
+设\(f(t)=t-1\)，\(0\le t\le2\)。先不求\(A(x)=\int_0^x f(t)\,dt\)的表达式，根据面积与符号判断它的增减、零点及最小值位置，再用几何面积求出\(A(x)\)。
+\end{example}
+
+\subsection{累积函数的导数}
+
+当\(h\)很小时，\([x,x+h]\)内的函数值接近\(f(x)\)，所以这段累积应接近\(f(x)h\)。下面把这个近似写成误差估计。
+
+\begin{theorem}[微积分基本定理]\label{thm:calculus-ftc-derivative}
+若\(f\)在\([a,b]\)上连续，则式\eqref{eq:calculus-accumulation}所定义的函数在内部可导，且
+\begin{equation*}
+ A'(x)=f(x).
+\end{equation*}
+端点处相应的单侧导数也满足此式。
+\end{theorem}
+
+\begin{proof}
+由式\eqref{eq:calculus-accumulation-increment}，对\(h\ne0\)，有
+\begin{equation*}
+ \frac{A(x+h)-A(x)}h-f(x)
+ =\frac1h\int_x^{x+h}(f(t)-f(x))\,dt.
+\end{equation*}
+给定\(\varepsilon>0\)，由\(f\)在\(x\)处连续，当\(|h|\)足够小时，介于\(x\)与\(x+h\)之间的所有\(t\)都满足\(|f(t)-f(x)|<\varepsilon\)。故上式绝对值不超过\(\varepsilon|h|/|h|=\varepsilon\)，无论\(h\)取正或负都成立。因此差商趋于\(f(x)\)。
+\end{proof}
+
+\begin{definition}
+若区间上\(F'(x)=f(x)\)，则称\(F\)为\(f\)在该区间上的一个{\heiti{}原函数}。
+\end{definition}
+
+上述差商证明实际上只用了\(f\)在所考察点\(x\)处连续，其余位置只须保证积分存在。因此，对一般可积函数，累积函数在被积函数的每个连续点处仍满足\(A'(x)=f(x)\)。但若\(f\)在一点跳跃，结论未必延伸到该点。
+
+例如，在\([-1,1]\)上令\(f(t)=0\)（\(t<0\)）、\(f(t)=1\)（\(t\ge0\)），则\(\int_0^xf(t)\,dt\)在\(x\le0\)时为零，在\(x>0\)时为\(x\)。这个累积函数始终连续，却在零点出现折角。可积性保证累积量存在，连续性进一步使局部平均贡献趋于该点的函数值。
+
+基本定理说明，每个连续函数都有原函数，其中一个就是固定起点的累积函数。原函数的存在由此得到保证，并不要求它能够用现有的初等函数写出。
+
+例如，\(\int_0^x e^{-t^2}\,dt\)定义了一个可导函数，其导数为\(e^{-x^2}\)。这个积分表达式本身就可以作为研究函数的依据。
+
+\subsection{Newton--Leibniz公式}
+
+\begin{theorem}\label{thm:calculus-newton-leibniz}
+设\(f\)在\([a,b]\)上Riemann可积，\(F\)在该区间连续且在内部满足\(F'=f\)。则
+\begin{equation}\label{eq:calculus-newton-leibniz}
+ \int_a^b f(x)\,dx=F(b)-F(a).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+对任意分割\(P\)，在各小段上对\(F\)使用中值定理，得到\(\xi_i\in(x_{i-1},x_i)\)，使
+\begin{equation*}
+ F(x_i)-F(x_{i-1})=f(\xi_i)\Delta x_i.
+\end{equation*}
+相加后左端逐项相消，故\(F(b)-F(a)=\sum_i f(\xi_i)\Delta x_i\)。由\(f\)可积，当\(\|P\|\to0\)时，右端趋于\(\int_a^bf\)，便得公式。
+\end{proof}
+
+当\(f\)连续时，上一小节还保证原函数存在。此时取累积函数\(A\)，由\((F-A)'=0\)知\(F-A\)为常数，再用\(A(a)=0\)得到\(F(x)-A(x)=F(a)\)。一个证明逐段累积总变化，另一个比较两个具有相同导数的函数，二者解释同一联系。
+
+对于一般可积函数，Newton--Leibniz公式要求另有原函数\(F\)满足条件，不能仅凭可积就假定存在这样的\(F\)。同样，若只知道\(F\)可导，也没有自动得到\(F'\)的Riemann可积性。本章始终在已明确的函数类中使用公式。
+
+记\(\left.F(x)\right|_a^b=F(b)-F(a)\)。例如，由\((x^3/3)'=x^2\)，有
+\begin{equation*}
+ \int_0^1x^2\,dx=\left.\frac{x^3}{3}\right|_0^1=\frac13.
+\end{equation*}
+这与先前由和式得到的结果相同。现在无须对每个积分重新计算分割和式，寻找一个原函数便能完成计算。
+
+定积分的定义给出累积量是什么，可积性保证它存在，式\eqref{eq:calculus-newton-leibniz}则给出一种计算方式。前面的证明使这三个问题联系起来。
+
+\begin{example}
+计算\(\int_1^e dx/x\)、\(\int_0^\pi\sin x\,dx\)及\(\int_{-1}^1(3x^2-1)\,dx\)。再用几何意义核对最后一个积分的值是否意味着图像与横轴之间没有面积。
+\end{example}
+
+\subsection{变限积分}
+
+设\(f\)连续，\(u,v\)可导。将变限积分写为两个累积函数之差，链式法则给出
+\begin{equation}\label{eq:calculus-variable-limits}
+ \frac d{dx}\int_{u(x)}^{v(x)}f(t)\,dt
+ =f(v(x))v'(x)-f(u(x))u'(x).
+\end{equation}
+右端分别记录上下限移动的贡献；交换上下限时，公式仍按有向积分的约定成立。
+
+例如，\(H(x)=\int_x^{x^2}e^{-t^2}\,dt\)的导数为\(2xe^{-x^4}-e^{-x^2}\)。这里的\(x\)通过上下限影响积分，\(t\)始终是积分变量；被积表达式内部另含自由参数时，不能直接套用式\eqref{eq:calculus-variable-limits}。
+
+\begin{example}
+设\(G(x)=\int_0^x e^{-t^2}\,dt\)，证明其为奇函数且严格递增，并求\(H(x)=G(\sin x)\)的导数和单调区间。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(\int_0^{x^2}\cos t\,dt\)、\(\int_x^{2x}\ln(1+t^2)\,dt\)的导数，并说明每一步的取值位置。
+
+（2）设\(A(x)=\int_0^x(t^2-1)\,dt\)。先由被积函数判断\(A\)的增减与极值，再求其表达式。
+
+（3）证明\(\displaystyle\lim_{h\to0}\frac1h\int_a^{a+h}f(t)\,dt=f(a)\)，其中\(f\)在\(a\)附近连续。比较它与积分中值定理的关系。
+
+\begin{samepage}
+（4）设连续函数\(f\)满足\(\int_0^x f(t)\,dt=x^2+\sin x\)，求\(f\)。若只知道\(\int_0^1 f=1\)，能否作同样判断？
+\par
+\end{samepage}
+
+（5）设\(f\)在\([0,1]\)上连续，且对所有\(x\in[0,1]\)均有\(\int_0^x f(t)\,dt=0\)。证明\(f\equiv0\)。
+
+（6）设\(f\)在含\(0\)的区间上连续、严格递增，\(A(x)=\int_0^x f(t)\,dt\)。证明\(A\)为凸函数，并解释图像的弯曲如何由局部累积的变化决定。
+
+（7）设\(f\)为上文的阶跃函数。证明它在包含\(0\)的开区间上没有原函数。可以先在零点两侧使用“导数相同的函数相差常数”，再考察拼接处的可导性。
+
+（8）设\(f\)在\(\mathbb R\)上连续，\(B(x)=\int_x^{x+1}f(t)\,dt\)。求\(B'\)，并证明\(B\)为常值函数当且仅当\(f(x+1)=f(x)\)对所有\(x\)成立。
+
+（9）不求原函数，利用\(\sin u/u\to1\)与积分估计，求\(\displaystyle\lim_{x\to0}\frac1{x^3}\int_0^x\sin(t^2)\,dt\)。为什么仅把被积函数在零点的值代入，还不足以确定这个极限？
+
+（10）设连续函数\(f\)满足\(f(x)=1+\int_0^xf(t)\,dt\)。先由等式说明\(f\)可导，再确定\(f\)，并代回原等式验证。这个关系是否唯一确定了\(f\)？
+
+（11）设\(f\)在\([0,1]\)上连续且严格为正。证明存在唯一的\(c\in(0,1)\)，使\(\int_0^cf=\tfrac12\int_0^1f\)。若\(f\)还严格递增，判断\(c\)与\(1/2\)的大小关系，并用累积函数的变化解释。
+
+（12）设\(H(x)=\int_{\cos x}^{\sin x}dt/(1+t^2)\)，\(0\le x\le\pi/2\)。不求\(H\)的显式表达式，判断它的单调性与零点，再比较\(H(\pi/6)\)与\(H(\pi/3)\)的符号。
+\end{exercise}

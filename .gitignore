@@ -19,6 +19,8 @@
 *.ps
 *.eps
 *.xdv
+__pycache__/
+*.py[cod]
 .vscode/
 docs/
 tmp/

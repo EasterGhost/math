@@ -1,0 +1,329 @@
+\FloatBarrier
+\newpage
+\section{函数空间*}
+\label{sec:calculus-function-spaces}
+
+前面已经用函数近似另一个函数，也用误差界控制相应的积分。本节把整个函数作为研究对象：先确定函数之间的线性运算，再比较整体误差，最后研究以函数为输入的映射。以下固定\(a<b\)。
+
+\subsection{连续函数空间}
+
+记\(C[a,b]\)为\([a,b]\)上全体实值连续函数的集合。对\(f,g\in C[a,b]\)及实数\(\lambda\)，规定
+\begin{equation*}
+ (f+g)(x)=f(x)+g(x),\qquad(\lambda f)(x)=\lambda f(x).
+\end{equation*}
+和与数乘仍为连续函数，其余线性空间公理由实数运算逐点得到。因此\(C[a,b]\)是一个实线性空间。它的零向量是恒等于零的函数，向量相等则意味着在每一点取值都相同。
+
+第三章的坐标向量有有限个分量。这里一个函数在整个区间上的取值共同确定一个元素，但加法、数乘和线性组合仍具有相同的代数意义。例如，次数不超过\(n\)的多项式构成一个子空间，由\(1,x,\ldots,x^n\)张成。
+
+在\(f(x)+g(x)\)中，先选定一个位置再相加；在\(f+g\)中，则把所有位置的相加结果组成一个新函数。前者是数的运算，后者是空间中元素的运算。点值可以帮助计算，但一个点的取值不能确定整个元素。
+
+前面引入的\(\mathcal R[a,b]\)也是实线性空间，且\(C[a,b]\subset\mathcal R[a,b]\)。阶跃函数说明这个包含关系是严格的。连续性并非线性运算成立的必要条件，但它会影响后面哪些误差量确实成为范数，以及积分误差量能否辨认不同函数。
+
+\begin{example}
+判断\(\{f\in C[a,b]:f(a)=0\}\)与\(\{f\in C[a,b]:\int_a^b f=1\}\)是否为线性子空间。若将后一条件的\(1\)改为\(0\)，结论如何变化？
+\end{example}
+
+\subsection{范数}
+
+为了比较整个函数，需要把误差在全区间上的大小概括为一个数。对连续函数，最值定理使最大误差确实能够取到。
+
+\begin{definition}
+实线性空间\(V\)上的函数\(\|\cdot\|:V\to\mathbb R\)，若满足
+\begin{equation*}
+ \|v\|\ge0,\quad\|v\|=0\Longleftrightarrow v=0;\qquad
+ \|\lambda v\|=|\lambda|\|v\|;\qquad
+ \|u+v\|\le\|u\|+\|v\|,
+\end{equation*}
+就称为\(V\)上的一个{\heiti{}范数}。
+\end{definition}
+
+在\(C[a,b]\)上定义{\heiti{}最大值范数}
+\begin{equation*}
+ \|f\|_\infty=\max_{x\in[a,b]}|f(x)|.
+\end{equation*}
+非负性、零元素条件与数乘性质直接成立。又因为每一点都有\(|f(x)+g(x)|\le\|f\|_\infty+\|g\|_\infty\)，取最大值得到三角不等式。因此这确实是一个范数。
+
+\(\|f-g\|_\infty\)衡量两函数在整个区间上的最大误差。例如，\(\|f-g\|_\infty\le\eta\)意味着图像在每个横坐标处的高度差都不超过\(\eta\)。这与只在某一点接近，或只在基点附近比较余项，是不同的要求。
+
+例如，在\([0,1]\)上用\(p(x)=1+x\)近似\(e^x\)。两函数之差在零点为零，其导数为\(e^x-1\ge0\)，故
+\begin{equation*}
+ \|e^x-(1+x)\|_\infty=e-2.
+\end{equation*}
+若只在\([0,h]\)、\(0<h\le1\)上比较，同样得到最大误差\(e^h-1-h\)，并由Taylor公式知它不超过\(eh^2/2\)。区间缩小时的局部近似，与固定区间上的整体误差，由此可以放在同一例子中辨认。
+
+不同范数也会记录不同信息。\(\int_a^b|f|\)在连续函数空间上是范数，因为非零的连续函数必在一小段上保持非零，绝对值积分为正。但若直接把同一表达式放在\(\mathcal R[a,b]\)上，单点取值为\(1\)、其余为零的函数就破坏了“范数为零只对应零函数”的要求。研究对象的选择参与决定哪些表达式能够充当距离的依据。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）在\([0,1]\)上求\(\|x\|_\infty\)、\(\|x-x^2\|_\infty\)及\(\|x^2-1\|_\infty\)。
+
+（2）在\(C[0,1]\)上，\(|f(0)|\)能否作为范数？证明\(\int_0^1|f(x)|\,dx\)是另一个范数，并说明它衡量误差的方式与最大值范数有何不同。
+\end{exercise}
+
+\subsection{逐点收敛}
+
+\begin{definition}
+设\(f_n\)是在同一区间上定义的一列函数。若对每个固定的\(x\)，数列\(\{f_n(x)\}\)都收敛于\(f(x)\)，就称\(f_n\)在该区间上{\heiti{}逐点收敛}于\(f\)。
+\end{definition}
+
+此时先固定位置，再让函数的指标\(n\)变化。对给定误差，不同位置可能需要不同的\(N\)。写出量词，就是
+\begin{equation*}
+ \forall x, \forall \varepsilon>0, \exists N=N(x,\varepsilon),
+ \quad n>N\Longrightarrow |f_n(x)-f(x)|<\varepsilon.
+\end{equation*}
+函数指标是数列的指标，\(x\)则标记正在观察哪一列数。不同位置处的这些数列，一起构成函数列的逐点研究。
+
+例如，\(f_n(x)=x^n\)在\([0,1]\)上逐点收敛于
+\begin{equation*}
+ f(x)=\begin{cases}0,&0\le x<1,\\1,&x=1.\end{cases}
+\end{equation*}
+每个\(f_n\)连续，极限函数却在\(1\)处不连续。固定一个\(x<1\)后，\(x^n\)确实趋零；但越靠近\(1\)，达到同一误差要求所需的指标可能越大。
+
+还要注意，选择随\(n\)变化的位置，已经超出了固定点极限所直接保证的范围。比如\(x_n=2^{-1/n}\)虽然始终小于\(1\)，却满足\(x_n^n=1/2\)。这不会反驳每个固定\(x<1\)处的极限，却暴露了不同位置不能同时受控的问题。
+
+\subsection{一致收敛}
+
+\begin{definition}
+若对任意\(\varepsilon>0\)，存在\(N\)，使\(n>N\)时，对区间内所有\(x\)同时有
+\begin{equation*}
+ |f_n(x)-f(x)|<\varepsilon,
+\end{equation*}
+就称\(f_n\){\heiti{}一致收敛}于\(f\)。
+\end{definition}
+
+一致收敛要求同一个\(N\)适用于整个区间，所以必然推出逐点收敛。若\(f_n,f\)都属于\(C[a,b]\)，这一要求等价于\(\|f_n-f\|_\infty\to0\)。
+
+例如，\(f_n(x)=x/(n+1)\)在\([0,1]\)上与零函数的最大误差为\(1/(n+1)\)，故一致收敛。前面的\(x^n\)则不一致收敛于其逐点极限：取\(x_n=2^{-1/n}<1\)，始终有\(|f_n(x_n)-f(x_n)|=1/2\)。
+
+第二章的一致连续，比较同一个函数在两个接近位置的取值；这里的一致收敛，比较一列函数与极限函数在相同位置的取值。两者都要求统一控制，但所变化的对象不同。
+
+判断一致收敛时，可以先寻找不依赖\(x\)的上界\(a_n\)，使\(|f_n(x)-f(x)|\le a_n\to0\)。若要否定一致收敛，则可以寻找一列位置\(x_n\)，让误差始终不小于某个固定正数。两种方法分别对应定义中的统一上界与反例。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.87\linewidth]{calculus-convergence}
+\caption{左图\(x^n\)逐点收敛，靠近\(1\)的误差却不能统一变小；右图\(x/(n+1)\)的整条图像最终进入任意给定的零函数误差带。}
+\label{fig:calculus-convergence}
+\end{figure}
+
+例如，\(f_n(x)=xe^{-nx}\)在\([0,1]\)上逐点趋零。对\(x\)求导可知最大值在\(x=1/n\)取得，故\(\|f_n\|_\infty=1/(en)\to0\)。最大误差的位置也在移动，但误差本身趋零，所以这次确实是一致收敛。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）判断\(x^n\)在\([0,r]\)、\(0<r<1\)上是否一致收敛，并给出误差界。
+
+（2）求\(f_n(x)=x/(1+nx)\)在\([0,1]\)上的逐点极限，判断是否一致收敛。
+
+（3）对\(f_n(x)=x^n\)、\(x\in[0,1]\)，说明为什么逐点极限\(f\)不能直接当作\(C[0,1]\)中的元素。使用一致收敛的定义判断时，是否需要先假定\(f\)连续？
+\end{exercise}
+
+\subsection{一致极限的连续性}
+
+\begin{theorem}\label{thm:calculus-uniform-limit-continuity}
+若连续函数列\(f_n\)在\([a,b]\)上一致收敛于\(f\)，则\(f\)连续。
+\end{theorem}
+
+\begin{proof}
+固定\(x_0\)及\(\varepsilon>0\)。先选定一个足够靠后的\(f_N\)，使处处有\(|f_N-f|<\varepsilon/3\)。再由\(f_N\)的连续性取\(\delta>0\)，使\(|x-x_0|<\delta\)时有\(|f_N(x)-f_N(x_0)|<\varepsilon/3\)。于是
+\begin{equation*}
+ \begin{aligned}
+ |f(x)-f(x_0)|&\le|f(x)-f_N(x)|+|f_N(x)-f_N(x_0)|+|f_N(x_0)-f(x_0)|<\varepsilon.
+ \end{aligned}
+\end{equation*}
+故\(f\)在\(x_0\)处连续。
+\end{proof}
+
+这里先固定同一个近似函数，再移动\(x\)。一致收敛使两端的误差都受同一个指标控制；若只有逐点收敛，指标可能随\(x\)变化，就无法直接使用这个固定函数的连续性。
+
+证明并未要求所有\(f_n\)在\(x_0\)附近使用同一个连续性范围，只须其中一个已经选定的函数连续。两侧的近似误差与中间的连续性误差，分别由先选指标、后选位置范围控制。这种先后次序使函数列的逼近与一个函数的局部变化分开处理。
+
+\begin{example}
+在\([-1,1]\)上，令\(f_n(x)=\sqrt{x^2+1/n}\)。证明它一致收敛于\(|x|\)，并说明极限连续而在零点不可导，与本小节定理是否矛盾。可先估计\(0\le\sqrt{x^2+1/n}-|x|\le1/\sqrt n\)。
+\end{example}
+
+\subsection{一致逼近的积分误差}
+
+对\(f,g\in C[a,b]\)，主线的积分估计给出
+\begin{equation}\label{eq:calculus-function-integral-bound}
+ \left|\int_a^b f(x)\,dx-\int_a^b g(x)\,dx\right|
+ \le(b-a)\|f-g\|_\infty.
+\end{equation}
+因此，连续函数列一致收敛于\(f\)时，先由上一小节知\(f\)连续，再由此估计得到
+\begin{equation*}
+ \lim_{n\to\infty}\int_a^b f_n(x)\,dx=\int_a^b f(x)\,dx.
+\end{equation*}
+整个函数的误差趋零，使对应累积量的误差也趋零。
+
+例如，\(e^x\)在\([0,1]\)上的Taylor多项式\(T_n\)满足
+\begin{equation*}
+ \|e^x-T_n(x)\|_\infty\le\frac e{(n+1)!}.
+\end{equation*}
+同一个余项界在整个区间上成立，所以既控制函数近似，也控制积分近似。这里的统一估计，比只知道每个固定点的余项趋零提供了更多信息。
+
+积分也可以保留变化的终点。对\(A_n(x)=\int_a^xf_n(t)\,dt\)、\(A(x)=\int_a^xf(t)\,dt\)，有
+\begin{equation*}
+ |A_n(x)-A(x)|\le|x-a|\|f_n-f\|_\infty
+ \le(b-a)\|f_n-f\|_\infty.
+\end{equation*}
+同一个右端同时控制全部终点，所以得到的是累积函数的一致逼近，而不只是一个固定积分值的收敛。
+
+若累积中带有连续权函数\(w\)，还可用\(\int_a^b|w|\)代替区间长度：
+\begin{equation*}
+ \left|\int_a^bw(x)(f_n(x)-f(x))\,dx\right|
+ \le\|f_n-f\|_\infty\int_a^b|w(x)|\,dx.
+\end{equation*}
+权的总绝对贡献决定了函数误差对结果的放大程度。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用\(e^x\)的二阶Taylor多项式近似\(\int_0^1e^x\,dx\)，利用最大误差给出积分误差界，再与精确结果比较。
+
+（2）设\(f_n\)在\([a,b]\)上一致收敛于\(f\)，各函数连续。固定\(c\in[a,b]\)，证明\(\int_c^xf_n(t)\,dt\)一致收敛于\(\int_c^xf(t)\,dt\)，并给出同时适用于所有起点\(c\)和终点\(x\)的误差界。
+
+（3）设\(f_n(x)=nx(1-x)^n\)、\(0\le x\le1\)。证明\(f_n\)逐点趋于零，且\(\int_0^1f_n(x)\,dx\to0\)，但\(f_n\)不一致收敛于零。说明一致收敛在积分极限结论中是充分条件，却不是必要条件。
+\end{exercise}
+
+\subsection{度量空间}
+
+实数差的绝对值、向量之差的长度、函数之间的最大误差，都在量化两个对象的接近程度。现在从这些已有对象中提取共同条件。
+
+\begin{definition}
+集合\(X\)上的函数\(d:X\times X\to\mathbb R\)，若满足
+\begin{equation*}
+ d(x,y)\ge0,\quad d(x,y)=0\Longleftrightarrow x=y;\qquad
+ d(x,y)=d(y,x);\qquad
+ d(x,z)\le d(x,y)+d(y,z),
+\end{equation*}
+就称为\(X\)上的一个{\heiti{}度量}，称\((X,d)\)为{\heiti{}度量空间}。
+\end{definition}
+
+范数产生度量\(d(u,v)=\|u-v\|\)，三项条件由范数性质直接得到。因此实数空间、欧氏向量空间以及带最大值范数的\(C[a,b]\)，都可以用距离描述接近。
+
+以三角不等式为例，\(u-w=(u-v)+(v-w)\)，所以\(d(u,w)\le d(u,v)+d(v,w)\)。这一形式与第二章证明连续性时拆分误差的步骤相同，只是现在的点也可以是函数。
+
+在度量空间中，\(x_n\to x\)表示\(d(x_n,x)\to0\)。因而同一个定义既包含实数数列，也包含向量列与函数列。不过距离必须先确定：在最大值距离下，函数列收敛要求全区间同时接近；逐点收敛只逐个比较位置，不能直接替代这个距离条件。
+
+例如，函数列在最大值距离下趋于\(f\)，正是\(d(f_n,f)=\|f_n-f\|_\infty\to0\)，也就是前面研究的一致收敛。距离语言把已经完成的误差比较组织为同一种表述。
+
+\subsection{连续映射}
+
+\begin{definition}
+设\((X,d_X)\)、\((Y,d_Y)\)为度量空间。若对任意\(\varepsilon>0\)，存在\(\delta>0\)，使
+\begin{equation*}
+ d_X(x,x_0)<\delta\quad\Longrightarrow\quad
+ d_Y(T(x),T(x_0))<\varepsilon,
+\end{equation*}
+就称映射\(T:X\to Y\)在\(x_0\)处{\heiti{}连续}。
+\end{definition}
+
+当输入输出都是实数，距离取绝对值时，这就是第二章的连续性定义。现在也可以让输入是整个函数。
+
+固定\(c\in[a,b]\)，点值映射\(E_c:C[a,b]\to\mathbb R\)、\(E_c(f)=f(c)\)满足
+\begin{equation*}
+ |E_c(f)-E_c(g)|\le\|f-g\|_\infty,
+\end{equation*}
+所以连续。积分映射\(J(f)=\int_a^bf\)由式\eqref{eq:calculus-function-integral-bound}也连续。两者还都是线性映射，但连续性的证明来自距离估计，线性性本身不替代这一估计。
+
+连续映射也可以是非线性的。例如，\(M(f)=\max_{[a,b]}f\)把函数送到它的最大值。由\(f(x)\le g(x)+\|f-g\|_\infty\)，先对\(x\)取最大值，再交换\(f,g\)，得到
+\begin{equation*}
+ |M(f)-M(g)|\le\|f-g\|_\infty.
+\end{equation*}
+所以整个函数小幅变化时，最值也只会小幅变化。这并不意味着最值的位置同样稳定，最值和取得最值的位置是不同的对象。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）在\(C[0,1]\)上取\(f(x)=x\)、\(g(x)=1-x\)，说明最大值映射不满足可加性。
+
+（2）设\(f_n(x)=x/n\)，\(g_n(x)=-x/n\)，\(0\le x\le1\)。两列函数之间的最大误差趋零，它们各自唯一最大值点之间的距离是否趋零？比较这与最大值映射的连续性。
+\end{exercise}
+
+\begin{example}
+对固定连续函数\(w\)，证明\(J_w(f)=\int_a^bw(x)f(x)\,dx\)是\(C[a,b]\)到\(\mathbb R\)的连续线性映射，并给出误差界。
+\end{example}
+
+\subsection{微积分的线性算子}
+
+记\(C^1[a,b]\)为一阶导数连续的函数组成的线性空间，端点导数按单侧理解。定义
+\begin{equation*}
+ D:C^1[a,b]\to C[a,b],\quad DF=F',\qquad
+ I:C[a,b]\to C^1[a,b],\quad(If)(x)=\int_a^xf(t)\,dt.
+\end{equation*}
+这两个作用在函数空间上的线性映射，称为{\heiti{}线性算子}。积分算子的值确实属于\(C^1[a,b]\)，其依据是微积分基本定理。
+
+在明确输入输出之后，基本定理及Newton--Leibniz公式分别给出
+\begin{equation*}
+ DIf=f\quad(f\in C[a,b]),\qquad
+ IDF=F-F(a)\quad(F\in C^1[a,b]).
+\end{equation*}
+这里\(F(a)\)作为一个常值函数参与相减。求导的核是所有常值函数，因此从导数恢复函数时，必须另外确定一个常数。
+
+若把求导的定义域限制为
+\begin{equation*}
+ C^1_a=\{F\in C^1[a,b]:F(a)=0\},
+\end{equation*}
+则\(D:C^1_a\to C[a,b]\)与\(I:C[a,b]\to C^1_a\)互为逆映射。微积分的互逆关系在这个明确的范围内成立，其依据是前面分别定义并证明的两条复合恒等式。
+
+例如，在\([0,1]\)上取\(F(x)=x^2+3\)，则\(DF=2x\)，从零点积分回来得到\(IDF=x^2\)。所缺的常数正是\(F(0)=3\)。若改从\(a\)累积，缺失的量就相应变为\(F(a)\)，所以起点不仅是记号选择，也决定了积分恢复哪个代表函数。
+
+从线性空间看，任意\(F\in C^1[a,b]\)都有唯一分解
+\begin{equation*}
+ F=\bigl(F-F(a)\bigr)+F(a),
+\end{equation*}
+前一部分属于\(C^1_a\)，后一部分属于常值函数空间。求导保留前一部分的信息，而把后一部分送到零函数。
+
+\begingroup
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+\subsection{求导对近似的影响}
+
+在\([-1,1]\)上考察\(f_n(x)=\sin(nx)/n\)。由于\(\|f_n\|_\infty\le1/n\)，它一致收敛于零函数，但
+\begin{equation*}
+ f_n'(x)=\cos(nx),\qquad f_n'(0)=1.
+\end{equation*}
+导函数甚至在零点也不趋于零函数的导数。函数值的振幅虽不断缩小，变化却越来越快，因此小的函数值误差不自动给出小的导数误差。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.87\linewidth]{calculus-derivative-error}
+\caption{左图\(\sin(nx)/n\)的振幅趋零，右图导函数\(\cos(nx)\)的振幅仍为\(1\)。图中取\(n=5,12\)。}
+\label{fig:calculus-derivative-error}
+\end{figure}
+
+从差商也能看到误差为什么会放大。若\(\|f-g\|_\infty\le\eta\)，则对\(h\ne0\)，
+\begin{equation*}
+ \left|\frac{f(x+h)-f(x)}h-\frac{g(x+h)-g(x)}h\right|
+ \le\frac{2\eta}{|h|}.
+\end{equation*}
+当计算局部变化率所用的\(h\)缩小时，这个由函数值误差得到的界反而增大。因此仅让函数图像靠近，不足以保证斜率靠近。
+
+反过来，若同时掌握导函数误差与一个初值误差，则基本定理给出
+\begin{equation*}
+ \|F-G\|_\infty\le|F(a)-G(a)|+(b-a)\|F'-G'\|_\infty.
+\end{equation*}
+导数控制各段变化，初值确定整体高度。这与5.3中“导数相同仍可能相差常数”的认识在近似问题中形成对应。
+
+相比之下，积分误差受区间长度乘最大误差控制。求导和积分都是线性运算，但它们对同一种函数近似的反应不同；要在求导后继续控制近似，必须掌握比函数值误差更多的信息。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求算子\(D\)的核与像，说明固定起点的积分算子为什么是单射。
+
+（2）令\(QF=F-F(a)\)。证明\(Q^2=Q\)，求\(Q\)的核与像，并把它与\(ID\)联系起来。
+
+（3）在\(C^1[-1,1]\)上，以函数最大值距离比较输入，以\(C[-1,1]\)的同类距离比较输出。用\(f_n(x)=\sin(nx)/n\)证明求导映射在零函数处不连续。
+
+（4）设\(F_n\in C^1[a,b]\)，\(F_n(a)\to c\)，且\(F_n'\)一致收敛于连续函数\(g\)。利用\(F_n(x)=F_n(a)+\int_a^xF_n'(t)\,dt\)，证明\(F_n\)一致收敛，并求极限函数的导数。
+
+（5）在\([0,1]\)上令\(f_n(x)=\cos(nx)\)。证明\(f_n\)不一致趋于零，但\(If_n\)一致趋于零。由此说明积分结果的接近，能否反过来保证被积函数接近？
+
+（6）设\(F,G\in C^1[a,b]\)，且\(F(c)=G(c)\)，其中\(c\in[a,b]\)。证明\(\|F-G\|_\infty\le\max\{c-a,b-c\}\|F'-G'\|_\infty\)。怎样选择\(c\)，可以使右侧的常数最小？
+
+（7）给定\(g\in C[a,b]\)，证明条件\(F'=g\)、\(\int_a^bF(x)\,dx=0\)唯一确定一个\(F\in C^1[a,b]\)，并用\(Ig\)表示\(F\)。比较这一条件与\(F(a)=0\)确定积分常数的方式。
+\end{exercise}
+\endgroup

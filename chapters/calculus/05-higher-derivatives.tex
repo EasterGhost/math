@@ -1,0 +1,498 @@
+\FloatBarrier
+\newpage
+\section{高阶导数}
+\label{sec:calculus-higher-derivatives}
+
+\begingroup
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+
+一阶导数描述函数的变化率。继续研究导函数的变化，可以判断图像怎样弯曲，也可以把一次近似推进为更高次的局部模型。下面先研究高阶导数和凸性，再在选讲部分建立Taylor公式。
+
+\subsection{高阶导数}
+
+\begin{definition}
+若导函数\(f'\)在某点可导，称其导数为\(f\)在该点的{\heiti{}二阶导数}，记为\(f''\)或\(d^2y/dx^2\)。依次求导得到\(n\)阶导数，记为\(f^{(n)}\)。并约定\(f^{(0)}=f\)。
+\end{definition}
+
+若\(s(t)\)表示位置，则\(s'(t)\)表示速度，\(s''(t)\)表示速度的变化率，即加速度。加速度为正，说明速度随时间增大，并不单独说明位置正在增大；位置增减由速度符号决定。
+
+对多项式，反复求导最终得到常数与零；对指数函数，各阶导数保持同一形式；正弦、余弦则按四步循环变化。例如
+\begin{equation*}
+ (e^x)^{(n)}=e^x,\qquad
+ \frac{d^n}{dx^n}\sin x=\sin\left(x+\frac{n\pi}2\right).
+\end{equation*}
+这些结构将使高次近似中的系数能够统一计算。
+
+\begin{theorem}[Leibniz公式]\label{thm:calculus-leibniz}
+若\(f,g\)具有直到\(n\)阶的导数，则
+\begin{equation}\label{eq:calculus-leibniz}
+ (fg)^{(n)}=\sum_{k=0}^n\binom nk f^{(k)}g^{(n-k)}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\(n=1\)时就是乘积法则。若公式对\(n\)成立，将各项分别求导。同一个\(f^{(k)}g^{(n+1-k)}\)由相邻两项产生，系数相加为\(\binom n{k-1}+\binom nk=\binom{n+1}k\)，两端项的系数仍为\(1\)，故公式对\(n+1\)成立。由归纳法得证。
+\end{proof}
+
+例如，\((fg)''=f''g+2f'g'+fg''\)。反复求导时，每次可以选择对哪个因子求导；\(n\)次中有\(k\)次落在第一个因子上的选择数，正是\(\binom nk\)。若一个因子为多项式，它的高阶导数最终为零，和式便只留下有限个非零项。
+
+\begin{example}
+用Leibniz公式求\(x^2e^x\)与\(x\sin x\)的\(n\)阶导数，并与前两阶的直接求导核对。
+\end{example}
+
+\begin{example}
+求\(f(x)=x^4-2x^2\)的各阶导数。再求\(g(x)=\ln x\)的\(n\)阶导数，观察系数与阶乘的联系。
+\end{example}
+
+\begin{example}[2014年四川卷理科第21题第（1）问]
+\label{ex:calculus-sichuan-derivatives}
+设\(f(x)=e^x-ax^2-bx-1\)，\(a,b\in\mathbb R\)，\(g=f'\)。求\(g\)在\([0,1]\)上的最小值。
+\end{example}
+
+研究\(f'\)的单调性，可以继续考察\(f''\)的符号；再由\(f'\)的变化判断其零点与正负，回到\(f\)的单调性和极值问题。
+
+\subsection{凸函数}
+\label{subsec:calculus-convexity}
+
+单调性比较不同位置的高低，凸性则比较图像与弦的位置。
+
+\begin{definition}
+设\(I\)为区间。若对任意\(u,v\in I\)及\(0\le\lambda\le1\)，都有
+\begin{equation}\label{eq:calculus-convex-definition}
+ f((1-\lambda)u+\lambda v)
+ \le(1-\lambda)f(u)+\lambda f(v),
+\end{equation}
+称\(f\)为\(I\)上的{\heiti{}凸函数}；若不等号反向，则称为{\heiti{}凹函数}。
+\end{definition}
+
+右端是两点连线上相应位置的高度，所以本章所说的凸，指图像不高于弦。凹函数的图像则不低于弦。这个约定也明确了后面二阶导数判据的方向。由三角不等式，\(|x|\)满足式\eqref{eq:calculus-convex-definition}，虽在原点不可导，仍是凸函数。
+
+对\(u<t<v\)，凸性可以等价地写为
+\begin{equation}\label{eq:calculus-convex-slopes}
+ \frac{f(t)-f(u)}{t-u}\le\frac{f(v)-f(t)}{v-t}.
+\end{equation}
+因为两边乘以正的分母，整理后正好是\(t\)处图像不高于弦的条件。
+
+\begin{theorem}\label{thm:calculus-convex-derivative}
+区间内可导函数\(f\)为凸函数，当且仅当\(f'\)单调不减。若\(f\)二阶可导，这又等价于\(f''\ge0\)。
+\end{theorem}
+
+\begin{proof}
+若\(f\)凸，利用弦上中间点的比较，再分别让中间点趋于\(u\)、\(v\)，得到
+\begin{equation*}
+ f'(u)\le\frac{f(v)-f(u)}{v-u}\le f'(v).
+\end{equation*}
+故\(f'\)单调不减。
+
+反过来，若\(f'\)单调不减，对\([u,t]\)、\([t,v]\)分别使用中值定理，两个割线斜率为\(f'(\xi)\)、\(f'(\eta)\)，其中\(\xi<t<\eta\)。由\(f'(\xi)\le f'(\eta)\)，得到式\eqref{eq:calculus-convex-slopes}，故\(f\)凸。最后一个等价关系，是把单调性判据应用于\(f'\)。
+\end{proof}
+
+由上述割线斜率与导数的比较，还得到凸函数的{\heiti{}切线不等式}：
+\begin{equation}\label{eq:calculus-convex-tangent}
+ f(x)\ge f(a)+f'(a)(x-a).
+\end{equation}
+凸函数的图像不低于任意一条切线；凹函数则反向。弦与切线由此给出两个方向的估计。
+
+例如，\((e^x)''>0\)，在\(a=0\)处使用切线不等式，得到\(e^x\ge1+x\)；\((\ln x)''<0\)，在\(a=1\)处则得到\(\ln x\le x-1\)。这些不等式也可以通过研究函数之差证明，凸性把它们组织为同一种几何关系。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.43\linewidth]{calculus-convexity}
+\caption{凸函数的图像不低于切线\(\ell\)，在弦的两个端点之间又不高于弦\(s\)。}
+\label{fig:calculus-convexity}
+\end{figure}
+
+若连续图像在一点两侧的凸、凹性质发生改变，称这个点为{\heiti{}拐点}。对二阶导数存在的函数，可用其在两侧的符号判断。\(x^3\)在原点有拐点，而\(x^4\)虽然在原点二阶导数为零，两侧却同为凸，因而没有拐点。
+
+\begin{example}
+研究\(f(x)=x^4-2x^2\)的凸性和拐点，结合前面的单调性与极值画出图像。再用凸性证明，对任意实数\(u,v\)，有
+\begin{equation*}
+ e^{(u+v)/2}\le\frac{e^u+e^v}{2}.
+\end{equation*}
+\end{example}
+
+\begin{example}[2023年新课标II卷第22题第（1）问]
+证明当\(0<x<1\)时，\(x-x^2<\sin x<x\)。分别研究相应函数的导数或凸性，比较两种证明所控制的量。
+\end{example}
+
+\FloatBarrier
+\setlength{\parskip}{6pt}
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(e^{2x}\)、\(1/x\)和\(\cos x\)的\(n\)阶导数。
+
+（2）设\(s(t)=t^3-3t^2\)，\(t\ge0\)。分别讨论位置、速度的增减，判断何时运动方向改变。
+
+（3）求\(f(x)=x e^x\)的\(n\)阶导数，并用归纳法验证所得表达式。
+
+（4）判断\(x^2\)、\(\sqrt x\)和\(1/x\)在正半轴上的凸性，并写出\(x=1\)处的切线不等式。
+
+（5）利用\(\ln x\)的凹性证明\(\sqrt{uv}\le(u+v)/2\)，其中\(u,v>0\)。
+
+（6）求\(f(x)=x e^{-x}\)的拐点，比较极值点与拐点的位置。
+
+（7）设\(f''\ge0\)。证明任意两点之间图像不高于弦，并说明只知道某一点的\(f''\)为正，为什么不足以判断整个区间的凸性。
+
+（8）（2014年四川卷理科第21题第（2）问）对例\ref{ex:calculus-sichuan-derivatives}中的\(f\)，若\(f(1)=0\)，且\(f\)在\((0,1)\)内有零点，求\(a\)的取值范围。
+
+（9）（2024年北京卷第20题第（3）问）设\(f(x)=x+\ln(1+x)\)，\(A=(t,f(t))\)、\(C=(0,f(t))\)，其中\(t>0\)。曲线在\(A\)处的切线与\(y\)轴交于\(B\)，\(O\)为原点。是否存在点\(A\)，使\(2S_{\triangle ACO}=15S_{\triangle ABO}\)？若存在，这样的点有几个？
+
+参考数据：\(1.09<\ln3<1.10\)，\(1.60<\ln5<1.61\)，\(1.94<\ln7<1.95\)。
+
+（10）（2014年新课标I卷理科第21题）设\(f(x)=ae^x\ln x+be^{x-1}/x\)，曲线在\((1,f(1))\)处的切线为\(y=e(x-1)+2\)。
+
+（i）求\(a,b\)；（ii）证明\(f(x)>1\)。
+
+（11）（2016年全国I卷理科第21题）\(f(x)=(x-2)e^x+a(x-1)^2\)有两个零点。
+
+（i）求\(a\)的取值范围；（ii）设两个零点为\(x_1,x_2\)，证明\(x_1+x_2<2\)。
+
+（12）（2016年全国III卷理科第21题）设\(f(x)=\alpha\cos2x+(\alpha-1)(\cos x+1)\)，其中\(\alpha>0\)，记\(|f(x)|\)的最大值为\(A\)。
+
+（i）求\(f'(x)\)；（ii）求\(A\)；（iii）证明\(|f'(x)|\le2A\)。
+
+（13）设\(f\)在\([a,b]\)上二阶可导，且\(f''\ge m>0\)。对\(g(x)=f(x)-mx^2/2\)使用凸性，证明\(\dfrac{f(a)+f(b)}2-f\!\left(\dfrac{a+b}2\right)\ge\dfrac{m(b-a)^2}8\)。
+
+（14）设\(f\)在区间内二阶可导，且\(f''>0\)。证明每条切线与该区间内的图像只有切点一个公共点。
+
+（15）求\(x^3e^{2x}\)的\(n\)阶导数。若\(P\)为\(m\)次多项式，写出\((Pe^{ax})^{(n)}\)的一般表达式，说明为什么至多需要\(m+1\)项。
+
+（16）对恒等式\((1+x)^p(1+x)^q=(1+x)^{p+q}\)求\(n\)阶导数，并在零点取值，证明\(\sum_{k=0}^n\binom pk\binom q{n-k}=\binom{p+q}n\)，其中\(p,q\)为非负整数，超过上标的二项式系数约定为零。
+\end{exercise}
+\endgroup
+
+\FloatBarrier
+\newpage
+\begingroup
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+\subsection{高阶微分*}
+
+一阶微分将函数增量中关于输入增量的线性部分写成\(dy=f'(x)\,dx\)。固定自变量增量\(dx\)，再对这个表达式中的系数求微分，可以依次得到高阶微分。
+
+\begin{definition}
+设\(x\)为独立变量，\(y=f(x)\)具有\(n\)阶导数。在连续求微分的过程中保持\(dx\)不变，定义
+\begin{equation*}
+ d^2y=d(dy)=f''(x)(dx)^2,\qquad
+ d^ny=f^{(n)}(x)(dx)^n.
+\end{equation*}
+\end{definition}
+
+高阶导数给出系数，高阶微分还包括输入增量的相应次幂。符号\(d^2y\)表示对\(y\)连续求两次微分，并非\((dy)^2\)；\(d^2y/dx^2\)则与二阶导数的记号一致。后面的Taylor公式将说明，这些系数怎样共同组成更高次的局部近似。
+
+一阶微分具有形式不变性，但在高阶情形下，中间变量本身的变化也需要保留。设\(y=f(u)\)、\(u=u(x)\)，则
+\begin{equation*}
+ \begin{aligned}
+ d^2y&=d\bigl(f'(u)\,du\bigr)
+       =f''(u)(du)^2+f'(u)d^2u,\\
+ du&=u'(x)\,dx,\qquad d^2u=u''(x)(dx)^2.
+ \end{aligned}
+\end{equation*}
+这就是二阶链式法则
+\begin{equation*}
+ \frac{d^2y}{dx^2}=f''(u)\bigl(u'(x)\bigr)^2+f'(u)u''(x)
+\end{equation*}
+的微分形式。若把\(u\)直接作为独立变量，保持的是\(du\)，所得到的二阶微分为\(f''(u)(du)^2\)；若\(u\)随\(x\)非线性变化，则还要计入\(f'(u)d^2u\)。独立变量的选择在二阶运算中已经产生了实质影响。
+
+\begin{example}
+设\(y=u^2\)、\(u=x^2\)。先将\(y\)写成\(x\)的函数求\(d^2y\)，再用二阶链式法则计算，并分别指出两项的来源。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）以\(x\)为独立变量，求\(y=\ln x\)的前三阶微分，并比较\(d^2y\)与\((dy)^2\)。
+
+（2）设\(y=\sin u\)、\(u=x^2+1\)。分别计算\(f''(u)(du)^2\)与\(d^2y\)，指出只保留前者漏掉了什么。
+
+（3）若\(u=ax+b\)，说明二阶微分公式中的附加项为什么消失，并由\(d^ny=f^{(n)}(u)a^n(dx)^n\)核对线性换元下的高阶求导。
+
+（4）设\(y=e^u\)、\(u=\ln x\)，以\(x\)为独立变量，计算二阶微分公式中的两项，解释它们为何恰好抵消，并将\(y\)直接表示为\(x\)的函数进行核对。
+\end{exercise}
+
+\subsection{Taylor多项式*}
+
+一次近似匹配函数在基点的值与一阶变化。若继续匹配二阶、三阶直至更高阶导数，是否可以得到更精确的局部模型？先在多项式中确定应当选择的系数。
+
+设
+\begin{equation*}
+ P_n(x)=c_0+c_1(x-a)+\cdots+c_n(x-a)^n.
+\end{equation*}
+则\(P_n^{(k)}(a)=k!c_k\)。因此，使\(P_n^{(k)}(a)=f^{(k)}(a)\)对\(0\le k\le n\)都成立的多项式是唯一的。
+
+\begin{definition}
+若\(f\)在\(a\)处具有直到\(n\)阶的导数，称
+\begin{equation}\label{eq:calculus-taylor-polynomial}
+ T_n(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k
+\end{equation}
+为\(f\)在\(a\)处的\(n\)阶{\heiti{}Taylor多项式}。取\(a=0\)时，也称Maclaurin多项式。
+\end{definition}
+
+例如，\(e^x\)在\(0\)处的各阶导数均为\(1\)，故
+\begin{equation*}
+ T_n(x)=1+x+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}.
+\end{equation*}
+\(\sin x\)的四阶Taylor多项式为\(x-x^3/6\)，因为常数项、二次项和四次项的系数均为零。所谓阶数，并不要求最高次项系数非零。
+
+到这里，已经确定了匹配各阶导数的多项式，但尚未证明它的误差有多小。令\(R_n(x)=f(x)-T_n(x)\)，接下来的任务就是控制这个余项。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.46\linewidth]{calculus-taylor}
+\caption{\(e^x\)在零点的前三阶Taylor多项式。各阶局部近似的精度，仍须由余项估计确定。}
+\label{fig:calculus-taylor}
+\end{figure}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）写出\(\cos x\)、\(\ln(1+x)\)及\((1+x)^\alpha\)在\(0\)处的三阶Taylor多项式。
+
+（2）求\(x^4\)在\(a=1\)处的四阶Taylor多项式，直接展开验证它恰为原多项式。
+
+（3）若两个次数不超过\(n\)的多项式在\(a\)处直到\(n\)阶的导数都相同，证明它们相等。
+\end{exercise}
+
+\subsection{Taylor公式*}
+
+\begin{theorem}[带Lagrange余项的Taylor公式]\label{thm:calculus-taylor-lagrange}
+设\(f\)在包含\(a\)与\(x\)的区间上具有直到\(n+1\)阶的连续导数，\(x\ne a\)。则存在位于\(a\)与\(x\)之间的\(\xi\)，使
+\begin{equation}\label{eq:calculus-taylor-lagrange}
+ f(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k
+ +\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
+\end{equation}
+\end{theorem}
+
+为了得到余项，需要将函数与Taylor多项式的差，再减去一个系数待定的高次项，使所得函数在两个位置都为零。Taylor多项式已经匹配的各阶导数，则为反复使用Rolle定理提供了条件。
+
+\begin{proof}
+固定\(x\)，选取常数\(K\)，使
+\begin{equation*}
+ H(t)=f(t)-T_n(t)-K(t-a)^{n+1}
+\end{equation*}
+满足\(H(x)=0\)。又有\(H(a)=H'(a)=\cdots=H^{(n)}(a)=0\)。由\(H(a)=H(x)=0\)，得到两者之间的一个\(H'\)零点；将它与\(H'(a)=0\)配对，再得到更靠近\(a\)的\(H''\)零点。如此反复，共用\(n+1\)次Rolle定理，得到\(H^{(n+1)}(\xi)=0\)。
+
+因此\(f^{(n+1)}(\xi)-(n+1)!K=0\)。代回\(H(x)=0\)，即得公式。
+\end{proof}
+
+若\(|f^{(n+1)}|\le M\)，则
+\begin{equation}\label{eq:calculus-taylor-bound}
+ |R_n(x)|\le\frac{M}{(n+1)!}|x-a|^{n+1}.
+\end{equation}
+这个界不需要知道\(\xi\)的具体位置，可以直接用于数值误差估计。
+
+\paragraph{Peano余项} \mbox{}
+
+有时只需要知道余项相对于某次幂趋零，而不要求给出明确的误差常数。记
+\begin{equation*}
+ r(h)=o(h^n)\quad(h\to0)
+ \qquad\Longleftrightarrow\qquad
+ \frac{r(h)}{h^n}\to0.
+\end{equation*}
+这称为相对于\(h^n\)的高阶无穷小，\(o\)在这里描述余项满足的极限关系。
+
+\begin{theorem}[带Peano余项的Taylor公式]\label{thm:calculus-taylor-peano}
+设\(f\)在\(a\)附近有直到\(n-1\)阶的导数，且\(f^{(n-1)}\)在\(a\)处可导，其中\(n\ge1\)。则
+\begin{equation}\label{eq:calculus-taylor-peano}
+ f(a+h)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}h^k+o(h^n).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\(n=1\)就是可导函数的一次近似。设结论对\(n-1\)成立，注意到
+\begin{equation*}
+ T_n'(a+h)=\sum_{j=0}^{n-1}\frac{f^{(j+1)}(a)}{j!}h^j
+\end{equation*}
+正好是\(f'\)在\(a\)处的\(n-1\)阶Taylor多项式。将归纳假设用于\(f'\)，便知余项\(R_n(h)=f(a+h)-T_n(a+h)\)满足\(R_n'(h)=o(h^{n-1})\)。
+
+给定\(\varepsilon>0\)，充分小的非零\(t\)均满足\(|R_n'(t)|\le\varepsilon|t|^{n-1}\)。又\(R_n(0)=0\)，故由中值定理，存在\(\eta\)介于\(0\)与\(h\)之间，使
+\begin{equation*}
+ |R_n(h)|=|hR_n'(\eta)|\le\varepsilon|h||\eta|^{n-1}\le\varepsilon|h|^n.
+\end{equation*}
+所以\(R_n(h)=o(h^n)\)，归纳完成。
+\end{proof}
+
+Lagrange余项利用一段区间内更高阶导数的控制，给出可计算的误差；Peano余项只在基点附近比较阶数，所需条件也较弱。应根据问题需要选择版本，不能把一种版本的条件直接用于另一种余项表达。
+
+\begin{example}
+用\(e^x\)在\(0\)处的二阶Taylor公式估计\(e^{0.1}\)，并给出一个小于\(1/2000\)的误差上界。再写出\(\ln(1+h)\)的三阶Peano展开。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用\(\cos x\)在\(0\)处的Taylor公式证明\(|\cos x-1+x^2/2|\le x^4/24\)。
+
+（2）设\(f(a)=f'(a)=0\)、\(f''(a)=2\)。写出\(f(a+h)\)的二阶Peano展开，并判断充分靠近\(a\)的非零\(h\)所对应函数值的符号。
+
+（3）若\(r(h)=o(h^3)\)，判断\(r(h)/h^2\)、\(r(h)/h^3\)的极限能否确定。若仅知\(r(h)=o(h^2)\)，结论有何不同？
+\end{exercise}
+
+\subsection{Taylor公式的应用*}
+
+有限展开的用途取决于余项的控制。求极限时，保留抵消后最先出现的有效项；估算时，使误差小于给定精度；判断函数值大小时，则要确定首个非零项的符号。
+
+例如，
+\begin{equation*}
+ e^x=1+x+\frac{x^2}2+o(x^2),\qquad
+ \cos x=1-\frac{x^2}2+o(x^2),
+\end{equation*}
+相减后可得
+\begin{equation*}
+ \lim_{x\to0}\frac{e^x-\cos x-x}{x^2}=1.
+\end{equation*}
+若只保留一次近似，两个余项都只是\(o(x)\)，便不足以确定除以\(x^2\)后的极限。所需阶数由抵消后的比较决定。
+
+当\(f'(a)=0\)、\(f''(a)\ne0\)时，
+\begin{equation*}
+ f(a+h)-f(a)=\frac{f''(a)}2h^2+o(h^2).
+\end{equation*}
+充分小的非零\(h\)下，其符号与\(f''(a)\)相同。因此\(f''(a)>0\)给出严格极小值，\(f''(a)<0\)给出严格极大值。这是{\heiti{}二阶导数判别法}。
+
+更一般地，若\(f'(a)=\cdots=f^{(m-1)}(a)=0\)，而\(f^{(m)}(a)\ne0\)，则首个非零项为\(f^{(m)}(a)h^m/m!\)。\(m\)为偶数时，它在两侧同号，决定极值；\(m\)为奇数时，两侧异号，因而不是极值点。这个判断把前面的\(x^2\)、\(x^3\)、\(x^4\)放在同一个局部模型中。
+
+不等式也可以由余项符号得到。比如\(x>0\)时，对\(e^x\)取二阶展开，Lagrange余项为\(e^\xi x^3/6>0\)，于是
+\begin{equation*}
+ e^x>1+x+\frac{x^2}2.
+\end{equation*}
+这一结论比切线不等式多保留了一个正的二次贡献。
+
+\begin{example}
+求\(\lim_{x\to0}(\sin x-x\cos x)/x^3\)。再研究\(f(x)=\ln(1+x)-x+x^2/2\)在原点的极值情况，说明展开到哪一阶才足够判断。
+\end{example}
+
+\begin{example}[2023年新课标II卷第22题第（2）问]
+设\(f(x)=\cos(ax)-\ln(1-x^2)\)。若\(x=0\)是\(f\)的极大值点，求\(a\)的取值范围。尝试使用有限阶Taylor展开，并处理二次项系数为零的情形。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(\lim_{x\to0}(\tan x-x)/x^3\)。可由正弦、余弦的有限展开得到，不必反复求\(\tan x\)的高阶导数。
+
+（2）求\(\lim_{x\to0}\bigl((1+x)^\alpha-1-\alpha x\bigr)/x^2\)，其中\(\alpha\)为实常数。
+
+（3）证明\(x>0\)时\(x-x^2/2<\ln(1+x)<x\)，分别比较中值定理、函数单调性与Taylor余项的作用。
+
+（4）设\(f\)在\(a\)附近有直到四阶的连续导数，且\(f'(a)=f''(a)=f'''(a)=0\)、\(f^{(4)}(a)>0\)。证明\(a\)为严格极小值点。
+
+（5）回看习题\ref{exs:calculus-parameter-gaokao}第（3）题的最后一问。先由连续性确定\(a\)，再令\(t=x-1\)。用\(\ln\frac{1+t}{1-t}\)在\(t=0\)处的三阶Taylor展开确定\(b\)的必要条件，再用余项符号证明其充分性，与原题的导数方法比较。
+\end{exercise}
+
+\subsection{迭代求根*}
+\label{subsec:calculus-newton-iteration}
+
+第一章用迭代数列近似求解方程，也讨论了平方根的迭代。现在可以利用切线，从一般函数的局部一次模型产生新的取值。
+
+设要求\(f(x)=0\)的根，在近似值\(x_n\)处用切线代替曲线。令切线的纵坐标为零，得到
+\begin{equation}\label{eq:calculus-newton-iteration}
+ x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.
+\end{equation}
+这称为{\heiti{}Newton迭代}。例如，\(f(x)=x^2-A\)、\(A>0\)时，公式化为\(x_{n+1}=(x_n+A/x_n)/2\)，就是第一章的平方根迭代。切线模型说明了这个递推式的来源，但迭代能否一直进行、是否收敛，还需要证明。
+
+\begin{proposition}\label{prop:calculus-newton-error}
+设\(f\)在根\(\alpha\)附近二阶连续可导，且\(f'(\alpha)\ne0\)。则在足够小的邻域内，从任意初值出发的Newton迭代都趋于\(\alpha\)，并有
+\begin{equation*}
+ |x_{n+1}-\alpha|\le K|x_n-\alpha|^2,
+\end{equation*}
+其中\(K\)为与\(n\)无关的常数。
+\end{proposition}
+
+\begin{proof}
+由连续性，在\(\alpha\)的一个闭邻域内可以取\(m>0\)、\(M>0\)，使\(|f'|\ge m\)、\(|f''|\le M\)。在\(x\)处展开并取终点为\(\alpha\)，Taylor公式给出
+\begin{equation*}
+ 0=f(\alpha)=f(x)+f'(x)(\alpha-x)+\frac12f''(\xi)(\alpha-x)^2.
+\end{equation*}
+所以，对\(N(x)=x-f(x)/f'(x)\)，有
+\begin{equation*}
+ |N(x)-\alpha|\le\frac M{2m}|x-\alpha|^2.
+\end{equation*}
+取\(K=M/(2m)\)，再缩小半径\(\delta\)，使\(K\delta\le1/2\)。当\(|x-\alpha|\le\delta\)时，下一个点仍在该邻域内，且误差至多为原来的一半。归纳可知迭代始终有定义并趋于\(\alpha\)，上式同时保留了更精细的平方误差界。
+\end{proof}
+
+这个证明先保证点留在可以控制的范围内，再判断误差怎样缩小。平方误差意味着足够接近根以后，误差越小，下一步相对于当前误差的比例也越小；它比固定比例的收缩更快。结论是局部的，初值远离所求根时仍应重新研究迭代过程。
+
+在上述邻域内，若\(K\le1\)，且某一步误差不超过\(10^{-3}\)，则后两步误差分别不超过\(10^{-6}\)、\(10^{-12}\)。平方误差界由此说明了接近单根后近似精度的提高。
+
+\newpage
+\paragraph{有限层分式} \mbox{}
+
+求\(\sqrt2\)还可以从恒等式\(y=1+1/(1+y)\)出发，取
+\begin{equation*}
+ y_1=1,\qquad y_{n+1}=1+\frac1{1+y_n}.
+\end{equation*}
+逐次代入后，每个\(y_n\)都表示为有限层分式。由\(\varphi(y)=1+1/(1+y)\)将\([1,3/2]\)映入自身，且其上\(|\varphi'|\le1/4\)，中值定理给出
+\begin{equation*}
+ |y_{n+1}-\sqrt2|\le\frac14|y_n-\sqrt2|.
+\end{equation*}
+因此它也收敛，但这里首先得到的是固定比例的误差界。对这个例子，研究连分式的有限层截断，就是研究相应的迭代数列；收敛性和精度仍由明确的估计保证。
+
+\begin{example}
+分别用Newton迭代和上述分式迭代近似\(\sqrt2\)。从\(1\)开始各算三步，比较误差，再利用第一章平方根迭代的精确误差式及本小节的比例界估计下一步误差。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）为\(x^3=A\)、\(A>0\)写出Newton迭代。若初值\(x_1\ge A^{1/3}\)，证明数列不低于所求根且单调不增，因而收敛。再研究误差怎样变化。
+
+（2）用\(f(x)=\ln x-1\)写出求\(e\)的Newton迭代，从\(x_1=2\)计算前三个近似值。解释一次模型使用的基点为什么每一步都要更新。
+
+（3）对\(f(x)=x^2\)，在非零初值处写出Newton递推式。求其误差比例，比较它与命题\ref{prop:calculus-newton-error}中的条件。
+
+（4）对正文的分式迭代，证明
+\begin{equation*}
+ y_{n+1}-\sqrt2=-\frac{y_n-\sqrt2}{(1+y_n)(1+\sqrt2)}.
+\end{equation*}
+由此判断相邻近似值分居根的两侧，并给出使误差小于\(10^{-4}\)的一个充分迭代次数。
+\end{exercise}
+
+\subsection{从有限展开到无穷展开*}
+
+有限阶Taylor公式对每个固定的阶数给出一个带余项的等式。要使多项式的次数不断增大后恢复原函数，还需要证明余项随阶数趋零。这里改变的是阶数\(n\)，不再是固定阶数下的增量\(h\)。
+
+例如，对固定实数\(x\)，\(e^x\)的余项满足
+\begin{equation*}
+ |R_n(x)|\le e^{|x|}\frac{|x|^{n+1}}{(n+1)!}\longrightarrow0.
+\end{equation*}
+最后的数列相邻项之比为\(|x|/(n+2)\to0\)，所以趋零。因此
+\begin{equation}\label{eq:calculus-exponential-series}
+ e^x=\sum_{k=0}^{\infty}\frac{x^k}{k!}.
+\end{equation}
+在\(x=1\)处，它与第一章的\(e\)的级数表达一致。
+
+正弦、余弦的各阶导数绝对值不超过\(1\)，同样由阶乘控制余项，得到
+\begin{equation*}
+ \sin x=\sum_{k=0}^{\infty}\frac{(-1)^kx^{2k+1}}{(2k+1)!},\qquad
+ \cos x=\sum_{k=0}^{\infty}\frac{(-1)^kx^{2k}}{(2k)!}.
+\end{equation*}
+这些等式在每个固定实数\(x\)处成立。每个等式右边首先是一项项数构成的级数，第一章的收敛性工具仍然适用。
+
+\paragraph{导数值是否总能恢复函数} \mbox{}
+
+仅有各阶导数还不够。考察
+\begin{equation*}
+ f(x)=\begin{cases}e^{-1/x^2},&x\ne0,\\0,&x=0.\end{cases}
+\end{equation*}
+这个函数在原点的各阶导数均为零，故所有Taylor多项式都是零，但任意非零位置的函数值都为正。
+
+为验证上述导数结论，先注意\(t^p e^{-t}\to0\)（\(t\to+\infty\)），其中\(p>0\)。由\(e^t\)的有限Taylor公式，对任意整数\(m>p\)有\(e^t\ge t^m/m!\)，故\(0\le t^pe^{-t}\le m!t^{p-m}\to0\)。所以\(e^{-1/x^2}\)乘以任意固定次的\(1/x\)，仍在\(x\to0\)时趋零。
+
+在\(x\ne0\)处，每次求导都得到\(P(1/x)e^{-1/x^2}\)的形式，其中\(P\)为多项式。若前一阶导数在原点为零，其差商仍是这种形式乘以\(1/x\)，极限为零。归纳即得各阶导数存在且均为零。
+
+这个例子说明，匹配基点处任意多阶导数，与在基点之外恢复函数，是不同的要求。前者由导数值确定，后者还取决于随阶数变化的余项。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）分别写出\(e+e^{-1}\)与\(e-e^{-1}\)的级数表达，说明奇偶次项的作用。
+
+（2）利用余项界，选取足够的Taylor多项式，使\(\sin(1/2)\)的近似误差小于\(10^{-6}\)。
+
+（3）对上述\(f(x)=e^{-1/x^2}\)在原点补零的函数，证明对每个正整数\(n\)，均有\(f(x)=o(x^n)\)。解释这与\(f\)在原点附近不恒为零为何相容。
+\end{exercise}
+\endgroup

@@ -1,0 +1,309 @@
+\FloatBarrier
+\newpage
+\section{微分中值定理}
+\label{sec:calculus-mean-value}
+
+\begingroup
+\setlength{\parskip}{5pt}
+
+导数描述一点附近的变化。若要根据各点的导数判断一个区间上的函数变化，就需要把局部信息与两端的函数值联系起来。中值定理建立的正是这种联系。
+
+\subsection{极值的必要条件}
+
+\begin{definition}
+若存在\(x_0\)的某个邻域，使其中所有\(x\)都满足\(f(x)\le f(x_0)\)，则称\(f\)在\(x_0\)处取得{\heiti{}极大值}；将不等号反向，得到{\heiti{}极小值}，统称{\heiti{}极值}。满足\(f'(x_0)=0\)的点称为{\heiti{}驻点}。
+\end{definition}
+
+极值只在一点附近比较。第二章所说的最大值、最小值，则在给定的整个集合上比较。以下极值均在所考察区间的内点讨论，端点作为区间最值的候选位置另行处理。
+
+\begin{theorem}[Fermat定理]\label{thm:calculus-fermat}
+若\(f\)在内点\(x_0\)处取得极值，且在该点可导，则\(f'(x_0)=0\)。
+\end{theorem}
+
+\begin{proof}
+设\(x_0\)为极大值点。充分小的\(h>0\)使差商不大于零，充分小的\(h<0\)使差商不小于零。两侧极限相等，故只能为零。极小值同理。
+\end{proof}
+
+因此，可导函数的内点极值一定出现在驻点。但\(x^3\)在原点导数为零，附近却有比\(0\)大和比\(0\)小的函数值，故驻点未必是极值点。
+
+\begin{example}
+比较\(x^2\)、\(x^3\)与\(|x|\)在原点的极值和可导性。再考察\(f(x)=x\)在\([0,1]\)上的最值，说明驻点条件为什么不能替代端点比较。
+\end{example}
+
+\subsection{Rolle定理}
+
+\begin{theorem}[Rolle定理]\label{thm:calculus-rolle}
+设\(f\)在\([a,b]\)上连续，在\((a,b)\)内可导，且\(f(a)=f(b)\)。则存在\(\xi\in(a,b)\)，使\(f'(\xi)=0\)。
+\end{theorem}
+
+\begin{proof}
+由闭区间连续函数的最值定理，\(f\)取得最大值和最小值。若\(f\)为常值，结论立即成立；否则，因两个端点的值相等，至少有一个最值在内部取得。对此内点使用Fermat定理，便得结论。
+\end{proof}
+
+两个端点同高，区间内的图像若发生变化，就必在内部达到比端点更高或更低的位置。最值定理保证这个高度可以取到，可导性则使相应切线水平。
+
+\begin{example}
+对\(f(x)=x^3-x\)，在\([-1,1]\)上求Rolle定理所保证的点。再考察\(|x|\)在\([-1,1]\)上的情形，说明可导条件的作用。
+\end{example}
+
+Rolle定理也能比较函数零点与导函数零点：任意两个不同零点之间，至少有一个导函数零点。因此，若\(f'\)在某区间内至多有\(m\)个零点，\(f\)在该区间内至多有\(m+1\)个不同零点。
+
+这个结论可以逐次使用。若一个多项式有\(n+1\)个不同零点，在相邻零点之间应用Rolle定理，其导函数就至少有\(n\)个不同零点。每求导一次，保证得到的零点数只减少一个。次数为\(n\)的非零多项式连续求导\(n\)次后得到非零常数，所以不可能有\(n+1\)个不同实根。这也从函数变化的角度解释了多项式次数对实根数的限制。
+
+\subsection{Lagrange中值定理}
+
+当两端的函数值不相同时，可以先减去两端连线，使问题回到Rolle定理。
+
+\begin{theorem}[Lagrange中值定理]\label{thm:calculus-lagrange}
+若\(f\)在\([a,b]\)上连续、内部可导，则有\(\xi\in(a,b)\)，使
+\begin{equation}\label{eq:calculus-lagrange}
+ f(b)-f(a)=f'(\xi)(b-a).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+令
+\begin{equation*}
+ F(x)=f(x)-f(a)-\frac{f(b)-f(a)}{b-a}(x-a).
+\end{equation*}
+则\(F(a)=F(b)=0\)，且满足Rolle定理的条件。由\(F'(\xi)=0\)，便得所需等式。
+\end{proof}
+
+式\eqref{eq:calculus-lagrange}表明，整段区间的平均变化率，在某个内部位置由瞬时变化率实现。对于位置函数，它意味着某一时刻的速度等于整段过程的平均速度；在图像上，则有一条切线平行于端点连线。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.83\linewidth]{calculus-mean-value}
+\caption{左图为Rolle定理的水平切线；右图为Lagrange中值定理中与端点连线平行的切线。}
+\label{fig:calculus-mean-value}
+\end{figure}
+
+这里的\(\xi\)位于两点之间，通常随两点改变。中值定理给出它的存在性，并不要求先求出它的位置，也不要求导函数连续。
+
+\begin{example}
+不求\(\sqrt{101}\)的精确值，利用\(\sqrt x\)在\([100,101]\)上的中值定理，给出\(\sqrt{101}-10\)的上下界。与在\(100\)处作一次近似比较。
+\end{example}
+
+\subsection{函数增量的估计}
+
+若区间内\(m\le f'(x)\le M\)，对任意\(u<v\)使用中值定理，便有
+\begin{equation}\label{eq:calculus-increment-bounds}
+ m(v-u)\le f(v)-f(u)\le M(v-u).
+\end{equation}
+特别地，若\(|f'(x)|\le K\)，则
+\begin{equation}\label{eq:calculus-derivative-bound}
+ |f(v)-f(u)|\le K|v-u|.
+\end{equation}
+\begin{samepage}
+导数的统一上界，转化为了两点函数值之差的控制。例如，\(|\cos x|\le1\)给出\(|\sin v-\sin u|\le|v-u|\)。这也为第二章的一致连续提供了一类可检验的充分条件。
+\par
+\end{samepage}
+
+\begin{corollary}\label{cor:calculus-zero-derivative}
+区间上导数恒为零的函数是常值函数。因此，若\(f'=g'\)，则\(f-g\)为常数。
+\end{corollary}
+
+\begin{proof}
+对区间内任意两点使用中值定理，函数值之差均为零。将此结论用于\(f-g\)，即得第二项。
+\end{proof}
+
+导数确定各点的变化率，却不能确定函数整体的高度；加上一个函数值，就能消除这个常数的不确定性。
+
+两点间的增量估计还可以反过来限制区间长度。若\(|f'|\le K\)、\(K>0\)，而两个位置的函数值相差\(D\)，则它们的距离至少为\(D/K\)。例如，一辆车的速度绝对值始终不超过\(V\)，要使位置改变\(S\)，所用时间不可能小于\(|S|/V\)。中值定理在这里同时说明了速度上界与完成位移所需时间的关系。
+
+\begin{example}
+对\(x>0\)，证明
+\begin{equation*}
+ \frac{x}{1+x}<\ln(1+x)<x.
+\end{equation*}
+再设\(f'(x)=2x\)、\(f(1)=3\)，确定\(f\)。
+\end{example}
+
+\begin{example}[2024年北京卷第20题第（2）问改编]
+设\(f(x)=x+k\ln(1+x)\)，\(k\ne0\)。证明对任意\(t>0\)，曲线在\((t,f(t))\)处的切线都不经过原点。尝试用\(\ln(1+x)\)的中值定理解释这一结论。
+\end{example}
+
+\begin{example}
+设\(f'=f\)，证明\(e^{-x}f(x)\)为常数；若再给定\(f(0)=1\)，确定\(f\)。
+\end{example}
+
+\newpage
+\setlength{\parskip}{3.5pt}
+\setlength{\abovedisplayskip}{10pt}
+\setlength{\belowdisplayskip}{10pt}
+\begin{exercise}[本节习题]
+\mbox{}\par\nobreak
+
+（1）证明\(|\arctan x-\arctan y|\le|x-y|\)。
+
+（2）设\(f\)在\([0,1]\)连续、内部可导，且\(f(0)=0\)、\(1\le f'(x)\le2\)。估计\(f(1)\)及\(f(3/4)-f(1/4)\)。
+
+（3）证明\(e^x=1+x\)只有一个实根。可先用Rolle定理控制根数，再判断函数值。
+
+（4）若\(f\)在\(\mathbb R\)上可导且有周期\(T>0\)，证明任意长度为\(T\)的开区间内至少有一个\(f'\)的零点。
+
+（5）设\(f\)在\(\mathbb R\)上可导。证明：\(f'\)为偶函数，当且仅当\(f(x)-f(0)\)为奇函数；\(f'\)为奇函数，当且仅当\(f\)为偶函数。结合例\ref{ex:calculus-chongqing-even-derivative}，说明函数值\(f(0)\)的作用。
+
+（6）对\(0<a<b\)，证明\(\dfrac{b-a}{b}<\ln\dfrac ba<\dfrac{b-a}{a}\)，并据此估计\(\ln\dfrac{101}{100}\)。
+
+（7）设\(f\)在\([a,b]\)上连续、内部可导，且\(|f'|\le K\)。若\(f(a)=f(b)=0\)，证明
+\begin{equation*}
+ |f(x)|\le K\min\{x-a,b-x\}\le\frac{K(b-a)}2\qquad(x\in[a,b]).
+\end{equation*}
+
+（8）设区间\(I\)上\(f'\ge m>0\)，且\(f(\alpha)=0\)。证明\(|x-\alpha|\le|f(x)|/m\)（\(x\in I\)），并解释它对估计近似根误差的作用。
+
+（9）（2013年北京卷理科第18题第（2）问）曲线\(y=\ln x/x\)在\((1,0)\)处的切线为\(y=x-1\)。证明除切点外，曲线都位于这条直线的下方。可先用中值定理比较\(\ln x\)与\(x-1\)。
+
+（10）设\(f\)在\([a,b]\)上连续、内部可导，且有三个不同零点。证明\(f'\)至少有两个不同零点。若\(f'\)也可导，证明它的导函数至少有一个零点。
+
+（11）设\(f\)在\([0,1]\)上连续、内部可导，且\(f(0)=f(1)=0\)、\(f(1/2)=1\)。证明存在\(u\in(0,1/2)\)、\(v\in(1/2,1)\)，使\(f'(u)-f'(v)=4\)。
+
+（12）设\(f\)在\([0,1]\)上连续、内部可导，且\(f(0)=0\)、\(f(1)=1\)。证明存在\(\xi\in(0,1)\)，使\(f'(\xi)=2\xi\)。说明应先从\(f\)中减去哪个函数，再使用Rolle定理。
+
+（13）设\(f\)将\([0,1]\)映入自身，在该区间连续、内部可导，且\(|f'|\le q<1\)。证明方程\(f(x)=x\)有且只有一个解，分别指出连续性与导数上界的作用。
+
+（14）设\(f\)在\([0,1]\)上连续、内部可导，两端的函数值为零。证明存在\(\xi\in(0,1)\)，使\(f'(\xi)=f(\xi)\)。
+
+（15）若区间上\(f'\ne0\)，证明\(f\)至多有一个零点。
+\end{exercise}
+
+\endgroup
+\FloatBarrier
+\newpage
+\begingroup
+\setlength{\parskip}{2.5pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\subsection{导函数的性质*}
+
+函数可导，并不保证导函数连续。另一方面，导函数来自局部差商，它的取值也并非可以任意变化。中值定理先给出导函数极限与导数之间的联系。
+
+\begin{theorem}[导数极限定理]\label{thm:calculus-derivative-limit}
+设\(f\)在\(a\)处连续，在\(a\)的某个去心邻域内可导。若\(\lim_{x\to a}f'(x)=L\in\mathbb R\)，则\(f\)在\(a\)处可导，且\(f'(a)=L\)。
+\end{theorem}
+
+\begin{proof}
+对充分小的非零\(h\)，在\(a\)与\(a+h\)之间使用Lagrange中值定理，得到
+\begin{equation*}
+ \frac{f(a+h)-f(a)}h=f'(\xi_h),\qquad |\xi_h-a|<|h|.
+\end{equation*}
+当\(h\to0\)时，\(\xi_h\to a\)，故差商趋于\(L\)，结论成立。
+\end{proof}
+
+只从一侧趋近时，同一证明得到相应的单侧导数。因此，对连接处连续的分段函数，若两侧导函数分别趋于同一个有限值，就可以据此确定连接处的导数。
+
+反过来，可导并不要求附近的导函数具有极限。前面研究的\(f(0)=0\)、\(f(x)=x^2\sin(1/x)\)（\(x\ne0\)）满足\(f'(0)=0\)，而\(x\ne0\)时\(f'(x)=2x\sin(1/x)-\cos(1/x)\)，在零点附近不断振荡。判断一点处是否可导，最终依据仍是差商。
+
+\begin{theorem}[Darboux定理]\label{thm:calculus-derivative-intermediate-value}
+设\(f\)在区间\(I\)上可导，\(a<b\)为其中两点。若\(\lambda\)严格介于\(f'(a)\)与\(f'(b)\)之间，则存在\(\xi\in(a,b)\)，使\(f'(\xi)=\lambda\)。
+\end{theorem}
+
+\begin{proof}
+先设\(f'(a)<\lambda<f'(b)\)，令\(F(x)=f(x)-\lambda x\)，则\(F'(a)<0\)、\(F'(b)>0\)。由导数定义，在\(a\)的右侧有\(F(x)<F(a)\)，在\(b\)的左侧有\(F(x)<F(b)\)。所以\(F\)在\([a,b]\)上的最小值不能在端点取得。
+
+由最值定理，最小值在某个\(\xi\in(a,b)\)处取得。Fermat定理给出\(F'(\xi)=0\)，即\(f'(\xi)=\lambda\)。若两个端点导数的大小顺序相反，则改取\(F\)的最大值，同样得到结论。
+\end{proof}
+
+连续函数的介值性在第二章已经建立，这里则没有假定\(f'\)连续。导函数虽可振荡而不连续，仍不能像阶跃函数那样跳过一段值。特别地，若一个区间上的导数既取正值又取负值，则两者之间必有导数为零的位置。
+
+这个证明也给出一种构造方式：要让导数等于\(\lambda\)，就从函数中减去斜率为\(\lambda\)的直线，再寻找内部极值。导数的取值问题由此转成了原函数的极值问题。
+
+\begin{example}
+一个函数在零点左侧恒为\(-1\)，右侧恒为\(1\)。无论怎样规定它在零点的值，它能否成为某个可导函数在整个区间上的导函数？与\(x^2\sin(1/x)\)的导函数比较。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设\(f(x)=e^x-1\)（\(x<0\)），\(f(x)=ax\)（\(x\ge0\)）。分别用差商与导数极限定理，求\(f\)在零点可导的条件。
+
+（2）设区间上可导函数\(f\)的导数只取\(-1\)、\(1\)中的值。证明\(f\)必为\(x+C\)或\(-x+C\)，其中\(C\)为常数。
+
+（3）若\(f\)在开区间内可导，且\(f'\)单调，证明\(f'\)连续。可以先在任意内点的两侧建立单调函数的单侧极限，再使用导数极限定理。
+\end{exercise}
+
+\subsection{Cauchy中值定理*}
+
+Lagrange中值定理比较函数增量与自变量增量。若将自变量函数\(x\)换成另一个函数，就得到两种变化之间的联系。
+
+\begin{theorem}[Cauchy中值定理]\label{thm:calculus-cauchy-mean-value}
+若\(f,g\)在\([a,b]\)上连续、内部可导，则有\(\xi\in(a,b)\)，使
+\begin{equation}\label{eq:calculus-cauchy-mean-value}
+ (f(b)-f(a))g'(\xi)=(g(b)-g(a))f'(\xi).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+为消去端点增量，取
+\begin{equation*}
+ H(x)=(f(b)-f(a))(g(x)-g(a))-(g(b)-g(a))(f(x)-f(a)).
+\end{equation*}
+则\(H(a)=H(b)=0\)。由Rolle定理有\(H'(\xi)=0\)，展开就是式\eqref{eq:calculus-cauchy-mean-value}。
+\end{proof}
+
+若\(g'\)在内部处处不为零，Rolle定理还保证\(g(b)\ne g(a)\)，因而可写为
+\begin{equation*}
+ \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}.
+\end{equation*}
+右边的两个导数在同一个点取值。分别对\(f\)、\(g\)使用Lagrange中值定理，一般不能保证得到同一个点，故不能代替这一结论。
+
+\begin{exercise}
+对\(0<a<b\)，取\(f(x)=\ln x\)、\(g(x)=x^2\)，证明存在\(\xi\in(a,b)\)，使\(\ln(b/a)/(b^2-a^2)=1/(2\xi^2)\)，并据此给出该比值的上下界。
+\end{exercise}
+
+\subsection{洛必达法则*}
+
+在\(f(x)\)与\(g(x)\)都趋零时，比值的极限不能由两者极限相除得到。若把两者看成从共同零点出发的增量，Cauchy中值定理就能把原比值与导数比联系起来。
+
+\begin{theorem}[洛必达法则的\(0/0\)型]\label{thm:calculus-lhopital}
+设\(x\to c^+\)时\(f(x)\to0\)、\(g(x)\to0\)，且两函数在\(c\)右侧某邻域内可导，\(g'(x)\ne0\)。若
+\begin{equation*}
+ \lim_{x\to c^+}\frac{f'(x)}{g'(x)}=L\in\mathbb R,
+\end{equation*}
+则\(\lim_{x\to c^+}f(x)/g(x)=L\)。左侧版本同理；两侧适用并得到同一极限时，得到双侧版本。
+\end{theorem}
+
+\begin{proof}
+补定义\(f(c)=g(c)=0\)，使端点连续。对\([c,x]\)用Cauchy中值定理，得到
+\begin{equation*}
+ \frac{f(x)}{g(x)}=\frac{f'(\xi)}{g'(\xi)},\qquad c<\xi<x.
+\end{equation*}
+当\(x\to c^+\)时，\(\xi\to c^+\)，右端趋于\(L\)。
+\end{proof}
+\paragraph{无穷远与无穷量之比} \mbox{}
+
+当\(x\to+\infty\)而\(f,g\to0\)时，可令\(t=1/x\)，转为有限点处的版本；两个复合导数中的\(-1/t^2\)相消，导数比仍为\(f'/g'\)。
+
+对于\(|f(x)|,|g(x)|\to\infty\)的情形，在相同的可导和\(g'\ne0\)条件下，若\(f'/g'\to L\in\mathbb R\)，仍有\(f/g\to L\)。证明比较固定点与变化点的增量，不将无穷大当作端点函数值。
+
+具体地，给定\(\varepsilon>0\)，在足够靠近所考察端部的范围内，有\(|f'/g'-L|<\varepsilon\)。在这一范围内固定\(x_1\)，对\(x_1\)与\(x\)之间的区间使用Cauchy中值定理，就有
+\begin{equation*}
+ \left|\frac{f(x)-f(x_1)}{g(x)-g(x_1)}-L\right|<\varepsilon.
+\end{equation*}
+再写成
+\begin{equation*}
+ \frac{f(x)}{g(x)}=
+ \frac{f(x)-f(x_1)}{g(x)-g(x_1)}
+ \left(1-\frac{g(x_1)}{g(x)}\right)+\frac{f(x_1)}{g(x)}.
+\end{equation*}
+由于\(|g(x)|\to\infty\)，后两个固定点产生的误差趋零，原比值最终与\(L\)任意接近。这个论证对有限端点和无穷远均适用。若导数比趋于\(+\infty\)或\(-\infty\)，将上述误差控制换成任意大的单侧界，同样得到相应结论。
+
+\begin{example}
+求\(\lim_{x\to0}(e^x-1-x)/x^2\)及\(\lim_{x\to+\infty}\ln x/x\)。再比较\(\lim_{x\to0}(\sqrt{1+x}-1)/x\)使用有理化与洛必达法则的计算。
+\end{example}
+
+使用法则之前，要先确认原式属于所讨论的类型。\(\infty-\infty\)、\(0\cdot\infty\)等表达式，可通过通分或改写成商后判断；每次继续求导，也都须重新满足条件。求导后的比值没有极限时，法则不给出判断，原比值仍可能有极限。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(\lim_{x\to0}(x-\sin x)/x^3\)及\(\lim_{x\to0}(\ln(1+x)-x)/x^2\)。
+
+（2）求\(\lim_{x\to+\infty}x e^{-x}\)与\(\lim_{x\to0^+}x\ln x\)。
+
+（3）计算\(\lim_{x\to0}(1+x)^{1/x}\)。说明若用对数求导和洛必达法则，这个计算为什么只是核对已有结论，不能反过来承担本章指数、对数求导公式的最初建立。
+
+（4）令\(f(x)=x+\sin x\)、\(g(x)=x\)。比较\(x\to+\infty\)时原比值与导数比的极限。
+\end{exercise}
+\endgroup
