@@ -83,6 +83,17 @@
 
 {\kaiti{}思考\quad 分别用复数乘法与旋转变换解释\(i^{2} = - 1\)，并说明乘以\(- i\)对应怎样的变换。}
 
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）计算\((1+i)^8\)与\((1-i)/(1+i)\)。
+
+（2）已知\(z+\overline z=4\)、\(z\overline z=13\)，求\(z\)。
+
+（3）在复平面上画出满足\(|z-1|=|z+1|\)的点集。
+\end{exercise}
+
+\newpage
 \subsection{复数的线性结构与几何表示*}
 由复数的加法与实数数乘，\(\mathbb{C}\)可以看成一个实线性空间。若实数\(a , b\)满足\(a \cdot 1 + b \cdot i = 0\)，由复数相等的定义，必有\(a = b = 0\)，所以\(1 , i\)线性无关。又因为每个复数都能写成\(a + b i\)，它们张成整个空间，因而\(1 , i\)是一组基，\(\mathbb{C}\)是二维实线性空间。
 
@@ -128,6 +139,39 @@
 
 以\(1 , i\)作为坐标轴的正向单位向量，就得到前面的复平面表示；模\(\left| z \right| = \sqrt{\left\langle z , z \right\rangle}\)也正好成为这个平面上的长度。
 
+\begin{example}
+在实基\(e_1=1,e_2=1+i\)下，求\(i\)的坐标与乘以\(i\)的变换矩阵，验证行列式不变。计算\(\langle e_1,e_2\rangle\)，说明坐标为\((1,0)\)、\((0,1)\)为何不足以判定正交。
+\end{example}
+
+\paragraph{乘法与内积的联系} \mbox{}
+
+模由乘法结构给出，内积再由模确定，因此乘法也能控制两个向量之间的关系。对任意复数\(u,z,w\)，有
+\begin{equation*}
+ \langle uz,uw\rangle
+ =\operatorname{Re}(uz\overline{uw})
+ =|u|^2\operatorname{Re}(z\overline w)
+ =|u|^2\langle z,w\rangle.
+\end{equation*}
+当\(u\ne0\)时，两个向量的长度都乘以\(|u|\)，而内积乘以\(|u|^2\)，所以夹角保持不变。特别地，模为\(1\)的复数所对应的乘法变换保持长度与内积。
+
+取\(u=i\)，还可以直接计算\(\langle z,iz\rangle=\operatorname{Re}(-i|z|^2)=0\)。因此对非零\(z\)，乘以\(i\)将它变为一个等长且垂直的向量；结合\(1\mapsto i\)，便确定这是逆时针旋转\(90^\circ\)。这个几何结论与前面的代数运算相互对应。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）由代数范数的表达式证明平行四边形恒等式
+\begin{equation*}
+ N(z+w)+N(z-w)=2N(z)+2N(w).
+\end{equation*}
+
+（2）在基\(e_1=1,e_2=1+i\)下，设\(z=xe_1+ye_2\)、\(w=se_1+te_2\)。写出\(N(z)\)与\(\langle z,w\rangle\)关于\(x,y,s,t\)的表达式，比较它们与标准正交基下的公式。
+
+（3）设\(u\ne0\)。证明乘以\(u\)的变换保持正交关系，并求其逆变换的矩阵。它在什么条件下保持所有向量的长度？
+
+（4）将共轭映射\(C(z)=\overline z\)看成实线性变换，求它在基\(1,i\)下的矩阵与行列式。它保持内积吗？能否找到固定复数\(u\)，使\(C(z)=uz\)对所有\(z\)成立？
+\end{exercise}
+
+\newpage
 \subsection{复数的几种表示法}
 \paragraph{1°代数形式} \mbox{}\nopagebreak[4]
 
@@ -135,11 +179,7 @@
 
 \paragraph{2°三角形式} \mbox{}\nopagebreak[4]
 
-对非零复数\(z = a + b i\)，记\(r = \left| z \right|\)。由实轴正方向转到\(\vec{O Z}\)的角\(\theta\)称为\(z\)的{\heiti{}辐角}。由三角函数的定义，
-\begin{equation}
-    a = r \cos \theta , \quad b = r \sin \theta ,
-\end{equation}
-于是
+对非零复数\(z = a + b i\)，记\(r = \left| z \right|\)。由实轴正方向转到\(\vec{O Z}\)的角\(\theta\)称为\(z\)的{\heiti{}辐角}。由三角函数的定义，\(a=r\cos\theta\)、\(b=r\sin\theta\)，于是
 \begin{equation}\label{eq:complex-trig}
     z = r \left( \cos \theta + i \sin \theta \right) .
 \end{equation}
@@ -149,10 +189,7 @@
     \includegraphics[width=0.58\linewidth]{complex-plane.pdf}
 \end{center}
 
-同一个非零复数的辐角相差\(2 k \pi\)，其中\(k \in \mathbb{Z}\)。通常选取\(\left( - \pi , \pi \right]\)中的那个值，称为{\heiti{}主辐角}，记为\(\operatorname{Arg} z\)。例如，\(- \sqrt{3} + i\)的模是\(2\)，主辐角为\(\frac{5 \pi}{6}\)，所以
-\begin{equation}
-    - \sqrt{3} + i = 2 \left( \cos \frac{5 \pi}{6} + i \sin \frac{5 \pi}{6} \right) .
-\end{equation}
+同一个非零复数的辐角相差\(2 k \pi\)，其中\(k \in \mathbb{Z}\)。通常选取\(\left( - \pi , \pi \right]\)中的那个值，称为{\heiti{}主辐角}，记为\(\operatorname{Arg} z\)。例如，\(- \sqrt{3} + i\)的模是\(2\)，主辐角为\(\frac{5 \pi}{6}\)，所以\(-\sqrt3+i=2(\cos\frac{5\pi}{6}+i\sin\frac{5\pi}{6})\)。
 
 \paragraph{3°指数形式} \mbox{}\nopagebreak[4]
 
@@ -160,21 +197,13 @@
 \begin{equation}
     e^{x + i y} = e^{x} \left( \cos y + i \sin y \right) , \quad x , y \in \mathbb{R} .
 \end{equation}
-它与实指数函数相容。由和角公式，容易验证
-\begin{equation}
-    e^{z_{1} + z_{2}} = e^{z_{1}} e^{z_{2}} .
-\end{equation}
-特别地，
+它与实指数函数相容。由和角公式，容易验证\(e^{z_1+z_2}=e^{z_1}e^{z_2}\)。特别地，
 \begin{equation}\label{eq:euler-formula}
     e^{i \theta} = \cos \theta + i \sin \theta .
 \end{equation}
 这个等式称为{\heiti{}欧拉公式}，将三角函数与指数运算联系起来。取\(\theta = \pi\)，便有\(e^{i \pi} + 1 = 0\)。
 
-利用欧拉公式，三角形式可以简写为
-\begin{equation}
-    z = r e^{i \theta} ,
-\end{equation}
-称为复数的{\heiti{}指数形式}。例如，上面的复数也可以写成\(- \sqrt{3} + i = 2 e^{5 \pi i / 6}\)。代数形式、三角形式与指数形式表示的是同一个复数，计算时可以根据问题选择方便的形式。
+利用欧拉公式，三角形式可以简写为\(z=re^{i\theta}\)，称为复数的{\heiti{}指数形式}。例如，上面的复数也可以写成\(- \sqrt{3} + i = 2 e^{5 \pi i / 6}\)。代数形式、三角形式与指数形式表示的是同一个复数，计算时可以根据问题选择方便的形式。
 
 由定义还可以看出，\(\left| e^{x + i y} \right| = e^{x}\)。指数中的实部决定模，虚部决定方向；共轭与倒数则可以写成
 \begin{equation}
@@ -215,6 +244,7 @@
 
 {\kaiti{}思考\quad 乘以一个非零复数能将圆变成非圆的椭圆吗？}
 
+\newpage
 \paragraph{矩阵解释*} \mbox{}\nopagebreak[4]
 
 将\(c = a + b i = r e^{i \theta}\)代入前面的矩阵表示，得到
@@ -270,12 +300,7 @@
 由代数基本定理，\(P\)有根\(\zeta_{1}\)，所以可以提出因式\(z - \zeta_{1}\)，得到一个\(n - 1\)次多项式。若剩下的多项式仍非常数，再应用代数基本定理并提出一个一次因式。重复这一过程，每次次数降低一，最终得到\(n\)个一次因式；剩下的常数由首项系数确定，等于\(a_{n}\)。
 \end{proof}
 
-在分解式中，同一个根可能重复出现。若正整数\(m\)满足
-\begin{equation}
-    P \left( z \right) = \left( z - \zeta \right)^{m} Q \left( z \right) ,
-    \quad Q \left( \zeta \right) \ne 0 ,
-\end{equation}
-则称\(\zeta\)是\(P\)的{\heiti{}\(m\)重根}，\(m\)称为这个根的{\heiti{}重数}。因此，\(n\)次复系数多项式计重数时恰有\(n\)个根，不同的根至多有\(n\)个。
+在分解式中，同一个根可能重复出现。若\(P(z)=(z-\zeta)^mQ(z)\)，其中\(m\)为正整数且\(Q(\zeta)\ne0\)，则称\(\zeta\)是\(P\)的{\heiti{}\(m\)重根}，\(m\)称为这个根的{\heiti{}重数}。因此，\(n\)次复系数多项式计重数时恰有\(n\)个根，不同的根至多有\(n\)个。
 
 \begin{proposition}\label{prop:complex-conjugate-roots}
 实系数多项式的非实根成共轭对出现，且一对共轭根的重数相同。
@@ -296,16 +321,25 @@
 \end{equation}
 这是一个没有实根的实系数二次因式。因此，实系数多项式可以分解为实一次因式与没有实根的实二次因式的乘积；在复数范围内，每个因式都可以分解到一次。
 
+\begin{example}
+已知实系数多项式\(P(z)=z^4-4z^3+8z^2-8z+4\)有根\(1+i\)。求它的全部根及各根的重数，并分别在实数与复数范围内分解因式。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）不使用连续性，由非实根成共轭对出现，证明每个实系数奇数次多项式至少有一个实根。偶数次多项式的实根总重数有什么特点？
+
+（2）设\(P,Q\)的次数都不超过\(n\)，且在\(n+1\)个不同的复数处取值相同。证明\(P=Q\)。
+\end{exercise}
+
+\newpage
 \subsection{乘方与开方}
 将\(z = r e^{i \theta}\)连续相乘，模连续相乘，辐角连续相加。由归纳法易证，对正整数\(n\)，有{\heiti{}棣莫弗公式}：
 \begin{equation}\label{eq:de-moivre}
     z^{n} = r^{n} e^{i n \theta} = r^{n} \left( \cos n \theta + i \sin n \theta \right) .
 \end{equation}
-利用倒数，公式也适用于负整数次幂。例如，
-\begin{equation}
-    \left( 1 + i \right)^{8} = \left( \sqrt{2} e^{\pi i / 4} \right)^{8} = 16 e^{2 \pi i} = 16 .
-\end{equation}
-三角形式与指数形式，因而特别适合乘方计算。
+利用倒数，公式也适用于负整数次幂。例如，\((1+i)^8=(\sqrt2 e^{\pi i/4})^8=16e^{2\pi i}=16\)。三角形式与指数形式，因而特别适合乘方计算。
 
 现在反过来，求满足\(z^{n} = w\)的复数，称为求\(w\)的\(n\)次方根。设\(w = \rho e^{i \varphi} \ne 0\)，\(n \ge 2\)。若\(z = r e^{i \theta}\)，比较模与辐角，就得到
 \begin{equation}
@@ -328,17 +362,23 @@
 \par
 \end{samepage}
 
-\(1\)的\(n\)次方根称为{\heiti{}\(n\)次单位根}，由上面的公式得到
-\begin{equation}
-    z_{k} = e^{2 k \pi i / n} , \qquad k = 0 , 1 , \ldots , n - 1 .
-\end{equation}
-\noindent\begin{minipage}{\linewidth}
+\par\noindent\begin{minipage}{\linewidth}
+\begin{minipage}[c]{0.51\linewidth}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{6pt}
-例如，六次单位根在单位圆上构成正六边形：
-\begin{center}
-    \includegraphics[width=0.48\linewidth]{complex-roots.pdf}
-\end{center}
+\(1\)的\(n\)次方根称为{\heiti{}\(n\)次单位根}，由上面的公式得到
+\begin{equation}
+ \begin{aligned}
+ z_k&=e^{2k\pi i/n},\\
+ k&=0,1,\ldots,n-1.
+ \end{aligned}
+\end{equation}
+例如，六次单位根在单位圆上构成正六边形，如右图。
+\end{minipage}\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\includegraphics[width=\linewidth]{complex-roots.pdf}
+\end{minipage}
 \end{minipage}
 
 \begin{samepage}
