@@ -12,8 +12,14 @@
 %\includeonly{chapters/geometry}
 
 \begin{document}
-\maketitle
+\input{chapters/titlepage}
+\include{chapters/preface}
+\begingroup
+\setlength{\parskip}{0pt}
+\fontsize{12pt}{18pt}\selectfont
+\pdfbookmark[0]{目录}{contents}
 \tableofcontents
+\endgroup
 
 \include{chapters/analysis}
 \include{chapters/functions}
@@ -22,5 +28,6 @@
 \include{chapters/calculus}
 \include{chapters/probability}
 \include{chapters/appendices}
+\include{chapters/afterword}
 
 \end{document}
