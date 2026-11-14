@@ -1,0 +1,39 @@
+\begingroup
+\appendix
+\ctexset{chapter={name={附录,},number=\Alph{chapter},
+  tocline={\protect\numberline{\thechapter}#2}}}
+\hypersetup{bookmarksnumbered=true}
+
+% 只调整目录及书签：附录作为父项，A--E作为次一级条目。
+% 正文仍使用chapter及原有编号；各附录内部的节不写入目录。
+\makeatletter
+\let\mathnotes@appendix@addcontentsline\addcontentsline
+\def\mathnotes@appendix@first{first}
+\def\mathnotes@appendix@toc{toc}
+\def\mathnotes@appendix@chapter{chapter}
+\renewcommand\addcontentsline[3]{%
+  \def\mathnotes@appendix@file{#1}%
+  \def\mathnotes@appendix@level{#2}%
+  \ifx\mathnotes@appendix@file\mathnotes@appendix@toc
+    \ifx\mathnotes@appendix@level\mathnotes@appendix@chapter
+      \ifx\mathnotes@appendix@first\@empty\else
+        \edef\mathnotes@appendix@href{\@currentHref}%
+        \phantomsection
+        \mathnotes@appendix@addcontentsline{toc}{chapter}{附录}%
+        \let\@currentHref\mathnotes@appendix@href
+        \let\mathnotes@appendix@first\@empty
+      \fi
+      \mathnotes@appendix@addcontentsline{toc}{section}{#3}%
+    \fi
+  \else
+    \mathnotes@appendix@addcontentsline{#1}{#2}{#3}%
+  \fi}
+\makeatother
+
+\input{chapters/appendices/01-notation}
+\input{chapters/appendices/02-inequalities}
+\input{chapters/appendices/03-formulas}
+\input{chapters/appendices/04-counting-formulas}
+\input{chapters/appendices/05-probability-formulas}
+\clearpage
+\endgroup

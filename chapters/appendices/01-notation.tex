@@ -1,0 +1,78 @@
+\chapter{常用记号}
+\label{app:notation}
+
+本附录汇集阅读正文时常见的记号。具体问题中已经给出的对象、定义域和约定，仍由该问题确定。
+
+\section{数集与集合运算}
+\begingroup
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{@{}p{.30\linewidth}p{.64\linewidth}@{}}
+\toprule
+记号 & 含义 \\
+\midrule
+\endhead
+\(\mathbb N,\mathbb N^*\) & 非负整数集、正整数集 \\
+\(\mathbb Z,\mathbb Q\) & 整数集、有理数集 \\
+\(\mathbb R,\mathbb C\) & 实数集、复数集 \\
+\(x\in A,\ x\notin A\) & \(x\)属于、不属于集合\(A\) \\
+\(A\subseteq B\) & \(A\)的每个元素都属于\(B\) \\
+\(\varnothing\) & 空集 \\
+\(A\cup B,\ A\cap B\) & 并集、交集 \\
+\(A\setminus B\) & 属于\(A\)而不属于\(B\)的元素组成的集合 \\
+\(A\times B\) & 有序对\((a,b)\)、\(a\in A,b\in B\)组成的集合 \\
+\(|A|\) & 有限集合\(A\)的元素个数 \\
+\([a,b],\ (a,b)\) & 闭区间、开区间；圆括号也可按语境表示有序对 \\
+\(\sum_{k=1}^n a_k\) & \(a_1+\cdots+a_n\) \\
+\(\prod_{k=1}^n a_k\) & \(a_1\cdots a_n\) \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+相对于已经确定的全集\(\Omega\)，集合\(A\)的补集为\(\Omega\setminus A\)。常用关系为
+\begin{equation*}
+ \begin{aligned}
+ \Omega\setminus(A\cup B)&=(\Omega\setminus A)\cap(\Omega\setminus B),\\
+ \Omega\setminus(A\cap B)&=(\Omega\setminus A)\cup(\Omega\setminus B).
+ \end{aligned}
+\end{equation*}
+
+\section{逻辑用语}
+
+\(P\Rightarrow Q\)表示由\(P\)能推出\(Q\)，此时\(P\)是\(Q\)的充分条件，\(Q\)是\(P\)的必要条件。\(P\Leftrightarrow Q\)表示两个方向都成立，即二者互为充分必要条件。
+
+命题\(P\Rightarrow Q\)与其逆否命题\(\neg Q\Rightarrow\neg P\)等价。\(P\land Q\)表示两者都成立，\(P\lor Q\)表示至少一个成立，并有
+\begin{equation*}
+ \neg(P\land Q)\Leftrightarrow(\neg P\lor\neg Q),\qquad
+ \neg(P\lor Q)\Leftrightarrow(\neg P\land\neg Q).
+\end{equation*}
+蕴含命题的否定为\(P\land\neg Q\)，所以反驳一个全称蕴含命题，需要找到满足前提、却不满足结论的反例。
+
+\(\forall\)读作“对任意”，\(\exists\)读作“存在”。否定时，
+\begin{equation*}
+ \begin{aligned}
+ \neg\bigl(\forall x\in A,\ P(x)\bigr)
+ &\Leftrightarrow\exists x\in A,\ \neg P(x),\\
+ \neg\bigl(\exists x\in A,\ P(x)\bigr)
+ &\Leftrightarrow\forall x\in A,\ \neg P(x).
+ \end{aligned}
+\end{equation*}
+量词的次序记录选择之间的依赖。例如，\(\exists M\,\forall n,\ |a_n|\le M\)要求同一个\(M\)控制全部项；\(\forall n\,\exists M,\ |a_n|\le M\)则允许每项另取一个界。
+
+\section{函数与线性运算}
+
+\(f:A\to B\)表示映射的定义域为\(A\)、陪域为\(B\)；其像为\(f(A)=\{f(x):x\in A\}\)。\((g\circ f)(x)=g(f(x))\)表示先使用\(f\)，再使用\(g\)。\(f^{-1}\)表示已经存在的反函数，与逐点取倒数\(1/f\)分别理解。
+
+线性映射\(T:V\to W\)的核与像分别为
+\begin{equation*}
+ \ker T=\{v\in V:Tv=0\},\qquad
+ \operatorname{im}T=\{Tv:v\in V\}.
+\end{equation*}
+\(\operatorname{span}(v_1,\ldots,v_k)\)表示这些向量全部线性组合构成的子空间。内积记为\(\langle u,v\rangle\)，其诱导的长度记为\(\|u\|=\sqrt{\langle u,u\rangle}\)；几何向量的长度在正文中也记为\(|u|\)。
+
+矩阵的转置为\(A^T\)，可逆矩阵的逆为\(A^{-1}\)，单位矩阵为\(I\)。行列式记为\(\det A\)。这些记号的作用对象由当前的向量空间与坐标表示确定。
+
+\section{极限与近似}
+
+\(a_n\to a\)表示数列收敛到\(a\)，\(f(x)\to L\)、\(x\to x_0\)表示相应函数极限。余项\(r(h)=o(h^n)\)表示\(r(h)/h^n\to0\)；\(r(h)=O(h^n)\)表示在所讨论极限附近，\(|r(h)|\le C|h|^n\)可由某个固定常数\(C\)控制。
+
+\(C[a,b]\)、\(C^1[a,b]\)、\(C^2[a,b]\)依次表示连续函数、一阶连续可导函数、二阶连续可导函数组成的空间。连续函数的最大范数为\(\|f\|_\infty=\max_{[a,b]}|f|\)，比较两个函数时由\(\|f-g\|_\infty\)衡量整个区间上的最大误差。

@@ -1,0 +1,214 @@
+\chapter{常用公式}
+\label{app:formulas}
+
+以下公式按对象集中列出，具体结论的定义、证明与使用见正文。求导、积分及三角函数公式中的角度均采用弧度制。
+
+\section{数列与极限}
+\begin{equation*}
+ \begin{aligned}
+ &a_n=a_1+(n-1)d,&
+ &S_n=\frac{n(a_1+a_n)}2,\\
+ &a_n=a_1q^{n-1},&
+ &S_n=\frac{a_1(1-q^n)}{1-q}\quad(q\ne1).
+ \end{aligned}
+\end{equation*}
+等比数列\(q=1\)时\(S_n=na_1\)；\(|q|<1\)时\(\sum_{n=1}^\infty a_1q^{n-1}=a_1/(1-q)\)。由部分和恢复通项的关系为\(a_n=S_n-S_{n-1}\)，其中\(S_0=0\)。
+\begin{equation*}
+ \begin{aligned}
+ \sum_{k=1}^n k&=\frac{n(n+1)}2,&
+ \sum_{k=1}^n k^2&=\frac{n(n+1)(2n+1)}6,\\
+ \sum_{k=1}^n k^3&=\left(\frac{n(n+1)}2\right)^2,&
+ e&=\lim_{n\to\infty}\left(1+\frac1n\right)^n.
+ \end{aligned}
+\end{equation*}
+基本函数极限包括
+\begin{equation*}
+ \lim_{x\to0}\frac{\sin x}{x}=1,\qquad
+ \lim_{x\to0}\frac{e^x-1}{x}=1,\qquad
+ \lim_{x\to0}\frac{\ln(1+x)}x=1.
+\end{equation*}
+
+\section{三角恒等式}
+\begin{equation*}
+ \begin{aligned}
+ \sin(\alpha\pm\beta)&=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta,\\
+ \cos(\alpha\pm\beta)&=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta,\\
+ \tan(\alpha\pm\beta)&=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta},\\
+ \sin2\alpha&=2\sin\alpha\cos\alpha,\\
+ \cos2\alpha&=\cos^2\alpha-\sin^2\alpha=1-2\sin^2\alpha=2\cos^2\alpha-1,\\
+ \sin^2\alpha&=\frac{1-\cos2\alpha}2,\qquad
+ \cos^2\alpha=\frac{1+\cos2\alpha}2.
+ \end{aligned}
+\end{equation*}
+\begin{equation*}
+ \begin{aligned}
+ \sin\alpha+\sin\beta&=2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2,\\
+ \sin\alpha-\sin\beta&=2\cos\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2,\\
+ \cos\alpha+\cos\beta&=2\cos\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2,\\
+ \cos\alpha-\cos\beta&=-2\sin\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2.
+ \end{aligned}
+\end{equation*}
+设\(R=\sqrt{a^2+b^2}>0\)，取\(\cos\varphi=a/R\)、\(\sin\varphi=b/R\)，则\(a\sin x+b\cos x=R\sin(x+\varphi)\)。三角形中，若边\(a,b,c\)分别对角\(A,B,C\)，外接圆半径为\(R_\triangle\)，则
+\begin{equation*}
+ \frac a{\sin A}=\frac b{\sin B}=\frac c{\sin C}=2R_\triangle,\qquad
+ c^2=a^2+b^2-2ab\cos C,\qquad S=\frac12ab\sin C.
+\end{equation*}
+
+\section{向量与矩阵}
+
+在正交单位基下，\(u\cdot v=\sum_i u_iv_i\)，\(\|u\|=\sqrt{\sum_i u_i^2}\)。非零向量满足
+\begin{equation*}
+ \cos\theta=\frac{u\cdot v}{\|u\|\|v\|},\qquad
+ \operatorname{proj}_v u=\frac{u\cdot v}{v\cdot v}v.
+\end{equation*}
+三维坐标下，
+\begin{equation*}
+ u\times v=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1).
+\end{equation*}
+平行四边形面积为\(\|u\times v\|\)，平行六面体体积为\(|u\cdot(v\times w)|\)。
+
+对\(A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\)，有
+\begin{equation*}
+ \det A=ad-bc,\qquad
+ A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\quad(ad-bc\ne0).
+\end{equation*}
+平面仿射变换\(x=Au+t\)的面积倍率为\(|\det A|\)。
+
+\section{复数}
+\begin{equation*}
+ \overline{a+bi}=a-bi,\qquad
+ |z|^2=z\overline z,\qquad
+ \frac1z=\frac{\overline z}{|z|^2}\quad(z\ne0).
+\end{equation*}
+对非零复数\(z=r(\cos\theta+i\sin\theta)=re^{i\theta}\)，
+\begin{equation*}
+ z^n=r^n(\cos n\theta+i\sin n\theta),\qquad n\in\mathbb Z.
+\end{equation*}
+若\(w=\rho e^{i\varphi}\ne0\)、\(n\in\mathbb N^*\)，方程\(z^n=w\)的全部根为
+\begin{equation*}
+ z_k=\rho^{1/n}e^{i(\varphi+2k\pi)/n},\qquad k=0,1,\ldots,n-1.
+\end{equation*}
+Euler公式为\(e^{i\theta}=\cos\theta+i\sin\theta\)。
+
+\section{二次曲线}
+
+以下\(a,b,p>0\)，切线公式中的\((x_0,y_0)\)在相应曲线上。
+\begingroup
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}p{.41\linewidth}p{.53\linewidth}@{}}
+\toprule
+标准方程 & 切线方程 \\
+\midrule
+\endhead
+\(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\) & \(\dfrac{xx_0}{a^2}+\dfrac{yy_0}{b^2}=1\) \\[6pt]
+\(\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\) & \(\dfrac{xx_0}{a^2}-\dfrac{yy_0}{b^2}=1\) \\[6pt]
+\(y^2=2px\) & \(yy_0=p(x+x_0)\) \\
+\bottomrule
+\end{longtable}
+\endgroup
+椭圆的\(c^2=a^2-b^2\)（\(a\ge b\)），双曲线的\(c^2=a^2+b^2\)，两者离心率均为\(e=c/a\)。上述抛物线的焦点为\((p/2,0)\)，准线为\(x=-p/2\)。
+
+椭圆可表示为\(x=a\cos t,y=b\sin t\)；双曲线可表示为\(x=\pm a\cosh t,y=b\sinh t\)；抛物线可表示为\(x=pt^2/2,y=pt\)。椭圆面积为\(\pi ab\)，上述双曲线的渐近线为\(y=\pm(b/a)x\)。
+
+若非退化二次曲线在齐次坐标中写为\(X^TMX=0\)、\(M=M^T\)，点\(P\)的极线为\(P^TMX=0\)；切点\(P\)在曲线上时，这就是该点的切线。
+
+\section{求导公式}
+
+下表中的参数按相应函数的定义取值，\(a>0,a\ne1\)，实数幂的基本定义域取\(x>0\)。
+\begingroup
+\renewcommand{\arraystretch}{1.1}
+\begin{longtable}{@{}p{.44\linewidth}p{.48\linewidth}@{}}
+\toprule
+\(f(x)\) & \(f'(x)\) \\
+\midrule
+\endhead
+\(x^\alpha\) & \(\alpha x^{\alpha-1}\) \\
+\(e^x,\ a^x\) & \(e^x,\ a^x\ln a\) \\
+\(\ln x,\ \log_a x\) & \(1/x,\ 1/(x\ln a)\) \\
+\(\sin x,\ \cos x\) & \(\cos x,\ -\sin x\) \\
+\(\tan x,\ \cot x\) & \(1/\cos^2x,\ -1/\sin^2x\) \\
+\(\arcsin x,\ \arccos x\) & \(1/\sqrt{1-x^2},\ -1/\sqrt{1-x^2}\) \\
+\(\arctan x\) & \(1/(1+x^2)\) \\
+\(\sinh x,\ \cosh x\) & \(\cosh x,\ \sinh x\) \\
+\(\tanh x,\ \coth x\) & \(1/\cosh^2x,\ -1/\sinh^2x\) \\
+\bottomrule
+\end{longtable}
+\endgroup
+\begin{equation*}
+ \begin{aligned}
+ (uv)'&=u'v+uv',&
+ \left(\frac uv\right)'&=\frac{u'v-uv'}{v^2},\\
+ (g\circ f)'(x)&=g'(f(x))f'(x),&
+ (f^{-1})'(y)&=\frac1{f'(x)}\quad(y=f(x),\ f'(x)\ne0).
+ \end{aligned}
+\end{equation*}
+对参数曲线\(x=x(t),y=y(t)\)，若\(x'(t)\ne0\)，则\(dy/dx=y'(t)/x'(t)\)。
+
+\section{积分公式}
+
+以下\(C\)表示任意常数，各式在被积函数及原函数有意义的区间上使用。
+\begin{equation*}
+ \begin{aligned}
+ \int x^\alpha\,dx&=\frac{x^{\alpha+1}}{\alpha+1}+C\quad(\alpha\ne-1),\\
+ \int\frac{dx}{x}&=\ln|x|+C,\\
+ \int e^x\,dx&=e^x+C,\qquad
+ \int a^x\,dx=\frac{a^x}{\ln a}+C\quad(a>0,\ a\ne1),\\
+ \int\sin x\,dx&=-\cos x+C,\qquad
+ \int\cos x\,dx=\sin x+C,\\
+ \int\frac{dx}{1+x^2}&=\arctan x+C,\qquad
+ \int\frac{dx}{\sqrt{1-x^2}}=\arcsin x+C.
+ \end{aligned}
+\end{equation*}
+在相应微积分定理的条件下，
+\begin{equation*}
+ \begin{aligned}
+ \int_a^b f(x)\,dx&=F(b)-F(a)\quad(F'=f),\\
+ \int f(\varphi(t))\varphi'(t)\,dt&=F(\varphi(t))+C,\\
+ \int u\,dv&=uv-\int v\,du,\\
+ \frac d{dx}\int_{u(x)}^{v(x)}f(t)\,dt
+ &=f(v(x))v'(x)-f(u(x))u'(x).
+ \end{aligned}
+\end{equation*}
+
+\section{Taylor公式与几何累积}
+
+在相应Taylor定理的条件下，
+\begin{equation*}
+ f(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k+R_n(x),
+\end{equation*}
+其中常用的两种余项形式为
+\begin{equation*}
+ R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1},\qquad
+ R_n(x)=\frac1{n!}\int_a^x(x-t)^n f^{(n+1)}(t)\,dt.
+\end{equation*}
+第一式中的\(\xi\)位于\(a,x\)之间。二阶局部模型为\(f(a+h)=f(a)+f'(a)h+f''(a)h^2/2+o(h^2)\)。
+
+对上下边界为\(f\ge g\)的区域、连续截面积为\(A(x)\)的几何体，以及光滑曲线，常用累积公式为
+\begin{equation*}
+ \begin{aligned}
+ S&=\int_a^b(f-g)\,dx,&
+ V&=\int_a^b A(x)\,dx,\\
+ L&=\int_\alpha^\beta\sqrt{x'(t)^2+y'(t)^2}\,dt,&
+ S_{\mathrm{rot}}&=2\pi\int_\alpha^\beta r(t)\sqrt{x'(t)^2+y'(t)^2}\,dt.
+ \end{aligned}
+\end{equation*}
+\(r(t)\)为到旋转轴的距离；曲线或曲面按恰好覆盖一次取参数范围。曲率在速度非零处为
+\begin{equation*}
+ \kappa=\frac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}.
+\end{equation*}
+
+\section{微分方程}
+
+一阶线性初值问题\(y'+py=q\)、\(y(t_0)=y_0\)中，记\(P(t)=\int_{t_0}^tp(s)\,ds\)，则
+\begin{equation*}
+ y(t)=e^{-P(t)}\left(y_0+\int_{t_0}^t e^{P(s)}q(s)\,ds\right).
+\end{equation*}
+二阶常系数齐次方程\(y''+ay'+by=0\)的特征方程为\(r^2+ar+b=0\)，通解按根型为
+\begin{equation*}
+ \begin{cases}
+ C_1e^{r_1t}+C_2e^{r_2t},&r_1\ne r_2\text{为实根},\\
+ (C_1+C_2t)e^{rt},&r\text{为重根},\\
+ e^{\alpha t}(C_1\cos\beta t+C_2\sin\beta t),&\alpha\pm i\beta\ (\beta>0).
+ \end{cases}
+\end{equation*}
+非齐次方程在已知一个特解\(y_p\)后，其通解为\(y_p+y_h\)，其中\(y_h\)是齐次通解。

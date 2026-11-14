@@ -1,0 +1,106 @@
+\chapter{基本计数公式}
+\label{app:counting-formulas}
+
+本附录集中整理计数公式，供学习与解题时查阅。每个公式都对应一种确定的计数对象：是否区分顺序、是否允许重复、对象与位置是否可辨别，应由问题中的实际安排决定。相应概念及推导将在第六章集中展开。
+
+\section{加法原理与乘法原理}
+
+若完成一项任务的所有方法分成\(k\)个互不重叠的类别，第\(i\)类有\(m_i\)种方法，则总方法数为
+\begin{equation*}
+ N=m_1+m_2+\cdots+m_k.
+\end{equation*}
+若一项任务需要依次完成\(k\)步，且对每一种已经完成的前序安排，第\(i\)步都有\(m_i\)种选择，则总方法数为
+\begin{equation*}
+ N=m_1m_2\cdots m_k.
+\end{equation*}
+分类中每种结果应当恰好计入一次；分步中每条完整的选择路径应当对应一种结果。若不同路径通向相同结果，就要进一步辨认它们被重复计算的次数。
+
+两个有限集合的计数满足
+\begin{equation*}
+ |A\cup B|=|A|+|B|-|A\cap B|.
+\end{equation*}
+三个集合时，
+\begin{equation*}
+ \begin{aligned}
+ |A\cup B\cup C|={}&|A|+|B|+|C|\\
+ &-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.
+ \end{aligned}
+\end{equation*}
+若总对象集合为\(\Omega\)，也可用\(|A|=|\Omega|-|\Omega\setminus A|\)从补集计数。
+
+\section{排列与组合}
+
+记\(n!=1\cdot2\cdots n\)，约定\(0!=1\)。本节\(n\)为正整数、\(r\)为非负整数，排列数和组合数公式中取\(0\le r\le n\)。
+
+\begingroup
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{@{}p{.64\linewidth}p{.30\linewidth}@{}}
+\toprule
+计数对象 & 方法数 \\
+\midrule
+\endhead
+将\(n\)个不同对象排成一列 & \(n!\) \\
+从\(n\)个不同对象中不重复地选\(r\)个，按顺序排列 & \(A_n^r=\dfrac{n!}{(n-r)!}\) \\[5pt]
+从\(n\)个不同对象中选\(r\)个，不区分顺序 & \(C_n^r=\binom nr=\dfrac{n!}{r!(n-r)!}\) \\[5pt]
+每个位置都可从\(n\)种对象中选一种，共\(r\)个有区别的位置，允许重复 & \(n^r\) \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+排列与组合的关系为
+\begin{equation*}
+ A_n^r=C_n^r r!.
+\end{equation*}
+同一个\(r\)元子集具有\(r!\)种内部排列，所以无序选择与有序排列之间相差这一固定倍率。
+
+若\(n\)个对象分成\(k\)类，同类对象不可辨别，第\(i\)类有\(n_i\)个，且\(n_1+\cdots+n_k=n\)，则不同的线性排列数为
+\begin{equation*}
+ \frac{n!}{n_1!n_2!\cdots n_k!}.
+\end{equation*}
+同一公式也计算将\(n\)个不同对象分配到\(k\)个有区别的组、各组人数依次为\(n_1,\ldots,n_k\)的方案数。
+
+\section{二项式定理}
+
+对非负整数\(n\)，
+\begin{equation*}
+ (a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k.
+\end{equation*}
+展开式中的第\(k+1\)项为\(\binom nk a^{n-k}b^k\)。若两个因子本身含有变量，所求变量次数应由整项中的幂次共同确定。
+
+常用关系包括
+\begin{equation*}
+ \binom nk=\binom n{n-k},\qquad
+ \binom nk=\binom{n-1}{k}+\binom{n-1}{k-1}.
+\end{equation*}
+求和时可约定\(\binom nk=0\)（\(k<0\)或\(k>n\)），使端部的公式统一。后一恒等式中取\(n\ge1\)。
+
+代入不同的\(a,b\)，或对二项式展开式作有限次求导，可得
+\begin{equation*}
+ \begin{aligned}
+ \sum_{k=0}^n\binom nk&=2^n,\\
+ \sum_{k=0}^n(-1)^k\binom nk&=0\qquad(n\ge1),\\
+ \sum_{k=0}^n k\binom nk&=n2^{n-1}\qquad(n\ge1),\\
+ \sum_{k=0}^n k(k-1)\binom nk&=n(n-1)2^{n-2}\qquad(n\ge2).
+ \end{aligned}
+\end{equation*}
+对非负整数\(m,n\)及\(0\le r\le m+n\)，还有
+\begin{equation*}
+ \sum_{k=0}^r\binom mk\binom n{r-k}=\binom{m+n}r.
+\end{equation*}
+它对应从两组共\(m+n\)个不同对象中选出\(r\)个，按从第一组选出的数量分类计数。
+
+\section{分组与分配的补充公式}
+
+\paragraph{圆排列} 将\(n\ge1\)个不同对象排成一圈，只把旋转视为相同、保留方向差别时，方法数为\((n-1)!\)。固定一个对象的位置后，其余对象按顺序排列即可。
+
+\paragraph{重复选择} 从\(n\ge1\)类对象中选择\(r\ge0\)个，同类对象不区分、允许重复且不计顺序时，方法数为
+\begin{equation*}
+ \binom{n+r-1}r.
+\end{equation*}
+它等价于计算非负整数解\(x_1+\cdots+x_n=r\)的个数。
+
+\paragraph{相同对象的分配} 将\(r\)个相同对象放入\(n\ge1\)个有区别的盒子，允许空盒时有\(\binom{r+n-1}{n-1}\)种；每盒至少一个且\(r\ge n\)时有\(\binom{r-1}{n-1}\)种。后一公式先给每盒放入一个，再分配剩余对象。
+
+\paragraph{不同对象的分配} 将\(r\)个不同对象放入\(n\)个有区别的盒子，允许空盒时有\(n^r\)种。若规定每盒的对象数为\(r_1,\ldots,r_n\)，则有\(r!/(r_1!\cdots r_n!)\)种。
+
+这些公式中的“不同”“相同”描述对象能否辨别，“有序”“无序”描述结果是否保留顺序，“盒子有区别”描述位置是否带有固定标记。它们决定同一结果应怎样识别，也决定是否需要除去重复计数的倍率。

@@ -1,0 +1,108 @@
+\chapter{概率统计公式}
+\label{app:probability-formulas}
+
+本附录整理第六章拟使用的基本公式，供后续学习查阅；概念、推导和模型解释在相应正文中展开。计数公式另见附录\ref{app:counting-formulas}。
+
+\section{事件与条件概率}
+\begin{equation*}
+ \begin{aligned}
+ P(A^c)&=1-P(A),\\
+ P(A\cup B)&=P(A)+P(B)-P(A\cap B),\\
+ P(A\mid B)&=\frac{P(A\cap B)}{P(B)}\quad(P(B)>0),\\
+ P(A\cap B)&=P(B)P(A\mid B).
+ \end{aligned}
+\end{equation*}
+若\(B_1,\ldots,B_m\)为样本空间的有限分割，且各\(P(B_i)>0\)，则
+\begin{equation*}
+ P(A)=\sum_{i=1}^mP(B_i)P(A\mid B_i),\qquad
+ P(B_j\mid A)=\frac{P(B_j)P(A\mid B_j)}{\sum_{i=1}^mP(B_i)P(A\mid B_i)}
+\end{equation*}
+（后一式取\(P(A)>0\)）。事件\(A,B\)独立的定义为\(P(A\cap B)=P(A)P(B)\)。
+
+\section{期望与波动}
+
+对离散变量\(P(X=x_i)=p_i\)，
+\begin{equation*}
+ EX=\sum_i x_ip_i,\qquad
+ \operatorname{Var}X=E(X-EX)^2=E(X^2)-(EX)^2.
+\end{equation*}
+无穷取值情形的期望与方差按相应的存在条件使用。对具有密度\(f\)的模型，积分形式为\(Eg(X)=\int g(x)f(x)\,dx\)。
+\begin{equation*}
+ \begin{aligned}
+ E(aX+bY)&=aEX+bEY,\\
+ \operatorname{Var}(aX+b)&=a^2\operatorname{Var}X,\\
+ \operatorname{Cov}(X,Y)&=E[(X-EX)(Y-EY)],\\
+ \operatorname{Var}(X+Y)&=\operatorname{Var}X+\operatorname{Var}Y+2\operatorname{Cov}(X,Y),\\
+ \rho_{XY}&=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}X\operatorname{Var}Y}}.
+ \end{aligned}
+\end{equation*}
+相关系数在两个方差都为正时使用；独立且二阶矩有限时，协方差为零。对非负变量及\(t>0\)，\(P(X\ge t)\le EX/t\)；对方差有限的变量及\(\varepsilon>0\)，
+\begin{equation*}
+ P(|X-EX|\ge\varepsilon)\le\frac{\operatorname{Var}X}{\varepsilon^2}.
+\end{equation*}
+
+\section{常用分布}
+
+二项分布\(X\sim\mathrm B(n,p)\)表示\(n\)次独立Bernoulli试验的成功次数：
+\begin{equation*}
+ P(X=k)=\binom nk p^k(1-p)^{n-k},\quad 0\le k\le n;
+ \qquad EX=np,\quad\operatorname{Var}X=np(1-p).
+\end{equation*}
+超几何模型中，总体有\(N\)个对象，其中\(M\)个具有指定性质；不放回抽取\(n\)个，令\(X\)记录其中具有该性质的数量，则
+\begin{equation*}
+ P(X=k)=\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn},\qquad EX=n\frac MN,
+\end{equation*}
+其中\(\max(0,n-N+M)\le k\le\min(n,M)\)。当\(N>1\)时，
+\begin{equation*}
+ \operatorname{Var}X=n\frac MN\left(1-\frac MN\right)\frac{N-n}{N-1}.
+\end{equation*}
+几何分布记录成功概率为\(0<p\le1\)的独立试验中首次成功的次数，取值从\(1\)开始：
+\begin{equation*}
+ P(X=k)=(1-p)^{k-1}p,\quad EX=\frac1p,\quad
+ \operatorname{Var}X=\frac{1-p}{p^2}.
+\end{equation*}
+正态模型\(X\sim N(\mu,\sigma^2)\)、\(\sigma>0\)，密度与标准化为
+\begin{equation*}
+ f(x)=\frac1{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/(2\sigma^2)},\qquad
+ Z=\frac{X-\mu}{\sigma}\sim N(0,1).
+\end{equation*}
+记标准正态分布函数为\(\Phi\)，则
+\begin{equation*}
+ P(a<X\le b)=\Phi\left(\frac{b-\mu}\sigma\right)-\Phi\left(\frac{a-\mu}\sigma\right).
+\end{equation*}
+
+\section{样本与回归}
+
+对数据\(x_1,\ldots,x_n\)，描述均值和方差为
+\begin{equation*}
+ \bar x=\frac1n\sum_i x_i,\qquad
+ s_n^2=\frac1n\sum_i(x_i-\bar x)^2=\frac1n\sum_i x_i^2-\bar x^2.
+\end{equation*}
+在独立同分布、均值为\(\mu\)、方差为\(\sigma^2\)的抽样模型下，
+\begin{equation*}
+ E\bar X=\mu,\qquad\operatorname{Var}\bar X=\frac{\sigma^2}{n},\qquad
+ S^2=\frac1{n-1}\sum_i(X_i-\bar X)^2\quad(n\ge2)
+\end{equation*}
+中的\(S^2\)是总体方差的无偏估计量。它与用于描述已有数据的\(s_n^2\)分别按任务使用。
+
+对成对数据\((x_i,y_i)\)，记
+\begin{equation*}
+ S_{xx}=\sum_i(x_i-\bar x)^2,\quad
+ S_{yy}=\sum_i(y_i-\bar y)^2,\quad
+ S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y).
+\end{equation*}
+样本相关系数与最小二乘直线\(\widehat y=\widehat a+\widehat b x\)为
+\begin{equation*}
+ r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}},\qquad
+ \widehat b=\frac{S_{xy}}{S_{xx}},\qquad
+ \widehat a=\bar y-\widehat b\bar x.
+\end{equation*}
+相关系数要求\(S_{xx},S_{yy}>0\)，回归斜率要求\(S_{xx}>0\)。拟合结果的统计解释还取决于数据的获取及所用模型。
+
+\section{列联表统计量}
+
+\(2\times2\)列联表的四格频数依次记为\(a,b,c,d\)，总数\(N=a+b+c+d\)。当各行、列合计均为正时，Pearson统计量为
+\begin{equation*}
+ \chi^2=\frac{N(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}.
+\end{equation*}
+一般形式为\(\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}\)，其中\(O_{ij}\)为观测频数，独立假设下的\(E_{ij}\)由行合计乘列合计再除以总数得到。检验时使用的近似分布、临界值及适用条件应结合相应抽样模型确定。
