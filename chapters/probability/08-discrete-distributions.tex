@@ -1,0 +1,196 @@
+\FloatBarrier
+\newpage
+\section{离散分布}
+\label{sec:prob-discrete}
+
+前面已建立分布、期望和方差的共同语言。现在根据试验机制，研究几种反复出现的分布。模型的选择先由抽取方式、停止规则和所记录的变量决定。
+
+\subsection{二项分布}
+
+独立重复\(n\)次Bernoulli试验，每次成功概率为\(p\)，令\(X\)为成功次数。由式\eqref{eq:prob-bernoulli-count}，
+\begin{equation}\label{eq:prob-binomial-distribution}
+ P(X=k)=\binom nkp^k(1-p)^{n-k},\qquad k=0,\ldots,n.
+\end{equation}
+称\(X\)服从参数为\(n,p\)的{\heiti 二项分布}，记为\(X\sim B(n,p)\)。二项式定理给出全部概率之和为\((p+1-p)^n=1\)。
+
+令第\(i\)次成功的指示变量为\(I_i\)，则\(X=\sum_iI_i\)。每个\(I_i\)的期望为\(p\)，又因\(I_i^2=I_i\)，方差为\(p-p^2\)。独立性使协方差为零，从而
+\begin{equation}\label{eq:prob-binomial-characteristics}
+ EX=np,\qquad \operatorname{Var}X=np(1-p).
+\end{equation}
+相同成功概率与各次独立是此模型的共同条件。若每次成功概率不同，期望仍可相加，但成功总数通常不再服从同一个二项分布。
+
+当\(0<p<1\)时，相邻两项的比值为
+\[
+ \frac{P(X=k+1)}{P(X=k)}=\frac{n-k}{k+1}\frac{p}{1-p},
+ \qquad 0\le k<n.
+\]
+比值大于1等价于\(k+1<(n+1)p\)，因此概率先增后减，可以由\((n+1)p\)的位置确定概率最大的取值。
+
+\begin{example}[2018年全国III卷理科，题面整理]
+某群体每位成员使用移动支付的概率均为\(p\)，各人选择独立。10名成员中使用移动支付的人数为\(X\)，已知\(\operatorname{Var}X=2.4\)、\(P(X=4)<P(X=6)\)，求\(p\)。
+\end{example}
+
+\subsection{超几何分布}
+
+\(N\)个不同对象中有\(M\)个属于目标类，等可能地选出\(n\)个，令\(X\)为其中目标类个数。选出\(k\)个目标类时，还需从另\(N-M\)个中选出\(n-k\)个，所以
+\begin{equation}\label{eq:prob-hypergeometric}
+ P(X=k)=\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn},
+ \quad \max(0,n-N+M)\le k\le\min(n,M).
+\end{equation}
+这称为{\heiti 超几何分布}。Vandermonde恒等式核对了分布列的归一化。
+
+把抽取随机排成先后次序，各次抽到目标类的概率均为\(p=M/N\)，但相互不独立。使用指示变量仍有\(EX=np\)。对两个不同抽取位置，
+\[
+ E(I_iI_j)=\frac{M(M-1)}{N(N-1)},\qquad
+ \operatorname{Cov}(I_i,I_j)=-\frac{p(1-p)}{N-1}.
+\]
+因而当\(N>1\)时，
+\begin{equation}\label{eq:prob-hypergeometric-variance}
+ \operatorname{Var}X=np(1-p)\frac{N-n}{N-1}.
+\end{equation}
+最后的因子体现了不放回抽样对波动的影响。抽取全部总体时目标类个数已确定；抽取比例很小时，这一因子接近1。
+
+两个模型还有分布上的联系。固定抽取次数\(n\)，令\(N\to\infty\)、\(M/N\to p\)。在任何固定的抽取记录中，下一次抽到目标类的条件概率为“剩余目标数除以剩余总数”，它趋于\(p\)。含\(k\)个目标类的每条指定记录的概率便趋于\(p^k(1-p)^{n-k}\)，所以
+\[
+ P(X=k)\longrightarrow\binom nkp^k(1-p)^{n-k}.
+\]
+总体很大而抽样次数固定时，不放回模型因此趋近相同目标比例的二项模型。
+
+\begin{example}
+一批20件产品中有4件不合格，随机不放回抽5件。求不合格品数的分布、至少抽到一件不合格品的概率，以及均值与方差。若改为放回抽取，比较两个模型。
+\end{example}
+
+\subsection{几何分布}
+
+独立重复成功概率为\(0<p<1\)的Bernoulli试验，直到第一次成功，令\(T\)为所需次数。事件\(\{T=k\}\)要求先失败\(k-1\)次再成功，所以
+\begin{equation}\label{eq:prob-geometric}
+ P(T=k)=(1-p)^{k-1}p,\qquad k=1,2,\ldots.
+\end{equation}
+称为{\heiti 几何分布}。这里模型具有可数无穷个可能取值，其概率和按数项级数理解。等比级数给出\(\sum_{k\ge1}P(T=k)=1\)，因此它确实形成概率分配。
+
+记\(q=1-p\)。等待超过\(m\)次就是前\(m\)次均失败，故\(P(T>m)=q^m\)，并有
+\[
+ P(T>m+r\mid T>m)=\frac{q^{m+r}}{q^m}=q^r=P(T>r).
+\]
+这称为{\heiti 无记忆性}，它来自每次试验的独立和机制不变。
+
+对非负可数离散变量，期望是取值乘概率的级数；级数收敛时便有有限期望。
+
+几何分布的有限和为
+\[
+ \sum_{k=1}^n k p q^{k-1}=\frac{1-q^n}{p}-nq^n.
+\]
+由\(q^n\to0\)、\(nq^n\to0\)，可得
+\begin{equation}\label{eq:prob-geometric-mean}
+ E(T)=\frac1p.
+\end{equation}
+这个平均等待次数由无限取值的级数得到，不能把\(T\)的随机性直接替换成一个固定次数。
+
+实际尝试常有次数上限。若第一次成功便停止，至多尝试\(m\)次，则实际次数为\(T_m=\min(T,m)\)。到达第\(m\)次只要求前\(m-1\)次失败，故\(P(T_m=m)=q^{m-1}\)。由前面用尾概率计算期望的公式，
+\[
+ E T_m=\sum_{r=1}^mP(T_m\ge r)
+ =\sum_{r=1}^m q^{r-1}=\frac{1-q^m}{p}.
+\]
+在次数上限内成功的概率为\(1-q^m\)。这一概率与实际尝试次数的期望分别回答“能否成功”和“平均尝试多少次”。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）某学生独立回答6道同类题，每题答对概率为\(3/4\)。求至少答对5题的概率及答对题数的期望与方差。
+
+（2）从10个球中不放回抽4个，其中3个为红球。求红球数的分布与数字特征，并核对全部概率之和。
+
+（3）每次投篮独立，命中率为\(0.4\)。求第一次命中发生在第3次、超过第5次的概率及平均等待次数。
+
+（4）某人已连续失败5次，试验条件与独立性保持不变。求再等待超过3次的条件概率，并与尚未开始时比较。
+
+（5）用有限和或第一章的级数求几何分布的\(E(T^2)\)，证明\(\operatorname{Var}T=(1-p)/p^2\)。
+
+（6）说明下列变量适用的模型及参数：从有限产品中不放回抽取固定件数时的不合格数；固定次数独立抽检的不合格数；独立抽检直到首次发现不合格品时的抽检次数。
+
+（7）（据2020年浙江卷改编）盒中有1个红球、1个绿球、2个黄球，每次随机取一球，不放回，取出红球即停。求已取黄球数的分布与期望，再用指示变量核对期望。这里的停止次数是否服从几何分布？
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{Poisson近似*}
+
+把\(n\)个球独立等可能地投入\(m\)个盒子，某个固定盒子中的球数服从\(B(n,1/m)\)。当球数、盒数都很大，且\(n/m\to\lambda>0\)时，每盒平均球数保持在\(\lambda\)附近，计数的分布会趋向什么？
+
+一般地，设\(X_n\sim B(n,p_n)\)，且\(np_n\to\lambda>0\)。固定非负整数\(k\)，有
+\[
+ P(X_n=k)=\frac{(np_n)^k}{k!}
+ \prod_{j=0}^{k-1}\left(1-\frac jn\right)
+ (1-p_n)^n(1-p_n)^{-k}.
+\]
+当\(k=0\)时空乘积为1。由\(p_n\to0\)及\(\ln(1-p_n)/p_n\to-1\)，
+\[
+ n\ln(1-p_n)\to-\lambda,\qquad
+ P(X_n=k)\longrightarrow e^{-\lambda}\frac{\lambda^k}{k!}.
+\]
+由指数级数，右侧各项之和为1。以这些概率定义的分布称为参数为\(\lambda\)的{\heiti Poisson分布}，记为\(\operatorname{Pois}(\lambda)\)。
+
+例如200次独立试验，单次事件概率为\(0.005\)时，\(\lambda=1\)。完全不发生的精确概率为\(0.995^{200}\)，Poisson近似为\(e^{-1}\)。
+
+独立的Poisson计数还可以相加。若\(X\sim\operatorname{Pois}(\lambda)\)、\(Y\sim\operatorname{Pois}(\mu)\)且二者独立，则
+\begin{align*}
+ P(X+Y=k)&=e^{-(\lambda+\mu)}\sum_{j=0}^k
+ \frac{\lambda^j\mu^{k-j}}{j!(k-j)!}\\
+ &=e^{-(\lambda+\mu)}\frac{(\lambda+\mu)^k}{k!}.
+\end{align*}
+所以\(X+Y\sim\operatorname{Pois}(\lambda+\mu)\)，参数随独立计数相加。
+
+还可以把一次计数分成两类。设\(N\sim\operatorname{Pois}(\lambda)\)，给定\(N\)后，各次独立以概率\(r\in(0,1)\)归入甲类，其余归入乙类，记两类个数为\(A,B\)。对非负整数\(i,j\)，
+\begin{align*}
+ P(A=i,B=j)
+ &=e^{-\lambda}\frac{\lambda^{i+j}}{(i+j)!}\binom{i+j}i r^i(1-r)^j\\
+ &=\frac{e^{-\lambda r}(\lambda r)^i}{i!}
+  \frac{e^{-\lambda(1-r)}[\lambda(1-r)]^j}{j!}.
+\end{align*}
+右侧分解成两个Poisson分布的乘积，因此\(A,B\)独立，参数分别为\(\lambda r,\lambda(1-r)\)。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）计算上述试验中恰发生一次、至少发生两次的二项精确表达与Poisson近似。
+
+（2）设\(X\sim\operatorname{Pois}(\lambda)\)。由指数级数求\(EX\)、\(E[X(X-1)]\)，证明\(\operatorname{Var}X=\lambda\)。
+\end{exercise}
+
+\newpage
+\subsection{概率生成函数*}
+
+独立计数相加时，要把各对取值的概率相乘，再按相同总数相加。这恰好是多项式乘法计算系数的规则，因此可以用多项式记录整个分布。设\(X\)只取\(0,1,\ldots,m\)，定义
+\begin{equation}\label{eq:prob-pgf}
+ G_X(s)=E(s^X)=\sum_{k=0}^mP(X=k)s^k.
+\end{equation}
+称为\(X\)的{\heiti 概率生成函数}。系数直接恢复分布，\(G_X(1)=1\)。有限多项式求导给出
+\[
+ G_X'(1)=EX,\qquad G_X''(1)=E[X(X-1)],
+\]
+故\(\operatorname{Var}X=G_X''(1)+G_X'(1)-(G_X'(1))^2\)。
+
+若\(X,Y\)独立，由乘积期望性质，
+\[
+ G_{X+Y}(s)=E(s^Xs^Y)=G_X(s)G_Y(s).
+\]
+Bernoulli变量的生成函数为\(1-p+ps\)。独立的\(n\)次试验中，若成功概率分别为\(p_1,\ldots,p_n\)，成功总数\(S\)便有
+\[
+ G_S(s)=\prod_{i=1}^n(1-p_i+p_is).
+\]
+各\(p_i\)都为\(p\)时，成为\((1-p+ps)^n\)，恢复二项分布。线性性与方差相加给出\(ES=\sum_i p_i\)、\(\operatorname{Var}S=\sum_i p_i(1-p_i)\)。
+
+在\(s=-1\)处，偶次幂保持符号，奇次幂改变符号。与\(G_X(1)=1\)联立，便得
+\[
+ P(X\text{为偶数})=\frac{1+G_X(-1)}2,\qquad
+ P(X\text{为奇数})=\frac{1-G_X(-1)}2.
+\]
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）两枚独立骰子的点数变量记为\(X,Y\)。写出各自生成函数，以乘积的系数求点数和为7的概率，再求点数和的期望与方差。若两次取值完全相同，为什么不能使用同一个乘积？
+
+（2）三个事件相互独立，发生概率依次为\(1/5,1/3,2/5\)。用生成函数求恰有两个发生及发生个数为偶数的概率。
+
+（3）\(X\)为有限非负整数变量。给定\(X=k\)时，把\(k\)个对象各自独立地以概率\(r\)保留，记留下的个数为\(Y\)。证明\(G_Y(s)=G_X(1-r+rs)\)，并求\(EY\)、\(\operatorname{Var}Y\)。
+\end{exercise}

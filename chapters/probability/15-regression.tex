@@ -1,0 +1,156 @@
+\FloatBarrier
+\newpage
+\section{回归模型}
+\label{sec:prob-regression}
+
+当每个对象同时记录两列数值，需要保留它们之间的配对。我们既可以描述共同变化，也可以用一条简单曲线近似两者关系，再根据模型进行预测。
+
+\subsection{成对数据}
+
+设数据为\((x_i,y_i)\)，\(i=1,\ldots,n\)。每对对应同一个观测单位，\(x\)为解释变量，\(y\)为响应变量。散点图将各对数据画成平面上的点，显示趋势、分散程度及异常位置。
+
+以下使用教学数据：五个对象的练习时间\(x\)与测验得分\(y\)为
+\begin{equation}\label{eq:prob-regression-data}
+\begin{array}{c|rrrrr}
+ x\ (\text{小时})&1&2&3&4&5\\\hline
+ y\ (\text{分})&20&40&50&40&50
+\end{array}
+\end{equation}
+这组数据用于说明计算与解释，不代表一次实际调查。分别重排两行会改变配对，也就改变所研究的共同变化。
+
+记
+\[
+ S_{xx}=\sum_i(x_i-\bar x)^2,\quad
+ S_{yy}=\sum_i(y_i-\bar y)^2,\quad
+ S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y).
+\]
+当两列都不恒定时，定义{\heiti 样本相关系数}
+\begin{equation}\label{eq:prob-sample-correlation}
+ r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
+\end{equation}
+它与前面按概率加权的相关系数形式一致，这里把已有的\(n\)对记录等权整理。
+
+\subsection{相关的向量解释}
+
+把两列数据中心化，得到\(\mathbb R^n\)中的向量
+\[
+ \boldsymbol x_c=(x_1-\bar x,\ldots,x_n-\bar x),\qquad
+ \boldsymbol y_c=(y_1-\bar y,\ldots,y_n-\bar y).
+\]
+则\(S_{xy}=\boldsymbol x_c\cdot\boldsymbol y_c\)，\(S_{xx}=\|\boldsymbol x_c\|^2\)，\(S_{yy}=\|\boldsymbol y_c\|^2\)，故\(r\)是两向量夹角的余弦。这直接给出\(|r|\le1\)，并说明正、负号及线性关系的意义。
+
+对教学数据，\(\bar x=3,\bar y=40\)，且
+\[
+ S_{xx}=10,\qquad S_{yy}=600,\qquad S_{xy}=60,
+\]
+所以\(r=\sqrt{0.6}\)，描述这五对记录的线性共同变化。
+
+\subsection{最小二乘直线}
+
+用直线\(\widehat y=a+bx\)近似散点，观测与拟合之差\(e_i=y_i-a-bx_i\)称为{\heiti 残差}。选择使残差平方和
+\[
+ Q(a,b)=\sum_i(y_i-a-bx_i)^2
+\]
+最小的直线，称为{\heiti 最小二乘回归直线}。
+
+将各列分成均值与中心化部分，交叉项求和为零，得到
+\[
+ Q(a,b)=n(\bar y-a-b\bar x)^2+S_{yy}-2bS_{xy}+b^2S_{xx}.
+\]
+当\(S_{xx}>0\)时，再配方，最小值恰在
+\begin{equation}\label{eq:prob-least-squares}
+ \widehat b=\frac{S_{xy}}{S_{xx}},\qquad
+ \widehat a=\bar y-\widehat b\bar x
+\end{equation}
+处取得。这一推导只需要有限平方展开。
+
+回归直线经过\((\bar x,\bar y)\)，残差满足\(\sum_ie_i=0\)与\(\sum_ix_ie_i=0\)。对教学数据，回归直线为\(\widehat y=22+6x\)，残差依次为\(-8,6,10,-6,-2\)，平方和为240。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.88\linewidth]{probability-regression}
+\caption{左图为同一组成对数据及最小二乘直线，右图为残差随解释变量的变化。}
+\end{figure}
+
+残差图保留直线未解释的部分。若残差有明显弯曲趋势，或分散程度随\(x\)系统改变，使用同一线性模型作预测时应重新检查相应假设。
+
+\subsection{预测的解释}
+
+对给定\(x_0\)，\(\widehat a+\widehat b x_0\)给出模型拟合或预测值。把它解释为同类对象的平均趋势，需要假定新对象与原数据遵循相应关系；单个对象还会有未被直线解释的波动。远离已有数据范围的外推，增加了对关系继续保持的依赖。
+
+可以用一个简单的随机模型明确这种区别。固定\(x_1,\ldots,x_n\)，设\(Y_i=a+bx_i+\varepsilon_i\)，各误差相互独立，均值为0、方差为\(\sigma^2\)。代入最小二乘公式，
+\[
+ \widehat b=b+\frac{\sum_i(x_i-\bar x)\varepsilon_i}{S_{xx}},
+ \qquad E\widehat b=b,\quad
+ \operatorname{Var}\widehat b=\frac{\sigma^2}{S_{xx}}.
+\]
+斜率估计的波动由误差大小和解释变量的分散程度共同决定。预测同类新对象时，拟合值估计平均响应\(a+bx_0\)，而单个新观测还含有自身的随机误差。
+
+相关与回归首先描述观测关系。若练习时间与得分同时受到原有基础、教学安排等因素影响，当前散点图本身不能确定改变练习时间会造成怎样的得分变化。因果问题需回到研究设计。
+
+对正值响应，有时考虑指数趋势，先拟合\(\ln y\)关于\(x\)的直线，再取指数恢复预测。此时最小化的是
+\[
+ \sum_i(\ln y_i-a-bx_i)^2,
+\]
+它与最小化原尺度上的\(\sum_i(y_i-e^{a+bx_i})^2\)是不同的误差任务。选择变换时，应同时说明模型关系与所用的误差度量。
+
+\begin{example}[据2025年上海卷改编]
+沿用例\ref{ex:prob-swimming-data}的十个游泳成绩，已知成绩\(y\)关于年份\(x\)的最小二乘回归直线为\(y=-0.311x+\widehat b\)，年份的样本均值为2006。求\(\widehat b\)，并预测2028年的成绩，精确到0.01秒。说明此预测与观测数据、趋势延续假设之间的关系。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对数据\((1,2),(2,3),(3,5),(4,4)\)，求均值、样本相关系数与最小二乘直线，列出残差并核对残差和。
+
+（2）对式\eqref{eq:prob-regression-data}，分别计算\(x=3.5\)及\(x=10\)时的预测。比较两个预测对趋势延续的依赖。
+
+（3）某正值数据满足\(y_i=C e^{kx_i}\)，且\(x_i\)不全相同。证明对数线性拟合能恢复\(\ln C,k\)。若各\(y_i\)含不同误差，为什么两种平方误差任务通常给出不同结果？
+
+（4）两列数据均不恒定。分别拟合\(y\)关于\(x\)及\(x\)关于\(y\)的最小二乘直线，证明两条直线的斜率乘积为\(r^2\)。当\(0<|r|<1\)时，后一拟合能否由前一条直线直接反解得到？
+
+（5）在固定解释变量的随机模型中取\(\sigma^2=4\)，使用教学数据的五个\(x\)值，求斜率估计的标准差。若在每个\(x\)值处各独立观测四次，新斜率估计的标准差是多少？
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{回归的投影结构*}
+
+记\(\boldsymbol1=(1,\ldots,1)\)，将两列数据视为向量\(\boldsymbol x,\boldsymbol y\)。全体拟合向量为
+\[
+ W=\operatorname{span}\{\boldsymbol1,\boldsymbol x\},\qquad
+ \widehat{\boldsymbol y}=a\boldsymbol1+b\boldsymbol x.
+\]
+当\(x\)不恒定时，\(W\)为二维子空间。残差条件\(\sum_ie_i=\sum_ix_ie_i=0\)恰好表示\(\boldsymbol e\perp W\)。因此最小二乘拟合是\(\boldsymbol y\)在\(W\)上的正交投影。对任意\(\boldsymbol v\in W\)，
+\[
+ \|\boldsymbol y-\boldsymbol v\|^2
+ =\|\boldsymbol e\|^2+\|\widehat{\boldsymbol y}-\boldsymbol v\|^2,
+\]
+从而投影的确使平方误差最小。
+
+又因\(\widehat{\boldsymbol y}-\bar y\boldsymbol1\in W\)，
+\[
+ \boldsymbol y-\bar y\boldsymbol1
+ =(\widehat{\boldsymbol y}-\bar y\boldsymbol1)+\boldsymbol e
+\]
+是正交分解，给出{\heiti 变差分解}
+\begin{equation}\label{eq:prob-regression-decomposition}
+ \sum_i(y_i-\bar y)^2=\sum_i(\widehat y_i-\bar y)^2+\sum_ie_i^2.
+\end{equation}
+当\(S_{yy}>0\)时，定义拟合所解释的平方变差比例
+\[
+ R^2=1-\frac{\sum_ie_i^2}{S_{yy}}.
+\]
+一元含截距回归中，\(\widehat y_i-\bar y=\widehat b(x_i-\bar x)\)，所以\(R^2=S_{xy}^2/(S_{xx}S_{yy})=r^2\)。教学数据中，\(600=360+240\)，故\(R^2=0.6\)。
+
+这里的普通内积与前面有限概率空间的加权内积，分别来自数据的等权平方和与模型的概率加权。两处的最小误差，都由已有的正交结构确定。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）对两个解释变量\(x,z\)，拟合\(\widehat y=a+bx+cz\)。由残差与\(\boldsymbol1,\boldsymbol x,\boldsymbol z\)正交写出三个方程。说明这三个向量线性无关时系数为何唯一。
+
+（2）证明给全部\(y_i\)加同一常数，不改变回归斜率、残差和\(R^2\)。
+
+（3）给每对记录指定正权重\(w_i\)，改为最小化\(\sum_iw_i(y_i-a-bx_i)^2\)。推导残差所满足的两个方程，并用加权内积说明它仍然是正交投影问题。
+\end{exercise}

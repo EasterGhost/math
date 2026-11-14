@@ -1,0 +1,78 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,positioning}
+\definecolor{curveblue}{HTML}{245C86}
+\definecolor{accent}{HTML}{A65E2E}
+\begin{document}
+\begin{tikzpicture}[font=\small,>=Latex,line cap=round,line join=round]
+\fill[black!55] (0.00000,-0.00000) circle (1.4pt);
+\fill[black!55] (-0.50000,-0.48000) circle (1.4pt);
+\fill[black!55] (0.50000,-0.48000) circle (1.4pt);
+\fill[black!55] (-1.00000,-0.96000) circle (1.4pt);
+\fill[black!55] (0.00000,-0.96000) circle (1.4pt);
+\fill[black!55] (1.00000,-0.96000) circle (1.4pt);
+\fill[black!55] (-1.50000,-1.44000) circle (1.4pt);
+\fill[black!55] (-0.50000,-1.44000) circle (1.4pt);
+\fill[black!55] (0.50000,-1.44000) circle (1.4pt);
+\fill[black!55] (1.50000,-1.44000) circle (1.4pt);
+\fill[black!55] (-2.00000,-1.92000) circle (1.4pt);
+\fill[black!55] (-1.00000,-1.92000) circle (1.4pt);
+\fill[black!55] (0.00000,-1.92000) circle (1.4pt);
+\fill[black!55] (1.00000,-1.92000) circle (1.4pt);
+\fill[black!55] (2.00000,-1.92000) circle (1.4pt);
+\fill[black!55] (-2.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (-1.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (-0.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (0.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (1.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (2.50000,-2.40000) circle (1.4pt);
+\fill[black!55] (-3.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (-2.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (-1.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (0.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (1.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (2.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (3.00000,-2.88000) circle (1.4pt);
+\fill[black!55] (-3.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (-2.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (-1.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (-0.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (0.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (1.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (2.50000,-3.36000) circle (1.4pt);
+\fill[black!55] (3.50000,-3.36000) circle (1.4pt);
+\draw[black!50] (-4.50000,-5.45000)--(-4.50000,-4.00000);
+\draw[black!50] (-3.50000,-5.45000)--(-3.50000,-4.00000);
+\draw[black!50] (-2.50000,-5.45000)--(-2.50000,-4.00000);
+\draw[black!50] (-1.50000,-5.45000)--(-1.50000,-4.00000);
+\draw[black!50] (-0.50000,-5.45000)--(-0.50000,-4.00000);
+\draw[black!50] (0.50000,-5.45000)--(0.50000,-4.00000);
+\draw[black!50] (1.50000,-5.45000)--(1.50000,-4.00000);
+\draw[black!50] (2.50000,-5.45000)--(2.50000,-4.00000);
+\draw[black!50] (3.50000,-5.45000)--(3.50000,-4.00000);
+\draw[black!50] (4.50000,-5.45000)--(4.50000,-4.00000);
+\fill[curveblue!25] (-4.36000,-5.45000) rectangle (-3.64000,-5.43281);
+\node[below] at (-4.00000,-5.49000) {$0$};
+\fill[curveblue!25] (-3.36000,-5.45000) rectangle (-2.64000,-5.31250);
+\node[below] at (-3.00000,-5.49000) {$1$};
+\fill[curveblue!25] (-2.36000,-5.45000) rectangle (-1.64000,-4.96875);
+\node[below] at (-2.00000,-5.49000) {$2$};
+\fill[curveblue!25] (-1.36000,-5.45000) rectangle (-0.64000,-4.48750);
+\node[below] at (-1.00000,-5.49000) {$3$};
+\fill[curveblue!25] (-0.36000,-5.45000) rectangle (0.36000,-4.24688);
+\node[below] at (0.00000,-5.49000) {$4$};
+\fill[curveblue!25] (0.64000,-5.45000) rectangle (1.36000,-4.48750);
+\node[below] at (1.00000,-5.49000) {$5$};
+\fill[curveblue!25] (1.64000,-5.45000) rectangle (2.36000,-4.96875);
+\node[below] at (2.00000,-5.49000) {$6$};
+\fill[curveblue!25] (2.64000,-5.45000) rectangle (3.36000,-5.31250);
+\node[below] at (3.00000,-5.49000) {$7$};
+\fill[curveblue!25] (3.64000,-5.45000) rectangle (4.36000,-5.43281);
+\node[below] at (4.00000,-5.49000) {$8$};
+\draw[black!50] (-4.50000,-5.45000)--(4.50000,-5.45000);
+\draw[accent,thick,->] (0.00000,0.50000)--(0.00000,0.00000)--(-0.50000,-0.48000)--(0.00000,-0.96000)--(0.50000,-1.44000)--(0.00000,-1.92000)--(0.50000,-2.40000)--(0.00000,-2.88000)--(0.50000,-3.36000)--(1.00000,-3.84000);
+\fill[accent] (0,.5) circle (2.6pt);
+\node[above] at (0.00000,0.80000) {$n=8$};
+\node[below] at (4.80000,-5.52000) {$k$};
+\end{tikzpicture}
+\end{document}

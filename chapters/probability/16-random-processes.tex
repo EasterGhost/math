@@ -1,0 +1,80 @@
+\FloatBarrier
+\newpage
+\section{随机过程初步*}
+\label{sec:prob-processes}
+
+甲、乙两人投篮，命中者继续，未中则换人。两人每次命中率分别为\(0.6,0.8\)，不受以往情况影响；第一次由谁投篮各以\(1/2\)决定。随着投篮继续，每次由甲投篮的概率怎样变化？最终会趋于稳定吗？
+
+以投篮者为当前状态，下一次由谁投篮的概率便由当前状态确定，无须保留更早的投篮记录。下面将其抽象为两状态模型，用条件概率、线性变换与数列递推研究。
+
+\subsection{状态与转移}
+
+设\(S_n\)表示第\(n\)步的状态，只能为\(A,B\)，\(n=0,1,\ldots\)。已知当前状态后，下一步的概率不再依赖更早的状态，并且各步使用同样的转移规律：
+\[
+ P(S_{n+1}=B\mid S_n=A)=\alpha,\qquad
+ P(S_{n+1}=A\mid S_n=B)=\beta.
+\]
+这给出一个两状态、时间齐次的{\heiti Markov链}模型。保持原状态的概率分别为\(1-\alpha,1-\beta\)。
+
+在投篮问题中，令\(A,B\)分别表示由甲、乙投篮，则\(\alpha=0.4\)、\(\beta=0.2\)。以第一次投篮前为第0步，第\(n\)步的状态便表示第\(n+1\)次的投篮者。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.58\linewidth]{probability-markov}
+\caption{两状态转移模型；箭头表示下一步的条件概率。}
+\end{figure}
+
+记\(u_n=P(S_n=A)\)。按当前状态使用全概率公式，得到
+\begin{equation}\label{eq:prob-two-state-recurrence}
+ u_{n+1}=(1-\alpha)u_n+\beta(1-u_n)
+ =\beta+(1-\alpha-\beta)u_n.
+\end{equation}
+状态本身随机，\(u_n\)则是按给定初始分布与模型计算出的数。
+
+若以列向量记录分布，令
+\[
+ \boldsymbol p_n=\begin{pmatrix}u_n\\1-u_n\end{pmatrix},\qquad
+ M=\begin{pmatrix}1-\alpha&\beta\\\alpha&1-\beta\end{pmatrix},
+\]
+于是\(\boldsymbol p_{n+1}=M\boldsymbol p_n\)，\(\boldsymbol p_n=M^n\boldsymbol p_0\)。各列元素非负、和为1，故更新后仍为概率向量。
+
+\subsection{长期分布}
+
+使分布一步更新后不变的概率向量称为{\heiti 不变分布}。若\(\alpha+\beta>0\)，解\(M\boldsymbol\pi=\boldsymbol\pi\)，得到
+\begin{equation}\label{eq:prob-stationary}
+ \boldsymbol\pi=\begin{pmatrix}\beta/(\alpha+\beta)\\\alpha/(\alpha+\beta)\end{pmatrix}.
+\end{equation}
+记\(u_*=\beta/(\alpha+\beta)\)、\(r=1-\alpha-\beta\)。从递推式中减去固定点，
+\[
+ u_{n+1}-u_*=r(u_n-u_*),\qquad
+ u_n=u_*+r^n(u_0-u_*).
+\]
+当\(0<\alpha+\beta<2\)时，\(|r|<1\)，故任意初始分布都趋于上述不变分布。
+
+不变与收敛是不同任务。取\(\alpha=\beta=1\)，状态每步交替，仍有不变分布\((1/2,1/2)^{\mathsf T}\)；但从确定状态开始，分布在两个确定状态之间往返而不收敛。若初始分布恰为不变分布，则各时刻分布保持不变。
+
+前\(n\)步处于状态\(A\)的总次数为\(N_n=\sum_{j=0}^{n-1}I_j\)，其中\(I_j=1_{\{S_j=A\}}\)。由期望的线性性与递推通项，无须各步独立便有
+\[
+ EN_n=\sum_{j=0}^{n-1}u_j
+ =nu_*+(u_0-u_*)\frac{1-r^n}{1-r}
+ \quad(\alpha+\beta>0).
+\]
+\begin{example}[据2023年新课标I卷改编]
+沿用本节开头的投篮模型。
+
+（1）求第二次由乙投篮的概率。
+
+（2）求第\(i\)次由甲投篮的概率，并研究其极限。
+
+（3）求前\(n\)次投篮中甲投篮次数的期望。说明这里为什么不能直接使用同一参数的二项分布。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）取\(\alpha=0.3,\beta=0.2\)，初始状态为\(A\)。求\(u_n\)、不变分布及前\(n\)步处于\(A\)的次数期望。
+
+（2）分别取\(\alpha=\beta=0\)与\(\alpha=\beta=1\)，比较不变分布的唯一性与分布收敛性。再说明\(\alpha=0,0<\beta<1\)时模型的长期行为。
+\end{exercise}
+
+从可能结果建立概率分配，从数值记录研究分布，再由抽样把模型与数据联系起来，本章的问题依次得到各自的表达。在最后这个模型中，条件分解、线性变换、期望与极限又共同工作。它们所提供的依据，已经足以完成当前的研究。

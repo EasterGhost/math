@@ -1,0 +1,19 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta,positioning}
+\definecolor{curveblue}{HTML}{245C86}
+\definecolor{accent}{HTML}{A65E2E}
+\begin{document}
+\begin{tikzpicture}[font=\small,>=Latex,line cap=round,line join=round]
+
+\node (o) at (0,0) {$\bullet$};
+\node (a) at (2.8,.9) {$A$};
+\node (b) at (2.8,-.9) {$B$};
+\node (aa) at (5.6,.9) {$2\cdot4$};
+\node (bb) at (5.6,-.9) {$3\cdot5$};
+\draw[->,curveblue] (o)--node[above]{$2$}(a);
+\draw[->,curveblue] (o)--node[below]{$3$}(b);
+\draw[->,curveblue] (a)--node[above]{$4$}(aa);
+\draw[->,curveblue] (b)--node[below]{$5$}(bb);
+\end{tikzpicture}
+\end{document}

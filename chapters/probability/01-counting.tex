@@ -1,0 +1,187 @@
+\FloatBarrier
+\newpage
+\section{计数原理}
+\label{sec:prob-counting}
+
+计数之前，先要确定所数的对象，以及怎样的记录算作同一个结果。选择两名同学与给两名同学安排不同职务，涉及同样的人，却有不同的结果识别方式。下面先研究组织计数的共同原则，再建立常用公式。
+
+\subsection{分类计数}
+
+\begin{proposition}[加法原理]
+若一个有限集合\(S\)分成两两不交的子集\(S_1,\ldots,S_m\)，则
+\[
+ |S|=|S_1|+\cdots+|S_m|.
+\]
+\end{proposition}
+
+每个对象恰在一个类别中出现，因而将各类的个数相加，便把所有对象各数一次。这也是分类计数的依据：类别需要覆盖全部对象，类别之间则不能重复。
+
+若原有分类相互重叠，可以先扣除重复。对有限集合\(A,B\)，将并集分成\(A\setminus B\)、\(A\cap B\)、\(B\setminus A\)，得到
+\begin{equation}\label{eq:prob-counting-inclusion}
+ |A\cup B|=|A|+|B|-|A\cap B|.
+\end{equation}
+同理，三个集合满足
+\begin{align*}
+ |A\cup B\cup C|={}&|A|+|B|+|C|\\
+ &-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.
+\end{align*}
+属于三个集合的对象，先被加三次、减三次，最后再加一次；其他对象也恰被保留一次。这称为{\heiti 容斥原理}。若所求对象的反面更易计数，也可以用总数减去反面对象数。
+
+\begin{example}
+某班有40人，参加数学社团的有18人，参加物理社团的有16人，两者都参加的有7人。求至少参加一个社团、恰参加一个社团和两个社团都未参加的人数。
+\end{example}
+
+\subsection{分步计数}
+
+设完成一件事需要依次作出\(m\)次选择。若第一步有\(n_1\)种选法，并且对每一种已经完成的前序选择，第\(j\)步都有\(n_j\)种选法，则完整结果数为
+\begin{equation}\label{eq:prob-counting-product}
+ n_1n_2\cdots n_m.
+\end{equation}
+这称为{\heiti 乘法原理}。两步时，每个第一步结果对应\(n_2\)个完整结果，由加法原理共得\(n_1n_2\)个；一般情形由归纳法得到。
+
+可以用树状图记录选择过程，每条从起点到终点的路径对应一个完整结果。若后一步的选法数随前面的具体选择而改变，就分别计算各分支，再把结果相加。例如，第一步选甲类或乙类对象，分别有2种、3种；选甲类后第二步有4种，选乙类后第二步有5种，则结果数为\(2\cdot4+3\cdot5\)。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.50\linewidth]{probability-counting-tree}
+\caption{按类别合并的计数树，\(A,B\)分别表示甲、乙两类；边上数字为相应选择数。}
+\label{fig:prob-counting-tree}
+\end{figure}
+\FloatBarrier
+
+图\ref{fig:prob-counting-tree}先分类、再分步，类别间用加法合并，各类内部用乘法计数。
+
+\begin{example}
+用数字\(0,1,2,3,4\)组成没有重复数字的三位数。分别求全部三位数、偶数和大于300的三位数的个数。比较各问适合先确定哪个位置。
+\end{example}
+
+\subsection{排列}
+
+\begin{definition}
+从\(n\)个不同对象中取出\(r\)个，按次序排成一列，称为一个{\heiti 排列}；排列的总数记为\(A_n^r\)。取出全部对象的排列称为{\heiti 全排列}。
+\end{definition}
+
+依次选择各位置的对象，分别有\(n,n-1,\ldots,n-r+1\)种选法，所以
+\[
+ A_n^r=n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!},\qquad A_n^n=n!.
+\]
+这里\(n!=1\cdot2\cdots n\)，并约定\(0!=1\)。若每个位置可以重复使用同一对象，长度为\(r\)的有序记录共有\(n^r\)个。
+
+若一列中有\(n\)个元素，其中各类相同元素分别出现\(n_1,\ldots,n_k\)次，\(n_1+\cdots+n_k=n\)，则不同排列数为
+\[
+ \frac{n!}{n_1!\cdots n_k!}.
+\]
+给同类元素临时加上不同标记，共有\(n!\)个有标记排列；去掉标记后，每个原排列恰对应\(n_1!\cdots n_k!\)种标记方式，因而得到此式。
+
+\begin{example}
+六名同学排成一列，甲、乙是其中两人。分别求甲乙相邻、甲乙不相邻，以及甲在乙左侧的排列数。再求由字母\(A,A,A,B,B,C\)组成的不同字符串数。
+\end{example}
+
+\subsection{组合}
+
+\begin{definition}
+从\(n\)个不同对象中选出\(r\)个组成一个子集，称为一个{\heiti 组合}，组合数记为\(C_n^r\)或\(\binom nr\)。
+\end{definition}
+
+每个\(r\)元子集可以排成\(r!\)个排列，故
+\begin{equation}\label{eq:prob-combinations}
+ \binom nr=\frac{A_n^r}{r!}=\frac{n!}{r!(n-r)!}.
+\end{equation}
+这里除以\(r!\)，是因为每个最终子集都恰好对应\(r!\)个有序记录。通过另一种记录计数时，应先确定每个最终结果对应多少条记录；这个对应数相同，才能直接除以它。
+
+\begin{example}
+从6名同学中选3人组成小组，并指定其中一人为组长。分别按“先选小组，再选组长”和“先选组长，再选组员”计数。若先将三人排成一列，以首人为组长，再忘去后两人的次序，每个结果被重复计数几次？
+\end{example}
+
+取\(r\)个对象与留下\(n-r\)个对象相对应，所以\(\binom nr=\binom n{n-r}\)。再固定一个对象，按是否选入它分类，得到
+\[
+ \binom nr=\binom{n-1}{r}+\binom{n-1}{r-1}.
+\]
+计数中约定\(r<0\)或\(r>n\)时\(\binom nr=0\)，便可统一书写求和范围。
+
+将对象分成大小为\(a,b\)的两组，按第一组选入的个数计数，得到{\heiti Vandermonde恒等式}
+\begin{equation}\label{eq:prob-vandermonde}
+ \sum_k\binom ak\binom b{r-k}=\binom{a+b}r.
+\end{equation}
+等式两边计算的是同一批\(r\)元子集。类似地，把\(n\)个不同对象分入有标记的各组，组大小为\(n_1,\ldots,n_k\)，有\(n!/(n_1!\cdots n_k!)\)种分法。若组不带标记，还需根据实际重复次数处理；例如把四人分成两个无标记二人组，共有\(\binom42/2\)种。
+
+\subsection{二项式定理}
+
+展开\((a+b)^n\)时，每个因子中选\(a\)或\(b\)。含\(k\)个\(b\)的项来自\(n\)个因子中选出\(k\)个，因而
+\begin{theorem}[二项式定理]
+对非负整数\(n\)，有
+\begin{equation}\label{eq:prob-binomial-theorem}
+ (a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k.
+\end{equation}
+\end{theorem}
+
+按\(b\)的次数从0到\(n\)排列，第\(k+1\)项为
+\[
+ T_{k+1}=\binom nk a^{n-k}b^k,\qquad k=0,1,\ldots,n.
+\]
+若\(a,b\)本身含有变量\(x\)，则\(x\)的指数需要合并计算。例如取\(a=x^2,b=2/x\)，通项为\(\binom nk2^kx^{2n-3k}\)。求某次幂的系数时，先确定对应的\(k\)，再计算该项的数值系数，组合数只是系数中的一个因子。
+
+取\(a=b=1\)，得到\(\sum_k\binom nk=2^n\)；取\(a=1,b=-1\)，得到\(n\ge1\)时奇数项与偶数项组合数之和相等。
+
+还有两条后面会用到的恒等式：
+\begin{equation}\label{eq:prob-binomial-moments}
+ \sum_{k=0}^n k\binom nk=n2^{n-1},\qquad
+ \sum_{k=0}^n k(k-1)\binom nk=n(n-1)2^{n-2}\quad(n\ge2).
+\end{equation}
+第一式数一个子集及其中一个被标记的元素：先选标记元素，再从其余元素中任选一个子集。第二式则标记两个有先后次序的不同元素。它们也分别对应
+\(k\binom nk=n\binom{n-1}{k-1}\)与
+\(k(k-1)\binom nk=n(n-1)\binom{n-2}{k-2}\)。
+
+\begin{example}[2025年上海卷，题面整理]
+求\((2x-1)^5\)展开式中\(x^3\)的系数。
+\end{example}
+
+\begin{example}
+求\((x^2+2/x)^9\)展开式的常数项、\(x^6\)项的系数及各项系数之和。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）用数字\(0,1,2,3,4,5\)组成没有重复数字的四位数，求其中能被5整除的个数。
+
+（2）七人中选三人，其中甲、乙至少选入一人，有多少种选法？若三人还需分别担任三个不同职务，又有多少种？
+
+（3）将六人分成有标记的两个三人组，再分成无标记的两个三人组，分别有多少种分法？将六人分为一个二人组和一个四人组时，是否还需要除以2？
+
+（4）求\((x^2-2/x)^6\)的常数项，并求各项系数之和。
+
+（5）用对子集的计数证明\(\sum_{k=0}^n\binom nk^2=\binom{2n}n\)。
+
+（6）有三类对象，数量分别为\(a,b,c\)。证明\(\sum_{i+j+k=r}\binom ai\binom bj\binom ck=\binom{a+b+c}r\)。
+
+（7）（2023年全国甲卷理科，题面整理）5名志愿者参加公益活动，周六、周日每天安排2人。恰有1人两天都参加，共有多少种安排？
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{计数对象的变换*}
+
+把\(n\)个相同物品放入\(r\)个不同盒子，各盒允许为空，等价于求
+\[
+ x_1+\cdots+x_r=n,\qquad x_i\in\{0,1,2,\ldots\}
+\]
+的解数。在\(n\)个相同标记之间及两端放入\(r-1\)块隔板，每段的标记数就是相应的\(x_i\)。反过来，由一组\(x_i\)也能唯一恢复标记与隔板的次序。因此解数为
+\[
+ \binom{n+r-1}{r-1}.
+\]
+若每盒至少一个，令\(y_i=x_i-1\)，便转化为\(\sum y_i=n-r\)，解数为\(\binom{n-1}{r-1}\)。这里盒子的标记决定坐标的次序，不能再把不同坐标排列随意视为相同。
+
+另一个例子是圆排列。\(n\)个不同的人围圆桌就座，只把整体旋转视为同一排列。固定其中一人的位置，其余人依次排列，共有\((n-1)!\)种。镜面反向通常仍是不同座次；若题目还将反向识别为同一结果，需要另外处理这种识别。
+
+这些计算都先建立了对象之间的一一对应，公式随后由已知计数得到。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）把10个相同球放入4个不同盒子，求允许空盒、每盒至少一个及第一盒至少两个时的分法数。
+
+（2）从\(r\)种口味的糖果中购买\(n\)颗，同种口味不加区分。把购买方案与非负整数解对应，求方案数。
+
+（3）六人围圆桌就座，甲、乙不能相邻。求不同座次的个数。
+\end{exercise}

@@ -1,0 +1,273 @@
+\FloatBarrier
+\newpage
+\section{抽样分布}
+\label{sec:prob-sampling-distributions}
+
+一组数据产生一个均值，另一次抽样可能产生另一个均值。把抽样过程也纳入模型，才能研究这种变化有多大，以及样本量怎样影响估计。这里先给定总体或分布，再研究由它产生的样本。
+
+\subsection{统计量}
+
+\begin{definition}
+由样本\((X_1,\ldots,X_n)\)确定、表达式中不含未知参数的函数，称为{\heiti 统计量}。它在抽样模型下的分布称为{\heiti 抽样分布}。
+\end{definition}
+
+例如样本均值\(\bar X=n^{-1}\sum_iX_i\)是统计量，抽样前是随机变量；记录到\(x_1,\ldots,x_n\)后，得到观测值\(\bar x\)。样本比例、最大值和样本方差同样是统计量。
+
+从\(\{0,2\}\)中有放回独立抽两次，各值等可能。四条有序样本\((0,0),(0,2),(2,0),(2,2)\)各以\(1/4\)发生，样本均值的分布为
+\[
+\begin{array}{c|ccc}
+\bar X&0&1&2\\\hline P&1/4&1/2&1/4
+\end{array}
+\]
+这是均值本身的分布，而非单次观测的总体分布。
+
+抽样分布也可以借助事件关系求出。若\(X_1,\ldots,X_n\)相互独立，具有同一分布函数\(F\)，样本最大值\(M_n=\max\{X_1,\ldots,X_n\}\)满足
+\[
+ P(M_n\le t)=P(X_1\le t,\ldots,X_n\le t)=[F(t)]^n.
+\]
+最大值不超过\(t\)，恰好要求每次观测都不超过\(t\)。这使一个统计量的分布转化为单次观测的概率，无须逐一枚举所有样本。
+
+样本较大时，可以固定一个模型，反复独立生成整组样本，每组计算一次统计量，再整理这些值的频数与图形。这样的模拟近似的是给定模型下的抽样分布；每一组内部包含\(n\)次观测，重复整组的次数则决定模拟记录的数量。
+
+\subsection{样本均值的波动}
+
+下面称具有同一分布且相互独立的\(X_1,\ldots,X_n\)为{\heiti 独立同分布样本}。设总体均值为\(\mu\)、方差为有限的\(\sigma^2\)，由期望线性性与独立时方差相加，
+\begin{equation}\label{eq:prob-sample-mean-characteristics}
+ E\bar X=\mu,\qquad
+ \operatorname{Var}\bar X=\frac1{n^2}\sum_i\operatorname{Var}X_i
+ =\frac{\sigma^2}{n}.
+\end{equation}
+单次观测的标准差为\(\sigma\)，均值的标准差则为\(\sigma/\sqrt n\)，也称样本均值的{\heiti 标准误}。样本量增为四倍，标准误变为原来的一半。
+
+独立二分类试验中，令成功比例为\(\widehat p=n^{-1}\sum_iI_i\)，则
+\[
+ E\widehat p=p,\qquad \operatorname{Var}\widehat p=\frac{p(1-p)}n.
+\]
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.9\linewidth]{probability-sample-means}
+\caption{成功概率为\(0.4\)时，两个样本量下样本比例的精确分布。每根竖线高度为对应取值的概率。}
+\end{figure}
+
+有限总体\(z_1,\ldots,z_N\)的均值为\(\mu\)，描述方差为\(\sigma_N^2=N^{-1}\sum_j(z_j-\mu)^2\)。若简单随机不放回抽取\(n\)个，则不同抽取位置的协方差为\(-\sigma_N^2/(N-1)\)。这是因为所有不同下标的中心化乘积之和为\(-\sum_j(z_j-\mu)^2\)。因此
+\begin{equation}\label{eq:prob-finite-mean-variance}
+ E\bar X=\mu,\qquad
+ \operatorname{Var}\bar X=\frac{\sigma_N^2}{n}\frac{N-n}{N-1}\quad(N>1).
+\end{equation}
+有限总体修正与超几何模型一致；使用时需区分独立重复取样与有限总体不放回取样。
+
+\begin{example}
+独立测量的均值为未知常数\(\mu\)，每次测量的标准差为2。用\(n\)次测量的均值估计\(\mu\)。为了使偏离至少1的概率不超过\(0.04\)，根据Chebyshev界应取多大样本量？若精度改为\(0.5\)，样本量怎样变化？
+\end{example}
+
+测量误差还可能含有共同的来源。设\(X_i=\mu+Z+\varepsilon_i\)，其中\(Z\)是同一轮测量共有的校准误差，\(\varepsilon_i\)是各次独立误差；它们相互独立、均值为0，方差分别为\(\tau^2\)、\(\sigma^2\)。此时
+\[
+ \bar X=\mu+Z+\frac1n\sum_i\varepsilon_i,
+ \qquad \operatorname{Var}\bar X=\tau^2+\frac{\sigma^2}n.
+\]
+平均能削弱各次独立误差，却保留共同误差。增加测量次数与改善校准，解决的是不同来源的波动。
+
+\subsection{大数定律}
+
+\begin{theorem}[弱大数定律]\label{thm:prob-wlln}
+设\(X_1,X_2,\ldots\)独立同分布，期望为\(\mu\)，方差为有限的\(\sigma^2\)。令\(\bar X_n=n^{-1}\sum_{i=1}^nX_i\)，则对任意\(\varepsilon>0\)，
+\begin{equation}\label{eq:prob-wlln}
+ P(|\bar X_n-\mu|\ge\varepsilon)\longrightarrow0\qquad(n\to\infty).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+由式\eqref{eq:prob-sample-mean-characteristics}及Chebyshev不等式，
+\[
+ 0\le P(|\bar X_n-\mu|\ge\varepsilon)
+ \le\frac{\sigma^2}{n\varepsilon^2}\longrightarrow0.\qedhere
+\]
+\end{proof}
+
+这里趋于零的是固定精度以外的偏离概率，称\(\bar X_n\){\heiti 依概率收敛}于\(\mu\)。每次增加样本量，具体观测的误差仍可能变大或变小；定理控制整个抽样模型中偏离发生的可能性。
+
+令\(X_i\)为事件发生的指示变量，就得到频率的稳定依据：
+\[
+ P(|\widehat p-p|\ge\varepsilon)
+ \le\frac{p(1-p)}{n\varepsilon^2}
+ \le\frac1{4n\varepsilon^2}.
+\]
+例如要求偏离不超过\(0.05\)的概率至少为\(0.95\)，采用上述统一界，取\(n\ge2000\)即可。这是由有限样本不等式得到的充分样本量，已知更多分布信息时可以得到更精细的结果。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）从\(\{0,1,2\}\)等可能有放回抽两次，求样本均值的分布、期望与方差。
+
+（2）总体标准差为6，独立样本量为36及144时，样本均值的标准误分别是多少？用Chebyshev界估计偏离总体均值至少2的概率。
+
+（3）某有限总体有100个数，均值为10、描述方差为9。不放回随机抽25个，求样本均值的期望与方差，并与有放回抽样比较。
+
+（4）用频率估计未知概率，要求偏离小于\(0.02\)的概率至少为\(0.9\)。由统一Chebyshev界给出足够的样本量。
+
+（5）独立掷一枚均匀骰子\(n\)次，记最大点数为\(M_n\)。求\(M_n\)的分布列。若要求至少出现一次6点的概率不小于\(0.99\)，最少应掷多少次？
+
+（6）独立重复掷均匀骰子，点数为\(X_1,\ldots,X_n\)。用大数定律说明，偶数点的频率、\(n^{-1}\sum_iX_i\)及\(n^{-1}\sum_iX_i^2\)分别趋近什么数；分别指出所用的随机变量。
+
+（7）在上述共同误差模型中，设\(\tau^2=1/4\)、\(\sigma^2=4\)。使样本均值的方差不超过\(0.3\)，至少需要多少次测量？若要求标准误不超过\(0.4\)，仅增加测量次数能否做到？
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{样本方差的修正*}
+
+现在用独立同分布样本估计总体方差。令
+\[
+ S_n^2=\frac1n\sum_i(X_i-\bar X)^2.
+\]
+在总体均值\(\mu\)处作平方分解，得到
+\[
+ \sum_i(X_i-\bar X)^2=\sum_i(X_i-\mu)^2-n(\bar X-\mu)^2.
+\]
+取期望，由\(E(\bar X-\mu)^2=\sigma^2/n\)，
+\[
+ E\sum_i(X_i-\bar X)^2=n\sigma^2-\sigma^2=(n-1)\sigma^2.
+\]
+因此\(ES_n^2=(n-1)\sigma^2/n\)。当\(n\ge2\)时，改用
+\begin{equation}\label{eq:prob-unbiased-variance}
+ S^2=\frac1{n-1}\sum_i(X_i-\bar X)^2
+\end{equation}
+便有\(ES^2=\sigma^2\)，称为总体方差的{\heiti 无偏估计量}。
+
+两种分母各有任务：\(n\)描述当前数据的平均平方偏差，\(n-1\)使这一抽样模型下的估计在期望上恢复总体方差。残差满足\(\sum_i(X_i-\bar X)=0\)，落在\(\mathbb R^n\)的一个\(n-1\)维子空间中；前面的期望计算给出了修正倍数的直接依据。
+
+\subsection{正态近似*}
+
+这里先引用正态分布对独立相加的封闭性：若\(X_i\)独立且均为\(N(\mu,\sigma^2)\)，则
+\[
+ \bar X\sim N\left(\mu,\frac{\sigma^2}n\right),\qquad
+ \frac{\sqrt n(\bar X-\mu)}\sigma\sim N(0,1).
+\]
+这是每个样本量下的精确分布。一般总体并不要求正态，但大样本的标准化均值仍有共同的极限分布。
+
+\begin{theorem}[中心极限定理]
+若\(X_i\)独立同分布，期望为\(\mu\)，方差满足\(0<\sigma^2<\infty\)，则对每个实数\(z\)，
+\begin{equation}\label{eq:prob-clt}
+ P\left(\frac{\sqrt n(\bar X_n-\mu)}\sigma\le z\right)
+ \longrightarrow\Phi(z).
+\end{equation}
+\end{theorem}
+
+大数定律说明平均集中到哪里，中心极限定理则描述按\(\sqrt n\)缩放后的波动。原来的总体可以离散，也可以连续；标准化后的分布函数趋于同一个\(\Phi\)。
+
+下面用逐项替换的方法证明。把和式中的变量依次换成同均值、同方差的正态变量：Taylor展开的一次项与二次项在取期望后相同，只需控制余项。最后还要说明，光滑函数上的比较怎样给出区间概率的比较。
+
+\begin{proof}
+令\(Y_i=(X_i-\mu)/\sigma\)，则\(EY_i=0\)、\(EY_i^2=1\)，并记
+\[
+ T_n=\frac{Y_1+\cdots+Y_n}{\sqrt n}.
+\]
+另取相互独立的标准正态变量\(Z_1,\ldots,Z_n\)，且使它们与所有\(Y_i\)独立。由前面引用的正态相加性质，
+\[
+ G_n=\frac{Z_1+\cdots+Z_n}{\sqrt n}\sim N(0,1).
+\]
+因此只需比较\(T_n\)与\(G_n\)的分布。
+
+\smallskip
+{\heiti 1. Taylor余项的统一控制。}
+取二阶连续可微的有界函数\(f\)，要求\(f'\)、\(f''\)有界，且\(f''\)在实数轴上一致连续。由积分余项公式，
+\[
+ f(w+h)=f(w)+f'(w)h+\frac12f''(w)h^2+R(w,h),
+\]
+其中
+\[
+ R(w,h)=h^2\int_0^1(1-t)\bigl[f''(w+th)-f''(w)\bigr]\,dt.
+\]
+记\(M=\sup_x|f''(x)|\)。给定\(\varepsilon>0\)，由一致连续性，可取\(\delta>0\)，使\(|u-v|\le\delta\)时有\(|f''(u)-f''(v)|\le\varepsilon\)。当\(|h|\le\delta\)时，余项不超过\(\varepsilon h^2/2\)；对其他增量，仍有\(|R(w,h)|\le Mh^2\)。合起来便是
+\begin{equation}\label{eq:prob-clt-remainder}
+ |R(w,h)|\le\frac{\varepsilon}{2}h^2
+ +Mh^2\mathbf1_{\{|h|>\delta\}}.
+\end{equation}
+这个界不依赖展开位置\(w\)，因而可以用于每一次替换。
+
+\smallskip
+{\heiti 2. 逐项替换。}
+记
+\[
+ W_{n,k}=\frac{Z_1+\cdots+Z_{k-1}+Y_{k+1}+\cdots+Y_n}{\sqrt n}.
+\]
+第\(k\)次替换比较的是\(f(W_{n,k}+Y_k/\sqrt n)\)与\(f(W_{n,k}+Z_k/\sqrt n)\)。由于\(W_{n,k}\)分别与\(Y_k,Z_k\)独立，且两者均值都为0、二阶矩都为1，Taylor展开取期望后，常数项、一次项与二次项分别相消。例如
+\[
+ E\left[f'(W_{n,k})\frac{Y_k}{\sqrt n}\right]=0,\qquad
+ E\left[f''(W_{n,k})\frac{Y_k^2}{2n}\right]
+ =\frac{E f''(W_{n,k})}{2n},
+\]
+换成\(Z_k\)所得结果相同。
+
+由式\eqref{eq:prob-clt-remainder}控制两份余项，再将\(n\)次替换的差相加，得到
+\begin{align*}
+ |Ef(T_n)-Ef(G_n)|
+ &\le\varepsilon
+ +M E\bigl(Y_1^2\mathbf1_{\{|Y_1|>\delta\sqrt n\}}\bigr)\\
+ &\quad+M E\bigl(Z_1^2\mathbf1_{\{|Z_1|>\delta\sqrt n\}}\bigr).
+\end{align*}
+若\(EV^2<\infty\)，则\(E(V^2\mathbf1_{\{|V|>r\}})\to0\)：它就是二阶矩对应的非负求和或积分在\([-r,r]\)之外的尾部，随区间扩大而趋于零。因此固定上述\(\delta\)，令\(n\to\infty\)，右端两项尾部都趋于零。再由\(\varepsilon\)任意，得到
+\begin{equation}\label{eq:prob-clt-smooth}
+ Ef(T_n)\longrightarrow Ef(Z),\qquad Z\sim N(0,1).
+\end{equation}
+这里\(G_n\)与\(Z\)具有相同分布，所以\(Ef(G_n)=Ef(Z)\)。
+
+\smallskip
+{\heiti 3. 从光滑函数回到分布函数。}
+区间\(({-\infty},z]\)的指示函数在\(z\)处跳跃，不能直接代入上面的Taylor展开。我们用两个光滑函数从上下夹住它。令
+\[
+ H(u)=\begin{cases}
+ 1,&u\le0,\\
+ 1-10u^3+15u^4-6u^5,&0<u<1,\\
+ 0,&u\ge1.
+ \end{cases}
+\]
+在\([0,1]\)内，\(H'(u)=-30u^2(1-u)^2\le0\)，且一、二阶导数在两端均为0。因此\(H\)二阶连续可微，满足前面对\(f\)的全部要求。
+
+给定\(a>0\)，令
+\[
+ f_-(t)=H\left(\frac{t-z+a}{a}\right),\qquad
+ f_+(t)=H\left(\frac{t-z}{a}\right).
+\]
+前者在\([z-a,z]\)内从1降到0，后者在\([z,z+a]\)内从1降到0，故
+\[
+ f_-(t)\le\mathbf1_{\{t\le z\}}\le f_+(t).
+\]
+对标准正态变量\(Z\)，还有\(\Phi(z-a)\le Ef_-(Z)\)、\(Ef_+(Z)\le\Phi(z+a)\)。对\(f_-\)、\(f_+\)分别使用式\eqref{eq:prob-clt-smooth}，可知任给\(\eta>0\)，当\(n\)充分大时，
+\[
+ \Phi(z-a)-\eta\le P(T_n\le z)\le\Phi(z+a)+\eta.
+\]
+由\(\Phi\)的连续性，先取充分小的\(a\)，再取充分小的\(\eta\)，便得\(P(T_n\le z)\to\Phi(z)\)。
+\end{proof}
+
+这也解释了正态近似的一个共同来源：大量独立小项相加时，均值与方差决定Taylor展开的前两项，其余差异在求和与标准化后逐渐消失。
+
+若\(K\sim B(n,p)\)，它是Bernoulli变量之和，因此可用均值\(np\)、方差\(np(1-p)\)的正态模型近似。整数事件\(a\le K\le b\)通常用连续区间\([a-1/2,b+1/2]\)近似，这称为{\heiti 连续性修正}。例如\(K\sim B(100,0.4)\)时，
+\[
+ P(35\le K\le45)\approx
+ \Phi\left(\frac{45.5-40}{\sqrt{24}}\right)
+ -\Phi\left(\frac{34.5-40}{\sqrt{24}}\right).
+\]
+近似的质量还受\(p\)及尾部位置影响。对具体问题，可以把二项精确概率与近似值比较；样本量本身不是精度的完整说明。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）独立样本量为5，观察到\(1,2,2,3,7\)。分别计算描述方差与无偏样本方差，并说明各自的用途。
+
+（2）从\(N(10,4)\)中独立抽取16个观测，求样本均值在9至11之间的概率。这里是否需要使用中心极限定理？
+
+（3）\(K\sim B(200,0.5)\)，写出\(90\le K\le110\)的精确概率与连续性修正后的正态近似表达，并用计算工具比较数值。
+
+（4）独立取\(X_1,\ldots,X_{100}\sim U(0,1)\)。用中心极限定理近似计算\(P(0.45\le\bar X\le0.55)\)，再估计总和超过55的概率。
+
+（5）设\(X_i\)独立同分布，均值为\(\mu\)，方差为\(\sigma^2>0\)。分别考察固定\(c>0\)时的\(P(|\bar X_n-\mu|\le c)\)与\(P(|\bar X_n-\mu|\le c\sigma/\sqrt n)\)：它们的极限分别是什么？说明大数定律与中心极限定理在这里各自描述了什么。
+
+（6）沿用证明中的\(Y_i,Z_i,T_n,G_n\)。进一步设\(E|Y_1|^3<\infty\)，且有界函数\(f\)三阶连续可微，各阶导数有界，\(|f'''|\le L\)。直接使用三阶余项，证明
+\[
+ |Ef(T_n)-Ef(G_n)|\le
+ \frac{L}{6\sqrt n}\bigl(E|Y_1|^3+E|Z_1|^3\bigr).
+\]
+比较这个估计与正文的余项控制，说明正文为何只需有限二阶矩。
+\end{exercise}

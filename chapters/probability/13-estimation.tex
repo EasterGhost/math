@@ -1,0 +1,153 @@
+\FloatBarrier
+\newpage
+\section{参数估计}
+\label{sec:prob-estimation}
+
+前一节给定总体，研究样本会怎样变化。现在总体的某些参数未知，已经取得样本，希望由它估计参数。一个估计方法需要同时说明计算规则，以及规则在抽样模型中的表现。
+
+\subsection{点估计}
+
+\begin{definition}
+用统计量\(T=T(X_1,\ldots,X_n)\)估计参数\(\theta\)，称\(T\)为\(\theta\)的{\heiti 估计量}。代入实际观测所得的数称为{\heiti 估计值}。
+\end{definition}
+
+独立同分布样本中，\(\bar X\)用于估计总体均值\(\mu\)，成功比例\(\widehat p\)用于估计二分类概率\(p\)。大数定律说明，在已建立的条件下，样本量增大时它们偏离相应参数固定幅度的概率趋零。这为使用平均与频率提供了依据。
+
+一种自然出发点是用样本平均匹配理论平均。例如\(X\sim U(0,\theta)\)时，理论均值为\(\theta/2\)，把它与\(\bar X\)对应，得到\(2\bar X\)。这种由理论矩与样本矩建立参数方程的想法称为{\heiti 矩估计}。所得规则的质量仍需要在具体模型下检验。
+
+正态模型中的均值、中位数和对称中心相同，可用样本均值或样本中位数估计其位置。同一参数因而可以有不同估计规则，评价时需结合模型、误差目标和取样方式。
+
+\begin{example}
+从\(U(0,\theta)\)独立抽取\(n\)个观测，用\(2\bar X\)估计\(\theta\)。求这个估计量的期望与方差，并由Chebyshev界说明它随样本量增大趋近\(\theta\)的依据。
+\end{example}
+
+这个模型还给出另一条估计思路：总体端点限制了所有观测，样本最大值\(M_n=\max_iX_i\)可以估计\(\theta\)。由上一节最大值的分布公式，对\(0<\varepsilon<\theta\)，
+\[
+ P(|M_n-\theta|\ge\varepsilon)
+ =P(M_n\le\theta-\varepsilon)
+ =\left(1-\frac\varepsilon\theta\right)^n\longrightarrow0.
+\]
+最大值利用了已知的端点信息，虽不超过\(\theta\)，仍能随样本量增加而逼近\(\theta\)。
+
+\subsection{估计误差}
+
+\begin{definition}
+估计量\(T\)的{\heiti 偏差}为\(E_\theta T-\theta\)，{\heiti 均方误差}为
+\[
+ \operatorname{MSE}_\theta(T)=E_\theta(T-\theta)^2.
+\]
+若对所考察模型中的参数值均有\(E_\theta T=\theta\)，称\(T\)为{\heiti 无偏估计量}。下标表示期望按参数为\(\theta\)的模型计算。
+\end{definition}
+
+由平方误差分解，
+\begin{equation}\label{eq:prob-bias-variance}
+ \operatorname{MSE}_\theta(T)=\operatorname{Var}_\theta T
+ +(E_\theta T-\theta)^2.
+\end{equation}
+无偏性约束平均位置，均方误差还计入抽样波动。例如\(\bar X\)无偏估计\(\mu\)，其均方误差为\(\sigma^2/n\)；一个有偏规则也可能在某些参数范围内具有更小的均方误差。
+
+\begin{example}
+设\(K\sim B(n,p)\)，比较估计量\(T_1=K/n\)与\(T_2=(K+1)/(n+2)\)。求各自的偏差和均方误差。取\(n=10\)，分别在\(p=0.5\)与\(p=0.1\)时比较，判断是否能仅凭无偏性决定优劣。
+\end{example}
+
+后一估计可写成\(T_2=\dfrac n{n+2}\widehat p+\dfrac2{n+2}\cdot\dfrac12\)，即把样本比例向\(1/2\)略微移动。一般地，给定参考值\(m\)，取\(0\le c\le1\)，令\(T_c=m+c(\bar X-m)\)，则
+\[
+ \operatorname{MSE}_\mu(T_c)
+ =c^2\frac{\sigma^2}n+(1-c)^2(\mu-m)^2.
+\]
+减小\(c\)会减小方差，同时增加偏离参考值时的平方偏差。哪个影响更大，取决于总体均值的位置以及样本量。
+
+这些误差是在给定抽样机制下计算的。若取样来源与目标总体不同，或测量含系统偏差，应先修正模型和数据获取；单纯增加样本量只能按原模型减小相应的随机波动。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）估计量\(T\)的偏差为\(0.2\)，方差为\(0.04\)，求均方误差。另一无偏估计量的方差为\(0.1\)，按均方误差比较二者。
+
+（2）从均值\(\mu\)、方差\(\sigma^2\)的模型中取独立样本。比较只用\(X_1\)与使用\(\bar X\)估计\(\mu\)时的偏差与均方误差。
+
+（3）设\(X_i\sim U(0,\theta)\)独立。求使\(c\bar X\)无偏估计\(\theta\)的常数\(c\)。
+
+（4）在同一均匀模型中，使最大值距\(\theta\)不足\(0.1\theta\)的概率至少为\(0.95\)，最少需多少个观测？若只用\(X_1\)估计端点，增加样本总量能否减小误差？
+
+（5）设\(E\bar X=\mu\)、\(\operatorname{Var}\bar X=1\)。用\(T=\bar X/2\)估计\(\mu\)，求使它的均方误差小于\(\bar X\)的全部\(\mu\)值。说明这种比较为什么依赖参数所在的范围。
+
+（6）独立同分布样本的均值为\(\mu\)、方差为\(\sigma^2\)。令\(T_n=\bar X+1/\sqrt n\)，求其偏差、均方误差，证明它仍依概率收敛于\(\mu\)。
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{似然*}
+
+设独立二分类试验进行\(n\)次，成功概率\(p\)未知。观察到一条确定的0、1序列\(x_1,\ldots,x_n\)，其中成功\(k\)次。不同的\(p\)给这条记录分配的概率为
+\begin{equation}\label{eq:prob-likelihood}
+ L(p)=p^k(1-p)^{n-k},\qquad 0\le p\le1.
+\end{equation}
+固定数据，把它的模型概率看作参数的函数，称为{\heiti 似然函数}；使其最大的参数称为{\heiti 极大似然估计}。似然比较不同模型对当前记录的解释，不给参数值本身分配概率。
+
+当\(0<k<n\)时，取对数不改变最大值位置，并有
+\[
+ \ell(p)=k\ln p+(n-k)\ln(1-p),\qquad
+ \ell'(p)=\frac{k-np}{p(1-p)}.
+\]
+导数在\(p=k/n\)前为正、后为负，故最大值在\(\widehat p=k/n\)。全失败或全成功时分别取\(\widehat p=0,1\)。若只记录成功次数，似然多出与\(p\)无关的因子\(\binom nk\)，最大值位置仍然相同。
+
+样本比例由匹配平均得到，也由当前模型的似然最大化得到。两个出发点在这个模型中给出同一个规则，而它的偏差与波动仍由抽样分布研究。
+
+\begin{exercise}
+独立试验20次，观察到7次成功。写出似然函数，求极大似然估计，并比较\(p=0.2\)、\(p=0.35\)、\(p=0.5\)时的似然。说明这里哪一部分是已固定的数据。
+\end{exercise}
+
+\subsection{置信区间*}
+
+一个估计值本身没有说明抽样误差。可以让样本产生一个区间，并研究这一构造在反复抽样时覆盖真参数的概率。
+
+\begin{definition}
+给定\(0<\alpha<1\)。若由样本确定的区间\(I(X_1,\ldots,X_n)\)，对模型中的参数满足
+\[
+ P_\theta\{\theta\in I(X_1,\ldots,X_n)\}\ge1-\alpha,
+\]
+则称其为覆盖率至少\(1-\alpha\)的{\heiti 置信区间}，\(1-\alpha\)称为置信水平。这里参数固定，区间随样本变化。
+\end{definition}
+
+先设独立同分布样本的总体方差不超过已知数\(v\)。Chebyshev界给出
+\[
+ P\left(|\bar X-\mu|\ge\sqrt{\frac{v}{n\alpha}}\right)\le\alpha,
+\]
+可取区间
+\begin{equation}\label{eq:prob-chebyshev-interval}
+ \left[\bar X-\sqrt{\frac{v}{n\alpha}},\,
+       \bar X+\sqrt{\frac{v}{n\alpha}}\right]
+\end{equation}
+其覆盖率至少为\(1-\alpha\)。它只利用方差上界，因而通常较保守。
+
+若进一步知道总体为\(N(\mu,\sigma^2)\)，且\(\sigma\)已知，则标准化样本均值精确服从\(N(0,1)\)。令\(q_\alpha>0\)满足\(\Phi(q_\alpha)=1-\alpha/2\)，有
+\[
+ P\left(-q_\alpha\le\frac{\sqrt n(\bar X-\mu)}\sigma\le q_\alpha\right)=1-\alpha.
+\]
+等价改写事件，得到覆盖率为\(1-\alpha\)的区间
+\begin{equation}\label{eq:prob-normal-interval}
+ \left[\bar X-q_\alpha\frac\sigma{\sqrt n},\,
+       \bar X+q_\alpha\frac\sigma{\sqrt n}\right].
+\end{equation}
+95\%置信水平下\(q_\alpha\approx1.96\)。模型信息增加，使构造可以利用更精确的分布；两种区间的依据分别是概率界与精确抽样分布。
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.55\linewidth]{probability-confidence}
+\caption{从\(N(0,1)\)反复独立抽取25个观测所得的12个模拟区间。竖线是真均值，区间随样本移动。}
+\end{figure}
+
+观测以后，区间已经确定，覆盖或不覆盖也是确定事实；置信水平描述的是整个抽样程序。增大\(n\)可缩短区间，要求更高覆盖率则通常扩大区间。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）独立正态样本量为100，总体标准差已知为2，观测均值为12.3。分别写出95\%正态置信区间及由方差界得到的95\%保守区间。
+
+（2）在已知标准差的正态模型下，要将区间长度减半，样本量应怎样改变？保持样本量不变，把置信水平从95\%提高到99\%，区间怎样变化？
+
+（3）解释“这套区间构造的覆盖率为95\%”与“这一次取得的区间包含未知参数”分别是哪一种陈述。
+
+（4）设\(K\sim B(n,p)\)、\(\widehat p=K/n\)。由\(\operatorname{Var}\widehat p\le1/(4n)\)构造覆盖率至少为\(1-\alpha\)的\(p\)区间。将该区间与\([0,1]\)取交，是否会降低覆盖率？
+\end{exercise}

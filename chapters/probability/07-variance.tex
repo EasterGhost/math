@@ -1,0 +1,211 @@
+\FloatBarrier
+\newpage
+\section{方差}
+\label{sec:prob-variance}
+
+平均水平相同的变量，取值可以集中，也可以分散。因为\(E(X-EX)=0\)，正负偏差直接相加不能反映波动。平方偏差保留偏离的大小，并使各项非负。
+
+\subsection{平方偏差}
+
+\begin{definition}
+随机变量\(X\)的{\heiti 方差}与{\heiti 标准差}分别定义为
+\[
+ \operatorname{Var}X=E\bigl((X-EX)^2\bigr),\qquad
+ \sigma_X=\sqrt{\operatorname{Var}X}.
+\]
+\end{definition}
+
+展开平方并使用线性性，得到
+\begin{equation}\label{eq:prob-variance-computation}
+ \operatorname{Var}X=E(X^2)-(EX)^2.
+\end{equation}
+方差为零，当且仅当所有正概率结果上的\(X\)都等于同一常数。平移不改变波动，伸缩把平方偏差乘以伸缩倍数的平方：
+\begin{equation}\label{eq:prob-variance-affine}
+ E(aX+b)=aEX+b,\qquad \operatorname{Var}(aX+b)=a^2\operatorname{Var}X.
+\end{equation}
+
+对任意常数\(c\)，写\(X-c=(X-EX)+(EX-c)\)，交叉项期望为零，故
+\begin{equation}\label{eq:prob-square-error}
+ E(X-c)^2=\operatorname{Var}X+(EX-c)^2.
+\end{equation}
+所以用一个常数近似\(X\)，使平均平方误差最小的常数恰为\(EX\)。平均与方差在这里共同描述了一个最优近似问题。
+
+若\(X\)以某个长度单位记录，方差使用该单位的平方，标准差则与\(X\)使用同一单位。因此用标准差描述典型偏离的尺度，更便于与原来的取值比较。
+
+\begin{example}
+\(X\)以相同概率取\(-1,1\)，\(Y\)以相同概率取\(-3,3\)。比较它们的期望、方差与标准差，再比较\(2X+5\)和\(Y+5\)。
+\end{example}
+
+\begin{example}[据2019年浙江卷改编]
+设\(0<a<1\)，\(X\)等可能取\(0,a,1\)。研究\(a\)增大时\(\operatorname{Var}X\)怎样变化，并求其最小值。
+\end{example}
+
+\subsection{协方差}
+
+研究\(aX+bY\)的波动时，平方展开还会产生\((X-EX)(Y-EY)\)这一交叉项。两者偏差同向时乘积为正，反向时为负；它的平均反映两个变量的共同变化。
+
+\begin{definition}
+随机变量\(X,Y\)的{\heiti 协方差}定义为
+\[
+ \operatorname{Cov}(X,Y)=E\bigl((X-EX)(Y-EY)\bigr)
+ =E(XY)-EX\,EY.
+\]
+\end{definition}
+
+由平方展开得到
+\begin{equation}\label{eq:prob-sum-variance}
+ \operatorname{Var}(aX+bY)=a^2\operatorname{Var}X+b^2\operatorname{Var}Y
+ +2ab\operatorname{Cov}(X,Y).
+\end{equation}
+协方差对各变量分别线性。推广到多个变量，可将和的方差写为各方差之和，加上所有两两协方差的两倍。
+
+独立时，式\eqref{eq:prob-independent-product}给出协方差为零，因而独立变量的和满足方差相加。反过来不成立。令\(X\)等可能取\(-1,0,1\)，\(Y=X^2\)，则\(EX=E(XY)=0\)，协方差为零；但\(Y\)由\(X\)完全确定，且\(P(Y=0\mid X=0)=1\ne P(Y=0)\)。
+
+\begin{example}
+两种测量方法的误差为\(X,Y\)，均值都为0，方差分别为1、4，协方差为0。将结果按权重\(a,1-a\)平均，误差为\(aX+(1-a)Y\)。求使该误差方差最小的权重，并与等权平均比较。
+\end{example}
+
+\subsection{相关系数}
+
+当两方差都为正时，定义{\heiti 相关系数}
+\begin{equation}\label{eq:prob-correlation}
+ \rho_{XY}=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}.
+\end{equation}
+它把变量的单位与尺度除去。若\(\rho=0\)，称两变量{\heiti 不相关}。
+
+在有限模型中，对各样本点上的数
+\(\sqrt{p_i}(X(\omega_i)-EX)\)、\(\sqrt{p_i}(Y(\omega_i)-EY)\)使用Cauchy不等式，得到
+\[
+ |\operatorname{Cov}(X,Y)|^2\le\operatorname{Var}X\operatorname{Var}Y,
+\]
+故\(-1\le\rho\le1\)。等号成立恰好要求两列中心化数值成比例，即在正概率结果上\(Y=aX+b\)。\(a>0\)时\(\rho=1\)，\(a<0\)时\(\rho=-1\)。它度量的是这种线性共同变化。
+
+换用不同的计量单位不会改变相关程度。由协方差与标准差的伸缩关系，当\(a,c\ne0\)时，
+\[
+ \rho_{aX+b,\,cY+d}=\frac{ac}{|ac|}\rho_{XY}.
+\]
+正比例变换和平移保持相关系数；只把一个变量的方向反转，相关系数便改变符号。
+
+\newpage
+\subsection{尾概率估计}
+
+分布未知时，有时仍可以由少量数字特征控制偏离的概率。
+
+\begin{theorem}[Markov不等式]
+对非负随机变量\(Y\)及\(a>0\)，有
+\begin{equation}\label{eq:prob-markov-bound}
+ P(Y\ge a)\le\frac{EY}{a}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+逐点有\(Y\ge a1_{\{Y\ge a\}}\)，取期望即得。
+\end{proof}
+
+将它用于非负变量\((X-EX)^2\)，就得到
+\begin{theorem}[Chebyshev不等式]\label{thm:prob-chebyshev}
+若\(X\)具有有限方差，则对\(t>0\)，
+\begin{equation}\label{eq:prob-chebyshev}
+ P(|X-EX|\ge t)\le\frac{\operatorname{Var}X}{t^2}.
+\end{equation}
+\end{theorem}
+
+上述证明先在有限模型中建立；对后面具有相应有限期望或方差的离散、连续模型，同样的非负比较与期望运算仍成立。例如均值为100、标准差为2的变量，偏离均值至少10的概率不超过\(4/100=0.04\)。这个估计只利用方差，知道更多分布信息时可以进一步精确计算。
+
+\begin{example}
+\(X\)在\(-2,0,2\)处的概率分别为\(1/8,3/4,1/8\)。分别求\(P(|X|\ge1)\)、\(P(|X|\ge2)\)的实际值与Chebyshev上界。比较两种情形，判断何时界能取到等号。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）\(X\)以\(1/4,1/2,1/4\)的概率取0、1、2。求\(EX\)、\(\operatorname{Var}X\)，并求使\(E(X-c)^2\)最小的\(c\)。
+
+（2）设\(X,Y\)独立，期望分别为2、3，方差分别为1、4。求\(E(2X-Y)\)、\(\operatorname{Var}(2X-Y)\)及\(E(XY)\)。
+
+（3）设\(\operatorname{Var}X=4\)、\(\operatorname{Var}Y=9\)、\(\operatorname{Cov}(X,Y)=-3\)。求相关系数及\(\operatorname{Var}(X+Y)\)。
+
+（4）某非负变量的期望为3，求\(P(X\ge12)\)的上界。若还知道方差为1，使用Chebyshev不等式重新估计并比较。
+
+（5）构造两个均值均为0、方差均为1的变量，使其和的方差分别为0、2、4。说明各构造中的相关关系。
+
+（6）\(n\)次独立测量的误差均值为0、方差为9。求误差总和与平均误差的方差，并用Chebyshev界确定使平均误差绝对值至少1的概率不超过\(0.05\)的充分测量次数。
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{平方误差的几何解释*}
+
+保留有限样本空间中正概率的样本点，令其权重为\(p_i>0\)。在全体实值函数组成的空间上定义
+\begin{equation}\label{eq:prob-weighted-inner-product}
+ \langle X,Y\rangle=E(XY)=\sum_i p_iX(\omega_i)Y(\omega_i).
+\end{equation}
+线性、对称性由求和直接得到；正权重又保证\(\langle X,X\rangle\ge0\)，且等号只在\(X=0\)时成立，所以这是一个内积。这里度量所用的权重由概率模型确定。
+
+常值函数\(\mathbf1\)的长度为1，且\(\langle X,\mathbf1\rangle=EX\)。因此\(EX\mathbf1\)正是\(X\)在常值方向上的正交投影，中心化残差满足
+\[
+ \langle X-EX\mathbf1,\mathbf1\rangle=0,\qquad
+ \|X-EX\mathbf1\|^2=\operatorname{Var}X.
+\]
+式\eqref{eq:prob-square-error}成为勾股关系。协方差是中心化变量的内积，相关系数则是它们夹角的余弦。前面的平方展开与Cauchy不等式，由此具有共同的几何解释。
+
+进一步，若只能用\(Y\)的仿射函数\(aY+b\)近似\(X\)，就要把\(X\)投影到\(\operatorname{span}\{\mathbf1,Y\}\)。设\(\operatorname{Var}Y>0\)，先匹配均值，得到\(b=EX-aEY\)；剩下的误差为
+\[
+ E\bigl[(X-EX)-a(Y-EY)\bigr]^2
+ =\operatorname{Var}X-2a\operatorname{Cov}(X,Y)+a^2\operatorname{Var}Y.
+\]
+对\(a\)配方，最优近似为
+\[
+ \widehat X=EX+\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}Y}(Y-EY).
+\]
+当\(\operatorname{Var}X>0\)时，其最小均方误差为
+\[
+ E(X-\widehat X)^2=\operatorname{Var}X(1-\rho_{XY}^2).
+\]
+相关系数的平方由此刻画线性近似所解释的方差比例。后面的回归将对观测数据建立相应的投影。
+
+\subsection{条件期望的投影解释*}
+
+令\(\mathcal P=\{B_1,\ldots,B_m\}\)为正概率事件的分割。只能记录所属组别时，可使用的变量在每组内为常数，它们组成子空间
+\[
+ W=\left\{\sum_j c_j1_{B_j}:c_j\in\mathbb R\right\}.
+\]
+定义随机变量\(M\)，使它在\(B_j\)内的值为\(m_j=E(X\mid B_j)\)，记为\(M=E(X\mid\mathcal P)\)。这是把各组的条件平均组成一个新的变量。
+
+令\(R=X-M\)。每组内残差的条件平均为零，所以对\(H=\sum_jh_j1_{B_j}\in W\)，
+\[
+ E(RH)=\sum_jh_jP(B_j)E(R\mid B_j)=0.
+\]
+因此\(X=M+R\)给出相对于\(W\)的正交分解，并对全部\(H\in W\)满足
+\begin{equation}\label{eq:prob-conditional-projection}
+ E(X-H)^2=E(X-M)^2+E(M-H)^2.
+\end{equation}
+在只能使用组别信息的范围内，条件平均使平方误差最小。
+
+\begin{example}
+四个样本点的概率依次为\(1/10,2/10,3/10,4/10\)，\(X\)的值依次为1、3、4、8。只记录样本点属于前两个点还是后两个点，求条件平均组成的变量\(M\)，并验证残差与两个组的指示变量都正交。
+\end{example}
+
+全期望公式给出\(EM=EX\)。再把\(X-EX\)分成\(X-M\)与\(M-EX\)，得到
+\begin{equation}\label{eq:prob-total-variance}
+ \operatorname{Var}X=\sum_jP(B_j)\operatorname{Var}(X\mid B_j)
+ +\operatorname{Var}M.
+\end{equation}
+总波动分成组内波动的平均与组间平均的波动。后面的分组数据汇总及回归仍将使用这一平方误差结构。
+
+若分割\(\mathcal Q\)比\(\mathcal P\)更细，记相应条件平均为\(M_{\mathcal Q},M_{\mathcal P}\)。粗分组下的变量也属于细分组的子空间，将\(H=M_{\mathcal P}\)代入细分组的正交分解，得到
+\[
+ E(X-M_{\mathcal P})^2
+ =E(X-M_{\mathcal Q})^2+E(M_{\mathcal Q}-M_{\mathcal P})^2.
+\]
+新增信息所减少的最小平方误差，恰是两种条件平均之差的平方长度。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）四个等可能样本点上，\(X\)的值依次为1、3、4、8。按前两个点与后两个点分组，求\(E(X\mid\mathcal P)\)，并核对总方差分解。
+
+（2）在（1）的模型中，把后两个点进一步分别记录，求新增信息使最小平方误差减少多少，并与两种条件平均之差的平方长度比较。
+
+（3）若分割\(\mathcal Q\)比\(\mathcal P\)更细，用正交分解证明\(E(E(X\mid\mathcal Q)\mid\mathcal P)=E(X\mid\mathcal P)\)。
+\end{exercise}

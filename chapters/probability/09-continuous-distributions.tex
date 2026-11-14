@@ -1,0 +1,170 @@
+\FloatBarrier
+\newpage
+\section{连续分布}
+\label{sec:prob-continuous}
+
+时间、长度和测量误差常用连续实数记录。现在把模型从有限或可数取值扩展到连续取值；随机变量仍然是结果的数值记录，其概率需要由区间上的分配来描述。分布函数提供了前后共用的表达。
+
+\subsection{累计概率}
+
+对连续取值的变量，仍记\(F(x)=P(X\le x)\)。它继续表示累积到\(x\)为止的概率，区间概率仍由\(F(b)-F(a)\)给出。
+
+例如在区间\([a,b]\)上均匀选一点，概率与子区间长度成正比。在\(a\le x\le b\)时，分布函数为\(F(x)=(x-a)/(b-a)\)；在区间左侧为0、右侧为1。
+当区间向一个点缩小时，概率趋于零。每个单点的概率均为零，但整个\([a,b]\)的概率为1。
+
+分布函数连续时没有单点的跳跃概率。下面进一步研究可以用面积权重描述的连续模型。
+
+\subsection{概率密度}
+
+前面的均匀选点模型中，区间内一段的概率等于长度乘\(1/(b-a)\)，可画成矩形面积。若概率分配不均匀，就用变化的高度代替水平线。
+
+\begin{definition}
+若非负函数\(f\)的曲线下总面积为1，且对任意区间\((u,v]\)有
+\[
+ P(u<X\le v)=\text{曲线 }y=f(x)\text{ 在 }u\text{ 到 }v\text{ 下方的面积},
+\]
+则称\(f\)为\(X\)的{\heiti 概率密度}，称\(X\)为{\heiti 连续型随机变量}。
+\end{definition}
+
+已学习积分时，可把上式写为\(\int_u^v f(x)\,dx\)，分布函数为从负无穷累积到\(x\)的面积。未调用积分时，先使用可以直接求面积的图形及给定的模型概率。
+
+\([a,b]\)上均匀分布的密度为
+\[
+ f(x)=\begin{cases}1/(b-a),&a\le x\le b,\\0,&\text{其他}.
+ \end{cases}
+\]
+记为\(X\sim U(a,b)\)。密度的高度乘以区间长度，才给出相应概率。例如\(U(0,0.1)\)的密度高度为10，但落在\([0,0.02]\)中的概率为\(10\cdot0.02=0.2\)。
+
+均匀分布满足\(EX=(a+b)/2\)、\(\operatorname{Var}X=(b-a)^2/12\)，选讲中将用积分推导。
+
+\subsection{正态分布}
+
+高尔顿钉板把一系列微小的随机偏移累积起来：小球从上方落下，每碰到一层钉子，就向左或向右偏移一步。在理想模型中，各层的偏移相互独立，两个方向的概率均为\(1/2\)。经过\(n\)层，向右的次数\(X_n\sim B(n,1/2)\)，落入第\(k\)个槽的概率为\(\binom nk2^{-n}\)。中间槽对应的路径多，两侧槽对应的路径少。
+
+\begin{figure}[!ht]
+\centering
+\begin{minipage}[c]{.42\linewidth}
+\centering\includegraphics[width=\linewidth]{probability-galton}
+\end{minipage}\hfill
+\begin{minipage}[c]{.54\linewidth}
+\centering\includegraphics[width=\linewidth]{probability-normal-limit}
+\end{minipage}
+\caption{左为八层理想钉板，槽内柱高按二项概率绘制；右为不同层数的标准化概率直方图与同一条正态密度曲线。右下阴影为\(-1\)至1之间的曲线下面积。}
+\label{fig:prob-galton-normal}
+\end{figure}
+\FloatBarrier
+
+落球数量增加，使各槽的频率更接近相应的二项概率；增加钉板层数，则改变了二项分布本身。由\(EX_n=n/2\)、\(\operatorname{Var}X_n=n/4\)，把横坐标改为
+\[
+ Z_n=\frac{X_n-n/2}{\sqrt n/2},
+\]
+便把各层数的中心与尺度统一。图\ref{fig:prob-galton-normal}右侧每根柱的面积等于相应概率，随着层数增加，柱形逐渐贴近同一条光滑曲线。这提示我们用连续密度描述大量独立小偏移的累积；这种近似的理论依据将在中心极限定理中建立。
+
+这条曲线关于0对称，中间高、两侧逐渐降低。下面先定义这一分布族，用两个参数分别表示中心位置与分散尺度。
+
+\begin{definition}
+密度为
+\begin{equation}\label{eq:prob-normal-density}
+ f(x)=\frac1{\sigma\sqrt{2\pi}}
+ \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right),\qquad \sigma>0,
+\end{equation}
+的分布称为{\heiti 正态分布}，记为\(N(\mu,\sigma^2)\)。
+\end{definition}
+
+\newpage
+图\ref{fig:prob-galton-normal}右侧的光滑曲线对应\(\mu=0,\sigma=1\)，称为标准正态密度；右下阴影面积就是相应变量取值在\(-1\)与1之间的概率。
+
+这里引用高斯积分的归一化结论：式\eqref{eq:prob-normal-density}下的总面积为1。该分布的期望为\(\mu\)，方差为\(\sigma^2\)。改变\(\mu\)平移中心，改变\(\sigma\)调整分散尺度。一个图像近似钟形，可以提示考虑正态模型，模型是否合适还需由问题机制和数据支持。
+
+若\(X\sim N(\mu,\sigma^2)\)，则{\heiti 标准化变量}
+\[
+ Z=\frac{X-\mu}{\sigma}
+\]
+服从标准正态分布\(N(0,1)\)。记其密度为\(\varphi\)，分布函数为\(\Phi\)。标准化把\(X\)区间换成相应的\(Z\)区间，所以
+\begin{equation}\label{eq:prob-normal-standardization}
+ P(a<X\le b)=\Phi\left(\frac{b-\mu}{\sigma}\right)
+ -\Phi\left(\frac{a-\mu}{\sigma}\right).
+\end{equation}
+标准化结论可由区间面积的横向伸缩得到，后面的密度换元也会给出证明。
+
+对称性给出\(\Phi(-z)=1-\Phi(z)\)。以下数值供本章使用：
+\[
+\begin{array}{c|rrrrrr}
+z&0&1&1.645&1.96&2&2.576\\\hline
+\Phi(z)&0.5000&0.8413&0.9500&0.9750&0.9772&0.9950
+\end{array}
+\]
+由此得到\(P(|Z|\le1)\approx0.6827\)、\(P(|Z|\le2)\approx0.9545\)、\(P(|Z|\le3)\approx0.9973\)。这些是模型概率，并非每组观测数据必须满足的固定比例。
+
+\begin{example}
+某加工尺寸用\(N(100,4)\)描述，单位为毫米。求尺寸在98至102毫米内、超过104毫米及低于98毫米的概率。若合格范围为96至104毫米，估计独立抽检100件中的合格件数期望。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）某班车每10分钟到站一次。把乘客到站相位视为在一个周期内均匀，求等待时间超过6分钟的概率及等待时间的均值。
+
+（2）\(X\sim N(50,9)\)。求\(P(47<X<53)\)、\(P(X>55.88)\)，并求以50为中心、包含约95\%概率的区间。
+
+（3）某密度在\([0,1]\)上为\(f(x)=cx\)，其他地方为0。用三角形面积求\(c\)及\(P(X\le1/2)\)。
+
+（4）两个正态模型具有相同均值，标准差分别为1、2。比较两者落在均值两侧各1单位区间内的概率，并说明标准化中的分母。
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{连续型变量的期望*}
+
+先考察有界区间上的连续密度与连续函数\(g\)。把区间细分，在每一小段用\(g(\xi_i)\)近似该段取值，并用\(f(\xi_i)\Delta x_i\)近似概率，加权和便趋于
+\begin{equation}\label{eq:prob-continuous-expectation}
+ E(g(X))=\int g(x)f(x)\,dx.
+\end{equation}
+这是离散加权平均的积分表达。在一般密度模型中，也用此式定义相应期望；对有正有负的函数，要求绝对值的积分有限，才取有限的期望。
+
+若\(X\sim U(a,b)\)，则
+\[
+ EX=\frac1{b-a}\int_a^b x\,dx=\frac{a+b}2,
+\]
+并由\(E(X^2)=(a^2+ab+b^2)/3\)得到\(\operatorname{Var}X=(b-a)^2/12\)。
+
+对无穷区间，积分按第五章的反常积分定义，分别考察两端极限。标准正态密度满足\(\varphi'(z)=-z\varphi(z)\)。因此
+\[
+ \int_0^\infty z\varphi(z)\,dz=\varphi(0)<\infty,
+\]
+再由对称性得到\(EZ=0\)。分部积分给出
+\[
+ \int_{-R}^R z^2\varphi(z)\,dz
+ =[-z\varphi(z)]_{-R}^R+\int_{-R}^R\varphi(z)\,dz.
+\]
+因\(R\varphi(R)\to0\)且总面积为1，故\(E(Z^2)=1\)。若\(X=\mu+\sigma Z\)，则线性性与方差伸缩给出\(EX=\mu\)、\(\operatorname{Var}X=\sigma^2\)。
+
+\subsection{变量变换*}
+
+设\(X\)在区间\(I\)内取值，有密度\(f_X\)，\(Y=g(X)\)。先将事件\(\{Y\le y\}\)写回\(X\)的取值条件，再求分布函数，就能得到变换后的分布。
+
+若\(g\)在\(I\)上严格递增且可微，导数不为零，记反函数为\(h\)，则
+\[
+ F_Y(y)=F_X(h(y)),\qquad f_Y(y)=f_X(h(y))h'(y).
+\]
+严格递减时，累积方向反转，得到统一公式
+\begin{equation}\label{eq:prob-density-transform}
+ f_Y(y)=f_X(h(y))|h'(y)|.
+\end{equation}
+它也说明标准化时为何需要相应的密度缩放，概率面积由横向伸缩与高度调整共同保留。
+
+非单调变换则需要合并分支。例如\(X\sim U(-1,1)\)、\(Y=X^2\)，对\(0\le y\le1\)，
+\[
+ P(Y\le y)=P(-\sqrt y\le X\le\sqrt y)=\sqrt y.
+\]
+故\(f_Y(y)=1/(2\sqrt y)\)，\(0<y<1\)，其他地方为0。正、负两段\(X\)值都对同一个\(Y\)值作出贡献；将密度直接代入\(x=\sqrt y\)会遗漏区间伸缩与另一分支。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设\(X\sim U(-1,1)\)，求\(E(X^2)\)、\(E|X|\)，再用\(X^2\)的密度核对第一问。
+
+（2）设\(Z\sim N(0,1)\)，求\(|Z|\)的分布函数、密度与期望。
+
+（3）设\(X\)在\([0,1]\)上密度为\(2x\)。求\(Y=1-X\)的密度，并求\(EX\)、\(\operatorname{Var}X\)。
+\end{exercise}

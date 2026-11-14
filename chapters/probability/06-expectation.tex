@@ -1,0 +1,151 @@
+\FloatBarrier
+\newpage
+\section{数学期望}
+\label{sec:prob-expectation}
+
+分布列列出了全部取值及其概率。有时我们先需要一个描述平均水平的数。各取值出现的可能性不同，平均时便应使用相应的概率作为权重。
+
+\subsection{加权平均}
+
+\begin{definition}
+若有限随机变量\(X\)的分布列为\(P(X=x_i)=p_i\)，定义其{\heiti 数学期望}为
+\begin{equation}\label{eq:prob-expectation}
+ E(X)=\sum_i x_ip_i.
+\end{equation}
+\end{definition}
+
+例如，一次试验的得分为\(0,2,5\)，概率依次为\(1/2,1/3,1/6\)，则期望为\(3/2\)。这个数可以不属于实际取值，它描述模型中的加权平均水平。
+
+将同一取值对应的样本点展开，得到等价形式
+\[
+ E(X)=\sum_{\omega\in\Omega}X(\omega)P(\{\omega\}).
+\]
+因此求\(g(X)\)的期望，可以直接使用
+\begin{equation}\label{eq:prob-expectation-function}
+ E\bigl(g(X)\bigr)=\sum_i g(x_i)p_i,
+\end{equation}
+不必先把相同的\(g(x_i)\)合并成新的分布列。常值\(c\)的期望为\(c\)，而\(X\ge0\)时\(E(X)\ge0\)。有限取值的最大、最小值也夹住其期望。
+
+\begin{example}
+一次活动的奖金为0元、10元、50元，相应概率为\(0.7,0.25,0.05\)。求奖金期望。若每次参加需支付5元，求净收益期望，并说明期望与一次参加的实际收益分别表示什么。
+\end{example}
+
+\subsection{期望的线性性}
+
+\begin{theorem}\label{thm:prob-linearity}
+同一有限概率空间上的随机变量满足
+\begin{equation}\label{eq:prob-expectation-linearity}
+ E(aX+bY)=aE(X)+bE(Y).
+\end{equation}
+这里不要求\(X,Y\)独立。
+\end{theorem}
+
+\begin{proof}
+在各样本点上展开：
+\[
+ \sum_\omega(aX(\omega)+bY(\omega))P(\{\omega\})
+ =a\sum_\omega X(\omega)P(\{\omega\})
+ +b\sum_\omega Y(\omega)P(\{\omega\}).\qedhere
+\]
+\end{proof}
+
+连续使用此式即可求有限多个变量之和的期望。它允许先把总量拆成容易处理的部分，而不求总量的完整分布。例如两次掷骰的点数和的期望，为两枚点数期望之和；不放回抽出的各球数字之和，也可以逐次求期望后相加。
+
+乘积的期望需要额外依据。若\(X,Y\)独立，由联合分布的乘积分解可得
+\begin{equation}\label{eq:prob-independent-product}
+ E(XY)=\sum_{i,j}x_iy_jp_iq_j=E(X)E(Y).
+\end{equation}
+一般变量不具有这一乘积性质，例如\(X\)以相同概率取\(-1,1\)时，\(E(X^2)=1\)，而\((EX)^2=0\)。
+
+\subsection{指示变量}
+
+对事件\(A\)，定义{\heiti 指示变量}
+\[
+ 1_A(\omega)=\begin{cases}1,&\omega\in A,\\0,&\omega\notin A.\end{cases}
+\]
+由定义立即得到\(E(1_A)=P(A)\)。若\(N\)统计\(n\)个对象中满足条件的个数，将第\(j\)个对象是否满足条件记为\(I_j\)，就有
+\begin{equation}\label{eq:prob-indicators}
+ N=\sum_{j=1}^nI_j,\qquad E(N)=\sum_{j=1}^nP(I_j=1).
+\end{equation}
+这些指示变量可以相关，线性性仍然成立。
+
+当\(X\)只取\(0,1,\ldots,m\)时，还可以按“至少达到第几层”拆分：
+\[
+ X=\sum_{r=1}^m1_{\{X\ge r\}},\qquad
+ EX=\sum_{r=1}^mP(X\ge r).
+\]
+取值为\(k\)时，前\(k\)个指示变量为1，其余为0。这给出了用尾概率计算期望的方法，后面处理有次数上限的等待问题时会用到它。
+
+例如将\(n\)封不同信件随机放入\(n\)个已写好收信人的信封，令\(N\)为放对的信件数。每封放对的概率为\(1/n\)，所以\(E(N)=1\)。若直接求\(N\)的分布，会涉及各种错放方式；期望只需要各封信的单个概率。
+
+\begin{example}
+从\(N\)个产品中不放回随机抽取\(n\)个，其中有\(M\)个不合格。分别按每次抽取、每个不合格产品是否入选定义指示变量，用两种分解求不合格品数的期望。
+\end{example}
+
+\subsection{条件平均}
+
+已知事件\(B\)发生，将原分布换成条件分布，就得到条件下的平均。对\(P(B)>0\)，定义
+\[
+ E(X\mid B)=\sum_i x_iP(X=x_i\mid B).
+\]
+设\(B_1,\ldots,B_m\)构成正概率事件的分割，按样本点先分组求和，得到{\heiti 全期望公式}
+\begin{equation}\label{eq:prob-total-expectation}
+ E(X)=\sum_jP(B_j)E(X\mid B_j).
+\end{equation}
+各组平均需要按各组在总体中的概率加权。
+
+具体地，条件平均乘以组的概率后，便恢复这一组对总平均的贡献：
+\[
+ \sum_jP(B_j)E(X\mid B_j)
+ =\sum_j\sum_i x_iP(\{X=x_i\}\cap B_j)
+ =\sum_i x_iP(X=x_i)=EX.
+\]
+
+例如甲、乙两类订单比例为\(0.4,0.6\)，平均处理时间为2分钟、5分钟，全部订单的平均处理时间就是\(0.4\cdot2+0.6\cdot5=3.8\)分钟。这里分组平均及其权重共同决定总平均。
+
+\begin{example}[据2024年新课标II卷改编]
+甲、乙组成投篮队，每次命中概率分别为\(0<p<q<1\)，各次结果独立。一人先投3次，全部未中则全队得0分；至少命中一次，则另一人再投3次，每次命中得5分，全队只计第二阶段得分。分别求两种出场顺序下的期望得分，并确定哪种顺序的期望较大。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）随机变量\(X\)以\(1/3,1/2,1/6\)的概率取\(-1,1,3\)。求\(E(X)\)、\(E(X^2)\)及\(E(2X-3)\)。
+
+（2）把五张标号1至5的卡片随机排在相应编号的位置上，求位置正确的卡片数的期望。
+
+（3）十人各等可能选择五个窗口之一办理业务，各人选择独立。用指示变量求无人选择的窗口数的期望。
+
+（4）从甲、乙两校各随机抽一人，分别以\(0.8,0.75\)的概率答对某题，答题相互独立。求答对人数的分布与期望，再用线性性核对。
+
+（5）设有\(n\)个相互独立的生日，均匀分布在365天中。求生日相同的人对数的期望；一对按无序的两人识别。
+\end{exercise}
+
+\FloatBarrier
+\newpage
+\subsection{期望作为线性泛函*}
+
+在\(\Omega=\{\omega_1,\ldots,\omega_N\}\)上，全体实值函数按逐点加法与数乘组成线性空间\(V\)。用函数值组成的列向量，可以把它与\(\mathbb R^N\)对应。
+
+期望是映射\(E:V\to\mathbb R\)。式\eqref{eq:prob-expectation-linearity}说明它是线性映射，从线性空间到数域的线性映射称为{\heiti 线性泛函}。记常值函数为\(\mathbf1\)，则\(E(\mathbf1)=1\)。每个变量有分解
+\[
+ X=E(X)\mathbf1+\bigl(X-E(X)\mathbf1\bigr),
+\]
+第二项的期望为零。因此
+\[
+ V=\operatorname{span}\{\mathbf1\}\oplus\ker E.
+\]
+它把平均水平与零均值变化分开。有限空间中，指示函数\(1_{\{\omega_i\}}\)组成一组基，且
+\[
+ X=\sum_iX(\omega_i)1_{\{\omega_i\}},\qquad
+ E(X)=\sum_iX(\omega_i)E(1_{\{\omega_i\}}).
+\]
+基函数的期望就是各样本点的概率，期望的线性性质由此与最初的权重分配接在一起。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）求\(\ker E\)的维数。在三个等可能样本点的空间上写出它的一组基。
+
+（2）设线性映射\(L:V\to\mathbb R\)满足\(L(\mathbf1)=1\)，且非负函数的像均非负。令\(p_i=L(1_{\{\omega_i\}})\)，证明它们构成一组概率权重，且\(L\)就是相应的期望。
+\end{exercise}
