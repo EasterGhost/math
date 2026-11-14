@@ -2,6 +2,9 @@ Copyright (c) 2026 Andrew Elizabeth / EasterGhost.
 All rights reserved.
 保留所有权利。
 
+中文声明
+--------
+
 本声明适用于《从数字到数学》及本仓库中作者享有权利的文稿、排版类、
 原创插图、绘图脚本和其他材料中依法受保护的部分。
 
@@ -15,4 +18,32 @@ All rights reserved.
 第三方材料的再授权，也不限制适用法律规定的合理使用及其他法定权利。
 
 授权事宜请通过本仓库的GitHub Issues联系作者：
+https://github.com/EasterGhost/math/issues
+
+English Notice
+--------------
+
+This notice applies to the legally protected portions of From Numbers to
+Mathematics (《从数字到数学》) and the materials in this repository in which
+the author holds rights, including manuscripts, the typesetting class,
+original illustrations, figure-generation scripts, and other materials.
+
+Except as permitted by applicable law, by rights granted under GitHub's terms,
+or by separate written authorization from the rights holder, the above
+materials may not be reproduced, adapted, translated, redistributed,
+published, made available to the public over information networks, or
+commercially exploited. Renaming, reformatting, adapting, compiling, or
+repackaging the materials does not itself grant permission to use the
+underlying protected content.
+
+The public availability of this repository does not place the work in the
+public domain or grant an open-source software or open-content license.
+
+Quoted examination questions and other third-party materials remain subject
+to their respective rights status. This notice does not grant permission
+to reuse such third-party materials, nor does it restrict fair use or other
+statutory rights under applicable law.
+
+For permission requests, please contact the author through this repository's
+GitHub Issues:
 https://github.com/EasterGhost/math/issues
