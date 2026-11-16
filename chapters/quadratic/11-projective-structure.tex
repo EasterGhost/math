@@ -31,7 +31,7 @@
 \begin{equation}\label{eq:quadratic-direction-at-infinity}
  [X:Y:Z]=[b:-a:0].
 \end{equation}
-这就是该直线的方向\((b,-a)\)。平行直线具有相同的无穷远点；不同方向对应不同的无穷远点。
+它表示方向\((b,-a)\)。平行直线具有相同的无穷远点；不同方向对应不同的无穷远点。
 
 两个不同点的代表向量线性无关，张成二维子空间，因而恰确定一条射影直线；两条不同直线的系数向量线性无关，其公共零空间是一维的，因而恰交于一个射影点。普通平面中的平行线，现在也有唯一交点。
 
@@ -224,22 +224,23 @@
 
 这种连续作用两次便回到原来的点的非恒等射影对应称为{\heiti{}对合}。弦端点互换是它的一个几何来源；不动参数对应两端合并的切点。这样，直线束既能给曲线上的点编号，也能通过定点条件使这些点两两配对。
 
-弦端点的互换也可以延伸到整个平面。下面用一个矩阵表示这个变换，再观察切线段中点的像怎样决定另一条弦的方向。
+下面将弦端点互换延伸到整个平面，用它研究切线段中点与弦的方向。
 
+\par\noindent\begin{minipage}{\linewidth}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
 \begin{example}\label{ex:quadratic-plane-chord-involution}
-\begin{samepage}
-设非退化二次曲线为\(X^TMX=0\)，\(M=M^T\)，点\(P\)不在曲线上。取代表向量，记
+设非退化二次曲线\(X^TMX=0\)，\(M=M^T\)，\(P\)不在曲线上。取代表向量，记
 \begin{equation*}
  q=P^TMP\ne0,\qquad K=qI-2P(P^TM).
 \end{equation*}
 （1）验证\(K^2=q^2I\)、\(K^TMK=q^2M\)，说明\([X]\mapsto[KX]\)是保持曲线的射影变换，并在每条过\(P\)的割线上互换两个曲线交点。
-\par\end{samepage}
-\begin{samepage}
+
 （2）设过普通点\(P\)的切线切于普通点\(H\)，\(T\)是\(PH\)的中点。将\(P,H\)的代表归一化为最后坐标是\(1\)，求\(KT\)，证明\(T\)的像是切线\(PH\)方向的无穷远点。
-\par\nopagebreak
+
 （3）过\(T\)作割线交曲线于\(C,D\)，\(PC,PD\)分别再交曲线于\(B,A\)，设四个曲线点互异且有限。利用上述变换证明\(AB\parallel PH\)。
-\par\end{samepage}
 \end{example}
+\end{minipage}\par
 
 曲线束的参数则选取整条曲线。若生成齐次方程为\(F_h,G_h\)，完整曲线束为
 \begin{equation}\label{eq:quadratic-projective-pencil-parameter}
@@ -266,7 +267,7 @@
 \end{samepage}
 
 \begin{samepage}
-（2）求双曲线\(X^2-Y^2=Z^2\)的齐次参数表示，并找出其两个实无穷远点所对应的参数。
+（2）求双曲线\(X^2-Y^2=Z^2\)的齐次参数表示和其两个实无穷远点所对应的参数。
 \par
 \end{samepage}
 
@@ -311,7 +312,7 @@
  Q(sU+tV)=Q(U)s^2+2\mathcal B(U,V)st+Q(V)t^2,
  \qquad \mathcal B(U,V)=U^TMV.
 \end{equation}
-若直线不是曲线的分量，右边不是零多项式，因而恰有两个复射影参数根，计重数为\(2\)。以限制式根的重数作为相应交点的重数，便得到：{\heiti{}直线与没有该直线分量的二次曲线，计入复点、无穷远点及重数后，交点总数为\(2\)。}二重根对应切点，也可以是无穷远处的切点。
+若直线不是曲线的分量，右边不是零多项式，因而恰有两个复射影参数根，计重数为\(2\)。以限制式根的重数作为相应交点的重数，便得到：{\heiti{}直线与没有该直线分量的二次曲线，计入复点、无穷远点及重数后，交点总数为\(2\)。}二重根对应切点，或无穷远处的切点。
 
 例如，\(y=x+1\)与\(x^2-y^2=1\)在普通坐标中只有\((-1,0)\)一个交点。齐次方程还给出\([1:1:0]\)，两者都是一重交点。对\(y=x^2\)，无穷远直线\(Z=0\)代入参数式后成为\(s^2=0\)，与曲线只在\([0:1:0]\)相交，但重数为\(2\)。
 
@@ -362,7 +363,7 @@
 \end{samepage}
 
 \begin{samepage}
-（3）对\(C:X^2=YZ\)，分别代入直线\(Y=0\)、\(X=0\)、\(Z=0\)，比较各自的交点及重数。
+（3）对\(C:X^2=YZ\)，分别代入\(Y=0\)、\(X=0\)、\(Z=0\)，比较各自的交点及重数。
 \par
 \end{samepage}
 
@@ -581,13 +582,12 @@
 这里的六边形按所列次序连接，可以自交；交点也可以在无穷远处。定理研究的是六个曲线点确定的关联关系。
 
 \begin{proof}
-射影变换保持共线关系，可先把曲线化为\(X^2=YZ\)。由参数的分式线性变换，可将前三点的参数分别选为\(\infty,0,1\)。于是
+射影变换保持共线关系，可先把曲线化为\(X^2=YZ\)。由参数的分式线性变换，可将前三点的参数分别选为\(\infty,0,1\)。于是可记
 \begin{equation*}
- A=[0:1:0],\quad B=[0:0:1],\quad C=[1:1:1],
-\end{equation*}
-并可记
-\begin{equation*}
- D=[d:d^2:1],\quad E=[e:e^2:1],\quad F=[f:f^2:1],
+ \begin{aligned}
+ A&=[0:1:0],& B&=[0:0:1],& C&=[1:1:1],\\
+ D&=[d:d^2:1],& E&=[e:e^2:1],& F&=[f:f^2:1],
+ \end{aligned}
 \end{equation*}
 其中\(d,e,f\)互不相同，且均不为\(0,1\)。曲线上普通参数\(u,v\)对应两点的弦方程为
 \begin{equation*}
@@ -612,13 +612,14 @@
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.72\linewidth]{conic-pascal}
+\includegraphics[width=.54\linewidth]{conic-pascal}
 \caption{内接六边形的三组对边交点共线}
 \label{fig:quadratic-pascal}
 \end{figure}
 
 现在在对偶平面中使用同一定理。原曲线的六条不同切线，在对偶平面中成为对偶二次曲线上的六个点。帕斯卡定理给出的共线关系，翻译回来就是下面的共点关系。
 
+\newpage
 \begin{theorem}[布里昂雄定理]\label{thm:quadratic-brianchon}
 设\(l_1,\ldots,l_6\)是非退化二次曲线的六条不同切线，按次序相交成六边形，顶点为
 \begin{equation*}
@@ -654,6 +655,7 @@
 \end{example}
 \end{minipage}\par\addvspace{6pt}
 
+\newpage
 运用这两个定理时，可以先寻找六个曲线点或六条切线，再检查哪些对边交点、对顶点连线由固定对象确定。固定的交点往往给出动直线经过的定点；在对偶配置中，固定的连线则限制动交点的轨迹。
 
 \par\addvspace{6pt}
@@ -712,6 +714,7 @@
 \end{samepage}
 \end{exercise}
 
+\newpage
 \subsection{中心、直径与渐近线的统一解释}
 \label{subsec:quadratic-centers-and-infinity}
 
@@ -726,14 +729,7 @@
 \begin{equation}\label{eq:quadratic-projective-center}
  C=[M^{-1}e_3].
 \end{equation}
-\begin{samepage}
-若它是普通点，可以归一化为\((c,1)^T\)。由\(M(c,1)^T\)的前两个分量为零，得到
-\begin{equation*}
- 2Hc+L=0.
-\end{equation*}
-这正是4.3中的中心条件。平移后\(\Phi(c+h)=h^THh+\Phi(c)\)，对\(h\)与\(-h\)取值相同，故该极点确实是普通平面的对称中心。反过来，椭圆、双曲线的中心满足这个条件，其极线就是\(\ell_\infty\)。
-\par
-\end{samepage}
+若\(C\)是普通点，取代表向量\((c,1)^T\)。由\(M(c,1)^T\)的前两个分量为零，得\(2Hc+L=0\)，即4.3中的中心条件。平移后\(\Phi(c+h)=h^THh+\Phi(c)\)，对\(h\)与\(-h\)取值相同，故\(C\)是普通平面的对称中心。反过来，椭圆、双曲线的中心满足这个条件，其极线就是\(\ell_\infty\)。
 
 对抛物线\(Y^2=2pXZ\)，直接计算得
 \begin{equation*}
@@ -760,7 +756,7 @@
 在普通平面中正是两条渐近线。经仿射变换后，这个关系仍保持，所以一般双曲线的渐近线可以看成曲线在两个实无穷远点处的切线。4.3中用最高次齐次部分得到渐近线方向的方法，也就有了对应的射影解释。
 \par\end{samepage}
 
-最后回看分类。有实点的非退化实二次曲线，与选定无穷远直线的相交方式只有三种：没有实交点，有两个不同实交点，或只有一个二重实交点。它们分别对应椭圆、双曲线与抛物线。前面已经证明这三类曲线射影等价；分类差别来自保留了哪一条直线作为无穷远直线。仿射变换保持它，射影变换则可以改变它。
+最后回看分类。有实点的非退化实二次曲线与所选无穷远直线，或没有实交点，或有两个不同实交点，或有一个二重实交点，分别对应椭圆、双曲线、抛物线。三类曲线虽射影等价，选定的无穷远直线却不同；仿射变换保持这条直线，射影变换可以改变它。
 
 \par\addvspace{6pt}
 \noindent\begin{minipage}{\linewidth}
