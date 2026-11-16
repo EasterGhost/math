@@ -32,6 +32,14 @@
 \newtheorem{definition}{定义}[chapter]      % 按章编号：定义 1.1, 1.2...
 \newtheorem{example}{例}[chapter]
 \newtheorem{exercise}{习题}[chapter]
+\AddToHook{env/exercise/begin}{\setlength{\parindent}{0pt}}
+
+% 整组选做使用 exercise 的 [选做] 标题；整题与局部附问分别标记。
+\newcommand{\optionalexerciseitem}[1]{%
+  \mbox{（#1）\textsuperscript{*}}\nobreak\hspace{.25em}}
+\newcommand{\optionalexercisepart}[1]{\mbox{（*）#1}}
+\newcommand{\exercisesubitem}[1]{%
+  \ensuremath{\mathrm{(\romannumeral#1)}}\nobreak\hspace{.25em}}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{定理}[chapter]
