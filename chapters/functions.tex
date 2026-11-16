@@ -38,9 +38,15 @@ f \circ g \left( x \right) = f \left( g \left( x \right) \right)
 \end{equation}
 定义了一个新函数\(f \circ g\)，称之为\(f\)与\(g\)的复合函数，它的定义域是\(A\)，通常记为\(y = f \left( g \left( x \right) \right)\)，而称\(u\)为中间变量。
 \begin{center}
-\includegraphics[width=0.92\linewidth]{image3.png}
+\begin{minipage}{0.92\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{function-composition}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{函数的复合}\label{fig:function-composition}
+\end{minipage}
 \end{center}
-从映射的角度看，复合函数就是一个从\(A\)到\(B\)再到\(C\)的映射。
+从映射的角度看，图\ref{fig:function-composition}中的复合函数就是一个从\(A\)到\(B\)再到\(C\)的映射。
 
 注意到，\(f \circ g\)与\(g \circ f\)一般并不相同，但是容易看出，复合运算满足结合律
 \begin{equation}
@@ -91,9 +97,15 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \subsection{通常研究的函数的性质}
 \paragraph{1°连续性} 第一章已经给出了函数极限的定义。极限考察自变量接近某点时，函数值是否接近一个确定的数；连续性进一步要求这个数就是函数在该点的值。观察下面三个函数在\(x=0\)附近的图像：
 \begin{center}
-\includegraphics[width=0.92\linewidth]{image4.png}
+\begin{minipage}{0.92\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{function-continuity}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{一点处的间断与连续}\label{fig:function-continuity}
+\end{minipage}
 \end{center}
-图像中的区别来自函数在该点附近的极限与该点函数值的关系。函数在\(x_0\)处连续，应当满足\(\lim_{x\to x_0}f(x)=f(x_0)\)。下一节将进一步研究这一性质及其对函数取值的影响。
+图\ref{fig:function-continuity}中的区别来自函数在该点附近的极限与该点函数值的关系。函数在\(x_0\)处连续，应当满足\(\lim_{x\to x_0}f(x)=f(x_0)\)。下一节将进一步研究这一性质及其对函数取值的影响。
 
 \paragraph{2°单调性} 单调函数的定义前面已经给出，但是函数并不总是单调函数，因此将函数的定义域分为数个子区间，使得函数在该区间内成为单调函数是便于分析函数的性态的。仿照单调函数的定义，可以类似地定义函数在某区间上是（严格）单调增（减）的，这个区间称为函数的单调增（减）区间。
 
@@ -530,9 +542,11 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 
 \begin{wrapfigure}{r}{0.38\linewidth}
 \centering
-\includegraphics[width=1.00\linewidth]{image5.png}
+\includegraphics[width=0.90\linewidth]{trig-unit-circle}
+\setlength{\abovecaptionskip}{3pt}
+\caption{单位圆中的正弦与余弦}\label{fig:trig-unit-circle}
 \end{wrapfigure}
-如图所示的单位圆中从圆心引任意一条半径\(O A\)，                                                                      其与坐标轴\(O x\)所成的角记为\(\theta\)，则记\(A\)点的横坐标为                                                                                           \(\cos \theta\)，纵坐标为\(\sin \theta\)。同时定义\(\tan \theta = \frac{\sin \theta}{\cos \theta}\)，                                                                                                              由勾股定理知，对任意的\(\theta\)，均有
+图\ref{fig:trig-unit-circle}所示的单位圆中，从圆心引任意一条半径\(O A\)，其与坐标轴\(O x\)所成的角记为\(\theta\)，则记\(A\)点的横坐标为\(\cos \theta\)，纵坐标为\(\sin \theta\)。同时定义\(\tan \theta = \frac{\sin \theta}{\cos \theta}\)，由勾股定理知，对任意的\(\theta\)，均有
 
 \(\sin^{2} \theta + \cos^{2} \theta = 1\)
 
@@ -543,15 +557,28 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 
 让\(O A\)从\(x\)轴开始绕\(O\)点旋转，观察\(A\)点坐标值随\(O A\)转过的角度的变化，可以刻画出\(y = \sin x\)与\(y = \cos x\)的图像：
 \begin{center}
-\includegraphics[width=1.00\linewidth]{image7.png}
+\begin{minipage}{\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{trig-sine-cosine}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正弦函数与余弦函数}\label{fig:trig-sine-cosine}
+\end{minipage}
 \end{center}
 容易知道，它们的定义域都是\(\mathbb{R}\)，值域是\(\left[ - 1 , 1 \right]\)，同时都具有周期性和对称性。我们将在后面的章节具体分析其周期性和对称性。
 
 由于\(\cos x = 0\)有解，故\(y = \tan x\)的图像并不在\(\left( - \infty , + \infty \right)\)上连续。容易知道，\(y = \tan x\)的值域为\(\mathbb{R}\)，定义域为\(\left\{ x \mid \cos x \ne 0 , x \in \mathbb{R} \right\}\)，进一步求解方程\(\cos x = 0\)可知其定义域为\(\left\{ x \in \mathbb{R} \mid x \ne \frac{\pi}{2} + k \pi , k \in \mathbb{Z} \right\}\)。画出其函数图像：
 \begin{center}
-\includegraphics[width=0.94\linewidth]{image8.png}
+\begin{minipage}{0.94\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{trig-tangent}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正切函数及其竖直渐近线}\label{fig:trig-tangent}
+\end{minipage}
 \end{center}
 
+\newpage
 \paragraph{反三角函数} \mbox{}
 
 三角函数在整个定义域上会重复取值。为了反过来由函数值确定一个角，需要先限制到严格单调的区间。通常将正弦、余弦与正切分别限制在\([-\pi/2,\pi/2]\)、\([0,\pi]\)与\((-\pi/2,\pi/2)\)上，它们在这些区间上的值域分别为\([-1,1]\)、\([-1,1]\)与\(\mathbb R\)。相应的反函数记为
@@ -570,14 +597,21 @@ f \left( x \right) = a_{n} x^{n} + \cdots + a_{1} x + a_{0}
 \subsection{指数函数与对数函数}
 指数函数是一类性态良好的函数，其基本形式是\(y = a^{x} \left( a > 0 , a \ne 1 \right)\)。显然，当\(a = 1\)时，函数退化为\(y = 1\)；\(a = 0\)时，函数退化为\(y = 0 \left( x > 0 \right)\)；\(a < 0\)时，只有\(x\)为整数（更一般地，只有\(x\)为分母是奇数的有理数）时，\(a^{x}\)在实数域上才有意义。因此限定指数函数的\(a > 0\)且\(a \ne 1\)。
 
-刻画\(a\)取不同的值时函数的图像如下图所示：
+图\ref{fig:function-exponentials}给出\(a\)取不同值时的函数图像：
 \begin{center}
-\includegraphics[width=0.56\linewidth]{image9.png}
+\begin{minipage}{0.56\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=0.90\linewidth]{function-exponentials}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{不同底数的指数函数}\label{fig:function-exponentials}
+\end{minipage}
 \end{center}
 容易观察到其定义域均为\(\mathbb{R}\)，值域均为\(\left( 0 , + \infty \right)\)。
 
 {\kaiti{}思考\quad 无理数次幂是如何定义的？}
 
+\newpage
 \paragraph{对数函数} \mbox{}
 
 对数运算是指数运算的逆运算，对数函数也就是指数函数的反函数。根据前面对反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(\mathbb{R}\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画。

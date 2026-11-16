@@ -20,6 +20,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{graphicx}
+\RequirePackage{capt-of}
 \RequirePackage{adjustbox}
 \RequirePackage{wrapfig}
 \RequirePackage{geometry}

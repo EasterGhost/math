@@ -1,0 +1,65 @@
+\section{三维空间中的几何关系}
+三维空间中的几何关系主要包含点、线、面之间的位置关系，主要涉及距离、夹角等度量关系。为叙述方便，以下几何关系将在笛卡尔直角坐标系下使用向量语言进行叙述。对于其他坐标系下的描述这里暂不涉及，可由坐标变换关系自行推导。
+
+\subsection{点与点的关系}
+点与点的关系较为简单，一般考虑两点间的距离公式：若空间中两点\(A , B\)坐标分别为\(A \left( x_{1} , y_{1} , z_{1} \right) , B \left( x_{2} , y_{2} , z_{2} \right)\)，则\(\left| A B \right| = \left| \vec{A B} \right| = \left| \left( x_{2} - x_{1} , y_{2} - y_{1} , z_{2} - z_{1} \right) \right| = \sqrt{{\left( x_{2} - x_{1} \right)}^{2} + {\left( y_{2} - y_{1} \right)}^{2} + {\left( z_{2} - z_{1} \right)}^{2}}\)。
+
+\subsection{点与线的关系}
+如果点\(P\)的坐标为\(\left( x_{0} , y_{0} , z_{0} \right)\)，直线\(L\)的方向向量为\(\vec{l} = \left( a , b , c \right)\)，且直线上有一点\(Q\)的坐标为\(\left( x_{1} , y_{1} , z_{1} \right)\)，则点\(P\)到直线\(L\)的距离\(d\)为：
+\begin{equation}
+    d = \frac{\left| \vec{P Q} \times \vec{l} \right|}{\left| \vec{l} \right|}
+    = \sqrt{\left| \vec{P Q} \right|^{2} - \frac{\left( \vec{P Q} \cdot \vec{l} \right)^{2}}{\left| \vec{l} \right|^{2}}}
+\end{equation}
+
+其中\(\vec{P Q} = \left( x_{1} - x_{0} , y_{1} - y_{0} , z_{1} - z_{0} \right)\)。定义两个三维向量\(\vec{a} , \vec{b}\)的外积\(\vec{a} \times \vec{b}\)（一称向量积）：两个三维向量的外积为一个向量，其模长为\(\left| \vec{a} \right| \left| \vec{b} \right| \sin \left\langle \vec{a} , \vec{b} \right\rangle\)，方向垂直于\(\vec{a} , \vec{b}\)，按从\(\vec{a}\)到\(\vec{b}\)的右手定则确定方向（当\(\vec{a} \parallel \vec{b}\)时，规定\(\vec{a} \times \vec{b} = \vec{0}\)）。
+
+\subsection{点与面的关系}
+如果点\(P\)的坐标为\(\left( x_{0} , y_{0} , z_{0} \right)\)，平面\(\pi\)的方程为\(A x + B y + C z + D = 0\)（\(A , B , C\)不全为0），则\(P\)到平面\(\pi\)的距离\(d\)为：
+\begin{equation}
+    d = \frac{\left| A x_{0} + B y_{0} + C z_{0} + D \right|}{\sqrt{A^{2} + B^{2} + C^{2}}}
+\end{equation}
+
+\subsection{线与线的关系}
+如果两直线的方向向量分别为\(\vec{d}_{1} = \left( a_{1} , b_{1} , c_{1} \right)\)和\(\vec{d}_{2} = \left( a_{2} , b_{2} , c_{2} \right)\)，则两直线夹角\(\theta \in [0 , \frac{\pi}{2}]\)的余弦值为：
+\begin{equation}
+    \cos \theta = \frac{\left| \vec{d}_{1} \cdot \vec{d}_{2} \right|}{\left| \vec{d}_{1} \right| \left| \vec{d}_{2} \right|}
+\end{equation}
+
+\subsection{线与面的关系}
+如果直线的方向向量为\(\vec{d} = \left( a , b , c \right)\)，平面的法向量为\(\vec{n} = \left( A , B , C \right)\)，则直线与平面的夹角\(\theta \in [0 , \frac{\pi}{2}]\)的正弦值为：
+\begin{equation}
+    \sin \theta = \frac{\left| \vec{d} \cdot \vec{n} \right|}{\left| \vec{d} \right| \left| \vec{n} \right|}
+\end{equation}
+
+\subsection{面与面的关系}
+如果两平面的法向量分别为\(\vec{n}_{1} = \left( a_{1} , b_{1} , c_{1} \right)\)和\(\vec{n}_{2} = \left( a_{2} , b_{2} , c_{2} \right)\)，则两平面夹角\(\theta \in [0 , \frac{\pi}{2}]\)的余弦值为：
+\begin{equation}
+    \cos \theta = \frac{\left| \vec{n}_{1} \cdot \vec{n}_{2} \right|}{\left| \vec{n}_{1} \right| \left| \vec{n}_{2} \right|}
+\end{equation}
+
+于是可以容易地将三维空间中的线、面之间的平行、垂直等几何关系使用向量语言进行描述：
+
+面与面平行/垂直：其法向量平行/垂直。
+
+线与线平行/垂直：其方向向量平行/垂直。
+
+线与面平行/垂直：线的方向向量与面的法向量垂直/平行。
+
+因此，常见立体几何的题目的一般做法为：
+
+第一步：建立合适的坐标系，使得题目所涉及各点坐标尽可能简单。
+
+第二步：将待求几何量（一般为角度）或待证明几何关系用向量语言进行描述。
+
+第三步：求相关向量的坐标表示。
+
+（a）直线的方向向量：直接选取直线上已知的两点坐标计算；
+
+（b）平面的法向量：
+
+1）设其法向量为\(\vec{n} = \left( x , y , z \right)\)，利用平面已知的三点构建在该平面内的两个不平行的向量\(\vec{\alpha} , \vec{\beta}\)（或其他点，总的原则是选取使向量的坐标表示尽可能简单的点）。
+
+2）列式计算\(\vec{n} \cdot \vec{\alpha} = 0\)和\(\vec{n} \cdot \vec{\beta} = 0\)，令\(x\)（或\(y , z\)）为一个合适的值（总的原则是选取容易求解方程的值，或者使\(\vec{n}\)成为单位向量），求出该平面的一个法向量。
+
+第四步：将第三步得到的向量坐标代入第二步的向量语言描述中，进行相关的运算或列方程/等式，完成证明。
+\newpage

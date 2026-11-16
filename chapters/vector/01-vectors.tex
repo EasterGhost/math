@@ -1,0 +1,280 @@
+\section{向量}
+数学是从认识和研究图形和数开始的。大体上可以说，图形的优点是直观形象，能更直接地用来描述我们周围的世界，也更容易理解。但图形不便于用于计算，利用几何推理的方法来研究图形，灵活性、偶然性太大，不容易掌握。数的优点是有比较死板的方法进行运算，便于掌握，但比图形更抽象，将客观世界用数来描述的难度更大一些。笛卡尔引进了坐标之后，打破了数与形的界限，将几何图形最基本的元素——点用坐标来表示，将曲线、曲面用方程来表示，通过对坐标和方程的代数运算来研究几何图形的性质，这就是解析几何。
+
+向量也是一种图形，具有直观形象的优点，便于用来描述客观世界。向量又可以直接进行运算。因此向量兼有图形和数的优点。我们可以将几何图形用向量来描述，通过向量的运算来解决几何问题；也可以进一步将向量的运算转化为坐标的运算来解决问题，这是建立解析几何的理论与算法体系的一种简明有效的途径。
+
+向量是一种“价廉物美”的数学工具，学起来很容易，需要花费的时间和精力不多；用处又很大，可以解决很多的几何和代数的问题。
+
+\subsection{向量的定义}
+
+\begin{definition}\label{def:geometric-vector}
+向量，一称矢量，是一类有大小和方向的量。向量\(\vec a\)可用有向线段\(AB\)表示，记作\(\vec a=\vec{AB}\)：从\(A\)到\(B\)的方向表示它的方向，线段长度表示它的大小，称为向量的{\heiti 模}，记作\(|\vec a|\)。大小相等、方向相同的两个向量称为相等。
+\end{definition}
+
+模为0的向量称为{\heiti 零向量}，记为\(\vec0\)，其方向不确定，可以为任意方向。此时有向线段的起点与终点重合，即\(\vec{AA}=\vec0\)。
+
+同一个向量可以由不同的有向线段表示，只要长度相等、方向相同，即使起点不同，也有\(\vec{AB}=\vec{CD}\)。但从同一点出发表示同一个向量的有向线段是唯一确定的：\(\vec{OA}=\vec{OB}\)当且仅当\(A,B\)重合。
+
+两个非零向量的方向相同或相反时，称它们{\heiti 平行}，也称{\heiti 共线}。表示它们的有向线段可以共线，也可以位于不同的平行直线上。规定零向量与任意向量平行。
+
+\newpage
+\subsection{向量的加法}
+
+\begin{definition}\label{def:geometric-vector-addition}
+从任意一点\(O\)出发，作\(\vec{OA}=\vec a\)，再作\(\vec{AB}=\vec b\)，定义向量的和为
+\[
+ \vec a+\vec b=\vec{OA}+\vec{AB}=\vec{OB}.
+\]
+这一求和法则称为{\heiti 三角形法则}。
+\end{definition}
+
+若将向量理解为位移，\(O\to A\to B\)的总效果就是\(O\to B\)。平移这条折线，不改变各段的长度和方向，所得的和也不变。
+
+\begin{proposition}\label{prop:geometric-vector-addition}
+向量加法满足交换律与结合律：
+\[
+ \vec a+\vec b=\vec b+\vec a,\qquad
+ (\vec a+\vec b)+\vec c=\vec a+(\vec b+\vec c).
+\]
+零向量满足\(\vec a+\vec0=\vec0+\vec a=\vec a\)。
+\end{proposition}
+
+\begin{proof}
+首尾相接作\(\vec{OA}=\vec a,\vec{AB}=\vec b,\vec{BC}=\vec c\)，按两种方式结合，都得到\(\vec{OC}\)，故结合律成立。
+
+再作\(\vec{OC}=\vec b\)。当\(\vec a,\vec b\)不共线时，\(OABC\)是平行四边形，故\(\vec{CB}=\vec{OA}=\vec a\)；共线时也有此关系。因此
+\[
+ \vec b+\vec a=\vec{OC}+\vec{CB}=\vec{OB}=\vec a+\vec b.
+\]
+零向量的性质直接由三角形法则得到。
+\end{proof}
+
+\begin{wrapfigure}[6]{r}{0.38\linewidth}
+\centering
+\includegraphics[width=.84\linewidth]{vector-addition}
+\setlength{\abovecaptionskip}{3pt}
+\caption{向量加法的平行四边形法则}\label{fig:vector-addition}
+\end{wrapfigure}
+
+图\ref{fig:vector-addition}还给出{\heiti 平行四边形法则}：从同一点\(O\)出发，分别作\(\vec{OA}=\vec a,\vec{OC}=\vec b\)，则平行四边形\(OABC\)的对角线表示\(\vec{OB}=\vec a+\vec b\)。
+
+将\(\vec{AB}\)反向得到\(\vec{BA}\)，记为\(-\vec a\)，称为\(\vec a\)的{\heiti 负向量}。由三角形法则，\(\vec a+(-\vec a)=\vec{AA}=\vec0\)，且\(-(-\vec a)=\vec a\)。
+
+定义向量的差为\(\vec a-\vec b=\vec a+(-\vec b)\)，于是\((\vec a-\vec b)+\vec b=\vec a\)。若\(\vec{OA}=\vec a,\vec{OB}=\vec b\)，则\(\vec a-\vec b=\vec{BA}\)。
+
+\begin{example}\label{ex:vector-addition-simplify}
+设\(O,A,B,C,D\)为任意五点。将下列各式化为单个向量，并用有向线段说明结果。计算时，哪些向量需要先平移或反向？
+
+（1）\(\vec{AB}+\vec{BC}+\vec{CD}\)；\quad
+（2）\(\vec{AB}-\vec{AC}+\vec{DC}\)；\quad
+（3）\(\vec{OA}+\vec{BC}-\vec{OC}\)。
+\end{example}
+
+\newpage
+\subsection{向量与实数相乘}
+
+\begin{definition}\label{def:geometric-scalar-multiplication}
+实数\(k\)与向量\(\vec a\)的乘积\(k\vec a\)仍是向量，其模为\(|k\vec a|=|k|\,|\vec a|\)。当\(k>0\)时，它与\(\vec a\)同向；当\(k<0\)时，它与\(\vec a\)反向；当\(k=0\)时，\(k\vec a=\vec0\)。这一运算称为{\heiti 数乘}。
+\end{definition}
+
+\begin{proposition}\label{prop:geometric-scalar-laws}
+对任意向量\(\vec a,\vec b\)和实数\(k,s\)，有
+\[
+\begin{aligned}
+ 1\vec a&=\vec a,\qquad (-1)\vec a=-\vec a,\qquad
+ k(s\vec a)=(ks)\vec a,\\
+ (k+s)\vec a&=k\vec a+s\vec a,\qquad
+ k(\vec a+\vec b)=k\vec a+k\vec b.
+\end{aligned}
+\]
+\end{proposition}
+
+涉及同一向量的等式，可沿它所在的直线比较有向长度得到。最后一个分配律，可将三角形法则中的折线按比例\(|k|\)伸缩，\(k<0\)时再反向，由相似三角形得到。
+
+由数乘的定义还知，两个向量平行，当且仅当其中一个可以写成另一个的实数倍。长度为1的向量称为{\heiti 单位向量}；当\(\vec a\ne\vec0\)时，\(\vec a/|\vec a|\)就是与它同向的单位向量。
+
+\begin{example}\label{ex:vector-division-centroid}
+设\(\triangle ABC\)，任取点\(O\)。若\(\vec{AP}=t\vec{AB}\)，用\(\vec{OA},\vec{OB}\)表示\(\vec{OP}\)，并确定\(P\)在线段\(AB\)上时\(t\)的范围。
+
+据此分别表示\(AB\)的中点\(M\)与\(\triangle ABC\)的重心\(G\)的位置向量，并说明改变起点\(O\)后，这些关系为什么仍然成立。
+\end{example}
+
+\begin{example}
+（1）已知\(\triangle ABC\)及其两边长\(|AB|,|AC|\)。怎样用向量的语言描述：点\(P\)在\(\angle BAC\)的角平分线上。
+
+（2）\(O\)是平面上一定点，\(A,B,C\)是平面上不共线的三个点，动点\(P\)满足
+\[
+ \vec{OP}=\vec{OA}+\lambda\left(\frac{\vec{AB}}{|AB|}+\frac{\vec{AC}}{|AC|}\right),
+ \qquad\lambda\in[0,+\infty),
+\]
+则\(P\)点的轨迹一定过\(\triangle ABC\)的
+
+（A）外心\quad （B）内心\quad （C）重心\quad （D）垂心。
+\end{example}
+
+\subsection{向量的数量积}
+
+加法与数乘可以描述位移的合成及沿某个方向的伸缩。要计算长度、夹角和垂直关系，还需要一种同时联系两个向量的运算。
+
+\begin{definition}\label{def:geometric-dot-product}
+两个非零向量\(\vec a,\vec b\)的{\heiti 数量积}，也称内积，定义为
+\[
+ \vec a\cdot\vec b=|\vec a|\,|\vec b|\cos\langle\vec a,\vec b\rangle,
+ \qquad 0\le\langle\vec a,\vec b\rangle\le\pi.
+\]
+若其中一个是零向量，规定数量积为0。
+\end{definition}
+
+数量积的结果是实数。物体在恒力\(\vec F\)作用下产生位移\(\vec s\)时，力所作的功就是\(W=\vec F\cdot\vec s\)。
+
+记\(\vec a^{,2}=\vec a\cdot\vec a\)，则\(\vec a^{,2}=|\vec a|^2\)。又因\(\cos(\pi/2)=0\)，两个非零向量垂直当且仅当数量积为0。规定零向量与任意向量垂直后，这个判据对所有向量成立。因此
+\begin{equation}\label{eq:vector-metric-dot}
+ |\vec a|=\sqrt{\vec a^{\,2}},\qquad
+ \cos\theta=\frac{\vec a\cdot\vec b}{|\vec a|\,|\vec b|}
+ \quad(\vec a,\vec b\ne\vec0).
+\end{equation}
+
+\begin{proposition}\label{prop:geometric-dot-laws}
+数量积满足
+\[
+\begin{aligned}
+ \vec a\cdot\vec b&=\vec b\cdot\vec a,\\
+ (\vec a+\vec b)\cdot\vec c&=\vec a\cdot\vec c+\vec b\cdot\vec c,\\
+ (k\vec a)\cdot\vec b&=k(\vec a\cdot\vec b).
+\end{aligned}
+\]
+\end{proposition}
+
+\begin{proof}
+交换律由夹角的对称性得到。为说明后两式，固定一个单位向量\(\vec e\)，把向量在\(\vec e\)方向上的有向投影长度记为\(p_{\vec e}(\vec a)\)。投影与\(\vec e\)同向时取正，反向时取负。由直角三角形中的余弦关系与符号约定，有
+\[
+ p_{\vec e}(\vec a)=\vec a\cdot\vec e.
+\]
+将首尾相接的折线\(O\to A\to B\)向同一条定向直线作垂直投影，投影后的有向线段仍然首尾相接，所以投影长度相加；将原线段伸缩或反向，其投影也按同一倍数改变。因此
+\[
+ p_{\vec e}(\vec a+\vec b)=p_{\vec e}(\vec a)+p_{\vec e}(\vec b),
+ \qquad p_{\vec e}(k\vec a)=k\,p_{\vec e}(\vec a).
+\]
+对非零\(\vec c\)，取\(\vec e=\vec c/|\vec c|\)，有\(\vec a\cdot\vec c=|\vec c|p_{\vec e}(\vec a)\)。代入上述两式，并利用交换律，即得分配律与数乘关系。
+\end{proof}
+
+\begin{example}
+已知\(|\vec a|=2,|\vec b|=3\)，两向量夹角为\(\pi/3\)。求\(|\vec a+\vec b|\)、\(|2\vec a-\vec b|\)及\((\vec a+\vec b)\cdot(2\vec a-\vec b)\)。
+\end{example}
+
+\begin{example}
+对任意向量\(\vec a,\vec b\)，证明\((\vec a-\vec b)^2=\vec a^{\,2}+\vec b^{\,2}-2\vec a\cdot\vec b\)，并对\(\vec a,\vec b\)不平行的情形解释这个公式的几何意义。
+\end{example}
+
+{\kaiti 思考\quad 上述平方展开使用了哪些运算律？}
+
+\begin{example}
+设\(A,B,C,D\)是三维空间中不重合的任意四点。求证：\(AC\perp BD\)当且仅当\(|AB|^2+|CD|^2=|BC|^2+|DA|^2\)。
+\end{example}
+
+\begin{example}
+\(ABCD\)是四面体，\(\angle BAC=\angle ACD\)，\(\angle ABD=\angle BDC\)。求证：\(|AB|=|CD|\)。
+\end{example}
+
+\newpage
+\subsection{向量的坐标表示法}
+
+建立坐标，就是选定一组固定向量，要求每个向量都能由它们唯一表示，再用表示式中的系数记录这个向量。
+
+\begin{definition}[基与坐标]\label{def:vector-basis-coordinates}
+取定一组向量\(\vec e_1,\ldots,\vec e_n\)，使所讨论的每个向量\(\vec a\)都能唯一地写成
+\[
+ \vec a=x_1\vec e_1+\cdots+x_n\vec e_n.
+\]
+称这组向量为一组{\heiti 基}，实数数组\((x_1,\ldots,x_n)\)称为\(\vec a\)在基\((\vec e_1,\ldots,\vec e_n)\)下的{\heiti 坐标}。
+\end{definition}
+
+取定基后，可以直接写\(\vec a=(x_1,\ldots,x_n)\)。同一向量换基时，坐标一般随之改变。图\ref{fig:vector-decomposition}给出两个基向量的情形，其中\(\vec{OD}=x\vec e_1\)、\(\vec{DP}=y\vec e_2\)。
+
+\begin{center}
+\begin{minipage}{.48\linewidth}
+\centering
+\includegraphics[width=.68\linewidth]{vector-decomposition}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{两个基向量下的向量分解}\label{fig:vector-decomposition}
+\end{minipage}
+\end{center}
+
+\begin{example}
+设\(\vec e_1,\vec e_2\)是平面的一组基，\(\vec f_1=\vec e_1+\vec e_2,\vec f_2=\vec e_1-\vec e_2\)。证明\(\vec f_1,\vec f_2\)也是一组基，并分别求\(\vec a=3\vec e_1+\vec e_2\)在这两组基下的坐标。
+\end{example}
+
+若基向量两两垂直且模均为1，称为{\heiti 正交单位基}。熟悉的平面、空间直角坐标就是在这样的基下建立的。
+
+\begin{theorem}[坐标运算]\label{thm:vector-coordinate-laws}
+在固定的基下，若\(\vec a=(x_1,\ldots,x_n)\)、\(\vec b=(y_1,\ldots,y_n)\)，则
+\[
+\begin{aligned}
+ \vec a\pm\vec b&=(x_1\pm y_1,\ldots,x_n\pm y_n),\\
+ k\vec a&=(kx_1,\ldots,kx_n).
+\end{aligned}
+\]
+若所选基为正交单位基，还有\(\vec a\cdot\vec b=\sum_{j=1}^n x_jy_j\)。
+\end{theorem}
+
+\begin{proof}
+前两式由向量的加法、数乘运算律合并各基向量的系数，再用表示的唯一性得到。正交单位基下，\(\vec e_j\cdot\vec e_j=1\)，不同基向量的数量积均为0；按分配律展开\(\vec a\cdot\vec b\)，只留下相同下标的项，便得第三式。
+\end{proof}
+
+\begin{corollary}\label{cor:vector-coordinate-metric}
+在正交单位基下，有
+\[
+\begin{gathered}
+ |\vec a|=\sqrt{\sum_{j=1}^n x_j^2},\qquad
+ \vec a\perp\vec b\ \Longleftrightarrow\ \sum_{j=1}^n x_jy_j=0,\\
+ \cos\theta=\frac{\sum_{j=1}^n x_jy_j}{|\vec a|\,|\vec b|}
+ \quad(\vec a,\vec b\ne\vec0).
+\end{gathered}
+\]
+其中\(\theta\)为两向量的夹角。
+\end{corollary}
+
+固定原点\(O\)，以\(\vec{OP}\)的坐标作为点\(P\)的坐标。由\(\vec{AB}=\vec{OB}-\vec{OA}\)，向量坐标由终点与起点坐标逐项相减得到，再取模即得两点间的距离。
+
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设\(\vec a=2\vec e_1-\vec e_2,\vec b=\vec e_1+3\vec e_2\)，其中\(\vec e_1,\vec e_2\)不共线。求\(3\vec a-2\vec b\)在基\((\vec e_1,\vec e_2)\)下的坐标，并求使\(\vec a+t\vec b\)与\(\vec e_1\)平行的\(t\)。
+
+（2）\(M,N\)分别为\(\triangle ABC\)的边\(AB,AC\)的中点。用\(\vec{AB},\vec{AC}\)表示\(\vec{MN}\)，证明\(MN\parallel BC\)且\(|MN|=|BC|/2\)。
+
+（3）已知\(|\vec a|=|\vec b|=1\)、\(\vec a\cdot\vec b=1/2\)。求使\((\vec a+t\vec b)\perp(\vec a-\vec b)\)的\(t\)，并求此时\(|\vec a+t\vec b|\)。
+
+（4）设\(A,B,C\)为实数，\(A,B\)不全为0，求方程\(Ax+By+C=0\)的图像。
+
+（5）已知直线\(l_1:A_1x+B_1y+C_1=0\)、\(l_2:A_2x+B_2y+C_2=0\)。求两直线的夹角\(\theta\)及\(l_1\perp l_2\)的充分必要条件。
+
+（6）已知直线\(l_1,l_2\)的斜率分别为\(k_1,k_2\)，求两直线的夹角\(\theta\)及\(l_1\perp l_2\)的充分必要条件。
+
+（7）设\(\alpha\)为任意角、\(n\)为正整数。化简\(\dfrac{\sum_{k=1}^n\sin k\alpha}{\sum_{k=1}^n\cos k\alpha}\)（分母不为0）。
+\end{exercise}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+\noindent\begin{minipage}[t]{.58\linewidth}
+\setlength{\parindent}{2em}\setlength{\parskip}{6pt}
+已知正方体\(ABCD-A'B'C'D'\)如图\ref{fig:vector-cube}，求：
+
+（1）直线\(AB\)与平面\(BDA'\)所成的角；
+
+（2）平面\(A'B'CD\)与\(BDD'B'\)的夹角。
+\end{minipage}\hfill
+\begin{minipage}[t]{.34\linewidth}
+\centering
+\adjustbox{valign=t}{\begin{minipage}{.92\linewidth}
+\centering
+\includegraphics[width=.94\linewidth]{vector-cube}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正方体示意图}\label{fig:vector-cube}
+\end{minipage}}
+\end{minipage}
+\end{exercise}
+
+\newpage
