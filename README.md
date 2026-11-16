@@ -71,6 +71,8 @@ latexmk -xelatex -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-e
 
 ## 版权
 
-Copyright (c) 2026 Andrew Elizabeth / EasterGhost. All rights reserved.
+Copyright (c) 2026 Andrew Elizabeth / EasterGhost.
 
-本项目当前保留所有权利，未采用开源软件或开放内容许可。源码公开展示不表示授予复制、改编、再分发或商业使用许可；适用法律及GitHub平台条款另有规定的情形除外。授权事项可通过仓库Issues联系作者，完整声明见[LICENSE](LICENSE)。
+除另有标注外，本项目中作者享有著作权与类似权利的内容采用[CC BY-NC-ND 4.0（署名—非商业性使用—禁止演绎）](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)许可协议。您可以按协议要求署名并为非商业目的复制、分享；协议不授予商业使用或分享演绎作品的权限。
+
+引用的试题及其他第三方材料依其各自的权利状态处理，不包含在上述授权中。完整授权说明与协议全文见[LICENSE](LICENSE)；如需协议未授予的权限，可通过仓库[Issues](https://github.com/EasterGhost/math/issues)联系作者。
