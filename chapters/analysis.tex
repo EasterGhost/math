@@ -57,7 +57,7 @@
 
 有些命题涉及每个正整数，逐个代入不能穷尽。若能从第一步出发，证明成立的一步总能推出下一步，就可以覆盖所有正整数。
 
-\begin{theorem}[数学归纳法]
+\begin{theorem}[第一数学归纳法]
 设\(P(n)\)是关于正整数\(n\)的命题。若\(P(1)\)成立，且对任意\(k\ge1\)，都有\(P(k)\Rightarrow P(k+1)\)，则\(P(n)\)对所有正整数成立。
 \end{theorem}
 
@@ -68,6 +68,42 @@
 \begin{example}
 用数学归纳法证明\(\sum_{k=1}^n k(k+1)=n(n+1)(n+2)/3\)。再对\(x\ge-1\)证明Bernoulli不等式\((1+x)^n\ge1+nx\)，说明归纳步骤中为何可以将不等式两边乘以\(1+x\)。
 \end{example}
+
+有时，证明下一步需要使用前面若干步的结论，所用的下标也未必紧邻下一步。这时可以采用下面的形式。
+
+\begin{theorem}[第二数学归纳法]
+\label{thm:analysis-strong-induction}
+设\(n_0\)为正整数，\(P(n)\)是关于整数\(n\ge n_0\)的命题。若\(P(n_0)\)成立，且对任意\(k\ge n_0\)，由\(P(n_0),P(n_0+1),\ldots,P(k)\)同时成立能够推出\(P(k+1)\)，则\(P(n)\)对所有\(n\ge n_0\)成立。
+\end{theorem}
+
+\begin{proof}
+将“\(P(n_0),P(n_0+1),\ldots,P(k)\)均成立”记为\(Q(k)\)。由条件，\(Q(n_0)\)成立；若\(Q(k)\)成立，则\(P(k+1)\)成立，连同已有的结论便得到\(Q(k+1)\)。对\(Q(k)\)使用第一数学归纳法，即得结论。
+\end{proof}
+
+第二数学归纳法也称为{\heiti{}强归纳法}，归纳假设允许使用从起点到第\(k\)步的全部结论。两种形式可以互相推出，使用时依照证明中实际需要的结论选择即可。
+
+\begin{example}
+用第二数学归纳法证明：每个大于\(1\)的整数都可以写成若干个质数的乘积。
+\end{example}
+
+对于用到前两项的递推关系，可以先验证前两个起始情形，再同时使用这两项的结论作归纳推导；也可以将相邻两个命题合成一个命题，使用第一数学归纳法。起始情形需要验证几项，应当由递推所需的条件决定。
+
+\begin{exercise}
+\label{ex:analysis-induction}
+用适当的数学归纳法完成下列各题。
+
+（1）证明\(1^3+2^3+\cdots+n^3=[n(n+1)/2]^2\)。
+
+（2）证明\(10^n-9n-1\)能被\(81\)整除。
+
+（3）证明当\(n\ge4\)时，\(2^n\ge n^2\)。
+
+（4）设\(a_1=1,a_2=2,a_{n+2}=a_{n+1}+a_n\)。证明\(n\le a_n\le2^{n-1}\)。
+
+（5）设\(a_1=1\)，且当\(n\ge2\)时，\(a_n=\sum_{k=1}^{n-1}a_k\)。猜测并证明通项公式，再将给定关系化为相邻两项之间的递推关系。
+
+（6）证明每个正整数都能表示为若干个互不相同的\(2\)的幂之和，其中指数为非负整数。
+\end{exercise}
 
 \newpage
 \section{等差数列与等比数列}
@@ -134,45 +170,49 @@
 有了这样的表述，有限的估计就能够说明无限过程的性质。计算若干项可以帮助我们观察、猜测，极限的定义则要给出对全部后续项有效的保证。下面将“任意给定的精度”和“保证这个精度的范围”分别用数学符号表示。
 
 \subsection{极限的定义}
-极限通常使用\(\varepsilon - \delta \left( N \right)\)法进行定义。例如数列\(\left\{ a_{n} \right\}\)的极限为\(a\)（或称\(\left\{ a_{n} \right\}\)收敛于\(a\)）的定义如下：
-\begin{equation}
-    \forall \varepsilon > 0 , \exists N \in \mathbb{N}^{*} , \text{s.t.} \forall n > N , \left| a_{n} - a \right| < \varepsilon
+\begin{definition}[数列的极限]
+设\(\{a_n\}\)是一个数列，\(a\)为实数。若
+\begin{equation}\label{eq:analysis-sequence-limit-definition}
+ \forall\varepsilon>0,\ \exists N\in\mathbb{N}^{*},\quad
+ n>N\ \Longrightarrow\ |a_n-a|<\varepsilon,
 \end{equation}
-记为\(\lim_{n \to + \infty} a_{n} = a\)。
-对于在\(x_0\)的去心邻域内有定义的函数\(f\)，若
+则称\(\{a_n\}\)的极限为\(a\)，或称\(\{a_n\}\){\heiti{}收敛于}\(a\)，记作\(\lim_{n\to+\infty}a_n=a\)。
+\end{definition}
+
+这里的\(N\)可以依赖于\(\varepsilon\)；一旦选定\(N\)，它后面的所有项都应满足误差要求。这种定义称为{\heiti{}\(\varepsilon\)-\(N\)定义}。对函数，控制误差的条件改为自变量与指定点足够接近。
+
+\begin{definition}[函数的极限]
+设函数\(f\)在\(x_0\)的去心邻域内有定义，\(L\)为实数。若
 \begin{equation}\label{eq:analysis-function-limit-definition}
  \forall\varepsilon>0,\ \exists\delta>0,\quad
  0<|x-x_0|<\delta\ \Longrightarrow\ |f(x)-L|<\varepsilon,
 \end{equation}
 则称\(f(x)\)在\(x\to x_0\)时以\(L\)为极限，记作\(\lim_{x\to x_0}f(x)=L\)。
+\end{definition}
 
-数列极限用足够大的下标控制误差，函数极限则用自变量与指定点的距离控制误差；两者都要求对任意给定的精度，找到保证它的范围。定义只考察点附近的值，不要求\(f(x_0)\)有定义。后面讨论无穷小量时，便是这里\(L=0\)的情形。
-
+这称为{\heiti{}\(\varepsilon\)-\(\delta\)定义}。条件\(0<|x-x_0|<\delta\)只考察点附近的值，不要求\(f(x_0)\)有定义。数列中取足够大的下标，函数中取足够小的距离，都是对任意给定的精度，找到能够保证它的范围。
 
 \subsection{无穷大量与无穷小量}
-{\heiti{}在极限过程中}趋于无穷大的量，称为{\heiti{}无穷大量}。类似地，可以将在极限过程中趋于0的量，称为{\heiti{}无穷小量}。
+无穷大量与无穷小量描述的是量在指定极限过程中的变化。
 
-可以分别讨论正无穷大量和负无穷大量。以正无穷大为例，可以简写为：
+\begin{definition}[无穷大量]
+设函数\(f\)在\(x_0\)的去心邻域内有定义。若
 \begin{equation}
-    \forall M > 0 , \exists \delta > 0 , \text{s.t.} \forall 0 < \left| x - x_{0} \right| < \delta , f \left( x \right) > M
+ \forall M>0,\ \exists\delta>0,\quad
+ 0<|x-x_0|<\delta\ \Longrightarrow\ |f(x)|>M,
 \end{equation}
-则称\(f ( x )\)是当\(x \to x_{0}\)时的正无穷大量；把\(f \left( x \right) > M\)换成\(f \left( x \right) < - M\)，就是负无穷大量。或
-
-\begin{definition}
-设\(f ( x )\)在\(x_{0}\)的附近有定义，若\(\forall M > 0 , \exists \delta > 0 , \text{使} \text{得} \text{当} 0 < \left| x - x_{0} \right| < \delta\)时，有\(\left| f \left( x \right) \right| > M\)，则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷大量。
+则称\(f(x)\)是当\(x\to x_0\)时的{\heiti{}无穷大量}，记作\(\lim_{x\to x_0}|f(x)|=+\infty\)。
 \end{definition}
 
-类似地，可以定义无穷小量：
+若将定义中的\(|f(x)|>M\)换为\(f(x)>M\)，则称\(f(x)\)趋于\(+\infty\)；换为\(f(x)<-M\)，则称\(f(x)\)趋于\(-\infty\)。例如，当\(x\to0\)时，\(1/x^2\)趋于\(+\infty\)，\(1/x\)的绝对值趋于无穷，但它本身不趋于\(+\infty\)或\(-\infty\)。
 
-\begin{definition}
-设\(f ( x )\)在\(x_{0}\)附近有定义，若\(\underset{x \to x_{0}}{\lim} f \left( x \right) = 0\)则称\(f ( x )\)是当\(x \to x_{0}\)时的无穷小量。
+\begin{definition}[无穷小量]
+在指定的极限过程中趋于\(0\)的量称为{\heiti{}无穷小量}。例如，若\(\lim_{x\to x_0}f(x)=0\)，则称\(f(x)\)是当\(x\to x_0\)时的无穷小量。
 \end{definition}
 
-或者简写为
-\begin{equation}
-    \forall \varepsilon > 0 , \exists \delta > 0 , \text{s.t.} \forall 0 < \left| x - x_{0} \right| < \delta , \left| f \left( x \right) \right| < \varepsilon
-\end{equation}
-数列趋于\(+\infty\)或\(-\infty\)时，称它有相应的广义极限。仅有\(|a_n|\to\infty\)不保证符号最终固定，例如\(a_n=(-1)^n n\)。下面将有限极限与有确定符号的广义极限区分使用。
+无穷小量的误差条件就是极限定义中目标值为\(0\)的情形。将上述条件中的\(0<|x-x_0|<\delta\)换为\(n>N\)，便得到数列的相应定义；例如，\(1/n\)是当\(n\to+\infty\)时的无穷小量。
+
+数列趋于\(+\infty\)或\(-\infty\)时，称它有相应的广义极限。仅有\(|a_n|\to+\infty\)不保证符号最终固定，例如\(a_n=(-1)^n n\)。下面将有限极限与有确定符号的广义极限区分使用。
 
 \newpage
 \section{数列极限}
@@ -191,12 +231,12 @@
 
 显然，“子列”一词说明，子列中的元素均来源于“父列”，即原数列；且子列不改变元素在原数列中的排列顺序。来源于同一数列的子列可以有无穷多个，数列自身也是该数列的一个子列。（此处可参考集合里的“子集”概念）
 
-\subsection{适当放大法（放缩法）}
-放缩法是常用的证明方法。其基本思路是取一个容易分析的\(f \left( n \right)\)，将原数列/函数等在某点附近近似为\(f \left( n \right)\)，从而通过证明\(f \left( n \right)\)的一些属性（如收敛于某值）来证明原数列/函数的属性。
+\subsection{放缩法}
+放缩法是用不等式控制所研究的量，或控制它与目标值之间的误差。例如，要证明\(a_n\to a\)，可以寻找容易估计的\(b_n\)，使\(|a_n-a|\le b_n\)，再对任意给定的\(\varepsilon>0\)，确定使\(b_n<\varepsilon\)成立的下标范围。
 
-放缩法比较考验做题人的“感觉”，需要对原数列/函数进行“适当”的放缩，使其具有容易分析的特性的同时，也不过度放缩使其偏离原数列/函数在该点附近的性态。在后面的章节中，将会介绍一些放缩的基本原则和技巧，使放缩方法更加规范化，不再仅仅依靠个人的“感觉”，供读者参考和使用。
+放缩的方向与精度应当由目标决定。估计式既要容易处理，也要保留足够的信息，使所需误差能够趋于零。对同一个表达式，证明有界与证明收敛，所需的估计可能不同。
 
-对\(e^{x} , \sin x , \cos x , \ln \left( 1 + x \right)\)等经典式子在\(x = 0\)附近有常用的放缩方法。
+第五章将借助导数、中值定理与凸性，介绍构造上下界与控制误差的方法；选讲中的Taylor公式还会进一步给出近似的精度。这里先从具体表达式出发，练习怎样得到有效的估计。
 
 \begin{example}
     以下证明请使用极限的定义进行证明，不要使用其他定理或推论。
@@ -233,13 +273,20 @@
 \end{theorem}
 
 \begin{proof}
-若同一数列有不同极限\(a,b\)，取\(\varepsilon=|a-b|/3\)，当下标充分大时，两种误差估计与三角不等式矛盾。取\(\varepsilon=1\)，充分靠后的项都在\((a-1,a+1)\)内，再将有限多个前项计入，就得到全数列的界。子列下标严格增加，因而最终也进入原数列保证误差的范围。
+若同一数列有不同极限\(a,b\)，取\(\varepsilon=|a-b|/3\)，当下标充分大时，两种误差估计与三角不等式矛盾。改变有限多项时，只须把\(N\)取得超过这些项的下标，原来的误差估计仍然成立。取\(\varepsilon=1\)，充分靠后的项都在\((a-1,a+1)\)内，再将有限多个前项计入，就得到全数列的界。子列下标严格增加，因而最终也进入原数列保证误差的范围。
 
-比较性质可由保号性证明；例如\(a>0\)时取\(\varepsilon=a/2\)，便有\(a_n>a/2\)。加法用三角不等式控制两部分误差；乘法则分解为
+加法与数乘用三角不等式控制误差；乘法则分解为
 \begin{equation*}
  a_nb_n-ab=a_n(b_n-b)+b(a_n-a),
 \end{equation*}
-再使用\(a_n\)有界。商的情形利用\(|b_n|>|b|/2\)控制分母即可。
+再使用\(a_n\)有界。商的情形，由\(b_n\to b\ne0\)，充分靠后的项满足\(|b_n|>|b|/2\)，于是
+\begin{equation*}
+ \left|\frac{a_n}{b_n}-\frac ab\right|
+ \le\frac{2}{|b|}|a_n-a|+\frac{2|a|}{|b|^2}|b_n-b|.
+\end{equation*}
+右边两项都能任意小，因而商也趋于相应的极限。
+
+若\(a>0\)，取\(\varepsilon=a/2\)，便有充分靠后的项满足\(a_n>a/2>0\)。负极限类似。若从某项起\(a_n\le b_n\)，而\(a>b\)，则\(a_n-b_n\to a-b>0\)，由保号性得\(a_n>b_n\)最终成立，产生矛盾，故\(a\le b\)。
 \end{proof}
 
 对于非负数列，若\(a_n\to a\)，则\(\sqrt{a_n}\to\sqrt a\)。可由\(|\sqrt{a_n}-\sqrt a|\le\sqrt{|a_n-a|}\)直接控制误差。后面在含平方根的递推式中取极限时将使用这一点。
@@ -278,23 +325,46 @@
 \end{example}
 
 \subsection{数列收敛性的研究工具}
-\paragraph{1°夹逼原理（也称两边夹原理等）} \mbox{}
+\paragraph{1°夹逼原理} \mbox{}
 
-该定理的思想是，难以直接处理某一数列时，寻求两个较为简单的数列将其从一大一小两边夹住。如果这两个数列收敛于同一极限，则该数列也收敛于这个极限。
+难以直接处理一个数列时，可以寻找两个较为简单的数列，从上下两边限制它的取值。
+
+\begin{theorem}[夹逼原理]
+\label{thm:analysis-squeeze}
+设从某项起有\(a_n\le b_n\le c_n\)，且\(a_n\to a,c_n\to a\)，则\(b_n\to a\)。
+\end{theorem}
+
+\begin{proof}
+对任意\(\varepsilon>0\)，将\(N\)取得充分大，则当\(n>N\)时，夹逼关系成立，且\(|a_n-a|<\varepsilon,|c_n-a|<\varepsilon\)。于是
+\begin{equation*}
+ a-\varepsilon<a_n\le b_n\le c_n<a+\varepsilon,
+\end{equation*}
+即\(|b_n-a|<\varepsilon\)，故\(b_n\to a\)。
+\end{proof}
+
+特别地，若\(|b_n-a|\le d_n\)，且\(d_n\to0\)，对\(0\le|b_n-a|\le d_n\)使用夹逼原理，就得到\(b_n\to a\)。前面的误差估计由此也可以直接用于判断收敛。
 
 \begin{example}
     设\(a > 0 , b > 0\)，求极限\(\lim_{n \to \infty} {\left( a^{n} + b^{n} \right)}^{\frac{1}{n}}\).
 \end{example}
 
+\newpage
 \paragraph{2°单调有界原理} \mbox{}
 
-单调递增（减）的数列，若其有上（下）界，则该数列收敛。类似地，单调无界数列一定是有确定符号的无穷大量。
+\begin{theorem}[单调有界原理]
+\label{thm:analysis-monotone-convergence}
+单调递增且有上界的实数列收敛；单调递减且有下界的实数列也收敛。
+\end{theorem}
+
+本章将这一结论作为实数的基本性质使用。它保证满足条件的数列有极限，即使暂时还不知道极限是多少，也可以先确定收敛性，再研究极限的值。
+
+若单调递增数列无上界，则对任意\(M>0\)，总能找到一项大于\(M\)，此后各项均不小于该项，故数列趋于\(+\infty\)。同理，单调递减而无下界的数列趋于\(-\infty\)。
 
 \begin{example}
     证明：若\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n}\)，\(n \ge 1\)，则数列\(\left\{ e_{n} \right\}\)收敛。
 \end{example}
 
-\paragraph{3°二分法与区间套} \mbox{}
+\paragraph{3°区间套定理} \mbox{}
 
 单调有界原理也能把逐步缩小的区间确定为一个点。设闭区间逐层包含，且长度趋于零，便有如下结论。
 
@@ -306,7 +376,7 @@
 \(a_n\)递增、\(b_n\)递减，且\(a_1\le a_n\le b_n\le b_1\)，故分别收敛。两极限之差为零，记共同极限为\(\xi\)。对任意固定的\(n\)，后面各项仍在\([a_n,b_n]\)中，取极限得\(a_n\le\xi\le b_n\)。若另有公共点，它与\(\xi\)的距离不超过每个区间的长度，故只能相同。
 \end{proof}
 
-反复二分并保留满足条件的一半，区间长度便依次减半。只要保留条件确实可持续使用，区间套就给出一个确定的点；取区间中点近似它，误差不超过当前长度的一半。这既是存在性证明，也是带有误差保证的计算方法。
+只要保留条件能持续使用，反复二分就得到长度依次减半的区间套。若初始区间长度为\(L\)，二分\(k\)次后用中点\(x_k\)近似公共点，则误差不超过\(L/2^{k+1}\)。给定精度\(\varepsilon>0\)，由\(L/2^{k+1}<\varepsilon\)就能预先确定二分次数。这既是存在性证明，也是带有误差保证的计算方法。
 
 \begin{theorem}\label{thm:analysis-bounded-subsequence}
 每个有界实数列都有一个收敛子列。
@@ -318,6 +388,7 @@
 
 这里得到的只是一个收敛子列，并不保证原数列收敛。它与前面的“收敛数列的所有子列同极限”有不同的作用。第二章将用这些方法研究连续函数在闭区间上的性质。
 
+\newpage
 \paragraph{4°Cauchy收敛准则} \mbox{}
 
 Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
@@ -325,6 +396,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{definition}[基本列（柯西列）]
 若对任意\(\varepsilon>0\)，存在\(N\)，使任意\(m,n>N\)都有\(|a_m-a_n|<\varepsilon\)，则称\(\{a_n\}\)为{\heiti{}基本列}。
 \end{definition}
+\begin{samepage}
 \begin{theorem}[Cauchy收敛准则]
     数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列。
 \end{theorem}
@@ -332,6 +404,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 \begin{proof}
 收敛数列的两项在下标充分大时都接近极限，三角不等式即给出必要性。反过来，基本列取误差\(1\)便知其尾部有界，因而全数列有界。由定理\ref{thm:analysis-bounded-subsequence}，可取子列\(a_{n_k}\to a\)。对给定\(\varepsilon>0\)，先使所有足够靠后的两项之差小于\(\varepsilon/2\)，再选其中一个子列项，使它与\(a\)的差也小于\(\varepsilon/2\)。于是所有足够靠后的项都满足\(|a_n-a|<\varepsilon\)，故原数列收敛。
 \end{proof}
+\end{samepage}
 
 \begin{example}
     （1）设\(a_{n} = \sum _{i = 1}^{n} \frac{\sin i}{i^{2}}\)，证明：\(\left\{ a_{n} \right\}\)收敛。
@@ -357,6 +430,17 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
     （2）证明数列\(\left\{ \sin n \right\}\)发散。
 \end{example}
 \end{minipage}
+
+\begin{exercise}
+\label{ex:analysis-convergence-tools}
+\mbox{}\par\nobreak
+
+（1）用夹逼原理求\(\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\frac1{\sqrt{n^2+k}}\)。
+
+（2）设\(a_n=\sum_{k=1}^{n}(-1)^{k-1}/k\)。考察奇、偶子列的单调性，证明\(\{a_n\}\)收敛。
+
+（3）若\(|a_{n+1}-a_n|\le2^{-n}\)，证明\(\{a_n\}\)收敛。若只知\(a_{n+1}-a_n\to0\)，能否得到同一结论？
+\end{exercise}
 \newpage
 \section{Cauchy命题与Stolz定理}
 \label{sec:analysis-cesaro-stolz}
@@ -662,7 +746,7 @@ Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
 讨论\(\sum_{n=1}^{\infty}(-1)^{n-1}/n^p\)在实数\(p\)取不同值时的敛散性，并区分绝对收敛与条件收敛。取\(p=2\)，若要求部分和近似的误差不超过\(10^{-4}\)，由上述估计至少应取多少项？
 \end{example}
 
-\begin{exercise}
+\begin{exercise}[本节习题]
 \mbox{}\par\nobreak
 
 （1）求\(\sum_{n=1}^{\infty}1/[(2n-1)(2n+1)]\)的和及前\(n\)项和的误差。
