@@ -152,6 +152,21 @@ for x in [8,10,12,16]:body+=node(x,-.006,f"${x}$","below")
 body+=node(9,.19,'$3/8$')+node(11,.19,'$3/8$')+node(14,.065,'$2/8$')
 FIGURES['probability-histogram']=body+"\\end{scope}\n"
 
+# Heights transcribed from the figure in the 2020 Tianjin paper, question 4.
+# The horizontal index j corresponds to diameter 5.31 + 0.02*j millimetres.
+diameter_heights=[1.25,3.75,2.5,7.5,10,8.75,6.25,5,5]
+body="\\begin{scope}[x=.60cm,y=.17cm,font=\\scriptsize]\n"
+body+=axes(-.25,9.65,0,11.7,"d/\\mathrm{mm}","h")
+for y in [2.5,5,7.5,10]:
+    body+=f"\\draw[black!25,dashed] {coord(0,y)}--{coord(9,y)};\n"
+    body+=node(-.25,y,f"${y:g}$","left")
+for j,h in enumerate(diameter_heights):
+    body+=f"\\draw[fill=curveblue!15,curveblue] {coord(j,0)} rectangle {coord(j+1,h)};\n"
+    body+=node(j+.5,h,f"${h:g}$","above")
+for j in range(10):
+    body+=node(j,-.2,f"${5.31+.02*j:.2f}$","below")
+FIGURES['probability-histogram-exam']=body+"\\end{scope}\n"
+
 body="\\begin{scope}[x=.85cm,y=1cm]\n"
 body+=r"\draw[black!65,->] (7.5,0)--(16,0) node[right]{$x$};"+'\n'
 body+=r"\draw[curveblue] (8,.5)--(8,1.1) (15,.5)--(15,1.1) (8,.8)--(9,.8) (11.5,.8)--(15,.8);"+'\n'
