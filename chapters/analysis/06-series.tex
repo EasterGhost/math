@@ -1,0 +1,201 @@
+\newpage
+\section{数项级数}
+\label{sec:analysis-series}
+
+有限个数可以逐项相加。若不断加入新的项，所得结果是否接近一个确定的数，就要研究部分和数列的极限。数项级数以数列为基础，将求和问题与收敛问题联系起来。
+
+\subsection{数项级数的概念}
+
+\begin{definition}
+给定实数列\(\{a_n\}\)，表达式
+\begin{equation*}
+ \sum_{n=1}^{\infty}a_n=a_1+a_2+\cdots+a_n+\cdots
+\end{equation*}
+称为以\(a_n\)为通项的{\heiti{}数项级数}。记\(S_n=\sum_{k=1}^n a_k\)，称\(S_n\)为级数的部分和。若部分和数列收敛于\(S\)，则称级数{\heiti{}收敛}，\(S\)称为它的和，记作\(\sum_{n=1}^{\infty}a_n=S\)；否则称级数发散。
+\end{definition}
+
+这里的无穷求和由有限和的极限定义。不能先把它当作已经完成的有限次加法，再任意使用有限和的运算规则。
+
+例如，等比级数在\(|q|<1\)时有
+\begin{equation}\label{eq:analysis-geometric-series}
+ \sum_{n=1}^{\infty}a_1q^{n-1}
+ =\lim_{n\to\infty}a_1\frac{1-q^n}{1-q}
+ =\frac{a_1}{1-q}.
+\end{equation}
+取\(a_1=1,q=1/2\)，便有\(1+1/2+1/4+\cdots=2\)。部分和永远小于\(2\)，却可以任意接近\(2\)，两者并不矛盾。
+
+\begin{proposition}
+若\(\sum a_n\)收敛，则\(a_n\to0\)。改变级数的有限项不改变其敛散性。若\(\sum a_n=A\)、\(\sum b_n=B\)，则对常数\(\alpha,\beta\)，有
+\begin{equation*}
+ \sum_{n=1}^{\infty}(\alpha a_n+\beta b_n)=\alpha A+\beta B.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+由\(a_n=S_n-S_{n-1}\)知，收敛时\(a_n\to S-S=0\)。改变有限项，只使后面的部分和增加一个固定常数。最后一个结论由有限和的线性性质与数列极限的运算法则得到。
+\end{proof}
+
+通项趋于零只是必要条件。例如调和级数\(\sum 1/n\)发散，前面已通过其部分和说明这一点。通项本身的极限与部分和的极限，是两个不同的问题。
+
+由部分和数列的Cauchy准则，级数收敛等价于：对任意\(\varepsilon>0\)，存在\(N\)，使任意\(m>n>N\)都有
+\begin{equation}\label{eq:analysis-series-cauchy}
+ \left|\sum_{k=n+1}^{m}a_k\right|<\varepsilon.
+\end{equation}
+
+\begin{example}
+讨论\(\sum_{n=1}^{\infty}q^{n-1}\)在实数\(q\)取不同值时的敛散性。再考察\(1-1+1-1+\cdots\)，比较它的部分和与将相邻两项先合并后得到的部分和。
+\end{example}
+
+\subsection{从有限求和到无穷求和}
+
+\paragraph{1°累加与裂项} \mbox{}
+
+有限和可以分组、换序、提出常数。例如
+\begin{equation*}
+ \sum_{k=1}^n(\alpha a_k+\beta b_k)
+ =\alpha\sum_{k=1}^n a_k+\beta\sum_{k=1}^n b_k.
+\end{equation*}
+若一项可以写成两个相邻量之差，累加后便只留下首尾：
+\begin{equation}\label{eq:analysis-telescoping-sum}
+ \sum_{k=1}^n(b_k-b_{k+1})=b_1-b_{n+1}.
+\end{equation}
+例如，\(1/[k(k+1)]=1/k-1/(k+1)\)，所以
+\begin{equation*}
+ \sum_{k=1}^n\frac1{k(k+1)}=1-\frac1{n+1},
+ \qquad \sum_{k=1}^{\infty}\frac1{k(k+1)}=1.
+\end{equation*}
+这种方法称为{\heiti{}裂项相消}。它先处理每个有限部分和，再对部分和取极限。
+
+差分也可以用来求有限和。将\((k+1)^3-k^3=3k^2+3k+1\)从\(k=1\)到\(n\)相加，利用自然数求和公式，得到
+\begin{equation*}
+ \sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}6.
+\end{equation*}
+求和公式因此可以来自代数恒等式，而不必逐条记忆。
+
+\paragraph{2°错位相减} \mbox{}
+
+等比数列的求和依靠错位相减。若每项还带有下标的权重，错位后权重的次数会降低。设\(T_n=\sum_{k=1}^n kq^{k-1}\)，其中\(q\ne0,1\)，则
+\begin{equation*}
+ (1-q)T_n=1+q+\cdots+q^{n-1}-nq^n.
+\end{equation*}
+由等比数列求和公式，得
+\begin{equation}\label{eq:analysis-weighted-geometric-sum}
+ T_n=\frac{1-(n+1)q^n+nq^{n+1}}{(1-q)^2}.
+\end{equation}
+当\(|q|<1\)时，\(nq^n\to0\)，于是
+\begin{equation*}
+ \sum_{k=1}^{\infty}kq^{k-1}=\frac1{(1-q)^2}.
+\end{equation*}
+若权重是更高次的多项式，仍可利用前后权重之差降低次数。
+
+\begin{example}
+求下列级数的和，并写出前\(n\)项和与其极限之间的差：
+\begin{equation*}
+ \text{（1）}\ \sum_{k=1}^{\infty}\frac1{k(k+2)};
+ \qquad
+ \text{（2）}\ \sum_{k=1}^{\infty}\frac{k}{2^k}.
+\end{equation*}
+\end{example}
+
+\subsection{正项级数与比较判别}
+
+若各项\(a_n\ge0\)，称\(\sum a_n\)为{\heiti{}正项级数}。其部分和单调不减，故由单调有界原理，正项级数收敛的充要条件是部分和有上界。这里首先需要控制总和，不一定先求出它的值。
+
+\begin{theorem}[比较判别法]
+设从某项起\(0\le a_n\le b_n\)。若\(\sum b_n\)收敛，则\(\sum a_n\)收敛；若\(\sum a_n\)发散，则\(\sum b_n\)发散。
+\end{theorem}
+
+\begin{proof}
+略去有限项后，可设比较关系对所有项成立。若\(\sum b_n\)收敛于\(B\)，则\(\sum_{k=1}^n a_k\le\sum_{k=1}^n b_k\le B\)，故前者部分和有上界。第二个结论是第一个结论的逆否命题。
+\end{proof}
+
+例如对\(n\ge2\)，有\(1/n^2\le1/[n(n-1)]\)，而右侧级数可以裂项求和，故\(\sum 1/n^2\)收敛。这里并没有求出它的和。
+
+若\(a_n,b_n>0\)，且\(a_n/b_n\to c\)，其中\(0<c<\infty\)，则充分靠后的项满足\((c/2)b_n\le a_n\le2cb_n\)，故两个级数同敛散。这称为比较判别法的极限形式。
+
+\paragraph{\texorpdfstring{\(p\)}{p}级数} \mbox{}
+
+级数\(\sum_{n=1}^{\infty}1/n^p\)在\(p>1\)时收敛，在\(p\le1\)时发散。\(p\le1\)时，\(1/n^p\ge1/n\)，可与调和级数比较。对\(p>1\)，将下标按\(2^j\le n<2^{j+1}\)分组，每组有\(2^j\)项，且
+\begin{equation*}
+ \sum_{n=2^j}^{2^{j+1}-1}\frac1{n^p}
+ \le 2^j\frac1{2^{jp}}=\left(2^{1-p}\right)^j.
+\end{equation*}
+右边构成公比小于\(1\)的等比级数，便给出了全部部分和的上界。这是把逐项比较改为分组比较。
+
+\begin{example}
+判断下列级数的敛散性，并说明比较对象怎样选择：
+\begin{equation*}
+ \text{（1）}\ \sum_{n=1}^{\infty}\frac1{n^2+n+1};
+ \qquad
+ \text{（2）}\ \sum_{n=1}^{\infty}\frac1{\sqrt{n(n+1)}}.
+\end{equation*}
+\end{example}
+
+\subsection{比值与根值判别*}
+
+比较对象不必预先知道。若相邻项或第\(n\)次根的变化受到控制，就可以与等比级数建立联系。
+
+\begin{theorem}[比值与根值判别法]
+设\(a_n>0\)。若\(a_{n+1}/a_n\to r\)，或\(\sqrt[n]{a_n}\to r\)，则在\(r<1\)时\(\sum a_n\)收敛，在\(r>1\)时发散；\(r=1\)时不能仅据此判断。
+\end{theorem}
+
+\begin{proof}
+先看比值。当\(r<1\)时，在\(r\)与\(1\)之间取\(q\)，充分靠后的项满足\(a_{n+1}\le qa_n\)，由连乘得\(a_{N+k}\le a_Nq^k\)，故可与等比级数比较。当\(r>1\)时，尾部各项递增且为正，不可能趋于零。
+
+对于根值，\(r<1\)时同样取\(r<q<1\)，充分大的\(n\)满足\(a_n\le q^n\)；\(r>1\)时可取\(1<q<r\)，有\(a_n\ge q^n\)，故通项不趋于零。最后，\(\sum1/n\)与\(\sum1/n^2\)说明\(r=1\)时可能发散，也可能收敛。
+\end{proof}
+
+\begin{example}
+判断\(\sum_{n=1}^{\infty}n^2/3^n\)、\(\sum_{n=1}^{\infty}2^n/n!\)与\(\sum_{n=1}^{\infty}(n/(2n+1))^n\)的敛散性。比较逐项估计、比值判别与根值判别各自适合的表达式。
+\end{example}
+
+\subsection{绝对收敛与交错级数*}
+
+\begin{definition}
+若\(\sum|a_n|\)收敛，称\(\sum a_n\){\heiti{}绝对收敛}。若\(\sum a_n\)收敛而\(\sum|a_n|\)发散，称它{\heiti{}条件收敛}。
+\end{definition}
+
+\begin{theorem}
+绝对收敛的数项级数收敛。
+\end{theorem}
+
+\begin{proof}
+由\(\left|\sum_{k=n+1}^m a_k\right|\le\sum_{k=n+1}^m|a_k|\)，绝对值级数的Cauchy估计也控制原级数的相应区段，再用式\eqref{eq:analysis-series-cauchy}即可。
+\end{proof}
+
+符号交替时，前后项的抵消还可能使不绝对收敛的级数收敛。
+
+\begin{theorem}[交错级数判别法]
+若\(a_n\ge0\)单调不增且趋于零，则\(\sum_{n=1}^{\infty}(-1)^{n-1}a_n\)收敛。设其和为\(S\)，前\(n\)项和为\(S_n\)，则
+\begin{equation}\label{eq:analysis-alternating-error}
+ |S-S_n|\le a_{n+1},
+\end{equation}
+且\(S\)位于\(S_n\)与\(S_{n+1}\)之间。
+\end{theorem}
+
+\begin{proof}
+偶数项部分和满足\(S_{2n+2}-S_{2n}=a_{2n+1}-a_{2n+2}\ge0\)，奇数项部分和满足\(S_{2n+3}-S_{2n+1}=-a_{2n+2}+a_{2n+3}\le0\)。又\(S_{2n}\le S_{2n+1}\)，两者之差\(a_{2n+1}\to0\)，故两子列收敛于同一数\(S\)，原部分和数列也收敛于\(S\)。任意相邻两个部分和将\(S\)夹在其中，区间长度为\(a_{n+1}\)，便得余项估计。
+\end{proof}
+
+例如\(1-1/2+1/3-1/4+\cdots\)收敛，而其绝对值级数是发散的调和级数，所以它条件收敛。取前\(n\)项近似其和，误差不超过\(1/(n+1)\)，无须先知道和的具体值。判断收敛、求出级数的和、控制近似误差，是相互联系而又不同的任务。
+
+\begin{example}
+讨论\(\sum_{n=1}^{\infty}(-1)^{n-1}/n^p\)在实数\(p\)取不同值时的敛散性，并区分绝对收敛与条件收敛。取\(p=2\)，若要求部分和近似的误差不超过\(10^{-4}\)，由上述估计至少应取多少项？
+\end{example}
+
+\begin{exercise}[本节习题]
+\mbox{}\par\nobreak
+
+（1）求\(\sum_{n=1}^{\infty}1/[(2n-1)(2n+1)]\)的和及前\(n\)项和的误差。
+
+（2）用错位相减求\(\sum_{n=1}^{\infty}(2n-1)/3^n\)的和。
+
+（3）设\(a_n\ge0\)，且\(\sum a_n\)收敛。证明\(\sum a_n^2\)与\(\sum a_n/(1+a_n)\)均收敛。
+
+（4）设\(a_n>0\)，且\(na_n\to c>0\)。判断\(\sum a_n\)的敛散性。若只知\(na_n\to0\)，是否能够确定？
+
+\optionalexerciseitem{5}判断\(\sum_{n=1}^{\infty}n!/n^n\)的敛散性。再举两个比值极限都等于\(1\)、但敛散性不同的正项级数。
+
+\optionalexerciseitem{6}设\(a_n\ge0\)单调不增且趋于零。证明\(\sum_{n=1}^{\infty}(-1)^{n-1}a_n\)的第\(n\)项余项与第\(n+1\)项同号，余项为零时除外。
+\end{exercise}
+

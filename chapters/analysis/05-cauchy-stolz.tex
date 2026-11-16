@@ -1,0 +1,120 @@
+\newpage
+\section{Cauchy命题与Stolz定理}
+\label{sec:analysis-cesaro-stolz}
+
+\subsection{Cauchy命题}
+\begin{theorem}
+    设\(\{ x_{n} \}\)收敛于\(l\)，则它的前\(n\)项的平均值（所形成的数列）也收敛于\(l\)，即
+\begin{equation}
+    \lim_{n \to + \infty} \frac{\sum _{i = 1}^{n} x_{i}}{n} = l
+\end{equation}
+\end{theorem}
+\paragraph{证明思路} \mbox{}
+
+夹逼定理、单调有界原理等似乎都不好证明该命题，因此需要找些新的路径。首先观察式子
+\begin{equation}
+    \frac{x_{1} + x_{2} + \cdots + x_{n}}{n}
+\end{equation}
+如果每一项都与\(l\)充分接近，则其算术平均数也会与\(l\)接近。而\(\lim_{n \to \infty} x_{n} = l\)，只要令\(\varepsilon\)充分小，则从某项开始，后面的所有项将与\(l\)充分接近，即满足\(\left| x_{n} - l \right| < \varepsilon\)。因此对原式进行拆分：
+\begin{equation}
+    \frac{x_{1} + x_{2} + \cdots + x_{n}}{n} = \frac{x_{1} + \cdots + x_{N}}{n} + \frac{x_{N + 1} + \cdots + x_{n}}{n}
+\end{equation}
+而（为看清思路，先设各项\(x_{n} > 0\)，一般情形见下面的证明）
+\begin{equation}
+    \frac{x_{1} + \cdots + x_{N}}{n} \le \max \left\{ x_{1} , \ldots , x_{N} \right\} \times \frac{N}{n}
+\end{equation}
+\begin{equation}
+    \left| \frac{x_{N + 1} + \cdots + x_{n}}{n - N} - l \right| \le \varepsilon
+\end{equation}
+因此，只要\(n\)取得足够大：前\(N\)项被\(n\)除以后可以任意小；后\(n - N\)项的平均值与\(l\)的差不超过\(\varepsilon\)，且它在整个算术平均值中的权重\(\frac{n - N}{n}\)任意接近1。也就是说：先由\(\lim_{n \to \infty} x_{n} = l\)取定\(N\)，再把\(n\)取得充分大，使\(\frac{N}{n}\)任意小。
+
+从而确定两步走的思路，即先确定\(N\)，根据\(N\)对数列进行分拆，从而确定\(n\)，使得该式成立。
+
+\begin{proof}
+
+根据条件\(\lim_{n \to \infty} x_{n} = l\)，可知可以对任意给定的\(\varepsilon > 0\)，取定\(N\)，使得当\(n > N\)时，\(\left| x_{n} - l \right| < \varepsilon / 2\)成立。于是当\(n > N\)时，有如下估计：
+\begin{multline}
+    \left| \frac{x_{1} + x_{2} + \cdots + x_{n}}{n} - l \right| = \left| \frac{\left( x_{1} - l \right) + \left( x_{2} - l \right) + \cdots + \left( x_{n} - l \right)}{n} \right| \\
+    \le \frac{\left| \left( x_{1} - l \right) + \cdots + \left( x_{N} - l \right) \right|}{n} + \frac{\left| x_{N + 1} - l \right| + \cdots + \left| x_{n} - l \right|}{n} < \frac{M}{n} + \frac{n - N}{n} \cdot \varepsilon / 2
+\end{multline}
+
+这里\(M = \left| \left( x_{1} - l \right) + \cdots + \left( x_{N} - l \right) \right|\)是一个确定的数，由此，只要取得
+\begin{equation}
+    N_{1} = \max \left\{ N , \left[ \frac{M}{\varepsilon / 2} \right] \right\}
+\end{equation}
+
+就能保证当\(n > N_{1}\)时，下式成立：
+\begin{equation}
+    \left| \frac{x_{1} + x_{2} + \cdots + x_{n}}{n} - l \right| < \varepsilon
+\end{equation}
+
+\end{proof}
+
+\begin{example}
+    （1）设\(\lim_{n \to \infty} x_{n} = + \infty\)，证明：\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} x_{i}}{n} = + \infty\).
+
+    （2）设\(\left\{ a_{n} \right\}\)单调递增，\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}}{n} = a\)，证明：\(\left\{ a_{n} \right\}\)收敛到\(a\).
+
+    （3）已知\(k \in \mathbb{N}^{*}\)，设\(\left\{ a_{2 k - 1} \right\}\)收敛到\(a\)，\(\left\{ a_{2 k} \right\}\)收敛到\(b\)，且\(a \ne b\)，求\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}}{n}\).
+
+    （4）设\(\left\{ a_{n} \right\}\)为正数列，且收敛到\(A\)，证明：\(\lim_{n \to \infty} {\left( \prod _{i = 1}^{n} a_{i} \right)}^{\frac{1}{n}} = A\).
+\end{example}
+
+\subsection{Stolz定理}
+\paragraph{1°\texorpdfstring{\(0/0\)}{0/0}型} \mbox{}
+
+设\(\left\{ a_{n} \right\} , \left\{ b_{n} \right\}\)都是无穷小量，其中\(\left\{ a_{n} \right\}\)是严格单调递减数列，又存在
+\begin{equation}
+    \lim_{n \to \infty} \frac{b_{n + 1} - b_{n}}{a_{n + 1} - a_{n}} = l
+\end{equation}
+则有
+\begin{equation}
+    \lim_{n \to \infty} \frac{b_{n}}{a_{n}} = l
+\end{equation}
+其中\(l\)为有限值或\(\pm \infty\).
+
+\paragraph{2°\texorpdfstring{\(* / \infty\)}{*/∞}型} \mbox{}
+
+设\(\left\{ a_{n} \right\}\)是严格单调递增的无穷大量，又存在
+\begin{equation}
+    \lim_{n \to \infty} \frac{b_{n + 1} - b_{n}}{a_{n + 1} - a_{n}} = l
+\end{equation}
+则有
+\begin{equation}
+    \lim_{n \to \infty} \frac{b_{n}}{a_{n}} = l
+\end{equation}
+
+其中\(l\)为有限值或\(\pm \infty\).
+
+这两个定理都用相邻增量的比控制原量的比。以第二个定理的有限极限为例，当\(k\)充分大时，
+\begin{equation*}
+ (l-\varepsilon)(a_{k+1}-a_k)
+ \le b_{k+1}-b_k
+ \le(l+\varepsilon)(a_{k+1}-a_k).
+\end{equation*}
+从固定的\(N\)累加到\(n-1\)，再除以\(a_n\)，有限初始部分的影响趋于零，便把\(b_n/a_n\)夹在任意接近\(l\)的范围内。对于\(0/0\)型，改用正的增量\(a_k-a_{k+1}\)，从\(n\)累加到\(m\)，再令\(m\to\infty\)，利用\(a_m,b_m\to0\)即可。确定符号的无穷极限只需相应的单边估计。
+
+    {\kaiti{}思考\quad 若将以上三个命题中的极限值\(l\)改为不带符号的无穷大\(\infty\)，则结论均不成立。试举出反例。
+
+\enlargethispage{2\baselineskip}}
+
+\enlargethispage{\baselineskip}
+\begin{example}
+    （1）设\(a_{n} = \frac{\sum _{i = 1}^{n} i !}{n !} , n \in \mathbb{N}^{*}\)，求\(\lim_{n
+        \to \infty} a_{n}\).
+
+    （2）已知\(\lim_{n \to \infty} a_{n} = a\)，证明：\(\lim_{n \to
+        \infty} \frac{1}{2^{n}} \sum _{k = 0}^{n} \left( \begin{matrix}n \\ k\end{matrix} \right) a_{k} = a\).
+
+    （3）设\(a_{1} > 0 , a_{n + 1} = a_{n} + \frac{1}{a_{n}} , n \in
+    \mathbb{N}^{*}\)，证明：\(\lim_{n \to \infty} \frac{a_{n}}{\sqrt{2 n}} = 1\).
+
+    （4）若\(\lim_{n \to \infty} a_{n} = a , \lim_{n \to \infty}
+    b_{n} = b\)，证明：\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}
+        b_{n - i + 1}}{n} = a b\).
+
+    （5）设\(\left\{ a_{n} \right\}\)为正数列，且有\(\lim_{n \to \infty} \frac{a_{n
+                + 1}}{a_{n}} = l\)，证明：\(\lim_{n \to \infty} \sqrt[n]{a_{n}} = l\).
+    反之如何？
+\end{example}
+

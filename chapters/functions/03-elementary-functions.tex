@@ -1,0 +1,103 @@
+\newpage
+\section{基本初等函数}
+
+\subsection{多项式函数}
+多项式函数在前面已有定义。从形式上看，多项式函数是常值函数\(f(x) = c\)和线性函数\(f(x) = x\)经过有限次加法和乘法运算得到的。如果为多项式函数引入除法，就构成了{\heiti{}有理函数类}。有理函数同分数一样，如果分子的最高次项比分母的低，那么称这个函数是一个真分式，反之则称之为假分式。假分式可以通过带余除法将这个有理函数转换成一个多项式函数与一个真分式的和。另外值得注意的是，如果分母可以进行因式分解，则真分式可以进一步分解为数个真分式的和，其分母为因式分解的各个因式（需考虑重根），而分子由待定系数法确定。
+
+
+\subsection{三角函数与反三角函数}
+在初中阶段我们初步接触了sin、cos、tan函数，并仅在锐角范围内讨论这些问题。这里进一步地引入csc、sec、cot函数分别为上述三个函数的倒数，并取消关于锐角的限制，构成完整的三角函数体系。
+
+在初中阶段，我们对角度的数值范围限定在0--360°之间，然而，这一限定是一种对角度的静态的限定。如果考虑一条射线绕其顶点旋转超过一圈时这条射线旋转的角度，或者考虑反方向的旋转角度，这种静态的限定反而成为一种令人生厌的桎梏。另外，考虑到圆的半径与周长的关系，并放弃古人对整除的执念，自然而然地规范关于角的度量规定：
+\begin{definition}
+同种类的两个量的比是一个数，用以表示一个量含另一个量或另一个量的\(\frac{1}{p}\)（\(p\)是整数）的倍数。
+\end{definition}
+\begin{theorem}
+在同圆或等圆周上，两圆心角之比等于角的两边的两弧之比。
+\end{theorem}
+
+那么可以得到如下推论：{\kaiti{}如果取单位弧所对的圆心角作为角的单位，那么任一圆心角和它所对的弧有相同的度量数。或者说：圆心角以它所对的弧来度量。}
+
+因此可以进一步规定，在单位圆上，单位弧所对的圆心角为单位角，记为1。这便是常用的弧度制的单位角的定义。显然在弧度制下，一个周角的角度为\(2 \pi\)。如果考虑弧的方向问题，可以人为约定逆时针方向的弧为正，顺时针方向的弧为负。自然地，正的弧对应的角度为正，负的弧对应的角度为负。
+
+现在考虑三角函数。三角函数的对应关系是由以下几何关系确定的：
+
+\begin{wrapfigure}{r}{0.38\linewidth}
+\centering
+\includegraphics[width=0.90\linewidth]{trig-unit-circle}
+\setlength{\abovecaptionskip}{3pt}
+\caption{单位圆中的正弦与余弦}\label{fig:trig-unit-circle}
+\end{wrapfigure}
+图\ref{fig:trig-unit-circle}所示的单位圆中，从圆心引任意一条半径\(O A\)，其与坐标轴\(O x\)所成的角记为\(\theta\)，则记\(A\)点的横坐标为\(\cos \theta\)，纵坐标为\(\sin \theta\)。同时定义\(\tan \theta = \frac{\sin \theta}{\cos \theta}\)，由勾股定理知，对任意的\(\theta\)，均有
+
+\(\sin^{2} \theta + \cos^{2} \theta = 1\)
+
+考虑直角三角形两锐角的余角关系，我们有
+\begin{equation}
+\cos \theta = \sin \left( \frac{\pi}{2} - \theta \right)
+\end{equation}
+
+让\(O A\)从\(x\)轴开始绕\(O\)点旋转，观察\(A\)点坐标值随\(O A\)转过的角度的变化，可以刻画出\(y = \sin x\)与\(y = \cos x\)的图像：
+\begin{center}
+\begin{minipage}{\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{trig-sine-cosine}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正弦函数与余弦函数}\label{fig:trig-sine-cosine}
+\end{minipage}
+\end{center}
+容易知道，它们的定义域都是\(\mathbb{R}\)，值域是\(\left[ - 1 , 1 \right]\)，同时都具有周期性和对称性。我们将在后面的章节具体分析其周期性和对称性。
+
+由于\(\cos x = 0\)有解，故\(y = \tan x\)的图像并不在\(\left( - \infty , + \infty \right)\)上连续。容易知道，\(y = \tan x\)的值域为\(\mathbb{R}\)，定义域为\(\left\{ x \mid \cos x \ne 0 , x \in \mathbb{R} \right\}\)，进一步求解方程\(\cos x = 0\)可知其定义域为\(\left\{ x \in \mathbb{R} \mid x \ne \frac{\pi}{2} + k \pi , k \in \mathbb{Z} \right\}\)。画出其函数图像：
+\begin{center}
+\begin{minipage}{0.94\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=\linewidth]{trig-tangent}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正切函数及其竖直渐近线}\label{fig:trig-tangent}
+\end{minipage}
+\end{center}
+
+\newpage
+\paragraph{反三角函数} \mbox{}
+
+三角函数在整个定义域上会重复取值。为了反过来由函数值确定一个角，需要先限制到严格单调的区间。通常将正弦、余弦与正切分别限制在\([-\pi/2,\pi/2]\)、\([0,\pi]\)与\((-\pi/2,\pi/2)\)上，它们在这些区间上的值域分别为\([-1,1]\)、\([-1,1]\)与\(\mathbb R\)。相应的反函数记为
+\begin{equation*}
+ \begin{aligned}
+ y=\arcsin x&\quad\Longleftrightarrow\quad x=\sin y,
+ &&x\in[-1,1],\quad y\in[-\pi/2,\pi/2],\\
+ y=\arccos x&\quad\Longleftrightarrow\quad x=\cos y,
+ &&x\in[-1,1],\quad y\in[0,\pi],\\
+ y=\arctan x&\quad\Longleftrightarrow\quad x=\tan y,
+ &&x\in\mathbb R,\quad y\in(-\pi/2,\pi/2).
+ \end{aligned}
+\end{equation*}
+这些函数称为{\heiti{}反三角函数}。它们的定义域来自原函数的值域，值域来自选定的角度区间。由连续反函数定理，它们连续；反正弦、反正切严格递增，反余弦严格递减。例如\(\arcsin(1/2)=\pi/6\)，而方程\(\sin y=1/2\)在全部实数范围内还有其他解。
+
+\subsection{指数函数与对数函数}
+指数函数是一类性态良好的函数，其基本形式是\(y = a^{x} \left( a > 0 , a \ne 1 \right)\)。显然，当\(a = 1\)时，函数退化为\(y = 1\)；\(a = 0\)时，函数退化为\(y = 0 \left( x > 0 \right)\)；\(a < 0\)时，只有\(x\)为整数（更一般地，只有\(x\)为分母是奇数的有理数）时，\(a^{x}\)在实数域上才有意义。因此限定指数函数的\(a > 0\)且\(a \ne 1\)。
+
+图\ref{fig:function-exponentials}给出\(a\)取不同值时的函数图像：
+\begin{center}
+\begin{minipage}{0.56\linewidth}
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=0.90\linewidth]{function-exponentials}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{不同底数的指数函数}\label{fig:function-exponentials}
+\end{minipage}
+\end{center}
+容易观察到其定义域均为\(\mathbb{R}\)，值域均为\(\left( 0 , + \infty \right)\)。
+
+{\kaiti{}思考\quad 无理数次幂是如何定义的？}
+
+\newpage
+\paragraph{对数函数} \mbox{}
+
+对数运算是指数运算的逆运算，对数函数也就是指数函数的反函数。根据前面对反函数的讨论，对数函数的定义域是指数函数的值域，即\(\left( 0 , + \infty \right)\)；对数函数的值域为指数函数的定义域\(\mathbb{R}\)。交换指数函数图像的\(x\)轴和\(y\)轴，即可得到对应的对数函数的图像，这里不再刻画。
+
+\subsection{幂函数}
+幂函数的基本形式为\(y = x^{\alpha} , \alpha \in \mathbb{R}\)。课本上已经给出一些具有代表性的幂函数图像，此处不再给出。为避免未定义行为，通常规定幂函数的基本定义域为\(x > 0\)。
+

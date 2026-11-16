@@ -1,0 +1,125 @@
+\newpage
+\section{综合习题}
+\label{sec:analysis-comprehensive-exercises}
+
+以下习题覆盖数列的表示、求和、极限、数项级数与迭代。求通项时应说明依据；研究极限时，应区分极限的候选值与收敛性的证明。
+
+\begin{exercise}
+\label{exs:analysis-comprehensive}
+\mbox{}\par\nobreak
+
+（1）设\(a_1=1,a_{n+1}-a_n=2n\)。
+
+\quad \exercisesubitem{1}用累加法求通项，并用数学归纳法核对。
+
+\quad \exercisesubitem{2}求前\(n\)项和\(S_n\)，再由\(S_n-S_{n-1}\)恢复\(a_n\)。
+
+（2）等差数列的前\(n\)项和为\(S_n\)，且\(S_3=12,S_6=42\)。求通项，并求
+\begin{equation*}
+ T_n=\sum_{k=1}^n\frac1{a_ka_{k+1}}
+\end{equation*}
+及\(\lim_{n\to\infty}T_n\)。
+
+（3）等比数列的首项为\(3\)，公比为\(-1/2\)。求通项、前\(n\)项和及二者的极限。原数列与部分和数列是否单调？它们的奇、偶子列分别怎样变化？
+
+（4）设\(S_n=\sum_{k=1}^n(2k-1)3^{k-1}\)。
+
+\quad \exercisesubitem{1}用错位相减求\(S_n\)。
+
+\quad \exercisesubitem{2}分别求\(S_n/3^n\)、\(S_n/(n3^n)\)的极限，比较两种尺度下的结果。
+
+（5）设
+\begin{equation*}
+ S_n=\sum_{k=1}^n\frac1{\sqrt{k+1}+\sqrt k}.
+\end{equation*}
+求\(S_n\)，并分别求\(\lim_{n\to\infty}S_n/n\)、\(\lim_{n\to\infty}S_n/\sqrt n\)。说明同一个部分和数列在不同尺度下的极限有何不同。
+
+（6）\exercisesubitem{1}只用定义证明\((3n-1)/(n+2)\to3\)，并对给定的\(\varepsilon>0\)写出一个可用的\(N\)。
+
+\quad \exercisesubitem{2}设\(a_n\to a,b_n\to b\)，且从某项起\(a_n\le b_n+1/n\)，证明\(a\le b\)。
+
+（7）设实数列满足\(|a_{n+1}-a_n|\le2^{-n}\)。用Cauchy准则证明它收敛，并给出极限\(a\)与\(a_n\)之间的误差上界。若条件换为\(|a_{n+1}-a_n|\le1/n\)，是否仍必收敛？说明理由。
+
+（8）若数列\(\{a_n\}\)的奇子列与偶子列都收敛于\(a\)，证明原数列也收敛于\(a\)。
+
+（9）从\([a_0,b_0]=[1,2]\)开始，每次取\(m_n=(a_n+b_n)/2\)。若\(m_n^3\le2\)，保留\([m_n,b_n]\)；否则保留\([a_n,m_n]\)，记为\([a_{n+1},b_{n+1}]\)。
+
+\quad \exercisesubitem{1}证明这些区间构成长度趋于零的区间套，公共点\(\xi\)满足\(\xi^3=2\)。
+
+\quad \exercisesubitem{2}用进行十次二分后的区间中点近似\(\xi\)，给出误差上界。这里的收敛性为何不需要先求出\(\xi\)？
+
+（10）利用适当的极限工具，计算或证明：
+\begin{equation*}
+ \lim_{n\to\infty}\frac{\sqrt1+\sqrt2+\cdots+\sqrt n}{n^{3/2}}=\frac23;
+ \qquad
+ x_n\to l\ \Longrightarrow\
+ \frac{\sum_{k=1}^n kx_k}{n^2}\to\frac l2.
+\end{equation*}
+说明相邻增量的比较怎样确定上述极限。
+
+（11）记\(E_n=\sum_{k=0}^n1/k!\)。
+
+\quad \exercisesubitem{1}由\(0<e-E_n<1/(n\,n!)\)，求使这个误差上界小于\(10^{-6}\)的最小正整数\(n\)。
+
+\quad \exercisesubitem{2}利用本章关于余项的结论，证明\(n\,n!(e-E_n)\to1\)。误差上界与实际误差的比值趋于多少？
+
+（12）设\(A>0,x_1>0\)，并令
+\begin{equation*}
+ x_{n+1}=\frac12\left(x_n+\frac A{x_n}\right).
+\end{equation*}
+证明从第二项起\(x_n\ge\sqrt A\)，且数列单调不增，进而证明\(x_n\to\sqrt A\)。再证明误差关系
+\begin{equation*}
+ x_{n+1}-\sqrt A=\frac{(x_n-\sqrt A)^2}{2x_n},
+\end{equation*}
+说明它为何适合用于平方根的近似计算。
+
+（13）计算下列极限，并说明怎样消去式中的主要部分：
+\begin{equation*}
+ \exercisesubitem{1}\ \lim_{n\to\infty}\left(\sqrt{n^2+n}-n\right);
+ \qquad
+ \exercisesubitem{2}\ \lim_{n\to\infty}n\left(\sqrt{n^2+n}-n-\frac12\right).
+\end{equation*}
+
+（14）设\(a_n\to l\)。证明
+\begin{equation*}
+ \lim_{n\to\infty}\frac{a_1+2a_2+\cdots+2^{n-1}a_n}{2^n}=l.
+\end{equation*}
+若将条件改为左侧数列收敛于\(l\)，是否能反推出\(a_n\to l\)？与Cauchy命题的逆命题比较。
+
+（15）设\(\alpha>-1\)。求\(\sum_{n=1}^{\infty}1/[(n+\alpha)(n+\alpha+1)]\)的和，并求前\(N\)项和的误差。对给定的\(\varepsilon>0\)，写出保证误差小于\(\varepsilon\)的\(N\)应满足的条件。
+
+（16）设\(a_n>0\)单调不增，且\(\sum_{n=1}^{\infty}a_n\)收敛。
+
+\quad \exercisesubitem{1}通过比较\(na_{2n}\)与\(\sum_{k=n+1}^{2n}a_k\)，证明\(na_n\to0\)。
+
+\quad \exercisesubitem{2}若不要求单调，结论是否仍成立？试用只在少数下标处较大的数列说明。
+
+（17）设\(x_1>0\)，且\(x_{n+1}=x_n/(1+x_n)\)。
+
+\quad \exercisesubitem{1}考察\(1/x_n\)，求\(x_n\)的通项与\(\lim_{n\to\infty}nx_n\)。
+
+\quad \exercisesubitem{2}证明\(x_n-x_{n+1}=x_nx_{n+1}\)，并求级数\(\sum_{n=1}^{\infty}x_nx_{n+1}\)的和与前\(N\)项和的误差。
+
+（18）设\(\{a_n\}\)有界，且它的每个收敛子列都以\(a\)为极限。证明\(a_n\to a\)。若原数列不收敛于\(a\)，试先找出始终与\(a\)相隔一定距离的子列，再使用有界数列的收敛子列定理。
+
+（19）设\(S_n=\sum_{k=1}^n a_k\)有界。
+
+\quad \exercisesubitem{1}证明\((a_1+\cdots+a_n)/n\to0\)。这是否说明\(a_n\to0\)，或说明\(\sum a_n\)收敛？分别说明理由。
+
+\quad \exercisesubitem{2}若另有\(a_n\ge0\)，结论有什么变化？比较有界性与单调性在这里的作用。
+
+（20）设闭区间\([u_{n+1},v_{n+1}]\subseteq[u_n,v_n]\)，且\(v_n-u_n\to d\ge0\)。
+
+\quad \exercisesubitem{1}证明两端点数列分别收敛，记极限为\(u,v\)，并证明全部区间的公共部分恰为\([u,v]\)，其长度为\(d\)。
+
+\quad \exercisesubitem{2}若改为开区间，即使长度趋于零，是否仍一定有公共点？举例说明。
+
+（21）记\(H_n=\sum_{k=1}^n1/k\)，已知\(\gamma_n=H_n-\ln n\)收敛。对固定整数\(m\ge2\)，求\(\lim_{n\to\infty}(H_{mn}-H_n)\)。为什么不能把含有\(n\)项的这个和，直接拆成逐项极限之和？
+\end{exercise}
+
+\begin{exercise}[选做]
+\label{exs:analysis-comprehensive-optional}
+\mbox{}\par\nobreak
+
+（1）判断\(\sum_{n=1}^{\infty}(-1)^{n-1}(\sqrt{n+1}-\sqrt n)\)是否收敛、是否绝对收敛，并给出前\(N\)项和近似级数和的误差上界。若要求误差不超过\(10^{-2}\)，应怎样选择\(N\)？
+\end{exercise}

@@ -1,0 +1,227 @@
+\newpage
+\section{数列极限}
+\label{sec:analysis-sequence-limits}
+上面已经介绍了数列极限的基本定义，其他形式的等价定义请参考教材叙述。
+
+有极限的数列称为{\heiti{}收敛数列}，不收敛的数列称为{\heiti{}发散数列}。
+
+\begin{definition}[子列]
+设\(\{ a_{n} \}\)是一个数列，\(\{ n_{k} \}\)是一个\textbf{严格单调递增}的自然数列（即\(\forall k \in \mathbb{N}^{*} , n_{k} \in \mathbb{N}^{*}\)），则可以得到另一个数列：
+\begin{equation*}
+    a_{n_{1}} , a_{n_{2}} , \ldots , a_{n_{k}} , \cdots
+\end{equation*}
+记为\(\left\{ a_{n_{k}} \right\}\)，称\(\left\{ a_{n_{k}} \right\}\)为\(\left\{ a_{n} \right\}\)的一个子列。
+\end{definition}
+
+显然，“子列”一词说明，子列中的元素均来源于“父列”，即原数列；且子列不改变元素在原数列中的排列顺序。来源于同一数列的子列可以有无穷多个，数列自身也是该数列的一个子列。（此处可参考集合里的“子集”概念）
+
+\subsection{放缩法}
+放缩法是用不等式控制所研究的量，或控制它与目标值之间的误差。例如，要证明\(a_n\to a\)，可以寻找容易估计的\(b_n\)，使\(|a_n-a|\le b_n\)，再对任意给定的\(\varepsilon>0\)，确定使\(b_n<\varepsilon\)成立的下标范围。
+
+放缩的方向与精度应当由目标决定。估计式既要容易处理，也要保留足够的信息，使所需误差能够趋于零。对同一个表达式，证明有界与证明收敛，所需的估计可能不同。
+
+第五章将借助导数、中值定理与凸性，介绍构造上下界与控制误差的方法；选讲中的Taylor公式还会进一步给出近似的精度。这里先从具体表达式出发，练习怎样得到有效的估计。
+
+\begin{example}
+    以下证明请使用极限的定义进行证明，不要使用其他定理或推论。
+
+    （1）数列\(\{n^5/2^n\}\)收敛于\(0\)。
+
+    （2）数列\(\{\sqrt[n]{n}\}\)的极限是\(1\)。
+
+    （3）\(\displaystyle\lim_{n\to\infty}\frac{3n^2}{n^2-4}=3\)。
+
+    （4）\(\displaystyle\lim_{n\to\infty}\frac{a^n}{n!}=0\quad(a>0)\)。
+\end{example}
+
+\begin{example}
+利用有理化建立误差上界，用定义证明\(\sqrt{n+1}-\sqrt n\to0\)，并对给定的\(\varepsilon>0\)写出一个可用的\(N\)。
+\end{example}
+\newpage
+\subsection{收敛数列的基本性质}
+\begin{theorem}\label{thm:analysis-sequence-limit-properties}
+设\(a_n\to a,b_n\to b\)，则有以下性质。
+
+（1）极限唯一；改变有限多项，不改变收敛性及极限。
+
+（2）收敛数列有界；它的每个子列都收敛于同一极限。
+
+（3）若从某项起\(a_n\le b_n\)，则\(a\le b\)。若\(a>0\)，则从某项起\(a_n>0\)；负极限类似。
+
+（4）对常数\(\alpha,\beta\)，有
+\begin{equation*}
+ \alpha a_n+\beta b_n\to\alpha a+\beta b,\qquad
+ a_nb_n\to ab,\qquad
+ \frac{a_n}{b_n}\to\frac ab\quad(b\ne0).
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+若同一数列有不同极限\(a,b\)，取\(\varepsilon=|a-b|/3\)，当下标充分大时，两种误差估计与三角不等式矛盾。改变有限多项时，只须把\(N\)取得超过这些项的下标，原来的误差估计仍然成立。取\(\varepsilon=1\)，充分靠后的项都在\((a-1,a+1)\)内，再将有限多个前项计入，就得到全数列的界。子列下标严格增加，因而最终也进入原数列保证误差的范围。
+
+加法与数乘用三角不等式控制误差；乘法则分解为
+\begin{equation*}
+ a_nb_n-ab=a_n(b_n-b)+b(a_n-a),
+\end{equation*}
+再使用\(a_n\)有界。商的情形，由\(b_n\to b\ne0\)，充分靠后的项满足\(|b_n|>|b|/2\)，于是
+\begin{equation*}
+ \left|\frac{a_n}{b_n}-\frac ab\right|
+ \le\frac{2}{|b|}|a_n-a|+\frac{2|a|}{|b|^2}|b_n-b|.
+\end{equation*}
+右边两项都能任意小，因而商也趋于相应的极限。
+
+若\(a>0\)，取\(\varepsilon=a/2\)，便有充分靠后的项满足\(a_n>a/2>0\)。负极限类似。若从某项起\(a_n\le b_n\)，而\(a>b\)，则\(a_n-b_n\to a-b>0\)，由保号性得\(a_n>b_n\)最终成立，产生矛盾，故\(a\le b\)。
+\end{proof}
+
+对于非负数列，若\(a_n\to a\)，则\(\sqrt{a_n}\to\sqrt a\)。可由\(|\sqrt{a_n}-\sqrt a|\le\sqrt{|a_n-a|}\)直接控制误差。后面在含平方根的递推式中取极限时将使用这一点。
+
+{\kaiti{}思考\quad （1）设\(\left\{ a_{n} \right\}\)收敛，\(\left\{ b_{n} \right\}\)发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
+
+（2）设\(\left\{ a_{n} \right\} , \left\{ b_{n} \right\}\)均发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
+
+（3）设\(a_{n} < b_{n} < c_{n} , n \in \mathbb{N}^{*}\)，若\(\lim_{n \to \infty} \left( c_{n} - a_{n} \right) = 0\)，问：数列\(b_{n}\)是否收敛？
+
+（4）找出下列运算中的错误：
+\begin{equation*}
+    \lim_{n \to \infty} \left( \frac{1}{n + 1} + \cdots + \frac{1}{2 n} \right) = \lim_{n \to \infty} \left( \frac{1}{n + 1} \right) + \cdots + \lim_{n \to \infty} \left( \frac{1}{2 n} \right) = 0 + \cdots + 0 = 0
+\end{equation*}
+
+（5）设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又对每一个\(n\)有\(b < a_{n} < c\)，问：是否成立\(b < a < c\)？
+
+（6）设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又有\(b \le a \le c\)，问：是否有\(\exists N \in \mathbb{N}^{*} , \text{s.t.} \forall n > N , b \le a_{n} \le c\)成立？
+
+（7）设已知\(\lim_{n \to \infty} a_{n} = 0\)，问：是否有\(\lim_{n \to \infty} \left( a_{1} a_{2} \cdots a_{n} \right) = 0\)？反之如何？}
+
+\begin{example}
+
+    利用收敛数列的性质完成以下证明或计算：
+
+    （1）证明：若一数列收敛，则该数列必有最大值或最小值，但不一定同时有最大值和最小值。
+
+    （2）若\(\lim_{n \to \infty} \frac{x_{n} - a}{x_{n} + a} =
+    0\)，证明\(\lim_{n \to \infty} x_{n} = a\).
+
+    （3）设\(s_{n} = a + 3 a^{2} + \cdots + \left( 2 n - 1 \right) a^{n} , \left| a
+    \right| < 1\)，求\(\left\{ s_{n} \right\}\)的极限。
+
+    （4）求\(\lim_{n \to \infty} \prod _{i = 0}^{n} \left( 1 + x^{2^{i}}
+    \right)\)，其中\(\left| x \right| < 1\).
+\end{example}
+
+\subsection{数列收敛性的研究工具}
+\paragraph{1°夹逼原理} \mbox{}
+
+难以直接处理一个数列时，可以寻找两个较为简单的数列，从上下两边限制它的取值。
+
+\begin{theorem}[夹逼原理]
+\label{thm:analysis-squeeze}
+设从某项起有\(a_n\le b_n\le c_n\)，且\(a_n\to a,c_n\to a\)，则\(b_n\to a\)。
+\end{theorem}
+
+\begin{proof}
+对任意\(\varepsilon>0\)，将\(N\)取得充分大，则当\(n>N\)时，夹逼关系成立，且\(|a_n-a|<\varepsilon,|c_n-a|<\varepsilon\)。于是
+\begin{equation*}
+ a-\varepsilon<a_n\le b_n\le c_n<a+\varepsilon,
+\end{equation*}
+即\(|b_n-a|<\varepsilon\)，故\(b_n\to a\)。
+\end{proof}
+
+特别地，若\(|b_n-a|\le d_n\)，且\(d_n\to0\)，对\(0\le|b_n-a|\le d_n\)使用夹逼原理，就得到\(b_n\to a\)。前面的误差估计由此也可以直接用于判断收敛。
+
+\begin{example}
+    设\(a > 0 , b > 0\)，求极限\(\lim_{n \to \infty} {\left( a^{n} + b^{n} \right)}^{\frac{1}{n}}\).
+\end{example}
+
+\newpage
+\paragraph{2°单调有界原理} \mbox{}
+
+\begin{theorem}[单调有界原理]
+\label{thm:analysis-monotone-convergence}
+单调递增且有上界的实数列收敛；单调递减且有下界的实数列也收敛。
+\end{theorem}
+
+本章将这一结论作为实数的基本性质使用。它保证满足条件的数列有极限，即使暂时还不知道极限是多少，也可以先确定收敛性，再研究极限的值。
+
+若单调递增数列无上界，则对任意\(M>0\)，总能找到一项大于\(M\)，此后各项均不小于该项，故数列趋于\(+\infty\)。同理，单调递减而无下界的数列趋于\(-\infty\)。
+
+\begin{example}
+    证明：若\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n}\)，\(n \ge 1\)，则数列\(\left\{ e_{n} \right\}\)收敛。
+\end{example}
+
+\paragraph{3°区间套定理} \mbox{}
+
+单调有界原理也能把逐步缩小的区间确定为一个点。设闭区间逐层包含，且长度趋于零，便有如下结论。
+
+\begin{theorem}[闭区间套定理]\label{thm:analysis-nested-intervals}
+设\([a_{n+1},b_{n+1}]\subseteq[a_n,b_n]\)，且\(b_n-a_n\to0\)。则存在唯一实数\(\xi\)，属于全部区间，并有\(a_n\to\xi,b_n\to\xi\)。
+\end{theorem}
+
+\begin{proof}
+\(a_n\)递增、\(b_n\)递减，且\(a_1\le a_n\le b_n\le b_1\)，故分别收敛。两极限之差为零，记共同极限为\(\xi\)。对任意固定的\(n\)，后面各项仍在\([a_n,b_n]\)中，取极限得\(a_n\le\xi\le b_n\)。若另有公共点，它与\(\xi\)的距离不超过每个区间的长度，故只能相同。
+\end{proof}
+
+只要保留条件能持续使用，反复二分就得到长度依次减半的区间套。若初始区间长度为\(L\)，二分\(k\)次后用中点\(x_k\)近似公共点，则误差不超过\(L/2^{k+1}\)。给定精度\(\varepsilon>0\)，由\(L/2^{k+1}<\varepsilon\)就能预先确定二分次数。这既是存在性证明，也是带有误差保证的计算方法。
+
+\begin{theorem}\label{thm:analysis-bounded-subsequence}
+每个有界实数列都有一个收敛子列。
+\end{theorem}
+
+\begin{proof}
+取一个包含全部项的闭区间。把它二分，至少一半包含无穷多个下标对应的项；保留这一半并继续二分，就得到长度趋于零的区间套。由定理\ref{thm:analysis-nested-intervals}，其公共点唯一。每次从保留区间中选一项，并使下标大于上一次，所选项与公共点的距离不超过该区间长度，因而构成收敛子列。
+\end{proof}
+
+这里得到的只是一个收敛子列，并不保证原数列收敛。它与前面的“收敛数列的所有子列同极限”有不同的作用。第二章将用这些方法研究连续函数在闭区间上的性质。
+
+\newpage
+\paragraph{4°Cauchy收敛准则} \mbox{}
+
+Cauchy收敛准则是判断数列是否收敛/发散的充要条件。
+
+\begin{definition}[基本列（柯西列）]
+若对任意\(\varepsilon>0\)，存在\(N\)，使任意\(m,n>N\)都有\(|a_m-a_n|<\varepsilon\)，则称\(\{a_n\}\)为{\heiti{}基本列}。
+\end{definition}
+\begin{samepage}
+\begin{theorem}[Cauchy收敛准则]
+    数列\(\left\{ a_{n} \right\}\)收敛的充要条件是\(\left\{ a_{n} \right\}\)是基本列。
+\end{theorem}
+
+\begin{proof}
+收敛数列的两项在下标充分大时都接近极限，三角不等式即给出必要性。反过来，基本列取误差\(1\)便知其尾部有界，因而全数列有界。由定理\ref{thm:analysis-bounded-subsequence}，可取子列\(a_{n_k}\to a\)。对给定\(\varepsilon>0\)，先使所有足够靠后的两项之差小于\(\varepsilon/2\)，再选其中一个子列项，使它与\(a\)的差也小于\(\varepsilon/2\)。于是所有足够靠后的项都满足\(|a_n-a|<\varepsilon\)，故原数列收敛。
+\end{proof}
+\end{samepage}
+
+\begin{example}
+    （1）设\(a_{n} = \sum _{i = 1}^{n} \frac{\sin i}{i^{2}}\)，证明：\(\left\{ a_{n} \right\}\)收敛。
+
+    （2）证明：单调数列\(\left\{ a_{n} \right\}\)收敛的充要条件是它有一个收敛子列。
+\end{example}
+
+\subsection{判断数列发散的方法}
+判断发散可以考察以下情形：
+
+（1）数列无界；（2）有一个发散子列；（3）有两个子列收敛于不同的极限。
+
+数列收敛的定义及Cauchy收敛准则仍然可以用来判断数列是否发散。
+
+\par\noindent\begin{minipage}{\linewidth}
+\setlength{\parindent}{2em}\setlength{\parskip}{6pt}
+\begin{example}
+    完成以下证明：
+
+    （1）设\(S_{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} , n \in
+    \mathbb{N}^{*}\)，证明数列\(\left\{ S_{n} \right\}\)发散。
+
+    （2）证明数列\(\left\{ \sin n \right\}\)发散。
+\end{example}
+\end{minipage}
+
+\begin{exercise}
+\label{ex:analysis-convergence-tools}
+\mbox{}\par\nobreak
+
+（1）用夹逼原理求\(\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\frac1{\sqrt{n^2+k}}\)。
+
+（2）设\(a_n=\sum_{k=1}^{n}(-1)^{k-1}/k\)。考察奇、偶子列的单调性，证明\(\{a_n\}\)收敛。
+
+（3）若\(|a_{n+1}-a_n|\le2^{-n}\)，证明\(\{a_n\}\)收敛。若只知\(a_{n+1}-a_n\to0\)，能否得到同一结论？
+\end{exercise}

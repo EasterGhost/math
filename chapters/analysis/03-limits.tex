@@ -1,0 +1,62 @@
+\newpage
+\section{极限}
+\label{sec:analysis-limits}
+数列\(a_n=n/(n+1)\)的每一项都小于\(1\)，但下标越大，它与\(1\)的差就越小。等比数列的求和公式又给出
+\begin{equation*}
+ \frac12+\frac1{2^2}+\cdots+\frac1{2^n}=1-\frac1{2^n}.
+\end{equation*}
+左边不断加入新的项，右边却表明，无论加到哪一项，所得的和都小于\(1\)，并且与\(1\)的差可以越来越小。求某一项或有限项的和，可以通过有限次运算完成；当下标不断增大时，我们还希望描述整个变化过程的性质。
+
+这里的“接近”不只是看到小数点后的几位相同。若只要求误差小于\(0.01\)，可以取一批足够靠后的项；若要求小于\(0.0001\)，就需要把下标取得更大。真正要说明的是：无论给出怎样的正误差，都能找到一个下标，使它后面的所有项满足要求。极限将这种关系概括为一个确定的数学概念。
+
+这个概念也不要求变化过程一定到达那个数。上面的两个数列都不取到\(1\)，但不妨碍我们用\(1\)描述它们的最终趋势；数列\((-1)^n/n\)在零的两侧交替变化，也可以越来越接近零。因此，要控制的是与目标值的距离，而不是每一步变化的方向。
+
+函数也有类似的问题。考察\(x\)接近\(1\)时\(x^2\)的变化，我们关心的是：怎样限制\(x\)与\(1\)的距离，才能使\(x^2\)与\(1\)的误差达到要求？数列中取足够大的下标，函数中取足够小的距离，都是用自变量的范围控制结果的误差。
+
+有了这样的表述，有限的估计就能够说明无限过程的性质。计算若干项可以帮助我们观察、猜测，极限的定义则要给出对全部后续项有效的保证。下面将“任意给定的精度”和“保证这个精度的范围”分别用数学符号表示。
+
+\subsection{极限的定义}
+\begin{definition}[数列的极限]
+设\(\{a_n\}\)是一个数列，\(a\)为实数。若
+\begin{equation}\label{eq:analysis-sequence-limit-definition}
+ \forall\varepsilon>0,\ \exists N\in\mathbb{N}^{*},\quad
+ n>N\ \Longrightarrow\ |a_n-a|<\varepsilon,
+\end{equation}
+则称\(\{a_n\}\)的极限为\(a\)，或称\(\{a_n\}\){\heiti{}收敛于}\(a\)，记作\(\lim_{n\to+\infty}a_n=a\)。
+\end{definition}
+
+这里的\(N\)可以依赖于\(\varepsilon\)；一旦选定\(N\)，它后面的所有项都应满足误差要求。这种定义称为{\heiti{}\(\varepsilon\)-\(N\)定义}。对函数，控制误差的条件改为自变量与指定点足够接近。
+
+\begin{definition}[函数的极限]
+设函数\(f\)在\(x_0\)的去心邻域内有定义，\(L\)为实数。若
+\begin{equation}\label{eq:analysis-function-limit-definition}
+ \forall\varepsilon>0,\ \exists\delta>0,\quad
+ 0<|x-x_0|<\delta\ \Longrightarrow\ |f(x)-L|<\varepsilon,
+\end{equation}
+则称\(f(x)\)在\(x\to x_0\)时以\(L\)为极限，记作\(\lim_{x\to x_0}f(x)=L\)。
+\end{definition}
+
+这称为{\heiti{}\(\varepsilon\)-\(\delta\)定义}。条件\(0<|x-x_0|<\delta\)只考察点附近的值，不要求\(f(x_0)\)有定义。数列中取足够大的下标，函数中取足够小的距离，都是对任意给定的精度，找到能够保证它的范围。
+
+\subsection{无穷大量与无穷小量}
+无穷大量与无穷小量描述的是量在指定极限过程中的变化。
+
+\begin{definition}[无穷大量]
+设函数\(f\)在\(x_0\)的去心邻域内有定义。若
+\begin{equation}
+ \forall M>0,\ \exists\delta>0,\quad
+ 0<|x-x_0|<\delta\ \Longrightarrow\ |f(x)|>M,
+\end{equation}
+则称\(f(x)\)是当\(x\to x_0\)时的{\heiti{}无穷大量}，记作\(\lim_{x\to x_0}|f(x)|=+\infty\)。
+\end{definition}
+
+若将定义中的\(|f(x)|>M\)换为\(f(x)>M\)，则称\(f(x)\)趋于\(+\infty\)；换为\(f(x)<-M\)，则称\(f(x)\)趋于\(-\infty\)。例如，当\(x\to0\)时，\(1/x^2\)趋于\(+\infty\)，\(1/x\)的绝对值趋于无穷，但它本身不趋于\(+\infty\)或\(-\infty\)。
+
+\begin{definition}[无穷小量]
+在指定的极限过程中趋于\(0\)的量称为{\heiti{}无穷小量}。例如，若\(\lim_{x\to x_0}f(x)=0\)，则称\(f(x)\)是当\(x\to x_0\)时的无穷小量。
+\end{definition}
+
+无穷小量的误差条件就是极限定义中目标值为\(0\)的情形。将上述条件中的\(0<|x-x_0|<\delta\)换为\(n>N\)，便得到数列的相应定义；例如，\(1/n\)是当\(n\to+\infty\)时的无穷小量。
+
+数列趋于\(+\infty\)或\(-\infty\)时，称它有相应的广义极限。仅有\(|a_n|\to+\infty\)不保证符号最终固定，例如\(a_n=(-1)^n n\)。下面将有限极限与有确定符号的广义极限区分使用。
+

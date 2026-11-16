@@ -1,0 +1,108 @@
+\section{迭代产生的数列}
+\label{sec:analysis-iterations}
+所谓由迭代产生的数列，是指在给出数列的第一项\(a_{1}\)后，用递推公式\(a_{n + 1} = f \left( a_{n} \right) , n \in \mathbb{N}^{*}\)通过迭代生成的数列。迭代是近似计算方法的重要实现过程，在数学和其他领域经常出现，有很强的理论和实用价值。
+
+\subsection{几个基础的例子}\label{subsec:iteration-examples}
+\paragraph{1°逐项开方的迭代} \mbox{}
+
+设\(a_{1} = \sqrt{2} , a_{n + 1} = \sqrt{2 + a_{n}} , n \in \mathbb{N}^{*}\).讨论\(\left\{ a_{n} \right\}\)的敛散性。若收敛，求出其极限。
+
+可以归纳地证明这个数列是严格单调递增的，且以2为上界。
+
+显然，由递推公式和初始值知，该数列的每一项均为正。由于
+\begin{equation}
+    a_{1} = \sqrt{2} < \sqrt{2 + \sqrt{2}} = a_{2}
+\end{equation}
+以及当\(a_{n - 1} < a_{n}\)时，有
+\begin{equation}
+    a_{n} = \sqrt{2 + a_{n - 1}} < \sqrt{2 + a_{n}} = a_{n + 1}
+\end{equation}
+严格成立，可见数列是严格单调递增的。又由\(a_{1} < 2\)以及当\(a_{n} < 2\)时，有
+\begin{equation}
+    a_{n + 1} = \sqrt{2 + a_{n}} < \sqrt{2 + 2} = 2
+\end{equation}
+可知\(\forall n \in \mathbb{N}^{*} , a_{n} < 2\)成立。即数列以2为上界。因此该数列收敛，记极限为\(a\)。在递推式\(a_{n+1}=\sqrt{2+a_n}\)两边取极限，得到
+\begin{equation}
+    a = \sqrt{2 + a} , 0 < a \le 2
+\end{equation}
+解得\(a = 2\)，即为所求之\(\left\{ a_{n} \right\}\)极限。
+
+\paragraph{2°倒数迭代} \mbox{}
+
+设数列\(\left\{ b_{n} \right\}\)满足\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}} \left( n \in \mathbb{N}^{*} \right)\)。讨论\(\left\{ b_{n} \right\}\)的敛散性，若收敛，求出其极限。
+
+显然，由递推公式和初始值知，该数列的每一项均为正。先假定该数列收敛到\(b\)，则仿照上例有\(b = 1 + \frac{1}{b} \to b = \frac{1 + \sqrt{5}}{2}\)。由递推公式得\(b_{n + 2} = 2 - \frac{1}{\left( b_{n} + 1 \right)}\)，故有
+\begin{equation}
+    b_{n + 2} - b_{n} = \frac{b_{n} - b_{n - 2}}{\left( b_{n} + 1 \right) \left( b_{n - 2} + 1 \right)}
+\end{equation}
+容易看出\(b_{n + 2} - b_{n}\)与\(b_{n} - b_{n - 2}\)同号，故\(\left\{ b_{n} \right\}\)的奇子列和偶子列各自单调。
+不难计算出数列的前几项\(b_{1} = 1 , b_{2} = 2 , b_{3} = \frac{3}{2} , b_{4} = \frac{5}{3}\)，可见\(\left\{ b_{n} \right\}\)的奇子列严格单调递增，偶子列严格单调递减，由归纳法易证
+\begin{equation}
+    b_{1} < b_{3} < \cdots < b < \cdots < b_{4} < b_{2}
+\end{equation}
+因此\(\left\{ b_{n} \right\}\)的奇子列和偶子列分别单调有界，均收敛。由\(b_{n + 2} = 2 - \frac{1}{b_{n} + 1}\)，在两个子列上分别取极限，可知它们的极限均满足\(l = 2 - \frac{1}{l + 1}\)。又两个极限均为正，故均等于\(b = \frac{1 + \sqrt{5}}{2}\)。故\(\left\{ b_{n} \right\}\)收敛到\(b\)，为\(\frac{1 + \sqrt{5}}{2}\)。
+
+\paragraph{Fibonacci数列} \mbox{}
+
+本题与Fibonacci数列有关。所谓Fibonacci数列，即是由
+\begin{equation}
+    F_{1} = 1 , F_{2} = 1 , F_{n + 2} = F_{n + 1} + F_{n} , n \in \mathbb{N}^{*}
+\end{equation}
+迭代而成的数列。如计算相邻两项的比值（或称为增长率）的极限，即\(\lim_{n \to \infty} \frac{F_{n + 1}}{F_{n}}\)，则
+\begin{equation}
+    \frac{F_{n + 1}}{F_{n}} = \frac{F_{n} + F_{n - 1}}{F_{n}} = 1 + \frac{1}{\frac{F_{n}}{F_{n - 1}}}
+\end{equation}
+
+定义\(b_{n} = \frac{F_{n + 1}}{F_{n}}\)，则显然有\(b_{1} = 1 , b_{n + 1} = 1 + \frac{1}{b_{n}}\).对应本例题可知其极限为\(\frac{\sqrt{5} + 1}{2}\)。
+
+\enlargethispage{\baselineskip}
+\subsection{单调性与几何方法}
+关于迭代生成数列的第一个规律可以用如下命题表示。
+
+\begin{theorem}
+（第一律）设数列\(\left\{ x_{n} \right\}\)满足递推公式\(x_{n + 1} = f \left( x_{n} \right) , n \in \mathbb{N}^{*}\)。若有\(\lim_{n \to \infty} x_{n} = \xi\)，同时又成立
+\begin{equation}
+    \lim_{n \to \infty} f \left( x_{n} \right) = f \left( \xi \right)
+\end{equation}
+则极限\(\xi\)一定是方程\(f \left( x \right) = x\)的根（这时称\(\xi\)为函数\(f\)的{\heiti{}不动点}）。
+\end{theorem}
+
+该命题的证明是平凡的，只需在递推公式的两边取\(n \to \infty\)即可。后面我们会知道该命题的条件可替换为\(f\)在点\(\xi\)处连续等条件。
+
+这个命题的用处是明显的。在我们不知道数列是否收敛的情况下，可以先求解方程\(f \left( x \right) = x\)。求出方程的根对判定原数列是否收敛是有帮助的。例如，如果\(f\)在\(\mathbb R\)上连续，而方程\(f \left( x \right) = x\)在实数范围内无根，则无需再做任何研究就可以断言：这个由迭代产生的数列一定发散。在上述\ref{subsec:iteration-examples}节中的第二个例子中，一开始求出\(b\)，到最后才证明它是极限，我们已经看到在证明中\(b\)所起的作用。
+\newpage
+\begin{theorem}
+（第二律）设\(\left\{ x_{n} \right\}\)满足关系\(x_{n + 1} = f \left( x_{n} \right) , n \in \mathbb{N}^{*}\)，其中的函数\(f\)在区间\(I\)上单调，同时数列\(\left\{ x_{n} \right\}\)的每一项都在区间\(I\)中，则只有两种可能：
+
+（1）当\(f\)为单调增加时，\(\left\{ x_{n} \right\}\)为单调数列；
+
+（2）当\(f\)为单调减少时，\(\left\{ x_{n} \right\}\)的两个子列\(\left\{ x_{2 k - 1} \right\}\)和\(\left\{ x_{2 k} \right\}\)分别为单调数列，且具有相反的单调性。
+\end{theorem}
+
+对于第一种可能，设\(f \left( x \right)\)在区间\(I\)上单调增加。根据条件，有\(x_{n} \in I , n \in \mathbb{N}^{*}\)。观察数列的前两项，如果\(x_{1} \le x_{2} = f \left( x_{1} \right)\)，则有\(x_{2} = f \left( x_{1} \right) \le f \left( x_{2} \right) = x_{3}\)。由归纳法，知数列\(\left\{ x_{n} \right\}\)单调增加。类似地，当\(x_{1} \ge x_{2}\)时，数列\(\left\{ x_{n} \right\}\)单调减少。
+
+对于第二种可能，设\(f \left( x \right)\)在区间\(I\)上单调减少。容易知道，复合函数\(f \left( f \left( x \right) \right)\)是单调增加的。严格地说，\(\forall a , b \in I , a < b , f \left( a \right) , f \left( b \right) \in I \Rightarrow f \left( f \left( a \right) \right) \le f \left( f \left( b \right) \right)\)。
+
+观察\(x_{1}\)与\(x_{3}\)。如果\(x_{1} = x_{3}\)，则子列\(\left\{ x_{2 k - 1} \right\}\)为常数列。如果\(x_{1} < x_{3}\)，从\(f\)单调减少易推知\(x_{2} = f \left( x_{1} \right) \ge f \left( x_{3} \right) = x_{4}\)，然后推知\(x_{3} \le x_{5}\)。于是用数学归纳法易证此时\(\{ x_{2 k - 1} \}\)单调递增，由于\(f\)单调递减且\(\left\{ x_{2 k} \right\} = \left\{ f \left( x_{2 k - 1} \right) \right\}\)单调递减。对于\(x_{1} > x_{3}\)的情况，讨论完全类似，从略。
+
+\begin{theorem}\label{thm:iter-fixed}
+设\(a\)是\(f \left( x \right)\)的不动点，函数\(f\)在\(a\)的邻域\(\left( a - r , a + r \right)\)中连续且严格单调递增，且在\(\left( a - r , a \right)\)上有\(f \left( x \right) > x\)，而区间\(\left( a , a + r \right)\)上有\(f \left( x \right) < x\)，那么由迭代产生的数列\(x_{n + 1} = f \left( x_{n} \right)\)只要第一项在\(\left( a - r , a + r \right)\)内，且不等于\(a\)，则以后就不会越出这个区间，而且是以\(a\)为极限的严格单调数列。
+\end{theorem}
+
+定理\ref{thm:iter-fixed}的证明留给读者自行证明。
+
+\begin{example}
+    完成以下计算或证明：
+    
+    （1）设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a + x_{n}} , n \in \mathbb{N}^{*}\)，求\(\lim_{n \to \infty} x_{n}\).
+
+    （2）设\(a > 0 , x_{1} = \sqrt{a} , x_{n + 1} = \sqrt{a x_{n}} , n \in \mathbb{N}^{*}\)，求\(\lim_{n \to \infty} x_{n}\).
+
+    （3）设\(x_{1} = b , x_{n + 1} = \frac{1}{2} \left( x_{n}^{2} + 1 \right)\)，问：\(b\)取何值时数列\(\left\{ x_{n} \right\}\)收敛，并求其极限。
+
+    （4）设\(\left\{ x_{n} \right\}\)为正数列，且满足\(x_{n + 1} + \frac{1}{x_{n}} < 2\)，证明：\(\left\{ x_{n} \right\}\)收敛，并求其极限。
+
+    （5）设\(A > 0 , x_{1} > 0 , x_{n + 1} = \frac{x_{n} \left( x_{n}^{2} + 3 A \right)}{3 x_{n}^{2} + A} , n \in \mathbb{N}^{*}\)，证明：\(\left\{ x_{n} \right\}\)收敛于\(\sqrt{A}\)。
+\end{example}
+
+

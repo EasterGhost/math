@@ -1,0 +1,79 @@
+\section{初等函数的基本性质}
+
+\begingroup
+\setlength{\parskip}{3pt}
+\subsection{初等函数的连续性}
+\begin{theorem}
+初等函数在其定义域内是连续的。
+\end{theorem}
+
+由前面连续函数的运算性质，只须先考察基本初等函数，再通过有限次四则运算与复合得到一般初等函数。
+
+首先考虑多项式函数：常值函数\(f(x) = c\)以及线性函数\(f(x) = x\)在区间\(( - \infty , + \infty )\)上连续，经四则运算得到的关于\(x\)的多项式也都连续。
+
+再看三角函数。用弧度制量角，单位圆上两点的纵坐标差不超过弦长，弦长又不超过连接它们的弧长，故\(|\sin x-\sin y|\le|x-y|\)。在连续性定义中取\(\delta=\varepsilon\)，即知\(\sin x\)处处连续。由\(\cos x=\sin(\pi/2-x)\)及连续函数的运算性质，其余三角函数也在各自定义域内连续；再由定理\ref{thm:inv-mono}，反三角函数也连续。
+
+实数次幂由有理数次幂经极限扩充，前面关于无理数次幂的思考正涉及这一过程。指数函数连续性的关键是\(h\to0\)时\(a^h\to1\)：当\(a>1\)、\(|h|<1/n\)时，有\(a^{-1/n}\le a^h\le a^{1/n}\)，而由伯努利不等式，\(0<a^{1/n}-1\le(a-1)/n\)，故两端都趋于\(1\)。再用\(a^{x_0+h}=a^{x_0}a^h\)，即得任意点的连续性；\(0<a<1\)时取倒数即可。当\(a>1\)时指数函数严格递增，\(0<a<1\)时严格递减，值域均为\((0,+\infty)\)。由定理\ref{thm:inv-mono}，其反函数\(\log_a x\)在\((0,+\infty)\)上连续。
+
+最后，在基本定义域\(x>0\)内，幂函数\(y=x^\alpha\)可写为
+\begin{equation}
+x^{\alpha} = e^{\alpha \ln x}
+\end{equation}
+所以幂函数在\(x > 0\)时连续。综上所述，初等函数在其定义域内是连续的。
+\endgroup
+\newpage
+\subsection{基本初等函数的单调性}
+复杂的初等函数单调性较为复杂，这里仅讨论基本初等函数的单调性。
+\paragraph{1°多项式函数} \mbox{}
+
+多项式函数的单调性取决于各项的系数与次数，可以较为复杂，但当\(x\)足够大时，其单调性取决于多项式的最高次项的系数。
+
+\paragraph{2°三角函数} \mbox{}
+
+对于\(\sin x\)函数，容易知道在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上，取\(x_{1} , x_{2} \in \left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)，如果\(x_{1} < x_{2}\)，恒有\(f(x_{1}) \le f(x_{2})\)。故\(\sin x\)在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上单调递增，类似地，在\(\left[ \frac{\pi}{2} , \frac{3 \pi}{2} \right]\)上递减。对于其他的三角函数，可以通过对\(\sin x\)的变换得到，留作思考题。
+
+\paragraph{3°指数函数} \mbox{}
+
+指数函数都是严格单调的。对于\(y = a^{x}\)，当\(a > 1\)时，函数是严格单调增的；当\(0 < a < 1\)时，函数是严格单调减的。
+
+\paragraph{4°对数函数} \mbox{}
+
+对数函数都是严格单调的。对于\(y = \log_{a} x\)，当\(a > 1\)时，函数是严格单调增的；当\(0 < a < 1\)时，函数是严格单调减的。
+
+\paragraph{5°幂函数} \mbox{}
+
+幂函数在其基本定义域内都是单调的。对于\(y = x^{\alpha}\)，当\(\alpha > 0\)时，函数是严格单调增的；当\(\alpha < 0\)时，函数是严格单调减的；当\(\alpha = 0\)时，函数退化为\(y = 1\)。
+
+
+\subsection{幂函数的对称性}
+通常情况下，幂函数不具有对称性。但是考虑到常用的幂函数其定义域可以推广到\(\left\{ x \in \mathbb{R} \mid x \ne 0 \right\}\)甚至\(\mathbb{R}\)上，可以讨论这些幂函数的对称性。首先考虑正整数次幂
+
+取幂次\(\alpha = 2 k , k \in \mathbb{N}^{*}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k} = {\left( {\left( - x \right)}^{2} \right)}^{k} = {\left( x^{2} \right)}^{k} = x^{2 k} = x^{\alpha}\)，故此时\(y = x^{\alpha}\)为偶函数；
+
+再取幂次\(\alpha = 2 k + 1 , k \in \mathbb{N}\)，则\({\left( - x \right)}^{\alpha} = {\left( - x \right)}^{2 k + 1} = {\left( {\left( - x \right)}^{2} \right)}^{k} \cdot \left( - x \right) = - {\left( x^{2} \right)}^{k} \cdot x = - x^{2 k + 1} = - x^{\alpha}\)，故此时\(y = x^{\alpha}\)为奇函数。
+
+\(\alpha\)为负整数时，有类似的性质，但是注意\(x \ne 0\)。
+
+其它幂次的幂函数因为其定义域一般不关于原点对称，故一般不具有对称性。
+
+
+\subsection{三角函数的周期性与对称性}
+容易知道\(\sin x\)与\(\cos x\)都以\(2 \pi\)为最小正周期。\(\sin x\)有对称轴\(x = k \pi + \frac{\pi}{2} , k \in \mathbb{Z}\)，\(\cos x\)有对称轴\(x = k \pi , k \in \mathbb{Z}\)；\(\sin x\)关于点\(\left( k \pi , 0 \right) k \in \mathbb{Z}\)中心对称，则\(\cos x\)同样有关于点\(\left( k \pi + \frac{\pi}{2} , 0 \right) k \in \mathbb{Z}\)中心对称。事实上\(\cos x\)的周期性和对称性可以由\(\sin x\)的周期性和对称性直接推出，由\(\cos x = \sin \left( \frac{\pi}{2} - x \right)\)这一关系进行坐标变换即可。
+
+对于\(\tan x = \frac{\sin x}{\cos x}\)，显然其一定以\(2 \pi\)为周期，但\(2 \pi\)是否仍是其最小正周期呢？注意到\(\tan \left( - x \right) = \frac{\sin \left( - x \right)}{\cos \left( - x \right)} = - \tan x\)，即\(\tan x\)关于原点对称，考虑取\(x \in \left( - \frac{\pi}{2} , \frac{\pi}{2} \right)\)，有
+\begin{multline}
+\tan \left( x + \pi \right) = \frac{\sin \left( x + \pi \right)}{\cos \left( x + \pi \right)} = \frac{- \sin \left( \pi - x \right)}{\cos \left( \frac{\pi}{2} + \frac{\pi}{2} + x \right)} \\
+= \frac{- \sin x}{- \cos \left( \frac{\pi}{2} - \left( \frac{\pi}{2} + x \right) \right)} = \frac{\sin x}{\cos \left( - x \right)} = \frac{\sin x}{\cos x} = \tan x
+\end{multline}
+
+这一结论可递推到\(x + k \pi , k \in \mathbb{Z}\)。又显然当\(0 < a < \pi\)时，\(\tan x = \tan \left( x + a \right)\)并不恒成立，故\(\tan x\)以\(\pi\)为最小正周期。
+
+进一步地，分析较为一般的情况。以下统一取\(A>0\)、\(\omega>0\)。
+
+考虑\(f(x) = \sin \left( x + \varphi \right)\)，仍然有\(f(x + 2 \pi) = \sin \left( \left( x + 2 \pi \right) + \varphi \right) = \sin \left( x + \varphi \right)\)，故\(\varphi\)的取值不影响其周期性。由于此时有\(x^{'} = x + \varphi\)，实际上这一变换相当于将函数向左平移\(\varphi\)，也将同时使其对称轴和对称中心向左移动\(\varphi\)。
+
+考虑\(f(x) = \sin \omega x\)，其中\(\omega > 0\)，此时\(f(x + 2 \pi) = \sin \omega \left( x + 2 \pi \right) = \sin \left( \omega x + 2 \omega \pi \right)\)不一定等于\(\sin \omega x\)。然而，\(\sin \left( \omega x + 2 \pi \right) = \sin \omega \left( x + \frac{2}{\omega} \pi \right) = \sin \omega x\)，故可以推断出\(f(x) = \sin \omega x\)时，有\(f\Bigl(x + \frac{2}{\omega} \pi\Bigr) = f(x)\)恒成立。因此函数的周期变为\(\frac{2}{\omega} \pi\)。由于此时有\(x^{'} = \omega x\)，实际上这一变换相当于将函数图像的\(x\)轴方向压缩至\(\frac{1}{\omega}\)，而\(y\)轴不变。
+
+考虑\(f(x) = A \sin x\)，其中\(A > 0\)，显然\(A\)并不改变函数的周期性和对称性。实际上这一变换相当于将函数图像的\(y\)轴方向拉伸至\(A\)倍，而\(x\)轴不变。
+
+对于其它三角函数，可以有类似的推导。由于正（余）弦函数具有优异的性质，且它们可以很好地表征周期性的振动，故通常称正弦函数\(f(x) = A \sin \left( \omega x + \varphi \right)\)中的\(A\)为振幅，\(\omega\)为角频率，\(\omega x+\varphi\)为相位，\(\varphi\)为初相位。
