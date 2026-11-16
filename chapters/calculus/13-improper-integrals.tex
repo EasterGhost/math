@@ -177,6 +177,12 @@
 \end{equation*}
 例如，\(p>1\)时，\(\sum_{n>N}n^{-p}\)介于\((N+1)^{1-p}/(p-1)\)与\(N^{1-p}/(p-1)\)之间。这接回了第一章的\(p\)级数，并进一步给出截断误差。
 
+令\(D_N=\sum_{n=1}^Nf(n)-\int_1^Nf(x)\,dx\)。前面的估计给出\(0\le D_N\le f(1)\)，且
+\begin{equation*}
+ D_{N+1}-D_N=f(N+1)-\int_N^{N+1}f(x)\,dx\le0,
+\end{equation*}
+故\(D_N\)单调有界，必收敛。取\(f(x)=1/x\)，即得\(H_N-\ln N\to\gamma\)；调和级数与积分都发散，差值仍有极限，误差见式\eqref{eq:calculus-euler-constant-error}。
+
 \begin{exercise}
 \mbox{}\par\nobreak
 
@@ -184,7 +190,7 @@
 
 （2）讨论\(\sum_{n=2}^{\infty}1/[n(\ln n)^p]\)的敛散性，并说明被积函数在哪一段起单调不增。
 
-（3）对\(\int_1^{+\infty}\sin x/x\,dx\)，给出截断到\(R\)的误差界。与绝对收敛情形的尾部比较方法有何不同？
+（3）给出\(\int_1^{+\infty}\sin x/x\,dx\)截断到\(R\)的误差界。与绝对收敛情形的尾部比较方法有何不同？
 
 （4）若要用数值积分计算\(\int_0^{+\infty}e^{-x^2}\,dx\)，设计一种将总误差分成有限区间求积误差与尾部误差的方案。
 
