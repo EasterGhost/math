@@ -1,6 +1,17 @@
 \chapter{常用公式}
 \label{app:formulas}
 
+\begingroup
+\fontsize{12pt}{20pt}\selectfont
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{4pt}
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\setlength{\jot}{1pt}
+
 以下公式按对象集中列出，具体结论的定义、证明与使用见正文。求导、积分及三角函数公式中的角度均采用弧度制。
 
 \section{数列与极限}
@@ -21,12 +32,7 @@
  e&=\lim_{n\to\infty}\left(1+\frac1n\right)^n.
  \end{aligned}
 \end{equation*}
-基本函数极限包括
-\begin{equation*}
- \lim_{x\to0}\frac{\sin x}{x}=1,\qquad
- \lim_{x\to0}\frac{e^x-1}{x}=1,\qquad
- \lim_{x\to0}\frac{\ln(1+x)}x=1.
-\end{equation*}
+基本函数极限有\(\lim_{x\to0}\sin x/x=1\)、\(\lim_{x\to0}(e^x-1)/x=1\)、\(\lim_{x\to0}\ln(1+x)/x=1\)。
 
 \section{三角恒等式}
 \begin{equation*}
@@ -40,12 +46,13 @@
  \cos^2\alpha=\frac{1+\cos2\alpha}2.
  \end{aligned}
 \end{equation*}
+记\(m=(\alpha+\beta)/2\)、\(d=(\alpha-\beta)/2\)，则
 \begin{equation*}
  \begin{aligned}
- \sin\alpha+\sin\beta&=2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2,\\
- \sin\alpha-\sin\beta&=2\cos\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2,\\
- \cos\alpha+\cos\beta&=2\cos\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2,\\
- \cos\alpha-\cos\beta&=-2\sin\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2.
+ \sin\alpha+\sin\beta&=2\sin m\cos d,&
+ \sin\alpha-\sin\beta&=2\cos m\sin d,\\
+ \cos\alpha+\cos\beta&=2\cos m\cos d,&
+ \cos\alpha-\cos\beta&=-2\sin m\sin d.
  \end{aligned}
 \end{equation*}
 设\(R=\sqrt{a^2+b^2}>0\)，取\(\cos\varphi=a/R\)、\(\sin\varphi=b/R\)，则\(a\sin x+b\cos x=R\sin(x+\varphi)\)。三角形中，若边\(a,b,c\)分别对角\(A,B,C\)，外接圆半径为\(R_\triangle\)，则
@@ -67,12 +74,37 @@
 \end{equation*}
 平行四边形面积为\(\|u\times v\|\)，平行六面体体积为\(|u\cdot(v\times w)|\)。
 
-对\(A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\)，有
 \begin{equation*}
- \det A=ad-bc,\qquad
+ A=\begin{pmatrix}a&b\\c&d\end{pmatrix},\qquad \det A=ad-bc,\qquad
  A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\quad(ad-bc\ne0).
 \end{equation*}
 平面仿射变换\(x=Au+t\)的面积倍率为\(|\det A|\)。
+
+\section{空间几何体}
+
+记\(B,P\)为底面积、底面周长，\(h\)为高；\(B_1,B_2\)与\(P_1,P_2\)分别对应两底面。\(l\)表示正棱锥、正棱台的斜高，或圆锥、圆台的母线长。表面积计入底面。
+\begingroup
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{.22\linewidth}p{.31\linewidth}p{.41\linewidth}@{}}
+\toprule
+几何体 & 体积\(V\) & 表面积\(S\) \\
+\midrule
+\endhead
+正方体（棱长\(a\)） & \(a^3\) & \(6a^2\) \\
+长方体（\(a,b,c\)） & \(abc\) & \(2(ab+bc+ca)\) \\
+正四面体（棱长\(a\)） & \(\sqrt2\,a^3/12\) & \(\sqrt3\,a^2\) \\
+直棱柱 & \(Bh\) & \(2B+Ph\) \\
+正棱锥 & \(Bh/3\) & \(B+Pl/2\) \\
+正棱台 & \(\dfrac h3(B_1+B_2+\sqrt{B_1B_2})\) & \(B_1+B_2+\dfrac{P_1+P_2}{2}l\) \\
+圆柱（半径\(r\)） & \(\pi r^2h\) & \(2\pi r(r+h)\) \\
+圆锥（半径\(r\)） & \(\pi r^2h/3\) & \(\pi r(r+l)\) \\
+圆台（半径\(R,r\)） & \(\dfrac{\pi h}{3}(R^2+Rr+r^2)\) & \(\pi(R^2+r^2)+\pi(R+r)l\) \\
+球（半径\(r\)） & \(4\pi r^3/3\) & \(4\pi r^2\) \\
+半球（半径\(r\)） & \(2\pi r^3/3\) & \(3\pi r^2\)（含圆形底面） \\
+\bottomrule
+\end{longtable}
+\endgroup
+圆锥的\(l=\sqrt{h^2+r^2}\)，圆台的\(l=\sqrt{h^2+(R-r)^2}\)。上述棱柱、棱锥、棱台的体积公式也适用于一般情形。
 
 \section{复数}
 \begin{equation*}
@@ -112,6 +144,7 @@ Euler公式为\(e^{i\theta}=\cos\theta+i\sin\theta\)。
 
 若非退化二次曲线在齐次坐标中写为\(X^TMX=0\)、\(M=M^T\)，点\(P\)的极线为\(P^TMX=0\)；切点\(P\)在曲线上时，这就是该点的切线。
 
+\newpage
 \section{求导公式}
 
 下表中的参数按相应函数的定义取值，\(a>0,a\ne1\)，实数幂的基本定义域取\(x>0\)。
@@ -146,28 +179,28 @@ Euler公式为\(e^{i\theta}=\cos\theta+i\sin\theta\)。
 
 \section{积分公式}
 
-以下\(C\)表示任意常数，各式在被积函数及原函数有意义的区间上使用。
+以下\(C\)为任意常数，\(\alpha\ne-1\)、\(a>0,a\ne1\)，各式在表达式有意义的区间上使用。
 \begin{equation*}
  \begin{aligned}
- \int x^\alpha\,dx&=\frac{x^{\alpha+1}}{\alpha+1}+C\quad(\alpha\ne-1),\\
+ \int x^\alpha\,dx&=\frac{x^{\alpha+1}}{\alpha+1}+C,&
  \int\frac{dx}{x}&=\ln|x|+C,\\
- \int e^x\,dx&=e^x+C,\qquad
- \int a^x\,dx=\frac{a^x}{\ln a}+C\quad(a>0,\ a\ne1),\\
- \int\sin x\,dx&=-\cos x+C,\qquad
- \int\cos x\,dx=\sin x+C,\\
- \int\frac{dx}{1+x^2}&=\arctan x+C,\qquad
- \int\frac{dx}{\sqrt{1-x^2}}=\arcsin x+C.
+ \int e^x\,dx&=e^x+C,&
+ \int a^x\,dx&=\frac{a^x}{\ln a}+C,\\
+ \int\sin x\,dx&=-\cos x+C,&
+ \int\cos x\,dx&=\sin x+C,\\
+ \int\frac{dx}{1+x^2}&=\arctan x+C,&
+ \int\frac{dx}{\sqrt{1-x^2}}&=\arcsin x+C.
  \end{aligned}
 \end{equation*}
 在相应微积分定理的条件下，
 \begin{equation*}
- \begin{aligned}
- \int_a^b f(x)\,dx&=F(b)-F(a)\quad(F'=f),\\
- \int f(\varphi(t))\varphi'(t)\,dt&=F(\varphi(t))+C,\\
- \int u\,dv&=uv-\int v\,du,\\
+ \begin{gathered}
+ \int_a^b f(x)\,dx=F(b)-F(a)\quad(F'=f),\qquad
+ \int u\,dv=uv-\int v\,du,\\
+ \int f(\varphi(t))\varphi'(t)\,dt=F(\varphi(t))+C,\\
  \frac d{dx}\int_{u(x)}^{v(x)}f(t)\,dt
- &=f(v(x))v'(x)-f(u(x))u'(x).
- \end{aligned}
+ =f(v(x))v'(x)-f(u(x))u'(x).
+ \end{gathered}
 \end{equation*}
 
 \section{Taylor公式与几何累积}
@@ -212,3 +245,4 @@ Euler公式为\(e^{i\theta}=\cos\theta+i\sin\theta\)。
  \end{cases}
 \end{equation*}
 非齐次方程在已知一个特解\(y_p\)后，其通解为\(y_p+y_h\)，其中\(y_h\)是齐次通解。
+\endgroup
