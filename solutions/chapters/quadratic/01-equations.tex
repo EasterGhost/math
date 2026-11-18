@@ -1,0 +1,155 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{二次曲线及其方程}
+
+% ITEM: quadratic-thought-01
+\solutionitem{quadratic-thought-01}{思考：单位圆与函数}
+将单位圆表示为两个函数的图像的并，写出相应的函数及其定义域。
+\solutionanswer
+取\(f_+(x)=\sqrt{1-x^2},f_-(x)=-\sqrt{1-x^2}\)，定义域均为\([-1,1]\)。两图像为上、下半圆，其并即单位圆。
+
+
+% ITEM: quadratic-example-001
+\solutionitem{quadratic-example-001}{例4.1}
+求所有经过\(O(0,0)\)、\(A(2,0)\)的圆的方程，并求出其中经过\(B(0,2)\)的圆。
+\solutionanswer
+设圆为\(x^2+y^2+Dx+Ey+F=0\)。代入\(O,A\)得\(F=0,D=-2\)，所以全部圆为\(x^2+y^2-2x+Ey=0\)，其中\(E\in\mathbb R\)。半径为\(\sqrt{1+E^2/4}>0\)，每个参数都给出圆。再代入\(B\)得\(E=-2\)，相应圆为\(x^2+y^2-2x-2y=0\)。
+
+
+% ITEM: quadratic-example-002
+\solutionitem{quadratic-example-002}{例4.2}
+已知\(A(-1,0)\)、\(B(1,0)\)，动点\(P\)满足\(|PA|=2|PB|\)，求点\(P\)的轨迹方程及其圆心和半径。
+\solutionanswer
+设\(P=(x,y)\)，平方得\((x+1)^2+y^2=4[(x-1)^2+y^2]\)，配方为\((x-5/3)^2+y^2=16/9\)。距离非负，平方前后等价，故轨迹是圆心\((5/3,0)\)、半径\(4/3\)的圆。
+
+
+% ITEM: quadratic-exercise-01-01
+\solutionitem{quadratic-exercise-01-01}{习题4.1（1）}
+曲线\(x^{2} + y^{2} = 16\)（\(y > 0\)）上的动点\(P\)向\(x\)轴作垂线，垂足为\(P'\)。求线段\(PP'\)的中点\(M\)的轨迹方程。
+\solutionanswer
+若\(M=(x,y)\)，则\(P=(x,2y)\)，故轨迹为\(x^2+4y^2=16\)，\(y>0\)。反过来，这个半椭圆上的点都唯一对应上半圆上的点，故条件充分必要。
+
+
+% ITEM: quadratic-exercise-01-02
+\solutionitem{quadratic-exercise-01-02}{习题4.1（2）}
+设圆系的方程为\(x^{2} + y^{2} - 2\lambda x + 2\lambda y - 1 = 0\)，其中\(\lambda \in \mathbb{R}\)。求所有成员的共同点，并求其中经过\((1,0)\)的圆。
+\solutionanswer
+写成\(x^2+y^2-1+2\lambda(y-x)=0\)。共同点满足\(y=x,2x^2=1\)，即\((1/\sqrt2,1/\sqrt2)\)与\((-1/\sqrt2,-1/\sqrt2)\)。代入\((1,0)\)得\(\lambda=0\)，所求成员为单位圆。
+
+
+% ITEM: quadratic-exercise-01-03
+\solutionitem{quadratic-exercise-01-03}{习题4.1（3）}
+求圆\(x^{2}+y^{2}-4x+6y-3=0\)的圆心和半径。以圆心为新原点，坐标轴方向不变，写出该圆在新坐标系中的方程。
+\solutionanswer
+配方得\((x-2)^2+(y+3)^2=16\)，圆心\((2,-3)\)，半径\(4\)。取\(X=x-2,Y=y+3\)，新方程为\(X^2+Y^2=16\)。
+
+
+% ITEM: quadratic-exercise-01-04
+\solutionitem{quadratic-exercise-01-04}{习题4.1（4）}
+直线\(2x-y-2=0\)与圆\(x^{2}+y^{2}-6x-8y=0\)相交于\(A\)、\(B\)两点，求\(|AB|\)。
+\solutionanswer
+圆心\((3,4)\)，半径\(5\)，且圆心满足\(2x-y-2=0\)。因此弦为直径，\(|AB|=10\)。
+
+
+% ITEM: quadratic-exercise-01-05
+\solutionitem{quadratic-exercise-01-05}{习题4.1（5）}
+求经过\(A(1,1)\)、\(B(3,1)\)，且圆心在直线\(x+y=0\)上的圆的方程。
+\solutionanswer
+圆心在\(AB\)的垂直平分线\(x=2\)上，再联立\(x+y=0\)得\((2,-2)\)。半径平方为\(1+9=10\)，故方程为\((x-2)^2+(y+2)^2=10\)。
+
+
+% ITEM: quadratic-exercise-01-06
+\solutionitem{quadratic-exercise-01-06}{习题4.1（6）}
+已知\(A(-2,0)\)、\(B(2,0)\)，动点\(P\)满足\(\overrightarrow{PA}\cdot\overrightarrow{PB}=3\)，求点\(P\)的轨迹方程。
+\solutionanswer
+设\(P=(x,y)\)，则\(\vec{PA}\cdot\vec{PB}=(-2-x)(2-x)+y^2=x^2+y^2-4\)。所以轨迹为\(x^2+y^2=7\)。
+
+
+% ITEM: quadratic-exercise-01-07
+\solutionitem{quadratic-exercise-01-07}{习题4.1（7）}
+方程\(x+y-1=0\)与\((x+y-1)^{2}=0\)是否表示同一点集？后一个方程是否是二元二次方程？
+\solutionanswer
+两方程表示同一点集，都是\(x+y=1\)。后式展开为\(x^2+2xy+y^2-2x-2y+1=0\)，是二元二次方程，表示重直线。
+
+
+% ITEM: quadratic-exercise-01-08
+\solutionitem{quadratic-exercise-01-08}{习题4.1（8）}
+设曲线系为\((1-t)(x^{2}+y^{2}-1)+t[(x-2)^{2}+y^{2}-1]=0\)，其中\(t\in\mathbb{R}\)。讨论其成员表示的图形，并求其中各圆的圆心轨迹和所有成员的共同点。
+\solutionanswer
+合并配方得\((x-2t)^2+y^2=(2t-1)^2\)。\(t\ne1/2\)时是圆，圆心\((2t,0)\)、半径\(|2t-1|\)；\(t=1/2\)时是点\((1,0)\)。各圆圆心的轨迹为去掉\((1,0)\)的\(x\)轴。共同点同时满足\(x^2+y^2=1,x=1\)，故只有\((1,0)\)。
+
+
+% ITEM: quadratic-example-003
+\solutionitem{quadratic-example-003}{例4.3 *}
+求二次型\(q(x,y) = 2x^{2} + 2xy + 2y^{2}\)的对称矩阵和对应的双线性型，并证明\(q\)是正定的。
+\solutionanswer
+矩阵为\(H=\begin{bmatrix}2&1\\1&2\end{bmatrix}\)，对应\(b(U,V)=2u_1v_1+u_1v_2+u_2v_1+2u_2v_2\)。由\(q=(x+y)^2+x^2+y^2\)，非零向量处必为正，故正定。
+
+
+% ITEM: quadratic-example-004
+\solutionitem{quadratic-example-004}{例4.4 *}
+设\(q\)是一个二次型，\(b\)是对应的对称双线性型。已知向量\(U\)、\(V\)满足
+\begin{equation*}
+    q(U)=1 , \qquad q(V)=-1 , \qquad q(U+V)=4 ,
+\end{equation*}
+求\(b(U,V)\)与\(q(2U-V)\)。
+\solutionanswer
+极化给出\(b(U,V)=[4-1-(-1)]/2=2\)。故\(q(2U-V)=4q(U)-4b(U,V)+q(V)=4-8-1=-5\)。
+
+
+% ITEM: quadratic-exercise-02-01
+\solutionitem{quadratic-exercise-02-01}{习题4.2（1） *}
+按通常的加法与实数数乘，证明全体实二元二次型构成一个线性空间，给出一组基。它与全体实二阶对称矩阵之间的对应是否为线性映射？
+\solutionanswer
+相加和数乘仍只含\(x^2,xy,y^2\)三项，零二次型在其中，运算律来自函数运算，故为线性空间。基取\(x^2,xy,y^2\)。对应\(Ax^2+Bxy+Cy^2\mapsto\begin{bmatrix}A&B/2\\B/2&C\end{bmatrix}\)保持加法和数乘，故为线性映射，且一一对应。
+
+
+% ITEM: quadratic-exercise-02-02
+\solutionitem{quadratic-exercise-02-02}{习题4.2（2） *}
+设\(q\)为二次型，证明对任意向量\(U\)、\(V\)，有
+\begin{equation*}
+    q(U+V)+q(U-V)=2q(U)+2q(V) .
+\end{equation*}
+若对任意\(U\)、\(V\)又有\(q(U+V)=q(U)+q(V)\)，证明\(q\)恒为零。
+\solutionanswer
+展开\(q(U+V),q(U-V)\)，交叉项相消即得恒等式。若还有可加性，则\(q(2U)=2q(U)\)；二次齐次性又给出\(q(2U)=4q(U)\)，故每个\(q(U)=0\)。
+
+
+% ITEM: quadratic-exercise-02-03
+\solutionitem{quadratic-exercise-02-03}{习题4.2（3） *}
+设\(q(x,y)=x^{2}-y^{2}\)。求满足\(q(X)=0\)的全部向量，并判断它们是否构成线性子空间。
+\solutionanswer
+全部零向量为\(y=x\)与\(y=-x\)两直线的并。它不是子空间：\((1,1),(1,-1)\)均在其中，和\((2,0)\)却不在。
+
+
+% ITEM: quadratic-exercise-02-04
+\solutionitem{quadratic-exercise-02-04}{习题4.2（4） *}
+设三元二次型\(q(x,y,z)=(x+y)^{2}+(y+z)^{2}+(z+x)^{2}\)。求其对称矩阵和对应的双线性型，并证明\(q\)是正定的。
+\solutionanswer
+展开可得
+\[
+H=\begin{bmatrix}2&1&1\\1&2&1\\1&1&2\end{bmatrix},\qquad b(U,V)=U^THV.
+\]
+亦即\(b(U,V)=(u_1+u_2)(v_1+v_2)+(u_2+u_3)(v_2+v_3)+(u_3+u_1)(v_3+v_1)\)。三个平方同时为零要求\(x+y=y+z=z+x=0\)，从而\(x=y=z=0\)，故正定。
+
+
+% ITEM: quadratic-exercise-02-05
+\solutionitem{quadratic-exercise-02-05}{习题4.2（5） *}
+设二次型\(q\)满足\(q(1,0)=q(1,1)=1\)、\(q(2,1)=2\)。求\(q\)并证明其正定。以对应的双线性型为内积，向量\((1,0)\)与\((1,1)\)是否正交？与通常数量积下的结论作比较。
+\solutionanswer
+写\(q=Ax^2+Bxy+Cy^2\)，比较得\(A=1,B+C=0,2B+C=-2\)，故\(q=x^2-2xy+2y^2=(x-y)^2+y^2\)，正定。对应\(b(U,V)=u_1v_1-u_1v_2-u_2v_1+2u_2v_2\)，因此\(b((1,0),(1,1))=0\)，两向量在新内积下正交；通常数量积为\(1\)，不正交。
+
+
+% ITEM: quadratic-exercise-02-06
+\solutionitem{quadratic-exercise-02-06}{习题4.2（6） *}
+设\(q_t(x,y)=x^{2}+2txy+y^{2}\)，其中\(t\in\mathbb{R}\)。求使\(q_t\)正定的\(t\)的取值范围，并在\(t=\pm1\)时求满足\(q_t(X)=0\)的全部向量。
+\solutionanswer
+由\(q_t=(x+ty)^2+(1-t^2)y^2\)，\(|t|<1\)时正定；\(|t|\ge1\)时取\((-t,1)\)得非正值，故正定范围恰为\((-1,1)\)。\(t=1\)时零向量集合为\(y=-x\)，\(t=-1\)时为\(y=x\)。
+
+
+% ITEM: quadratic-exercise-02-07
+\solutionitem{quadratic-exercise-02-07}{习题4.2（7） *}
+设\(M\)为实二阶矩阵。证明：\(X^{T}MX=0\)对任意二元坐标列\(X\)成立，当且仅当\(M^{T}=-M\)。据此说明，同一个二次型为什么可以由不同的矩阵表示。
+\solutionanswer
+设\(M=\begin{bmatrix}a&b\\c&d\end{bmatrix}\)，则\(X^TMX=ax^2+(b+c)xy+dy^2\)。恒为零当且仅当\(a=d=0,b+c=0\)，恰等价于\(M^T=-M\)。因此在表示矩阵上加任意反对称矩阵都不改变二次型；规定矩阵对称后才有唯一表示。
+\par

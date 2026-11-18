@@ -1,0 +1,71 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{函数}
+
+\label{sol:sec:functions:1}
+
+% ITEM: functions-composition-range
+\solutionitem{functions-composition-range}{思考：复合函数的值域（2.1.2）}
+设有函数\(y = f(u)\)，定义域为\(B\)，值域为\(C\)，\(u = g(x)\)，定义域为\(A\)。若\(g(A)\subseteq B\)，那么由
+\begin{equation*}
+f \circ g(x) = f(g(x))
+\end{equation*}
+定义了一个新函数\(f \circ g\)，称之为\(f\)与\(g\)的复合函数，它的定义域是\(A\)，通常记为\(y = f(g(x))\)，而称\(u\)为中间变量。
+
+分析上述复合函数\(f\circ g\)的值域如何确定。
+\solutionanswer
+复合函数先经\(g\)取得中间值，因此真正进入外层函数的是\(g(A)\)，不是整个\(B\)。所以
+\[
+(f\circ g)(A)=f(g(A))=\{f(u):u\in g(A)\}\subseteq f(B)=C.
+\]
+若\(g(A)=B\)，便有复合函数的值域等于\(C\)；但这只是充分条件。例如取\(A=B=\mathbb R\)、\(f(u)=u^2\)、\(g(x)=x^2\)，则\(g(A)=[0,+\infty)\ne B\)，却仍有\(f(g(A))=[0,+\infty)=C\)。是否取满外层值域，最终应检查每个外层函数值能否由中间值取得。
+
+
+% ITEM: functions-composition-commutativity
+\solutionitem{functions-composition-commutativity}{思考：复合运算何时可交换（2.1.2）}
+\(f\)和\(g\)满足什么条件时，\(f\circ g\)与\(g\circ f\)是相同的。
+\solutionanswer
+先保证两边是同一个定义域上的函数。记\(f,g\)的定义域为\(D_f,D_g\)，则两种复合的自然定义域分别为
+\[
+D_{fg}=\{x\in D_g:g(x)\in D_f\},\qquad
+D_{gf}=\{x\in D_f:f(x)\in D_g\}.
+\]
+两函数相同的充要条件是\(D_{fg}=D_{gf}\)，并且在这个集合上恒有\(f(g(x))=g(f(x))\)。
+
+一类可交换的函数来自同一函数的迭代。若\(h:A\to A\)，\(f=h^m,g=h^n\)，其中\(m,n\)为正整数，则由结合律，两种复合都为\(h^{m+n}\)。例如\(f(x)=x+1,g(x)=x+2\)，它们分别是\(h(x)=x+1\)的一次、二次迭代，两个复合均为\(x+3\)。同一集合上的互逆函数也可交换，因为两种复合都为恒等映射。
+
+复合一般不可交换。例如\(f(x)=2x,g(x)=x+1\)，两边分别为\(2x+2\)、\(2x+1\)。
+
+
+% ITEM: functions-power-function-properties
+\solutionitem{functions-power-function-properties}{研究：不同指数的幂函数（2.1.3）}
+形如\(f(x) = x^{\alpha}\)的函数称为幂函数，其中\(\alpha\)可以是任意实数。试分析不同\(\alpha\)取值下的\(f(x)\)的性质。
+\solutionanswer
+先在共同的基本定义域\((0,+\infty)\)上讨论，避免把不同的扩展约定混在一起。\(x^\alpha\)在这里连续，且有
+\[
+\begin{array}{c|c|c}
+\alpha&\text{单调性}&\text{值域}\\\hline
+\alpha>0&\text{严格递增}&(0,+\infty)\\
+\alpha=0&\text{常值 }1&\{1\}\\
+\alpha<0&\text{严格递减}&(0,+\infty)
+\end{array}
+\]
+例如，对\(0<x<y\)，有\(y^\alpha/x^\alpha=(y/x)^\alpha\)，它与\(1\)的大小由\(\alpha\)的符号决定。非零指数时函数无界，零指数时有界。在\((0,+\infty)\)上不能称为奇函数或偶函数，因为定义域不关于原点对称。
+
+扩展时须按指数的意义处理。若\(\alpha=m/n\ne0\)为最简分数且\(n\)为奇数，可用实数奇次根定义负数次幂；当\(m\)为偶数时扩展后的函数为偶函数，\(m\)为奇数时为奇函数。若\(n\)为偶数，则不能这样扩展到负半轴。正指数可在零点取值\(0\)，负指数不能在零点取有限连续值。无理指数在通常的实数幂定义下取正底数，其定义由有理数次幂的极限给出，见2.3.3的思考题解。
+
+
+% ITEM: functions-inverse-sinh
+\solutionitem{functions-inverse-sinh}{研究：双曲正弦的反函数（2.1.3）}
+\(\sinh x=(e^x-e^{-x})/2\)。求双曲正弦函数\(y = \sinh x\)的反函数\(y = \sinh^{- 1} x\).
+\solutionanswer
+\(e^y\)随\(y\)严格递增，\(-e^{-y}\)也严格递增，因此\(\sinh y\)严格递增。设\(x=(e^y-e^{-y})/2\)，令\(t=e^y>0\)，得到
+\[
+t^2-2xt-1=0.
+\]
+两根中只有\(t=x+\sqrt{x^2+1}\)为正，故
+\[
+\sinh^{-1}x=\ln\bigl(x+\sqrt{x^2+1}\bigr),\qquad x\in\mathbb R.
+\]
+对每个实数\(x\)，括号内都为正，所求的\(y\)存在且唯一。这也证明\(\sinh\)的值域为\(\mathbb R\)，反函数的定义域、值域均为\(\mathbb R\)。
+\par

@@ -1,0 +1,27 @@
+\usepackage{needspace}
+\usepackage{longtable,booktabs}
+\usepackage{tikz}
+\graphicspath{{media/}}
+\hypersetup{pdftitle={从数字到数学例题与习题解},pdfauthor={Andrew Elizabeth},bookmarksdepth=2}
+\AtBeginDocument{%
+  \fontsize{12pt}{20pt}\selectfont
+  \setlength{\parskip}{4pt}%
+  \setlength{\abovedisplayskip}{8pt}%
+  \setlength{\belowdisplayskip}{8pt}%
+  \setlength{\abovedisplayshortskip}{4pt}%
+  \setlength{\belowdisplayshortskip}{4pt}%
+}
+\setcounter{tocdepth}{1}
+
+% 每个题目的稳定标识用于书签；题号、题面和解答均在同一节源码中维护。
+\newcommand{\solutionitem}[2]{%
+  \par\addvspace{12pt}\Needspace{6\baselineskip}%
+  \pdfbookmark[2]{#2}{sol-item-#1}%
+  \noindent{\heiti#2}\par\nobreak
+  \begingroup\setlength{\parindent}{0pt}%
+}
+\newcommand{\solutionanswer}{%
+  \par\endgroup
+  \smallskip\Needspace{3\baselineskip}%
+  \noindent{\heiti 解}\par\nobreak
+}

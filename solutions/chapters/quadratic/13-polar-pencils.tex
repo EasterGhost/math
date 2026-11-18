@@ -1,0 +1,333 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{极线束的参数方法*}
+
+% ITEM: quadratic-example-110
+\solutionitem{quadratic-example-110}{例4.110 *}
+对椭圆\(x^2/4+y^2=1\)，取\(P(\tau)=(1+\tau,1-\tau)\)。写出极线束的齐次参数表示，求公共点，找出参数无穷远所对应的极点与极线。再将点列改为\(P(\tau)=(\tau,2\tau)\)，比较两个极线束的公共点。
+\solutionanswer
+取\(P([s:t])=[s+t:s-t:s]\)，其极线为
+\[
+ (s+t)X+4(s-t)Y-4sZ=0.
+\]
+公共点满足\(X+4Y-4Z=X-4Y=0\)，故为\([4:1:2]\)，即\((2,1/2)\)。无穷远参数\([0:1]\)对应极点\([1:-1:0]\)及极线\(X-4Y=0\)。
+第二条点列可写成\([t:2t:s]\)，极线为\(t(X+8Y)-4sZ=0\)。公共点是\([8:-1:0]\)，所以普通平面中的极线互相平行。差别来自点列所在直线的极点是否在无穷远处。
+
+
+% ITEM: quadratic-exercise-60-01
+\solutionitem{quadratic-exercise-60-01}{习题4.60（1） *}
+取单位圆，令\(U=(2,0,1)^T,V=(0,2,1)^T\)。求\(P([s:t])\)与\(l([s:t])\)，找出点列及极线束中的无穷远元素。
+\solutionanswer
+\(P([s:t])=[2s:2t:s+t]\)，\(l([s:t])=(2s,2t,-s-t)^T\)。点列的无穷远点对应\([s:t]=[1:-1]\)，为\([1:-1:0]\)；其极线是\(X-Y=0\)。极线束公共点为\([1:1:2]\)，是有限点，因此线束不包含无穷远直线。另须区分“参数无穷远”：\([0:1]\)仅对应给定有限点\(V=[0:2:1]\)及直线\(2Y-Z=0\)，并不表示几何对象必在无穷远处。
+
+
+% ITEM: quadratic-exercise-60-02
+\solutionitem{quadratic-exercise-60-02}{习题4.60（2） *}
+对\(y^2=4x\)，从直线束\(y=mx+1\)出发，求对应极点的轨迹，并补入竖直线所对应的参数。
+\solutionanswer
+取\(Q=Y^2-4XZ\)，其矩阵为\(M=\left(\begin{smallmatrix}0&0&-2\\0&1&0\\-2&0&0\end{smallmatrix}\right)\)。直线\((-m,1,-1)^TX=0\)的极点为\([1:2:m]\)。因此有限普通极点满足\(y=2x\)，其中\(m\ne0\)时为\((1/m,2/m)\)；\(m=0\)补入无穷远点\([1:2:0]\)。直线束的竖直成员为\(X=0\)，对应参数\(m=\infty\)，极点为原点。完整射影轨迹是\(Y=2X\)。
+
+
+% ITEM: quadratic-exercise-60-03
+\solutionitem{quadratic-exercise-60-03}{习题4.60（3） *}
+证明更换点列的两个生成点，同时也更换极线束的两个生成直线；两侧的参数变换相同。结合4.11的交比说明，点列与对应极线束的交比相等。
+\solutionanswer
+原来两侧为\(P=Au\)、\(l=MAu\)。换生成点后\(A'=AR\)，若用新参数\(u'\)，则\(P=A' u'=A(Ru')\)、\(l=MA'(u')=MA(Ru')\)，两侧均使用\(u=Ru'\)。点列与线束的对应是同一个可逆二阶参数变换，故任取四个对应元素，其交比相等；这一结论与所取两个生成点无关。
+
+
+% ITEM: quadratic-example-111
+\solutionitem{quadratic-example-111}{例4.111 *}
+对单位圆，取点列\(P(\tau)=(\tau,c)\)。求\(H\)，分别讨论\(|c|<1\)、\(|c|=1\)、\(|c|>1\)时点列与圆的交点及极线束中的实切线。\(H\)可逆时，写出共轭参数之间的对应，并解释不动参数的几何意义。
+\solutionanswer
+取\(U=(0,c,1)^T,V=(1,0,0)^T\)，则
+\[
+ H=\begin{pmatrix}c^2-1&0\\0&1\end{pmatrix},\qquad
+ \tau^2+c^2-1=0.
+\]
+\(|c|<1\)时有两个交点\((\pm\sqrt{1-c^2},c)\)，也有两条实切线\(\pm\sqrt{1-c^2}\,x+cy=1\)。\(|c|=1\)时只有二重交点\((0,c)\)和一条切线\(cy=1\)；\(|c|>1\)时没有实交点或实切线。
+\(H\)可逆时，两共轭参数满足\(\tau\sigma=1-c^2\)，即\(\sigma=(1-c^2)/\tau\)，其中\(0\)与无穷远参数互换。不动参数满足\(\tau^2=1-c^2\)，正是点列与圆的交点参数，其极线在该点相切。
+
+
+% ITEM: quadratic-exercise-61-01
+\solutionitem{quadratic-exercise-61-01}{习题4.61（1） *}
+直接验证式\textup{(4.219)}。在换基\(A'=AR\)后，证明\(H'=R^THR\)，说明交点及相切判定不依赖生成点的选取。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+(JH)^2=-\det(H)I.
+\end{equation*}
+\solutionanswer
+写\(H=\left(\begin{smallmatrix}\alpha&\beta\\\beta&\gamma\end{smallmatrix}\right)\)，则\(JH=\left(\begin{smallmatrix}-\beta&-\gamma\\\alpha&\beta\end{smallmatrix}\right)\)，平方为\((\beta^2-\alpha\gamma)I=-\det(H)I\)。又\(H'=(AR)^TM(AR)=R^THR\)，所以\({u'}^TH'u'=(Ru')^TH(Ru')\)。可逆换参不改变实射影根的个数及重数，因而不改变交点和切线判定。
+
+
+% ITEM: quadratic-exercise-61-02
+\solutionitem{quadratic-exercise-61-02}{习题4.61（2） *}
+设单位圆上的点列为\(P(\tau)=(\tau,0)\)。求共轭参数对应。再将点列改为\(P(\tau)=(1,\tau)\)，解释切点为何没有唯一的共轭参数点。
+\solutionanswer
+第一条点列给出\(\tau\sigma=1\)，所以\(\tau\mapsto1/\tau\)，\(0\)与\(\infty\)互换，不动参数为\(\pm1\)。第二条点列给出\(\tau\sigma=0\)。在切点\(\tau=0\)处，每一个参数\(\sigma\)都满足共轭条件，因为整条点列就是该点的切线；而\(\tau\ne0\)的点都只与切点共轭。它不构成可逆对合。
+
+
+% ITEM: quadratic-exercise-61-03
+\solutionitem{quadratic-exercise-61-03}{习题4.61（3） *}
+对抛物线\(YZ=X^2\)，取\(U=(0,0,1)^T,V=(1,1,0)^T\)。求\(H\)，求过线束中心的全部实切线，并核对切点。
+\solutionanswer
+对\(YZ-X^2=0\)，有\(H=\left(\begin{smallmatrix}0&1/2\\1/2&-1\end{smallmatrix}\right)\)，限制式为\(st-t^2=0\)。两根\([1:0]\)、\([1:1]\)分别给出切点\([0:0:1]\)、\([1:1:1]\)，切线为\(Y=0\)、\(-2X+Y+Z=0\)。它们相交于\([1:0:2]\)，即极线束中心\((1/2,0)\)。
+
+
+% ITEM: quadratic-example-112
+\solutionitem{quadratic-example-112}{例4.112 *}
+取单位圆与\(S=(2,0)\)。由式\textup{(4.221)}求弦端点的参数对应、两条切线及切点。再求所有弦的两端切线交点的轨迹，并说明哪些轨迹点可以由两条不同实切线得到。将图形伸缩为椭圆\(x^2/4+y^2=1\)，写出对应的结论。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+u=\frac{kt+h-1}{(h+1)t-k},\qquad
+ B=\begin{pmatrix}k&h-1\\h+1&-k\end{pmatrix},\qquad
+ B^2=(h^2+k^2-1)I.
+\end{equation*}
+\solutionanswer
+代入\(h=2,k=0\)，得\(u=1/(3t)\)。不动参数为\(t=\pm1/\sqrt3\)，切点为\((1/2,\pm\sqrt3/2)\)，两切线为\(x\pm\sqrt3y=2\)。
+所有切线交点位于\(S\)的极线\(x=1/2\)上；要由两个不同实圆点的切线得到，还须交点在圆外，故普通轨迹为
+\[
+ x=\frac12,\qquad |y|>\frac{\sqrt3}{2}.
+\]
+反过来，轨迹上的每一点有两条不同实切线，其切点弦的极点就是该点；由互为极点极线的关系，该弦必过\(S\)。两边界点只在两切点合并时补入。水平直径弦的两端切线平行，交点是该直线上的无穷远点。
+伸缩\((\xi,\eta)\mapsto(2\xi,\eta)\)后，定点变成\((4,0)\)，切点为\((1,\pm\sqrt3/2)\)，切线为\(x/2\pm\sqrt3y=2\)，普通交点轨迹为\(x=1,\ |y|>\sqrt3/2\)。端点参数对应仍为\(u=1/(3t)\)。
+
+
+% ITEM: quadratic-exercise-62-01
+\solutionitem{quadratic-exercise-62-01}{习题4.62（1） *}
+推导式\textup{(4.220)}及其齐次形式，解释两个端点参数相同时各式的含义。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\begin{aligned}
+ C(t)C(u):\quad &(1-tu)X+(t+u)Y-(1+tu)Z=0,\\
+ \text{两端切线交点：}\quad &T(t,u)=[1-tu:t+u:1+tu].
+ \end{aligned}
+\end{equation*}
+\solutionanswer
+将\(C(t)=(1-t^2,2t,1+t^2)^T\)与\(C(u)\)代入\((1-tu)X+(t+u)Y-(1+tu)Z\)，两次均为零，故不同参数时该式就是弦。其系数经\(\operatorname{diag}(1,1,-1)\)作用后，得到\([1-tu:t+u:1+tu]\)，正是两端切线的交点。用\(t=t_1/s_1,u=t_2/s_2\)代入并乘\(s_1s_2\)，得
+\[
+ (s_1s_2-t_1t_2)X+(s_1t_2+t_1s_2)Y-(s_1s_2+t_1t_2)Z=0,
+\]
+交点的三个齐次坐标依次为上述前三个系数的前两项及第三项的相反数。端点参数相同，弦式成为该点切线，交点式成为该切点；这些是相应极限位置。
+
+
+% ITEM: quadratic-exercise-62-02
+\solutionitem{quadratic-exercise-62-02}{习题4.62（2） *}
+分别取\(S=(0,0)\)、\((1,0)\)，研究过\(S\)的弦所给出的参数关系。为何后一情形不再是互换两个自由端点的可逆对应？
+\solutionanswer
+\(S=(0,0)\)时为\(tu=-1\)，即对径点配对\(u=-1/t\)，齐次写成\([s:t]\mapsto[-t:s]\)。\(S=(1,0)=C(0)\)时为\(tu=0\)，齐次为\(t_1t_2=0\)。每条过\(S\)的弦已有一个端点固定为\(S\)；若另一端不为\(S\)，它只能配回\(S\)，而\(S\)可以与任意点配对。因此不再有两个自由端点之间的一一互换。
+
+
+% ITEM: quadratic-exercise-62-03
+\solutionitem{quadratic-exercise-62-03}{习题4.62（3） *}
+在单位圆上，证明弦\(C(t)C(u)\)过圆心的条件为\(tu=-1\)，并用齐次参数补全含无穷远参数的情形。它与三角参数中的相差\(\pi\)有何联系？
+\solutionanswer
+将圆心代入弦式得\(1+tu=0\)。齐次形式为\(s_1s_2+t_1t_2=0\)，也补入\(t=0,u=\infty\)这一对。圆上有\(t=\tan(\theta/2)\)，而\(\tan((\theta+\pi)/2)=-1/t\)，故该配对就是三角参数相差\(\pi\)的两个对径点。
+
+
+% ITEM: quadratic-exercise-62-04
+\solutionitem{quadratic-exercise-62-04}{习题4.62（4） *}
+将圆作可逆仿射变换\(x=K\xi+q\)，证明上述弦、切线交点和定点极线的对应随之保持。若题目还要求两条弦垂直，应在圆化坐标中加入怎样的度量条件？
+\solutionanswer
+把仿射变换写成齐次矩阵\(G\)。点变为\(GX\)，直线变为\(G^{-T}l\)，圆矩阵变为\(G^{-T}MG^{-1}\)。因此\(MP=l\)变为\((G^{-T}MG^{-1})(GP)=G^{-T}l\)，极点极线关系及交点、连线的对应均保持。两条原弦方向若在圆化坐标中为\(d_1,d_2\)，原图中的垂直条件应写成\(d_1^TK^TKd_2=0\)。
+
+
+% ITEM: quadratic-example-113
+\solutionitem{quadratic-example-113}{例4.113 *}
+对曲线束\(X^2+Y^2-Z^2+\tau XZ=0\)，固定\(P=(0,1,1)^T\)。求\(P\)的极线束及公共点，找出参数无穷远所对应的成员与极化直线。若将\(P\)改为\((0,1,0)^T\)，极线族有何变化？
+\solutionanswer
+将矩阵写成\(M(\tau)=M_0+\tau M_1\)，有
+\[
+ M(\tau)P=(\tau/2,1,-1)^T.
+\]
+故极线束为\(\tau X+2Y-2Z=0\)，公共点为\([0:1:1]\)，恰是给定共同点\(P\)。齐次参数\([\lambda:\mu]\)下极线为\(\mu X+2\lambda Y-2\lambda Z=0\)。参数无穷远\([0:1]\)对应退化成员\(XZ=0\)，极化直线为\(X=0\)。有限参数的矩阵行列式为\(-1-\tau^2/4\)，均非退化。
+若\(P=(0,1,0)^T\)，则\(M(\tau)P=(0,1,0)^T\)，有限参数的极线恒为\(Y=0\)。无穷远参数给出零向量，不是一条极线。
+
+
+% ITEM: quadratic-exercise-63-01
+\solutionitem{quadratic-exercise-63-01}{习题4.63（1） *}
+取\(M_0=\operatorname{diag}(1,1,-1)\)、\(M_1=\operatorname{diag}(1,2,-3)\)。求共同自极三角形与全部退化成员，并分别判断退化成员的实图形。
+\solutionanswer
+共同自极三角形的顶点为三个坐标点\(E_1,E_2,E_3\)。退化参数依次是\([\lambda:\mu]=[-1:1],[-2:1],[-3:1]\)，对应
+\[
+ Y^2-2Z^2=0,\qquad -X^2-Z^2=0,\qquad -2X^2-Y^2=0.
+\]
+第一条为两条实直线\(Y=\pm\sqrt2Z\)，在普通平面中互相平行；第二条的实点集仅有无穷远点\(E_2\)，普通平面中为空；第三条的实点集仅有原点\(E_3\)。三者的矩阵秩均为\(2\)。
+
+
+% ITEM: quadratic-exercise-63-02
+\solutionitem{quadratic-exercise-63-02}{习题4.63（2） *}
+证明共同自极三角形的每个顶点，关于曲线束中所有非退化成员的极线均相同。将它与式\textup{(4.222)}中的向量成比例情形联系起来。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+l_P(\lambda,\mu)=\lambda M_0P+\mu M_1P.
+\end{equation*}
+\solutionanswer
+在共同自极三角形的坐标基下，所有非退化成员的矩阵均为可逆对角矩阵。故第\(i\)个顶点\(E_i\)的极线始终为\(z_i=0\)，即另外两个顶点的连线。换回原坐标仍然相同。等价地，对顶点\(P_i\)有\(M_1P_i=\rho_iM_0P_i\)，所以\(\lambda M_0P_i+\mu M_1P_i=(\lambda+\mu\rho_i)M_0P_i\)，非退化时只改变代表向量的倍数。
+
+
+% ITEM: quadratic-exercise-63-03
+\solutionitem{quadratic-exercise-63-03}{习题4.63（3） *}
+若两条生成曲线有共同点\(P\)，证明其极线束中的每条非零直线都经过\(P\)。对非退化成员，这些直线有怎样的几何意义？
+\solutionanswer
+共同点满足\(P^TM_0P=P^TM_1P=0\)，因而\(P^T(\lambda M_0P+\mu M_1P)=0\)。所以每个非零极化表达都经过\(P\)。在非退化成员上，\(P\)就在该曲线上，该极线正是曲线在\(P\)处的切线。
+
+
+% ITEM: quadratic-example-114
+\solutionitem{quadratic-example-114}{例4.114 *}
+仍取\(M_0=\operatorname{diag}(1,1,-1)\)、\(M_1=\operatorname{diag}(1,2,-3)\)。求直线\(X+Y+Z=0\)关于曲线束各非退化成员的极点参数，并消去参数，写出轨迹方程。分别解释三个退化曲线参数在这条轨迹上补入的点。
+\solutionanswer
+记\(M(\lambda,\mu)=\operatorname{diag}(\lambda+\mu,\lambda+2\mu,-\lambda-3\mu)\)。在三个对角系数均非零时，极点可写成
+\[
+ [X:Y:Z]=[(\lambda+2\mu)(\lambda+3\mu):
+ (\lambda+\mu)(\lambda+3\mu):-(\lambda+\mu)(\lambda+2\mu)].
+\]
+消去参数得
+\[
+ XY+2XZ-YZ=0.
+\]
+例如先令\(\tau=\mu/\lambda\)，极点满足\((1+\tau)X=(1+2\tau)Y=-(1+3\tau)Z\)（同一代表向量下相差一个公共因子），消去\(\tau\)便得此式。
+三个坐标二次式线性无关，因而补全后的轨迹是这条非退化二次曲线；\(\lambda=-\mu,-2\mu,-3\mu\)分别补入\([1:0:0],[0:1:0],[0:0:1]\)。它们是共同自极三角形的三个顶点，在相应退化成员上为核向量；不能称为该退化成员的唯一极点。原极点轨迹应去掉这三个点。
+
+
+% ITEM: quadratic-exercise-64-01
+\solutionitem{quadratic-exercise-64-01}{习题4.64（1） *}
+在上例中，将固定直线依次改为\(X+Y=0\)、\(X=0\)，求极点轨迹，说明二次参数如何约去公共因子或退化为常点。
+\solutionanswer
+固定\(X+Y=0\)时，二次参数为
+\[
+ [(\lambda+2\mu)(\lambda+3\mu):(\lambda+\mu)(\lambda+3\mu):0].
+\]
+约去公共因子\(\lambda+3\mu\)，得\([\lambda+2\mu:\lambda+\mu:0]\)，补全后为整条无穷远直线\(Z=0\)。实际非退化成员的极点须去掉三个退化参数所对应的\([1:0:0],[0:1:0],[1:2:0]\)；第三个位置由约因子后的极限补入。
+固定\(X=0\)时，三个坐标中只有第一项可能非零，约因子后恒为\([1:0:0]\)。因此所有非退化成员的极点均为同一常点，而不是一条二次曲线。
+
+
+% ITEM: quadratic-exercise-64-02
+\solutionitem{quadratic-exercise-64-02}{习题4.64（2） *}
+为什么不能由固定点的极线形成线束，直接断言固定直线的极点也必共线？从矩阵对参数的线性依赖与求逆两个步骤说明。
+\solutionanswer
+固定点\(P\)时，\(M(\lambda,\mu)P\)对参数线性，故其极线确为线束或常直线。固定直线\(l\)时，极点需要先求逆：\(M(\lambda,\mu)^{-1}l\)通常是有理式；改用伴随矩阵后，其齐次坐标是二次式。求逆没有保留原来的线性参数形式，故不能由前一结论推出极点必共线。例4.114的非退化二次曲线轨迹已经给出反例。
+
+
+% ITEM: quadratic-example-115
+\solutionitem{quadratic-example-115}{例4.115 *}
+以单位圆确定极性。令点\(P\)沿椭圆\(x^2/a^2+y^2/b^2=1\)运动，求其极线族的包络。再取\(a=b=R\)，用圆的极线公式解释包络圆的半径为何是\(1/R\)。
+\solutionanswer
+取\(P=(a\cos t,b\sin t,1)^T\)，其极线为\(a\cos t\,x+b\sin t\,y=1\)。与系数导数给出的\(-a\sin t\,x+b\cos t\,y=0\)联立，得特征点
+\[
+ x=\frac{\cos t}{a},\qquad y=\frac{\sin t}{b}.
+\]
+所以包络为\(a^2x^2+b^2y^2=1\)。也可用\(M=\operatorname{diag}(1,1,-1)\)、\(N=\operatorname{diag}(a^{-2},b^{-2},-1)\)代入正文矩阵公式，得到同一结果。
+当\(a=b=R\)时，极线与原点距离恒为\(1/R\)，故均与半径\(1/R\)的同心圆相切。
+
+
+% ITEM: quadratic-exercise-65-01
+\solutionitem{quadratic-exercise-65-01}{习题4.65（1） *}
+对直线族\(y=2tx-t^2\)，由式\textup{(4.225)}求特征点及包络。它与抛物线\(y=x^2\)的切线族有何关系？
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+l(t)^TX=0,\qquad l'(t)^TX=0
+\end{equation*}
+\solutionanswer
+直线系数为\((-2t,1,t^2)\)。特征点方程为\(y-2tx+t^2=0\)、\(-2x+2t=0\)，所以\((x,y)=(t,t^2)\)，包络为\(y=x^2\)。原直线经过该点，斜率为\(2t\)，正是抛物线在该点的切线。
+
+
+% ITEM: quadratic-exercise-65-02
+\solutionitem{quadratic-exercise-65-02}{习题4.65（2） *}
+仍以单位圆确定极性，令点轨迹为\(y=x^2\)。分别用多项式参数和式\textup{(4.226)}求包络，写出其普通坐标方程。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+X^TMN^{-1}MX=0.
+\end{equation*}
+\solutionanswer
+取\(P(t)=(t,t^2,1)^T\)，极线为\(tX+t^2Y-Z=0\)，导数条件为\(X+2tY=0\)。特征点可取\([-2t:1:-t^2]\)，所以消参得\(X^2+4YZ=0\)，普通坐标方程为\(x^2+4y=0\)。
+矩阵法中，\(M=\operatorname{diag}(1,1,-1)\)，\(N=\left(\begin{smallmatrix}-1&0&0\\0&0&1/2\\0&1/2&0\end{smallmatrix}\right)\)，于是\(MN^{-1}M=\left(\begin{smallmatrix}-1&0&0\\0&0&-2\\0&-2&0\end{smallmatrix}\right)\)，得到相同方程。
+有限参数\(t=0\)的特征点在无穷远处；\(t\ne0\)给出\((2/t,-1/t^2)\)。原点由参数无穷远补入；若只让\(P\)取原抛物线的有限点，普通特征点轨迹应去掉原点。
+
+
+% ITEM: quadratic-exercise-65-03
+\solutionitem{quadratic-exercise-65-03}{习题4.65（3） *}
+证明将\(l(t)\)换为\(c(t)l(t)\)，其中\(c(t)\ne0\)，不改变式\textup{(4.225)}所确定的特征点。在参数作可微换元且导数非零时，同样验证这一点。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+l(t)^TX=0,\qquad l'(t)^TX=0
+\end{equation*}
+\solutionanswer
+新直线系数为\(\widetilde l=cl\)，导数为\(\widetilde l'=c'l+cl'\)。因\(c\ne0\)，方程\(\widetilde l^TX=\widetilde l'^TX=0\)等价于\(l^TX=l'^TX=0\)，故特征点不变。若\(t=\phi(u)\)且\(\phi'(u)\ne0\)，新导数为\(l'(\phi(u))\phi'(u)\)，也只给第二个条件乘一个非零数，特征点相同。
+
+
+% ITEM: quadratic-example-116
+\solutionitem{quadratic-example-116}{例4.116 *}
+设椭圆\(x^2/a^2+y^2/b^2=1\)，其中\(a>b>0\)，固定圆化坐标中的点\(S'=(h,k)\)，其像为\(S=(ah,bk)\)。过\(S\)作弦\(AB\)，两端切线交于\(T\)。
+
+（1）圆化后用单位圆参数\(t,u\)表示\(A,B,T\)，写出弦过\(S\)的参数关系及\(T\)的轨迹方程。
+
+（2）若再要求\(TA\perp TB\)，在圆化坐标中写出正确的二次条件。为何不能直接要求\(T'A'\perp T'B'\)？
+
+（3）将两条弦\(AB,CD\)所对应的切线交点记为\(T_1,T_2\)。证明\(T_1T_2\)是\(S\)的极线，且\(T_1,T_2\)的极线都经过\(S\)，说明所用结论来自哪一个点线对应。
+\solutionanswer
+（1）圆化后取
+\[
+ A'=\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right),\quad
+ B'=\left(\frac{1-u^2}{1+u^2},\frac{2u}{1+u^2}\right).
+\]
+原坐标中的\(A,B\)分别乘以\(\operatorname{diag}(a,b)\)。切线交点的齐次坐标为
+\[
+ T=[a(1-tu):b(t+u):1+tu].
+\]
+弦过\(S\)等价于\((h-1)+k(t+u)-(h+1)tu=0\)，所以交点位于\((h/a)X+(k/b)Y-Z=0\)。实际由不同实切点得到的部分，还要求\(t,u\)为不同实射影参数；若\(S\)在椭圆外，这一条件会排除极线上的内点段，若\(S\)在椭圆上则没有两端都不同于\(S\)的自由配对。
+
+（2）两端切线可分别取方向向量\((-2at,b(1-t^2))\)、\((-2au,b(1-u^2))\)。故正确条件是
+\[
+ 4a^2tu+b^2(1-t^2)(1-u^2)=0.
+\]
+这正是圆化坐标中以\(K^TK=\operatorname{diag}(a^2,b^2)\)计算内积的条件。一般伸缩不保持垂直，不能改用普通圆坐标内积。
+
+（3）每条弦是其两端切线交点的极线，故\(S\)同时在\(T_1,T_2\)的极线上。由极性互反性，\(T_1,T_2\)都在\(S\)的极线上；两弦不同时，两交点不同，因此其连线就是\(S\)的极线。这是“共点的直线对应于共线的极点”在弦与切线交点上的应用。
+
+
+% ITEM: quadratic-exercise-66-01
+\solutionitem{quadratic-exercise-66-01}{习题4.66（1） *}
+对单位圆，给定直线束\(X+\tau Y-2Z=0\)。求极点轨迹、切线参数，以及这些直线与圆的交点参数。比较从直线束直接联立与先转到极点一侧两条路径。
+\solutionanswer
+直线的极点为\([1:\tau:2]\)，普通轨迹为\(x=1/2\)。相切条件为\(1+\tau^2-4=0\)，故切线参数\(\tau=\pm\sqrt3\)，切点为\((1/2,\pm\sqrt3/2)\)。
+代入圆参数\(C(t)\)，得\(3t^2-2\tau t+1=0\)，所以\(|\tau|\ge\sqrt3\)时交点参数为\(t=(\tau\pm\sqrt{\tau^2-3})/3\)；等号为二重根，较小时没有实交点。补入\(\tau=\infty\)时，直线为\(Y=0\)，极点为\([0:1:0]\)，交点参数\(t=0,\infty\)。
+直接联立适合求各交点；极点一侧先得到一条直线，比较其位置即可判断割线与切线，所需的二次关系相同。
+
+
+% ITEM: quadratic-exercise-66-02
+\solutionitem{quadratic-exercise-66-02}{习题4.66（2） *}
+对椭圆\(x^2/9+y^2/4=1\)，点\(P\)在\(x+y=3\)上运动。求极线束的公共点及其中的两条实切线，并说明哪些参数对应穿过椭圆的割线。
+\solutionanswer
+取\(P=(\tau,3-\tau)\)，极线为\(\tau x/9+(3-\tau)y/4=1\)，公共点为\((3,4/3)\)。相切条件
+\[
+ \frac{\tau^2}{9}+\frac{(3-\tau)^2}{4}=1
+\]
+给出\(\tau=3,15/13\)，两切线依次为\(x=3\)、\(5x+18y=39\)。极线为割线当且仅当相应极点在椭圆外，故普通参数满足\(\tau<15/13\)或\(\tau>3\)；两端点相切，中间参数不与实椭圆相交。齐次补入的无穷远参数极点为\([1:-1:0]\)，极线为\(4X-9Y=0\)，也是割线。
+
+
+% ITEM: quadratic-exercise-66-03
+\solutionitem{quadratic-exercise-66-03}{习题4.66（3） *}
+设\(Q(X)=X^TMX\)，\(P\)不在曲线上。证明曲线束\(Q(X)+\tau(P^TMX)^2=0\)中有一个退化成员，其退化点为\(P\)。求该参数，并说明\(P\)的极线为什么在这个曲线束中具有特殊地位。
+\solutionanswer
+记\(q=P^TMP\ne0\)，矩阵束为\(M_\tau=M+\tau MPP^TM\)。在\(\tau=-1/q\)时，\(M_\tau P=0\)，故该成员退化，且核恰为\(\operatorname{span}\{P\}\)：若\(M_\tau X=0\)，乘\(M^{-1}\)可得\(X=P(P^TMX)/q\)。所以其秩为\(2\)，退化点为\(P\)。
+其他参数有\(M_\tau P=(1+\tau q)MP\)，故\(P\)关于所有非退化成员的极线都是固定直线\(P^TMX=0\)。在这条直线上，所有成员的方程都退为\(Q(X)=0\)，其与原曲线的交点是曲线束的共同点；若有两条实切线，这两个共同点正是从\(P\)引出的切点。退化参数的极化表达为零，应与上述固定极线的极限意义区分。
+
+
+% ITEM: quadratic-exercise-66-04
+\solutionitem{quadratic-exercise-66-04}{习题4.66（4） *}
+选取4.11的一个帕斯卡或布里昂雄配置，用本节点线参数表达其关联条件，区分其中的线性关系与二次关系。
+\solutionanswer
+选抛物线\(C(t)=[t:t^2:1]\)上的六点，参数依次取\(0,1,2,3,4,5\)。弦\(C(t_i)C(t_j)\)为
+\[
+ -(t_i+t_j)X+Y+t_it_jZ=0.
+\]
+三组对边交点依次为\([2:2:1],[3:7:1],[1:5:0]\)，均在\(Y-5X+8Z=0\)上，构成帕斯卡配置。
+用\(M=\left(\begin{smallmatrix}-1&0&0\\0&0&1/2\\0&1/2&0\end{smallmatrix}\right)\)取极线，可把这条共线关系转成三条极线共点。固定点或直线后，关联条件\(l^TX=0\)对另一侧坐标是线性的，极性\(l=MP\)也是线性的；点在二次曲线上的条件\(X^TMX=0\)及曲线点的齐次参数是二次的。弦式中的\(t_it_j\)是两个端点参数的双线性项。随后多次求交、连线会产生更高次表达，不能把所有消参结果统称为二次关系。
+\par

@@ -1,0 +1,125 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{假设检验}
+
+% ITEM: probability-example-033
+\solutionitem{probability-example-033}{例6.33}
+某工艺原不合格率为\(0.1\)。为判断不合格率是否升高，独立抽检20件，预先规定发现至少5件不合格就拒绝原假设。写出原假设、备择、统计量和拒绝域，计算原假设成立时错误拒绝的概率。
+\solutionanswer
+记\(p\)为新工艺不合格率，\(H_0:p=0.1,H_1:p>0.1\)。统计量\(K\)为20件中的不合格数，拒绝域\(\{K\ge5\}\)。原假设下\(K\sim B(20,0.1)\)，错误拒绝概率
+\[
+ \sum_{k=5}^{20}\binom{20}k0.1^k0.9^{20-k}
+ =1-\sum_{k=0}^4\binom{20}k0.1^k0.9^{20-k}\approx0.04317.
+\]
+
+
+% ITEM: probability-example-034
+\solutionitem{probability-example-034}{例6.34}
+（据2025年全国I卷改编）
+从做过超声波检查的人群中随机调查1000人，得到下表。
+\[
+\begin{array}{c|rr|r}
+ &\text{正常}&\text{不正常}&\text{合计}\\\hline
+ \text{患该疾病}&20&180&200\\
+ \text{未患该疾病}&780&20&800\\\hline
+ \text{合计}&800&200&1000
+\end{array}
+\]
+用频率估计检查结果不正常者患该疾病的概率。再根据\(\alpha=0.001\)的独立性检验，分析检查结果与是否患该疾病的关系，说明判断对应的人群范围。
+\solutionanswer
+在不正常结果者中，患病比例为\(180/200=0.9\)。独立假设下的拟合期望表为\(\left(\begin{smallmatrix}160&40\\640&160\end{smallmatrix}\right)\)，均不小于5。Pearson统计量
+\[
+ \chi^2=\frac{1000(20\times20-180\times780)^2}{200\times800\times800\times200}=765.625>10.828.
+\]
+在\(0.001\)水平拒绝独立假设，有充分证据认为检查结果与是否患病相关。该样本对应做过超声波检查且由抽样代表的人群；其中的患病比例和条件概率不能直接当作未限定人群的患病率。
+
+
+% ITEM: probability-exercise-25-01
+\solutionitem{probability-exercise-25-01}{习题6.25（1）}
+独立抛硬币12次，以正面次数\(K\ge c\)拒绝公平假设。求使原假设下错误拒绝概率不超过\(0.05\)的最小整数\(c\)；若实际正面概率为\(3/4\)，求该规则拒绝的概率。
+\solutionanswer
+原假设下\(K\sim B(12,1/2)\)。\(P(K\ge9)=299/4096\approx0.0730>0.05\)，\(P(K\ge10)=79/4096\approx0.01929\le0.05\)，故最小阈值\(c=10\)。实际\(p=3/4\)时拒绝概率\(\sum_{k=10}^{12}\binom{12}k(3/4)^k(1/4)^{12-k}=6554439/16777216\approx0.3907\)。
+
+
+% ITEM: probability-exercise-25-02
+\solutionitem{probability-exercise-25-02}{习题6.25（2）}
+两种教学安排各观察50人，甲组达标40人、未达标10人，乙组达标30人、未达标20人。写出列联表及期望频数，在\(\alpha=0.05\)水平作独立性检验。
+\solutionanswer
+观测表为\(\left(\begin{smallmatrix}40&10\\30&20\end{smallmatrix}\right)\)，两行合计50，列合计70、30。独立模型的期望表\(\left(\begin{smallmatrix}35&15\\35&15\end{smallmatrix}\right)\)。\(\chi^2=2(25/35+25/15)=100/21\approx4.762>3.841\)，在\(0.05\)水平拒绝独立，数据支持安排与达标情况有关。
+
+
+% ITEM: probability-exercise-25-03
+\solutionitem{probability-exercise-25-03}{习题6.25（3）}
+说明为什么“在1\%水平拒绝独立假设”不能解释为“两个变量独立的概率只有1\%”。
+\solutionanswer
+1\%是独立假设成立时，既定程序落入拒绝域的近似概率上限；它以原假设成立为条件。检验没有给“原假设本身”分配概率，不能把条件方向倒过来，解释为观测后独立的概率只有1\%。
+
+
+% ITEM: probability-exercise-25-04
+\solutionitem{probability-exercise-25-04}{习题6.25（4）}
+某调查仅记录自愿填写网络问卷的人。即使计算得到很大的Pearson统计量，把结论用于目标总体以前，还需检查什么数据获取条件？
+\solutionanswer
+应核查哪些目标总体成员能够接触问卷、谁选择回应、是否重复填答、是否存在与研究变量相关的未回应，以及测量口径是否一致。大的统计量只描述当前数据在所设模型下的偏离，不能补回自愿回应机制遗漏的总体信息。
+
+
+% ITEM: probability-exercise-25-05
+\solutionitem{probability-exercise-25-05}{习题6.25（5）}
+把第（2）题四格频数全部加倍，比较各组达标比例及Pearson统计量。在\(\alpha=0.01\)水平，原表与新表的检验结论是否相同？
+\solutionanswer
+各组达标比例仍为\(0.8,0.6\)，统计量加倍为\(200/21\approx9.524\)。在\(0.01\)水平，原表\(4.762<6.635\)不拒绝，新表\(9.524>6.635\)拒绝。相同比例差异在较大独立样本中有不同的拒绝证据强度；
+
+
+% ITEM: probability-exercise-25-06
+\solutionitem{probability-exercise-25-06}{习题6.25（6）}
+由\(Z^2\)的分布及正态对称性，说明自由度为1的\(\chi^2\)分布满足\(P(Z^2\ge c)=2[1-\Phi(\sqrt c)]\)。用正态概率表说明前两个临界值的来源。
+\solutionanswer
+\(Z^2\ge c\)等价于\(Z\ge\sqrt c\)或\(Z\le-\sqrt c\)，两尾由对称性相等，故概率\(2[1-\Phi(\sqrt c)]\)。\(\Phi(1.96)\approx0.975\)，平方为\(3.8416\)，得到约\(0.05\)尾部；\(\Phi(2.576)\approx0.995\)，平方为\(6.6358\)，得到约\(0.01\)尾部，与表中临界值的舍入相符。
+
+
+% ITEM: probability-exercise-25-07
+\solutionitem{probability-exercise-25-07}{习题6.25（7）}
+两组各\(n\)人，甲、乙达标比例为\(60\%\)、\(40\%\)，\(n\)为5的倍数。求\(\chi^2\)关于\(n\)的表达式，并求在\(0.05\)水平拒绝独立假设的最小\(n\)，核对期望频数条件。
+\solutionanswer
+观测频数为\(0.6n,0.4n,0.4n,0.6n\)，期望均为\(n/2\)。所以\(\chi^2=4(0.1n)^2/(n/2)=2n/25\)。要求\(2n/25\ge3.841\)，再考虑\(n\)是5的倍数，最小为\(50\)。此时期望频数均25，满足本章至少5的要求。
+
+
+% ITEM: probability-exercise-26-01
+\solutionitem{probability-exercise-26-01}{习题6.26（1） *}
+沿用正文10次独立抛币的模型，\(K\)为正面总数。
+对硬币模型取备择\(p=0.7\)，计算\(K\ge9\)规则的效能，与\(p=0.8\)比较。
+\solutionanswer
+沿用10次抛币模型，\(\pi_{10,9}(0.7)=10(0.7)^9(0.3)+(0.7)^{10}\approx0.14931\)。\(p=0.8\)时约\(0.37581\)，偏向正面的程度更大时，这条单侧规则更容易发现偏离。
+
+
+% ITEM: probability-exercise-26-02
+\solutionitem{probability-exercise-26-02}{习题6.26（2） *}
+两组各5个对象，总成功数4个，第一组成功4个。写出第一组成功数的条件分布，求单侧尾概率。
+\solutionanswer
+独立假设且固定两组人数与成功总数后，\(P(X=k)=\binom5k\binom5{4-k}/\binom{10}4\)，\(k=0,\ldots,4\)，概率依次为\(1,10,20,10,1\)各除以\(42\)。观测4个成功，第一组偏高的单侧尾概率\(P(X\ge4)=1/42\)。
+
+
+% ITEM: probability-exercise-26-03
+\solutionitem{probability-exercise-26-03}{习题6.26（3） *}
+在已知方差的正态均值模型中，证明双侧置信区间不包含\(\mu_0\)，等价于标准化样本均值落在相应的双侧尾部。由此构造检验\(H_0:\mu=\mu_0\)的规则。
+\solutionanswer
+设标准差为已知\(\sigma\)，样本量\(n\)，\(q_\alpha=\Phi^{-1}(1-\alpha/2)\)。区间\([\bar X-q_\alpha\sigma/\sqrt n,\bar X+q_\alpha\sigma/\sqrt n]\)不含\(\mu_0\)，等价于\(|\sqrt n(\bar X-\mu_0)/\sigma|>q_\alpha\)。因此以此双侧尾部为拒绝域，检验\(H_0:\mu=\mu_0\)对\(H_1:\mu\ne\mu_0\)；原假设下标准化变量精确正态，错误拒绝概率为\(\alpha\)。
+
+
+% ITEM: probability-exercise-26-04
+\solutionitem{probability-exercise-26-04}{习题6.26（4） *}
+正文记\(\pi_{n,c}(p)=\sum_{k=c}^n\binom nkp^k(1-p)^{n-k}\)，为二项大值拒绝域的概率。
+对\(1\le c\le n\)，通过求导与合并相邻项，证明\(\pi'_{n,c}(p)=n\binom{n-1}{c-1}p^{c-1}(1-p)^{n-c}\)。这说明成功概率升高时，单侧规则的效能怎样变化？
+\solutionanswer
+令\(q=1-p\)，利用\(k\binom nk=n\binom{n-1}{k-1}\)、\((n-k)\binom nk=n\binom{n-1}k\)，
+\[
+ \pi'_{n,c}(p)=n\sum_{k=c}^n\left[\binom{n-1}{k-1}p^{k-1}q^{n-k}-\binom{n-1}k p^kq^{n-k-1}\right].
+\]
+第二部分只求到\(n-1\)即可；首尾错位相消，仅余\(n\binom{n-1}{c-1}p^{c-1}q^{n-c}\)。在\(0<p<1\)严格为正，所以成功率升高时，大值单侧规则的拒绝概率严格增大。
+
+
+% ITEM: probability-exercise-26-05
+\solutionitem{probability-exercise-26-05}{习题6.26（5） *}
+两组各6个对象、总成功数为6时，第一组成功5个与成功1个分别对应哪个方向的偏离？若事先考察两组成功概率是否不同，采用\(X\le1\)或\(X\ge5\)的拒绝域，求其条件概率。
+\solutionanswer
+第一组成功5个时其比例高于第二组，成功1个时则低于第二组。固定边际后\(P(X=k)=\binom6k\binom6{6-k}/\binom{12}6\)。事先采用双侧域\(X\le1\)或\(X\ge5\)，概率为\(2(1+36)/924=37/462\approx0.08009\)。两个方向都计入，不能只用某一侧约\(0.0400\)的概率。
+\par

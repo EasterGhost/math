@@ -1,0 +1,59 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{连续分布}
+
+% ITEM: probability-example-026
+\solutionitem{probability-example-026}{例6.26}
+某加工尺寸用\(N(100,4)\)描述，单位为毫米。求尺寸在98至102毫米内、超过104毫米及低于98毫米的概率。若合格范围为96至104毫米，估计独立抽检100件中的合格件数期望。
+\solutionanswer
+标准差为\(2\)，标准化为\(Z=(X-100)/2\)。前三个概率分别是\(P(|Z|\le1)\approx0.6827\)、\(P(Z>2)\approx0.0228\)、\(P(Z<-1)\approx0.1587\)。合格概率为\(P(|Z|\le2)\approx0.9545\)，100件合格数的期望约为\(95.45\)。
+
+
+% ITEM: probability-exercise-16-01
+\solutionitem{probability-exercise-16-01}{习题6.16（1）}
+某班车每10分钟到站一次。把乘客到站相位视为在一个周期内均匀，求等待时间超过6分钟的概率及等待时间的均值。
+\solutionanswer
+等待时间在\([0,10]\)均匀，超过6分钟对应长度\(4\)的区间，概率\(4/10=0.4\)。均值由对称性为\(5\)分钟。
+
+
+% ITEM: probability-exercise-16-02
+\solutionitem{probability-exercise-16-02}{习题6.16（2）}
+\(X\sim N(50,9)\)。求\(P(47<X<53)\)、\(P(X>55.88)\)，并求以50为中心、包含约95\%概率的区间。
+\solutionanswer
+标准差\(3\)，第一概率\(P(|Z|<1)\approx0.6827\)；第二个标准化为\((55.88-50)/3=1.96\)，尾概率约\(0.025\)。中心95\%区间为\(50\pm1.96\times3\)，即\([44.12,55.88]\)。
+
+
+% ITEM: probability-exercise-16-03
+\solutionitem{probability-exercise-16-03}{习题6.16（3）}
+某密度在\([0,1]\)上为\(f(x)=cx\)，其他地方为0。用三角形面积求\(c\)及\(P(X\le1/2)\)。
+\solutionanswer
+总三角形面积\(c/2=1\)，得\(c=2\)。\([0,1/2]\)下的小三角形面积\(\tfrac12\times\tfrac12\times1=1/4\)，即所求概率。
+
+
+% ITEM: probability-exercise-16-04
+\solutionitem{probability-exercise-16-04}{习题6.16（4）}
+两个正态模型具有相同均值，标准差分别为1、2。比较两者落在均值两侧各1单位区间内的概率，并说明标准化中的分母。
+\solutionanswer
+标准差1时为\(2\Phi(1)-1\approx0.6827\)，标准差2时为\(2\Phi(1/2)-1\approx0.3829\)，前者更大。标准化分母是标准差，表示一个坐标单位对应多少个波动尺度，不能拿方差直接相除。
+
+
+% ITEM: probability-exercise-17-01
+\solutionitem{probability-exercise-17-01}{习题6.17（1） *}
+设\(X\sim U(-1,1)\)，求\(E(X^2)\)、\(E|X|\)，再用\(X^2\)的密度核对第一问。
+\solutionanswer
+直接积分得\(E(X^2)=\frac12\int_{-1}^1x^2dx=1/3\)，\(E|X|=\frac12\int_{-1}^1|x|dx=1/2\)。令\(Y=X^2\)，则\(F_Y(y)=\sqrt y\)对\(0\le y\le1\)，其内密度为\(1/(2\sqrt y)\)。因此\(EY=\int_0^1y/(2\sqrt y)dy=1/3\)，核对一致。
+
+
+% ITEM: probability-exercise-17-02
+\solutionitem{probability-exercise-17-02}{习题6.17（2） *}
+设\(Z\sim N(0,1)\)，求\(|Z|\)的分布函数、密度与期望。
+\solutionanswer
+令\(W=|Z|\)，\(F_W(w)=0\)对\(w<0\)，\(F_W(w)=2\Phi(w)-1\)对\(w\ge0\)。密度为\(2\varphi(w)\)对\(w>0\)，负半轴为零。由\(\varphi'=-w\varphi\)，\(EW=2\int_0^\infty w\varphi(w)dw=2\varphi(0)=\sqrt{2/\pi}\)。
+
+
+% ITEM: probability-exercise-17-03
+\solutionitem{probability-exercise-17-03}{习题6.17（3） *}
+设\(X\)在\([0,1]\)上密度为\(2x\)。求\(Y=1-X\)的密度，并求\(EX\)、\(\operatorname{Var}X\)。
+\solutionanswer
+逆变换\(x=1-y\)的导数绝对值为1，所以\(f_Y(y)=2(1-y)\)对\(0\le y\le1\)，其余为零。\(EX=\int_0^12x^2dx=2/3\)，\(E(X^2)=1/2\)，方差\(1/2-4/9=1/18\)。
+\par

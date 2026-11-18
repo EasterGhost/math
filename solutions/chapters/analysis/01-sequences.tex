@@ -1,0 +1,102 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{数列}
+
+\label{sol:sec:analysis:1}
+
+% ITEM: analysis-sequence-terms
+\solutionitem{analysis-sequence-terms}{例1.1}
+写出数列\(a_n=(-1)^{n-1}n\)的前五项。若另一数列的前\(n\)项和为\(S_n=n(n+1)\)，求它的通项。
+\solutionanswer
+前五项依次为\(1,-2,3,-4,5\)。由\(a_n=S_n-S_{n-1}\)，当\(n\ge2\)时
+\[a_n=n(n+1)-(n-1)n=2n,\]
+而\(a_1=S_1=2\)，故通项为\(a_n=2n\)。
+
+
+% ITEM: analysis-sequence-index-blocks
+\solutionitem{analysis-sequence-index-blocks}{例1.2}
+分别写出\(1,0,1,0,\ldots\)与\(1,-1/2,1/3,-1/4,\ldots\)的一个通项公式。
+
+对数列\(1,1/2,1/2,1/3,1/3,1/3,\ldots\)，其中\(1/k\)依次重复\(k\)次，试用下标的取值范围表示它的通项。
+\solutionanswer
+第一列可取\(a_n=(1+(-1)^{n-1})/2\)；第二列为\(a_n=(-1)^{n-1}/n\)。第三列中，\(1/k\)占据下标\(k(k-1)/2<n\le k(k+1)/2\)，故\[a_n=1/k\quad\left(\frac{k(k-1)}2<n\le\frac{k(k+1)}2\right),\ k=1,2,\ldots.\]
+
+
+% ITEM: analysis-sequence-monotone-bounds
+\solutionitem{analysis-sequence-monotone-bounds}{例1.3}
+判断\(a_n=(2n+1)/(n+1)\)、\(b_n=(-1)^n(1-1/n)\)、\(c_n=n(6-n)\)的单调性与有界性，并求它们存在的最大项、最小项。有界与单调能否互相推出？
+\solutionanswer
+\(a_n=2-1/(n+1)\)严格递增，满足\(3/2\le a_n<2\)，无最大项，最小项为\(a_1=3/2\)。\(b_1=0,b_2=1/2,b_3=-2/3,b_4=3/4,\ldots\)，正负交替，故不单调；且\(-1<b_n<1\)，有界。其正项随偶数下标递增至1，负项随奇数下标递减至-1，故无最大、最小项。\(c_n=-(n-3)^2+9\)，先增后减：\(c_1=5,c_2=8,c_3=9,c_4=8\)，最大项9；向下无界，故无最小项。单调不推出有界（\(n\)递增无界）；有界不推出单调（\((-1)^n\)有界而不单调）。
+
+
+% ITEM: analysis-induction-sum-bernoulli
+\solutionitem{analysis-induction-sum-bernoulli}{例1.4}
+用数学归纳法证明\(\sum_{k=1}^n k(k+1)=n(n+1)(n+2)/3\)。再对\(x\ge-1\)证明Bernoulli不等式\((1+x)^n\ge1+nx\)，说明归纳步骤中为何可以将不等式两边乘以\(1+x\)。
+\solutionanswer
+令\(P(n)\)为所给求和式。\(n=1\)两边均为2。若对\(k\)成立，则
+\[\sum_{j=1}^{k+1}j(j+1)=\frac{k(k+1)(k+2)}3+(k+1)(k+2)=\frac{(k+1)(k+2)(k+3)}3,\]
+即得归纳步。Bernoulli式在\(n=1\)取等。假设\((1+x)^k\ge1+kx\)。因\(x\ge-1\)，有\(1+x\ge0\)，乘此非负数保持不等号方向，且
+\[(1+x)^{k+1}\ge(1+kx)(1+x)=1+(k+1)x+kx^2\ge1+(k+1)x.\]
+故归纳成立。
+
+
+% ITEM: analysis-prime-factorization
+\solutionitem{analysis-prime-factorization}{例1.5}
+用第二数学归纳法证明：每个大于\(1\)的整数都可以写成若干个质数的乘积。
+\solutionanswer
+对整数作强归纳。2为质数，结论成立。设所有介于2与\(k\)之间的整数均可分解为质数乘积。若\(k+1\)为质数，已得结论；若为合数，则\(k+1=uv\)，其中\(2\le u,v\le k\)。归纳假设分别将\(u,v\)写成质数乘积，将两式相乘即得\(k+1\)的质因数分解。
+
+
+% ITEM: analysis-sum-cubes
+\solutionitem{analysis-sum-cubes}{习题1.1（1）}
+用适当的数学归纳法完成下列各题。
+证明\(1^3+2^3+\cdots+n^3=[n(n+1)/2]^2\)。
+\solutionanswer
+\(n=1\)成立。若前\(k\)项和为\([k(k+1)/2]^2\)，则加上\((k+1)^3\)：
+\[\left(\frac{k(k+1)}2\right)^2+(k+1)^3=(k+1)^2\left(\frac{k^2}4+k+1\right)=\left(\frac{(k+1)(k+2)}2\right)^2.\]
+归纳即证。
+
+
+% ITEM: analysis-divisibility
+\solutionitem{analysis-divisibility}{习题1.1（2）}
+用适当的数学归纳法完成下列各题。
+证明\(10^n-9n-1\)能被\(81\)整除。
+\solutionanswer
+记\(A_n=10^n-9n-1\)。\(A_1=0\)可被81整除。并且
+\[A_{k+1}=10A_k+81k.\]
+若81整除\(A_k\)，右式两项均被81整除，故整除\(A_{k+1}\)，归纳得证。
+
+
+% ITEM: analysis-exponential-bound
+\solutionitem{analysis-exponential-bound}{习题1.1（3）}
+用适当的数学归纳法完成下列各题。
+证明当\(n\ge4\)时，\(2^n\ge n^2\)。
+\solutionanswer
+起点\(n=4\)时等号成立。若\(2^k\ge k^2\)且\(k\ge4\)，则\(2^{k+1}\ge2k^2\)。而\(2k^2-(k+1)^2=k^2-2k-1>0\)，故\(2^{k+1}\ge(k+1)^2\)，归纳成立。
+
+
+% ITEM: analysis-fibonacci-bounds
+\solutionitem{analysis-fibonacci-bounds}{习题1.1（4）}
+用适当的数学归纳法完成下列各题。
+设\(a_1=1,a_2=2,a_{n+2}=a_{n+1}+a_n\)。证明\(n\le a_n\le2^{n-1}\)。
+\solutionanswer
+用相邻两项作归纳，起始\(a_1=1,a_2=2\)均满足界。若\(k\le a_k\le2^{k-1}\)、\(k+1\le a_{k+1}\le2^k\)，则
+\[a_{k+2}=a_{k+1}+a_k\ge2k+1\ge k+2,\qquad a_{k+2}\le2^k+2^{k-1}\le2^{k+1}.\]
+因此结论对下标\(k+2\)成立。
+
+
+% ITEM: analysis-cumulative-recurrence
+\solutionitem{analysis-cumulative-recurrence}{习题1.1（5）}
+用适当的数学归纳法完成下列各题。
+设\(a_1=1\)，且当\(n\ge2\)时，\(a_n=\sum_{k=1}^{n-1}a_k\)。猜测并证明通项公式，再将给定关系化为相邻两项之间的递推关系。
+\solutionanswer
+前几项为\(1,1,2,4,8,\ldots\)，猜测\(a_n=2^{n-2}\)（\(n\ge2\)，且\(a_1=1\)）。由定义对\(n\ge2\)，\(a_{n+1}=\sum_{k=1}^{n}a_k=a_n+\sum_{k=1}^{n-1}a_k=2a_n\)。结合\(a_2=1\)，归纳得\(a_n=2^{n-2}\)对\(n\ge2\)成立，通项可写为\(a_1=1, a_n=2^{n-2}(n\ge2)\)。相邻递推为\(a_{n+1}=2a_n\ (n\ge2)\)。
+
+
+% ITEM: analysis-binary-representation
+\solutionitem{analysis-binary-representation}{习题1.1（6）}
+用适当的数学归纳法完成下列各题。
+证明每个正整数都能表示为若干个互不相同的\(2\)的幂之和，其中指数为非负整数。
+\solutionanswer
+对正整数强归纳。1是\(2^0\)。设小于\(N\)的正整数均可表示。若\(N=2^m\)，结论直接成立；否则取满足\(2^m<N<2^{m+1}\)的\(m\)，写\(N=2^m+r\)，其中\(0<r<2^m<N\)。由归纳假设，\(r\)是互异的2的幂之和；这些幂指数都小于\(m\)，故再添\(2^m\)仍互异，得所求表示。
+\par

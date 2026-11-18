@@ -1,0 +1,120 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{抽样分布}
+
+% ITEM: probability-example-030
+\solutionitem{probability-example-030}{例6.30}
+独立测量的均值为未知常数\(\mu\)，每次测量的标准差为2。用\(n\)次测量的均值估计\(\mu\)。为了使偏离至少1的概率不超过\(0.04\)，根据Chebyshev界应取多大样本量？若精度改为\(0.5\)，样本量怎样变化？
+\solutionanswer
+\(\operatorname{Var}\bar X=4/n\)，故\(P(|\bar X-\mu|\ge1)\le4/n\)。取\(n\ge100\)充分。精度改为\(0.5\)，界为\(4/[n(0.5)^2]=16/n\)，需\(n\ge400\)。将误差容许量减半，在这一方差界下所需样本量增为四倍。
+
+
+% ITEM: probability-exercise-20-01
+\solutionitem{probability-exercise-20-01}{习题6.20（1）}
+从\(\{0,1,2\}\)等可能有放回抽两次，求样本均值的分布、期望与方差。
+\solutionanswer
+九个有序样本等可能，\(\bar X\)在\(0,1/2,1,3/2,2\)处的概率为\(1,2,3,2,1\)各除以\(9\)。期望\(1\)，方差\(1/3\)；也可由单次方差\(2/3\)除以样本量2核对。
+
+
+% ITEM: probability-exercise-20-02
+\solutionitem{probability-exercise-20-02}{习题6.20（2）}
+总体标准差为6，独立样本量为36及144时，样本均值的标准误分别是多少？用Chebyshev界估计偏离总体均值至少2的概率。
+\solutionanswer
+标准误分别为\(6/\sqrt{36}=1\)、\(6/\sqrt{144}=1/2\)。Chebyshev上界分别\(1/2^2=1/4\)、\((1/2)^2/2^2=1/16\)。
+
+
+% ITEM: probability-exercise-20-03
+\solutionitem{probability-exercise-20-03}{习题6.20（3）}
+某有限总体有100个数，均值为10、描述方差为9。不放回随机抽25个，求样本均值的期望与方差，并与有放回抽样比较。
+\solutionanswer
+期望\(10\)，方差\(\frac9{25}\frac{100-25}{99}=3/11\)。有放回独立抽样期望相同，方差为\(9/25\)；不放回的有限总体修正使波动较小。
+
+
+% ITEM: probability-exercise-20-04
+\solutionitem{probability-exercise-20-04}{习题6.20（4）}
+用频率估计未知概率，要求偏离小于\(0.02\)的概率至少为\(0.9\)。由统一Chebyshev界给出足够的样本量。
+\solutionanswer
+统一界给\(P(|\widehat p-p|\ge0.02)\le1/[4n(0.02)^2]=625/n\)。取\(n\ge6250\)使右侧不超过\(0.1\)，即可保证题设要求。
+
+
+% ITEM: probability-exercise-20-05
+\solutionitem{probability-exercise-20-05}{习题6.20（5）}
+独立掷一枚均匀骰子\(n\)次，记最大点数为\(M_n\)。求\(M_n\)的分布列。若要求至少出现一次6点的概率不小于\(0.99\)，最少应掷多少次？
+\solutionanswer
+\(P(M_n\le k)=(k/6)^n\)，故\(P(M_n=k)=(k/6)^n-((k-1)/6)^n\)，\(k=1,\ldots,6\)。至少一次6点的概率\(1-(5/6)^n\ge0.99\)，等价于\(n\ge\ln0.01/\ln(5/6)\)，最小整数为\(26\)。
+
+
+% ITEM: probability-exercise-20-06
+\solutionitem{probability-exercise-20-06}{习题6.20（6）}
+独立重复掷均匀骰子，点数为\(X_1,\ldots,X_n\)。用大数定律说明，偶数点的频率、\(n^{-1}\sum_iX_i\)及\(n^{-1}\sum_iX_i^2\)分别趋近什么数；分别指出所用的随机变量。
+\solutionanswer
+分别对\(I_i=1_{\{X_i\text{为偶数}\}}\)、\(X_i\)、\(X_i^2\)使用大数定律，三种样本平均依概率趋于各自期望\(1/2,7/2,91/6\)。它们都是独立重复骰子试验上同一数值函数的样本平均。
+
+
+% ITEM: probability-exercise-20-07
+\solutionitem{probability-exercise-20-07}{习题6.20（7）}
+共同误差模型为\(X_i=\mu+Z+\varepsilon_i\)，\(Z,\varepsilon_1,\ldots,\varepsilon_n\)相互独立、均值零，方差分别为\(\tau^2\)及\(\sigma^2\)。
+在上述共同误差模型中，设\(\tau^2=1/4\)、\(\sigma^2=4\)。使样本均值的方差不超过\(0.3\)，至少需要多少次测量？若要求标准误不超过\(0.4\)，仅增加测量次数能否做到？
+\solutionanswer
+共同误差保留在均值中，方差\(1/4+4/n\le0.3\)要求\(n\ge80\)。标准误始终至少\(\sqrt{1/4}=0.5\)，所以只增加次数不可能达到\(0.4\)；还需减少共同校准误差。
+
+
+% ITEM: probability-exercise-21-01
+\solutionitem{probability-exercise-21-01}{习题6.21（1） *}
+独立样本量为5，观察到\(1,2,2,3,7\)。分别计算描述方差与无偏样本方差，并说明各自的用途。
+\solutionanswer
+样本均值为3，平方偏差和\(4+1+1+0+16=22\)。描述方差\(22/5=4.4\)，无偏样本方差\(22/4=5.5\)。前者描述这五个数的平均平方偏差，后者在独立同分布抽样模型下用于无偏估计总体方差。
+
+
+% ITEM: probability-exercise-21-02
+\solutionitem{probability-exercise-21-02}{习题6.21（2） *}
+从\(N(10,4)\)中独立抽取16个观测，求样本均值在9至11之间的概率。这里是否需要使用中心极限定理？
+\solutionanswer
+\(\bar X\sim N(10,4/16)=N(10,1/4)\)，标准误\(1/2\)。所以\(P(9<\bar X<11)=P(|Z|<2)\approx0.9545\)。这是正态独立相加给出的精确抽样分布，无须使用中心极限定理。
+
+
+% ITEM: probability-exercise-21-03
+\solutionitem{probability-exercise-21-03}{习题6.21（3） *}
+\(K\sim B(200,0.5)\)，写出\(90\le K\le110\)的精确概率与连续性修正后的正态近似表达，并用计算工具比较数值。
+\solutionanswer
+精确概率\(2^{-200}\sum_{k=90}^{110}\binom{200}k\approx0.86263335\)。正态均值100、方差50，连续性修正给
+\[
+ \Phi\left(\frac{110.5-100}{\sqrt{50}}\right)-\Phi\left(\frac{89.5-100}{\sqrt{50}}\right)\approx0.86243611.
+\]
+计算工具求得两者相差约\(0.00019724\)。这是本题具体区间的数值比较。
+
+
+% ITEM: probability-exercise-21-04
+\solutionitem{probability-exercise-21-04}{习题6.21（4） *}
+独立取\(X_1,\ldots,X_{100}\sim U(0,1)\)。用中心极限定理近似计算\(P(0.45\le\bar X\le0.55)\)，再估计总和超过55的概率。
+\solutionanswer
+单次均值\(1/2\)、方差\(1/12\)，样本均值标准误\(1/\sqrt{1200}\)。故第一概率近似\(2\Phi(\sqrt3)-1\approx0.9167\)。总和均值50、方差\(100/12\)，超过55的概率近似\(1-\Phi(\sqrt3)\approx0.04163\)。
+
+
+% ITEM: probability-exercise-21-05
+\solutionitem{probability-exercise-21-05}{习题6.21（5） *}
+设\(X_i\)独立同分布，均值为\(\mu\)，方差为\(\sigma^2>0\)。分别考察固定\(c>0\)时的\(P(|\bar X_n-\mu|\le c)\)与\(P(|\bar X_n-\mu|\le c\sigma/\sqrt n)\)：它们的极限分别是什么？说明大数定律与中心极限定理在这里各自描述了什么。
+\solutionanswer
+固定\(c>0\)时，由大数定律\(P(|\bar X_n-\mu|\le c)\to1\)。缩小区间的半宽\(c\sigma/\sqrt n\)标准化后恰为\(c\)，由中心极限定理及正态分布函数连续性，概率趋于\(\Phi(c)-\Phi(-c)=2\Phi(c)-1\)。前者说明固定精度下趋于集中，后者刻画与标准误同阶的剩余波动。
+
+
+% ITEM: probability-exercise-21-06
+\solutionitem{probability-exercise-21-06}{习题6.21（6） *}
+本题的\(Y_i\)独立同分布、均值零、方差1；\(Z_i\)为独立标准正态变量，且与所有\(Y_i\)独立。记
+\[
+ T_n=\frac{\sum_{i=1}^nY_i}{\sqrt n},\quad G_n=\frac{\sum_{i=1}^nZ_i}{\sqrt n},\quad
+ W_{n,k}=\frac{\sum_{i<k}Z_i+\sum_{i>k}Y_i}{\sqrt n}.
+\]
+沿用证明中的\(Y_i,Z_i,T_n,G_n\)。进一步设\(E|Y_1|^3<\infty\)，且有界函数\(f\)三阶连续可微，各阶导数有界，\(|f'''|\le L\)。直接使用三阶余项，证明
+\[
+ |Ef(T_n)-Ef(G_n)|\le
+ \frac{L}{6\sqrt n}\bigl(E|Y_1|^3+E|Z_1|^3\bigr).
+\]
+比较这个估计与正文的余项控制，说明正文为何只需有限二阶矩。
+\solutionanswer
+沿用正文逐项替换的\(W_{n,k}\)。在\(w\)处二阶展开，三阶余项满足\(|R(w,h)|\le L|h|^3/6\)。\(Y_k,Z_k\)与\(W_{n,k}\)独立，并有相同的一、二阶矩，所以一次替换的前两阶期望相消，差的绝对值至多
+\[
+ \frac{L}{6n^{3/2}}\bigl(E|Y_k|^3+E|Z_k|^3\bigr).
+\]
+将\(n\)次替换望远镜相加，用同分布性便得到题给的\(n^{-1/2}\)界。正文改用二阶余项的一致小增量控制，再单独控制大增量的二阶矩尾部；这避免要求三阶绝对矩有限，但不直接给出此处这一统一速率。
+\par

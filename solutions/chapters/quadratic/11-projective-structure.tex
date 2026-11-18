@@ -1,0 +1,515 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{二次曲线的射影结构*}
+
+% ITEM: quadratic-example-086
+\solutionitem{quadratic-example-086}{例4.86 *}
+求直线\(2X-Y+Z=0\)与\(4X-2Y-3Z=0\)的射影交点，并解释普通坐标中的位置关系。再求直线\(Y=X+Z\)与双曲线\(X^2-Y^2=Z^2\)的全部实射影交点。
+\solutionanswer
+两线联立得\(Z=0,Y=2X\)，交点\([1:2:0]\)，普通图中两线平行。将\(Y=X+Z\)代入双曲线得\(Z(X+Z)=0\)，两个实射影交点为\([1:1:0]\)、\([-1:0:1]\)，分别是一个渐近方向和普通点\((-1,0)\)。
+
+
+% ITEM: quadratic-exercise-48-01
+\solutionitem{quadratic-exercise-48-01}{习题4.48（1） *}
+判断\([1:2:3]\)、\([2:4:6]\)、\([-1:-2:-3]\)是否表示同一点，并求其普通坐标。点\([1:2:0]\)表示什么方向？
+\par
+\solutionanswer
+齐次坐标只按非零倍数区分，因此\([1:2:3]=[2:4:6]=[-1:-2:-3]\)，归一化最后坐标为1得普通点\((1/3,2/3)\)。\([1:2:0]\)是无穷远点，表示方向向量\((1,2)\)，即斜率为2的平行方向。
+
+
+% ITEM: quadratic-exercise-48-02
+\solutionitem{quadratic-exercise-48-02}{习题4.48（2） *}
+求\([1:0:1]\)、\([0:1:1]\)的连线，以及该直线的无穷远点。
+\par
+\solutionanswer
+两点代表向量的叉积为
+\[(1,0,1)\times(0,1,1)=(-1,-1,1),\]
+故连线方程为\(X+Y-Z=0\)。令\(Z=0\)，得无穷远点\([1:-1:0]\)，表示方向\((1,-1)\)，即该直线的平行方向。
+
+
+% ITEM: quadratic-exercise-48-03
+\solutionitem{quadratic-exercise-48-03}{习题4.48（3） *}
+证明三点共线当且仅当它们的代表向量线性相关；将这个条件写成三阶行列式。对三条直线写出对应的共点条件。
+\par
+\solutionanswer
+三点共线等价于存在非零线性式同时消去三个代表向量，即三列组成的矩阵秩小于\(3\)，也等价于它们线性相关、三阶行列式为零。三线共点则将三条直线的系数按行排列，存在非零列解当且仅当该系数行列式为零。
+
+
+% ITEM: quadratic-exercise-48-04
+\solutionitem{quadratic-exercise-48-04}{习题4.48（4） *}
+求\(xy=1\)、\(y=x^2\)和\(x^2+2xy+2y^2=1\)的齐次方程与实无穷远点。
+\par
+\solutionanswer
+三条齐次方程依次为\(XY=Z^2,YZ=X^2,X^2+2XY+2Y^2=Z^2\)。令\(Z=0\)，实无穷远点依次为\([1:0:0],[0:1:0]\)；\([0:1:0]\)；无实点。最后一式的无穷远条件\((X+Y)^2+Y^2=0\)只能给零向量，不代表射影点。
+
+
+% ITEM: quadratic-exercise-48-05
+\solutionitem{quadratic-exercise-48-05}{习题4.48（5） *}
+若\(U,V\)是两个线性无关的三维向量，证明\([sU+tV]\)取遍其所确定的射影直线，其中\((s,t)\ne(0,0)\)。
+\par
+\solutionanswer
+所确定的射影直线就是二维子空间\(\operatorname{span}(U,V)\)中所有非零向量的比例类。基的表示保证每个代表向量都且只需写成\(sU+tV\)，\((s,t)\ne(0,0)\)，故恰取遍整条直线。
+
+
+% ITEM: quadratic-example-087
+\solutionitem{quadratic-example-087}{例4.87 *}
+对变换\([X:Y:Z]\mapsto[X:Y:X+Z]\)，求\(y=x^2\)的像曲线及原无穷远点的像。原普通平面中哪条直线被送到新无穷远直线？像曲线在新普通坐标中属于哪一类？
+\solutionanswer
+记像为\([U:V:W]\)，反解\(X=U,Y=V,Z=W-U\)，像方程\(U^2+UV-VW=0\)。原无穷远点仍映为\([0:1:0]\)。原\(X+Z=0\)被送到新无穷远线，故像在普通坐标中为双曲线；其另一个无穷远点来自原普通点\((-1,1)\)。
+
+
+% ITEM: quadratic-exercise-49-01
+\solutionitem{quadratic-exercise-49-01}{习题4.49（1） *}
+求变换\textup{(4.169)}的逆矩阵，并追踪原直线\(Z=0\)的像。它与圆是什么位置关系？
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+U=2X,\qquad V=Y-Z,\qquad W=Y+Z,
+\end{equation*}
+\solutionanswer
+逆矩阵为\(\begin{bmatrix}1/2&0&0\\0&1/2&1/2\\0&-1/2&1/2\end{bmatrix}\)。由\(Z=(W-V)/2\)，原\(Z=0\)映为\(V=W\)，它是圆在\([0:1:1]\)处的切线。
+
+
+% ITEM: quadratic-exercise-49-02
+\solutionitem{quadratic-exercise-49-02}{习题4.49（2） *}
+将\(x^2/9-y^2/4=1\)依次伸缩、交换齐次坐标，化为单位圆，写出整体变换矩阵。
+\par
+\solutionanswer
+先作\((X,Y,Z)\mapsto(X/3,Y/2,Z)\)，再交换后两个齐次坐标，得到\([U:V:W]=[X/3:Z:Y/2]\)。矩阵为\(\begin{bmatrix}1/3&0&0\\0&0&1\\0&1/2&0\end{bmatrix}\)，像曲线\(U^2+V^2=W^2\)。
+
+
+% ITEM: quadratic-exercise-49-03
+\solutionitem{quadratic-exercise-49-03}{习题4.49（3） *}
+证明保持无穷远直线的射影变换，在其普通坐标区域中必为可逆仿射变换。
+\par
+\solutionanswer
+设变换矩阵末行为\((r,s,t)\)。保持\(Z=0\)意味着对任意\((X,Y)\)有\(rX+sY=0\)，故\(r=s=0\)。可逆性给出\(t\ne0\)，整体归一化为\(t=1\)后，普通坐标就是线性部分可逆的仿射变换。
+
+
+% ITEM: quadratic-exercise-49-04
+\solutionitem{quadratic-exercise-49-04}{习题4.49（4） *}
+证明射影变换将曲线在一点处的切线送到像曲线在像点处的切线。可以使用齐次切线方程及式\textup{(4.168)}。
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+U^T(K^{-T}MK^{-1})U=0.
+\end{equation*}
+\solutionanswer
+若像坐标为\(U=KX\)，则\(M'=K^{-T}MK^{-1}\)。像点\(KP\)的切线系数\(M'KP=K^{-T}MP\)，恰是原切线系数的变换，所以切线随点一起映到像曲线切线。
+
+
+% ITEM: quadratic-exercise-49-05
+\solutionitem{quadratic-exercise-49-05}{习题4.49（5） *}
+研究圆\(X^2+Y^2=Z^2\)在变换\([X:Y:Z]\mapsto[X:Y:Z-kX]\)下的像，按\(|k|<1\)、\(|k|=1\)、\(|k|>1\)分类，并联系被选作无穷远直线的原直线解释。
+\par
+\solutionanswer
+反解\(Z=W+kU\)，得到\((1-k^2)u^2+v^2-2ku-1=0\)。三种情形依次为椭圆、抛物线、双曲线。新的无穷远直线在原图中是\(Z=kX\)，与圆分别相离、相切、相交于两点，这正对应普通曲线的三种类型。
+
+
+% ITEM: quadratic-example-088
+\solutionitem{quadratic-example-088}{例4.88 *}
+在抛物线\(y=x^2\)上用\(t\)表示点\((t,t^2)\)，固定\(P=(h,k)\)，其中\(k\ne h^2\)。过\(P\)的弦两端参数为\(t,u\)。求\(u\)关于\(t\)的分式表达及其齐次矩阵，证明这个矩阵的平方为非零数乘以单位矩阵。分别取\(P=(0,-1)\)、\((0,1)\)，求对应的不动参数，并解释它们与过\(P\)的实切线之间的关系。
+\solutionanswer
+弦方程\(y=(t+u)x-tu\)经过\((h,k)\)给出\(u=(ht-k)/(t-h)\)。在参数列\((s,t)^T\)上，对应矩阵\(J=\begin{bmatrix}-h&1\\-k&h\end{bmatrix}\)，且\(J^2=(h^2-k)I\ne0\)。不动参数满足\(t^2-2ht+k=0\)，也正是过定点切线的接触参数条件。\(P=(0,-1)\)时为\(t=\pm1\)，有两条实切线；\(P=(0,1)\)时无实不动参数，也无实切线。
+
+
+% ITEM: quadratic-example-089
+\solutionitem{quadratic-example-089}{例4.89 *}
+设非退化二次曲线\(X^TMX=0\)，\(M=M^T\)，\(P\)不在曲线上。取代表向量，记
+\begin{equation*}
+ q=P^TMP\ne0,\qquad K=qI-2P(P^TM).
+\end{equation*}
+（1）验证\(K^2=q^2I\)、\(K^TMK=q^2M\)，说明\([X]\mapsto[KX]\)是保持曲线的射影变换，并在每条过\(P\)的割线上互换两个曲线交点。
+
+（2）设过普通点\(P\)的切线切于普通点\(H\)，\(T\)是\(PH\)的中点。将\(P,H\)的代表归一化为最后坐标是\(1\)，求\(KT\)，证明\(T\)的像是切线\(PH\)方向的无穷远点。
+
+（3）过\(T\)作割线交曲线于\(C,D\)，\(PC,PD\)分别再交曲线于\(B,A\)，设四个曲线点互异且有限。利用上述变换证明\(AB\parallel PH\)。
+\solutionanswer
+（1）记\(w=P^TM\)，则\(wP=q\)，展开即得\(K^2=q^2I,K^TMK=q^2M\)。所以\(K\)可逆并保持曲线。对曲线点\(X\)，直线\(X+\lambda P\)上的另一根为\(\lambda=-2wX/q\)，故其另一曲线点就是\([KX]\)。（2）由切线条件\(wH=0\)，对\(T=(P+H)/2\)有\(KT=q(H-P)/2\)，最后坐标为零，是\(PH\)方向的无穷远点。（3）\(K\)将\(C,D\)分别送到\(B,A\)，将\(CD\)送到\(AB\)。因为\(T\in CD\)，像线\(AB\)经过上述无穷远点，故\(AB\parallel PH\)。
+
+
+% ITEM: quadratic-example-090
+\solutionitem{quadratic-example-090}{例4.90 *}
+将\(x=(1-\tau^2)/(1+\tau^2),y=2\tau/(1+\tau^2)\)写成齐次参数式，找出\(\tau=\infty\)对应的点。再将参数改为\(\tau=(r-1)/(r+1)\)，说明原参数\(\tau=\infty\)在新参数中对应什么。
+\solutionanswer
+齐次表示为\([s^2-t^2:2st:s^2+t^2]\)，\(\tau=t/s\)。\(\tau=\infty\)即\([s:t]=[0:1]\)，映为\([-1:0:1]\)。新参数中\(s=r+1,t=r-1\)，所以旧无穷远参数对应有限新参数\(r=-1\)。
+
+
+% ITEM: quadratic-exercise-50-01
+\solutionitem{quadratic-exercise-50-01}{习题4.50（1） *}
+把\(y^2=2px\)的参数\((x,y)=(p\tau^2/2,p\tau)\)齐次化，找出参数无穷远点的像。
+\par
+\solutionanswer
+将参数写成射影参数\([s:t]\)，有限参数为\(\tau=t/s\)。原参数式齐次化为曲线点的齐次坐标
+\[
+[X:Y:Z]=[p t^2:2p ts:2s^2].
+\]
+代入可核对\(Y^2=4p^2t^2s^2=2pXZ\)，故确在\(Y^2=2pXZ\)上。参数无穷远点是参数直线上的\([s:t]=[0:1]\)，其像为曲线点\([p:0:0]=[1:0:0]\)，正是抛物线的无穷远点。这里\([s:t]\)是参数齐次坐标，\([X:Y:Z]\)才是平面曲线点的齐次坐标。
+
+
+% ITEM: quadratic-exercise-50-02
+\solutionitem{quadratic-exercise-50-02}{习题4.50（2） *}
+求双曲线\(X^2-Y^2=Z^2\)的齐次参数表示和其两个实无穷远点所对应的参数。
+\par
+\solutionanswer
+取参数射影直线上的\([s:t]\)，定义
+\[
+[X:Y:Z]=[s^2+t^2:2st:s^2-t^2].
+\]
+直接计算\(X^2-Y^2=(s^2-t^2)^2=Z^2\)。三个坐标不会同时为零，故参数表示处处有定义。除点\([1:0:-1]\)外，可由\([s:t]=[X+Z:Y]\)恢复参数；该遗漏点正是参数无穷远点\([0:1]\)的像\([1:0:-1]\)，所以齐次参数覆盖整条射影双曲线。
+双曲线的无穷远点满足\(Z=0\)，即\(s^2-t^2=0\)，故对应参数为\([s:t]=[1:1]\)与\([1:-1]\)，其像分别为\([1:1:0]\)、\([1:-1:0]\)。
+
+
+% ITEM: quadratic-exercise-50-03
+\solutionitem{quadratic-exercise-50-03}{习题4.50（3） *}
+写出把三个参数\(0,1,\infty\)分别送到\(1,\infty,0\)的分式线性变换。证明任意三个不同实射影参数都可分别送到\(\infty,0,1\)。
+\par
+\solutionanswer
+所求为\(\tau\mapsto1/(1-\tau)\)。一般三个有限不同参数\(a,b,c\)，取\(f(\tau)=(\tau-b)(c-a)/[(\tau-a)(c-b)]\)，即依次映到\(\infty,0,1\)。含无穷远参数时将分子、分母写成齐次线性式，或取相应极限，仍得到可逆二阶参数变换。
+
+
+% ITEM: quadratic-exercise-50-04
+\solutionitem{quadratic-exercise-50-04}{习题4.50（4） *}
+对曲线束\(s(X^2+Y^2-Z^2)+tX^2=0\)，找出全部退化成员，比较只使用\(s=1\)的参数表示会遗漏什么。
+\par
+\solutionanswer
+曲线束成员的齐次二次式为
+\[
+(s+t)X^2+sY^2-sZ^2=0,
+\]
+其对称矩阵为\(\operatorname{diag}(s+t,s,-s)\)，行列式为\(-s^2(s+t)\)。参数为射影参数\([s:t]\)，非零参数对整体相乘不改变成员。因此全部退化成员是：
+\[
+[s:t]=[0:1]:\quad X^2=0,
+\]
+即重直线\(X=0\)；以及
+\[
+[s:t]=[1:-1]:\quad Y^2-Z^2=(Y-Z)(Y+Z)=0,
+\]
+即两条射影直线\(Y=Z\)与\(Y=-Z\)，在普通平面中平行。行列式仅在上述两种参数比例类为零，故无其他退化成员。只取\(s=1\)的仿射参数\(t\)可以找到\(t=-1\)的两直线成员，却遗漏\(s=0\)所代表的重直线成员。
+
+
+% ITEM: quadratic-exercise-50-05
+\solutionitem{quadratic-exercise-50-05}{习题4.50（5） *}
+在模型\(YZ=X^2\)上取\(A=(0,0)\)，由过\(A\)的直线束求第二个交点的齐次参数表示，并与式\textup{(4.172)}比较。切线参数对应哪个点？
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\nu([s:t])=[st:t^2:s^2].
+\end{equation*}
+\solutionanswer
+取直线束\(sY-tX=0\)。与\(YZ=X^2\)的第二交点为\([st:t^2:s^2]\)，与正文参数式相同。\(t=0\)时直线\(Y=0\)在\(A\)处相切，参数\([1:0]\)对应\(A\)自身；\(s=0\)时第二点是曲线的无穷远点。
+
+
+% ITEM: quadratic-exercise-50-06
+\solutionitem{quadratic-exercise-50-06}{习题4.50（6） *}
+在例4.88中，求定点\([1:0:0]\)所确定的弦端点参数对应。找出全部射影不动参数，并说明其中的无穷远参数对应哪条切线。
+\par
+\solutionanswer
+过\([1:0:0]\)的普通直线为水平线，两个抛物线参数满足\(u=-t\)。齐次形式\([s:t]\mapsto[s:-t]\)有两个不动参数\([1:0]\)、\([0:1]\)，即\(0,\infty\)。对应切线分别为\(Y=0\)与\(Z=0\)，后者在曲线无穷远点处相切。
+
+
+% ITEM: quadratic-example-091
+\solutionitem{quadratic-example-091}{例4.91 *}
+求抛物线\(X^2=YZ\)与曲线\(X^2-YZ+Y^2=0\)的交点及重数。将后者在普通坐标中配方，说明为什么两条不同的非退化实曲线可以只有一个实交点，而交点总数仍为\(4\)。
+\solutionanswer
+将第二曲线代入模型参数\([st:t^2:s^2]\)，得\(t^4=0\)，唯一交点\([0:0:1]\)的重数为\(4\)。普通方程为\(x^2+(y-1/2)^2=1/4\)，是一条非退化实圆；与抛物线只在原点接触，但四重接触仍给出总重数\(4\)。
+
+
+% ITEM: quadratic-exercise-51-01
+\solutionitem{quadratic-exercise-51-01}{习题4.51（1） *}
+将\(H(s,t)=s^2(t-s)^2\)的全部射影参数根及重数列出。再研究\(H(s,t)=s^4+t^4\)，比较实根数与复根计数。
+\par
+\solutionanswer
+前式根为\([0:1]\)、\([1:1]\)，各二重，总重数\(4\)。后式没有实射影根；在复数范围令\(\tau=t/s\)，得\(\tau^4=-1\)，四根\(e^{i(\pi/4+j\pi/2)}\)，\(j=0,1,2,3\)，各为单根，无无穷远根。
+
+
+% ITEM: quadratic-exercise-51-02
+\solutionitem{quadratic-exercise-51-02}{习题4.51（2） *}
+求直线\(X=2Z\)与圆\(X^2+Y^2=Z^2\)的复交点。求\(X=Z\)时的交点及重数。
+\par
+\solutionanswer
+\(X=2Z\)时\(Y^2=-3Z^2\)，两复交点为\([2:\pm i\sqrt3:1]\)，各重数\(1\)。\(X=Z\)时只有\([1:0:1]\)，重数\(2\)，对应相切。
+
+
+% ITEM: quadratic-exercise-51-03
+\solutionitem{quadratic-exercise-51-03}{习题4.51（3） *}
+对\(C:X^2=YZ\)，分别代入\(Y=0\)、\(X=0\)、\(Z=0\)，比较各自的交点及重数。
+\par
+\solutionanswer
+\(Y=0\)得到\([0:0:1]\)，重数\(2\)；\(X=0\)得到\([0:0:1],[0:1:0]\)，各重数\(1\)；\(Z=0\)得到\([0:1:0]\)，重数\(2\)。
+
+
+% ITEM: quadratic-exercise-51-04
+\solutionitem{quadratic-exercise-51-04}{习题4.51（4） *}
+求\(X^2=YZ\)与\(X^2+Y^2=Z^2\)的交点及重数，判断哪些是普通实点。
+\par
+\solutionanswer
+代入参数\([st:t^2:s^2]\)得\(t^4+s^2t^2-s^4=0\)。令\(r_+=(\sqrt5-1)/2,r_-=(\sqrt5+1)/2\)，四个有限参数为\(\pm\sqrt{r_+},\pm i\sqrt{r_-}\)，均单根。对应普通点\((\pm\sqrt{r_+},r_+)\)为实点，另外两点\((\pm i\sqrt{r_-},-r_-)\)为非实复点。
+
+
+% ITEM: quadratic-exercise-51-05
+\solutionitem{quadratic-exercise-51-05}{习题4.51（5） *}
+求\(XY=0\)与\((X+Y)(X+2Y)=0\)的交点总数。为什么只看不同交点个数会得到另一个数字？
+\par
+\solutionanswer
+每条第一组直线与每条第二组直线都只在\([0:0:1]\)相交，各线对的交点重数为\(1\)，共有四组，故总数\(4\)。不同交点只有一个；两条退化曲线在此分别各有两个分支，重数把它们的交会都计入。
+
+
+% ITEM: quadratic-exercise-51-06
+\solutionitem{quadratic-exercise-51-06}{习题4.51（6） *}
+若曲线束的一个非退化成员与另一个成员交于四个不同点，证明这四点是整个曲线束的基点，且任意两个不同成员没有其他交点。
+\par
+\solutionanswer
+两成员的共同点使所有线性组合为零，故都是基点。任意两个不同成员的系数对线性无关，逆向可解回原两方程，所以其交点集与原两成员完全相同，不会产生额外交点。
+
+
+% ITEM: quadratic-example-092
+\solutionitem{quadratic-example-092}{例4.92 *}
+圆\(x^2+y^2=1\)内有点\(P=(1/2,0)\)。先用极线公式求\(\ell_P\)，再沿\(x\)轴求两个圆交点关于\(P\)的参数，利用式\textup{(4.181)}求\(H\)。最后选择另一条过\(P\)的割线作同样核对。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\frac1{t_H}=\frac12\left(\frac1{t_1}+\frac1{t_2}\right).
+\end{equation*}
+\solutionanswer
+极线为\(x=2\)。沿\(x\)轴以\(P\)为参数原点，两端参数\(-3/2,1/2\)，故\(1/t_H=2/3\)，\(H=(2,0)\)。再取竖直割线\(x=1/2\)，端点参数为\(\pm\sqrt3/2\)，倒数平均为零，故\(H=[0:1:0]\)，也在极线的射影补全上。
+
+
+% ITEM: quadratic-exercise-52-01
+\solutionitem{quadratic-exercise-52-01}{习题4.52（1） *}
+计算\((0,\infty;1,-1)\)与\((0,1;2,\infty)\)的交比。交换\(C,D\)后，交比怎样改变？
+\par
+\solutionanswer
+依定义或取无穷远极限，交比分别为\(-1,2\)。交换\(C,D\)使交比取倒数，故分别变为\(-1,1/2\)。
+
+
+% ITEM: quadratic-exercise-52-02
+\solutionitem{quadratic-exercise-52-02}{习题4.52（2） *}
+设\(A=0,B=2,P=3\)。求\(P\)关于\(A,B\)的调和共轭点，并用交比与式\textup{(4.181)}分别计算。
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\frac1{t_H}=\frac12\left(\frac1{t_1}+\frac1{t_2}\right).
+\end{equation*}
+\solutionanswer
+令共轭点为\(h\)，交比条件\(3(h-2)/h=-1\)给出\(h=3/2\)。若以\(P\)为参数原点，两端参数为\(-3,-1\)，故\(1/t_H=(-1/3-1)/2=-2/3\)，\(t_H=-3/2\)，还原仍为\(h=3/2\)。
+
+
+% ITEM: quadratic-exercise-52-03
+\solutionitem{quadratic-exercise-52-03}{习题4.52（3） *}
+在直线\(y=0\)上，以\(A=(-1,0),B=(1,0)\)为基准，求\(P=(u,0)\)的调和共轭点；讨论它与单位圆的极线关系。
+\par
+\solutionanswer
+\(u\ne0,\pm1\)时共轭点为\((1/u,0)\)，正是极线\(ux=1\)与该轴的交点。\(u=0\)时为该轴的无穷远点，中心的射影极线是无穷远直线。\(u=\pm1\)时四点配置退化，不构成调和四点；相应极线成为接触于该端点的切线。
+
+
+% ITEM: quadratic-exercise-52-04
+\solutionitem{quadratic-exercise-52-04}{习题4.52（4） *}
+非圆圆锥曲线的两条焦弦\(AB,CD\)交于焦点\(S\)，四端点互异。用完全四边形证明\(AC\cap BD\)、\(AD\cap BC\)都在相应准线上。若其中一个交点是无穷远点，普通平面中的两条直线有何关系？
+\par
+\solutionanswer
+完全四边形的两个对角交点在\(S\)的极线上，而焦点的极线就是相应准线，故两点都在准线上。若一交点在无穷远，则产生它的两条连接直线在普通平面内平行，其方向就是准线方向。
+
+
+% ITEM: quadratic-exercise-52-05
+\solutionitem{quadratic-exercise-52-05}{习题4.52（5） *}
+设直线\(m,n\)均不经过点\(O\)，以\(O\)为中心将\(m\)投影到\(n\)，证明交比保持；由此说明四条共点直线的交比与所选截线无关。
+\par
+\solutionanswer
+以\(O\)为投影中心，连线再与另一截线相交，给出参数的可逆分式线性变换\(f(t)=(at+b)/(ct+d)\)。差值满足\(f(x)-f(y)=(ad-bc)(x-y)/[(cx+d)(cy+d)]\)，代入四点交比后各因子相消，所以交比保持。四条共点线取任意两条合法截线，也就得到相同交比。
+
+
+% ITEM: quadratic-exercise-52-06
+\solutionitem{quadratic-exercise-52-06}{习题4.52（6） *}
+设例4.88中的参数对合有两个不同实不动参数\(a,b\)，一组互异的配对参数为\(t,u\)。证明\((a,b;t,u)=-1\)。可先将两个不动参数送到\(0,\infty\)，研究变换在新参数中的形式。
+\par
+\solutionanswer
+先把两不动参数送到\(0,\infty\)。保持二者的分式变换只能为\(z\mapsto kz\)，对合性及非恒等性迫使\(k=-1\)，故一组互异配对为\(z,-z\)。交比\((0,\infty;z,-z)=-1\)，再用交比不变性还原，得到\((a,b;t,u)=-1\)。
+
+
+% ITEM: quadratic-example-093
+\solutionitem{quadratic-example-093}{例4.93 *}
+求圆\(X^2+Y^2=R^2Z^2\)与抛物线\(Y^2=2pXZ\)的对偶二次曲线。将直线系数记为\([a:b:c]\)，分别写出相切条件，并与普通坐标中的切线判别核对。
+\solutionanswer
+圆的逆矩阵为\(\operatorname{diag}(1,1,-1/R^2)\)，对偶方程为\(c^2=R^2(a^2+b^2)\)，即普通直线到圆心距离等于半径。抛物线矩阵\(\begin{bmatrix}0&0&-p\\0&1&0\\-p&0&0\end{bmatrix}\)的逆矩阵给出\(pb^2-2ac=0\)，与将直线代入\(y^2=2px\)的重根条件一致，并包含无穷远切线。
+
+
+% ITEM: quadratic-exercise-53-01
+\solutionitem{quadratic-exercise-53-01}{习题4.53（1） *}
+求椭圆\(X^2/9+Y^2/4=Z^2\)的无穷远直线的极点，以及直线\(X+Y=0\)的极点。解释后一极点代表什么方向。
+\par
+\solutionanswer
+逆矩阵为\(\operatorname{diag}(9,4,-1)\)。两直线系数分别为\((0,0,1),(1,1,0)\)，极点依次为\([0:0:1]\)、\([9:4:0]\)。后者表示方向\((9,4)\)。
+
+
+% ITEM: quadratic-exercise-53-02
+\solutionitem{quadratic-exercise-53-02}{习题4.53（2） *}
+证明\(P\)在自己的极线上当且仅当\(P\)在二次曲线上，并将这个陈述翻译成对偶平面中的陈述。
+\par
+\solutionanswer
+点在自己的极线上等价于\(P^TMP=0\)，正是点在曲线上。对偶地，直线经过自己的极点等价于\(l^TM^{-1}l=0\)，即这条直线是曲线的切线，也就是其对偶点在对偶二次曲线上。
+
+
+% ITEM: quadratic-exercise-53-03
+\solutionitem{quadratic-exercise-53-03}{习题4.53（3） *}
+对\(XY=Z^2\)，求点\([1:0:0]\)的极线，并求对偶二次曲线的方程。
+\par
+\solutionanswer
+\(M=\begin{bmatrix}0&1/2&0\\1/2&0&0\\0&0&-1\end{bmatrix}\)，故给定点极线\(Y=0\)。逆矩阵给出对偶方程\(4ab-c^2=0\)。
+
+
+% ITEM: quadratic-exercise-53-04
+\solutionitem{quadratic-exercise-53-04}{习题4.53（4） *}
+设\(P,Q,R\)为不共线的三个射影点，证明其三条极线不共点。再把命题中的点、线互换。
+\par
+\solutionanswer
+三点不共线意味着三个代表向量线性无关；乘以可逆矩阵\(M\)后，其极线系数仍线性无关，故三线没有公共射影点。对偶地，三条不共点的直线的极点不共线，证明将\(M\)换成\(M^{-1}\)即可。
+
+
+% ITEM: quadratic-exercise-53-05
+\solutionitem{quadratic-exercise-53-05}{习题4.53（5） *}
+若\(l\)的极点为\(P\)，证明\(l\)上的点的极线恰好取遍经过\(P\)的全部直线，而不仅是其中一部分。
+\par
+\solutionanswer
+若\(Q\in l\)，由互反性\(P\)在\(Q\)的极线上。反过来，给任意过\(P\)的直线\(m\)，取唯一极点\(Q=M^{-1}m\)，则\(l^TQ=P^TMQ=P^Tm=0\)，故\(Q\in l\)。所以确实取遍全部过\(P\)的直线。
+
+
+% ITEM: quadratic-example-094
+\solutionitem{quadratic-example-094}{例4.94 *}
+在\(y=x^2\)上依次取横坐标为\(0,1,-1,2,-2\)的五个点\(A,B,C,D,E\)。按式\textup{(4.186)}构造\(A\)处切线，写出各步的齐次坐标，并与切线公式核对。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+P=AB\cap DE,\qquad Q=BC\cap EA,\qquad R=PQ\cap CD,
+\end{equation*}
+\solutionanswer
+依次得到\(P=[4:4:1],Q=[1:-2:-2]\)，两点连线\(-2X+3Y-4Z=0\)。它与\(CD:Y-X-2Z=0\)交于\(R=[-2:0:1]\)。因此\(AR:Y=0\)，正是原点处切线。
+
+
+% ITEM: quadratic-example-095
+\solutionitem{quadratic-example-095}{例4.95 *}
+在非退化二次曲线上固定四个不同点\(A,B,C,D\)，另取动点\(P,Q\)，使六点互异。令\(U=AP\cap CQ\)、\(V=DP\cap BQ\)。证明\(UV\)恒经过一个定点，并求出这个点。若普通图形中\(AB\parallel CD\)，\(UV\)的方向有什么特点？应按什么次序排列六个曲线点，才能应用帕斯卡定理？
+\solutionanswer
+将六点按\(A,P,D,C,Q,B\)排列，帕斯卡三组对边交点就是\(U,V,W=CD\cap AB\)。因此\(UV\)恒经过固定点\(W\)。若\(AB\parallel CD\)，\(W\)是公共无穷远点，故\(UV\parallel AB\)。
+
+
+% ITEM: quadratic-example-096
+\solutionitem{quadratic-example-096}{例4.96 *}
+固定非退化二次曲线的五条不同切线\(l_1,\ldots,l_5\)，记\(T_i=l_i\cap l_{i+1}\)（\(1\le i\le4\)）。另一条不同切线\(m\)与\(l_5,l_1\)分别交于\(U,V\)，令\(S=T_2U\cap T_3V\)。证明\(m\)变化时\(S\)恒在一条定直线上，并确定这条直线。指出配置中的外切六边形及三条对角线。
+\solutionanswer
+外切六边形顶点依次为\(T_1,T_2,T_3,T_4,U,V\)。三条对角线\(T_1T_4\)、\(T_2U\)、\(T_3V\)由布里昂雄定理共点，所以\(S\)恒在固定直线\(T_1T_4\)上。
+
+
+% ITEM: quadratic-example-097
+\solutionitem{quadratic-example-097}{例4.97 *}
+设\(A,B,C\)是抛物线\(y^2=x\)上三个不同的有限点，直线\(AB,AC\)均与圆\((x-2)^2+y^2=1\)相切。证明\(BC\)也与该圆相切。先取\(A=(0,0)\)求\(B,C\)，再用\(A=(t^2,t)\)的参数表示研究一般情形，说明闭合关系为何不依赖起点的位置。
+\solutionanswer
+\(A=(0,0)\)时，切圆弦的另一端参数为\(\pm\sqrt3\)，故\(B,C=(3,\pm\sqrt3)\)，\(BC:x=3\)也切圆。一般弦\(T(t)T(u)\)切圆等价于\((t+u)^2=(tu+1)(tu+3)\)。给定\(t\)后另两参数\(u,v\)为\((t^2-1)z^2+2tz+3-t^2=0\)的两根，所以\(u+v=-2t/(t^2-1),uv=(3-t^2)/(t^2-1)\)，直接代入也满足同一切圆条件。\(t=\pm1\)时只剩一个有限另一端点，不能构成题设三个不同有限点；所有有效起点的闭合由同一恒等式保证。
+
+
+% ITEM: quadratic-exercise-54-01
+\solutionitem{quadratic-exercise-54-01}{习题4.54（1） *}
+在\(y=x^2\)上依次取参数\(0,1,2,3,4,5\)对应的六点，求三组对边交点及帕斯卡线。
+\par
+\solutionanswer
+弦线公式为\(Y-(u+v)X+uvZ=0\)。三组对边交点依次为\([2:2:1],[3:7:1],[1:5:0]\)，均在\(Y-5X+8Z=0\)上，故这就是帕斯卡线。
+
+
+% ITEM: quadratic-exercise-54-02
+\solutionitem{quadratic-exercise-54-02}{习题4.54（2） *}
+在同一条非退化二次曲线上改变六点的排列，所得帕斯卡线是否必须相同？试用一个具体参数例子判断。
+\par
+\solutionanswer
+不必相同。参数依次\(0,1,2,3,4,5\)给出\(5X-Y-8Z=0\)；改为\(0,1,2,3,5,4\)后，三交点为\([15:15:7],[3:7:1],[6:24:1]\)，所得线\(17X-3Y-30Z=0\)，与前者不同。
+
+
+% ITEM: quadratic-exercise-54-03
+\solutionitem{quadratic-exercise-54-03}{习题4.54（3） *}
+对\(y=x^2\)上参数\(0,1,-1\)对应的三点，求各点切线与对边的交点，核对共线关系。再取三条端点切线所成的三角形，核对顶点与对边切点连线的共点关系。
+\par
+\solutionanswer
+三切线为\(Y=0,Y-2X+Z=0,Y+2X+Z=0\)。它们与各自对边的交点依次为\([1:0:0],[1:-1:3],[-1:-1:3]\)，共线于\(3Y+Z=0\)。三切线三角形的顶点为\((1/2,0),(0,-1),(-1/2,0)\)，各顶点与对边切点的连接线共点于\((0,1/3)\)，直接代入三线即可核对。
+
+
+% ITEM: quadratic-exercise-54-04
+\solutionitem{quadratic-exercise-54-04}{习题4.54（4） *}
+沿用例4.96中的五条已知切线。给定\(l_1\)上一点\(R\)，已知过\(R\)还可作一条不同于这五条直线的切线\(m\)。只用已知直线和点，通过连线、求交点构造\(m\)，并用布里昂雄定理说明依据。
+\par
+\solutionanswer
+令\(g=T_1T_4\)，作\(S=T_3R\cap g\)，再作\(U=T_2S\cap l_5\)，所求\(m=RU\)。因为题设保证存在该另一切线，其外切六边形的布里昂雄共点必同时位于\(T_3R,g\)，故就是所构造的\(S\)，从而\(U\)和\(m\)也被唯一恢复。
+
+
+% ITEM: quadratic-exercise-54-05
+\solutionitem{quadratic-exercise-54-05}{习题4.54（5） *}
+给定一条椭圆上的五点\(A,B,C,D,E\)，只用直尺构造\(C\)处切线。说明如何用同一思路构造一条过已知曲线点的直线上另一个曲线点。
+\par
+\solutionanswer
+将五点次序改为\(C,D,E,A,B\)，作\(P=CD\cap AB,Q=DE\cap BC,R=PQ\cap EA\)，则\(CR\)为所求切线。若已知过\(A\)的非切线\(m\)，作\(P=AB\cap DE,R=m\cap CD,Q=PR\cap BC,F=EQ\cap m\)，帕斯卡定理保证\(F\)就是\(m\)上的另一个曲线点。
+
+
+% ITEM: quadratic-exercise-54-06
+\solutionitem{quadratic-exercise-54-06}{习题4.54（6） *}
+设四个曲线点\(A,B,C,D\)确定\(P=AB\cap CD\)、\(U=AC\cap BD\)、\(V=AD\cap BC\)。证明\(P,U,V\)各自的极线是另外两点的连线，并解释这个四边形构造与4.11.5的关系。
+\par
+\solutionanswer
+把四点先按\((A,B;C,D)\)分成两割线，完全四边形极线构造给出\(\ell_P=UV\)。再分别按\((A,C;B,D)\)、\((A,D;B,C)\)重新分组，得到\(\ell_U=PV,\ell_V=PU\)。因此三个对角点构成自极三角形，同一个四边形构造同时给出三组极点极线对应。
+
+
+% ITEM: quadratic-example-098
+\solutionitem{quadratic-example-098}{例4.98 *}
+曲线\(x^2+2xy-y^2-2x+6y-1=0\)有中心。求无穷远点、无穷远直线的极点，以及两个无穷远点的极线；再用平移方法核对中心和渐近线。
+\solutionanswer
+无穷远点为\([1:1\pm\sqrt2:0]\)，无穷远直线的极点为中心\([-1:2:1]\)。两个无穷远点的极线是\(y-2=(1\pm\sqrt2)(x+1)\)。平移\(u=x+1,v=y-2\)得到\(u^2+2uv-v^2+6=0\)，中心和两条零方向渐近线完全一致。
+
+
+% ITEM: quadratic-exercise-55-01
+\solutionitem{quadratic-exercise-55-01}{习题4.55（1） *}
+对椭圆\(X^2/9+Y^2/4=Z^2\)，求方向\([1:1:0]\)的极线，并解释对应的平行弦与共轭直径。
+\par
+\solutionanswer
+极线为\(X/9+Y/4=0\)，即\(4X+9Y=0\)。方向\((1,1)\)的平行弦中点都在此共轭直径上，射影极线公式统一记录了该平行弦族。
+
+
+% ITEM: quadratic-exercise-55-02
+\solutionitem{quadratic-exercise-55-02}{习题4.55（2） *}
+对抛物线\(Y^2=4XZ\)，求无穷远中心及方向\([2:1:0]\)的极线，核对相应平行弦的中点轨迹。
+\par
+\solutionanswer
+无穷远直线的极点为\([1:0:0]\)，即抛物线轴向的无穷远中心。\([2:1:0]\)的极线为\(Y=4Z\)，普通部分\(y=4\)，正是斜率\(1/2\)平行弦的中点直径。
+
+
+% ITEM: quadratic-exercise-55-03
+\solutionitem{quadratic-exercise-55-03}{习题4.55（3） *}
+对双曲线\((x-1)(y+2)=1\)，分别用平移与极线方法求两条渐近线，并求它们交点的极线。
+\par
+\solutionanswer
+平移\(u=x-1,v=y+2\)后为\(uv=1\)，渐近线\(x=1,y=-2\)。两个无穷远点\([1:0:0],[0:1:0]\)的极线分别为\(y=-2,x=1\)，正是这两条渐近线。它们交点\((1,-2)\)是中心，其极线为\(Z=0\)。
+
+
+% ITEM: quadratic-exercise-55-04
+\solutionitem{quadratic-exercise-55-04}{习题4.55（4） *}
+若曲线的两条不同切线互相平行，其交点在射影平面中怎样表示？切点弦的极点怎样解释？以椭圆的一条直径为例说明。
+\par
+\solutionanswer
+平行切线交于其公共方向的无穷远点\([d_x:d_y:0]\)，这个点就是切点弦的射影极点。椭圆直径的两端点切线互相平行，所以原本没有有限极点的直径，现在有一个唯一的无穷远极点。
+
+
+% ITEM: quadratic-exercise-55-05
+\solutionitem{quadratic-exercise-55-05}{习题4.55（5） *}
+在圆\(X^2+Y^2=Z^2\)中，分别将\(Z=0\)、\(X=0\)、\(X=Z\)选作新的无穷远直线，判断三个普通坐标区域中的曲线类型。说明如何用可逆矩阵实现这些选择。
+\par
+\solutionanswer
+三条所选无穷远线与圆依次相离、相交、相切，所以普通类型依次为椭圆、双曲线、抛物线。可分别用恒等矩阵、\([U:V:W]=[Z:Y:X]\)、\([U:V:W]=[Y:Z:X-Z]\)实现，三矩阵均可逆。
+
+
+% ITEM: quadratic-exercise-55-06
+\solutionitem{quadratic-exercise-55-06}{习题4.55（6） *}
+设曲线的二次部分矩阵\(H\)可逆。由\(M^{-1}e_3\)推导中心公式\(c=-H^{-1}L/2\)，再解释\(H\)奇异而\(M\)可逆时，无穷远直线为什么与曲线相切。
+\par
+\solutionanswer
+设\(M^{-1}e_3=(v,z)^T\)，上两行给出\(Hv+Lz/2=0\)。\(H\)可逆时\(z\ne0\)，归一化得到中心\(c=v/z=-H^{-1}L/2\)。若\(H\)奇异但\(M\)可逆，则\(e_3^TM^{-1}e_3=\det H/\det M=0\)，无穷远直线作为对偶点在对偶曲线上，所以它与原曲线相切。
+\par

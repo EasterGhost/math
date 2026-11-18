@@ -23,7 +23,7 @@
 - 主线可独立完成相应专题的基本学习，读者可以跳过全部星号内容。
 - 星号标记选讲范围和认识层次，通常围绕主线中的同一对象深化解释。可根据基础穿插阅读，也可完成主线后再集中学习。
 - 例题保留题面，供课堂展开与独立思考。节内习题落实相应内容；章末综合习题覆盖全章，单题可以考察一个知识点，也可以联合多个知识点。
-- 配套习题解另册编排。本仓库收录讲义正文及其构建文件。
+- 配套习题解另册编排，内容与构建说明见[习题解目录](solutions/README.md)。本仓库收录讲义及解答册的源码和构建文件。
 
 各章的先修知识与更具体的使用说明见[前言](chapters/preface.tex)。
 
@@ -31,7 +31,9 @@
 
 | 路径 | 用途 |
 | --- | --- |
-| `main.tex` | 全书编译入口。 |
+| `main.tex` | 讲义编译入口。 |
+| `solutions.tex` | 例题与习题解编译入口。 |
+| `solutions/` | 按章分文件夹、按节组织的题面与解答源码。 |
 | `mathnotes.cls` | 排版类，定义字体、标题、定理及习题等格式。 |
 | `chapters/` | 正文、前后记及附录；较长章节按节拆分为独立文件。 |
 | `media/` | 插图、独立TikZ文稿及部分插图的Python生成脚本。 |
@@ -64,6 +66,16 @@ latexmk -xelatex -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-e
 ```
 
 输出为仓库根目录下的`main.pdf`。`latexmk`会按需重复编译，更新目录与交叉引用。
+
+### 构建习题解
+
+完成插图构建后，直接编译另册：
+
+```powershell
+latexmk -xelatex -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error solutions.tex
+```
+
+输出为`solutions.pdf`。题面与解答保存在同一节源码中，编译无需运行Python脚本。PDF与其他编译产物不提交。
 
 ## 勘误
 

@@ -1,0 +1,125 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{Cauchy命题与Stolz定理}
+
+\label{sol:sec:analysis:5}
+
+% ITEM: analysis-cesaro-applications
+\solutionitem{analysis-cesaro-applications}{例1.15}
+（1）设\(\lim_{n \to \infty} x_{n} = + \infty\)，证明：\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} x_{i}}{n} = + \infty\).
+
+    （2）设\(\left\{ a_{n} \right\}\)单调递增，\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}}{n} = a\)，证明：\(\left\{ a_{n} \right\}\)收敛到\(a\).
+
+    （3）已知\(k \in \mathbb{N}^{*}\)，设\(\left\{ a_{2 k - 1} \right\}\)收敛到\(a\)，\(\left\{ a_{2 k} \right\}\)收敛到\(b\)，且\(a \ne b\)，求\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}}{n}\).
+
+    （4）设\(\left\{ a_{n} \right\}\)为正数列，且收敛到\(A\)，证明：\(\lim_{n \to \infty} {\left( \prod _{i = 1}^{n} a_{i} \right)}^{\frac{1}{n}} = A\).
+\solutionanswer
+（1）任取\(M>0\)，使从某个\(N\)起有\(x_n>2M\)。于是
+\[
+\frac1n\sum_{i=1}^nx_i>\frac{x_1+\cdots+x_N}{n}+\frac{n-N}{n}\,2M.
+\]
+右边趋于\(2M\)，故从某项起大于\(M\)。由\(M\)任意，平均值趋于\(+\infty\)。
+
+（2）若递增列\(\{a_n\}\)无上界，则它趋于\(+\infty\)，由上一问其平均值也趋于\(+\infty\)，与题设矛盾。因此\(\{a_n\}\)递增有界，设极限为\(A\)。由Cauchy命题，平均值也趋于\(A\)，极限唯一性给出\(A=a\)。
+
+（3）当\(n=2m\)时，
+\[
+\frac1{2m}\sum_{i=1}^{2m}a_i
+=\frac12\left(\frac1m\sum_{k=1}^ma_{2k-1}+\frac1m\sum_{k=1}^ma_{2k}\right)\to\frac{a+b}2.
+\]
+当\(n=2m-1\)时，两组的权重分别为\(m/(2m-1)\)、\((m-1)/(2m-1)\)，都趋于\(1/2\)，组内平均分别趋于\(a,b\)。故全体平均的极限仍为\((a+b)/2\)。
+
+（4）极限\(A\ge0\)。当\(A>0\)时，任取\(0<\varepsilon<A\)，使\(n>N\)时有\(A-\varepsilon<a_n<A+\varepsilon\)。记\(C=\prod_{i=1}^Na_i>0\)，则
+\[
+C^{1/n}(A-\varepsilon)^{(n-N)/n}
+\le\left(\prod_{i=1}^na_i\right)^{1/n}
+\le C^{1/n}(A+\varepsilon)^{(n-N)/n}.
+\]
+两侧分别趋于\(A-\varepsilon\)、\(A+\varepsilon\)，再由\(\varepsilon\)任意即得结论。当\(A=0\)时，从某项起\(0<a_n<\varepsilon\)，只用同样的上界即可。固定有限个前项的乘积开\(n\)次方趋于\(1\)，是这里分开前段与尾段的依据。
+
+
+% ITEM: analysis-unsigned-infinity-counterexamples
+\solutionitem{analysis-unsigned-infinity-counterexamples}{思考：不带符号的无穷大（1.5.2）}
+若将以上三个命题中的极限值\(l\)改为不带符号的无穷大\(\infty\)，则结论均不成立。试举出反例。
+\solutionanswer
+要反驳无符号版本，应使相应增量或各项的绝对值趋于无穷，而原结论中的绝对值不趋于无穷。
+
+Cauchy命题取\(x_{2k-1}=k,x_{2k}=-k\)。虽然\(|x_n|\to+\infty\)，但前\(2k\)项平均恒为\(0\)。
+
+Stolz的\(0/0\)型取\(a_n=1/n\)，并令\(b_n=1/n\)（\(n\)偶）、\(b_n=0\)（\(n\)奇）。两列均趋于零，分母严格递减，且
+\[
+\frac{b_{n+1}-b_n}{a_{n+1}-a_n}
+=\begin{cases}-n,&n\text{奇},\\ n+1,&n\text{偶}.\end{cases}
+\]
+其绝对值趋于无穷，但\(b_n/a_n\)只取\(0,1\)。
+
+无穷分母型取\(a_n=n\)，并令\(b_n=n\)（\(n\)奇）、\(b_n=0\)（\(n\)偶）。同样有
+\[
+\frac{b_{n+1}-b_n}{a_{n+1}-a_n}
+=\begin{cases}-n,&n\text{奇},\\ n+1,&n\text{偶},\end{cases}
+\]
+而\(b_n/a_n\)仍只取\(0,1\)。增量正负交替时，相加可能发生抵消，不能由增量绝对值的增长推出原量比值的增长。
+
+
+% ITEM: analysis-stolz-applications
+\solutionitem{analysis-stolz-applications}{例1.16}
+（1）设\(a_{n} = \frac{\sum _{i = 1}^{n} i !}{n !} , n \in \mathbb{N}^{*}\)，求\(\lim_{n
+        \to \infty} a_{n}\).
+
+    （2）已知\(\lim_{n \to \infty} a_{n} = a\)，证明：\(\lim_{n \to
+        \infty} \frac{1}{2^{n}} \sum _{k = 0}^{n} \left( \begin{matrix}n \\ k\end{matrix} \right) a_{k} = a\).
+
+    （3）设\(a_{1} > 0 , a_{n + 1} = a_{n} + \frac{1}{a_{n}} , n \in
+    \mathbb{N}^{*}\)，证明：\(\lim_{n \to \infty} \frac{a_{n}}{\sqrt{2 n}} = 1\).
+
+    （4）若\(\lim_{n \to \infty} a_{n} = a , \lim_{n \to \infty}
+    b_{n} = b\)，证明：\(\lim_{n \to \infty} \frac{\sum _{i = 1}^{n} a_{i}
+        b_{n - i + 1}}{n} = a b\).
+
+    （5）设\(\left\{ a_{n} \right\}\)为正数列，且有\(\lim_{n \to \infty} \frac{a_{n
+                + 1}}{a_{n}} = l\)，证明：\(\lim_{n \to \infty} \sqrt[n]{a_{n}} = l\).
+    反之如何？
+\solutionanswer
+（1）令\(S_n=\sum_{i=1}^ni!\)。分母\(n!\)从\(n=2\)起严格递增且趋于无穷，而
+\[
+\frac{S_{n+1}-S_n}{(n+1)!-n!}
+=\frac{(n+1)!}{n\,n!}=\frac{n+1}{n}\to1.
+\]
+由Stolz定理，\(S_n/n!\to1\)。
+
+（2）记\(w_{n,k}=2^{-n}\binom nk\)，则\(w_{n,k}\ge0\)、\(\sum_{k=0}^nw_{n,k}=1\)。对任意固定的\(k\)，当\(n>k\)时，
+\[
+0\le w_{n,k}\le\frac{\binom nk}{\binom n{k+1}}=\frac{k+1}{n-k}\to0.
+\]
+给定\(\varepsilon>0\)，取\(K\)使\(k>K\)时\(|a_k-a|<\varepsilon\)。于是
+\[
+\left|\sum_{k=0}^nw_{n,k}a_k-a\right|
+\le\sum_{k=0}^Kw_{n,k}|a_k-a|+\varepsilon\sum_{k=K+1}^nw_{n,k}.
+\]
+第一项是固定个数的趋零量之和，第二项不超过\(\varepsilon\)，故所求极限为\(a\)。这与Cauchy命题一样，关键在于有限前段的权重最终消失。
+
+（3）由递推式，
+\[
+a_{n+1}^2-a_n^2=2+\frac1{a_n^2}\ge2.
+\]
+故\(a_n^2\ge a_1^2+2(n-1)\to+\infty\)，从而上述增量趋于\(2\)。对\(a_n^2/n\)使用Stolz定理得极限\(2\)，再取正平方根，得到\(a_n/\sqrt{2n}\to1\)。
+
+（4）先把误差分开：
+\[
+\frac1n\sum_{i=1}^na_ib_{n-i+1}-ab
+=\frac1n\sum_{i=1}^n(a_i-a)b_{n-i+1}+\frac an\sum_{j=1}^n(b_j-b).
+\]
+第二项由Cauchy命题趋于零。取\(B>0\)使\(|b_j|\le B\)。给定\(\varepsilon>0\)，使\(i>K\)时\(|a_i-a|<\varepsilon/B\)，则第一项的绝对值至多为
+\[
+\frac Bn\sum_{i=1}^K|a_i-a|+\varepsilon\frac{n-K}{n}.
+\]
+固定前段趋于零，尾段不超过\(\varepsilon\)，故第一项也趋于零。所求极限为\(ab\)。
+
+（5）当\(0<l<+\infty\)时，任取\(0<\varepsilon<l\)，从某个\(N\)起相邻比值夹在\(l-\varepsilon\)与\(l+\varepsilon\)之间。连乘得
+\[
+a_N(l-\varepsilon)^{n-N}\le a_n\le a_N(l+\varepsilon)^{n-N}.
+\]
+开\(n\)次方，再用\(\varepsilon\)的任意性，即得\(\sqrt[n]{a_n}\to l\)。若\(l=0\)，对任意正数\(\varepsilon\)只用右侧估计；若\(l=+\infty\)，对任意正数\(M\)只用下界\(a_n\ge a_NM^{n-N}\)，分别得出相应结论。
+
+逆命题不成立。取\(a_n=1\)（\(n\)奇）及\(a_n=4\)（\(n\)偶），则\(1\le\sqrt[n]{a_n}\le4^{1/n}\to1\)，相邻比值却在\(4\)、\(1/4\)之间交替。
+\par

@@ -1,0 +1,107 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{离散分布}
+
+% ITEM: probability-example-024
+\solutionitem{probability-example-024}{例6.24}
+（2018年全国III卷理科，题面整理）
+某群体每位成员使用移动支付的概率均为\(p\)，各人选择独立。10名成员中使用移动支付的人数为\(X\)，已知\(\operatorname{Var}X=2.4\)、\(P(X=4)<P(X=6)\)，求\(p\)。
+\solutionanswer
+\(X\sim B(10,p)\)，由\(10p(1-p)=2.4\)得\(p=0.4\)或\(0.6\)。又\(P(X=6)/P(X=4)=[p/(1-p)]^2>1\)，故\(p>1/2\)，取\(p=0.6\)。
+
+
+% ITEM: probability-example-025
+\solutionitem{probability-example-025}{例6.25}
+一批20件产品中有4件不合格，随机不放回抽5件。求不合格品数的分布、至少抽到一件不合格品的概率，以及均值与方差。若改为放回抽取，比较两个模型。
+\solutionanswer
+不放回时\(P(X=k)=\binom4k\binom{16}{5-k}/\binom{20}5\)，\(k=0,1,2,3,4\)。至少一件的概率\(1-\binom{16}5/\binom{20}5\)，均值\(1\)，方差\(5(1/5)(4/5)(15/19)=12/19\)。放回时为\(B(5,1/5)\)，至少一件概率\(1-(4/5)^5\)，均值仍\(1\)，方差\(4/5\)。不放回的方差较小；它全合格的路径概率\(\prod_{j=0}^4(16-j)/(20-j)\)也小于\((4/5)^5\)，故至少抽到一件不合格的概率反而较大。
+
+
+% ITEM: probability-exercise-13-01
+\solutionitem{probability-exercise-13-01}{习题6.13（1）}
+某学生独立回答6道同类题，每题答对概率为\(3/4\)。求至少答对5题的概率及答对题数的期望与方差。
+\solutionanswer
+\(X\sim B(6,3/4)\)。\(P(X\ge5)=\binom65(3/4)^5(1/4)+(3/4)^6=2187/4096\)，\(EX=9/2\)，方差\(9/8\)。
+
+
+% ITEM: probability-exercise-13-02
+\solutionitem{probability-exercise-13-02}{习题6.13（2）}
+从10个球中不放回抽4个，其中3个为红球。求红球数的分布与数字特征，并核对全部概率之和。
+\solutionanswer
+\(P(X=k)=\binom3k\binom7{4-k}/\binom{10}4\)，在\(k=0,1,2,3\)处依次为\(1/6,1/2,3/10,1/30\)，相加为\(1\)。均值\(4\times3/10=6/5\)，方差\(4(3/10)(7/10)(6/9)=14/25\)。
+
+
+% ITEM: probability-exercise-13-03
+\solutionitem{probability-exercise-13-03}{习题6.13（3）}
+每次投篮独立，命中率为\(0.4\)。求第一次命中发生在第3次、超过第5次的概率及平均等待次数。
+\solutionanswer
+等待次数服从\(\operatorname{Geom}(0.4)\)，计数从\(1\)开始。所求依次为\(0.6^2\times0.4=0.144\)、\(0.6^5=0.07776\)、\(1/0.4=2.5\)。
+
+
+% ITEM: probability-exercise-13-04
+\solutionitem{probability-exercise-13-04}{习题6.13（4）}
+某人已连续失败5次，试验条件与独立性保持不变。求再等待超过3次的条件概率，并与尚未开始时比较。
+\solutionanswer
+记单次成功率为\(p\)。已失败5次后，再等超过3次是接下来的三次仍全失败，条件概率\((1-p)^3\)，与未开始时等待超过3次完全相同。若沿用上一题\(p=0.4\)，其值为\(0.216\)。独立性保留了剩余等待的机制。
+
+
+% ITEM: probability-exercise-13-05
+\solutionitem{probability-exercise-13-05}{习题6.13（5）}
+用有限和或第一章的级数求几何分布的\(E(T^2)\)，证明\(\operatorname{Var}T=(1-p)/p^2\)。
+\solutionanswer
+记\(q=1-p\)，令\(S_N=\sum_{k=1}^Nk^2q^{k-1}\)。有限错位相减给出
+\[
+ pS_N=\sum_{k=1}^N(2k-1)q^{k-1}-N^2q^N\le\frac2{p^2},
+\]
+其中用到前面求\(ET\)时的\(\sum_{k\ge1}kq^{k-1}=1/p^2\)。正项部分和\(S_N\)有界，因而收敛到\(S\)。其级数通项趋零，又得\(N^2q^N\to0\)。在有限等式中取极限，\(pS=2/p^2-1/p\)，故\(E(T^2)=pS=(2-p)/p^2\)，减去\((ET)^2=1/p^2\)得方差\((1-p)/p^2\)。
+
+
+% ITEM: probability-exercise-13-06
+\solutionitem{probability-exercise-13-06}{习题6.13（6）}
+说明下列变量适用的模型及参数：从有限产品中不放回抽取固定件数时的不合格数；固定次数独立抽检的不合格数；独立抽检直到首次发现不合格品时的抽检次数。
+\solutionanswer
+总体\(N\)件、其中\(M\)件不合格，不放回抽\(n\)件时为超几何分布\(P(X=k)=\binom Mk\binom{N-M}{n-k}/\binom Nn\)。独立固定\(n\)次、每次不合格率\(p\)时为\(B(n,p)\)；独立抽到首次不合格时的次数为\(\operatorname{Geom}(p)\)。是否固定次数、是否改变总体构成，决定选哪一种模型。
+
+
+% ITEM: probability-exercise-13-07
+\solutionitem{probability-exercise-13-07}{习题6.13（7）}
+（据2020年浙江卷改编）盒中有1个红球、1个绿球、2个黄球，每次随机取一球，不放回，取出红球即停。求已取黄球数的分布与期望，再用指示变量核对期望。这里的停止次数是否服从几何分布？
+\solutionanswer
+只看红球与两个黄球的相对顺序，三者顺序等可能，红球的相对名次\(1,2,3\)各占\(1/3\)。所以红球前已取黄球数\(0,1,2\)的概率均为\(1/3\)，期望\(1\)。另一法给两黄球分别设“先于红球被取”的指示量，每个期望\(1/2\)，相加仍为\(1\)。停止次数至多为4，而且抽取概率随未取球改变，不服从几何分布。
+
+
+% ITEM: probability-exercise-14-01
+\solutionitem{probability-exercise-14-01}{习题6.14（1） *}
+所指试验为200次独立试验，单次事件概率\(0.005\)，Poisson近似参数\(\lambda=1\)。
+计算上述试验中恰发生一次、至少发生两次的二项精确表达与Poisson近似。
+\solutionanswer
+本题\(n=200,p=0.005\)，故\(P(X=1)=200(0.005)(0.995)^{199}=(0.995)^{199}\)，Poisson近似为\(e^{-1}\)。\(P(X\ge2)=1-(0.995)^{200}-(0.995)^{199}\)，近似为\(1-2e^{-1}\)。两者分别约为\(0.3688,0.2642\)，对应Poisson值约\(0.3679,0.2642\)。
+
+
+% ITEM: probability-exercise-14-02
+\solutionitem{probability-exercise-14-02}{习题6.14（2） *}
+设\(X\sim\operatorname{Pois}(\lambda)\)。由指数级数求\(EX\)、\(E[X(X-1)]\)，证明\(\operatorname{Var}X=\lambda\)。
+\solutionanswer
+由绝对收敛的指数级数移项，\(EX=e^{-\lambda}\sum_{k\ge1}\lambda^k/(k-1)!=\lambda\)；同理\(E[X(X-1)]=\lambda^2\)。因此\(E(X^2)=\lambda^2+\lambda\)，方差\(\lambda\)。
+
+
+% ITEM: probability-exercise-15-01
+\solutionitem{probability-exercise-15-01}{习题6.15（1） *}
+两枚独立骰子的点数变量记为\(X,Y\)。写出各自生成函数，以乘积的系数求点数和为7的概率，再求点数和的期望与方差。若两次取值完全相同，为什么不能使用同一个乘积？
+\solutionanswer
+\(G_X(s)=G_Y(s)=(s+s^2+\cdots+s^6)/6\)。乘积的\(s^7\)系数为\(6/36=1/6\)。单枚均值\(7/2\)、方差\(35/12\)，独立相加得总均值\(7\)、方差\(35/6\)。若\(Y=X\)，则和为\(2X\)，生成函数是\(G_X(s^2)\)，不是\(G_X(s)^2\)：乘积公式需要独立，完全相同取值没有这种联合分布。
+
+
+% ITEM: probability-exercise-15-02
+\solutionitem{probability-exercise-15-02}{习题6.15（2） *}
+三个事件相互独立，发生概率依次为\(1/5,1/3,2/5\)。用生成函数求恰有两个发生及发生个数为偶数的概率。
+\solutionanswer
+发生总数的生成函数为\((4+s)(2+s)(3+2s)/75=(24+34s+15s^2+2s^3)/75\)。故恰两件发生的概率\(15/75=1/5\)，偶数件发生的概率\((24+15)/75=13/25\)。也可用\([1+G(-1)]/2\)核对后一结果。
+
+
+% ITEM: probability-exercise-15-03
+\solutionitem{probability-exercise-15-03}{习题6.15（3） *}
+\(X\)为有限非负整数变量。给定\(X=k\)时，把\(k\)个对象各自独立地以概率\(r\)保留，记留下的个数为\(Y\)。证明\(G_Y(s)=G_X(1-r+rs)\)，并求\(EY\)、\(\operatorname{Var}Y\)。
+\solutionanswer
+给定\(X=k\)，\(Y\)的生成函数为\((1-r+rs)^k\)。按\(X\)的分布加权，得\(G_Y(s)=\sum_kP(X=k)(1-r+rs)^k=G_X(1-r+rs)\)。在\(1\)处求导，\(EY=rEX\)、\(E[Y(Y-1)]=r^2E[X(X-1)]\)，从而\(\operatorname{Var}Y=r^2\operatorname{Var}X+r(1-r)EX\)。
+\par

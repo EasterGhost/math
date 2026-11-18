@@ -1,0 +1,339 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{参数方程}
+
+% ITEM: quadratic-example-047
+\solutionitem{quadratic-example-047}{例4.47}
+直线的参数方程为\(x=1+2t,y=-1+t\)。求其普通方程，说明参数增加\(1\)时点移动的距离，并分别写出直线上\(x\ge3\)的部分及从\((1,-1)\)到\((5,1)\)的线段所对应的参数范围。
+\solutionanswer
+消参得\(x-2y-3=0\)。参数增加\(1\)，位移\((2,1)\)，长度\(\sqrt5\)。\(x\ge3\)对应\(t\ge1\)，给定线段对应\(0\le t\le2\)。
+
+
+% ITEM: quadratic-exercise-30-01
+\solutionitem{quadratic-exercise-30-01}{习题4.30（1）}
+将\(x=2+3t,y=1-2t\)化为普通方程。求参数\(t=-1,2\)对应的两点间距离，并将方向向量单位化，重新选取一个有向长度参数。
+\par
+\solutionanswer
+由\(t=(x-2)/3\)且\(y=1-2t\)，消去参数得\(2x+3y-7=0\)。当\(t=-1,2\)时两点分别为\((-1,3)\)、\((8,-3)\)，位移为\((9,-6)=3(3,-2)\)，距离为\(\sqrt{9^2+(-6)^2}=3\sqrt{13}\)。原方向向量\((3,-2)\)的单位向量为\((3,-2)/\sqrt{13}\)。令有向长度参数\(s=\sqrt{13}t\)，则同一有向直线可写为
+\[x=2+\frac{3}{\sqrt{13}}s,\qquad y=1-\frac{2}{\sqrt{13}}s,\qquad s\in\mathbb R.\]
+此时\(s=0\)对应基点\((2,1)\)，参数增加量就是沿所选单位方向的有向位移。
+
+
+% ITEM: quadratic-exercise-30-02
+\solutionitem{quadratic-exercise-30-02}{习题4.30（2）}
+分别求\(x=t^2,y=t\)与\(x=t^2,y=t^2\)的轨迹，说明消参后还须保留什么条件。
+\par
+\solutionanswer
+对于\(x=t^2,y=t\)，消去参数得\(x=y^2\)；反过来该方程上任一点取\(t=y\)即可得到，故轨迹是完整抛物线。对于\(x=t^2,y=t^2\)，消参得\(x=y\)，但还必须保留\(x\ge0\)（等价于\(y\ge0\)）；反过来该射线上每点\((r,r),r\ge0\)取\(t=\sqrt r\)即可取得。因此轨迹是直线\(y=x\)上从原点出发的射线，而非整条直线。
+
+
+% ITEM: quadratic-exercise-30-03
+\solutionitem{quadratic-exercise-30-03}{习题4.30（3）}
+\(x=\cos t,y=\sin t\)与\(x=\cos2t,y=\sin2t\)在\(0\le t<2\pi\)上是否表示同一条曲线？每个点被表示的次数是否相同？
+\par
+\solutionanswer
+两种表示都满足\(x^2+y^2=1\)，且在参数范围\(0\le t<2\pi\)内都覆盖单位圆全部点，故表示同一条曲线。对\((\cos t,\sin t)\)，一周内每个圆上点恰出现一次；对\((\cos2t,\sin2t)\)，角度\(2t\)走过长度为\(4\pi\)的区间，每个圆上点恰出现两次（参数相差\(\pi\)的两值），包括起点对应的圆上点。因此点集相同，但被表示次数不同。
+
+
+% ITEM: quadratic-exercise-30-04
+\solutionitem{quadratic-exercise-30-04}{习题4.30（4）}
+用参数方程表示线段\(AB\)，其中\(A=(-1,2)\)、\(B=(3,-2)\)。求其中满足\(x\ge y\)的部分及其长度。
+\par
+\solutionanswer
+取\(0\le t\le1\)，线段可表示为
+\[
+(x,y)=(-1,2)+t(4,-4),
+\quad\text{即}\quad x=-1+4t,\quad y=2-4t.
+\]
+条件\(x\ge y\)等价于\(-1+4t\ge2-4t\)，即\(t\ge3/8\)。所求部分由\((1/2,1/2)\)至\((3,-2)\)组成，长度为\((1-3/8)|AB|=(5/8)\sqrt{4^2+(-4)^2}=5\sqrt2/2\)。
+
+
+% ITEM: quadratic-exercise-30-05
+\solutionitem{quadratic-exercise-30-05}{习题4.30（5）}
+求\(x=t+t^{-1},y=t-t^{-1}\)（\(t>0\)）的轨迹方程及实际表示范围。将范围改为\(t\ne0\)，图形如何变化？
+\par
+\solutionanswer
+由参数式得\(x^2-y^2=(t+t^{-1})^2-(t-t^{-1})^2=4\)。当\(t>0\)时，\(x=t+t^{-1}\ge2\)；反过来，对双曲线右支任意一点\(x=\sqrt{y^2+4}\ge2\)，方程\(t-t^{-1}=y\)有唯一正根\(t=(y+\sqrt{y^2+4})/2\)，且此时\(t+t^{-1}=x\)。因此实际表示右支\(x\ge2\)。
+若改为\(t\ne0\)，正参数仍给右支；负参数时\(x=t+t^{-1}\le-2\)，并且\(t-t^{-1}\)取遍全体实数，故补上左支。所得完整轨迹是双曲线\(x^2-y^2=4\)。
+
+
+% ITEM: quadratic-exercise-30-06
+\solutionitem{quadratic-exercise-30-06}{习题4.30（6）}
+（2019年北京卷理科第3题）直线\(l\)的参数方程为\(x=1+3t,y=2+4t\)。求点\((1,0)\)到\(l\)的距离，并指出直线的一个单位方向向量。
+\par
+\solutionanswer
+直线经过\(Q=(1,2)\)，方向向量\(d=(3,4)\)，其长度为\(5\)。点\(P=(1,0)\)到直线的距离为
+\[
+\frac{|\det(d,P-Q)|}{|d|}
+=\frac{|3\cdot(-2)-4\cdot0|}{5}=\frac65.
+\]
+一个单位方向向量为\((3/5,4/5)\)（其反向量也可以）。
+
+
+% ITEM: quadratic-example-048
+\solutionitem{quadratic-example-048}{例4.48}
+在椭圆\(x^2/9+y^2/4=1\)上求参数角为\(\pi/3\)的点，并求其位置向量与\(x\)轴正方向夹角的正切。再用参数表示求曲线上点到\((0,1)\)距离的最大值、最小值及取等点，与4.6的圆化方法比较。
+\solutionanswer
+参数点为\((3/2,\sqrt3)\)，位置向量方向角正切为\(2\sqrt3/3\)，不同于参数角正切。若\(s=\sin t\)，到\((0,1)\)的距离平方为\(10-5s^2-4s\)，最大\(54/5\)、最小\(1\)。距离最大\(\sqrt{54/5}\)，取于\((\pm3\sqrt{21}/5,-4/5)\)；最小\(1\)，取于\((0,2)\)。这与圆化后还原度量的计算完全相同。
+
+
+% ITEM: quadratic-example-049
+\solutionitem{quadratic-example-049}{例4.49}
+在抛物线\(y^2=4x\)上取参数为\(t_1,t_2\)的两点，其中\(x=t^2,y=2t\)。证明两点连线经过焦点的充要条件是\(t_1t_2=-1\)，再用参数表达这条焦弦的长度，接回4.5的最短焦弦结论。
+\solutionanswer
+弦方程为\(2x-(t_1+t_2)y+2t_1t_2=0\)，代入\(F=(1,0)\)便得\(t_1t_2=-1\)。令\(t_1=t,t_2=-1/t\)，焦弦长度为两焦半径之和\(t^2+t^{-2}+2=(t+t^{-1})^2\ge4\)。等号在\(t=\pm1\)取到，即通径\(x=1\)，接回最短焦弦结论。
+
+
+% ITEM: quadratic-exercise-31-01
+\solutionitem{quadratic-exercise-31-01}{习题4.31（1）}
+分别写出\((x-1)^2/9+(y+2)^2/4=1\)、\(x^2=8y\)、\(y^2/4-x^2/9=1\)的参数方程，说明参数范围。
+\par
+\solutionanswer
+可分别取\(x=1+3\cos t,y=-2+2\sin t\)，\(0\le t<2\pi\)；\(x=4t,y=2t^2\)，\(t\in\mathbb R\)；\(x=3\sinh t,y=\varepsilon2\cosh t\)，\(t\in\mathbb R,\varepsilon=\pm1\)。最后一种两个符号分别覆盖上下两支。
+
+
+% ITEM: quadratic-exercise-31-02
+\solutionitem{quadratic-exercise-31-02}{习题4.31（2）}
+在椭圆\(x^2/16+y^2/9=1\)上，参数角为\(\theta\)的点关于两坐标轴及中心的对称点，参数角分别怎样变化？
+\par
+\solutionanswer
+关于\(x\)轴为\(-\theta\)，关于\(y\)轴为\(\pi-\theta\)，关于中心为\(\theta+\pi\)，均按\(2\pi\)取同余代表。
+
+
+% ITEM: quadratic-exercise-31-03
+\solutionitem{quadratic-exercise-31-03}{习题4.31（3）}
+设\(P=(a\cos\theta,b\sin\theta)\)。利用参数表示求椭圆上一点到右焦点距离的范围；再从焦半径公式求解，比较两种表达。
+\par
+\solutionanswer
+距离平方为\((a\cos\theta-c)^2+b^2\sin^2\theta=(a-c\cos\theta)^2\)。因\(a>c\)，距离为\(a-c\cos\theta\)，范围\([a-c,a+c]\)。这与\(a-ex\)代入\(x=a\cos\theta\)完全一致。
+
+
+% ITEM: quadratic-exercise-31-04
+\solutionitem{quadratic-exercise-31-04}{习题4.31（4）}
+在\(y^2=4x\)上，参数为\(1,3\)的两点连线交两坐标轴于何处？若保持参数和为\(4\)，弦的方向怎样变化？
+\par
+\solutionanswer
+弦线为\(x-2y+3=0\)，与坐标轴交于\((-3,0),(0,3/2)\)。一般弦线\(2x-(t_1+t_2)y+2t_1t_2=0\)，参数和固定为\(4\)时，斜率始终\(1/2\)，只改变截距。
+
+
+% ITEM: quadratic-exercise-31-05
+\solutionitem{quadratic-exercise-31-05}{习题4.31（5）}
+设\(A,B\)为\(y^2=2px\)上的两个不同点，参数分别为\(t_1,t_2\)。求其中点坐标，并证明\(OA\perp OB\)等价于\(t_1t_2=-4\)（\(A,B\ne O\)）。在这一条件下，弦\(AB\)经过哪个定点？
+\par
+\solutionanswer
+中点为\((p(t_1^2+t_2^2)/4,p(t_1+t_2)/2)\)。数量积为\(p^2t_1t_2(t_1t_2+4)/4\)，非零端点排除\(t_1t_2=0\)，故垂直等价于\(t_1t_2=-4\)。代入弦方程\(2x-(t_1+t_2)y+pt_1t_2=0\)，所有弦都经过\((2p,0)\)。
+
+
+% ITEM: quadratic-exercise-31-06
+\solutionitem{quadratic-exercise-31-06}{习题4.31（6）}
+分别将\(xy=2\)写成以\(x\)为参数和以双曲函数为参数的形式，说明两支的覆盖关系。
+\par
+\solutionanswer
+以横坐标为参数可取\(x=t,y=2/t\)，\(t\ne0\)，正负参数分别给第一、第三象限分支。双曲函数形式可取\(x=\varepsilon\sqrt2(\cosh t+\sinh t),y=\varepsilon\sqrt2(\cosh t-\sinh t)\)，\(t\in\mathbb R,\varepsilon=\pm1\)。两个符号各覆盖一整支。
+
+
+% ITEM: quadratic-example-050
+\solutionitem{quadratic-example-050}{例4.50}
+直线系\((x+y-1)+t(x-2y+2)=0\)是否经过定点？求其中经过\((2,1)\)的直线，并判断\(x-2y+2=0\)能否由某个有限\(t\)得到。再用两个系数的线性组合写出完整直线束。
+\solutionanswer
+两基准直线交于\((0,1)\)，故全系经过该点。代入\((2,1)\)得\(2+2t=0\)，所求成员为\(y=1\)。第二基准直线不能由有限\(t\)单独得到；完整直线束为\(\lambda(x+y-1)+\mu(x-2y+2)=0\)，\((\lambda,\mu)\ne(0,0)\)。
+
+
+% ITEM: quadratic-example-051
+\solutionitem{quadratic-example-051}{例4.51}
+（2024年全国甲卷理科第12题）已知\(b\)是\(a,c\)的等差中项，直线\(ax+by+c=0\)与圆\(x^2+y^2+4y-1=0\)交于\(A,B\)。求\(|AB|\)的最小值。先研究系数条件使直线经过哪个定点，再利用圆中弦长与圆心到直线距离的关系。
+\solutionanswer
+由\(c=2b-a\)，直线为\(a(x-1)+b(y+2)=0\)，均经过\((1,-2)\)。圆心\((0,-2)\)，半径\(\sqrt5\)。圆心到过此定点直线的距离最大\(1\)，在\(x=1\)时取到，故弦长最小\(2\sqrt{5-1}=4\)。
+
+
+% ITEM: quadratic-example-052
+\solutionitem{quadratic-example-052}{例4.52}
+（据2019年全国I卷理科第22题）曲线的参数方程为\(x=(1-t^2)/(1+t^2),y=4t/(1+t^2)\)，其中\(t\in\mathbb R\)。求曲线的直角坐标方程及实际表示的点集，说明为什么只消参还不足以完成这个问题。
+\solutionanswer
+消参得\(x^2+y^2/4=1\)，且有限参数永远不能使\(x=-1\)。反过来，其余点取\(t=y/[2(1+x)]\)都能恢复，故点集是去掉\((-1,0)\)的该椭圆。
+
+
+% ITEM: quadratic-example-053
+\solutionitem{quadratic-example-053}{例4.53}
+单位圆上一点\(P\)由式\textup{(4.111)}表示。求使\(P\)位于直线\(x+2y=1\)上的所有参数及相应点，并检查未被有限参数表示的基点是否在这条直线上。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+x=\frac{1-t^2}{1+t^2},\qquad
+    y=\frac{2t}{1+t^2},\qquad t\in\mathbb R .
+\end{equation*}
+\solutionanswer
+代入直线得\(1-t^2+4t=1+t^2\)，所以\(t=0,2\)，点为\((1,0),(-3/5,4/5)\)。未覆盖基点\((-1,0)\)不在该直线上，故没有遗漏交点。
+
+
+% ITEM: quadratic-exercise-32-01
+\solutionitem{quadratic-exercise-32-01}{习题4.32（1）}
+写出经过\(x+y=1\)与\(2x-y=2\)交点的直线束，求其中平行于\(x-3y=0\)的直线。
+\par
+\solutionanswer
+交点为\((1,0)\)，完整直线束为\(\lambda(x+y-1)+\mu(2x-y-2)=0\)，\((\lambda,\mu)\ne(0,0)\)。所求平行成员为\(x-3y-1=0\)。
+
+
+% ITEM: quadratic-exercise-32-02
+\solutionitem{quadratic-exercise-32-02}{习题4.32（2）}
+在单位圆上改取基点\((1,0)\)，用直线\(y=t(x-1)\)重新求有理参数。说明它与式\textup{(4.111)}的联系。
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+x=\frac{1-t^2}{1+t^2},\qquad
+    y=\frac{2t}{1+t^2},\qquad t\in\mathbb R .
+\end{equation*}
+\solutionanswer
+将直线代入圆并除去已知基点因子，得\(x=(t^2-1)/(1+t^2),y=-2t/(1+t^2)\)。有限参数表示除\((1,0)\)外的圆。它是原标准有理参数点的相反点；两种参数都能使用时，也可令原参数\(s=-1/t\)使点相同。
+
+
+% ITEM: quadratic-exercise-32-03
+\solutionitem{quadratic-exercise-32-03}{习题4.32（3）}
+求\(x=2(1-t^2)/(1+t^2),y=6t/(1+t^2)\)表示的点集。若只取\(t\ge0\)，范围如何变化？
+\par
+\solutionanswer
+满足\(x^2/4+y^2/9=1\)，有限实参数覆盖除\((-2,0)\)外的整条椭圆。\(t\ge0\)时为\(y\ge0\)的上半椭圆，仍去掉左端点，保留右端点\((2,0)\)。
+
+
+% ITEM: quadratic-exercise-32-04
+\solutionitem{quadratic-exercise-32-04}{习题4.32（4）}
+从\((-2,0)\)出发，为\(x^2/4-y^2=1\)建立有理参数表示，分别指出左右两支的参数范围。
+\par
+\solutionanswer
+取过基点的直线\(y=(t/2)(x+2)\)，第二交点为\(x=2(1+t^2)/(1-t^2),y=2t/(1-t^2)\)，\(t\ne\pm1\)。\(|t|<1\)覆盖右支，\(|t|>1\)覆盖除左顶点\((-2,0)\)外的左支。左顶点需另补；\(t=\pm1\)对应渐近方向，没有第二有限交点。
+
+
+% ITEM: quadratic-exercise-32-05
+\solutionitem{quadratic-exercise-32-05}{习题4.32（5）}
+取\(m=1,n=2,3,4\)，分别构造勾股数组。若取正整数\(m<n\)，要使三个整数没有共同因子，\(m,n\)应满足哪些条件？证明你的判断。
+\par
+\solutionanswer
+按\((n^2-m^2,2mn,n^2+m^2)\)依次得\((3,4,5),(8,6,10),(15,8,17)\)。成为本原勾股数组当且仅当\(\gcd(m,n)=1\)且奇偶相异。若有公因子或都为奇数，三数分别有平方公因子或公因子\(2\)。反之，任何奇素公因子由首末项和差必同时整除\(m,n\)，矛盾；奇偶相异又排除公因子\(2\)，所以三数互素。
+
+
+% ITEM: quadratic-exercise-32-06
+\solutionitem{quadratic-exercise-32-06}{习题4.32（6）}
+椭圆\(x^2/9+y^2/4=1\)上一点为\(P=(3(1-t^2)/(1+t^2),4t/(1+t^2))\)。分别求\(P\)与两顶点\((3,0),(-3,0)\)连线的斜率，用参数重新验证斜率积。
+\par
+\solutionanswer
+两连线斜率依次为\(-2/(3t),2t/3\)，相乘为\(-4/9\)。这些表达针对连线及斜率有意义的参数，亦即同一共轭方向关系的有理参数表示。
+
+
+% ITEM: quadratic-exercise-32-07
+\solutionitem{quadratic-exercise-32-07}{习题4.32（7）}
+过\((0,1)\)作直线\(y=kx+1\)，同时取直线\(x=t\)。令\(k=t\)，求这两条直线交点的轨迹。说明这里的参数怎样同时选取直线与点。
+\par
+\solutionanswer
+交点为\((t,t^2+1)\)，\(t\in\mathbb R\)，故完整轨迹\(y=x^2+1\)。同一参数同时指定斜率\(k=t\)与竖直线位置\(x=t\)，两者之间的约束使交点只有一个自由参数。
+
+
+% ITEM: quadratic-exercise-32-08
+\solutionitem{quadratic-exercise-32-08}{习题4.32（8）}
+（据2017年全国III卷理科第22题第（1）问）直线\(l_1\)经过\((2,0)\)，方向为\((1,k)\)；直线\(l_2\)经过\((-2,0)\)，方向为\((1,1/k)\)。求它们交点\(P\)随\(k\)变化的轨迹，确定允许的\(k\)及轨迹中没有取到的点。
+\par
+\solutionanswer
+由\(y=k(x-2)=(x+2)/k\)，得\(x=2(k^2+1)/(k^2-1),y=4k/(k^2-1)\)。允许\(k\ne0,\pm1\)，其中\(\pm1\)使两线平行。消参得\(x^2-y^2=4\)，实际轨迹为该双曲线去掉\((2,0),(-2,0)\)；其余点取\(k=y/(x-2)\)即可恢复。
+
+
+% ITEM: quadratic-example-054
+\solutionitem{quadratic-example-054}{例4.54}
+椭圆为\(x^2/16+y^2/9=1\)。求点\(P=(2,3\sqrt3/2)\)所在半径的一条共轭半径的端点，验证平方和与面积关系；再求等长共轭半径及其夹角余弦的绝对值。
+\solutionanswer
+\(P\)对应\(\cos t=1/2,\sin t=\sqrt3/2\)，可取\(Q=(-2\sqrt3,3/2)\)。两半径平方为\(43/4,57/4\)，和为\(25\)；行列式为\(12\)，三角形面积为\(6\)。等长共轭半径的长度为\(5/\sqrt2\)，夹角余弦绝对值为\((16-9)/(16+9)=7/25\)。
+
+
+% ITEM: quadratic-exercise-33-01
+\solutionitem{quadratic-exercise-33-01}{习题4.33（1）}
+写出椭圆\(x^2/9+y^2/4=1\)中参数角为\(\pi/6\)的半径及其一条共轭半径的端点，求两半径的长度和所成三角形面积。
+\par
+\solutionanswer
+端点可取\(P=(3\sqrt3/2,1),Q=(-3/2,\sqrt3)\)，长度分别为\(\sqrt{31}/2,\sqrt{21}/2\)，三角形面积为\(ab/2=3\)。取相反的\(Q\)也给出同一条共轭直径。
+
+
+% ITEM: quadratic-exercise-33-02
+\solutionitem{quadratic-exercise-33-02}{习题4.33（2）}
+证明椭圆的内接平行四边形达到最大面积，当且仅当它的两条对角线相互共轭。
+\par
+\solutionanswer
+圆化后内接平行四边形为矩形，达到单位圆中最大面积当且仅当为正方形，即两对角线垂直。还原后，这正对应两条直径共轭；面积只乘固定正倍率，故取等关系双向保持。
+
+
+% ITEM: quadratic-exercise-33-03
+\solutionitem{quadratic-exercise-33-03}{习题4.33（3）}
+求椭圆\(x^2/9+y^2/4=1\)共轭半径所夹锐角的最小值，并给出取等位置。
+\par
+\solutionanswer
+两共轭半径的有向面积绝对值恒为\(6\)，长度乘积在\([6,13/2]\)内。因此其夹锐角\(\phi\)满足\(\sin\phi=6/(|OP||OQ|)\ge12/13\)，最小角为\(\arccos(5/13)\)。等长共轭半径取等，例如方向端点\((3/\sqrt2,\sqrt2)\)、\((3/\sqrt2,-\sqrt2)\)。
+
+
+% ITEM: quadratic-exercise-33-04
+\solutionitem{quadratic-exercise-33-04}{习题4.33（4）}
+若一条椭圆存在垂直且等长的一对共轭半径，证明它是圆。这个结论能否只由平方和不变推出？
+\par
+\solutionanswer
+设两共轭半径等长为\(r\)且垂直，则\(2r^2=a^2+b^2\)，面积关系给出\(r^2=ab\)。故\((a-b)^2=0\)，椭圆为圆。仅平方和不变不足，因为任意椭圆的共轭半径都满足此式，还需要垂直或面积关系。
+
+
+% ITEM: quadratic-exercise-33-05
+\solutionitem{quadratic-exercise-33-05}{习题4.33（5）}
+双曲线\(x^2/a^2-y^2/b^2=1\)上取\(P=(a\cosh t,b\sinh t)\)，在其共轭双曲线上取\(Q=(a\sinh t,b\cosh t)\)。证明两方向共轭，求\(\overrightarrow{OP},\overrightarrow{OQ}\)所成平行四边形的面积，并解释\(Q\)为什么不在原双曲线上。
+\par
+\solutionanswer
+相应双线性式为\(b(P,Q)=\cosh t\sinh t-\sinh t\cosh t=0\)，所以方向共轭。两向量行列式为\(ab(\cosh^2t-\sinh^2t)=ab\)，平行四边形面积恒为\(ab\)。\(Q\)满足\(q(Q)=-1\)，所以在共轭双曲线上而不在原曲线上。
+
+
+% ITEM: quadratic-exercise-33-06
+\solutionitem{quadratic-exercise-33-06}{习题4.33（6）}
+椭圆\(x^2/9+y^2/4=1\)的两条共轭半径满足\(|OP|=\sqrt5\)。求\(|OQ|\)及两半径夹角余弦的绝对值。
+\par
+\solutionanswer
+平方和为\(13\)，故\(|OQ|=\sqrt8=2\sqrt2\)。行列式绝对值为\(6\)，由数量积平方加行列式平方等于模平方之积，得点积绝对值\(2\)。因此夹角余弦绝对值为\(1/\sqrt{10}\)。
+
+
+% ITEM: quadratic-example-055
+\solutionitem{quadratic-example-055}{例4.55 *}
+曲线的参数方程为\(x=\cos t+\sin t,y=\sin t\)。求其普通方程与面积，指出一对共轭半径，并判断这两个方向是否为对称轴。再用\(H\)的特征方向求轴的方向。
+\solutionanswer
+方程为\((x-y)^2+y^2=1\)，面积\(\pi\)。参数的两系数向量\((1,0),(1,1)\)是共轭半径，却不垂直，因此不是对称轴。\(H=\begin{bmatrix}1&-1\\-1&2\end{bmatrix}\)的特征值为\((3\pm\sqrt5)/2\)，两轴方向为\(y=[(-1\pm\sqrt5)/2]x\)。
+
+
+% ITEM: quadratic-exercise-34-01
+\solutionitem{quadratic-exercise-34-01}{习题4.34（1） *}
+对\(X=(1,-1)^T+(2,1)^T\cos t+(1,2)^T\sin t\)，求中心、普通方程与面积，并给出一对共轭半径。
+\par
+\solutionanswer
+中心为\((1,-1)\)，线性部分\(S=\begin{bmatrix}2&1\\1&2\end{bmatrix}\)行列式为\(3\)，故面积\(3\pi\)。记\(\xi=x-1,\eta=y+1\)，方程为\((2\xi-\eta)^2+(-\xi+2\eta)^2=9\)。一对共轭半径就是\((2,1),(1,2)\)。
+
+
+% ITEM: quadratic-exercise-34-02
+\solutionitem{quadratic-exercise-34-02}{习题4.34（2） *}
+设\(u,v\)是一条椭圆的一对共轭半径。证明\(C+u\cos t+v\sin t\)覆盖整个椭圆，并说明只要求\(u,v\)线性无关为何还不足以保证表示的是指定的那条椭圆。
+\par
+\solutionanswer
+选定原椭圆的一个圆化变换，\(u,v\)的像是单位圆上的两个垂直单位向量，故它们与\(\cos t,\sin t\)的组合覆盖整圆；还原后即覆盖整椭圆。仅要求线性无关只能保证产生某条非退化椭圆，不能保证半径尺度与原椭圆一致，例如把一个共轭半径加倍便改变曲线。
+
+
+% ITEM: quadratic-exercise-34-03
+\solutionitem{quadratic-exercise-34-03}{习题4.34（3） *}
+证明曲线\(X=u\cos t+v\sin t\)（\(u,v\)线性无关）为圆，当且仅当\(u\perp v\)且\(|u|=|v|\)。
+\par
+\solutionanswer
+若\(u\perp v\)且等长\(r\)，则\(|u\cos t+v\sin t|^2=r^2\)，且全部方向均覆盖，故为圆。反过来，曲线的中心为原点；若为半径\(r\)的圆，取\(t=0,\pi/2\)得两向量均长\(r\)，再取\(t=\pi/4\)得\(u\cdot v=0\)。
+
+
+% ITEM: quadratic-exercise-34-04
+\solutionitem{quadratic-exercise-34-04}{习题4.34（4） *}
+若可逆矩阵\(S_1,S_2\)将单位圆映成同一条中心在原点的椭圆，证明\(S_2^{-1}S_1\)正交，解释两种参数表示之间的关系。
+\par
+\solutionanswer
+\(R=S_2^{-1}S_1\)将单位圆映到自身。每个单位向量的像仍长\(1\)，再由齐次性知所有长度均保持，所以\(R^TR=I\)。因此两参数表示只相差相位改变或取向反转，即\(t\mapsto\pm t+\varphi\)。
+
+
+% ITEM: quadratic-exercise-34-05
+\solutionitem{quadratic-exercise-34-05}{习题4.34（5） *}
+对\(Y^THY=1\)，设\(H\)的两个特征值为\(\lambda_1,\lambda_2>0\)。将任意一对共轭半径的平方和与所成三角形面积，分别用这两个特征值表示。
+\par
+\solutionanswer
+半轴平方为\(1/\lambda_1,1/\lambda_2\)。任意共轭半径平方和为\(1/\lambda_1+1/\lambda_2\)，所成三角形面积为\(1/(2\sqrt{\lambda_1\lambda_2})\)，均不随所选共轭半径改变。
+\par

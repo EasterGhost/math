@@ -1,0 +1,432 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{高阶导数}
+
+% ITEM: calculus-example-035
+\solutionitem{calculus-example-035}{例5.35}
+用Leibniz公式求\(x^2e^x\)与\(x\sin x\)的\(n\)阶导数，并与前两阶的直接求导核对。
+\solutionanswer
+Leibniz公式中，多项式因子的高阶导数为零，因此
+\[
+ (x^2e^x)^{(n)}=e^x[x^2+2nx+n(n-1)],\quad
+ (x\sin x)^{(n)}=x\sin(x+n\pi/2)+n\sin(x+(n-1)\pi/2).
+\]
+第一式的前两阶是\(e^x(x^2+2x)\)、\(e^x(x^2+4x+2)\)；第二式是\(\sin x+x\cos x\)、\(2\cos x-x\sin x\)，与直接求导相同。
+
+
+% ITEM: calculus-example-036
+\solutionitem{calculus-example-036}{例5.36}
+求\(f(x)=x^4-2x^2\)的各阶导数。再求\(g(x)=\ln x\)的\(n\)阶导数，观察系数与阶乘的联系。
+\solutionanswer
+依次为\(4x^3-4x,12x^2-4,24x,24\)，五阶及以后为零。对数函数有
+\(g^{(n)}(x)=(-1)^{n-1}(n-1)!/x^n\)，\(n\ge1\)。由\((x^{-n})'=-nx^{-n-1}\)归纳即得，每次求导产生的整数因子累乘成阶乘。
+
+
+% ITEM: calculus-example-037
+\solutionitem{calculus-example-037}{例5.37}
+（2014年四川卷理科第21题第（1）问）
+
+设\(f(x)=e^x-ax^2-bx-1\)，\(a,b\in\mathbb R\)，\(g=f'\)。求\(g\)在\([0,1]\)上的最小值。
+\solutionanswer
+\(g=e^x-2ax-b\)，\(g'=e^x-2a\)严格递增。若\(a\le1/2\)，\(g\)递增，最小值\(1-b\)；若\(1/2<a<e/2\)，在\(\ln(2a)\)处先减后增，最小值\(2a-2a\ln(2a)-b\)；若\(a\ge e/2\)，\(g\)递减，最小值\(e-2a-b\)。分界参数的公式相合。
+
+
+% ITEM: calculus-example-038
+\solutionitem{calculus-example-038}{例5.38}
+研究\(f(x)=x^4-2x^2\)的凸性和拐点，结合前面的单调性与极值画出图像。再用凸性证明，对任意实数\(u,v\)，有
+\begin{equation*}
+ e^{(u+v)/2}\le\frac{e^u+e^v}{2}.
+\end{equation*}
+\solutionanswer
+\(f''=12x^2-4\)。所以\(f\)在\(( -\infty,-1/\sqrt3]\)、\([1/\sqrt3,+\infty)\)凸，在中间凹；拐点为\((\pm1/\sqrt3,-5/9)\)。又\(f'=4x(x^2-1)\)，极小点为\((\pm1,-1)\)，极大点为\((0,0)\)，零点为\(0,\pm\sqrt2\)。图像关于纵轴对称，如下。
+\begin{center}
+\begin{tikzpicture}[x=1.9cm,y=1.05cm]
+\draw[->](-1.8,0)--(1.85,0)node[right]{$x$};\draw[->](0,-1.4)--(0,2.15)node[above]{$y$};
+\draw[thick,domain=-1.6:1.6,samples=100]plot(\x,{\x*\x*\x*\x-2*\x*\x});
+\fill(-1,-1)circle(1pt)node[below]{$(-1,-1)$};\fill(1,-1)circle(1pt)node[below]{$(1,-1)$};
+\node[above left]at(0,0){$O$};
+\end{tikzpicture}
+\end{center}
+\((e^x)''=e^x>0\)，将凸函数的弦不等式用于\(u,v\)的中点，就有\(e^{(u+v)/2}\le(e^u+e^v)/2\)，且仅当\(u=v\)取等号。
+
+
+% ITEM: calculus-example-039
+\solutionitem{calculus-example-039}{例5.39}
+（2023年新课标II卷第22题第（1）问）
+证明当\(0<x<1\)时，\(x-x^2<\sin x<x\)。分别研究相应函数的导数或凸性，比较两种证明所控制的量。
+\solutionanswer
+令\(F=x-\sin x\)，则\(F'=1-\cos x>0\)在\((0,1)\)成立，故\(F(x)>F(0)=0\)。令\(G=\sin x-x+x^2\)，有\(G(0)=G'(0)=0\)、\(G''=2-\sin x>0\)，从而\(G'\)严格递增，\(G(x)>0\)。这就证明所求不等式。后半也可以直接用凸性表述：严格凸的\(G\)在零点的切线为横轴，所以其右侧图像严格高于横轴。一次求导控制函数的增减，二次求导则先控制导数的增减。
+
+
+% ITEM: calculus-exercise-18-01
+\solutionitem{calculus-exercise-18-01}{习题5.18（1）}
+求\(e^{2x}\)、\(1/x\)和\(\cos x\)的\(n\)阶导数。
+\solutionanswer
+依次为\(2^ne^{2x}\)、\((-1)^n n!/x^{n+1}\)、\(\cos(x+n\pi/2)\)。每式均可由一次求导后归纳验证。
+
+
+% ITEM: calculus-exercise-18-02
+\solutionitem{calculus-exercise-18-02}{习题5.18（2）}
+设\(s(t)=t^3-3t^2\)，\(t\ge0\)。分别讨论位置、速度的增减，判断何时运动方向改变。
+\solutionanswer
+速度\(v=3t(t-2)\)，位置在\([0,2]\)递减、\([2,+\infty)\)递增；加速度\(v'=6(t-1)\)，速度在\([0,1]\)递减、\([1,+\infty)\)递增。在\(t=2\)速度由负变正，运动方向改变。\(t=0\)是开始时刻，不能据\(v(0)=0\)另算一次方向改变。
+
+
+% ITEM: calculus-exercise-18-03
+\solutionitem{calculus-exercise-18-03}{习题5.18（3）}
+求\(f(x)=x e^x\)的\(n\)阶导数，并用归纳法验证所得表达式。
+\solutionanswer
+\(f^{(n)}=e^x(x+n)\)。\(n=0\)成立；若对\(n\)成立，再求导为\(e^x(x+n+1)\)，即\(n+1\)情形。
+
+
+% ITEM: calculus-exercise-18-04
+\solutionitem{calculus-exercise-18-04}{习题5.18（4）}
+判断\(x^2\)、\(\sqrt x\)和\(1/x\)在正半轴上的凸性，并写出\(x=1\)处的切线不等式。
+\solutionanswer
+二阶导数分别为\(2,-1/(4x^{3/2}),2/x^3\)。所以第一、三函数凸，第二函数凹。切线不等式依次为\(x^2\ge2x-1\)、\(\sqrt x\le(x+1)/2\)、\(1/x\ge2-x\)，均在\(x=1\)取等号。
+
+
+% ITEM: calculus-exercise-18-05
+\solutionitem{calculus-exercise-18-05}{习题5.18（5）}
+利用\(\ln x\)的凹性证明\(\sqrt{uv}\le(u+v)/2\)，其中\(u,v>0\)。
+\solutionanswer
+凹性给出\(\ln((u+v)/2)\ge(\ln u+\ln v)/2=\ln\sqrt{uv}\)。指数函数严格递增，取指数即得，等号当且仅当\(u=v\)。
+
+
+% ITEM: calculus-exercise-18-06
+\solutionitem{calculus-exercise-18-06}{习题5.18（6）}
+求\(f(x)=x e^{-x}\)的拐点，比较极值点与拐点的位置。
+\solutionanswer
+\(f'=e^{-x}(1-x)\)、\(f''=e^{-x}(x-2)\)。二阶导数在\(2\)处变号，拐点为\((2,2e^{-2})\)；唯一极大值点的横坐标为\(1\)，在拐点左侧。
+
+
+% ITEM: calculus-exercise-18-07
+\solutionitem{calculus-exercise-18-07}{习题5.18（7）}
+设\(f''\ge0\)。证明任意两点之间图像不高于弦，并说明只知道某一点的\(f''\)为正，为什么不足以判断整个区间的凸性。
+\solutionanswer
+取\(a<x<b\)。由中值定理，两段割线斜率分别为\(f'(\xi),f'(\eta)\)，其中\(a<\xi<x<\eta<b\)。\(f''\ge0\)保证\(f'\)不减，故\((f(x)-f(a))/(x-a)\le(f(b)-f(x))/(b-x)\)。整理即\(f(x)\le\frac{b-x}{b-a}f(a)+\frac{x-a}{b-a}f(b)\)。例如\(x^2-x^4\)在零点二阶导数为正，在远离零点处却为负，单点信息不足以推断整个区间。
+
+
+% ITEM: calculus-exercise-18-08
+\solutionitem{calculus-exercise-18-08}{习题5.18（8）}
+（2014年四川卷理科第21题第（2）问）对例5.37中的\(f\)，若\(f(1)=0\)，且\(f\)在\((0,1)\)内有零点，求\(a\)的取值范围。
+\solutionanswer
+由\(f(1)=0\)得\(b=e-a-1\)，于是\(f'(0)=a+2-e\)、\(f'(1)=1-a\)。若区间内还有根，Rolle定理给出\(f'\)在\((0,1)\)的两个零点。\((f')'=e^x-2a\)严格递增，故\(f'\)先减后增；两个不同零点外侧严格为正，于是\(a+2-e>0\)、\(1-a>0\)。反过来这两个不等式使\(f\)在\(0\)右侧为正，在\(1\)左侧为负，由介值定理必有内部零点。因此\(e-2<a<1\)。
+
+
+% ITEM: calculus-exercise-18-09
+\solutionitem{calculus-exercise-18-09}{习题5.18（9）}
+（2024年北京卷第20题第（3）问）设\(f(x)=x+\ln(1+x)\)，\(A=(t,f(t))\)、\(C=(0,f(t))\)，其中\(t>0\)。曲线在\(A\)处的切线与\(y\)轴交于\(B\)，\(O\)为原点。是否存在点\(A\)，使\(2S_{\triangle ACO}=15S_{\triangle ABO}\)？若存在，这样的点有几个？
+
+参考数据：\(1.09<\ln3<1.10\)，\(1.60<\ln5<1.61\)，\(1.94<\ln7<1.95\)。
+\solutionanswer
+切线纵截距为\(f(t)-tf'(t)>0\)：该差在\(t=0\)为零，导数\(-tf''(t)>0\)。两三角形面积分别为\(tf(t)/2\)、\(t[f(t)-tf'(t)]/2\)。条件等价于\(15tf'(t)=13f(t)\)，即
+\[
+ H(t)=2t+\frac{15t}{1+t}-13\ln(1+t)=0.
+\]
+\(H'=\frac{(2t-1)(t-4)}{(1+t)^2}\)，所以先增、再减、再增，分界为\(1/2,4\)。\(H(0)=0\)，\(H(1/2)>0\)，而\(H(4)=20-13\ln5<0\)，且\(H(t)\to+\infty\)。最后一点可用\(\ln(1+t)\le2(\sqrt{1+t}-1)\)看出。故在\((1/2,4)\)、\((4,+\infty)\)各有一个零点，恰有两个所求点\(A\)。
+
+
+% ITEM: calculus-exercise-18-10
+\solutionitem{calculus-exercise-18-10}{习题5.18（10）}
+（2014年新课标I卷理科第21题）设\(f(x)=ae^x\ln x+be^{x-1}/x\)，曲线在\((1,f(1))\)处的切线为\(y=e(x-1)+2\)。
+
+\exercisesubitem{1}求\(a,b\)；\exercisesubitem{2}证明\(f(x)>1\)。
+\solutionanswer
+由切线得\(f(1)=b=2\)、\(f'(1)=ae=e\)，故\(a=1,b=2\)。将函数写成
+\[
+ f(x)=\frac{e^{x-1}}x\,(ex\ln x+2).
+\]
+\(x\ln x\)在\(x=1/e\)处取最小值\(-1/e\)，故后一因子至少为\(1\)；由\(\ln x\le x-1\)，前一因子也至少为\(1\)。两者的等号分别要求\(x=1/e\)、\(x=1\)，不能同时成立，因此\(f(x)>1\)。
+
+
+% ITEM: calculus-exercise-18-11
+\solutionitem{calculus-exercise-18-11}{习题5.18（11）}
+（2016年全国I卷理科第21题）\(f(x)=(x-2)e^x+a(x-1)^2\)有两个零点。
+
+\exercisesubitem{1}求\(a\)的取值范围；\exercisesubitem{2}设两个零点为\(x_1,x_2\)，证明\(x_1+x_2<2\)。
+\solutionanswer
+\(x=1\)不是根。分离参数得\(a=h(x)=(2-x)e^x/(x-1)^2\)，且
+\[
+ h'=-\frac{e^x[(x-2)^2+1]}{(x-1)^3}.
+\]
+\(h\)在\(( -\infty,1)\)从\(0\)严格增至\(+\infty\)，在\((1,+\infty)\)从\(+\infty\)严格减至\(-\infty\)。所以两根条件恰为\(a>0\)，此时\(x_1<1<x_2<2\)。令\(x_1=1-u,x_2=1+v\)，\(u>0,0<v<1\)。对\(0<v<1\)，
+\[
+ \frac{h(1-v)}{h(1+v)}=\frac{1+v}{1-v}e^{-2v}>1,
+\]
+因为其对数在零点为零，导数\(2v^2/(1-v^2)>0\)。而\(h(1-u)\)随\(u\)严格递减，\(h(1-v)>a=h(1-u)\)推出\(u>v\)，即\(x_1+x_2<2\)。
+
+
+% ITEM: calculus-exercise-18-12
+\solutionitem{calculus-exercise-18-12}{习题5.18（12）}
+（2016年全国III卷理科第21题）设\(f(x)=\alpha\cos2x+(\alpha-1)(\cos x+1)\)，其中\(\alpha>0\)，记\(|f(x)|\)的最大值为\(A\)。
+
+\exercisesubitem{1}求\(f'(x)\)；\exercisesubitem{2}求\(A\)；\exercisesubitem{3}证明\(|f'(x)|\le2A\)。
+\solutionanswer
+\(f'=-2\alpha\sin2x-(\alpha-1)\sin x\)。令\(c=\cos x\)，则\(f=2\alpha c^2+(\alpha-1)c-1\)，\(-1\le c\le1\)。比较端点\(\alpha,3\alpha-2\)及区间内顶点值\(-(\alpha^2+6\alpha+1)/(8\alpha)\)，得
+\[
+ A=\begin{cases}2-3\alpha,&0<\alpha\le1/5,\\
+ (\alpha^2+6\alpha+1)/(8\alpha),&1/5\le\alpha\le1,\\
+ 3\alpha-2,&\alpha\ge1.
+ \end{cases}
+\]
+又\(|f'|\le2\alpha+|\alpha-1|\)。\(\alpha\le1/5\)时\(2A-(1+\alpha)=3-7\alpha>0\)；\(1/5\le\alpha\le1\)时该差为\((1-\alpha)(3\alpha+1)/(4\alpha)\ge0\)；\(\alpha\ge1\)时\(2A-(3\alpha-1)=3\alpha-3\ge0\)。各段均得\(|f'|\le2A\)。
+
+
+% ITEM: calculus-exercise-18-13
+\solutionitem{calculus-exercise-18-13}{习题5.18（13）}
+设\(f\)在\([a,b]\)上二阶可导，且\(f''\ge m>0\)。对\(g(x)=f(x)-mx^2/2\)使用凸性，证明\(\dfrac{f(a)+f(b)}2-f\!\left(\dfrac{a+b}2\right)\ge\dfrac{m(b-a)^2}8\)。
+\solutionanswer
+\(g''=f''-m\ge0\)，故\(g((a+b)/2)\le[g(a)+g(b)]/2\)。代入\(g\)并移项，右侧二次项的差为\(m[(a^2+b^2)/4-(a+b)^2/8]=m(b-a)^2/8\)，即所求。
+
+
+% ITEM: calculus-exercise-18-14
+\solutionitem{calculus-exercise-18-14}{习题5.18（14）}
+设\(f\)在区间内二阶可导，且\(f''>0\)。证明每条切线与该区间内的图像只有切点一个公共点。
+\solutionanswer
+\(f''>0\)使\(f'\)严格递增。对\(x\ne a\)，中值定理给出\(f(x)-f(a)=f'(\xi)(x-a)\)，\(\xi\)在\(a,x\)之间。不论\(x>a\)还是\(x<a\)，均有\([f'(\xi)-f'(a)](x-a)>0\)。所以\(f(x)>f(a)+f'(a)(x-a)\)，只有切点在切线上。
+
+
+% ITEM: calculus-exercise-18-15
+\solutionitem{calculus-exercise-18-15}{习题5.18（15）}
+求\(x^3e^{2x}\)的\(n\)阶导数。若\(P\)为\(m\)次多项式，写出\((Pe^{ax})^{(n)}\)的一般表达式，说明为什么至多需要\(m+1\)项。
+\solutionanswer
+Leibniz公式给出
+\[
+ (x^3e^{2x})^{(n)}=e^{2x}\sum_{j=0}^{\min(3,n)}\binom nj2^{n-j}\frac{3!}{(3-j)!}x^{3-j}.
+\]
+一般地\((Pe^{ax})^{(n)}=e^{ax}\sum_{j=0}^{\min(m,n)}\binom nj a^{n-j}P^{(j)}(x)\)。多项式从\(m+1\)阶起导数为零，故至多\(m+1\)项。
+
+
+% ITEM: calculus-exercise-18-16
+\solutionitem{calculus-exercise-18-16}{习题5.18（16）}
+对恒等式\((1+x)^p(1+x)^q=(1+x)^{p+q}\)求\(n\)阶导数，并在零点取值，证明\(\sum_{k=0}^n\binom pk\binom q{n-k}=\binom{p+q}n\)，其中\(p,q\)为非负整数，超过上标的二项式系数约定为零。
+\solutionanswer
+乘积的\(n\)阶导数在零点为\(\sum_{k=0}^n\binom nk k!\binom pk(n-k)!\binom q{n-k}\)；右边在零点为\(n!\binom{p+q}n\)。两边除以\(n!\)即得。超过次数的导数为零，与题目的系数约定一致。
+
+
+% ITEM: calculus-example-040
+\solutionitem{calculus-example-040}{例5.40 *}
+设\(y=u^2\)、\(u=x^2\)。先将\(y\)写成\(x\)的函数求\(d^2y\)，再用二阶链式法则计算，并分别指出两项的来源。
+\solutionanswer
+直接写为\(y=x^4\)，得\(d^2y=12x^2(dx)^2\)。链式公式为
+\[
+ d^2y=2(du)^2+2u\,d^2u
+ =8x^2(dx)^2+4x^2(dx)^2.
+\]
+第一项来自外层函数\(u^2\)的二阶导数，第二项来自内层\(u=x^2\)本身的二阶变化；二者相加与直接计算一致。
+
+
+% ITEM: calculus-exercise-19-01
+\solutionitem{calculus-exercise-19-01}{习题5.19（1） *}
+以\(x\)为独立变量，求\(y=\ln x\)的前三阶微分，并比较\(d^2y\)与\((dy)^2\)。
+\solutionanswer
+\(dy=dx/x\)，\(d^2y=-(dx)^2/x^2\)，\(d^3y=2(dx)^3/x^3\)。\((dy)^2=(dx)^2/x^2\)，与\(d^2y\)恰相反。微分的平方与再取一次微分是不同运算。
+
+
+% ITEM: calculus-exercise-19-02
+\solutionitem{calculus-exercise-19-02}{习题5.19（2） *}
+设\(y=\sin u\)、\(u=x^2+1\)。分别计算\(f''(u)(du)^2\)与\(d^2y\)，指出只保留前者漏掉了什么。
+\solutionanswer
+第一项为\(-4x^2\sin(x^2+1)(dx)^2\)，完整的\(d^2y=[-4x^2\sin(x^2+1)+2\cos(x^2+1)](dx)^2\)。漏掉的是\(f'(u)d^2u=2\cos(x^2+1)(dx)^2\)。
+
+
+% ITEM: calculus-exercise-19-03
+\solutionitem{calculus-exercise-19-03}{习题5.19（3） *}
+若\(u=ax+b\)，说明二阶微分公式中的附加项为什么消失，并由\(d^ny=f^{(n)}(u)a^n(dx)^n\)核对线性换元下的高阶求导。
+\solutionanswer
+线性换元的\(d^2u=0\)，所以附加项消失。反复用\(d/dx=a\,d/du\)，得\(d^ny=a^nf^{(n)}(u)(dx)^n\)，与线性换元的逐阶求导相符。
+
+
+% ITEM: calculus-exercise-19-04
+\solutionitem{calculus-exercise-19-04}{习题5.19（4） *}
+设\(y=e^u\)、\(u=\ln x\)，以\(x\)为独立变量，计算二阶微分公式中的两项，解释它们为何恰好抵消，并将\(y\)直接表示为\(x\)的函数进行核对。
+\solutionanswer
+两项分别是\(e^u(du)^2=(dx)^2/x\)、\(e^u d^2u=-(dx)^2/x\)，恰好抵消。直接代入\(y=x\)，二阶微分确为零。
+
+
+% ITEM: calculus-exercise-20-01
+\solutionitem{calculus-exercise-20-01}{习题5.20（1） *}
+写出\(\cos x\)、\(\ln(1+x)\)及\((1+x)^\alpha\)在\(0\)处的三阶Taylor多项式。
+\solutionanswer
+三个多项式依次为\(1-x^2/2\)、\(x-x^2/2+x^3/3\)、\(1+\alpha x+\alpha(\alpha-1)x^2/2+\alpha(\alpha-1)(\alpha-2)x^3/6\)。三阶多项式允许最高次系数为零。
+
+
+% ITEM: calculus-exercise-20-02
+\solutionitem{calculus-exercise-20-02}{习题5.20（2） *}
+求\(x^4\)在\(a=1\)处的四阶Taylor多项式，直接展开验证它恰为原多项式。
+\solutionanswer
+令\(h=x-1\)，多项式为\(1+4h+6h^2+4h^3+h^4=(1+h)^4=x^4\)。
+
+
+% ITEM: calculus-exercise-20-03
+\solutionitem{calculus-exercise-20-03}{习题5.20（3） *}
+若两个次数不超过\(n\)的多项式在\(a\)处直到\(n\)阶的导数都相同，证明它们相等。
+\solutionanswer
+两者之差\(R\)可唯一写成\(\sum_{k=0}^nc_k(x-a)^k\)。\(R^{(k)}(a)=k!c_k=0\)，故所有系数为零。
+
+
+% ITEM: calculus-example-041
+\solutionitem{calculus-example-041}{例5.41 *}
+用\(e^x\)在\(0\)处的二阶Taylor公式估计\(e^{0.1}\)，并给出一个小于\(1/2000\)的误差上界。再写出\(\ln(1+h)\)的三阶Peano展开。
+\solutionanswer
+二阶多项式给出\(e^{0.1}\approx1+0.1+0.1^2/2=1.105\)。余项\(e^\xi(0.1)^3/6\)，\(0<\xi<0.1\)。由\(e^\xi<\sqrt e<2\)，误差小于\(1/3000<1/2000\)，且近似值偏小。对数的展开为\(\ln(1+h)=h-h^2/2+h^3/3+o(h^3)\)。
+
+
+% ITEM: calculus-exercise-21-01
+\solutionitem{calculus-exercise-21-01}{习题5.21（1） *}
+用\(\cos x\)在\(0\)处的Taylor公式证明\(|\cos x-1+x^2/2|\le x^4/24\)。
+\solutionanswer
+在零点取三阶Taylor多项式\(1-x^2/2\)，四阶余项为\(\cos\xi\,x^4/24\)，绝对值不超过\(x^4/24\)。
+
+
+% ITEM: calculus-exercise-21-02
+\solutionitem{calculus-exercise-21-02}{习题5.21（2） *}
+设\(f(a)=f'(a)=0\)、\(f''(a)=2\)。写出\(f(a+h)\)的二阶Peano展开，并判断充分靠近\(a\)的非零\(h\)所对应函数值的符号。
+\solutionanswer
+\(f(a+h)=h^2+o(h^2)\)。充分小时\(|o(h^2)|\le h^2/2\)，故非零\(h\)对应\(f(a+h)\ge h^2/2>0\)。
+
+
+% ITEM: calculus-exercise-21-03
+\solutionitem{calculus-exercise-21-03}{习题5.21（3） *}
+若\(r(h)=o(h^3)\)，判断\(r(h)/h^2\)、\(r(h)/h^3\)的极限能否确定。若仅知\(r(h)=o(h^2)\)，结论有何不同？
+\solutionanswer
+若\(r=o(h^3)\)，\(r/h^3\to0\)，乘以\(h\)得\(r/h^2\to0\)。若仅\(r=o(h^2)\)，只有后一结论确定；例如\(r=h^3\)使\(r/h^3=1\)，\(r=0\)使其为零，\(r=|h|^{5/2}\)甚至使该商无有限极限。
+
+
+% ITEM: calculus-example-042
+\solutionitem{calculus-example-042}{例5.42 *}
+求\(\lim_{x\to0}(\sin x-x\cos x)/x^3\)。再研究\(f(x)=\ln(1+x)-x+x^2/2\)在原点的极值情况，说明展开到哪一阶才足够判断。
+\solutionanswer
+\(\sin x=x-x^3/6+o(x^3)\)、\(x\cos x=x-x^3/2+o(x^3)\)，相减得极限\(1/3\)。另一方面\(f(x)=x^3/3+o(x^3)\)，所以在零点两侧异号，零点不是极值点。一次、二次项都抵消，至少展开到三阶才能由首项判断。
+
+
+% ITEM: calculus-example-043
+\solutionitem{calculus-example-043}{例5.43 *}
+（2023年新课标II卷第22题第（2）问）
+设\(f(x)=\cos(ax)-\ln(1-x^2)\)。若\(x=0\)是\(f\)的极大值点，求\(a\)的取值范围。尝试使用有限阶Taylor展开，并处理二次项系数为零的情形。
+\solutionanswer
+在零点附近
+\[
+ f(x)=1+(1-a^2/2)x^2+(a^4/24+1/2)x^4+o(x^4).
+\]
+\(a^2>2\)时二次主部为负，是严格极大值；\(a^2<2\)时为严格极小值。\(a^2=2\)时二次项消失，四次项系数为\(2/3>0\)，仍为极小值。因此答案为\(|a|>\sqrt2\)。
+
+
+% ITEM: calculus-exercise-22-01
+\solutionitem{calculus-exercise-22-01}{习题5.22（1） *}
+求\(\lim_{x\to0}(\tan x-x)/x^3\)。可由正弦、余弦的有限展开得到，不必反复求\(\tan x\)的高阶导数。
+\solutionanswer
+\(\tan x-x=(\sin x-x\cos x)/\cos x=x^3/3+o(x^3)\)，所以极限为\(1/3\)。
+
+
+% ITEM: calculus-exercise-22-02
+\solutionitem{calculus-exercise-22-02}{习题5.22（2） *}
+求\(\lim_{x\to0}\bigl((1+x)^\alpha-1-\alpha x\bigr)/x^2\)，其中\(\alpha\)为实常数。
+\solutionanswer
+二阶展开为\((1+x)^\alpha=1+\alpha x+\alpha(\alpha-1)x^2/2+o(x^2)\)，故极限\(\alpha(\alpha-1)/2\)。
+
+
+% ITEM: calculus-exercise-22-03
+\solutionitem{calculus-exercise-22-03}{习题5.22（3） *}
+证明\(x>0\)时\(x-x^2/2<\ln(1+x)<x\)，分别比较中值定理、函数单调性与Taylor余项的作用。
+\solutionanswer
+对\(\ln(1+x)\)，一次Taylor余项为\(-x^2/[2(1+\xi)^2]<0\)，二次余项为\(x^3/[3(1+\eta)^3]>0\)，直接给出两端不等式。仅用中值定理得\(x/(1+x)<\ln(1+x)<x\)，尚未得到指定下界；也可对\(G=\ln(1+x)-x+x^2/2\)求导，\(G'=x^2/(1+x)>0\)。Taylor余项同时指出了差的阶数及符号。
+
+
+% ITEM: calculus-exercise-22-04
+\solutionitem{calculus-exercise-22-04}{习题5.22（4） *}
+设\(f\)在\(a\)附近有直到四阶的连续导数，且\(f'(a)=f''(a)=f'''(a)=0\)、\(f^{(4)}(a)>0\)。证明\(a\)为严格极小值点。
+\solutionanswer
+\(f(a+h)-f(a)=f^{(4)}(a)h^4/24+o(h^4)\)，主项系数为正，所以足够小的非零\(h\)均使差为正，是严格极小值。
+
+
+% ITEM: calculus-exercise-22-05
+\solutionitem{calculus-exercise-22-05}{习题5.22（5） *}
+回看习题5.15第（3）题的最后一问。先由连续性确定\(a\)，再令\(t=x-1\)。用\(\ln\frac{1+t}{1-t}\)在\(t=0\)处的三阶Taylor展开确定\(b\)的必要条件，再用余项符号证明其充分性，与原题的导数方法比较。
+\solutionanswer
+原题连续性要求\(a=-2\)。令\(t=x-1\)，则相应差为\(\ln\frac{1+t}{1-t}-2t+bt^3=(b+2/3)t^3+o(t^3)\)，在\(0<t<1\)恒为正必须有\(b\ge-2/3\)。充分性不能只靠三阶Peano式处理等号：对\(L(t)=\ln\frac{1+t}{1-t}\)取四阶Taylor公式，\(L^{(5)}(s)=24[(1+s)^{-5}+(1-s)^{-5}]>0\)，所以\(L(t)=2t+2t^3/3+R_4(t)\)，\(R_4(t)>0\)。于是\(b\ge-2/3\)充分，答案与原导数法一致。
+
+
+% ITEM: calculus-example-044
+\solutionitem{calculus-example-044}{例5.44 *}
+本题的分式迭代为\(y_1=1,y_{n+1}=1+1/(1+y_n)\)，正文给出误差比例界\(|y_{n+1}-\sqrt2|\le|y_n-\sqrt2|/4\)。
+
+分别用Newton迭代和上述分式迭代近似\(\sqrt2\)。从\(1\)开始各算三步，比较误差，再利用第一章平方根迭代的精确误差式及本小节的比例界估计下一步误差。
+\solutionanswer
+记初值\(x_1=y_1=1\)。Newton法为\(x_{n+1}=(x_n+2/x_n)/2\)，分式法为\(y_{n+1}=1+1/(1+y_n)\)。三次更新分别得到
+\[
+\begin{array}{c|ccc}
+ &1&2&3\\\hline
+\text{Newton}&3/2&17/12&577/408\\
+\text{分式}&3/2&7/5&17/12
+\end{array}
+\]
+两种方法三步更新后的带符号误差分别约为
+\[
+\begin{aligned}
+ \text{Newton:}&\quad(0.0857864,\ 0.00245310,\ 2.12390\times10^{-6}),\\
+ \text{分式:}&\quad(0.0857864,\ -0.0142136,\ 0.00245310).
+\end{aligned}
+\]
+Newton法有\(e_{n+1}=e_n^2/(2x_n)\)；又\((577/408)^2-2=1/166464\)，故第三次更新的误差小于\(1/332928\)，下一步误差小于\(1/[2(332928)^2]<5\times10^{-12}\)。分式法用正文的\(1/4\)比例界，下一步误差小于\(0.0025/4=0.000625\)。前者的平方误差在接近根以后明显更快。
+
+
+% ITEM: calculus-exercise-23-01
+\solutionitem{calculus-exercise-23-01}{习题5.23（1） *}
+为\(x^3=A\)、\(A>0\)写出Newton迭代。若初值\(x_1\ge A^{1/3}\)，证明数列不低于所求根且单调不增，因而收敛。再研究误差怎样变化。
+\solutionanswer
+Newton式为\(x_{n+1}=(2x_n+A/x_n^2)/3\)。记\(r=A^{1/3}\)，则
+\[
+ x_{n+1}-r=\frac{(x_n-r)^2(2x_n+r)}{3x_n^2}\ge0,\qquad
+ x_{n+1}-x_n=\frac{A-x_n^3}{3x_n^2}\le0.
+\]
+归纳可知始终\(x_n\ge r\)，且单调不增。极限代入递推式即为\(r\)。未提前到达根时，误差满足\(e_{n+1}/e_n^2\to1/r\)，呈平方收敛。
+
+
+% ITEM: calculus-exercise-23-02
+\solutionitem{calculus-exercise-23-02}{习题5.23（2） *}
+用\(f(x)=\ln x-1\)写出求\(e\)的Newton迭代，从\(x_1=2\)计算前三个近似值。解释一次模型使用的基点为什么每一步都要更新。
+\solutionanswer
+\(x_{n+1}=x_n(2-\ln x_n)\)。前三个近似值为\(x_1=2\)、\(x_2=4-2\ln2\approx2.61370564\)、\(x_3\approx2.71624393\)。每次都在当前近似点作切线，才能让一次模型随误差缩小而改善；固定最初的切线只会重复同一个截距。
+
+
+% ITEM: calculus-exercise-23-03
+\solutionitem{calculus-exercise-23-03}{习题5.23（3） *}
+对\(f(x)=x^2\)，在非零初值处写出Newton递推式。求其误差比例，比较它与命题5.3中的条件。
+\solutionanswer
+\(x_{n+1}=x_n-x_n^2/(2x_n)=x_n/2\)，故误差绝对值每次乘\(1/2\)，只有线性收敛。根\(0\)处\(f'(0)=0\)，不满足单根条件，因此不属于命题保证的平方收敛情形。
+
+
+% ITEM: calculus-exercise-23-04
+\solutionitem{calculus-exercise-23-04}{习题5.23（4） *}
+本题取\(y_1=1,y_{n+1}=1+1/(1+y_n)\)。
+对正文的分式迭代，证明
+\begin{equation*}
+ y_{n+1}-\sqrt2=-\frac{y_n-\sqrt2}{(1+y_n)(1+\sqrt2)}.
+\end{equation*}
+由此判断相邻近似值分居根的两侧，并给出使误差小于\(10^{-4}\)的一个充分迭代次数。
+\solutionanswer
+用\(\sqrt2=1+1/(1+\sqrt2)\)相减即得题给误差式。分母正，故非零误差逐次变号；从\(y_1=1\)开始，相邻值分居根两侧。又\(y_n\in[1,3/2]\)，正文比例界给出\(|y_n-\sqrt2|\le(\sqrt2-1)/4^{n-1}\)。取\(n=8\)即小于\(10^{-4}\)，所以从初值再迭代七次充分。
+
+
+% ITEM: calculus-exercise-24-01
+\solutionitem{calculus-exercise-24-01}{习题5.24（1） *}
+分别写出\(e+e^{-1}\)与\(e-e^{-1}\)的级数表达，说明奇偶次项的作用。
+\solutionanswer
+\(e+e^{-1}=2\sum_{k=0}^\infty1/(2k)!\)，\(e-e^{-1}=2\sum_{k=0}^\infty1/(2k+1)!\)。相加消去奇次项，相减消去偶次项；指数级数绝对收敛，允许逐项相加减。
+
+
+% ITEM: calculus-exercise-24-02
+\solutionitem{calculus-exercise-24-02}{习题5.24（2） *}
+利用余项界，选取足够的Taylor多项式，使\(\sin(1/2)\)的近似误差小于\(10^{-6}\)。
+\solutionanswer
+取\(P_7(x)=x-x^3/6+x^5/120-x^7/5040\)。八阶余项绝对值不超过\(|x|^8/8!\)，所以在\(x=1/2\)小于\(10^{-7}<10^{-6}\)。以\(P_7(1/2)\)作近似即满足要求。
+
+
+% ITEM: calculus-exercise-24-03
+\solutionitem{calculus-exercise-24-03}{习题5.24（3） *}
+对上述\(f(x)=e^{-1/x^2}\)在原点补零的函数，证明对每个正整数\(n\)，均有\(f(x)=o(x^n)\)。解释这与\(f\)在原点附近不恒为零为何相容。
+\solutionanswer
+令\(t=1/x^2\to+\infty\)，则\(|f(x)/x^n|=t^{n/2}e^{-t}\to0\)。例如取整数\(m>n/2\)，由\(e^t\ge t^m/m!\)即可控制为\(m!t^{n/2-m}\to0\)。因此它比任意指定幂次更小，却在每个非零\(x\)处严格为正；渐近为零不等于在邻域内恒等于零。
+\par

@@ -1,0 +1,407 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{极坐标}
+
+% ITEM: quadratic-example-099
+\solutionitem{quadratic-example-099}{例4.99}
+分别将直线\(x+y=2\)、圆\(x^2+y^2-4x=0\)、曲线\(x^2-y^2=4\)写成极坐标方程，并说明各自允许的极角范围。再将\(r\cos(\theta-\pi/3)=2\)还原为直角坐标方程。
+\solutionanswer
+三条极坐标方程依次为\(r(\cos\theta+\sin\theta)=2\)、\(r(r-4\cos\theta)=0\)、\(r^2\cos2\theta=4\)。非零极径的角域分别为\((-\pi/4,3\pi/4)\)、\((-\pi/2,\pi/2)\)、\((-\pi/4,\pi/4)\cup(3\pi/4,5\pi/4)\)，均按\(2\pi\)周期理解；圆另含极点。最后一式化为\(x+\sqrt3y=4\)。
+
+
+% ITEM: quadratic-example-100
+\solutionitem{quadratic-example-100}{例4.100}
+以\((1,-1)\)为极点、平行于原\(x\)轴正向的射线为极轴，将\((x-1)^2+2(y+1)^2=4\)写成极坐标方程。求曲线上极角相差\(\pi/2\)的两点到极点距离的平方倒数之和，判断它是否为定值。
+\solutionanswer
+取\(x=1+r\cos\theta,y=-1+r\sin\theta\)，得\(r^2(\cos^2\theta+2\sin^2\theta)=4\)。两垂直极径的平方倒数之和为\(3/4\)，是定值。
+
+
+% ITEM: quadratic-exercise-56-01
+\solutionitem{quadratic-exercise-56-01}{习题4.56（1）}
+写出\((-\sqrt3,1)\)、\((0,-2)\)在\(0\le\theta<2\pi\)内的极坐标，再求极坐标为\((2,5\pi/6)\)、\((3,-\pi/2)\)的点的直角坐标。
+\par
+\solutionanswer
+点\((-\sqrt3,1)\)的极径为2，位于第二象限，故极坐标为\((2,5\pi/6)\)；点\((0,-2)\)的极坐标为\((2,3\pi/2)\)。反向转换用\(x=r\cos\theta,y=r\sin\theta\)：\((2,5\pi/6)\)对应\((-\sqrt3,1)\)，\((3,-\pi/2)\)对应\((0,-3)\)。题中后一个极角不在半开区间\([0,2\pi)\)，但角相差\(2\pi\)表示同一方向。
+
+
+% ITEM: quadratic-exercise-56-02
+\solutionitem{quadratic-exercise-56-02}{习题4.56（2）}
+将\(r=4\sin\theta\)、\(r^2\cos2\theta=2\)、\(r(2\cos\theta-\sin\theta)=3\)化为直角坐标方程，说明各自表示的曲线。
+\par
+\solutionanswer
+（1）\(r=4\sin\theta\)。两边乘以\(r\)，并用\(r\sin\theta=y,r^2=x^2+y^2\)，得\(x^2+y^2=4y\)，即\(x^2+(y-2)^2=4\)，为圆心\((0,2)\)、半径2的圆；原极式包含原点，该直角方程也包含原点。
+
+（2）对\(r^2\cos2\theta=2\)，利用\(r^2\cos2\theta=x^2-y^2\)，得\(x^2-y^2=2\)，为双曲线。原点不满足两式，故没有因变换引入额外原点。
+
+（3）由\(r(2\cos\theta-\sin\theta)=2x-y\)，得\(2x-y=3\)，为直线；该直线不经过极点，与原极式的\(r\ge0\)约定相符。
+
+
+% ITEM: quadratic-exercise-56-03
+\solutionitem{quadratic-exercise-56-03}{习题4.56（3）}
+将\(x^2/9+y^2/4=1\)写成以中心为极点的极坐标方程，求极径的最大值与最小值及相应方向。
+\par
+\solutionanswer
+以椭圆中心为极点，代入\(x=r\cos\theta,y=r\sin\theta\)，得
+\[r^2\left(\frac{\cos^2\theta}{9}+\frac{\sin^2\theta}{4}\right)=1,\qquad r=\frac{1}{\sqrt{\cos^2\theta/9+\sin^2\theta/4}},\quad r\ge0.\]
+分母平方在\(\theta=0,\pi\)时最小，极径最大值为3，方向沿长轴；在\(\theta=\pi/2,3\pi/2\)时最大，极径最小值为2，方向沿短轴。
+
+
+% ITEM: quadratic-exercise-56-04
+\solutionitem{quadratic-exercise-56-04}{习题4.56（4）}
+两点的极坐标为\((2,\pi/6)\)、\((3,5\pi/6)\)。求两点距离和它们与极点组成的三角形面积。
+\par
+\solutionanswer
+两极角之差为\(5\pi/6-\pi/6=2\pi/3\)。由极坐标距离公式，
+\[
+|P_1P_2|^2=2^2+3^2-2\cdot2\cdot3\cos(2\pi/3)=19,
+\]
+故距离为\(\sqrt{19}\)。以两条极径为邻边的三角形面积为
+\[
+\frac12\cdot2\cdot3\sin(2\pi/3)=\frac{3\sqrt3}{2}.
+\]
+
+
+% ITEM: quadratic-exercise-56-05
+\solutionitem{quadratic-exercise-56-05}{习题4.56（5）}
+将圆\((x-2)^2+(y+1)^2=9\)分别写成以原点、以圆心为极点的极坐标方程，比较两种表示。极轴均取平行于原\(x\)轴正向的射线。
+\par
+\solutionanswer
+以原点为极点、原\(x\)轴正向为极轴，代入\(x=r\cos\theta\)、\(y=r\sin\theta\)得
+\[
+r^2-4r\cos\theta+2r\sin\theta-4=0,\qquad r\ge0.
+\]
+以圆心\((2,-1)\)为极点、极轴平行于\(x\)轴正向时，圆心坐标原点化，方程为\(r=3\)、\(r\ge0\)。前一种表示把圆心偏移量保留在含\(\cos\theta,\sin\theta\)的一次项和常数项中，后一种则直接用固定极径表示半径为\(3\)的圆；两式中的极点不同。
+
+
+% ITEM: quadratic-exercise-56-06
+\solutionitem{quadratic-exercise-56-06}{习题4.56（6）}
+直线\(r\cos(\theta-\pi/4)=1\)与圆\(r=2\)相交。求交点的极坐标与弦长，并求极点到弦的距离。
+\par
+\solutionanswer
+圆上\(r=2\)，代入直线方程得\(2\cos(\theta-\pi/4)=1\)。在\(0\le\theta<2\pi\)内，两交点角为\(\theta=7\pi/12\)及\(23\pi/12\)，故交点极坐标为\((2,7\pi/12)\)、\((2,23\pi/12)\)。两点的较小方向角差为\(2\pi/3\)，弦长为\(2\cdot2\sin(\pi/3)=2\sqrt3\)。直线写成单位法向形式\(r\cos(\theta-\pi/4)=1\)，右端即极点到弦的距离，所以距离为\(1\)。
+
+
+% ITEM: quadratic-exercise-56-07
+\solutionitem{quadratic-exercise-56-07}{习题4.56（7）}
+圆的极坐标方程为\(r^2-4r\cos\theta+3=0\)。求有实交点的射线方向，判断哪些射线与圆有两个不同交点，并说明这条曲线能否在全部这些方向上写成单值的\(r=f(\theta)\)。
+\par
+\solutionanswer
+径向二次式的判别式要求\(\cos^2\theta\ge3/4\)，两正根还要求\(\cos\theta>0\)，所以方向为\(|\theta|\le\pi/6\)（模\(2\pi\)）。严格在此角域内部时两根\(2\cos\theta\pm\sqrt{4\cos^2\theta-3}\)均为正且不同，边界只有切点。因大部分射线有两个交点，不能用一个单值极径函数覆盖全部点。
+
+
+% ITEM: quadratic-exercise-56-08
+\solutionitem{quadratic-exercise-56-08}{习题4.56（8）}
+以椭圆\(x^2/9+y^2/4=1\)的中心为极点，将极轴取为与\(x\)轴正向成\(\pi/4\)角的射线。写出极坐标方程，求极角为\(0\)、\(\pi/2\)的两点的直角坐标。
+\par
+\solutionanswer
+原方向角为\(\theta+\pi/4\)，方程\(r^2[\cos^2(\theta+\pi/4)/9+\sin^2(\theta+\pi/4)/4]=1\)。两给定极角分别得到\((6/\sqrt{13},6/\sqrt{13})\)、\((-6/\sqrt{13},6/\sqrt{13})\)。
+
+
+% ITEM: quadratic-exercise-56-09
+\solutionitem{quadratic-exercise-56-09}{习题4.56（9）}
+取圆\(x^2+y^2=4\)上点\(A=(2,0)\)为极点，指向圆心的射线为极轴，写出圆的极坐标方程。从\(A\)作两条射线，与圆分别再交于\(B,C\)，且\(\angle BAC=\pi/3\)。用极坐标证明\(|BC|\)为定值。
+\par
+\solutionanswer
+相对于指向圆心的极轴，圆的方程为\(r=4\cos\theta\)，非极点部分要求\(\cos\theta>0\)。设两射线角为\(\theta,\theta+\pi/3\)，两极径分别为\(4\cos\theta,4\cos(\theta+\pi/3)\)。余弦定理化简得\(|BC|^2=16[\cos^2\theta+\cos^2(\theta+\pi/3)-\cos\theta\cos(\theta+\pi/3)]=12\)，所以定长\(2\sqrt3\)。
+
+
+% ITEM: quadratic-exercise-56-10
+\solutionitem{quadratic-exercise-56-10}{习题4.56（10）}
+椭圆\(x^2/a^2+y^2/b^2=1\)（\(a>b>0\)）的中心为\(O\)。曲线上两点\(A,B\)满足\(OA\perp OB\)，用中心极坐标求\(\triangle OAB\)面积的最大值、最小值及相应方向，并与共轭半径的面积关系比较。
+\par
+\solutionanswer
+\(r(\theta)^{-2}=\cos^2\theta/a^2+\sin^2\theta/b^2\)。垂直两方向的两平方倒数之和固定，乘积在\([1/(a^2b^2),(a^{-2}+b^{-2})^2/4]\)内，故面积范围为\([a^2b^2/(a^2+b^2),ab/2]\)。最小在方向与坐标轴成\(45^\circ\)时取到，最大在坐标轴方向取到。共轭半径所成面积则恒为\(ab/2\)，它们一般不互相垂直。
+
+
+% ITEM: quadratic-example-101
+\solutionitem{quadratic-example-101}{例4.101}
+对椭圆\(x^2/9+y^2/4=1\)，取\(O=(1,0)\)为极点，极轴平行于\(x\)轴正向。写出径向方程及\(O\)的极线，分别沿水平、竖直方向计算交点，核对式\textup{(4.197)}。水平割线上的有向距离与实际长度有什么不同？
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\frac1{t_1}+\frac1{t_2}=-\frac{b(\theta)}F.
+\end{equation*}
+\solutionanswer
+径向式为\((\cos^2\theta/9+\sin^2\theta/4)t^2+(2\cos\theta/9)t-8/9=0\)，极线\(x=9\)。水平根\(2,-4\)，倒数和\(1/4\)，极线交点参数\(8\)，满足和为\(2/8\)。竖直根\(\pm4\sqrt2/3\)，倒数和零，极线交点为竖直无穷远点。水平实际距离为\(2,4\)，而有向距离为\(2,-4\)，不能把实际长度倒数直接代入有向关系。
+
+
+% ITEM: quadratic-example-102
+\solutionitem{quadratic-example-102}{例4.102}
+对圆\(x^2+y^2=1\)，以\(O=(2,0)\)为极点，极轴取从\(O\)指向圆心的方向。求径向方程、能与圆相交的射线方向，以及两条切线的夹角。再求每条实割线的两交点到\(O\)的距离之积，并与圆幂比较。
+\solutionanswer
+以指向圆心的射线为极轴，方程\(r^2-4r\cos\theta+3=0\)。有实正交点的方向为\(|\theta|\le\pi/6\)，两切线夹角\(\pi/3\)。任一实割线两正根之积为\(3\)，即圆幂\(2^2-1\)。
+
+
+% ITEM: quadratic-exercise-57-01
+\solutionitem{quadratic-exercise-57-01}{习题4.57（1）}
+曲线为\(x^2+2y^2=4\)，极点取\(O=(1,1)\)，极轴平行于\(x\)轴正向。写出径向方程及\(O\)的极线，并求方向角\(\pi/4\)的直线与极线的交点。
+\par
+\solutionanswer
+径向方程为\((\cos^2\theta+2\sin^2\theta)t^2+2(\cos\theta+2\sin\theta)t-1=0\)，极线\(x+2y=4\)。\(\theta=\pi/4\)时取\((x,y)=(1,1)+t(1,1)/\sqrt2\)，得到\(t=\sqrt2/3\)，交点\((4/3,4/3)\)。
+
+
+% ITEM: quadratic-exercise-57-02
+\solutionitem{quadratic-exercise-57-02}{习题4.57（2）}
+对抛物线\(y^2=4x\)，取\(O=(-1,0)\)。求从\(O\)出发的切线方向，并写出两条切线的方程。
+\par
+\solutionanswer
+径向式为\(t^2\sin^2\theta-4t\cos\theta+4=0\)，重根要求\(\cos2\theta=0\)。从极点出发取正径，实际切线射线为\(\theta=\pm\pi/4\)，直线方程\(y=\pm(x+1)\)。
+
+
+% ITEM: quadratic-exercise-57-03
+\solutionitem{quadratic-exercise-57-03}{习题4.57（3）}
+在椭圆\(x^2/9+y^2/4=1\)中，\(O=(1,0)\)。证明过\(O\)的各条弦，两个端点到\(O\)的距离之积为\(8/(\cos^2\theta+\tfrac94\sin^2\theta)\)，并求其范围。这里\(\theta\)是弦的方向角。
+\par
+\solutionanswer
+径向式根积为\(-8/(\cos^2\theta+9\sin^2\theta/4)\)，内点使两根异号，所以无向距离乘积取其相反数，得到题中公式。分母在\([1,9/4]\)内，范围为\([32/9,8]\)。
+
+
+% ITEM: quadratic-exercise-57-04
+\solutionitem{quadratic-exercise-57-04}{习题4.57（4）}
+过双曲线\(x^2-y^2=1\)上点\(O=(1,0)\)作直线。直接从径向方程分离恒有的根\(t=0\)，求另一交点的有向距离，说明相切方向与平行于渐近线的方向在计算中有何不同。
+\par
+\solutionanswer
+限制式为\(t(2\cos\theta+t\cos2\theta)=0\)，另一根为\(-2\cos\theta/\cos2\theta\)。切线方向\(\cos\theta=0\)使另一根也为零，形成重根；渐近方向\(\cos2\theta=0\)使二次项消失，只剩已知有限点，另一交点在无穷远。
+
+
+% ITEM: quadratic-exercise-57-05
+\solutionitem{quadratic-exercise-57-05}{习题4.57（5）}
+设\(O\)不在非退化二次曲线上，沿两条不同方向的实割线分别取交点有向距离的倒数和。若这两个和都为零，证明\(O\)是曲线的中心。
+\par
+\solutionanswer
+径向式的常数非零。两根倒数和为零等价于该方向的一次系数为零；两个不同直线方向线性无关，因此平移到\(O\)后的两个一次项系数都为零。这正是中心条件，故\(O\)为曲线中心。
+
+
+% ITEM: quadratic-exercise-57-06
+\solutionitem{quadratic-exercise-57-06}{习题4.57（6）}
+对椭圆\(x^2/a^2+y^2/b^2=1\)，以中心为极点，求方向角为\(\theta\)的半径长\(r(\theta)\)。证明\(r(\theta)^{-2}+r(\theta+\pi/2)^{-2}\)为定值，并解释相应两条半径互相垂直。
+\par
+\solutionanswer
+\(r(\theta)=[\cos^2\theta/a^2+\sin^2\theta/b^2]^{-1/2}\)，两平方倒数相加为\(a^{-2}+b^{-2}\)。方向角相差\(\pi/2\)，故两条实际半径垂直。
+
+
+% ITEM: quadratic-example-103
+\solutionitem{quadratic-example-103}{例4.103}
+曲线的极坐标方程为\(r=6/(2+\cos\theta)\)。求焦点、对应准线、离心率和通径长，再求直角坐标标准方程以及另一焦点的位置。
+\solutionanswer
+写成\(r=3/(1+\frac12\cos\theta)\)，得焦点为极点、离心率\(1/2\)、对应准线\(x=6\)，通径长\(6\)。由\(r=3-x/2\)得\((x+2)^2/16+y^2/12=1\)，另一焦点为\((-4,0)\)。
+
+
+% ITEM: quadratic-example-104
+\solutionitem{quadratic-example-104}{例4.104}
+焦点为原点、准线为\(x=3\)、离心率为\(2\)的双曲线，以\(x\)轴正向为极轴。写出两种正极径表达，求\(\theta=0\)、\(\pi/2\)、\(\pi\)时射线上的全部交点。将焦准线关系还原为标准方程，核对两支的位置。
+\solutionanswer
+两种正极径为\(r_1=6/(1+2\cos\theta)\)，要求\(\cos\theta>-1/2\)；\(r_2=6/(2\cos\theta-1)\)，要求\(\cos\theta>1/2\)。\(\theta=0\)时交点极径\(2,6\)；\(\pi/2\)时只有\(6\)；\(\pi\)时无交点。标准方程\((x-4)^2/4-y^2/12=1\)，两支位置与这些射线计算相符。
+
+
+% ITEM: quadratic-example-105
+\solutionitem{quadratic-example-105}{例4.105}
+椭圆\(x^2/9+y^2/5=1\)的右焦点为\(S\)。过\(S\)的弦\(UV\)满足\(|UV|=5\)，求弦与长轴夹角的余弦绝对值，以及两段焦半径的长度。分别考虑如何使用焦点极坐标和直角坐标处理。
+\solutionanswer
+\(e=2/3,\ell=5/3\)，焦弦长\(2\ell/(1-e^2\cos^2\theta)=5\)，所以\(|\cos\theta|=\sqrt3/2\)。两焦半径为\(5(3+\sqrt3)/6\)、\(5(3-\sqrt3)/6\)。直角坐标联立弦线也可用根与系数关系求和、积，但极坐标直接给出方向与两段。
+
+
+% ITEM: quadratic-example-106
+\solutionitem{quadratic-example-106}{例4.106}
+抛物线\(y^2=4x\)的焦点为\(S\)，过\(S\)作两条互相垂直的焦弦，长度分别为\(L_1,L_2\)。求\(L_1+L_2\)、\(L_1L_2\)的最小值，并说明等号时两条弦的方向。
+\solutionanswer
+两弦长度为\(4/\sin^2\theta,4/\cos^2\theta\)。由\(\sin^2\theta\cos^2\theta\le1/4\)，和最小\(16\)，积最小\(64\)，均在两弦方向与轴成\(45^\circ\)时取得。
+
+
+% ITEM: quadratic-example-107
+\solutionitem{quadratic-example-107}{例4.107}
+椭圆\(x^2/3+y^2=1\)的左焦点为\(S\)。过\(S\)且斜率为正的直线交椭圆于\(A,B\)，过两端分别作弦的垂线，与\(x\)轴交于\(M,N\)。用焦点极坐标求\(|MN|\)的最小值，并说明等号时焦弦的方向。
+\solutionanswer
+令\(u=\cos\theta\in(0,1)\)，两垂线在轴上的截距之差为\(L/u\)，因此\(|MN|=2\ell/[u(1-e^2u^2)]\)，其中\(e^2=2/3,\ell=1/\sqrt3\)。令\(v=\sqrt2u\)，由\(2/3-v+v^3/3=(v-1)^2(v+2)/3\ge0\)，分母\(u(1-2u^2/3)\le\sqrt2/3\)。所以最小值\(\sqrt6\)，在\(\theta=\pi/4\)，即弦斜率\(1\)时取到。
+
+
+% ITEM: quadratic-example-108
+\solutionitem{quadratic-example-108}{例4.108}
+椭圆的两条焦弦\(AB,CD\)交于同一焦点\(S\)，四端点互异。设\(U=AC\cap BD\)、\(V=AD\cap BC\)均为有限点。以\(S\)为极点，用弦的极坐标方程证明\(SU,SV\)分别沿两条焦弦所在直线的两条角平分线，因而\(SU\perp SV\)。再求\(U,V\)所在定直线，并与极点极线方法比较。
+\solutionanswer
+选焦点极轴指向准线，极径\(r=\ell/(1+e\cos\theta)\)。两弦单位方向记为\(d_1,d_2\)，夹角分别为\(\alpha,\beta\)，将点写为\(ud_1+vd_2\)。两连接线\(AC,BD\)的截距式相减给出\(u+v=0\)，相加又给出\(ex=\ell\)；故\(SU\)沿\(d_1-d_2\)。同理\(AD,BC\)给出\(u-v=0,ex=\ell\)，故\(SV\)沿\(d_1+d_2\)。两方向互相垂直，且两交点都在相应准线\(x=\ell/e\)上，与完全四边形的极线结论相同。
+
+
+% ITEM: quadratic-exercise-58-01
+\solutionitem{quadratic-exercise-58-01}{习题4.58（1）}
+求\(r=4/(2+\sin\theta)\)的离心率、对应准线与直角坐标方程，求曲线上点到极点距离的范围。
+\par
+\solutionanswer
+写成\(r=2/(1+\frac12\sin\theta)\)，离心率\(1/2\)，对应准线\(y=4\)。由\(r=2-y/2\)，直角方程为\(x^2+3y^2/4+2y-4=0\)。焦半径范围\([4/3,4]\)。
+
+
+% ITEM: quadratic-exercise-58-02
+\solutionitem{quadratic-exercise-58-02}{习题4.58（2）}
+对椭圆\(x^2/25+y^2/9=1\)，分别以左、右焦点为极点、原\(x\)轴正向为极轴，写出极坐标方程。说明两个方程中余弦项的符号为何不同。
+\par
+\solutionanswer
+左焦点为极点时\(r=9/(5-4\cos\theta)\)，右焦点为极点时\(r=9/(5+4\cos\theta)\)。两极轴同向，但对应准线分别在焦点的左侧和右侧，所以余弦项符号相反。
+
+
+% ITEM: quadratic-exercise-58-03
+\solutionitem{quadratic-exercise-58-03}{习题4.58（3）}
+曲线满足\(r=3/(1+\cos\theta)\)。求直角坐标方程、顶点与焦点；再求过极点、与极轴成\(\pi/3\)角的焦弦长。
+\par
+\solutionanswer
+由\(r+x=3\)，得\(y^2=9-6x\)。顶点\((3/2,0)\)，焦点即极点\((0,0)\)。两方向焦半径为\(3/(1+1/2)=2\)、\(3/(1-1/2)=6\)，故焦弦长\(8\)。
+
+
+% ITEM: quadratic-exercise-58-04
+\solutionitem{quadratic-exercise-58-04}{习题4.58（4）}
+椭圆的离心率为\(1/2\)，通径长为\(6\)。求长、短半轴长。若某焦弦被焦点分成长度比为\(2:1\)的两段，求两段长度及弦与长轴的夹角。
+\par
+\solutionanswer
+半通径\(\ell=3=a(1-e^2)\)，得\(a=4,b=2\sqrt3\)。设两段为\(2s,s\)，由倒数和\(2/\ell=2/3\)，得\(s=9/4\)，两段为\(9/2,9/4\)。比例给出\(e|\cos\theta|=1/3\)，故夹角\(\arccos(2/3)\)。
+
+
+% ITEM: quadratic-exercise-58-05
+\solutionitem{quadratic-exercise-58-05}{习题4.58（5）}
+双曲线\(x^2/4-y^2/5=1\)的左焦点为\(S\)。求过\(S\)且与实轴成\(\pi/3\)角的焦弦长，判断两端位于同一支还是不同支；再对实轴方向作同样判断。
+\par
+\solutionanswer
+\(e=3/2,\ell=5/2\)。方向\(\pi/3\)的两端分别距左焦点\(10/7,10\)，在相反射线上，均属左支，弦长\(80/7\)。实轴方向的端点是\((-2,0),(2,0)\)，距左焦点\(1,5\)，位于同一射线但属于不同支，弦长为差\(4\)。
+
+
+% ITEM: quadratic-exercise-58-06
+\solutionitem{quadratic-exercise-58-06}{习题4.58（6）}
+抛物线\(y^2=2px\)的一条焦弦两端为\(U,V\)，证明\(|UV|=2|SU||SV|/p\)。若\(|SU|:|SV|=3:1\)，求弦长及其与轴夹角的余弦绝对值。
+\par
+\solutionanswer
+两焦半径的倒数和为\(2/p\)，所以\(|UV|=|SU|+|SV|=2|SU||SV|/p\)。比例\(3:1\)给出两段\(2p,2p/3\)，弦长\(8p/3\)。由极坐标分母的比可得\(|\cos\theta|=1/2\)。
+
+
+% ITEM: quadratic-exercise-58-07
+\solutionitem{quadratic-exercise-58-07}{习题4.58（7）}
+在椭圆上取三条过同一焦点的弦，方向角依次为\(\theta,\theta+\pi/3,\theta+2\pi/3\)，长度为\(L_1,L_2,L_3\)。证明\(1/L_1+1/L_2+1/L_3\)为定值，并用离心率和半通径表示这个定值。
+\par
+\solutionanswer
+每条焦弦\(L=2\ell/(1-e^2\cos^2\theta)\)。三方向的平方余弦和为\(3/2\)，因此倒数和恒为\(3(2-e^2)/(4\ell)\)。
+
+
+% ITEM: quadratic-exercise-58-08
+\solutionitem{quadratic-exercise-58-08}{习题4.58（8）}
+抛物线的焦点为\(S\)，\(P,Q\)在曲线上且\(SP\perp SQ\)。用\(p\)表示\(\triangle SPQ\)面积的最小值，其中抛物线的通径长为\(2p\)。提示：设两点的极角为\(\theta,\theta+\pi/2\)，研究\((1+\cos\theta)(1-\sin\theta)\)的最大值。
+\par
+\solutionanswer
+面积为\(p^2/[2(1+\cos\theta)(1-\sin\theta)]\)。令\(s=\cos\theta-\sin\theta\)，则分母乘积为\((1+s^2)/2+s\)，在\([-\sqrt2,\sqrt2]\)上最大\((3+2\sqrt2)/2\)。所以面积最小\(p^2(3-2\sqrt2)\)，两射线关于指向准线的轴成\(\pm\pi/4\)时取到。
+
+
+% ITEM: quadratic-exercise-58-09
+\solutionitem{quadratic-exercise-58-09}{习题4.58（9）}
+椭圆\(x^2/16+y^2/7=1\)的右焦点为\(S\)。曲线上两点\(P,Q\)满足\(SP\perp SQ\)，求\(1/|SP|+1/|SQ|\)的取值范围，并说明等号时两条射线的方向。
+\par
+\solutionanswer
+右焦点极坐标给出倒数和\([2+\frac34(\cos\theta-\sin\theta)]/(7/4)\)，范围为\([(8-3\sqrt2)/7,(8+3\sqrt2)/7]\)。两射线分别与正向焦轴成\(\pm45^\circ\)时取上界，与负向焦轴成\(\pm45^\circ\)时取下界。
+
+
+% ITEM: quadratic-exercise-58-10
+\solutionitem{quadratic-exercise-58-10}{习题4.58（10）}
+椭圆的长、短半轴长分别为\(a,b\)，焦点为\(S_1,S_2\)。用焦点极坐标求曲线上点\(P\)所对应的\(|PS_1||PS_2|\)的最大值与最小值，以及相应点的位置。
+\par
+\solutionanswer
+取右焦点为极点、极轴指向右准线。焦点极坐标为\(r=\ell/(1+e\cos\theta)\)，其中\(\ell=b^2/a,e=c/a\)。由\(-1\le\cos\theta\le1\)，得\(r\in[a-c,a+c]\)，另一焦半径为\(2a-r\)。所以乘积\(r(2a-r)=a^2-(r-a)^2\)最大为\(a^2\)，在\(r=a\)即短轴端点处取得；最小为\(b^2\)，在长轴端点处取得。
+
+
+% ITEM: quadratic-exercise-58-11
+\solutionitem{quadratic-exercise-58-11}{习题4.58（11）}
+椭圆的离心率为\(e\)，半通径为\(\ell\)。过同一焦点作两条互相垂直的焦弦，长为\(L_1,L_2\)。证明\(1/L_1+1/L_2\)为定值，进一步求\(L_1L_2\)的取值范围。
+\par
+\solutionanswer
+两弦倒数和为\((2-e^2)/(2\ell)\)。乘积为\(4\ell^2/[1-e^2+e^4\cos^2\theta\sin^2\theta]\)，故范围
+\[
+\frac{16\ell^2}{(2-e^2)^2}\le L_1L_2\le\frac{4\ell^2}{1-e^2}.
+\]
+下界在两方向与轴成\(45^\circ\)时取得，上界在两轴方向取得。
+
+
+% ITEM: quadratic-exercise-58-12
+\solutionitem{quadratic-exercise-58-12}{习题4.58（12）}
+抛物线\(y^2=2px\)的顶点为\(V\)，焦弦\(AB\)的长度为\(8p\)。求焦弦与轴的夹角及\(\triangle VAB\)的面积。
+\par
+\solutionanswer
+焦弦公式\(L=2p/\sin^2\theta=8p\)给出\(\sin^2\theta=1/4\)，夹角为\(\pi/6\)。顶点到焦弦距离为\((p/2)\sin\theta=p/4\)，所以\(S_{VAB}=\frac12(8p)(p/4)=p^2\)。
+
+
+% ITEM: quadratic-exercise-58-13
+\solutionitem{quadratic-exercise-58-13}{习题4.58（13）}
+对双曲线\(x^2/a^2-y^2/b^2=1\)，分别研究两端在同一支、两端在不同支的焦弦。证明两类焦弦的最短长度分别为\(2b^2/a\)、\(2a\)，并指出相应方向。
+\par
+\solutionanswer
+记\(D=1-e^2\cos^2\theta\)，焦弦长为\(2\ell/|D|\)。同支情形\(D>0\)，\(D\le1\)，故最短\(2\ell=2b^2/a\)，在垂直实轴的通径方向。异支情形\(D<0\)，\(|D|\le e^2-1\)，故最短\(2\ell/(e^2-1)=2a\)，在实轴方向。
+
+
+% ITEM: quadratic-exercise-58-14
+\solutionitem{quadratic-exercise-58-14}{习题4.58（14）}
+非圆圆锥曲线的离心率为\(e\)，焦点为\(S\)。一条焦弦\(AB\)的中垂线与焦点所在的对称轴交于唯一点\(D\)。证明\(|SD|=e|AB|/2\)。用焦点极坐标分别处理\(S\)在线段\(AB\)内部和外部的情形。
+\par
+\solutionanswer
+取焦点为原点、对应准线为\(x=d>0\)，令\(\ell=ed\)。沿弦的有向参数\(t\)满足\((1-e^2\cos^2\theta)t^2+2e\ell\cos\theta\,t-\ell^2=0\)。设两根\(t_1,t_2\)，中垂线与轴交于\(D=(\delta,0)\)，由交点唯一知\(\cos\theta\ne0\)，等距条件给出\(\delta=(t_1+t_2)/(2\cos\theta)=-e\ell/(1-e^2\cos^2\theta)\)。而根差给出弦长\(L=2\ell/|1-e^2\cos^2\theta|\)，所以\(|SD|=eL/2\)。焦点在弦内时两根异号，长度为两实际焦半径之和；在弦外时两根同号，长度为两者之差，上述有向计算同时适用。
+
+
+% ITEM: quadratic-exercise-58-15
+\solutionitem{quadratic-exercise-58-15}{习题4.58（15）}
+双曲线的离心率为\(e\)，半通径为\(\ell\)。过同一焦点作两条互相垂直的实焦弦，长为\(L_1,L_2\)。令\(\varepsilon_i=1\)或\(-1\)，分别对应两端在同一支或不同支，证明\(\varepsilon_1/L_1+\varepsilon_2/L_2=(2-e^2)/(2\ell)\)。再取\(e=2,\ell=6\)，比较方向角为\(0\)与\(\pi/4\)时两条垂直焦弦的实际长度倒数和。
+\par
+\solutionanswer
+由上题分类，\(\varepsilon/L=(1-e^2\cos^2\theta)/(2\ell)\)，对两垂直方向相加即得所求式。\(e=2,\ell=6\)时，轴向与垂直轴向两弦长度为\(4,12\)，实际倒数和\(1/3\)；两方向成\(\pm\pi/4\)时各长\(12\)，实际倒数和\(1/6\)。加符号后的两组和则都为\(-1/6\)。
+
+
+% ITEM: quadratic-example-109
+\solutionitem{quadratic-example-109}{例4.109 *}
+以曲线\(5x^2+4xy+2y^2=1\)的中心为极点，写出\(r(\theta)\)，求半径长的最大值与最小值及相应方向。再证明任意两条互相垂直的中心半径满足\(r_1^{-2}+r_2^{-2}=7\)，将结果与旋转化简相比较。
+\solutionanswer
+\(r(\theta)=[5\cos^2\theta+4\cos\theta\sin\theta+2\sin^2\theta]^{-1/2}\)。二次型特征值为\(6,1\)，故最大半径\(1\)在\((1,-2)\)方向，最小\(1/\sqrt6\)在\((2,1)\)方向。垂直两方向的平方倒数和为\(5+2=7\)，与旋转后\(6u^2+v^2=1\)一致。
+
+
+% ITEM: quadratic-exercise-59-01
+\solutionitem{quadratic-exercise-59-01}{习题4.59（1） *}
+对\(x^2+2xy+3y^2-4x+2y-1=0\)，以\(P=(1,0)\)为极点。计算\(a(d),b_P(d),c_P\)，写出径向方程与\(P\)的极线。沿\(d=(1,0)^T\)核对交点的有向倒数关系。
+\par
+\solutionanswer
+\(a(d)=d_x^2+2d_xd_y+3d_y^2,b_P(d)=-d_x+2d_y,c_P=-4\)，故径向式为\(a(d)t^2+2b_P(d)t-4=0\)。极线\(-x+2y-3=0\)。沿\((1,0)\)根为\(1\pm\sqrt5\)，倒数和\(-1/2\)，极线交点参数\(-4\)，核对\(2/(-4)=-1/2\)。
+
+
+% ITEM: quadratic-exercise-59-02
+\solutionitem{quadratic-exercise-59-02}{习题4.59（2） *}
+设\(\Phi(P)\ne0\)。证明径向方程的判别式为\(4(b_P(d)^2-a(d)c_P)\)。若某方向有二重实根，说明对应直线为何为切线，并证明切点在\(P\)的极线上。
+\par
+\solutionanswer
+限制式\(at^2+2bt+c\)的判别式就是\(4(b^2-ac)\)。二重实根\(t_0=-b/a\)对应相切；极线在此线上的表达为\(c+bt=0\)，代入得\(c-b^2/a=0\)，故切点在极线上。
+
+
+% ITEM: quadratic-exercise-59-03
+\solutionitem{quadratic-exercise-59-03}{习题4.59（3） *}
+设椭圆\(x^THx=1\)，其中\(H\)正定。在任一组互相垂直的单位方向上取中心半径\(r_1,r_2\)，证明其平方倒数之和等于\(H_{11}+H_{22}\)。它们的乘积是否也与方向无关？
+\par
+\solutionanswer
+取垂直单位基组成正交矩阵\(R\)，两个平方倒数为\(R^THR\)的两个对角元，其和等于\(\operatorname{tr}H\)。乘积一般变化，例如\(H=\operatorname{diag}(1,4)\)，轴向给出乘积\(4\)，转\(45^\circ\)给出\(25/4\)。因此半径乘积也一般不固定；圆形情形才对所有方向固定。
+
+
+% ITEM: quadratic-exercise-59-04
+\solutionitem{quadratic-exercise-59-04}{习题4.59（4） *}
+将\(y^2=4x\)平移到以焦点为原点的坐标系，写出\(H,L,F\)，再由式\textup{(4.208)}分解径向方程，得到焦点极坐标表示。
+\par
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\Phi(P+td)=a(d)t^2+2b_P(d)t+c_P,
+\end{equation*}
+\solutionanswer
+取\(X=x-1,Y=y\)，方程\(Y^2-4X-4=0\)，故\(H=\operatorname{diag}(0,1),L=(-4,0)^T,F=-4\)。径向式分解为\([(1-\cos\theta)t-2][(1+\cos\theta)t+2]=0\)。沿原\(x\)轴正向取极轴，正极径为\(r=2/(1-\cos\theta)\)，轴向无有限点的方向另排除。
+
+
+% ITEM: quadratic-exercise-59-05
+\solutionitem{quadratic-exercise-59-05}{习题4.59（5） *}
+在非退化中心双曲线中，设基点\(P\)不在曲线上。对渐近线方向\(d\)，讨论\(b_P(d)\ne0\)与\(b_P(d)=0\)时的有限交点个数，并解释后一情形中\(P\)与相应渐近线的位置关系。
+\par
+\solutionanswer
+渐近方向使\(a(d)=0\)，径向式成为\(2b_P(d)t+c_P=0\)。\(b_P(d)\ne0\)时一个有限交点；\(b_P(d)=0\)时因\(c_P\ne0\)而无有限交点。在中心坐标中，\(b_P(d)=0\)使\(P\)位于该渐近方向的自身共轭直线上，也就是相应渐近线本身，所以整条所考察直线是无交点的渐近线。
+
+
+% ITEM: quadratic-exercise-59-06
+\solutionitem{quadratic-exercise-59-06}{习题4.59（6） *}
+伸缩\((x,y)\mapsto(2x,y)\)将单位圆变为椭圆。取圆内非中心点\(P\)，过\(P\)作一条与其极线相交的割线，证明交点与极线交点的有向倒数关系在伸缩后保持。再比较圆心的像与像椭圆的两个焦点，说明焦点不能直接通过这个伸缩得到。
+\par
+\solutionanswer
+固定割线上的所有有向距离在伸缩后统一乘以同一个正倍率\(\lambda\)。因此原倒数关系两边都乘\(1/\lambda\)，在像图中仍成立。圆心映为椭圆中心\((0,0)\)，而像椭圆两焦点是\((\pm\sqrt3,0)\)，说明焦点不能作为圆心的伸缩像取得。
+\par

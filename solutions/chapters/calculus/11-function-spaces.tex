@@ -1,0 +1,155 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{函数空间*}
+
+% ITEM: calculus-example-069
+\solutionitem{calculus-example-069}{例5.69 *}
+判断\(\{f\in C[a,b]:f(a)=0\}\)与\(\{f\in C[a,b]:\int_a^b f=1\}\)是否为线性子空间。若将后一条件的\(1\)改为\(0\)，结论如何变化？
+\solutionanswer
+\(f(a)=0\)的连续函数集合含零函数，并对加法、数乘封闭，是线性子空间。\(\int f=1\)的集合不含零函数，故不是子空间；改为\(\int f=0\)后，由积分线性性得到封闭性，成为子空间。
+
+
+% ITEM: calculus-exercise-45-01
+\solutionitem{calculus-exercise-45-01}{习题5.45（1） *}
+在\([0,1]\)上求\(\|x\|_\infty\)、\(\|x-x^2\|_\infty\)及\(\|x^2-1\|_\infty\)。
+\solutionanswer
+分别为\(1,1/4,1\)。中间的二次函数在\(x=1/2\)取最大值\(1/4\)，另外两个绝对值最大值在端点达到。
+
+
+% ITEM: calculus-exercise-45-02
+\solutionitem{calculus-exercise-45-02}{习题5.45（2） *}
+在\(C[0,1]\)上，\(|f(0)|\)能否作为范数？证明\(\int_0^1|f(x)|\,dx\)是另一个范数，并说明它衡量误差的方式与最大值范数有何不同。
+\solutionanswer
+\(|f(0)|\)不能作为范数：非零函数\(f=x\)的该值为零。记\(N(f)=\int_0^1|f|\)，非负性、齐次性和三角不等式来自绝对值与积分；若\(N(f)=0\)，连续性保证\(f\equiv0\)，故确为范数。最大值范数控制每一点的最坏误差，积分范数衡量整段绝对误差的总量，允许窄区间内较高的误差。
+
+
+% ITEM: calculus-exercise-46-01
+\solutionitem{calculus-exercise-46-01}{习题5.46（1） *}
+判断\(x^n\)在\([0,r]\)、\(0<r<1\)上是否一致收敛，并给出误差界。
+\solutionanswer
+\(\sup_{[0,r]}|x^n|=r^n\to0\)，所以一致收敛于零，误差界就是\(r^n\)。
+
+
+% ITEM: calculus-exercise-46-02
+\solutionitem{calculus-exercise-46-02}{习题5.46（2） *}
+求\(f_n(x)=x/(1+nx)\)在\([0,1]\)上的逐点极限，判断是否一致收敛。
+\solutionanswer
+每点均趋零。函数随\(x\)递增，最大值\(1/(n+1)\to0\)，故一致收敛于零。
+
+
+% ITEM: calculus-exercise-46-03
+\solutionitem{calculus-exercise-46-03}{习题5.46（3） *}
+对\(f_n(x)=x^n\)、\(x\in[0,1]\)，说明为什么逐点极限\(f\)不能直接当作\(C[0,1]\)中的元素。使用一致收敛的定义判断时，是否需要先假定\(f\)连续？
+\solutionanswer
+逐点极限为\(x<1\)时零、\(x=1\)时\(1\)，在端点不连续，因此不属于\(C[0,1]\)。一致收敛的定义不要求先假定极限连续；直接计算全区间误差的上确界为\(1\)，就知道不一致。连续性是在连续函数一致收敛时由定理推出的。
+
+
+% ITEM: calculus-example-070
+\solutionitem{calculus-example-070}{例5.70 *}
+在\([-1,1]\)上，令\(f_n(x)=\sqrt{x^2+1/n}\)。证明它一致收敛于\(|x|\)，并说明极限连续而在零点不可导，与本小节定理是否矛盾。可先估计\(0\le\sqrt{x^2+1/n}-|x|\le1/\sqrt n\)。
+\solutionanswer
+有\(0\le\sqrt{x^2+1/n}-|x|\le1/\sqrt n\)，最大误差在零点达到\(1/\sqrt n\)，趋零，故一致收敛。极限\(|x|\)连续，但在零点不可导。这不违反一致极限保持连续性的定理；该定理并未保证可导性也被保持。
+
+
+% ITEM: calculus-exercise-47-01
+\solutionitem{calculus-exercise-47-01}{习题5.47（1） *}
+用\(e^x\)的二阶Taylor多项式近似\(\int_0^1e^x\,dx\)，利用最大误差给出积分误差界，再与精确结果比较。
+\solutionanswer
+多项式积分为\(1+1/2+1/6=5/3\)。Taylor余项在\([0,1]\)绝对值不超过\(e/6\)，用最大误差乘区间长度得积分误差不超过\(e/6\)。精确值为\(e-1\)，实际误差\(e-8/3\approx0.05162\)，小于该界。
+
+
+% ITEM: calculus-exercise-47-02
+\solutionitem{calculus-exercise-47-02}{习题5.47（2） *}
+设\(f_n\)在\([a,b]\)上一致收敛于\(f\)，各函数连续。固定\(c\in[a,b]\)，证明\(\int_c^xf_n(t)\,dt\)一致收敛于\(\int_c^xf(t)\,dt\)，并给出同时适用于所有起点\(c\)和终点\(x\)的误差界。
+\solutionanswer
+对任意\(c,x\in[a,b]\)，差的绝对值不超过\(|x-c|\|f_n-f\|_\infty\le(b-a)\|f_n-f\|_\infty\to0\)。这同一个界同时控制全部起点、终点，特别给出对\(x\)的一致收敛。
+
+
+% ITEM: calculus-exercise-47-03
+\solutionitem{calculus-exercise-47-03}{习题5.47（3） *}
+设\(f_n(x)=nx(1-x)^n\)、\(0\le x\le1\)。证明\(f_n\)逐点趋于零，且\(\int_0^1f_n(x)\,dx\to0\)，但\(f_n\)不一致收敛于零。说明一致收敛在积分极限结论中是充分条件，却不是必要条件。
+\solutionanswer
+\(0<x<1\)时\(n(1-x)^n\to0\)，两端函数值也为零。换元或分部得\(\int_0^1nx(1-x)^n dx=n/[(n+1)(n+2)]\to0\)。但在\(x=1/(n+1)\)处取最大值\((n/(n+1))^{n+1}\to e^{-1}\ne0\)，所以不一致趋零。积分极限在这里成立，一致收敛只是保证该结论的充分条件。
+
+
+% ITEM: calculus-exercise-48-01
+\solutionitem{calculus-exercise-48-01}{习题5.48（1） *}
+在\(C[0,1]\)上取\(f(x)=x\)、\(g(x)=1-x\)，说明最大值映射不满足可加性。
+\solutionanswer
+两函数的最大值均为\(1\)，而\(f+g=1\)的最大值仍为\(1\)，不等于两最大值之和\(2\)，故不具可加性。
+
+
+% ITEM: calculus-exercise-48-02
+\solutionitem{calculus-exercise-48-02}{习题5.48（2） *}
+设\(f_n(x)=x/n\)，\(g_n(x)=-x/n\)，\(0\le x\le1\)。两列函数之间的最大误差趋零，它们各自唯一最大值点之间的距离是否趋零？比较这与最大值映射的连续性。
+\solutionanswer
+两函数间最大误差为\(2/n\to0\)，但最大值点始终为\(1,0\)，距离恒为\(1\)。最大值映射连续说的是最大数值接近，并不保证取得最大值的位置接近。
+
+
+% ITEM: calculus-example-071
+\solutionitem{calculus-example-071}{例5.71 *}
+对固定连续函数\(w\)，证明\(J_w(f)=\int_a^bw(x)f(x)\,dx\)是\(C[a,b]\)到\(\mathbb R\)的连续线性映射，并给出误差界。
+\solutionanswer
+积分线性性给出\(J_w(\alpha f+\beta g)=\alpha J_w(f)+\beta J_w(g)\)。并且
+\[
+ |J_w(f)-J_w(g)|\le\|f-g\|_\infty\int_a^b|w(x)|dx
+ \le(b-a)\|w\|_\infty\|f-g\|_\infty.
+\]
+所以它在最大值范数下连续，前一个式子还给出了更精细的误差常数。
+
+
+% ITEM: calculus-exercise-49-01
+\solutionitem{calculus-exercise-49-01}{习题5.49（1） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+求算子\(D\)的核与像，说明固定起点的积分算子为什么是单射。
+\solutionanswer
+在\(D:C^1[a,b]\to C[a,b]\)中，核为常值函数空间，像为全部\(C[a,b]\)，因为\(DIf=f\)。若\(If=Ig\)，两边求导得\(f=g\)，所以固定起点的积分算子单射。
+
+
+% ITEM: calculus-exercise-49-02
+\solutionitem{calculus-exercise-49-02}{习题5.49（2） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+令\(QF=F-F(a)\)。证明\(Q^2=Q\)，求\(Q\)的核与像，并把它与\(ID\)联系起来。
+\solutionanswer
+\(QF(a)=0\)，故\(Q^2F=QF\)。核为常值函数，像为\(\{F\in C^1[a,b]:F(a)=0\}\)。Newton--Leibniz公式给出\(Q=ID\)，即先求导再从固定起点积分，删去了常数部分。
+
+
+% ITEM: calculus-exercise-49-03
+\solutionitem{calculus-exercise-49-03}{习题5.49（3） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+在\(C^1[-1,1]\)上，以函数最大值距离比较输入，以\(C[-1,1]\)的同类距离比较输出。用\(f_n(x)=\sin(nx)/n\)证明求导映射在零函数处不连续。
+\solutionanswer
+\(\|f_n\|_\infty\le1/n\to0\)，但\(Df_n=\cos(nx)\)，在零点值恒为\(1\)，所以\(\|Df_n\|_\infty=1\)。输入趋零而输出不趋零，\(D\)在所给两种最大值距离下不连续。
+
+
+% ITEM: calculus-exercise-49-04
+\solutionitem{calculus-exercise-49-04}{习题5.49（4） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+设\(F_n\in C^1[a,b]\)，\(F_n(a)\to c\)，且\(F_n'\)一致收敛于连续函数\(g\)。利用\(F_n(x)=F_n(a)+\int_a^xF_n'(t)\,dt\)，证明\(F_n\)一致收敛，并求极限函数的导数。
+\solutionanswer
+令\(F(x)=c+\int_a^xg(t)dt\)，则\(\|F_n-F\|_\infty\le|F_n(a)-c|+(b-a)\|F_n'-g\|_\infty\to0\)。所以一致收敛，且基本定理给出\(F'=g\)。这里额外控制导数及一个初值，才足以恢复导数与极限的相容。
+
+
+% ITEM: calculus-exercise-49-05
+\solutionitem{calculus-exercise-49-05}{习题5.49（5） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+在\([0,1]\)上令\(f_n(x)=\cos(nx)\)。证明\(f_n\)不一致趋于零，但\(If_n\)一致趋于零。由此说明积分结果的接近，能否反过来保证被积函数接近？
+\solutionanswer
+\(f_n(0)=1\)，所以不一致趋零；而\((If_n)(x)=\sin(nx)/n\)，最大误差不超过\(1/n\to0\)。积分使正负振荡相互抵消，积分结果接近不能反推被积函数在每点都接近。
+
+
+% ITEM: calculus-exercise-49-06
+\solutionitem{calculus-exercise-49-06}{习题5.49（6） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+设\(F,G\in C^1[a,b]\)，且\(F(c)=G(c)\)，其中\(c\in[a,b]\)。证明\(\|F-G\|_\infty\le\max\{c-a,b-c\}\|F'-G'\|_\infty\)。怎样选择\(c\)，可以使右侧的常数最小？
+\solutionanswer
+\(F(x)-G(x)=\int_c^x(F'-G')\)，所以\(|F(x)-G(x)|\le|x-c|\|F'-G'\|_\infty\)。对\(x\)取最大值得所求式。取\(c=(a+b)/2\)使最大距离最小，为\((b-a)/2\)。
+
+
+% ITEM: calculus-exercise-49-07
+\solutionitem{calculus-exercise-49-07}{习题5.49（7） *}
+本组取\(D:C^1[a,b]\to C[a,b]\)、\(DF=F^{\prime}\)，\(I:C[a,b]\to C^1[a,b]\)、\((If)(x)=\int_a^xf(t)dt\)，区间另有注明时依该题。
+给定\(g\in C[a,b]\)，证明条件\(F'=g\)、\(\int_a^bF(x)\,dx=0\)唯一确定一个\(F\in C^1[a,b]\)，并用\(Ig\)表示\(F\)。比较这一条件与\(F(a)=0\)确定积分常数的方式。
+\solutionanswer
+全部原函数为\(Ig+C\)。零平均条件给出\(C=-(b-a)^{-1}\int_a^b(Ig)(x)dx\)，因此唯一。\(F(a)=0\)选出起点值为零的代表，零积分条件则选出平均值为零的代表，都是消除求导之核中的一个常数自由度。
+\par

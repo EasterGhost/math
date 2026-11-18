@@ -1,0 +1,235 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{数列极限}
+
+\label{sol:sec:analysis:4}
+
+% ITEM: analysis-limits-definition-estimates
+\solutionitem{analysis-limits-definition-estimates}{例1.8}
+以下证明请使用极限的定义进行证明，不要使用其他定理或推论。
+
+    （1）数列\(\{n^5/2^n\}\)收敛于\(0\)。
+
+    （2）数列\(\{\sqrt[n]{n}\}\)的极限是\(1\)。
+
+    （3）\(\displaystyle\lim_{n\to\infty}\frac{3n^2}{n^2-4}=3\)。
+
+    （4）\(\displaystyle\lim_{n\to\infty}\frac{a^n}{n!}=0\quad(a>0)\)。
+\solutionanswer
+（1）要由定义控制误差，可以用二项式展开中的一项为分母建立下界。当\(n\ge10\)时，
+\[
+2^n\ge\binom n6\ge\frac{n^6}{2^6\cdot6!},\qquad
+0\le\frac{n^5}{2^n}\le\frac{46080}{n}.
+\]
+给定\(\varepsilon>0\)，取正整数\(N>\max\{10,46080/\varepsilon\}\)，则\(n>N\)时误差小于\(\varepsilon\)。
+
+（2）令\(h_n=\sqrt[n]n-1\ge0\)。当\(n\ge2\)时，
+\[
+n=(1+h_n)^n\ge\binom n2h_n^2,\qquad
+0\le\sqrt[n]n-1\le\sqrt{\frac2{n-1}}.
+\]
+取正整数\(N>1+2/\varepsilon^2\)，便有\(n>N\)时\(|\sqrt[n]n-1|<\varepsilon\)。
+
+（3）直接计算误差：
+\[
+\left|\frac{3n^2}{n^2-4}-3\right|=\frac{12}{n^2-4}.
+\]
+取正整数\(N>\sqrt{4+12/\varepsilon}\)，即可保证\(n>N\)时误差小于\(\varepsilon\)。
+
+（4）阶乘从某项起每增加一个因子，就能使相邻项的比不超过\(1/2\)。取正整数\(m\ge2a\)，记\(C=a^m/m!\)。当\(n=m+k\)、\(k\ge0\)时，
+\[
+0<\frac{a^n}{n!}=C\prod_{j=1}^k\frac a{m+j}
+\le\frac C{2^k}\le\frac C{k+1}.
+\]
+末步由二项展开\(2^k\ge k+1\)得到。取正整数\(N>m+C/\varepsilon\)，当\(n>N\)时便有\(a^n/n!<\varepsilon\)。四问都直接给出了定义所需的误差保证。
+
+
+% ITEM: analysis-rationalized-increment
+\solutionitem{analysis-rationalized-increment}{例1.9}
+利用有理化建立误差上界，用定义证明\(\sqrt{n+1}-\sqrt n\to0\)，并对给定的\(\varepsilon>0\)写出一个可用的\(N\)。
+\solutionanswer
+先有理化，便能把差的大小化为分母的增长：
+\[
+0<\sqrt{n+1}-\sqrt n=\frac1{\sqrt{n+1}+\sqrt n}<\frac1{2\sqrt n}.
+\]
+给定\(\varepsilon>0\)，取正整数\(N>1/(4\varepsilon^2)\)。当\(n>N\)时，该差的绝对值小于\(\varepsilon\)，故依定义趋于零。
+
+
+% ITEM: analysis-convergence-discussion
+\solutionitem{analysis-convergence-discussion}{思考：收敛性质（1.4.2）}
+（1）设\(\left\{ a_{n} \right\}\)收敛，\(\left\{ b_{n} \right\}\)发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
+
+（2）设\(\left\{ a_{n} \right\} , \left\{ b_{n} \right\}\)均发散，问：数列\(\left\{ a_{n} + b_{n} \right\} , \left\{ a_{n} b_{n} \right\}\)的敛散性如何？
+
+（3）设\(a_{n} < b_{n} < c_{n} , n \in \mathbb{N}^{*}\)，若\(\lim_{n \to \infty} \left( c_{n} - a_{n} \right) = 0\)，问：数列\(b_{n}\)是否收敛？
+
+（4）找出下列运算中的错误：
+\begin{equation*}
+\begin{aligned}
+\lim_{n\to\infty}\left(\frac1{n+1}+\cdots+\frac1{2n}\right)
+&=\lim_{n\to\infty}\frac1{n+1}+\cdots+\lim_{n\to\infty}\frac1{2n}\\
+&=0+\cdots+0=0.
+\end{aligned}
+\end{equation*}
+
+（5）设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又对每一个\(n\)有\(b < a_{n} < c\)，问：是否成立\(b < a < c\)？
+
+（6）设已知\(\left\{ a_{n} \right\}\)收敛于\(a\)，又有\(b \le a \le c\)，问：是否有\(\exists N \in \mathbb{N}^{*} , \text{s.t.} \forall n > N , b \le a_{n} \le c\)成立？
+
+（7）设已知\(\lim_{n \to \infty} a_{n} = 0\)，问：是否有\(\lim_{n \to \infty} \left( a_{1} a_{2} \cdots a_{n} \right) = 0\)？反之如何？
+\solutionanswer
+（1）和必发散，否则由\(b_n=(a_n+b_n)-a_n\)得到\(b_n\)收敛，矛盾。积不确定：取\(a_n=0,b_n=(-1)^n\)，积收敛；取\(a_n=1,b_n=(-1)^n\)，积发散。若\(a_n\)的极限非零，则积必发散，否则由商的极限法则又会推出\(b_n\)收敛。
+
+（2）和、积都可能收敛，也可能发散。取\(a_n=(-1)^n,b_n=-(-1)^n\)，两列都发散，和恒为\(0\)，积恒为\(-1\)；取\(a_n=b_n=n\)，和、积都发散。
+
+（3）不一定。取\(a_n=(-1)^n,b_n=(-1)^n+1/(2n),c_n=(-1)^n+1/n\)，条件成立，但\(b_n\)的奇、偶子列分别趋于\(-1\)、\(1\)。夹缝变窄并不保证夹缝所在的位置趋于某个数。
+
+（4）有限和的极限法则适用于固定个数的数列。这里求和项数随\(n\)增加，不能逐项取极限后再相加。事实上，这\(n\)项都不小于\(1/(2n)\)，故和不小于\(1/2\)，不可能趋于零。
+
+（5）只能推出\(b\le a\le c\)。例如\(a_n=1/n\)满足\(0<a_n<2\)，极限却等于左端点\(0\)；取\(a_n=2-1/n\)则可达到右端点。
+
+（6）不一定。取\(a_n=a+1/n\)、\(b=a-1,c=a\)，则极限在\([b,c]\)内，但每项都大于\(c\)。若\(b<a<c\)，才可以用\(\varepsilon<\min\{a-b,c-a\}\)保证所有充分靠后的项进入区间。
+
+（7）正向成立。由\(a_n\to0\)，从某个\(N\)起有\(|a_n|\le1/2\)。记\(C=|a_1\cdots a_N|\)，则
+\[
+|a_1\cdots a_n|\le C\,2^{-(n-N)}\to0.
+\]
+反向不成立：取\(a_n=1/2\)，乘积为\(2^{-n}\to0\)，而\(a_n\)不趋于零。
+
+
+% ITEM: analysis-sequence-properties-applications
+\solutionitem{analysis-sequence-properties-applications}{例1.10}
+利用收敛数列的性质完成以下证明或计算：
+
+    （1）证明：若一数列收敛，则该数列必有最大值或最小值，但不一定同时有最大值和最小值。
+
+    （2）若\(\lim_{n \to \infty} \frac{x_{n} - a}{x_{n} + a} =
+    0\)，证明\(\lim_{n \to \infty} x_{n} = a\).
+
+    （3）设\(s_{n} = a + 3 a^{2} + \cdots + \left( 2 n - 1 \right) a^{n} , \left| a
+    \right| < 1\)，求\(\left\{ s_{n} \right\}\)的极限。
+
+    （4）求\(\lim_{n \to \infty} \prod _{i = 0}^{n} \left( 1 + x^{2^{i}}
+    \right)\)，其中\(\left| x \right| < 1\).
+\solutionanswer
+（1）设极限为\(l\)。若有一项\(a_k>l\)，则从某项起所有项都小于\(a_k\)，全列的最大值必在有限个前项中取得。若没有任何项大于\(l\)，则要么全列恒等于\(l\)，要么有一项小于\(l\)，同理可知最小值在有限个前项中取得。故至少有最大值或最小值。数列\(1/n\)有最大值\(1\)而没有最小值，说明不必同时存在。
+
+（2）设\(r_n=(x_n-a)/(x_n+a)\to0\)。整理得
+\[
+x_n=a\frac{1+r_n}{1-r_n},\qquad x_n-a=\frac{2ar_n}{1-r_n}\to0,
+\]
+因此\(x_n\to a\)。
+
+（3）先对有限和错位相减。令\(T_n=\sum_{k=1}^nka^k\)，则
+\[
+(1-a)T_n=\sum_{k=1}^na^k-na^{n+1}.
+\]
+由\(|a|<1\)及指数衰减的估计，\(a^n,na^n\to0\)，所以\(T_n\to a/(1-a)^2\)。又\(s_n=2T_n-\sum_{k=1}^na^k\)，故
+\[
+\lim s_n=\frac{2a}{(1-a)^2}-\frac a{1-a}=\frac{a(1+a)}{(1-a)^2}.
+\]
+
+（4）连续使用平方差恒等式，得
+\[
+(1-x)\prod_{i=0}^n(1+x^{2^i})=1-x^{2^{n+1}}.
+\]
+由\(|x|<1\)，右边趋于\(1\)，故所求极限为\(1/(1-x)\)。
+
+
+% ITEM: analysis-root-of-power-sum
+\solutionitem{analysis-root-of-power-sum}{例1.11}
+设\(a > 0 , b > 0\)，求极限\(\lim_{n \to \infty} {\left( a^{n} + b^{n} \right)}^{\frac{1}{n}}\).
+\solutionanswer
+令\(M=\max\{a,b\}\)。因为\(M^n\le a^n+b^n\le2M^n\)，所以
+\[
+M\le(a^n+b^n)^{1/n}\le2^{1/n}M.
+\]
+由\(2^{1/n}\to1\)及夹逼原理，所求极限为\(M\)。
+
+
+% ITEM: analysis-e-sequence-convergence
+\solutionitem{analysis-e-sequence-convergence}{例1.12}
+证明：若\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n}\)，\(n \ge 1\)，则数列\(\left\{ e_{n} \right\}\)收敛。
+\solutionanswer
+要使用单调有界原理，可以把二项展开写成便于逐项比较的形式：
+\[
+e_n=\sum_{k=0}^n\frac1{k!}\prod_{j=0}^{k-1}\left(1-\frac jn\right).
+\]
+当\(n\)增加时，已有各项中的非负因子都不减，又增加一个正项，故\(e_{n+1}>e_n\)。另一方面，\(k!\ge2^{k-1}\)（\(k\ge2\)），于是
+\[
+e_n\le\sum_{k=0}^n\frac1{k!}\le2+\sum_{k=2}^n\frac1{2^{k-1}}<3.
+\]
+因此\(\{e_n\}\)严格递增且有上界，必收敛。这里先证明极限存在，尚未预先使用常数\(e\)。
+
+
+% ITEM: analysis-cauchy-sine-and-subsequence
+\solutionitem{analysis-cauchy-sine-and-subsequence}{例1.13}
+（1）设\(a_{n} = \sum _{i = 1}^{n} \frac{\sin i}{i^{2}}\)，证明：\(\left\{ a_{n} \right\}\)收敛。
+
+    （2）证明：单调数列\(\left\{ a_{n} \right\}\)收敛的充要条件是它有一个收敛子列。
+\solutionanswer
+（1）当\(m>n\ge1\)时，
+\[
+|a_m-a_n|\le\sum_{k=n+1}^m\frac1{k^2}
+\le\sum_{k=n+1}^m\left(\frac1{k-1}-\frac1k\right)
+=\frac1n-\frac1m<\frac1n.
+\]
+该估计对任意\(m>n\)都有效，故数列满足Cauchy准则，从而收敛。
+
+（2）必要性由收敛数列的子列性质得到。反过来，设递增列有子列\(a_{n_k}\to L\)。对任意固定的\(n\)，充分大的\(k\)满足\(a_n\le a_{n_k}\)，令\(k\to\infty\)得\(a_n\le L\)。原数列递增有上界，因而收敛，且极限必为\(L\)。递减列的论证相同，只需把上界换成下界。
+
+
+% ITEM: analysis-harmonic-and-sine-divergence
+\solutionitem{analysis-harmonic-and-sine-divergence}{例1.14}
+完成以下证明：
+
+    （1）设\(S_{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} , n \in
+    \mathbb{N}^{*}\)，证明数列\(\left\{ S_{n} \right\}\)发散。
+
+    （2）证明数列\(\left\{ \sin n \right\}\)发散。
+\solutionanswer
+（1）把下标按倍增分组：
+\[
+S_{2^m}=1+\sum_{j=1}^m\sum_{k=2^{j-1}+1}^{2^j}\frac1k\ge1+\frac m2.
+\]
+因此部分和无界，数列发散。
+
+（2）若\(\sin n\to L\)，由加法公式
+\[
+\sin(n+1)+\sin(n-1)=2\cos1\sin n
+\]
+得\(2L=2\cos1\,L\)，故\(L=0\)。又
+\[
+\cos n=\frac{\sin(n+1)-\cos1\sin n}{\sin1}\to0,
+\]
+这与\(\sin^2n+\cos^2n=1\)矛盾。因此\(\{\sin n\}\)发散。
+
+
+% ITEM: analysis-squeeze-sum
+\solutionitem{analysis-squeeze-sum}{习题1.2（1）}
+用夹逼原理求\(\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\frac1{\sqrt{n^2+k}}\)。
+\solutionanswer
+每项都介于\(1/\sqrt{n^2+n}\)与\(1/\sqrt{n^2+1}\)之间，故
+\[
+\frac{n}{\sqrt{n^2+n}}\le\sum_{k=1}^n\frac1{\sqrt{n^2+k}}\le\frac{n}{\sqrt{n^2+1}}.
+\]
+两端都趋于\(1\)，由夹逼原理，所求极限为\(1\)。
+
+
+% ITEM: analysis-alternating-harmonic
+\solutionitem{analysis-alternating-harmonic}{习题1.2（2）}
+设\(a_n=\sum_{k=1}^{n}(-1)^{k-1}/k\)。考察奇、偶子列的单调性，证明\(\{a_n\}\)收敛。
+\solutionanswer
+有\(a_{2n+2}-a_{2n}=1/(2n+1)-1/(2n+2)>0\)，故偶子列递增；同理，奇子列递减。又\(a_{2n}<a_{2n+1}\)，两子列相互提供上下界，均收敛。由于\(a_{2n+1}-a_{2n}=1/(2n+1)\to0\)，两极限相同，故原数列收敛。
+
+
+% ITEM: analysis-cauchy-increments
+\solutionitem{analysis-cauchy-increments}{习题1.2（3）}
+若\(|a_{n+1}-a_n|\le2^{-n}\)，证明\(\{a_n\}\)收敛。若只知\(a_{n+1}-a_n\to0\)，能否得到同一结论？
+\solutionanswer
+对任意\(m>n\)，累加相邻差并估计得
+\[
+|a_m-a_n|\le\sum_{k=n}^{m-1}2^{-k}<2^{1-n}.
+\]
+右边能任意小，故由Cauchy准则知数列收敛。仅有相邻差趋于零不能保证收敛：调和部分和\(a_n=\sum_{k=1}^n1/k\)就是反例。
+\par

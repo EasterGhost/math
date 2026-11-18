@@ -1,0 +1,20 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{基本初等函数}
+
+\label{sol:sec:functions:3}
+
+% ITEM: functions-irrational-powers
+\solutionitem{functions-irrational-powers}{思考：无理数次幂的定义（2.3.3）}
+无理数次幂是如何定义的？
+\solutionanswer
+先设\(a>1\)，无理指数为\(\alpha\)。取有理数列\(r_n\uparrow\alpha\)、\(s_n\downarrow\alpha\)。有理数次幂已经定义，且随指数增加而增加，因此\(a^{r_n}\)递增、有上界\(a^{s_1}\)，\(a^{s_n}\)递减、有正下界\(a^{r_1}\)，两列都有正极限。
+
+还须证明上下逼近确定的是同一个数。对任意正整数\(k\)，充分大的\(n\)满足\(0<s_n-r_n<1/k\)，从而
+\[
+1\le\frac{a^{s_n}}{a^{r_n}}=a^{s_n-r_n}\le a^{1/k}.
+\]
+由Bernoulli不等式，\(0<a^{1/k}-1\le(a-1)/k\)，所以\(a^{1/k}\to1\)。在上述估计中先让\(n\to\infty\)，再让\(k\to\infty\)，两极限之比只能为\(1\)。将这个共同极限定义为\(a^\alpha\)。任意有理下逼近的幂都不超过任意有理上逼近的幂，故换用其他逼近数列仍得到同一极限。
+
+\(0<a<1\)时，定义\(a^\alpha=(1/a)^{-\alpha}\)；\(a=1\)时取\(1\)。这样从有理指数扩充到实数指数，原有的幂运算律也可通过相应的有理逼近与极限传递下来。
+\par

@@ -1,0 +1,283 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{微分方程}
+
+% ITEM: calculus-example-086
+\solutionitem{calculus-example-086}{例5.86}
+验证\(y=t-1+Ce^{-t}\)满足\(y'=t-y\)，再求其中满足\(y(0)=2\)的解。根据方程判断解的图像在直线\(y=t\)的上、下方分别怎样变化。
+\solutionanswer
+\(y'=1-Ce^{-t}=t-y\)，故整族函数满足方程。初值要求\(-1+C=2\)，即\(C=3\)。由方程，在\(y=t\)上方斜率为负、下方斜率为正、直线上为零；这描述当前位置的变化方向，而不直接给出下一时刻的位置。
+
+
+% ITEM: calculus-exercise-61-01
+\solutionitem{calculus-exercise-61-01}{习题5.61（1）}
+验证\(y=\tan(t+C)\)满足\(y'=1+y^2\)。求其中满足\(y(0)=0\)的解，并写出包含零点、使此解有定义的最大区间。
+\solutionanswer
+\(y'=\sec^2(t+C)=1+y^2\)。初值\(\tan C=0\)，解可统一写为\(y=\tan t\)。含零点的最大定义区间为\((-\pi/2,\pi/2)\)。
+
+
+% ITEM: calculus-exercise-61-02
+\solutionitem{calculus-exercise-61-02}{习题5.61（2）}
+某种群满足\(P'=kP\)、\(P(0)=P_0>0\)，经过\(3\)个时间单位数量翻倍。求\(k\)，并求数量达到\(3P_0\)所需的时间。
+\solutionanswer
+\(P=P_0e^{kt}\)，翻倍给\(e^{3k}=2\)，所以\(k=\ln2/3\)。达到三倍所需时间\(3\ln3/\ln2\)。
+
+
+% ITEM: calculus-exercise-61-03
+\solutionitem{calculus-exercise-61-03}{习题5.61（3）}
+对方程\(y'=y(2-y)\)，求平衡解，并按\(y\)的取值判断解的增减。若只知道\(y(0)=1\)，能否由当前斜率直接断定\(y(1)=2\)？
+\solutionanswer
+平衡解为\(y=0,2\)。\(y<0\)或\(y>2\)时下降，\(0<y<2\)时上升。\(y(0)=1\)只给当前斜率\(1\)，不能将它在整个单位时间内保持不变而断言\(y(1)=2\)；真实增长斜率随数量改变。
+
+
+% ITEM: calculus-example-087
+\solutionitem{calculus-example-087}{例5.87}
+环境温度恒为\(20\)，物体温度\(T\)满足\(T'=-k(T-20)\)、\(k>0\)。已知\(T(0)=80\)、\(T(10)=50\)，求温度函数及降到\(35\)所需的时间，并解释它为什么持续下降却不会在有限时间内达到环境温度。
+\solutionanswer
+分离变量得\(T-20=Ce^{-kt}\)。由初值得\(C=60\)，再由\(T(10)=50\)得\(k=\ln2/10\)。所以\(T(t)=20+60\,2^{-t/10}\)。降到\(35\)需\(2^{-t/10}=1/4\)，即\(t=20\)。任意有限时间内指数因子严格为正，所以始终高于\(20\)，只在无穷远趋近环境温度。
+
+
+% ITEM: calculus-exercise-62-01
+\solutionitem{calculus-exercise-62-01}{习题5.62（1）}
+求初值问题\(y'=2t(1+y^2)\)、\(y(0)=0\)的解，并确定包含零点的最大解区间。
+\solutionanswer
+分离后\(\arctan y=t^2\)，所以\(y=\tan(t^2)\)。含零点的最大区间为\((-\sqrt{\pi/2},\sqrt{\pi/2})\)，两端达到正切函数的极点。
+
+
+% ITEM: calculus-exercise-62-02
+\solutionitem{calculus-exercise-62-02}{习题5.62（2）}
+求\(y'=y^2\)、\(y(0)=1\)的解及包含零点的最大解区间。再求平衡解，比较它们随时间的变化。
+\solutionanswer
+\(-1/y=t+C\)，初值得\(y=1/(1-t)\)，最大区间\((-\infty,1)\)。平衡解为\(y=0\)。前者随时间增大并在\(1^-\)趋正无穷，后者始终不变。
+
+
+% ITEM: calculus-exercise-62-03
+\solutionitem{calculus-exercise-62-03}{习题5.62（3）}
+正文的Logistic模型取\(k,K>0\)，\(0<y_0<K\)。
+设\(y\)由式\textup{(5.62)}给出。求\(y''\)，判断增长速度在哪个数量水平最大，并讨论图像的凸性。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+y(t)=\frac{K}{1+(K/y_0-1)e^{-kt}}.
+\end{equation*}
+\solutionanswer
+对\(y'=ky(1-y/K)\)再求导，\(y''=k^2y(1-y/K)(1-2y/K)\)。在\(0<y<K\)的增长过程中，\(y<K/2\)时凸，\(y>K/2\)时凹，在\(y=K/2\)处增长速度最大，为\(kK/4\)。若初值已经超过\(K/2\)，则从初始时刻起速度就逐渐减小。
+
+
+% ITEM: calculus-exercise-62-04
+\solutionitem{calculus-exercise-62-04}{习题5.62（4）}
+对\(y'=ky(1-y/K)\)，设\(K/2<y_0<K\)。求达到\((y_0+K)/2\)所需的时间，再与从\(y_0\)增长到\(2y_0\)的要求比较，说明容量限制的作用。
+\solutionanswer
+由\(y/(K-y)=[y_0/(K-y_0)]e^{kt}\)，令\(y=(y_0+K)/2\)，得\(t=k^{-1}\ln[(K+y_0)/y_0]\)。因为\(2y_0>K\)，解始终低于\(K\)，不可能增长到\(2y_0\)。达到剩余容量的一半可行，直接翻倍则违反容量限制。
+
+
+% ITEM: calculus-example-088
+\solutionitem{calculus-example-088}{例5.88}
+容器内原有\(100\)升清水，每分钟流入\(2\)升浓度为\(3\)克/升的盐水，同时流出\(2\)升充分混合的溶液。设\(m(t)\)为\(t\)分钟后的盐量，建立初值问题，求\(m(t)\)，并判断盐量是否能在有限时间内达到\(300\)克。
+\solutionanswer
+体积恒为\(100\)升，流入盐量每分钟\(6\)克，流出每分钟\(2m/100=m/50\)克。初值问题\(m'+m/50=6,m(0)=0\)。乘积分因子\(e^{t/50}\)后积分得\(m=300(1-e^{-t/50})\)，有限时间始终小于\(300\)，只趋近该平衡值。
+
+
+% ITEM: calculus-exercise-63-01
+\solutionitem{calculus-exercise-63-01}{习题5.63（1）}
+求\(y'+2y=e^t\)、\(y(0)=0\)的解。
+\solutionanswer
+乘\(e^{2t}\)得\((e^{2t}y)'=e^{3t}\)，积分并用初值得\(y=(e^t-e^{-2t})/3\)。
+
+
+% ITEM: calculus-exercise-63-02
+\solutionitem{calculus-exercise-63-02}{习题5.63（2）}
+求\(ty'+y=t^2\)、\(y(1)=0\)在\(t>0\)上的解，比较直接辨认乘积导数与使用积分因子的计算。
+\solutionanswer
+左边就是\((ty)'\)，故\(ty=t^3/3+C\)。由\(y(1)=0\)得\(y=t^2/3-1/(3t)\)。若先除以\(t\)，积分因子为\(e^{\int dt/t}=t\)，运算完全相同。
+
+
+% ITEM: calculus-exercise-63-03
+\solutionitem{calculus-exercise-63-03}{习题5.63（3）}
+求\(y'-2ty=2t\)、\(y(0)=1\)的解，并研究它的最小值及图像的对称性。
+\solutionanswer
+乘\(e^{-t^2}\)，得\((e^{-t^2}y)'=2te^{-t^2}=-(e^{-t^2})'\)。所以\(y=2e^{t^2}-1\)。这是偶函数，在\(t=0\)取唯一最小值\(1\)。
+
+
+% ITEM: calculus-exercise-63-04
+\solutionitem{calculus-exercise-63-04}{习题5.63（4）}
+设\(p,q\)在\([0,T]\)上连续，且\(q\ge0\)。利用式\textup{(5.64)}证明，\(y_0\ge0\)时，解在整个区间上非负；若\(y_0>0\)，则始终为正。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+y(t)=e^{-P(t)}\left(y_0+\int_{t_0}^t e^{P(s)}q(s)\,ds\right).
+\end{equation*}
+\solutionanswer
+令\(\mu(t)=e^{\int_0^tp(s)ds}>0\)，解为\(y=\mu^{-1}[y_0+\int_0^t\mu(s)q(s)ds]\)。方括号非负，故\(y\ge0\)；\(y_0>0\)时方括号严格为正，因此始终正。
+
+
+% ITEM: calculus-exercise-63-05
+\solutionitem{calculus-exercise-63-05}{习题5.63（5）}
+设\(f\)连续且满足\(f(x)=1+\int_0^x(2t-f(t))\,dt\)。求\(f\)、它在\([0,2]\)上的最小值及\(\int_0^2 f(x)\,dx\)。从原式说明\(f\)为什么可导。
+\solutionanswer
+连续性使右侧累积函数可导，故\(f'=2x-f,f(0)=1\)。积分因子\(e^x\)给出\(f=2x-2+3e^{-x}\)。\(f'=2-3e^{-x}\)在\(\ln(3/2)\)由负变正，最小值\(2\ln(3/2)\)。最后\(\int_0^2f=3(1-e^{-2})\)。
+
+
+% ITEM: calculus-example-089
+\solutionitem{calculus-example-089}{例5.89}
+分别求下列初值问题的解，比较特征根与图像变化的关系：
+\begin{equation*}
+ \begin{aligned}
+ &y''-3y'+2y=0,&&y(0)=1,\quad y'(0)=0;\\
+ &y''+2y'+y=0,&&y(0)=0,\quad y'(0)=1;\\
+ &y''+2y'+5y=0,&&y(0)=1,\quad y'(0)=-1.
+ \end{aligned}
+\end{equation*}
+\solutionanswer
+三个特征方程分别有根\(1,2\)，重根\(-1\)，共轭根\(-1\pm2i\)。代入初值得
+\[
+ y=2e^t-e^{2t},\qquad y=te^{-t},\qquad y=e^{-t}\cos2t.
+\]
+第一解在\(t>0\)下降并趋负无穷，第二解先增后减且趋零，第三解作振幅衰减的振荡。实部影响增长衰减，非零虚部给出振荡。
+
+
+% ITEM: calculus-example-090
+\solutionitem{calculus-example-090}{例5.90}
+求\(y''+y=\sin t\)、\(y(0)=y'(0)=0\)的解。先尝试\(y_p=A\cos t+B\sin t\)，再尝试\(y_p=Ct\cos t\)，比较两次代入的结果，并判断解在\(t\ge0\)时是否有界。
+\solutionanswer
+\(A\cos t+B\sin t\)代入左侧恒为零，无法产生\(\sin t\)。而\((Ct\cos t)''+Ct\cos t=-2C\sin t\)，故取\(C=-1/2\)。通解\(A\cos t+B\sin t-t\cos t/2\)，初值给\(A=0,B=1/2\)，所以\(y=(\sin t-t\cos t)/2\)。在\(t=2n\pi\)有\(y=-n\pi\)，故无界，这是与齐次振荡同频率的持续输入。
+
+
+% ITEM: calculus-exercise-64-01
+\solutionitem{calculus-exercise-64-01}{习题5.64（1）}
+分别求\(y''-4y=0\)、\(y''-4y'+4y=0\)、\(y''+4y=0\)的通解，说明它们的特征根怎样决定解的形式。
+\solutionanswer
+依次为\(C_1e^{2t}+C_2e^{-2t}\)、\((C_1+C_2t)e^{2t}\)、\(C_1\cos2t+C_2\sin2t\)。分别来自不同实根\(\pm2\)、重根\(2\)、共轭纯虚根\(\pm2i\)。
+
+
+% ITEM: calculus-exercise-64-02
+\solutionitem{calculus-exercise-64-02}{习题5.64（2）}
+求\(y''+4y=0\)、\(y(0)=1\)、\(y'(0)=2\)的解、振幅及最小正周期。证明\((y')^2+4y^2\)为常数，并由它核对振幅。
+\solutionanswer
+\(y=\cos2t+\sin2t=\sqrt2\cos(2t-\pi/4)\)，振幅\(\sqrt2\)，最小正周期\(\pi\)。\([(y')^2+4y^2]'=2y'(y''+4y)=0\)，初值给常数\(8\)。在位移极值处\(y'=0\)，得\(|y|=\sqrt2\)，与振幅相合。
+
+
+% ITEM: calculus-exercise-64-03
+\solutionitem{calculus-exercise-64-03}{习题5.64（3）}
+求\(y''+3y'+2y=2\)、\(y(0)=y'(0)=0\)的解，研究它在\(t\ge0\)上的增减与极限。
+\solutionanswer
+常值特解为\(1\)，齐次根\(-1,-2\)。初值得\(y=1-2e^{-t}+e^{-2t}=(1-e^{-t})^2\)。\(t>0\)时导数\(2e^{-t}(1-e^{-t})>0\)，从\(0\)严格增至极限\(1\)。
+
+
+% ITEM: calculus-exercise-64-04
+\solutionitem{calculus-exercise-64-04}{习题5.64（4）}
+分别为\(y''-y=t\)与\(y''-y=e^t\)寻找特解，再写出通解。比较两题中选择试设表达式的依据。
+\solutionanswer
+第一题可取\(y_p=-t\)，通解\(C_1e^t+C_2e^{-t}-t\)。第二题\(e^t\)已是齐次解，须乘\(t\)，取\(y_p=te^t/2\)，通解\(C_1e^t+C_2e^{-t}+te^t/2\)。试设既要匹配右端类型，又要避免被齐次算子消去。
+
+
+% ITEM: calculus-exercise-64-05
+\solutionitem{calculus-exercise-64-05}{习题5.64（5）}
+求\(y''-2y'+y=e^t\)的通解。比较试设\(Be^t\)、\(Bte^t\)、\(Bt^2e^t\)时的结果，说明重根怎样影响特解的选择。
+\solutionanswer
+设\(y=e^tu\)，则\(y''-2y'+y=e^tu''\)，故\(u''=1\)。通解\(y=e^t(C_1+C_2t+t^2/2)\)。试设\(Be^t,Bte^t\)时左侧均零，\(Bt^2e^t\)时为\(2Be^t\)，所以取\(B=1/2\)。重根需要再多乘一个\(t\)。
+
+
+% ITEM: calculus-example-091
+\solutionitem{calculus-example-091}{例5.91}
+用Euler方法近似\(y'=t-y\)、\(y(0)=1\)在\(t=1\)处的解，分别取\(h=1/2\)与\(h=1/4\)。再求精确解，比较误差，并画出两条近似折线。
+\solutionanswer
+递推为\(Y_{n+1}=Y_n+h(t_n-Y_n)\)，\(Y_0=1\)。\(h=1/2\)的节点值为\(1,1/2,1/2\)；\(h=1/4\)为\(1,3/4,5/8,19/32,81/128\)。精确解\(y=t-1+2e^{-t}\)，终点值\(2/e\)，两种终点绝对误差约为\(0.235759,0.102946\)。折线如下；每一步斜率使用当前网格点和当前近似值。
+\begin{center}\begin{tikzpicture}[x=5cm,y=2.8cm]
+\draw[->](0,0)--(1.1,0)node[right]{$t$};\draw[->](0,0)--(0,1.12)node[above]{$y$};\draw(-.015,.5)--(.015,.5)node[left=3pt]{$1/2$};\draw(-.015,1)--(.015,1)node[left=3pt]{$1$};
+\draw[dashed,domain=0:1,samples=60]plot(\x,{\x-1+2*exp(-\x)});
+\draw[thick](0,1)--(.5,.5)--(1,.5)node[right]{$h=1/2$};
+\draw[thick,dotted](0,1)--(.25,.75)--(.5,.625)--(.75,.59375)--(1,.6328125)node[right]{$h=1/4$};
+\node[below]at(1,0){$1$};
+\end{tikzpicture}\end{center}
+
+
+% ITEM: calculus-exercise-65-01
+\solutionitem{calculus-exercise-65-01}{习题5.65（1）}
+对\(y'=y\)、\(y(0)=1\)，计算\(h=1,1/2,1/4\)时在\(t=1\)处的近似值。利用\(e^t\)的凸性解释折线为什么位于精确解下方。
+\solutionanswer
+Euler值为\((1+h)^{1/h}\)，三种步长依次给\(2,9/4,625/256\)，均小于\(e\)。凸性保证\(e^{t+h}>e^t+he^t\)；若当前近似已偏小，下一次的正系数\(1+h\)递推也保持偏小。折线段内同样可用切线不等式比较，故整条折线在精确曲线下方。
+
+
+% ITEM: calculus-exercise-65-02
+\solutionitem{calculus-exercise-65-02}{习题5.65（2）}
+设\(y'=-ky\)、\(y(0)=1\)、\(k>0\)。写出Euler递推的通项，求使所有近似值非负且单调不增的步长范围。再比较\(h=1/(2k)\)与\(h=3/(2k)\)时的变化。
+\solutionanswer
+\(Y_n=(1-kh)^n\)。全部非负且不增的正步长范围为\(0<h\le1/k\)。\(h=1/(2k)\)时为\(2^{-n}\)，稳定递减；\(h=3/(2k)\)时为\((-1/2)^n\)，交替变号，虽趋零却失去了精确解的非负性。
+
+
+% ITEM: calculus-exercise-65-03
+\solutionitem{calculus-exercise-65-03}{习题5.65（3）}
+对\(y'=1+t^2\)、\(y(0)=0\)，把\([0,1]\)等分为\(N\)段。写出终点近似值，说明它与左端点矩形求积的关系，并估计误差。
+\solutionanswer
+\(Y_N=N^{-1}\sum_{j=0}^{N-1}[1+(j/N)^2]=4/3-1/(2N)+1/(6N^2)\)。这是递增函数\(1+t^2\)的左端点矩形和，真实值\(4/3\)，误差\(1/(2N)-1/(6N^2)<1/(2N)\)。仅用左右和还可先给较粗的\(1/N\)界。
+
+
+% ITEM: calculus-exercise-65-04
+\solutionitem{calculus-exercise-65-04}{习题5.65（4）}
+本题递推为\(Y_{n+1}=Y_n+hV_n\)、\(V_{n+1}=V_n-hY_n\)，初值\(Y_0=1,V_0=0\)。
+对\(y''+y=0\)、\(y(0)=1\)、\(y'(0)=0\)使用上述递推。证明\(Y_n^2+V_n^2=(1+h^2)^n\)，并与精确解的\(y^2+(y')^2=1\)比较。
+\solutionanswer
+递推为\(Y_{n+1}=Y_n+hV_n,V_{n+1}=V_n-hY_n\)，初值\((1,0)\)。平方相加使交叉项抵消，得\(Y_{n+1}^2+V_{n+1}^2=(1+h^2)(Y_n^2+V_n^2)\)，归纳即所求。精确解的该量恒为\(1\)，而固定步长递推不断增大，说明局部斜率近似不自动保持整体守恒量。
+
+
+% ITEM: calculus-exercise-66-01
+\solutionitem{calculus-exercise-66-01}{习题5.66（1） *}
+初始时刻取\(0\)。对\(L_2=(D-\mathrm{Id})^2\)，写出零初值下的逆运算\(G\)。利用分部积分证明\((Gf)(t)=e^tI^2(e^{-t}f(t))\)，其中\((Ig)(t)=\int_0^t g(s)\,ds\)。再取\(f(t)=e^t\)，核对重根情形的特解。
+\solutionanswer
+重根的基本响应为\(S(t)=te^t\)，故\((Gf)(t)=\int_0^t(t-s)e^{t-s}f(s)ds\)。对\(g=e^{-t}f\)，分部可得\(I^2g=t(Ig)(t)-\int_0^tsg(s)ds=\int_0^t(t-s)g(s)ds\)，所以\(Gf=e^tI^2(e^{-t}f)\)。取\(f=e^t\)，得\(Gf=t^2e^t/2\)，恰为零初值的重根特解。
+
+
+% ITEM: calculus-exercise-66-02
+\solutionitem{calculus-exercise-66-02}{习题5.66（2） *}
+设\(p,q\)一阶连续可导。分别计算\((D-M_p)(D-M_q)u\)与\((D-M_q)(D-M_p)u\)，求它们的差，并判断这两个运算何时可以交换。
+\solutionanswer
+前者为\(u''-(p+q)u'+(pq-q')u\)，后者为\(u''-(p+q)u'+(pq-p')u\)，相减得\((p'-q')u\)。所以在整个区间内可交换当且仅当\(p'=q'\)，即\(p-q\)为常数。
+
+
+% ITEM: calculus-exercise-66-03
+\solutionitem{calculus-exercise-66-03}{习题5.66（3） *}
+设\(\omega,\nu>0\)。用\(G\)求\(y''+\omega^2y=\sin\nu t\)、\(y(0)=y'(0)=0\)的解，比较\(\nu\ne\omega\)与\(\nu=\omega\)时解的有界性，解释相同频率的持续输入怎样改变运动。
+\solutionanswer
+\(Gf=\omega^{-1}\int_0^t\sin[\omega(t-s)]\sin\nu s\,ds\)。展开三角函数并积分，\(\nu\ne\omega\)时
+\(y=[\sin\nu t-(\nu/\omega)\sin\omega t]/(\omega^2-\nu^2)\)，有界。\(\nu=\omega\)时\(y=\sin\omega t/(2\omega^2)-t\cos\omega t/(2\omega)\)，无界。同频输入使某一相位的贡献持续累积，产生线性增长的振幅。
+
+
+% ITEM: calculus-exercise-67-01
+\solutionitem{calculus-exercise-67-01}{习题5.67（1） *}
+对\(y'=2ty\)、\(y(0)=1\)，从\(u_0=1\)出发作逐次积分。证明\(u_n(t)=\sum_{j=0}^nt^{2j}/j!\)，并在\([0,T]\)上给出它逼近精确解的统一误差界。
+\solutionanswer
+若\(u_n=\sum_{j=0}^nt^{2j}/j!\)，则\(u_{n+1}=1+\int_0^t2su_n(s)ds=\sum_{j=0}^{n+1}t^{2j}/j!\)。初值\(u_0=1\)启动归纳。精确解\(e^{t^2}\)，在\([0,T]\)由指数Taylor余项得统一界\(\|u_n-e^{t^2}\|_\infty\le e^{T^2}T^{2n+2}/(n+1)!\to0\)。
+
+
+% ITEM: calculus-exercise-67-02
+\solutionitem{calculus-exercise-67-02}{习题5.67（2） *}
+若连续函数\(F\)满足\(|F(t,u)-F(t,v)|\le L|u-v|\)，仿照正文的反复积分估计，证明\([0,T]\)上具有相同初值的两个解相同。指出每次积分怎样产生新的阶乘因子。
+\solutionanswer
+设两解为\(u,v\)，\(\delta=\max_{[0,T]}|u-v|\)。由相同初值及积分关系，\(|u(t)-v(t)|\le L\int_0^t|u-v|\)。反复代入得到\(|u(t)-v(t)|\le\delta L^nt^n/n!\le\delta(LT)^n/n!\to0\)。每次积分把\(s^{n-1}/(n-1)!\)变成\(t^n/n!\)，故出现阶乘并迫使差为零。
+
+
+% ITEM: calculus-exercise-67-03
+\solutionitem{calculus-exercise-67-03}{习题5.67（3） *}
+对\(y'=2\sqrt{|y|}\)、\(y(0)=0\)，验证任意\(c\ge0\)都给出一个解：\(t\le c\)时取零，\(t>c\)时取\((t-c)^2\)。若从零函数开始逐次积分，会得到哪个解？比较本题的\(F\)与第（2）题的条件。
+\solutionanswer
+在\(t<c\)两边均零；在\(t>c\)，导数为\(2(t-c)=2\sqrt{|y|}\)；在拼接处左右导数均零，初值也成立。从零函数开始的逐次积分永远得到零函数。\(F(y)=2\sqrt{|y|}\)在零点附近没有有限的统一变化常数，因为\(|F(y)-F(0)|/|y|=2/\sqrt{|y|}\to\infty\)，所以不满足上一题的唯一性条件。
+
+
+% ITEM: calculus-example-092
+\solutionitem{calculus-example-092}{例5.92 *}
+正文的Euler误差估计为\(E_n\le\frac{Mh}{2L}(e^{L(T-t_0)}-1)\)，其中\(|y^{\prime\prime}|\le M\)，且\(|F(t,u)-F(t,v)|\le L|u-v|\)。
+
+对\(y'=-y\)、\(y(0)=1\)，用上述估计确定一个步长，使\([0,1]\)上所有网格点的误差都小于\(10^{-2}\)。再由\(Y_n=(1-h)^n\)直接比较，判断一般误差界是否给出了必要的步长要求。
+\solutionanswer
+精确解\(e^{-t}\)给出\(M=1\)，右端对未知量的变化常数\(L=1\)。一般界为\(E_n\le h(e-1)/2\)，所以取\(h=1/86\)可使所有网格误差小于\(10^{-2}\)。这不是必要条件：对\(0<h<1\)，\(e^{-h}-(1-h)\le h^2/2\)，直接比较两列得\(E_{n+1}\le(1-h)E_n+h^2/2\)，从而\(E_n\le(h/2)[1-(1-h)^n]<h/2\)。因此\(h=1/50\)也已经足够，虽不满足前一个一般界的要求。
+
+
+% ITEM: calculus-exercise-68-01
+\solutionitem{calculus-exercise-68-01}{习题5.68 *}
+正文的Euler误差估计为\(E_n\le\frac{Mh}{2L}(e^{L(T-t_0)}-1)\)，其中\(|y^{\prime\prime}|\le M\)，且\(|F(t,u)-F(t,v)|\le L|u-v|\)。
+
+对例5.91，用Euler误差估计选择步长，再与实际误差比较。
+\solutionanswer
+对例5.91，精确解\(y=t-1+2e^{-t}\)，在\([0,1]\)可取\(M=2,L=1\)，故统一误差界\(E_n\le h(e-1)\)。例如要使所有网格误差小于\(10^{-2}\)，可取\(h=1/200\)。直接递推还可得\(Y_n=t_n-1+2(1-h)^n\)，所以终点实际误差为\(2[e^{-1}-(199/200)^{200}]\)，约\(0.00184\)，小于一般界约\(0.00859\)。正文的\(h=1/2,1/4\)对应实际误差约\(0.23576,0.10295\)，一般界约\(0.85914,0.42957\)，也都偏宽。
+\par

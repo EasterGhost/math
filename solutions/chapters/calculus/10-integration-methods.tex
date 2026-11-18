@@ -1,0 +1,365 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{积分的计算}
+
+% ITEM: calculus-example-062
+\solutionitem{calculus-example-062}{例5.62}
+求\(\int(3x^2-2\cos x+1/x)\,dx\)。再求满足\(F'(x)=2x+e^x\)、\(F(0)=3\)的函数\(F\)，说明初值怎样确定常数。
+若另要求\(F(1)=5\)，这些条件能否同时满足？
+再求\(\int(x+1)^2\,dx\)与\(\int(1+x^2)^{-1}\,dx\)，比较先作代数展开与直接识别基本公式的选择。
+\solutionanswer
+第一个结果为\(x^3-2\sin x+\ln|x|+C\)。由\(F'=2x+e^x\)，\(F=x^2+e^x+C\)，初值给出\(C=2\)，所以\(F(1)=e+3\ne5\)，附加条件不能同时满足。另有\(\int(x+1)^2dx=x^3/3+x^2+x+C\)，\(\int(1+x^2)^{-1}dx=\arctan x+C\)。前者可先展开，后者可直接识别反三角函数导数。
+
+
+% ITEM: calculus-example-063
+\solutionitem{calculus-example-063}{例5.63}
+计算\(\int_0^1 2x e^{x^2}\,dx\)、\(\int_0^1 dx/(1+x)^2\)及\(\int_{-\pi/2}^{\pi/2}\cos^2t\,dt\)。再用\(x=R\sin t\)计算\(\int_{-R}^R\sqrt{R^2-x^2}\,dx\)，与半圆面积比较。
+\solutionanswer
+第一式令\(u=x^2\)，得\(\int_0^1e^u du=e-1\)。第二式令\(u=1+x\)，得\(\int_1^2u^{-2}du=1/2\)。第三式用\(\cos^2t=(1+\cos2t)/2\)，得\(\pi/2\)。最后令\(x=R\sin t\)，\(-\pi/2\le t\le\pi/2\)，根式为\(R\cos t\)、\(dx=R\cos t\,dt\)，故积分\(R^2\int_{-\pi/2}^{\pi/2}\cos^2t\,dt=\pi R^2/2\)，与半圆面积一致。
+
+
+% ITEM: calculus-exercise-38-01
+\solutionitem{calculus-exercise-38-01}{习题5.38（1）}
+求\(\int x/(1+x^2)\,dx\)、\(\int e^{2x+1}\,dx\)和\(\int\cos x/(1+\sin^2x)\,dx\)。
+\solutionanswer
+分别令\(u=1+x^2,2x+1,\sin x\)，得到\(\frac12\ln(1+x^2)+C\)、\(\frac12e^{2x+1}+C\)、\(\arctan(\sin x)+C\)。
+
+
+% ITEM: calculus-exercise-38-02
+\solutionitem{calculus-exercise-38-02}{习题5.38（2）}
+计算\(\int_0^\pi f(\sin t)\cos t\,dt\)，其中\(f\)在\([0,1]\)上连续。解释结果与参数往返的关系。
+\solutionanswer
+在\(\pi/2\)拆分，令\(u=\sin t\)，得到\(\int_0^1f(u)du+\int_1^0f(u)du=0\)。参数先从\(0\)走到\(1\)，再返回\(0\)，两个有向累积相互抵消。
+
+
+% ITEM: calculus-exercise-38-03
+\solutionitem{calculus-exercise-38-03}{习题5.38（3）}
+在\(\int_1^e(\ln x)^2/x\,dx\)中令\(u=\ln x\)，写出新积分的上下限并计算。
+\solutionanswer
+新上下限为\(0,1\)，积分化为\(\int_0^1u^2du=1/3\)。
+
+
+% ITEM: calculus-exercise-38-04
+\solutionitem{calculus-exercise-38-04}{习题5.38（4）}
+求\(\int(\sqrt{x}+1/\sqrt{x})\,dx\)，其中\(x>0\)。再求满足\(F'(x)=3x^2-2x+1\)、\(F(1)=0\)的原函数，说明两问中积分常数的作用。
+\solutionanswer
+第一式为\(2x^{3/2}/3+2\sqrt x+C\)。第二式\(F=x^3-x^2+x+C\)，由\(F(1)=0\)得\(C=-1\)。不定积分保留任意常数，指定一个初值后常数唯一确定。
+
+
+% ITEM: calculus-exercise-38-05
+\solutionitem{calculus-exercise-38-05}{习题5.38（5）}
+计算\(\int x\sqrt{1+x^2}\,dx\)与\(\int_0^1x/(1+x^2)^2\,dx\)，指出所选中间变量及对应微分。
+\solutionanswer
+均令\(u=1+x^2\)，\(du=2x\,dx\)。第一式为\((1+x^2)^{3/2}/3+C\)；第二式为\(\tfrac12\int_1^2u^{-2}du=1/4\)。
+
+
+% ITEM: calculus-exercise-38-06
+\solutionitem{calculus-exercise-38-06}{习题5.38（6）}
+计算\(\int_1^e dx/[x(1+\ln^2x)]\)与\(\int_0^{\pi/4}\tan x\,dx\)，说明所选的中间变量。
+\solutionanswer
+第一式令\(u=\ln x\)，化为\(\int_0^1du/(1+u^2)=\pi/4\)。第二式令\(u=\cos x\)，得到\(-\int_1^{1/\sqrt2}du/u=\frac12\ln2\)。
+
+
+% ITEM: calculus-example-064
+\solutionitem{calculus-example-064}{例5.64}
+求\(\int\ln x\,dx\)、\(\int x\sin x\,dx\)及\(\int_0^1 x^2e^x\,dx\)。再计算\(\int e^x\cos x\,dx\)，观察两次分部后原积分如何重新出现。
+\solutionanswer
+分部积分依次给出
+\[
+ \int\ln x\,dx=x\ln x-x+C,\quad
+ \int x\sin x\,dx=-x\cos x+\sin x+C.
+\]
+\(\int x^2e^x dx=e^x(x^2-2x+2)+C\)，代入两端得\(e-2\)。设\(I=\int e^x\cos x\,dx\)，两次分部得\(I=e^x\cos x+e^x\sin x-I\)，所以\(I=e^x(\sin x+\cos x)/2+C\)。这里等式按原函数相差常数理解。
+
+
+% ITEM: calculus-exercise-39-01
+\solutionitem{calculus-exercise-39-01}{习题5.39（1）}
+计算\(\int_0^1x\arctan x\,dx\)及\(\int_1^e x\ln x\,dx\)。
+\solutionanswer
+第一式分部为\([x^2\arctan x/2]_0^1-\frac12\int_0^1x^2/(1+x^2)dx=\pi/4-1/2\)。第二式为\([x^2\ln x/2-x^2/4]_1^e=(e^2+1)/4\)。
+
+
+% ITEM: calculus-exercise-39-02
+\solutionitem{calculus-exercise-39-02}{习题5.39（2）}
+记\(J_n=\int_0^1x^ne^x\,dx\)。建立\(J_n\)与\(J_{n-1}\)的关系，并求\(J_3\)。
+\solutionanswer
+对\(n\ge1\)，分部得\(J_n=e-nJ_{n-1}\)，且\(J_0=e-1\)。于是\(J_1=1,J_2=e-2,J_3=6-2e\)。
+
+
+% ITEM: calculus-exercise-39-03
+\solutionitem{calculus-exercise-39-03}{习题5.39（3）}
+设\(F'=f\)、\(F(0)=0\)。证明\(\int_0^1F(x)\,dx=F(1)-\int_0^1xf(x)\,dx\)。
+\solutionanswer
+以\(u=F,dv=dx\)分部，\(\int_0^1F=[xF]_0^1-\int_0^1xF'=F(1)-\int_0^1xf\)。
+
+
+% ITEM: calculus-exercise-39-04
+\solutionitem{calculus-exercise-39-04}{习题5.39（4）}
+计算\(\int_0^1x\ln(1+x)\,dx\)。分部后得到的有理式可以先做怎样的代数整理？
+\solutionanswer
+分部得\(\frac12\ln2-\frac12\int_0^1x^2/(1+x)dx\)。将有理式整理为\(x-1+1/(1+x)\)，积分为\(-1/2+\ln2\)，故原值为\(1/4\)。
+
+
+% ITEM: calculus-exercise-39-05
+\solutionitem{calculus-exercise-39-05}{习题5.39（5）}
+记\(I_n=\int_0^{\pi/2}\sin^nx\,dx\)。对\(n\ge2\)，用分部积分建立\(I_n\)与\(I_{n-2}\)的关系，并求\(I_4\)。
+\solutionanswer
+写成\(\int\sin^{n-1}x\sin x\,dx\)，分部后边界项为零，得\(I_n=(n-1)(I_{n-2}-I_n)\)。所以\(I_n=(n-1)I_{n-2}/n\)。由\(I_0=\pi/2\)，\(I_4=(3/4)(1/2)(\pi/2)=3\pi/16\)。
+
+
+% ITEM: calculus-exercise-39-06
+\solutionitem{calculus-exercise-39-06}{习题5.39（6）}
+分别计算\(\int xe^{x^2}\,dx\)与\(\int xe^x\,dx\)，比较换元与分部的选择。两个表达式都含有因子\(x\)，为什么不宜据此选择同一种方法？
+\solutionanswer
+第一式令\(u=x^2\)，为\(e^{x^2}/2+C\)；第二式分部，为\((x-1)e^x+C\)。方法取决于内层导数是否与外部因子配合，而非仅取决于是否出现\(x\)。
+
+
+% ITEM: calculus-example-065
+\solutionitem{calculus-example-065}{例5.65}
+计算\(\int_{-2}^2(x^3+\cos x)\,dx\)、\(\int_0^2|x^2-1|\,dx\)及\(\int_0^{\pi/2}\sin x/(\sin x+\cos x)\,dx\)。分别指出计算中起主要作用的关系。
+\solutionanswer
+第一式奇函数项积分为零，偶函数项加倍，得\(2\sin2\)。第二式在\(1\)处分段，得\(\int_0^1(1-x^2)+\int_1^2(x^2-1)=2\)。第三式记为\(I\)，以\(x=\pi/2-t\)换元后变为余弦分子，两式相加得\(2I=\pi/2\)，故\(I=\pi/4\)。主要关系分别是奇偶性、绝对值变号点和反射配对。
+
+
+% ITEM: calculus-exercise-40-01
+\solutionitem{calculus-exercise-40-01}{习题5.40（1）}
+设\(f\)连续且周期为\(T>0\)。证明\(\int_c^{c+T}f\)与\(c\)无关。可以拆分区间，也可以把它看成变限积分求导。
+\solutionanswer
+令\(B(c)=\int_c^{c+T}f\)，则\(B'=f(c+T)-f(c)=0\)，故为常值。也可按周期拆分并平移，得到\(\int_c^{c+T}f=\int_0^Tf\)。
+
+
+% ITEM: calculus-exercise-40-02
+\solutionitem{calculus-exercise-40-02}{习题5.40（2）}
+若\(f(x)+f(1-x)=x^2+(1-x)^2\)，求\(\int_0^1f(x)\,dx\)。
+\solutionanswer
+令\(I=\int_0^1f\)，反射换元给出\(\int_0^1f(1-x)dx=I\)。积分题设得\(2I=2/3\)，所以\(I=1/3\)。
+
+
+% ITEM: calculus-exercise-40-03
+\solutionitem{calculus-exercise-40-03}{习题5.40（3）}
+计算\(\int_{-1}^2|x(x-1)|\,dx\)，并区分结果与\(\int_{-1}^2x(x-1)\,dx\)。
+\solutionanswer
+在\(0,1\)分段，有向积分为\(3/2\)，中间一段积分为\(-1/6\)。改取绝对值要把该段符号翻转，结果\(3/2+2/6=11/6\)。
+
+
+% ITEM: calculus-exercise-40-04
+\solutionitem{calculus-exercise-40-04}{习题5.40（4）}
+用\(x=\pi-t\)的换元计算\(\int_0^\pi x\sin x\,dx\)，再用分部积分核对。比较两种方法分别利用了什么结构。
+\solutionanswer
+反射换元使\(I=\int_0^\pi(\pi-x)\sin x\,dx\)，相加得\(2I=\pi\int_0^\pi\sin x\,dx=2\pi\)，所以\(I=\pi\)。分部计算\([-x\cos x+\sin x]_0^\pi\)也得\(\pi\)。前者用对称性，后者用乘积求导关系。
+
+
+% ITEM: calculus-exercise-40-05
+\solutionitem{calculus-exercise-40-05}{习题5.40（5）}
+不先求原函数，计算\(\int_0^1\dfrac{\ln(1+x)}{\ln(1+x)+\ln(2-x)}\,dx\)。说明\(x\)与\(1-x\)处的函数值怎样配对。
+\solutionanswer
+记被积函数\(h\)，则\(h(x)+h(1-x)=1\)。两者积分相等，故积分为\(1/2\)。分母在整个区间严格为正。
+
+
+% ITEM: calculus-example-066
+\solutionitem{calculus-example-066}{例5.66}
+对\(J=\int_0^1e^{-x^2}\,dx\)，写出四等分的左右端点估计，给出一个包含\(J\)的区间。再对\(\int_1^2dx/x\)写出两等分的中点与梯形估计，利用凸性判断它们的方向。
+\solutionanswer
+\(e^{-x^2}\)递减，因此四等分给出
+\[
+ \frac{e^{-1/16}+e^{-1/4}+e^{-9/16}+e^{-1}}4\le J\le
+ \frac{1+e^{-1/16}+e^{-1/4}+e^{-9/16}}4.
+\]
+对\(1/x\)，两等分中点近似为\(M_2=\tfrac12(4/5+4/7)=24/35\)，梯形近似\(T_2=\tfrac14(1+4/3+1/2)=17/24\)。函数凸，所以\(24/35\le\ln2\le17/24\)。
+
+
+% ITEM: calculus-exercise-41-01
+\solutionitem{calculus-exercise-41-01}{习题5.41（1）}
+对\(\int_0^1x^2\,dx\)，求\(M_n,T_n\)及其精确误差，比较误差随\(n\)的变化。
+\solutionanswer
+由平方和公式，\(M_n=1/3-1/(12n^2)\)，\(T_n=1/3+1/(6n^2)\)。精确误差分别为\(-1/(12n^2)\)、\(1/(6n^2)\)，均按\(n^{-2}\)衰减，梯形误差绝对值是中点的两倍。
+
+
+% ITEM: calculus-exercise-41-02
+\solutionitem{calculus-exercise-41-02}{习题5.41（2）}
+只使用\(e^{-x^2}\)的单调性，要使左右矩形和之差小于\(10^{-2}\)，可以取怎样的分段数？
+\solutionanswer
+左右和之差为\((1-e^{-1})/n\)。取\(n>(1-e^{-1})\times100\)，例如\(n=64\)，即可小于\(10^{-2}\)。
+
+
+% ITEM: calculus-exercise-41-03
+\solutionitem{calculus-exercise-41-03}{习题5.41（3）}
+一个连续函数的端点值相同，是否足以断定梯形公式精确？举例说明。
+\solutionanswer
+不足。例如\(f=x(1-x)\)在\([0,1]\)端点均为零，一个梯形给零，而积分为\(1/6\)。端点数据并未记录中间的弯曲。
+
+
+% ITEM: calculus-exercise-41-04
+\solutionitem{calculus-exercise-41-04}{习题5.41（4）}
+对\(\int_0^1\ln(1+x)\,dx\)，写出两等分的中点与梯形近似，利用凹性判断上下界，再计算积分值核对。
+\solutionanswer
+\(M_2=\frac12\ln(35/16)\)，\(T_2=\frac12\ln(3/2)+\frac14\ln2\)。对数凹，故\(T_2\le I\le M_2\)。分部计算得\(I=2\ln2-1\)，确在两者之间。
+
+
+% ITEM: calculus-exercise-41-05
+\solutionitem{calculus-exercise-41-05}{习题5.41（5）}
+已知\(f\)在\([0,1]\)上连续、单调递减，且\(f(0)=2\)、\(f(1/2)=1\)、\(f(1)=1/2\)。仅由这些数据给出积分的上下界，再写出梯形近似。这个近似是否必为精确值？
+\solutionanswer
+递减性给出\(3/4\le I\le3/2\)。两段梯形近似为\(\frac14[2+2\times1+1/2]=9/8\)。它是上下矩形界的平均，但没有额外信息保证为精确值。
+
+
+% ITEM: calculus-exercise-41-06
+\solutionitem{calculus-exercise-41-06}{习题5.41（6）}
+设\(f(x)=x^3\)，\(-1\le x\le2\)。在零点拆分区间，各用一个中点矩形和一个梯形，分别求整个积分的上下界。若直接在\([-1,2]\)上只用一个梯形，它与真实积分的大小能否仅由整段凸性判断？
+\solutionanswer
+负半轴凹，\([-1,0]\)的梯形\(-1/2\)为下界，中点\(-1/8\)为上界；正半轴凸，\([0,2]\)的中点\(2\)为下界，梯形\(8\)为上界。相加得\(3/2\le I\le63/8\)。整段函数不是凸函数，不能用整段凸性判定单个梯形的方向。实际积分为\(15/4\)，整段梯形为\(21/2\)，本例它偏大。
+
+
+% ITEM: calculus-exercise-41-07
+\solutionitem{calculus-exercise-41-07}{习题5.41（7）}
+用两等分的中点与梯形公式估计\(\int_0^1\sqrt{1+x}\,dx\)。取两界平均值作近似，给出无需计算精确积分的误差界。
+\solutionanswer
+函数凹，故\(T_2\le I\le M_2\)，其中\(M_2=(\sqrt5+\sqrt7)/4\)、\(T_2=(1+2\sqrt{3/2}+\sqrt2)/4\)。取\((M_2+T_2)/2\)近似，误差不超过\((M_2-T_2)/2\)，无需知道精确积分值。
+
+
+% ITEM: calculus-exercise-41-08
+\solutionitem{calculus-exercise-41-08}{习题5.41（8）}
+用梯形公式近似\(\ln2=\int_0^1dx/(1+x)\)。只利用单调性给出误差界，并确定使误差不超过\(10^{-3}\)的一个充分分段数。若只取左端点和，所需的分段数有何变化？
+\solutionanswer
+递减性给出左右和之差\(1/(2n)\)，且梯形公式恰为两者平均，所以误差不超过\(1/(4n)\)。取\(n\ge250\)充分。只用左端点和只能保证误差不超过\(1/(2n)\)，需\(n\ge500\)。
+
+
+% ITEM: calculus-exercise-41-09
+\solutionitem{calculus-exercise-41-09}{习题5.41（9）}
+设\(f\)在\([0,2]\)上连续且为凸函数，已知\(f(0)=1\)、\(f(1)=2\)、\(f(2)=5\)。用一个中点矩形和一个梯形给出积分的上下界，再改用两个梯形求上界。若还知\(f(1/2)=5/4\)、\(f(3/2)=13/4\)，写出两个中点矩形给出的下界，并估计两界平均值的误差。
+\solutionanswer
+一个中点给下界\(4\)，一个梯形给上界\(6\)。两个梯形给上界\(\frac12(1+2\times2+5)=5\)。补充中点数据后，两中点给下界\(5/4+13/4=9/2\)，两界平均为\(19/4\)，误差不超过\(1/4\)。
+
+
+% ITEM: calculus-example-067
+\solutionitem{calculus-example-067}{例5.67 *}
+设\(f(x)=\ln(1+x)\)，\(0\le x\le1\)。写出一次近似的积分余项，并由\(f''\)的上下界估计\(f(x)-x\)。再对\(e^x\)使用同一关系，比较这两个函数与零点切线的位置。
+\solutionanswer
+一次积分余项为\(f(x)-x=-\int_0^x(x-t)/(1+t)^2\,dt\)。在\([0,1]\)二阶导数介于\(-1,-1/4\)，故\(-x^2/2\le f(x)-x\le-x^2/8\)。指数函数对应\(e^x-1-x=\int_0^x(x-t)e^t dt\)，在同一区间介于\(x^2/2\)、\(ex^2/2\)。对数图像低于切线，指数图像高于切线，来自二阶导数的相反符号。
+
+
+% ITEM: calculus-exercise-42-01
+\solutionitem{calculus-exercise-42-01}{习题5.42（1） *}
+用积分余项证明\(x>0\)时\(e^x>1+x+x^2/2\)，与Lagrange余项的证明比较。
+\solutionanswer
+二阶积分余项为\(\frac12\int_0^x(x-t)^2e^t dt>0\)，所以\(e^x>1+x+x^2/2\)。积分余项累积了各点的三阶导数，Lagrange余项则以一个中间点值代表这次加权累积，二者都由正性得结论。
+
+
+% ITEM: calculus-exercise-42-02
+\solutionitem{calculus-exercise-42-02}{习题5.42（2） *}
+对\(f(x)=\ln(1+x)\)，写出在零点的二阶积分余项，证明\(x\ge0\)时\(x-x^2/2\le\ln(1+x)\le x-x^2/2+x^3/3\)。
+\solutionanswer
+\(\ln(1+x)=x-x^2/2+\int_0^x(x-t)^2/(1+t)^3dt\)。对\(x\ge0\)，余项在\(0\)与\(\int_0^x(x-t)^2dt=x^3/3\)之间，即所求两界。
+
+
+% ITEM: calculus-exercise-42-03
+\solutionitem{calculus-exercise-42-03}{习题5.42（3） *}
+设\(f''\ge m>0\)。对区间中点的左右增量分别使用式\textup{(5.43)}，重新证明习题中\(\bigl(f(a)+f(b)\bigr)/2-f((a+b)/2)\)的下界。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\frac m2h^2\le f(a+h)-f(a)-f'(a)h\le\frac M2h^2.
+\end{equation*}
+\solutionanswer
+令\(c=(a+b)/2,h=(b-a)/2\)。二次切线下界分别给出\(f(c\pm h)\ge f(c)\pm f'(c)h+mh^2/2\)。相加除以\(2\)，线性项消去，得到下界\(mh^2/2=m(b-a)^2/8\)。
+
+
+% ITEM: calculus-exercise-42-04
+\solutionitem{calculus-exercise-42-04}{习题5.42（4） *}
+设\(f\)在\([0,1]\)上三阶连续可导。用积分余项比较\(f(1)\)与二阶Taylor多项式在\(1\)处的值。当\(f'''\)在前半段与后半段大小不同时，权函数如何影响两部分的贡献？
+\solutionanswer
+\(f(1)-[f(0)+f'(0)+f''(0)/2]=\frac12\int_0^1(1-t)^2 f^{(3)}(t)dt\)。权函数前大后小；前半段和后半段的总权重分别为\(7/48\)、\(1/48\)，相同的三阶导数大小在前半段产生七倍的总贡献。若导数有正负，贡献也按符号相加。
+
+
+% ITEM: calculus-exercise-42-05
+\solutionitem{calculus-exercise-42-05}{习题5.42（5） *}
+设\(f'''\ge0\)且连续。用积分余项判断\(f(x)\)与\(T_2(x)\)在基点\(a\)左右两侧的大小关系，解释为什么两侧方向不同。
+\solutionanswer
+\(R_2(x)=\frac12\int_a^x(x-t)^2f^{(3)}(t)dt\)。被积函数非负，\(x>a\)时\(R_2\ge0\)，\(x<a\)时反向积分使\(R_2\le0\)。因此右侧\(f\ge T_2\)，左侧\(f\le T_2\)，方向来自积分上下限的反转。
+
+
+% ITEM: calculus-exercise-42-06
+\solutionitem{calculus-exercise-42-06}{习题5.42（6） *}
+设\(f(0)=1\)、\(f'(0)=0\)，且在\([0,1]\)上\(f''\)连续并满足\(2\le f''\le4\)。先估计\(f(x)\)，再给出\(\int_0^1f(x)\,dx\)的上下界。
+\par
+\solutionanswer
+二阶切线估计给出\(1+x^2\le f(x)\le1+2x^2\)。积分后得\(4/3\le\int_0^1f\le5/3\)。
+
+
+% ITEM: calculus-exercise-43-01
+\solutionitem{calculus-exercise-43-01}{习题5.43（1） *}
+对\(f(x)=e^{-x^2}\)、\(0\le x\le1\)，验证\(|f''(x)|\le2\)。要使中点公式误差小于\(10^{-4}\)，可以选取怎样的\(n\)？
+\solutionanswer
+\(f''=(4x^2-2)e^{-x^2}\)，在\([0,1]\)有\(|4x^2-2|\le2,e^{-x^2}\le1\)，故\(|f''|\le2\)。误差不超过\(1/(12n^2)\)，取\(n\ge29\)即可小于\(10^{-4}\)。
+
+
+% ITEM: calculus-exercise-43-02
+\solutionitem{calculus-exercise-43-02}{习题5.43（2） *}
+正文证明的中点公式估计为\(\left|\int_a^bf-M_n\right|\le M(b-a)^3/(24n^2)\)，条件为\(|f^{\prime\prime}|\le M\)。
+将上述证明用于\(f(x)=x^2\)，比较误差界与精确误差。为什么在这个例子中等号能够成立？
+\solutionanswer
+\(f''=2\)，公式给\(|I-M_n|\le1/(12n^2)\)，而精确误差就是\(1/(12n^2)\)。因为二次函数的Taylor余项恰为\((x-m)^2\)，没有更高阶误差，各段误差同号，估计的每一步都可取等。
+
+
+% ITEM: calculus-exercise-43-03
+\solutionitem{calculus-exercise-43-03}{习题5.43（3） *}
+对\(\int_0^1x^2\,dx\)，分别使用分割\(0,1/2,3/4,1\)与三等分分割的中点近似，求精确误差，并与\(\frac M{24}\sum_i(\Delta x_i)^3\)核对。相同分段数下，哪一个分割更准确？
+\par
+\solutionanswer
+不等分的\(\sum h_i^3=5/32\)，精确误差\(I-M=\frac1{12}\sum h_i^3=5/384\)，中点近似\(41/128\)。三等分误差为\(1/108\)，近似\(35/108\)。两者均等于\(M\sum h_i^3/24\)，\(M=2\)；三等分更准确。
+
+
+% ITEM: calculus-exercise-43-04
+\solutionitem{calculus-exercise-43-04}{习题5.43（4） *}
+若\(f''\)连续且\(0<m\le f''\le M\)，给出任意分割的中点近似误差的正下界与上界。说明二阶导数的符号和大小分别提供什么信息。
+\solutionanswer
+逐段二阶余项积分给出\(\frac m{24}\sum_i h_i^3\le I-M_P\le\frac M{24}\sum_i h_i^3\)。左端严格正。二阶导数正性决定中点公式偏小，大小界决定误差位于哪个数值范围。
+
+
+% ITEM: calculus-example-068
+\solutionitem{calculus-example-068}{例5.68 *}
+本题根式中的\(a>0\)。
+
+求\(\int dx/(x^2+2x+5)\)、\(\int dx/(x^2+3x+2)\)及\(\int\sqrt{a^2-x^2}\,dx\)。对最后一式，比较三角代换与圆的几何关系。
+\solutionanswer
+第一式配方为\((x+1)^2+4\)，积分\(\frac12\arctan\frac{x+1}2+C\)。第二式拆成\(1/(x+1)-1/(x+2)\)，积分\(\ln|(x+1)/(x+2)|+C\)。最后令\(x=a\sin t\)，得到
+\[
+ \int\sqrt{a^2-x^2}\,dx=\frac12\left[x\sqrt{a^2-x^2}+a^2\arcsin(x/a)\right]+C.
+\]
+三角代换后的两项分别对应半径夹出的三角形与扇形面积，因而也可由圆的面积分割得到。
+
+
+% ITEM: calculus-exercise-44-01
+\solutionitem{calculus-exercise-44-01}{习题5.44（1） *}
+计算\(\int_0^{a/2} x^2/\sqrt{a^2-x^2}\,dx\)，其中\(a>0\)，并解释所选参数区间。
+\solutionanswer
+令\(x=a\sin t\)，\(0\le t\le\pi/6\)，此时\(\cos t>0\)，根式为\(a\cos t\)。积分化为\(a^2\int_0^{\pi/6}\sin^2t dt=a^2(\pi/12-\sqrt3/8)\)。
+
+
+% ITEM: calculus-exercise-44-02
+\solutionitem{calculus-exercise-44-02}{习题5.44（2） *}
+令\(x=\sinh t\)，求\(\int\sqrt{1+x^2}\,dx\)，并对结果求导核对。
+\solutionanswer
+令\(x=\sinh t\)，根式为\(\cosh t\)，故积分为\(\int\cosh^2t dt=(t+\sinh t\cosh t)/2+C\)。还原为\(\frac12[x\sqrt{1+x^2}+\ln(x+\sqrt{1+x^2})]+C\)。求导后两项合为\(\sqrt{1+x^2}\)，核对成立。
+
+
+% ITEM: calculus-exercise-44-03
+\solutionitem{calculus-exercise-44-03}{习题5.44（3） *}
+计算\(\int_0^1dx/(x^2+4x+5)\)及\(\int_0^1dx/[(x+1)(x+3)]\)，比较配方与部分分式所利用的代数结构。
+\solutionanswer
+第一式配方为\((x+2)^2+1\)，值\(\arctan3-\arctan2\)；第二式拆为\(\frac12[1/(x+1)-1/(x+3)]\)，值\(\frac12\ln(3/2)\)。配方产生反正切的平方和，部分分式利用两个一次因子。
+
+
+% ITEM: calculus-exercise-44-04
+\solutionitem{calculus-exercise-44-04}{习题5.44（4） *}
+对\(a>0\)，用\(x=a\sinh t\)求\(\int dx/\sqrt{x^2+a^2}\)，再将结果写成对数形式，并求导验证。
+\solutionanswer
+\(x=a\sinh t\)使\(dx=a\cosh tdt\)、根式\(a\cosh t\)，故积分为\(t+C=\ln(x+\sqrt{x^2+a^2})+C\)，其中常数吸收\(-\ln a\)。其导数为\((1+x/\sqrt{x^2+a^2})/(x+\sqrt{x^2+a^2})=1/\sqrt{x^2+a^2}\)。
+
+
+% ITEM: calculus-exercise-44-05
+\solutionitem{calculus-exercise-44-05}{习题5.44（5） *}
+计算\(\int_0^a(a^2-x^2)^{3/2}\,dx\)，其中\(a>0\)。利用三角代换化为三角函数幂的积分，并与本节分部积分中的递推关系联系起来。
+\solutionanswer
+令\(x=a\sin t\)，化为\(a^4\int_0^{\pi/2}\cos^4t dt\)。由分部递推\(I_4=3I_2/4=3\pi/16\)，结果为\(3\pi a^4/16\)。
+\par

@@ -1,0 +1,371 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{仿射变换}
+
+% ITEM: quadratic-example-005
+\solutionitem{quadratic-example-005}{例4.5}
+圆\(\Gamma\)的方程为\((x-2)^2+(y+1)^2=4\)。分别求下列方程，并比较它们的几何意义：
+
+（1）以\((1,2)\)为新原点，坐标轴方向不变时，\(\Gamma\)在新坐标系中的方程；
+
+（2）坐标系不变，将\(\Gamma\)沿向量\((1,2)\)平移后所得圆的方程。
+\solutionanswer
+（1）设新坐标\(u=x-1,v=y-2\)，则方程为\((u-1)^2+(v+3)^2=4\)。这是同一个圆在新坐标系中的表示。（2）像圆的圆心由\((2,-1)\)移到\((3,1)\)，半径不变，故方程为\((x-3)^2+(y-1)^2=4\)。这里改变的是圆的位置。
+
+
+% ITEM: quadratic-thought-02
+\solutionitem{quadratic-thought-02}{思考：坐标旋转与图形旋转}
+将坐标轴逆时针旋转\(\theta\)角，与将图形顺时针旋转\(\theta\)角，所得方程的表达有何联系？
+\solutionanswer
+两种情形都在原方程中代入\((x,y)=R_\theta(u,v)\)，所以所得方程表达相同。前者用旋转后的轴描述同一点，后者在固定轴下描述顺时针旋转后的图形；二者的几何解释不同。
+
+
+% ITEM: quadratic-example-006
+\solutionitem{quadratic-example-006}{例4.6}
+求将\(O(0,0)\)、\(A(1,0)\)、\(B(0,1)\)分别变为\(O'(1,-1)\)、\(A'(3,0)\)、\(B'(2,1)\)的仿射变换。若\(M\)是\(AB\)的中点，求\(M\)的像，并写出直线\(AB\)的像的方程。
+\solutionanswer
+线性部分的两列为\(A'-O'=(2,1)^T,B'-O'=(1,2)^T\)，故
+\[
+T(x,y)=(2x+y+1,x+2y-1).
+\]
+\(M=(1/2,1/2)\)，像为\((5/2,1/2)\)。直线的像经过\((3,0),(2,1)\)，方程为\(X+Y=3\)。
+
+
+% ITEM: quadratic-example-007
+\solutionitem{quadratic-example-007}{例4.7 *}
+先沿向量\((1,-2)\)平移，再绕原点逆时针旋转\(90^\circ\)。用三阶矩阵表示这一复合变换及其逆变换，并与交换两步次序后的结果比较。
+\solutionanswer
+先平移再旋转的矩阵及逆矩阵为
+\[
+K=\begin{bmatrix}0&-1&2\\1&0&1\\0&0&1\end{bmatrix},\qquad
+K^{-1}=\begin{bmatrix}0&1&-1\\-1&0&2\\0&0&1\end{bmatrix}.
+\]
+交换次序后矩阵为\(\begin{bmatrix}0&-1&1\\1&0&-2\\0&0&1\end{bmatrix}\)。线性部分相同，平移部分不同：前一种平移向量还经历了旋转。
+
+
+% ITEM: quadratic-example-008
+\solutionitem{quadratic-example-008}{例4.8}
+将曲线\(y=x^2\)依次作如下变换：先沿向量\((1,2)\)平移，再作错切\(x'=x+y\)、\(y'=y\)。求最后得到的曲线方程，并求原曲线上点\((1,1)\)的像。
+\solutionanswer
+复合关系为\(X=x+y+3,Y=y+2\)，反解\(x=X-Y-1,y=Y-2\)。代入得\(Y-2=(X-Y-1)^2\)。原点\((1,1)\)的像为\((5,3)\)，代入新方程也成立。
+
+
+% ITEM: quadratic-exercise-03-01
+\solutionitem{quadratic-exercise-03-01}{习题4.3（1）}
+以\((2,-1)\)为新原点，再将坐标轴逆时针旋转\(45^\circ\)。写出同一点的新旧坐标关系，并求点\((3,0)\)的新坐标。
+\solutionanswer
+设新坐标为\((u,v)\)。先将原点移至\((2,-1)\)，再把坐标轴逆时针转\(45^\circ\)，同一点坐标关系为
+\[x=2+\frac{u-v}{\sqrt2},\qquad y=-1+\frac{u+v}{\sqrt2}.\]
+对点\((3,0)\)，相对新原点的坐标为\((1,1)\)，故
+\[u=\frac{1+1}{\sqrt2}=\sqrt2,\qquad v=\frac{-1+1}{\sqrt2}=0.\]
+
+
+% ITEM: quadratic-exercise-03-02
+\solutionitem{quadratic-exercise-03-02}{习题4.3（2）}
+设新旧坐标满足\(x=(u-v)/\sqrt2\)、\(y=(u+v)/\sqrt2\)。求\(xy=1\)在新坐标系中的方程，并说明新坐标轴在原坐标系中的位置。
+\solutionanswer
+代入坐标关系，\(xy=(u-v)(u+v)/2=(u^2-v^2)/2\)，故新坐标方程为\(u^2-v^2=2\)。由\(x=(u-v)/\sqrt2,y=(u+v)/\sqrt2\)，新\(u\)轴正向（\(v=0,u>0\)）在原坐标中沿\((1,1)\)，新\(v\)轴正向（\(u=0,v>0\)）沿\((-1,1)\)；即分别为斜率\(1,-1\)的两条坐标轴。
+
+
+% ITEM: quadratic-exercise-03-03
+\solutionitem{quadratic-exercise-03-03}{习题4.3（3）}
+判断下列坐标表达是否给出仿射变换；若是，写出逆变换：\\
+\exercisesubitem{1}\(x'=2x+y+1\)，\(y'=x+y-1\)；\\
+\exercisesubitem{2}\(x'=x+2y\)，\(y'=2x+4y+1\)；\\
+\exercisesubitem{3}\(x'=x+y^2\)，\(y'=y\)。
+\solutionanswer
+\exercisesubitem{1}线性部分行列式为\(2\cdot1-1\cdot1=1\ne0\)，是仿射变换。由
+\[x'-y'=x+2,\qquad y'=x+y-1\]
+解得逆变换
+\[x=x'-y'-2,\qquad y=2y'-x'+3.\]
+\exercisesubitem{2}线性部分行列式\(1\cdot4-2\cdot2=0\)，不可逆，不是题设意义下的仿射变换。\exercisesubitem{3}含有\(y^2\)，不具有坐标的一次表达式，故不是仿射变换。
+
+
+% ITEM: quadratic-exercise-03-04
+\solutionitem{quadratic-exercise-03-04}{习题4.3（4）}
+在错切变换\(x'=x+2y\)、\(y'=y\)下，求正方形\(O(0,0)\)、\(A(1,0)\)、\(B(1,1)\)、\(C(0,1)\)四个顶点的像。比较变换前后的边长、对角线中点与面积。
+\solutionanswer
+逐点代入\((x,y)\mapsto(x+2y,y)\)，得
+\[O'=(0,0),\quad A'=(1,0),\quad B'=(3,1),\quad C'=(2,1).\]
+原正方形边长均为1；像的边向量依次为\((1,0),(2,1),(-1,0),(-2,-1)\)，故像边长依次为\(1,\sqrt5,1,\sqrt5\)。原两条对角线中点均为\((1/2,1/2)\)，像对角线\(O'B'\)、\(A'C'\)的中点均为\((3/2,1/2)\)，符合仿射变换保持中点。像平行四边形以长1的水平边为底，高仍为1，故面积仍为1。
+
+
+% ITEM: quadratic-exercise-03-05
+\solutionitem{quadratic-exercise-03-05}{习题4.3（5）}
+设\(G\)是\(\triangle ABC\)的重心。证明：任意仿射变换都将\(G\)变为\(\triangle A'B'C'\)的重心。
+\solutionanswer
+记仿射变换为\(T(P)=L(P)+t\)，其中\(L\)为线性部分。重心的位置向量满足\(\vec g=(\vec a+\vec b+\vec c)/3\)，因此
+\[T(G)=L(\vec g)+t=\frac{L(\vec a)+L(\vec b)+L(\vec c)}3+t=\frac{(L(\vec a)+t)+(L(\vec b)+t)+(L(\vec c)+t)}3.\]
+右端正是像三角形三个顶点位置向量的平均，故为\(\triangle A'B'C'\)的重心。
+
+
+% ITEM: quadratic-exercise-03-06
+\solutionitem{quadratic-exercise-03-06}{习题4.3（6）}
+证明：给定两组三个不共线的点\(A,B,C\)与\(A',B',C'\)，存在唯一的仿射变换将前一组点依次变为后一组点。
+\solutionanswer
+取\(A\)为基点，\(\vec u=\overrightarrow{AB},\vec v=\overrightarrow{AC}\)。因\(A,B,C\)不共线，\(\vec u,\vec v\)线性无关，构成平面的一组基；像点也不共线，故\(\vec u'=\overrightarrow{A'B'},\vec v'=\overrightarrow{A'C'}\)亦为基。定义
+\[T(A+s\vec u+t\vec v)=A'+s\vec u'+t\vec v'\qquad(s,t\in\mathbb R).\]
+这给出唯一的坐标一次变换，且线性部分把一组基映为一组基，因而可逆，是所需仿射变换。任一满足三点对应的仿射变换必须把基点\(A\)映为\(A'\)，并把基向量\(\vec u,\vec v\)分别映为\(\vec u',\vec v'\)；线性部分在基上的取值唯一决定其全部取值，因此该变换唯一。
+
+
+% ITEM: quadratic-exercise-03-07
+\solutionitem{quadratic-exercise-03-07}{习题4.3（7）}
+将圆\(x^2+y^2=4\)先沿横坐标方向伸长为原来的\(2\)倍，再沿向量\((-1,3)\)平移，求像曲线的方程。
+\solutionanswer
+先伸长后平移的合成变换为\(X=2x-1\)、\(Y=y+3\)。由逆关系\(x=(X+1)/2\)、\(y=Y-3\)代入原圆方程，像曲线满足
+\[
+\frac{(X+1)^2}{4}+(Y-3)^2=4,
+\]
+即\(\dfrac{(X+1)^2}{16}+\dfrac{(Y-3)^2}{4}=1\)。
+
+
+% ITEM: quadratic-exercise-03-08
+\solutionitem{quadratic-exercise-03-08}{习题4.3（8）}
+对曲线\(xy=1\)，分别求关于直线\(y=x\)镜像、绕原点逆时针旋转\(90^\circ\)后所得曲线的方程。
+\solutionanswer
+关于\(y=x\)的镜像将\((x,y)\)变为\((X,Y)=(y,x)\)，故\(XY=xy=1\)，曲线方程仍为\(XY=1\)。逆时针旋转\(90^\circ\)将\((x,y)\)变为\((X,Y)=(-y,x)\)，所以\(x=Y\)、\(y=-X\)。代入\(xy=1\)得\(-XY=1\)，即像曲线为\(XY=-1\)。
+
+
+% ITEM: quadratic-exercise-03-09
+\solutionitem{quadratic-exercise-03-09}{习题4.3（9）}
+将曲线\(y=x^2\)作变换\(x'=2x+1\)、\(y'=3y-2\)。求像曲线的方程，并求原曲线上横坐标在\([0,1]\)内的部分的像。
+\solutionanswer
+由\(X=2x+1\)、\(Y=3y-2\)，逆变换为\(x=(X-1)/2\)、\(y=(Y+2)/3\)。代入\(y=x^2\)，得
+\[
+4(Y+2)=3(X-1)^2.
+\]
+原曲线上\(0\le x\le1\)的部分对应\(1\le X\le3\)，故其像是上述抛物线在\(1\le X\le3\)上的弧段（等价地\(Y=\frac34(X-1)^2-2\)且\(1\le X\le3\)）。
+
+
+% ITEM: quadratic-exercise-03-10
+\solutionitem{quadratic-exercise-03-10}{习题4.3（10）}
+设\(x=u+v+1\)、\(y=u-v-2\)。将\((x-1)^2+(y+2)^2=8\)化为\(u,v\)的方程。新坐标的两个正方向是否垂直？每个坐标单位在原平面中的长度是多少？
+\solutionanswer
+题设给出\(x-1=u+v\)、\(y+2=u-v\)，于是
+\[
+(x-1)^2+(y+2)^2=(u+v)^2+(u-v)^2=2u^2+2v^2.
+\]
+因此新方程为\(u^2+v^2=4\)。新坐标的两个正方向在原平面中的方向向量分别为\((1,1)\)、\((1,-1)\)，点积为\(0\)，所以互相垂直；各坐标增加一个单位对应上述向量，长度均为\(\sqrt2\)。
+
+
+% ITEM: quadratic-exercise-03-11
+\solutionitem{quadratic-exercise-03-11}{习题4.3（11）}
+在错切变换\(x'=x+y\)、\(y'=y\)下，求单位圆的像方程，并验证像曲线关于原点成中心对称。原圆的一对垂直直径的像是否仍然垂直？
+\solutionanswer
+错切变换\(X=x+y\)、\(Y=y\)的逆变换是\(x=X-Y\)、\(y=Y\)。将其代入单位圆方程，得像曲线
+\[
+(X-Y)^2+Y^2=1.
+\]
+方程只含二次齐次项与常数项，若\((X,Y)\)满足方程，则\((-X,-Y)\)也满足，故像曲线关于原点成中心对称。取原圆的两条垂直直径方向\((1,0)\)、\((0,1)\)，其像方向分别为\((1,0)\)、\((1,1)\)，点积为\(1\)，不垂直。因此错切一般不保持垂直关系。
+
+
+% ITEM: quadratic-exercise-03-12
+\solutionitem{quadratic-exercise-03-12}{习题4.3（12） *}
+将错切变换\(x'=x+2y+1\)、\(y'=y-1\)写成高维线性表示，求其逆矩阵，并分别计算它对\((0,0,1)^T\)与\((0,1,0)^T\)的作用。
+\solutionanswer
+引入齐次坐标后，变换矩阵为
+\[
+K=\begin{bmatrix}1&2&1\\0&1&-1\\0&0&1\end{bmatrix}.
+\]
+由\(x=x'-2y'-3\)、\(y=y'+1\)，逆变换矩阵为
+\[
+K^{-1}=\begin{bmatrix}1&-2&-3\\0&1&1\\0&0&1\end{bmatrix}.
+\]
+直接相乘或代入可验证\(KK^{-1}=I\)。其对两个指定向量的作用为
+\[
+K\begin{bmatrix}0\\0\\1\end{bmatrix}=\begin{bmatrix}1\\-1\\1\end{bmatrix},\qquad
+K\begin{bmatrix}0\\1\\0\end{bmatrix}=\begin{bmatrix}2\\1\\0\end{bmatrix}.
+\]
+前者是原点\((0,0)\)的齐次像\((1,-1,1)\)；后者是方向向量\((0,1)\)在变换线性部分下的像\((2,1)\)，平移项不作用于末坐标为零的向量。
+
+
+% ITEM: quadratic-exercise-03-13
+\solutionitem{quadratic-exercise-03-13}{习题4.3（13） *}
+设三阶可逆矩阵给出的线性变换将平面\(z=1\)映到自身。证明它的末行必为\((0,0,1)\)，并说明它在该平面上诱导一个仿射变换。
+\solutionanswer
+设末行为\((r,s,t)\)，则对任意\(x,y\)，有\(rx+sy+t=1\)，故\(r=s=0,t=1\)。矩阵于是具有\(\begin{bmatrix}S&a\\0&1\end{bmatrix}\)的分块形式；整体可逆保证\(S\)可逆，限制到\(z=1\)即为仿射变换\(X\mapsto SX+a\)。
+
+
+% ITEM: quadratic-example-009
+\solutionitem{quadratic-example-009}{例4.9}
+单位圆内接正方形的顶点为\((1,0)\)、\((0,1)\)、\((-1,0)\)、\((0,-1)\)。将整个图形作变换\(x'=2x+y+1\)、\(y'=x+2y-1\)，求像曲线的方程及像四边形的面积，并比较变换前后四边形与曲线所围区域的面积比。
+\solutionanswer
+反解坐标得\(x=(2X-Y-3)/3,y=(-X+2Y+3)/3\)。所以像曲线为
+\[
+(2X-Y-3)^2+(-X+2Y+3)^2=9.
+\]
+线性部分行列式为\(3\)，原正方形面积为\(2\)，故像四边形面积为\(6\)。圆与像曲线所围面积分别为\(\pi,3\pi\)，面积比始终为\(2/\pi\)。
+
+
+% ITEM: quadratic-exercise-04-01
+\solutionitem{quadratic-exercise-04-01}{习题4.4（1）}
+分别求下列变换的面积倍率：\\
+\exercisesubitem{1}\(x'=3x+2\)、\(y'=-2y+1\)；\\
+\exercisesubitem{2}\(x'=x+2y\)、\(y'=2x+y\)；\\
+\exercisesubitem{3}\(x'=x\cos\theta-y\sin\theta\)、\(y'=x\sin\theta+y\cos\theta\)。
+\par
+\solutionanswer
+三种线性部分的行列式依次为\(-6,-3,\cos^2\theta+\sin^2\theta=1\)，所以面积倍率依次为\(6,3,1\)。平移项不影响面积。
+
+
+% ITEM: quadratic-exercise-04-02
+\solutionitem{quadratic-exercise-04-02}{习题4.4（2）}
+一个三角形的面积为\(5\)。先作\(x'=x+3y\)、\(y'=y\)，再将横坐标缩为原来的\(1/2\)，纵坐标伸长为原来的\(4\)倍。求最后所得三角形的面积。
+\solutionanswer
+错切不改变面积，随后两方向伸缩的面积倍率为\((1/2)\cdot4=2\)。所以最终面积为\(5\cdot2=10\)。
+
+
+% ITEM: quadratic-exercise-04-03
+\solutionitem{quadratic-exercise-04-03}{习题4.4（3）}
+设\(A,B,C\)不共线，\(P\)为平面上一点。证明：仿射变换保持\(\triangle PAB\)与\(\triangle ABC\)的面积比。结合分比关系，说明三角形中线将面积平分这一性质为什么在变换后仍成立。
+\solutionanswer
+设线性部分为\(S\)。分子、分母的面积都乘以\(|\det S|\)，故比值不变。若\(M\)为\(BC\)的中点，\(M'\)仍为\(B'C'\)的中点，且\([ABM]/[ABC]=[ACM]/[ABC]=1/2\)。对应面积比不变，故中线\(A'M'\)仍将像三角形的面积平分。
+
+
+% ITEM: quadratic-exercise-04-04
+\solutionitem{quadratic-exercise-04-04}{习题4.4（4）}
+三条中线将一个三角形分成六个小三角形。先在方便的坐标下证明它们等面积，再用仿射变换将结论推广到任意三角形。
+\solutionanswer
+取\(A=(0,0),B=(2,0),C=(0,2)\)。三边中点为\((1,0),(1,1),(0,1)\)，重心为\(G=(2/3,2/3)\)。以每条半边为底，相应小三角形的高分别为\(2/3,2/3,\sqrt2/3\)，底长分别为\(1,1,\sqrt2\)，所以六块的面积都为\(1/3\)。任意非退化三角形都是此三角形的可逆仿射像，中点、重心及各面积的统一倍率均保持，结论因而成立。
+
+
+% ITEM: quadratic-example-010
+\solutionitem{quadratic-example-010}{例4.10}
+求曲线\(x^2+2y^2=9\)与直线\(x+y=3\)的交点。用直线条件将二次方程齐次化，先求交点的坐标比，再求坐标。
+\solutionanswer
+在直线上\(9=(x+y)^2\)，故二次方程等价于\(x^2+2y^2-(x+y)^2=y(y-2x)=0\)。坐标比分别为\(y=0\)、\(y=2x\)，再代入\(x+y=3\)，交点为\((3,0),(1,2)\)。
+
+
+% ITEM: quadratic-exercise-05-01
+\solutionitem{quadratic-exercise-05-01}{习题4.5（1）}
+用齐次化求圆\(x^2+y^2=10\)与直线\(x+3y=10\)的交点，并解释所得齐次方程为什么是一条重直线。
+\solutionanswer
+在直线上\(10=(x+3y)^2/10\)，故圆的方程化为\(10(x^2+y^2)-(x+3y)^2=(3x-y)^2=0\)。这是重直线\(y=3x\)，与\(x+3y=10\)联立得唯一交点\((1,3)\)。两个交点方向合并为同一方向，正对应原直线相切。
+
+
+% ITEM: quadratic-exercise-05-02
+\solutionitem{quadratic-exercise-05-02}{习题4.5（2）}
+求曲线\(xy=2\)与直线\(x+y=3\)的交点。分别用直接消元与齐次化计算，比较所得方程。
+\solutionanswer
+直接代入\(y=3-x\)，得\((x-1)(x-2)=0\)，交点为\((1,2),(2,1)\)。齐次化则将\(2\)改写为\(2(x+y)^2/9\)，得到\((2x-y)(x-2y)=0\)。两因子分别确定坐标比，再与给定直线联立，得到相同交点。直接消元记录横坐标，齐次化记录方向比。
+
+
+% ITEM: quadratic-exercise-05-03
+\solutionitem{quadratic-exercise-05-03}{习题4.5（3）}
+写出\(x^2+2xy-3y^2+4x-2y+1=0\)对应的三元二次齐次方程，分别写出\(z=1\)、\(z=0\)时的方程，并求\(z=0\)时的解。
+\solutionanswer
+齐次方程为\(x^2+2xy-3y^2+4xz-2yz+z^2=0\)。\(z=1\)时恢复原方程；\(z=0\)时为\((x-y)(x+3y)=0\)，解为\((r,r,0)\)或\((-3r,r,0)\)，\(r\in\mathbb R\)。
+
+
+% ITEM: quadratic-exercise-05-04
+\solutionitem{quadratic-exercise-05-04}{习题4.5（4）}
+设\(Q\)由\(\Phi\)按式\textup{(4.39)}得到。若\(Q(r,s,t)=0\)且\(t\ne0\)，证明\((r/t,s/t)\)在原曲线上。反过来，由原曲线上的一点，可以得到哪些满足\(Q=0\)的三元坐标？
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+Q(x,y,z)=Ax^2+Bxy+Cy^2+Dxz+Eyz+Fz^2 .
+\end{equation*}
+\solutionanswer
+由齐次化的定义，\(Q(r,s,t)=t^2\Phi(r/t,s/t)\)，\(t\ne0\)时两式同为零。反过来，原曲线一点\((x,y)\)给出\((\lambda x,\lambda y,\lambda)\)，任意\(\lambda\in\mathbb R\)都使\(Q=0\)；非零\(\lambda\)归一化后恢复该点。
+
+
+% ITEM: quadratic-exercise-05-05
+\solutionitem{quadratic-exercise-05-05}{习题4.5（5）}
+求圆\(x^2+y^2-2x=0\)与直线\(x+y=2\)的交点。利用直线条件将一次项补成二次项，并将所得齐次方程因式分解。
+\solutionanswer
+在给定直线上用\(-2x=-x(x+y)\)，得\(x^2+y^2-x(x+y)=y(y-x)=0\)。分别与\(x+y=2\)联立，交点为\((2,0),(1,1)\)。
+
+
+% ITEM: quadratic-exercise-05-06
+\solutionitem{quadratic-exercise-05-06}{习题4.5（6）}
+用齐次化讨论直线\(x+y=t\)（\(t\ne0\)）与单位圆的实交点个数。
+\solutionanswer
+用\(1=(x+y)^2/t^2\)齐次化，得\(t^2(x^2+y^2)-(x+y)^2=0\)。再结合\(x+y=t\)，可写成\((x-y)^2=2-t^2\)。因此\(0<|t|<\sqrt2\)时有两交点，\(|t|=\sqrt2\)时有一个，\(|t|>\sqrt2\)时无实交点。
+
+
+% ITEM: quadratic-example-011
+\solutionitem{quadratic-example-011}{例4.11 *}
+将圆\(x^2+y^2=1\)作坐标代换\(x=u+v+1\)、\(y=v\)。分别由直接代入、式\textup{(4.41)}和完整齐次矩阵计算新方程，并比较三种计算。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\begin{cases}
+        H'=S^THS ,\\
+        L'=S^T(2Ht+L) ,\\
+        F'=t^THt+L^Tt+F .
+    \end{cases}
+\end{equation*}
+\solutionanswer
+直接代入得\(u^2+2uv+2v^2+2u+2v=0\)。系数公式中\(H=I,L=0,F=-1,S=\begin{bmatrix}1&1\\0&1\end{bmatrix},t=(1,0)^T\)，所以
+\[
+H'=\begin{bmatrix}1&1\\1&2\end{bmatrix},\quad L'=(2,2)^T,\quad F'=0.
+\]
+完整齐次代换矩阵\(P=\begin{bmatrix}1&1&1\\0&1&0\\0&0&1\end{bmatrix}\)给出
+\[
+P^T\operatorname{diag}(1,1,-1)P=\begin{bmatrix}1&1&1\\1&2&1\\1&1&0\end{bmatrix},
+\]
+三种计算得到同一方程；完整矩阵同时记录二次、一次与常数项。
+
+
+% ITEM: quadratic-exercise-06-01
+\solutionitem{quadratic-exercise-06-01}{习题4.6（1） *}
+设\(q(x,y)=x^2+2xy+3y^2\)。作代换\(x=u-v\)、\(y=v\)，分别用代入与矩阵乘法求新二次型，并写出新旧矩阵间的合同关系。
+\solutionanswer
+代入得\(q=(u-v)^2+2(u-v)v+3v^2=u^2+2v^2\)。若\(H=\begin{bmatrix}1&1\\1&3\end{bmatrix},S=\begin{bmatrix}1&-1\\0&1\end{bmatrix}\)，直接相乘也得到\(H'=S^THS=\operatorname{diag}(1,2)\)，即新旧矩阵合同。
+
+
+% ITEM: quadratic-exercise-06-02
+\solutionitem{quadratic-exercise-06-02}{习题4.6（2） *}
+设\(q(X)=X^THX\)正定，\(S\)可逆。证明二次型\(U^TS^THSU\)也正定，并说明可逆条件在证明中的作用。
+\solutionanswer
+对任意\(U\ne0\)，可逆性保证\(SU\ne0\)，所以\(U^TS^THSU=q(SU)>0\)。若去掉可逆条件，非零核向量可能被映为零，正定性就不能保证。
+
+
+% ITEM: quadratic-exercise-06-03
+\solutionitem{quadratic-exercise-06-03}{习题4.6（3） *}
+对\(\Phi(x,y)=x^2+2y^2-4x+4y+1\)，求使新方程没有一次项的平移\(X=U+t\)。分别用配方与式\textup{(4.41)}验证结果。
+
+\par\smallskip\noindent 正文所引关系为：
+\begin{equation*}
+\begin{cases}
+        H'=S^THS ,\\
+        L'=S^T(2Ht+L) ,\\
+        F'=t^THt+L^Tt+F .
+    \end{cases}
+\end{equation*}
+\solutionanswer
+配方得\(\Phi=(x-2)^2+2(y+1)^2-5\)，所以取\(t=(2,-1)^T\)，新方程为\(u^2+2v^2-5=0\)。矩阵法中\(H=\operatorname{diag}(1,2),L=(-4,4)^T\)，有\(2Ht+L=0\)，新常数\(t^THt+L^Tt+1=-5\)，结果相同。
+
+
+% ITEM: quadratic-exercise-06-04
+\solutionitem{quadratic-exercise-06-04}{习题4.6（4） *}
+写出\(xy-1=0\)的完整齐次矩阵，再用逆时针旋转\(45^\circ\)的坐标代换计算\(M'\)，与4.2.4节的结果比较。
+\solutionanswer
+完整矩阵及坐标代换为
+\[
+M=\begin{bmatrix}0&1/2&0\\1/2&0&0\\0&0&-1\end{bmatrix},\quad
+P=\begin{bmatrix}1/\sqrt2&-1/\sqrt2&0\\1/\sqrt2&1/\sqrt2&0\\0&0&1\end{bmatrix}.
+\]
+计算得\(M'=P^TMP=\operatorname{diag}(1/2,-1/2,-1)\)，故新方程\(u^2-v^2=2\)，与直接代入相同。
+
+
+% ITEM: quadratic-exercise-06-05
+\solutionitem{quadratic-exercise-06-05}{习题4.6（5） *}
+若\(H\)对应的对称双线性型为\(b\)，\(H'=S^THS\)对应的为\(b'\)，证明\(b'(U,V)=b(SU,SV)\)。据此说明\(b'(U,V)=0\)与变换后的两个向量之间有什么关系。
+\solutionanswer
+直接由\(b'(U,V)=U^TS^THSV=(SU)^TH(SV)=b(SU,SV)\)得到。于是新二次型下共轭的向量，经\(S\)映射后在原二次型下仍共轭；这里的关系由相应双线性型决定。
+
+
+% ITEM: quadratic-exercise-06-06
+\solutionitem{quadratic-exercise-06-06}{习题4.6（6） *}
+设\(H_1,H_2,H_3\)为同阶实对称矩阵。证明：\(H_1\)与自身合同；若\(H_1\)与\(H_2\)合同，则\(H_2\)与\(H_1\)合同；若\(H_1\)与\(H_2\)、\(H_2\)与\(H_3\)分别合同，则\(H_1\)与\(H_3\)合同。
+\solutionanswer
+取单位矩阵即得自反性。若\(H_2=S^TH_1S\)，则\(H_1=(S^{-1})^TH_2S^{-1}\)，得对称性。若还有\(H_3=T^TH_2T\)，则\(H_3=(ST)^TH_1(ST)\)，且\(ST\)可逆，得传递性。
+
+
+% ITEM: quadratic-exercise-06-07
+\solutionitem{quadratic-exercise-06-07}{习题4.6（7） *}
+设\(q(x,y)=x^2/4+y^2\)，变换\(T(x,y)=(-2y,x/2)\)的矩阵为\(S\)。求\(q\)的对称矩阵\(H\)，验证\(S^THS=H\)，并说明曲线\(q=1\)在\(T\)下保持不变。这个变换是否保持通常的长度与夹角？它是否保持由\(q\)确定的内积？
+\solutionanswer
+有\(H=\operatorname{diag}(1/4,1),S=\begin{bmatrix}0&-2\\1/2&0\end{bmatrix}\)，相乘得\(S^THS=H\)。因此\(q(TX)=q(X)\)，且\(S\)可逆，曲线\(q=1\)保持不变。它不保通常长度，例如\((1,0)\)变为\((0,1/2)\)；也不保通常夹角，例如原来垂直的\((1,1),(1,-1)\)的像点积为\(-15/4\)。但\(b(TU,TV)=U^TS^THSV=b(U,V)\)，所以保持\(q\)所确定的内积。
+\par

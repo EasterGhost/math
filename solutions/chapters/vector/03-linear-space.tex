@@ -1,0 +1,248 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{线性空间*}
+
+\label{sol:sec:vector:3}
+
+% ITEM: vector-zero-negative-uniqueness
+\solutionitem{vector-zero-negative-uniqueness}{思考：零向量与负向量 *}
+只用上述运算律证明：零向量与负向量都是唯一的，并且\(0 a = \vec{0}\)，\(\left( - 1 \right) a = - a\)。
+\solutionanswer
+若\(0_V,0'_V\)都满足零向量的要求，利用交换律有
+\[
+0_V=0_V+0'_V=0'_V.
+\]
+若\(b,c\)都是\(a\)的负向量，则由结合律，
+\[
+b=b+0_V=b+(a+c)=(b+a)+c=c.
+\]
+所以二者都唯一。
+
+由数乘对标量加法的分配律，
+\[
+0a=(0+0)a=0a+0a.
+\]
+两边加上\(0a\)的负向量，得到\(0a=0_V\)。再由
+\[
+a+(-1)a=1a+(-1)a=(1-1)a=0a=0_V,
+\]
+以及负向量的唯一性，得\((-1)a=-a\)。
+
+
+% ITEM: vector-subspace-intersection-union
+\solutionitem{vector-subspace-intersection-union}{思考：子空间的交与并 *}
+两个子空间的交集还是子空间吗？它们的并集呢？
+\solutionanswer
+设\(U,W\)是同一空间的子空间。它们的交集含零向量；若\(a,b\in U\cap W\)，则任意线性组合\(ka+sb\)同时属于\(U,W\)，所以交集是子空间。
+
+并集一般不是子空间。例如，平面上两个坐标轴的并集含\((1,0)\)和\((0,1)\)，却不含它们的和\((1,1)\)。
+
+更确切地，\(U\cup W\)是子空间当且仅当其中一个包含另一个。包含时结论直接成立；若互不包含，取\(u\in U\setminus W,v\in W\setminus U\)。若\(u+v\in U\)，相减便得\(v\in U\)，矛盾；若\(u+v\in W\)，同样矛盾。因此并集不对加法封闭。
+
+
+% ITEM: vector-independent-triples
+\solutionitem{vector-independent-triples}{例3.9 *}
+（1）判断向量组\(\left( 1 , 0 , 1 \right)\)，\(\left( 0 , 1 , 1 \right)\)，\(\left( 1 , 1 , 0 \right)\)是否线性无关。
+
+（2）在函数空间中，证明\(\sin x , \cos x\)线性无关，而\(1 , \sin^{2} x , \cos^{2} x\)线性相关。
+
+（3）设\(a , b , c\)线性无关，证明\(a + b , b + c , c + a\)线性无关。逆命题是否成立？
+\solutionanswer
+（1）设三个系数为\(\alpha,\beta,\gamma\)。零组合的坐标方程为
+\[
+\alpha+\gamma=0,\qquad \beta+\gamma=0,\qquad \alpha+\beta=0.
+\]
+前两式给出\(\alpha=\beta=-\gamma\)，代入第三式得\(\gamma=0\)，进而系数全为零。因此三个向量线性无关。
+
+（2）若\(a\sin x+b\cos x\)恒为零，依次取\(x=0,\pi/2\)，得\(b=a=0\)，故\(\sin x,\cos x\)线性无关。而
+\[
+1-\sin^2x-\cos^2x=0
+\]
+是一个系数不全为零的恒等式，所以后三个函数线性相关。
+
+（3）记\(u=a+b,v=b+c,w=c+a\)。若\(\alpha u+\beta v+\gamma w=0\)，展开为
+\[
+(\alpha+\gamma)a+(\alpha+\beta)b+(\beta+\gamma)c=0.
+\]
+原向量组线性无关，故三括号均为零，解得\(\alpha=\beta=\gamma=0\)。
+
+逆命题也成立。由
+\[
+a=\frac{u+w-v}2,\quad b=\frac{u+v-w}2,\quad c=\frac{v+w-u}2,
+\]
+若\(pa+qb+rc=0\)，则
+\[
+(p+q-r)u+(-p+q+r)v+(p-q+r)w=0.
+\]
+新向量组线性无关，解得\(p=q=r=0\)。
+
+
+% ITEM: vector-nonorthogonal-inner-product
+\solutionitem{vector-nonorthogonal-inner-product}{思考：非正交基下的数量积 *}
+取\(e_1=(1,1),e_2=(1,2)\)。 在上面的基\(e_{1} , e_{2}\)下，若两个向量的坐标分别为\(\left( s_{1} , t_{1} \right)\)与\(\left( s_{2} , t_{2} \right)\)，它们的数量积还是\(s_{1} s_{2} + t_{1} t_{2}\)吗？请写出正确的式子。
+\solutionanswer
+这里\(e_1=(1,1),e_2=(1,2)\)，所以
+\[
+e_1\cdot e_1=2,\qquad e_1\cdot e_2=3,\qquad e_2\cdot e_2=5.
+\]
+将向量先按基展开，再计算数量积：
+\[
+\begin{aligned}
+(s_1e_1+t_1e_2)\cdot(s_2e_1+t_2e_2)
+=2s_1s_2+3(s_1t_2+t_1s_2)+5t_1t_2.
+\end{aligned}
+\]
+一般不能只把对应坐标相乘再相加；那一简式要求所用基为正交单位基。
+
+
+% ITEM: vector-function-space-dimension
+\solutionitem{vector-function-space-dimension}{思考：函数空间的维数 *}
+定义在\(\mathbb{R}\)上的全体实值函数组成的空间，是有限维的吗？
+\solutionanswer
+这是无限维空间。对任意正整数\(m\)，其中的函数
+\[
+1,x,\ldots,x^{m-1}
+\]
+都线性无关：若它们的线性组合恒为零，就得到一个恒为零的多项式，各系数必须全为零。
+
+因此这个空间含有任意多个线性无关的向量；若它是有限维的，就与线性无关向量个数不超过维数矛盾。
+
+
+% ITEM: vector-subspace-tests
+\solutionitem{vector-subspace-tests}{习题3.3（1） *}
+判断下列\(\mathbb{R}^{3}\)的子集是否为子空间：\\
+\exercisesubitem{1}\(\left\{ \left( x , y , z \right) \mid x + y + z = 0 \right\}\)；\\
+\exercisesubitem{2}\(\left\{ \left( x , y , z \right) \mid x + y + z = 1 \right\}\)；\\
+\exercisesubitem{3}\(\left\{ \left( x , y , z \right) \mid x y = 0 \right\}\)；\\
+\exercisesubitem{4}\(\left\{ \left( x , y , z \right) \mid x = 2 y , z = 3 y \right\}\)。\\
+对其中的子空间，求一组基及其维数。
+\solutionanswer
+\exercisesubitem{1}是子空间。它含零向量，且线性组合仍满足方程。由\(z=-x-y\)，
+\[
+(x,y,z)=x(1,0,-1)+y(0,1,-1).
+\]
+两个向量线性无关，故它们是一组基，维数为\(2\)。
+
+\exercisesubitem{2}不是子空间，因为不含零向量。
+
+\exercisesubitem{3}不是子空间。例如\((1,0,0)\)和\((0,1,0)\)均在集合中，而它们的和不在其中。
+
+\exercisesubitem{4}是子空间。其全部向量为
+\[
+(x,y,z)=y(2,1,3),\qquad y\in\mathbb R.
+\]
+一组基为\((2,1,3)\)，维数为\(1\)。
+
+
+% ITEM: vector-independent-parameter
+\solutionitem{vector-independent-parameter}{习题3.3（2） *}
+设\(a_{1} = \left( 1 , 0 , 1 \right)\)，\(a_{2} = \left( 0 , 1 , 1 \right)\)，\(a_{3} = \left( 1 , 1 , t \right)\)。讨论\(t\)取何值时，这组向量线性无关。
+\solutionanswer
+设\(\alpha a_1+\beta a_2+\gamma a_3=0\)，坐标方程为
+\[
+\alpha+\gamma=0,\qquad \beta+\gamma=0,\qquad
+\alpha+\beta+t\gamma=0.
+\]
+代入得\((t-2)\gamma=0\)。所以\(t\ne2\)时只有零组合，向量组线性无关；\(t=2\)时\(a_3=a_1+a_2\)，线性相关。
+
+
+% ITEM: vector-nonorthogonal-coordinates
+\solutionitem{vector-nonorthogonal-coordinates}{习题3.3（3） *}
+在\(\mathbb{R}^{2}\)中，验证\(e_{1} = \left( 1 , 2 \right)\)，\(e_{2} = \left( 1 , 3 \right)\)构成一组基，并求\(\left( 4 , 7 \right)\)在这组基下的坐标。
+\solutionanswer
+对任意\((x,y)\)，方程
+\[
+s(1,2)+t(1,3)=(x,y)
+\]
+给出\(s+t=x,2s+3t=y\)，唯一解为
+\[
+s=3x-y,\qquad t=y-2x.
+\]
+所以这两个向量是一组基。代入\((x,y)=(4,7)\)，所求坐标为\((5,-1)\)。
+
+
+% ITEM: vector-span-membership
+\solutionitem{vector-span-membership}{习题3.3（4） *}
+判断\(\left( 17 , - 4 , 2 \right)\)和\(\left( 17 , - 4 , 5 \right)\)能否由\(\left( 2 , 1 , - 3 \right)\)，\(\left( 1 , - 2 , 4 \right)\)线性表示；如果能，求出表示式。
+\solutionanswer
+记两个给定向量为\(u=(2,1,-3),v=(1,-2,4)\)。若目标向量可写成\(\alpha u+\beta v\)，前两个坐标必须满足
+\[
+2\alpha+\beta=17,\qquad \alpha-2\beta=-4,
+\]
+唯一解为\(\alpha=6,\beta=5\)。它们给出的第三个坐标为\(-18+20=2\)。因此
+\[
+(17,-4,2)=6u+5v,
+\]
+而\((17,-4,5)\)不能由\(u,v\)线性表示。
+
+
+% ITEM: vector-homogeneous-basis
+\solutionitem{vector-homogeneous-basis}{习题3.3（5） *}
+求齐次线性方程组
+\begin{equation*}
+    \left\{ \begin{matrix}x + y + z = 0 , \\ x - y + z = 0\end{matrix} \right.
+\end{equation*}
+的解集的一组基及其维数。
+\solutionanswer
+两式相减得\(2y=0\)，再代回得\(z=-x\)。所以解集为
+\[
+\{t(1,0,-1):t\in\mathbb R\}.
+\]
+一组基为\((1,0,-1)\)，维数为\(1\)。
+
+
+% ITEM: vector-polynomial-basis
+\solutionitem{vector-polynomial-basis}{习题3.3（6） *}
+在\(P_{2}\)中，判断\(1 , x + 1 , \left( x + 1 \right)^{2}\)是否构成一组基。若构成，求\(x^{2}\)在这组基下的坐标。
+\solutionanswer
+展开线性组合：
+\[
+a+b(x+1)+c(x+1)^2=(a+b+c)+(b+2c)x+cx^2.
+\]
+对任意\(A+Bx+Cx^2\)，比较系数得到唯一解
+\[
+c=C,\qquad b=B-2C,\qquad a=A-B+C.
+\]
+所以三个多项式构成\(P_2\)的一组基。对\(x^2\)，有
+\[
+x^2=1-2(x+1)+(x+1)^2,
+\]
+故坐标为\((1,-2,1)\)。
+
+
+% ITEM: vector-even-odd-decomposition
+\solutionitem{vector-even-odd-decomposition}{习题3.3（7） *}
+证明：每个定义在\(\mathbb{R}\)上的实值函数都可以唯一地表示为一个奇函数与一个偶函数之和。
+\solutionanswer
+令
+\[
+u(x)=\frac{f(x)-f(-x)}2,\qquad
+v(x)=\frac{f(x)+f(-x)}2.
+\]
+直接代入\(-x\)可得\(u\)为奇函数，\(v\)为偶函数，且\(f=u+v\)。
+
+若另有\(f=u_1+v_1\)，其中\(u_1\)为奇函数、\(v_1\)为偶函数，则
+\[
+f(-x)=-u_1(x)+v_1(x).
+\]
+与\(f(x)=u_1(x)+v_1(x)\)相加、相减，恰好得到上述两个表达式，所以分解唯一。
+
+
+% ITEM: vector-positive-multiplicative-space
+\solutionitem{vector-positive-multiplicative-space}{习题3.3（8） *}
+在正实数集上规定\(u \oplus v = u v\)，\(k \odot u = u^{k}\)。验证它在这两种运算下是实线性空间，并求一组基及其维数。
+\solutionanswer
+用对数把新运算转化为熟悉的运算：
+\[
+\ln(u\oplus v)=\ln u+\ln v,\qquad
+\ln(k\odot u)=k\ln u.
+\]
+又因为\(\ln:(0,+\infty)\to\mathbb R\)一一对应，实数加法与数乘的全部运算律都传回到这两种新运算。例如
+\[
+k\odot(u\oplus v)=(uv)^k=u^kv^k
+=(k\odot u)\oplus(k\odot v).
+\]
+这里的零向量为\(1\)，向量\(u\)的负向量为\(1/u\)。这些数均在正实数集中，故确实得到一个实线性空间。
+
+每个正数都有唯一表示\(u=e^{\ln u}=(\ln u)\odot e\)，所以单个向量\(e\)构成一组基，维数为\(1\)。这里\(0\odot e=1\)，也与该空间的零向量一致。
+\par

@@ -24,3 +24,16 @@ __pycache__/
 .vscode/
 docs/
 tmp/
+
+# Local companion-book authoring workflow and review records.
+/solutions/tools/
+/solutions/templates/
+/solutions/tasks/
+/solutions/statements/
+/solutions/generated/
+/solutions/inventory.json
+/solutions/work-allocation.json
+/solutions/pilot-preview.tex
+/solutions/*.md
+!/solutions/README.md
+*.synctex(busy)

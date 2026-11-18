@@ -1,0 +1,135 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{数项级数}
+
+\label{sol:sec:analysis:6}
+
+% ITEM: analysis-geometric-series
+\solutionitem{analysis-geometric-series}{例1.17}
+讨论\(\sum_{n=1}^{\infty}q^{n-1}\)在实数\(q\)取不同值时的敛散性。再考察\(1-1+1-1+\cdots\)，比较它的部分和与将相邻两项先合并后得到的部分和。
+\solutionanswer
+当\(q\ne1\)时，部分和为\(S_N=(1-q^N)/(1-q)\)。故\(|q|<1\)时收敛，和为\(1/(1-q)\)；\(q=1\)时\(S_N=N\)发散；\(|q|\ge1\)且\(q\ne1\)时通项不趋于零，也发散。
+
+\(1-1+1-1+\cdots\)的部分和为\(1,0,1,0,\ldots\)，不收敛。合并相邻两项后，部分和恒为\(0\)，实际上只保留了原部分和的偶子列。一个子列收敛不能保证全列收敛。
+
+
+% ITEM: analysis-telescoping-and-weighted-series
+\solutionitem{analysis-telescoping-and-weighted-series}{例1.18}
+求下列级数的和，并写出前\(n\)项和与其极限之间的差：
+\begin{equation*}
+ \text{（1）}\ \sum_{k=1}^{\infty}\frac1{k(k+2)};
+ \qquad
+ \text{（2）}\ \sum_{k=1}^{\infty}\frac{k}{2^k}.
+\end{equation*}
+\solutionanswer
+（1）裂项得\(1/[k(k+2)]=\tfrac12(1/k-1/(k+2))\)，故
+\[
+S_n=\frac34-\frac1{2(n+1)}-\frac1{2(n+2)}.
+\]
+因此和为\(3/4\)，且\(S-S_n=1/[2(n+1)]+1/[2(n+2)]\)。
+
+（2）记\(S_n=\sum_{k=1}^nk/2^k\)。乘以\(1/2\)后错开一位，相减得到
+\[
+\frac12 S_n=\sum_{k=1}^n\frac1{2^k}-\frac n{2^{n+1}}
+=1-\frac{n+2}{2^{n+1}}.
+\]
+所以\(S_n=2-(n+2)/2^n\)，级数的和为\(2\)，且\(S-S_n=(n+2)/2^n\)。
+
+
+% ITEM: analysis-series-comparisons
+\solutionitem{analysis-series-comparisons}{例1.19}
+判断下列级数的敛散性，并说明比较对象怎样选择：
+\begin{equation*}
+ \text{（1）}\ \sum_{n=1}^{\infty}\frac1{n^2+n+1};
+ \qquad
+ \text{（2）}\ \sum_{n=1}^{\infty}\frac1{\sqrt{n(n+1)}}.
+\end{equation*}
+\solutionanswer
+（1）分母的最高次项提示与\(1/n^2\)比较。由\(0<1/(n^2+n+1)\le1/n^2\)，原级数收敛。
+
+（2）分母的大小与\(n\)相当，选择调和级数作比较。由\(1/\sqrt{n(n+1)}>1/(n+1)\)，而\(\sum1/(n+1)\)发散，故原级数发散。
+
+
+% ITEM: analysis-ratio-root-tests
+\solutionitem{analysis-ratio-root-tests}{例1.20 *}
+判断\(\sum_{n=1}^{\infty}n^2/3^n\)、\(\sum_{n=1}^{\infty}2^n/n!\)与\(\sum_{n=1}^{\infty}(n/(2n+1))^n\)的敛散性。比较逐项估计、比值判别与根值判别各自适合的表达式。
+\solutionanswer
+三者均收敛。前两题的相邻项容易约去，分别有
+\[
+\frac{(n+1)^2/3^{n+1}}{n^2/3^n}\to\frac13,
+\qquad
+\frac{2^{n+1}/(n+1)!}{2^n/n!}=\frac2{n+1}\to0.
+\]
+第三题整体带有\(n\)次幂，根值判别更直接：\(\sqrt[n]{(n/(2n+1))^n}=n/(2n+1)\to1/2\)。
+
+逐项估计也能处理第三题，因为\((n/(2n+1))^n<2^{-n}\)。比值判别适合阶乘、指数相邻项易约的表达式；根值判别适合整体作\(n\)次幂的表达式。判别法将寻找等比级数上界的过程概括为一个统一条件。
+
+
+% ITEM: analysis-alternating-p-series
+\solutionitem{analysis-alternating-p-series}{例1.21 *}
+讨论\(\sum_{n=1}^{\infty}(-1)^{n-1}/n^p\)在实数\(p\)取不同值时的敛散性，并区分绝对收敛与条件收敛。取\(p=2\)，若要求部分和近似的误差不超过\(10^{-4}\)，由上述估计至少应取多少项？
+\solutionanswer
+\(p>0\)时，\(1/n^p\)单调递减且趋于零，故交错级数收敛；\(p\le0\)时，通项不趋于零，故发散。再考察绝对值级数\(\sum1/n^p\)，可知\(p>1\)时绝对收敛，\(0<p\le1\)时条件收敛。
+
+取\(p=2\)，由\(|S-S_N|\le1/(N+1)^2\)，要由此上界保证误差不超过\(10^{-4}\)，应有\(N+1\ge100\)，即至少取\(99\)项。
+
+
+% ITEM: analysis-odd-telescoping
+\solutionitem{analysis-odd-telescoping}{习题1.3（1）}
+求\(\sum_{n=1}^{\infty}1/[(2n-1)(2n+1)]\)的和及前\(n\)项和的误差。
+\solutionanswer
+裂项后相消：
+\[
+\frac1{(2k-1)(2k+1)}=\frac12\left(\frac1{2k-1}-\frac1{2k+1}\right),
+\qquad
+S_n=\frac12\left(1-\frac1{2n+1}\right).
+\]
+所以级数的和为\(1/2\)，前\(n\)项和的误差为\(1/[2(2n+1)]\)。
+
+
+% ITEM: analysis-weighted-geometric
+\solutionitem{analysis-weighted-geometric}{习题1.3（2）}
+用错位相减求\(\sum_{n=1}^{\infty}(2n-1)/3^n\)的和。
+\solutionanswer
+记\(S_N=\sum_{n=1}^N(2n-1)/3^n\)。错位相减，得到
+\[
+2S_N=1+2\sum_{n=1}^{N-1}\frac1{3^n}-\frac{2N-1}{3^N}
+=2-\frac{2N+2}{3^N}.
+\]
+因此\(S_N=1-(N+1)/3^N\to1\)，所求和为\(1\)。
+
+
+% ITEM: analysis-positive-transform
+\solutionitem{analysis-positive-transform}{习题1.3（3）}
+设\(a_n\ge0\)，且\(\sum a_n\)收敛。证明\(\sum a_n^2\)与\(\sum a_n/(1+a_n)\)均收敛。
+\solutionanswer
+由\(\sum a_n\)收敛，知\(a_n\to0\)，所以从某项起\(0\le a_n\le1\)。这时\(0\le a_n^2\le a_n\)，由比较判别法得\(\sum a_n^2\)收敛。又对所有\(n\)都有\(0\le a_n/(1+a_n)\le a_n\)，故另一级数也收敛。
+
+
+% ITEM: analysis-harmonic-equivalent
+\solutionitem{analysis-harmonic-equivalent}{习题1.3（4）}
+设\(a_n>0\)，且\(na_n\to c>0\)。判断\(\sum a_n\)的敛散性。若只知\(na_n\to0\)，是否能够确定？
+\solutionanswer
+若\(na_n\to c>0\)，则充分大的\(n\)满足\(a_n\ge c/(2n)\)，与调和级数比较，知原级数发散。
+
+若只知\(na_n\to0\)，则不能确定。取\(a_n=1/n^2\)，级数收敛。发散的例子可取\(a_n=1/[n\log_2(n+1)]\)，此时\(na_n\to0\)，但对\(2^j\le n<2^{j+1}\)，每项不小于\(1/[2^{j+1}(j+1)]\)，所以这组\(2^j\)项的和不小于\(1/[2(j+1)]\)。各组累加仍无界，故级数发散。
+
+
+% ITEM: analysis-factorial-ratio
+\solutionitem{analysis-factorial-ratio}{习题1.3（5） *}
+判断\(\sum_{n=1}^{\infty}n!/n^n\)的敛散性。再举两个比值极限都等于\(1\)、但敛散性不同的正项级数。
+\solutionanswer
+记\(u_n=n!/n^n\)。由Bernoulli不等式，
+\[
+\frac{u_{n+1}}{u_n}=\left(\frac n{n+1}\right)^n
+=\frac1{(1+1/n)^n}\le\frac12.
+\]
+因而\(u_n\le u_1\,2^{-(n-1)}\)，与等比级数比较即知收敛，无须预先使用常数\(e\)。比值极限均为\(1\)而敛散不同的例子是\(\sum1/n\)与\(\sum1/n^2\)。
+
+
+% ITEM: analysis-alternating-remainder
+\solutionitem{analysis-alternating-remainder}{习题1.3（6） *}
+设\(a_n\ge0\)单调不增且趋于零。证明\(\sum_{n=1}^{\infty}(-1)^{n-1}a_n\)的第\(n\)项余项与第\(n+1\)项同号，余项为零时除外。
+\solutionanswer
+由交错级数判别法，和\(S\)位于相邻部分和\(S_n\)、\(S_{n+1}\)之间。因此\(S-S_n\)与\(S_{n+1}-S_n=(-1)^na_{n+1}\)方向相同；若余项非零，其符号便与第\(n+1\)项一致。
+\par

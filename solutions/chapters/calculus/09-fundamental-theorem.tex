@@ -1,0 +1,171 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{微积分基本定理}
+
+% ITEM: calculus-example-058
+\solutionitem{calculus-example-058}{例5.58}
+设\(f(t)=t-1\)，\(0\le t\le2\)。先不求\(A(x)=\int_0^x f(t)\,dt\)的表达式，根据面积与符号判断它的增减、零点及最小值位置，再用几何面积求出\(A(x)\)。
+\solutionanswer
+在\(0<x<1\)被积函数为负，累积量递减；在\(1<x<2\)为正，累积量递增。\(A(0)=0\)，左右两块三角形面积相等，故\(A(2)=0\)，内部没有其他零点，唯一最小值在\(x=1\)。由几何面积，\(x\le1\)时\(A=-x(2-x)/2\)，\(x\ge1\)时\(A=-1/2+(x-1)^2/2\)，统一为\(A=x^2/2-x\)，最小值\(-1/2\)。
+
+
+% ITEM: calculus-example-059
+\solutionitem{calculus-example-059}{例5.59}
+设\(F(x)=\int_0^x\sin(t^2)\,dt\)。不求显式表达式，求\(F'(x)\)，判断\(F\)在\((-\sqrt{2\pi},\sqrt{2\pi})\)内的单调性与极值，并说明\(F'(0)=0\)是否使\(0\)成为极值点。
+\solutionanswer
+由微积分基本定理\(F'(x)=\sin(x^2)\)。在\((-\sqrt{2\pi},-\sqrt\pi)\)及\((\sqrt\pi,\sqrt{2\pi})\)为负，在\((-\sqrt\pi,\sqrt\pi)\)除零点外为正。因此先减、再增、再减，\(-\sqrt\pi\)是极小值点，\(\sqrt\pi\)是极大值点，值分别为\(F(-\sqrt\pi),F(\sqrt\pi)\)。零点处导数虽为零，两侧仍同为递增，故不是极值点。
+
+
+% ITEM: calculus-example-060
+\solutionitem{calculus-example-060}{例5.60}
+计算\(\int_1^e dx/x\)、\(\int_0^\pi\sin x\,dx\)及\(\int_{-1}^1(3x^2-1)\,dx\)。再用几何意义核对最后一个积分的值是否意味着图像与横轴之间没有面积。
+\solutionanswer
+由原函数\(\ln x,-\cos x,x^3-x\)，三个积分依次为\(1,2,0\)。最后一个函数在\(|x|<1/\sqrt3\)为负，在两端为正，零积分只是正负面积抵消；总面积为\(8/(3\sqrt3)>0\)。
+
+
+% ITEM: calculus-example-061
+\solutionitem{calculus-example-061}{例5.61}
+（1）设\(I(x)=\int_x^{2x}e^{-t}\,dt\)，\(x>0\)。不先求\(I\)的表达式，讨论其单调性，再求最大值。为什么被积函数为正，\(I\)仍可能递减？
+
+（2）设\(G(x)=\int_0^x e^{-t^2}\,dt\)，证明其为奇函数且严格递增，并求\(H(x)=G(\sin x)\)的导数和单调区间。
+\solutionanswer
+（1）变限积分求导给出\(I'=2e^{-2x}-e^{-x}=e^{-x}(2e^{-x}-1)\)。所以在\((0,\ln2]\)增、\([\ln2,+\infty)\)减。此后计算\(I=e^{-x}-e^{-2x}\)，最大值为\(1/4\)。区间虽变长，也整体移向函数值较小的位置，两种影响共同决定变化。
+（2）被积函数为偶函数，反向积分并换元得\(G(-x)=-G(x)\)。又\(G'=e^{-x^2}>0\)，故严格递增。\(H'=e^{-\sin^2x}\cos x\)，所以在\([-\pi/2+2k\pi,\pi/2+2k\pi]\)增，在\([\pi/2+2k\pi,3\pi/2+2k\pi]\)减，\(k\in\mathbb Z\)。
+
+
+% ITEM: calculus-exercise-37-01
+\solutionitem{calculus-exercise-37-01}{习题5.37（1）}
+\setlength{\parskip}{3.5pt}
+设\(f(t)=|t-1|\)，\(0\le t\le2\)，\(A(x)=\int_0^xf(t)\,dt\)。先不求表达式，判断\(A\)的单调性及其在\(x=1\)处是否可导，再求表达式核对。\(f\)在\(1\)处不可导是否影响上述结论？
+\solutionanswer
+连续非负的\(f\)只在一点为零，每个正长度区间的积分均正，故\(A\)严格递增。基本定理给出\(A'(1)=f(1)=0\)，只需\(f\)连续，不要求\(f\)可导。具体地\(A=x-x^2/2\)对\(0\le x\le1\)，\(A=1/2+(x-1)^2/2\)对\(1\le x\le2\)，左右导数均为零。
+
+
+% ITEM: calculus-exercise-37-02
+\solutionitem{calculus-exercise-37-02}{习题5.37（2）}
+\setlength{\parskip}{3.5pt}
+设\(A(x)=\int_0^x(t^2-1)\,dt\)。先由被积函数判断\(A\)的增减与极值，再求其表达式。
+\solutionanswer
+\(A'=x^2-1\)，故在\(( -\infty,-1]\)增、\([-1,1]\)减、\([1,+\infty)\)增。在\(-1\)取极大值\(2/3\)，在\(1\)取极小值\(-2/3\)。原函数计算给出\(A=x^3/3-x\)。
+
+
+% ITEM: calculus-exercise-37-03
+\solutionitem{calculus-exercise-37-03}{习题5.37（3）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在\([a,b]\)上可积，且\(|f|\le M\)，\(A(x)=\int_a^xf(t)\,dt\)。证明\(|A(y)-A(x)|\le M|y-x|\)，并说明\(A\)一致连续。能否仅凭这些条件断言\(A\)处处可导？
+\solutionanswer
+\(A(y)-A(x)=\int_x^y f\)，所以绝对值不超过\(M|y-x|\)。这给出了与位置无关的连续控制，故一致连续。不能保证处处可导：例如阶跃函数在跳点两侧的累积斜率不同。
+
+
+% ITEM: calculus-exercise-37-04
+\solutionitem{calculus-exercise-37-04}{习题5.37（4）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在\(a\)附近连续，证明\(\displaystyle\lim_{h\to0}\frac1h\int_a^{a+h}f(t)\,dt=f(a)\)。比较它与积分中值定理。
+\solutionanswer
+减去\(f(a)\)后，绝对值不超过\(\sup_{t\text{介于}a,a+h}|f(t)-f(a)|\to0\)，故极限为\(f(a)\)。也可由积分中值定理写为\(f(\xi_h)\)，其中\(\xi_h\to a\)。前一种直接估计差商，后一种先把平均值化成一个中间点的值。
+
+
+% ITEM: calculus-exercise-37-05
+\solutionitem{calculus-exercise-37-05}{习题5.37（5）}
+本题的阶跃函数在\([-1,1]\)上定义为\(f(t)=0\)（\(t<0\)）、\(f(t)=1\)（\(t\ge0\)）。
+
+\setlength{\parskip}{3.5pt}
+设\(f\)为上文的阶跃函数。证明它在包含\(0\)的开区间上没有原函数。可以先在零点两侧使用“导数相同的函数相差常数”，再考察拼接处的可导性。
+\solutionanswer
+此处阶跃函数为\(x<0\)时\(0\)，\(x\ge0\)时\(1\)。若有原函数\(F\)，左侧\(F=C_-\)，右侧\(F=x+C_+\)。可导必连续，故\(C_-=C_+=F(0)\)；但零点左右差商分别为\(0,1\)，矛盾。跳点的单个取值怎样约定都不能消去这两个不同斜率。
+
+
+% ITEM: calculus-exercise-37-06
+\solutionitem{calculus-exercise-37-06}{习题5.37（6）}
+\setlength{\parskip}{3.5pt}
+连续函数\(f\)的一个原函数\(F\)满足\(F(0)=2,F(1)=5\)。求\(\int_0^1f(x)\,dx\)与\(\int_1^0 2f(x)\,dx\)。若另一个原函数\(G\)满足\(G(0)=-1\)，求\(G(1)\)。
+\solutionanswer
+\(\int_0^1f=F(1)-F(0)=3\)，反向并乘\(2\)得\(-6\)。另一个原函数与\(F\)相差\(-3\)，所以\(G(1)=2\)。
+
+
+% ITEM: calculus-exercise-37-07
+\solutionitem{calculus-exercise-37-07}{习题5.37（7）}
+\setlength{\parskip}{3.5pt}
+设连续函数\(f\)满足\(\int_0^x f(t)\,dt=x^2+\sin x\)，求\(f\)。若只知道\(\int_0^1 f=1\)，能否作同样判断？
+\solutionanswer
+对恒等式求导得\(f(x)=2x+\cos x\)。只给一个固定区间的积分不能确定函数，例如\(f=1\)与\(f=2x\)在\([0,1]\)积分均为\(1\)。
+
+
+% ITEM: calculus-exercise-37-08
+\solutionitem{calculus-exercise-37-08}{习题5.37（8）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在\([0,1]\)上连续，且对所有\(x\in[0,1]\)均有\(\int_0^x f(t)\,dt=0\)。证明\(f\equiv0\)。
+\solutionanswer
+在内部求导得\(f(x)=0\)，再由端点连续性得两端也为零。
+
+
+% ITEM: calculus-exercise-37-09
+\solutionitem{calculus-exercise-37-09}{习题5.37（9）}
+正文记\(H_n=\sum_{k=1}^n1/k\)，\(\gamma=\lim(H_n-\ln n)\)，并已证明\(0<H_n-\ln n-\gamma<1/n\)。
+
+\setlength{\parskip}{3.5pt}
+设\(T_n=\sum_{k=1}^n1/(2k-1)-\tfrac12\ln n\)。用\(H_{2n}\)、\(H_n\)表示奇数项的和，求\(T_n\)的极限\(L\)，并利用正文的误差估计给出\(|T_n-L|\)的上界。
+\solutionanswer
+奇数项之和为\(H_{2n}-H_n/2\)。记\(\delta_n=H_n-\ln n-\gamma\)，则
+\(T_n=\ln2+\gamma/2+\delta_{2n}-\delta_n/2\)。故\(L=\ln2+\gamma/2\)。正文估计给出\(0<\delta_{2n}<1/(2n)\)、\(0<\delta_n/2<1/(2n)\)，从而\(|T_n-L|<1/(2n)\)。
+
+
+% ITEM: calculus-exercise-37-10
+\solutionitem{calculus-exercise-37-10}{习题5.37（10）}
+\setlength{\parskip}{3.5pt}
+求\(\int_0^{x^2}\cos t\,dt\)、\(\int_x^{2x}\ln(1+t^2)\,dt\)的导数，并说明每一步的取值位置。
+\solutionanswer
+第一导数为\(2x\cos(x^2)\)，先在上限\(x^2\)处取被积函数，再乘上限导数\(2x\)。第二导数为\(2\ln(1+4x^2)-\ln(1+x^2)\)，分别来自上限\(2x\)和下限\(x\)，后者带负号。
+
+
+% ITEM: calculus-exercise-37-11
+\solutionitem{calculus-exercise-37-11}{习题5.37（11）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在含\(0\)的区间上连续、严格递增，\(A(x)=\int_0^x f(t)\,dt\)。证明\(A\)为凸函数，并解释图像的弯曲如何由局部累积的变化决定。
+\solutionanswer
+基本定理给出\(A'=f\)，而\(f\)严格递增。两段割线由中值定理对应为依次增大的导数值，所以\(A\)严格凸。这里累积函数的斜率正是当前被积函数值，局部累积速度越来越大，图像因而向上弯曲。
+
+
+% ITEM: calculus-exercise-37-12
+\solutionitem{calculus-exercise-37-12}{习题5.37（12）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在\(\mathbb R\)上连续，\(B(x)=\int_x^{x+1}f(t)\,dt\)。求\(B'\)，并证明\(B\)为常值函数当且仅当\(f(x+1)=f(x)\)对所有\(x\)成立。
+\solutionanswer
+\(B'=f(x+1)-f(x)\)。若\(B\)常值则导数恒零，得到周期关系；若周期关系成立则导数恒零，由中值定理\(B\)为常值。
+
+
+% ITEM: calculus-exercise-37-13
+\solutionitem{calculus-exercise-37-13}{习题5.37（13）}
+\setlength{\parskip}{3.5pt}
+不求原函数，利用\(\sin u/u\to1\)与积分估计，求\(\displaystyle\lim_{x\to0}\frac1{x^3}\int_0^x\sin(t^2)\,dt\)。为什么仅把被积函数在零点的值代入，还不足以确定这个极限？
+\solutionanswer
+对任意\(\varepsilon>0\)，充分小的\(|t|\)满足\(|\sin(t^2)-t^2|\le\varepsilon t^2\)。因此
+\[
+ \left|\int_0^x\sin(t^2)\,dt-\frac{x^3}3\right|\le\frac{\varepsilon|x|^3}3,
+\]
+除以\(|x|^3\)得极限\(1/3\)。只代入\(f(0)=0\)看不到累积量的三阶主部，必须控制附近函数相对于\(t^2\)的误差。
+
+
+% ITEM: calculus-exercise-37-14
+\solutionitem{calculus-exercise-37-14}{习题5.37（14）}
+\setlength{\parskip}{3.5pt}
+设连续函数\(f\)满足\(f(x)=1+\int_0^xf(t)\,dt\)。先由等式说明\(f\)可导，再确定\(f\)，并代回原等式验证。这个关系是否唯一确定了\(f\)？
+\solutionanswer
+右侧为连续函数的累积量加常数，故\(f\)可导，且\(f'=f,f(0)=1\)。\((e^{-x}f)'=0\)，得到唯一候选\(f=e^x\)。代回\(1+\int_0^xe^t dt=e^x\)成立，故唯一。
+
+
+% ITEM: calculus-exercise-37-15
+\solutionitem{calculus-exercise-37-15}{习题5.37（15）}
+\setlength{\parskip}{3.5pt}
+设\(f\)在\([0,1]\)上连续且严格为正。证明存在唯一的\(c\in(0,1)\)，使\(\int_0^cf=\tfrac12\int_0^1f\)。若\(f\)还严格递增，判断\(c\)与\(1/2\)的大小关系，并用累积函数的变化解释。
+\solutionanswer
+\(A(x)=\int_0^xf\)连续且严格递增，\(A(0)=0<A(1)/2<A(1)\)，介值定理及严格单调性保证唯一\(c\)。若\(f\)严格递增，则\(\int_0^{1/2}f<\int_{1/2}^1f\)，所以\(A(1/2)<A(1)/2\)，故\(c>1/2\)。后半段累积较快，达到总量一半的时刻因此在中点之后。
+
+
+% ITEM: calculus-exercise-37-16
+\solutionitem{calculus-exercise-37-16}{习题5.37（16）}
+\setlength{\parskip}{3.5pt}
+设\(H(x)=\int_{\cos x}^{\sin x}dt/(1+t^2)\)，\(0\le x\le\pi/2\)。不求\(H\)的显式表达式，判断它的单调性与零点，再比较\(H(\pi/6)\)与\(H(\pi/3)\)的符号。
+\solutionanswer
+\(H'=\cos x/(1+\sin^2x)+\sin x/(1+\cos^2x)>0\)在整个区间成立。\(H=0\)恰为上下限相等，即\(x=\pi/4\)。因此\(H(\pi/6)<0<H(\pi/3)\)。
+\par

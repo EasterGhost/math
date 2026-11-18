@@ -1,0 +1,169 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{两个重要的常数}
+
+\label{sol:sec:analysis:7}
+
+% ITEM: analysis-partition-product
+\solutionitem{analysis-partition-product}{例1.22}
+已知正数\(a\)，将其分成若干部分，若要使它们的乘积达到最大，应该怎样分？
+\solutionanswer
+先固定份数，再比较份数变化。设分成\(m\)个正数\(x_1,\ldots,x_m\)，其和为\(a\)。由算术平均与几何平均不等式，
+\[
+\prod_{i=1}^m x_i\le\left(\frac am\right)^m=:P_m,
+\]
+等号恰在各份都等于\(a/m\)时成立。因此只需在正整数\(m\)中比较\(P_m\)。记
+\[
+T_m=\frac{(m+1)^{m+1}}{m^m}
+=(m+1)\left(1+\frac1m\right)^m.
+\]
+则\(P_{m+1}/P_m=a/T_m\)。由于\(T_m\)严格递增且趋于无穷，\(P_m\)随份数先增后减。若\(a<4=T_1\)，最优为一份；若\(a=4\)，一份和两份都最优；当\(m\ge2\)时，\(m\)份最优的充要条件是
+\[
+T_{m-1}\le a\le T_m.
+\]
+端点取等时，相邻两个份数都最优；其余情形最优份数唯一。各份均取\(a/m\)，最大乘积为\((a/m)^m\)。当最优份数很大时，由上述两侧界可知每份大小接近\(e\)；精确的整数份数仍应由相邻比较决定。
+
+
+% ITEM: analysis-e-properties
+\solutionitem{analysis-e-properties}{研究题：关于数e的基本命题（1.7.2）}
+设\(e_{n} = {\left( 1 + \frac{1}{n} \right)}^{n} , n \in \mathbb{N}^{*}\)，证明：\(\left\{ e_{n} \right\}\)严格单调递增且收敛.
+
+（1）证明：\(e = \sum _{n = 0}^{\infty} \frac{1}{n !}\).
+
+（2）记\(\varepsilon_{n} = e - \sum _{k = 0}^{n} \frac{1}{k !}\)，证明：\(\lim_{n \to \infty} \varepsilon_{n} \left( n + 1 \right) ! = 1\).
+
+（3）对于上述\(\varepsilon_{n}\)有\(\frac{1}{\left( n + 1 \right) !} < \varepsilon_{n} < \frac{1}{n ! n}\).
+
+（4）\(e\)是无理数.
+
+（5）\(\lim_{n \to \infty} \frac{n}{\sqrt[n]{n !}} = e\).
+\solutionanswer
+\(e_n\)严格递增且收敛已在例1.12证明，这里沿用其二项展开。
+
+（1）先由\(1/k!\le2^{-(k-1)}\)（\(k\ge2\)）知\(S=\sum_{k=0}^{\infty}1/k!\)收敛。二项展开给出\(e_n\le\sum_{k=0}^n1/k!\le S\)，故\(e\le S\)。对任意固定的\(m\)，当\(n\ge m\)时又有
+\[
+e_n\ge\sum_{k=0}^m\frac1{k!}\prod_{j=0}^{k-1}\left(1-\frac jn\right).
+\]
+先令\(n\to\infty\)，得到\(e\ge\sum_{k=0}^m1/k!\)；再令\(m\to\infty\)，得\(e\ge S\)。所以\(e=S\)。这里固定有限前段后再取极限，避免了未经证明的无穷项逐项取极限。
+
+（2）、（3）由级数表示，余项为
+\[
+\varepsilon_n=\frac1{n!}\sum_{j=1}^{\infty}
+\frac1{(n+1)(n+2)\cdots(n+j)}.
+\]
+首项给出严格下界\(1/(n+1)!\)。每个因子都不小于\(n+1\)，且从第二项起有严格不等式，故
+\[
+\frac1{(n+1)!}<\varepsilon_n
+<\frac1{n!}\sum_{j=1}^{\infty}\frac1{(n+1)^j}
+=\frac1{n\,n!}.
+\]
+乘以\((n+1)!\)，得到\(1<\varepsilon_n(n+1)!<(n+1)/n\)，夹逼即得极限\(1\)。
+
+（4）若\(e=p/q\)，取整数\(n\ge\max\{q,2\}\)。则\(n!e\)和\(n!\sum_{k=0}^n1/k!\)都是整数，其差却满足\(0<n!\varepsilon_n<1/n<1\)，矛盾。因此\(e\)为无理数。
+
+（5）把乘积转成对数和，才便于比较相邻增量。令\(c_n=n\ln n-\ln(n!)\)，则
+\[
+c_{n+1}-c_n=n\ln\left(1+\frac1n\right)=\ln e_n\to1.
+\]
+由Stolz定理，\(c_n/n\to1\)。又\(c_n/n=\ln\bigl(n/\sqrt[n]{n!}\bigr)\)，故所求极限为\(e\)。
+
+
+% ITEM: analysis-euler-constant
+\solutionitem{analysis-euler-constant}{研究题：Euler常数（1.7.3）}
+证明：数列\(\left\{ \gamma_{n} \right\}\)收敛，其中\(\gamma_{n} = \sum _{i = 1}^{n} \frac{1}{i} - \ln n , n \in \mathbb{N}^{*}\)。其极限称为{\heiti{}Euler常数}，记为\(\gamma\)。
+
+计算极限：
+\begin{equation*}
+    \lim_{n \to \infty} \left( \frac{1}{n + 1} + \frac{1}{n + 2} + \cdots + \frac{1}{2 n} \right)
+\end{equation*}
+\solutionanswer
+先从\(e\)的定义得到本题所需的对数界。令\(v_n=(1+1/n)^{n+1}\)。对\(n+1\)个\(n/(n+1)\)和一个\(1\)使用均值不等式，得
+\[
+\left(\frac n{n+1}\right)^{n+1}
+<\left(\frac{n+1}{n+2}\right)^{n+2}.
+\]
+因此\(v_n\)严格递减，而\(v_n=e_n(1+1/n)\to e\)。结合\(e_n<e<v_n\)，取对数得
+\[
+\frac1{n+1}<\ln\left(1+\frac1n\right)<\frac1n.
+\]
+于是\(\gamma_{n+1}-\gamma_n=1/(n+1)-\ln(1+1/n)<0\)。又对\(k=1,\ldots,n-1\)累加右侧不等式，得\(\ln n<H_{n-1}\)，故\(\gamma_n>1/n>0\)（\(n=1\)也成立）。单调有界原理保证\(\gamma_n\)收敛。
+
+利用\(H_n=\ln n+\gamma_n\)，有
+\[
+\sum_{k=n+1}^{2n}\frac1k=H_{2n}-H_n
+=\ln2+\gamma_{2n}-\gamma_n\to\ln2.
+\]
+
+
+% ITEM: analysis-euler-irrationality-question
+\solutionitem{analysis-euler-irrationality-question}{思考：Euler常数的无理性（1.7.3）}
+Euler常数\(\gamma\)是否是无理数？
+\solutionanswer
+目前尚不知道\(\gamma\)是有理数还是无理数。\footnote{参见Michael R. Powers的论文摘要，\url{https://arxiv.org/abs/2511.01849v7}，核对日期为2026年11月17日。}
+本问保留为开放问题的认识，不要求读者给出无理性证明。数列收敛并不自动确定其极限的算术性质。
+
+
+% ITEM: analysis-e-limits
+\solutionitem{analysis-e-limits}{例1.23}
+计算以下极限：
+
+    （1）\(\lim_{n \to \infty} {\left( 1 - \frac{1}{n} \right)}^{n}\),
+    \(\lim_{n \to \infty} {\left( 1 + \frac{1}{2 n} \right)}^{n}\)
+
+    （2）\(\lim_{n \to \infty} {\left( 1 + \frac{1}{n} \right)}^{n^{2}}\)
+
+    （3）\(\lim_{n \to \infty} {\left( 1 + \frac{1}{n} + \frac{1}{n^{2}}
+        \right)}^{n}\)
+
+    （4）\(\lim_{n \to \infty} \prod _{i = 1}^{n} \left( 1 +
+    \frac{i}{n^{2}} \right)\)
+
+    （5）\(\lim_{n \to \infty} \frac{n ! 2^{n}}{n^{n}}\)
+
+    （6）\(\lim_{n \to \infty} {\left( 1 +
+        \frac{1}{p_{n}}\right)}^{p_{n}}\)，其中\(\left\{ p_{n} \right\}\)是正数列
+\solutionanswer
+（1）当\(n\ge2\)时，
+\[
+\left(1-\frac1n\right)^n=\left(1+\frac1{n-1}\right)^{-n}
+=\frac1{e_{n-1}(1+1/(n-1))}\to e^{-1}.
+\]
+另一极限由\((1+1/(2n))^n=\sqrt{e_{2n}}\to\sqrt e\)得到。
+
+（2）\((1+1/n)^{n^2}=e_n^n\ge2^n\to+\infty\)。
+
+（3）对\(n\ge2\)，有\(1/n\le1/n+1/n^2\le1/(n-1)\)，因此
+\[
+e_n\le\left(1+\frac1n+\frac1{n^2}\right)^n
+\le\left(1+\frac1{n-1}\right)^n=v_{n-1}\to e.
+\]
+所求极限为\(e\)。
+
+（4）每个因子不同，可以用均值不等式从上下两侧估计。对\(i\)个\(1+1/n\)和\(n-i\)个\(1\)使用均值不等式，得
+\[
+1+\frac i{n^2}\ge\left(1+\frac1n\right)^{i/n}.
+\]
+将这些式子相乘，再对原来的\(n\)个因子使用均值不等式，得到
+\[
+\sqrt{v_n}=\left(1+\frac1n\right)^{(n+1)/2}
+\le\prod_{i=1}^n\left(1+\frac i{n^2}\right)
+\le\left(1+\frac{n+1}{2n^2}\right)^n.
+\]
+当\(n\ge2\)时，最右侧不超过\((1+1/(2n-2))^n=\sqrt{e_{2n-2}}(1+1/(2n-2))\)。两侧均趋于\(\sqrt e\)，故所求极限为\(\sqrt e\)。
+
+（5）记\(u_n=n!2^n/n^n\)。则
+\[
+\frac{u_{n+1}}{u_n}=\frac2{(1+1/n)^n}=\frac2{e_n}.
+\]
+当\(n\ge2\)时，\(e_n\ge e_2=9/4\)，所以\(u_n\le u_2(8/9)^{n-2}\to0\)。
+
+（6）仅有\(p_n>0\)不能确定极限。例如\(p_n\equiv1\)时表达式恒为\(2\)，\(p_n\equiv2\)时恒为\(9/4\)；令\(p_n\)在\(1,2\)之间交替，还会使表达式不收敛。
+
+若进一步知道\(p_n\to+\infty\)，则可以得到\(e\)。事实上，令\(m_n=\lfloor p_n\rfloor\)，当\(m_n\ge1\)时，
+\[
+\left(1+\frac1{m_n+1}\right)^{m_n}
+\le\left(1+\frac1{p_n}\right)^{p_n}
+\le\left(1+\frac1{m_n}\right)^{m_n+1}.
+\]
+两端均趋于\(e\)，从而中间量也趋于\(e\)。这一附加结论不能替代对原题条件的讨论。
+\par

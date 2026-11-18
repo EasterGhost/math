@@ -1,0 +1,76 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{数学期望}
+
+% ITEM: probability-example-016
+\solutionitem{probability-example-016}{例6.16}
+一次活动的奖金为0元、10元、50元，相应概率为\(0.7,0.25,0.05\)。求奖金期望。若每次参加需支付5元，求净收益期望，并说明期望与一次参加的实际收益分别表示什么。
+\solutionanswer
+奖金期望\(0\times0.7+10\times0.25+50\times0.05=5\)元。净收益为奖金减5，期望为零；一次实际净收益只能是\(-5,5,45\)元。期望是按模型概率加权的平均水平，不是一次活动必定得到的数。
+
+
+% ITEM: probability-example-017
+\solutionitem{probability-example-017}{例6.17}
+从\(N\)个产品中不放回随机抽取\(n\)个，其中有\(M\)个不合格。分别按每次抽取、每个不合格产品是否入选定义指示变量，用两种分解求不合格品数的期望。
+\solutionanswer
+令\(I_j\)指第\(j\)次抽到不合格品，\(X=\sum_{j=1}^nI_j\)。每个位置因对称性都有\(EI_j=M/N\)，所以\(EX=nM/N\)。另一法对每件不合格品定义入选指示量\(J_i\)，则\(X=\sum_{i=1}^MJ_i\)，每件的入选概率\(n/N\)，仍得\(EX=Mn/N\)。两种分解都只用期望线性性，不需要不放回抽取之间独立。
+
+
+% ITEM: probability-example-018
+\solutionitem{probability-example-018}{例6.18}
+（据2024年新课标II卷改编）
+甲、乙组成投篮队，每次命中概率分别为\(0<p<q<1\)，各次结果独立。一人先投3次，全部未中则全队得0分；至少命中一次，则另一人再投3次，每次命中得5分，全队只计第二阶段得分。分别求两种出场顺序下的期望得分，并确定哪种顺序的期望较大。
+\solutionanswer
+甲先投时，进入第二阶段概率为\(1-(1-p)^3\)，第二阶段的条件期望为\(15q\)，故期望\(E_{\text{甲先}}=15q[1-(1-p)^3]\)。乙先投同理为\(E_{\text{乙先}}=15p[1-(1-q)^3]\)。相减并整理得\(15pq(q-p)(3-p-q)>0\)，所以甲先、乙后更优。比较时既保留进入第二阶段的概率，也保留进入以后可能取得的平均分数。
+
+
+% ITEM: probability-exercise-09-01
+\solutionitem{probability-exercise-09-01}{习题6.9（1）}
+随机变量\(X\)以\(1/3,1/2,1/6\)的概率取\(-1,1,3\)。求\(E(X)\)、\(E(X^2)\)及\(E(2X-3)\)。
+\solutionanswer
+\(EX=-1/3+1/2+3/6=2/3\)，\(E(X^2)=1/3+1/2+9/6=7/3\)，\(E(2X-3)=2EX-3=-5/3\)。
+
+
+% ITEM: probability-exercise-09-02
+\solutionitem{probability-exercise-09-02}{习题6.9（2）}
+把五张标号1至5的卡片随机排在相应编号的位置上，求位置正确的卡片数的期望。
+\solutionanswer
+令\(I_i\)表示第\(i\)张卡片在正确位置。每张处于其指定位置的概率\(1/5\)，总数期望为\(\sum_{i=1}^5EI_i=1\)。各指示量不独立，也不影响线性求和。
+
+
+% ITEM: probability-exercise-09-03
+\solutionitem{probability-exercise-09-03}{习题6.9（3）}
+十人各等可能选择五个窗口之一办理业务，各人选择独立。用指示变量求无人选择的窗口数的期望。
+\solutionanswer
+令\(I_j\)表示窗口\(j\)无人选择。十人都避开该窗口的概率\((4/5)^{10}\)，故空窗口数期望为\(5(4/5)^{10}\)。
+
+
+% ITEM: probability-exercise-09-04
+\solutionitem{probability-exercise-09-04}{习题6.9（4）}
+从甲、乙两校各随机抽一人，分别以\(0.8,0.75\)的概率答对某题，答题相互独立。求答对人数的分布与期望，再用线性性核对。
+\solutionanswer
+答对人数在\(0,1,2\)处的概率分别为\(0.2\times0.25=0.05\)、\(0.8\times0.25+0.2\times0.75=0.35\)、\(0.8\times0.75=0.60\)。期望\(0.35+2\times0.60=1.55\)，也等于两人答对指示量的期望和\(0.8+0.75\)。
+
+
+% ITEM: probability-exercise-09-05
+\solutionitem{probability-exercise-09-05}{习题6.9（5）}
+设有\(n\)个相互独立的生日，均匀分布在365天中。求生日相同的人对数的期望；一对按无序的两人识别。
+\solutionanswer
+对每对\(i<j\)设同生日指示量\(I_{ij}\)。由独立均匀生日，\(EI_{ij}=1/365\)。无序人对共\(\binom n2\)个，所以期望\(\binom n2/365\)。不需要各人对的指示量相互独立。
+
+
+% ITEM: probability-exercise-10-01
+\solutionitem{probability-exercise-10-01}{习题6.10（1） *}
+本组\(V\)为\(N\)个样本点组成的有限概率空间上的全部实值函数，\(E:V\to\mathbb R\)为其期望泛函。
+求\(\ker E\)的维数。在三个等可能样本点的空间上写出它的一组基。
+\solutionanswer
+\(V\cong\mathbb R^N\)，\(E\mathbf1=1\)使像为一维，故由核像维数关系\(\dim\ker E=N-1\)。三点等可能时，核为\(x_1+x_2+x_3=0\)，一组基为\((1,-1,0),(1,0,-1)\)。
+
+
+% ITEM: probability-exercise-10-02
+\solutionitem{probability-exercise-10-02}{习题6.10（2） *}
+本组\(V\)为\(\Omega=\{\omega_1,\ldots,\omega_N\}\)上全部实值函数组成的空间，\(\mathbf1\)为常值1函数。
+设线性映射\(L:V\to\mathbb R\)满足\(L(\mathbf1)=1\)，且非负函数的像均非负。令\(p_i=L(1_{\{\omega_i\}})\)，证明它们构成一组概率权重，且\(L\)就是相应的期望。
+\solutionanswer
+各基函数非负，故\(p_i\ge0\)。由\(\sum_i1_{\{\omega_i\}}=\mathbf1\)，有\(\sum_ip_i=L\mathbf1=1\)，确为概率权重。再由\(X=\sum_iX(\omega_i)1_{\{\omega_i\}}\)，线性性给\(L(X)=\sum_iX(\omega_i)p_i\)，即对应期望。
+\par

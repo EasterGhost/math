@@ -1,0 +1,116 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{计数原理}
+
+% ITEM: probability-example-001
+\solutionitem{probability-example-001}{例6.1}
+某班有40人，参加数学社团的有18人，参加物理社团的有16人，两者都参加的有7人。求至少参加一个社团、恰参加一个社团和两个社团都未参加的人数。
+\solutionanswer
+容斥原理给出至少参加一项的\(18+16-7=27\)人；恰参加一项为\((18-7)+(16-7)=20\)人；两项均未参加为\(40-27=13\)人。
+
+
+% ITEM: probability-example-002
+\solutionitem{probability-example-002}{例6.2}
+用数字\(0,1,2,3,4\)组成没有重复数字的三位数。分别求全部三位数、偶数和大于300的三位数的个数。比较各问适合先确定哪个位置。
+\solutionanswer
+全部三位数先选百位：\(4\times4\times3=48\)。偶数先选个位并分类：个位为\(0\)时\(4\times3=12\)个；个位为\(2\)或\(4\)时，各有\(3\times3=9\)个，共\(30\)个。大于300时百位为\(3\)或\(4\)，各有\(4\times3\)个，共\(24\)个。受限制的位置宜先确定，后续各步的选法数才容易保持一致。
+
+
+% ITEM: probability-example-003
+\solutionitem{probability-example-003}{例6.3}
+六名同学排成一列，甲、乙是其中两人。分别求甲乙相邻、甲乙不相邻，以及甲在乙左侧的排列数。再求由字母\(A,A,A,B,B,C\)组成的不同字符串数。
+\solutionanswer
+相邻时把甲乙捆为一个整体，共\(2\cdot5!=240\)种；不相邻为\(6!-240=480\)种。交换甲乙使“甲在左”和“乙在左”一一对应，所以甲在左占\(6!/2=360\)种。相同字母排列数为\(6!/(3!2!)=60\)。
+
+
+% ITEM: probability-example-004
+\solutionitem{probability-example-004}{例6.4}
+从6名同学中选3人组成小组，并指定其中一人为组长。分别按“先选小组，再选组长”和“先选组长，再选组员”计数。若先将三人排成一列，以首人为组长，再忘去后两人的次序，每个结果被重复计数几次？
+\solutionanswer
+先选组再选组长，得\(\binom63\cdot3=60\)；先选组长再选其余两人，得\(6\binom52=60\)。有序记录共有\(A_6^3=120\)条，每个结果的后两人可交换，恰重复\(2!\)次，所以应除以\(2\)。
+
+
+% ITEM: probability-example-005
+\solutionitem{probability-example-005}{例6.5}
+（2025年上海卷，题面整理）
+求\((2x-1)^5\)展开式中\(x^3\)的系数。
+\solutionanswer
+取三个因子中的\(2x\)、另两个因子中的\(-1\)，系数为\(\binom53 2^3(-1)^2=80\)。
+
+
+% ITEM: probability-example-006
+\solutionitem{probability-example-006}{例6.6}
+求\((x^2+2/x)^9\)展开式的常数项、\(x^6\)项的系数及各项系数之和。
+\solutionanswer
+通项为\(\binom9k2^kx^{18-3k}\)。常数项要求\(k=6\)，得\(\binom962^6=5376\)；\(x^6\)项要求\(k=4\)，系数\(\binom942^4=2016\)。令\(x=1\)，各项系数之和为\(3^9=19683\)。
+
+
+% ITEM: probability-exercise-01-01
+\solutionitem{probability-exercise-01-01}{习题6.1（1）}
+用数字\(0,1,2,3,4,5\)组成没有重复数字的四位数，求其中能被5整除的个数。
+\solutionanswer
+个位为\(0\)时有\(5\times4\times3=60\)个；个位为\(5\)时，千位不能为\(0,5\)，有\(4\times4\times3=48\)个。总共\(108\)个。
+
+
+% ITEM: probability-exercise-01-02
+\solutionitem{probability-exercise-01-02}{习题6.1（2）}
+七人中选三人，其中甲、乙至少选入一人，有多少种选法？若三人还需分别担任三个不同职务，又有多少种？
+\solutionanswer
+用补集计数为\(\binom73-\binom53=25\)种；再分配三个不同职务，每组有\(3!\)种，故\(150\)种。也可按恰选一人、两人都选分类，得\(2\binom52+\binom51=25\)。
+
+
+% ITEM: probability-exercise-01-03
+\solutionitem{probability-exercise-01-03}{习题6.1（3）}
+将六人分成有标记的两个三人组，再分成无标记的两个三人组，分别有多少种分法？将六人分为一个二人组和一个四人组时，是否还需要除以2？
+\solutionanswer
+有标记时\(\binom63=20\)，无标记时每种分法恰被记录两次，故\(10\)。二人组与四人组能由人数区分，选出二人组就唯一确定另一组，共\(\binom62=15\)，不再除以\(2\)。
+
+
+% ITEM: probability-exercise-01-04
+\solutionitem{probability-exercise-01-04}{习题6.1（4）}
+求\((x^2-2/x)^6\)的常数项，并求各项系数之和。
+\solutionanswer
+通项\(\binom6k(-2)^kx^{12-3k}\)，常数项对应\(k=4\)，为\(240\)。系数和令\(x=1\)，为\((1-2)^6=1\)。
+
+
+% ITEM: probability-exercise-01-05
+\solutionitem{probability-exercise-01-05}{习题6.1（5）}
+用对子集的计数证明\(\sum_{k=0}^n\binom nk^2=\binom{2n}n\)。
+\solutionanswer
+将\(2n\)个对象分成各\(n\)个的两组，选\(n\)个对象。第一组选\(k\)个、第二组选\(n-k\)个，有\(\binom nk\binom n{n-k}=\binom nk^2\)种；对所有\(k\)相加，等于直接选择的\(\binom{2n}n\)。
+
+
+% ITEM: probability-exercise-01-06
+\solutionitem{probability-exercise-01-06}{习题6.1（6）}
+有三类对象，数量分别为\(a,b,c\)。证明\(\sum_{i+j+k=r}\binom ai\binom bj\binom ck=\binom{a+b+c}r\)。
+\solutionanswer
+直接从三类的全部\(a+b+c\)个对象中选\(r\)个，有右侧的数量。也可按三类分别选入\(i,j,k\)个分类，各类内部独立计数为\(\binom ai\binom bj\binom ck\)。这些类别互斥且穷尽，故求和得到同一数量。
+
+
+% ITEM: probability-exercise-01-07
+\solutionitem{probability-exercise-01-07}{习题6.1（7）}
+（2023年全国甲卷理科，题面整理）5名志愿者参加公益活动，周六、周日每天安排2人。恰有1人两天都参加，共有多少种安排？
+\solutionanswer
+先选两天共同参加的人，有\(5\)种；周六的另一人有\(4\)种，周日的另一人必须不同，有\(3\)种。故\(5\times4\times3=60\)种。两天有名称，不能再除以\(2\)。
+
+
+% ITEM: probability-exercise-02-01
+\solutionitem{probability-exercise-02-01}{习题6.2（1） *}
+把10个相同球放入4个不同盒子，求允许空盒、每盒至少一个及第一盒至少两个时的分法数。
+\solutionanswer
+允许空盒时解数\(\binom{13}3=286\)；每盒至少一个时先各放一个，得\(\binom93=84\)；第一盒至少两个时先在其中放两个，余下8球任意分，得\(\binom{11}3=165\)。
+
+
+% ITEM: probability-exercise-02-02
+\solutionitem{probability-exercise-02-02}{习题6.2（2） *}
+从\(r\)种口味的糖果中购买\(n\)颗，同种口味不加区分。把购买方案与非负整数解对应，求方案数。
+\solutionanswer
+以\(x_i\)记录第\(i\)种口味购买数，方案与\(x_1+\cdots+x_r=n\)、\(x_i\ge0\)的整数解一一对应。由隔板法，方案数\(\binom{n+r-1}{r-1}\)。
+
+
+% ITEM: probability-exercise-02-03
+\solutionitem{probability-exercise-02-03}{习题6.2（3） *}
+六人围圆桌就座，甲、乙不能相邻。求不同座次的个数。
+\solutionanswer
+全部圆座次为\(5!=120\)。甲乙相邻时捆为一个有内部次序的整体，五个对象圆排列为\(2\cdot4!=48\)，故不相邻为\(72\)种。这里只识别整体旋转，不识别镜面反向。
+\par

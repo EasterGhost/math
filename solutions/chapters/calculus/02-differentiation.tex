@@ -1,0 +1,234 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{导数的计算}
+
+% ITEM: calculus-example-006
+\solutionitem{calculus-example-006}{例5.6}
+求\(f(x)=(x^2+1)/(x-1)\)的导函数。比较直接用商法则与先将分式写成\(x+1+2/(x-1)\)两种计算。
+\solutionanswer
+商法则给出\(f'(x)=[2x(x-1)-(x^2+1)]/(x-1)^2=(x^2-2x-1)/(x-1)^2\)。先除式化简则\(f=x+1+2/(x-1)\)，得到\(f'=1-2/(x-1)^2\)，两式相同。后者把线性部分与倒数部分分开，计算更短。
+
+
+% ITEM: calculus-example-007
+\solutionitem{calculus-example-007}{例5.7}
+分别求\((1+x^2)^3\)、\(1+(x^2)^3\)及\((1+x^3)^2\)的导数。再设\(s=f(t)\)、\(t=2\tau+1\)，写出位置对\(\tau\)的变化率，解释系数\(2\)的作用。
+\solutionanswer
+三式导数依次为\(6x(1+x^2)^2\)、\(6x^5\)、\(6x^2(1+x^3)\)。前、后三式先对外层幂函数求导，再乘内层导数；中间一式直接等于\(1+x^6\)。若\(s=f(2\tau+1)\)，则\(ds/d\tau=2f'(2\tau+1)\)。系数\(2\)来自\(dt/d\tau\)，表示同样的\(\tau\)增量对应两倍的\(t\)增量。
+
+
+% ITEM: calculus-example-008
+\solutionitem{calculus-example-008}{例5.8}
+设\(f(x)=x^3+x\)，其反函数为\(g\)。不求\(g\)的显式表达式，求\(g'(2)\)，并写出\(y=g(x)\)在\(x=2\)处的切线。
+\solutionanswer
+\(f(1)=2\)，故\(g(2)=1\)。又\(f'(1)=3+1=4\)，反函数公式给出\(g'(2)=1/4\)。切线为\(y-1=(x-2)/4\)，不需要解出三次方程。
+
+
+% ITEM: calculus-example-009
+\solutionitem{calculus-example-009}{例5.9}
+求\(y=\sin(2x+\pi/3)\)、\(y=x\cos x\)及\(y=\tan^2x\)的导数。
+\solutionanswer
+导数依次为\(2\cos(2x+\pi/3)\)、\(\cos x-x\sin x\)、\(2\tan x/\cos^2x\)。第一、三式使用链式法则，第二式使用乘积法则。
+
+
+% ITEM: calculus-example-010
+\solutionitem{calculus-example-010}{例5.10}
+求\(y=e^{-x^2}\)、\(y=\ln(1+x^2)\)及\(y=\ln\frac{1+x}{1-x}\)的导数，分别说明选择的中间变量。
+\solutionanswer
+第一式以\(u=-x^2\)为中间变量，导数为\(-2xe^{-x^2}\)；第二式以\(u=1+x^2\)，导数为\(2x/(1+x^2)\)。第三式可先拆为\(\ln(1+x)-\ln(1-x)\)，在\(-1<x<1\)内导数为\(1/(1+x)+1/(1-x)=2/(1-x^2)\)。直接取中间变量\(u=(1+x)/(1-x)\)再用商法则也得到同一结果。
+
+
+% ITEM: calculus-example-011
+\solutionitem{calculus-example-011}{例5.11}
+根据第二章的指数表示，求\(\sinh x\)、\(\cosh x\)、\(\tanh x\)、\(\coth x\)的导数，并用双曲函数表示结果。
+\solutionanswer
+由\(\sinh x=(e^x-e^{-x})/2\)、\(\cosh x=(e^x+e^{-x})/2\)，得\((\sinh x)'=\cosh x\)、\((\cosh x)'=\sinh x\)。商法则及\(\cosh^2x-\sinh^2x=1\)进一步给出
+\[
+ (\tanh x)'=\frac1{\cosh^2x},\qquad
+ (\coth x)'=-\frac1{\sinh^2x}\quad(x\ne0).
+\]
+
+
+% ITEM: calculus-example-012
+\solutionitem{calculus-example-012}{例5.12}
+（2014年广东卷理科第10题）
+求曲线\(y=e^{-5x}+2\)在点\((0,3)\)处的切线方程。
+\solutionanswer
+\(y'=-5e^{-5x}\)，在\(0\)处为\(-5\)，故切线为\(y=3-5x\)。
+
+
+% ITEM: calculus-example-013
+\solutionitem{calculus-example-013}{例5.13}
+（2014年重庆卷理科第20题第（1）问）
+
+设\(f(x)=ae^{2x}-be^{-2x}-cx\)，其中\(a,b,c\in\mathbb R\)。已知\(f'\)为偶函数，且曲线在\((0,f(0))\)处的切线斜率为\(4-c\)，求\(a,b\)。
+\solutionanswer
+\(f'=2ae^{2x}+2be^{-2x}-c\)。偶性要求\((a-b)(e^{2x}-e^{-2x})=0\)对所有\(x\)成立，所以\(a=b\)。又\(f'(0)=2a+2b-c=4-c\)，得\(a=b=1\)。这里只规定了导函数的偶性，没有擅自要求\(f\)为奇函数。
+
+
+% ITEM: calculus-example-014
+\solutionitem{calculus-example-014}{例5.14}
+在双曲线\(x^2/4-y^2=1\)的点\((2\sqrt2,1)\)附近求\(dy/dx\)，并确定该点处的切线。再用\(y\)作为自变量，说明圆在\((R,0)\)处的切线方向。
+\solutionanswer
+沿局部可导分支，对双曲线方程求导得\(x/2-2yy'=0\)，所以\(y'=x/(4y)\)。在指定点斜率为\(1/\sqrt2\)，切线为\(x/\sqrt2-y=1\)。圆的右侧分支以\(y\)为自变量写为\(x=\sqrt{R^2-y^2}\)，在\(y=0\)有\(dx/dy=0\)，故切线方向为\((0,1)\)，即\(x=R\)。
+
+
+% ITEM: calculus-example-015
+\solutionitem{calculus-example-015}{例5.15}
+本题所指椭圆的参数表示为\(x=a\cos t,y=b\sin t\)，其中\(a,b>0\)。
+
+用参数求导求上述椭圆在\(t=\pi/4\)和\(t=0\)处的切线。再将参数换为\(t=2s\)，比较对应位置的切向量与切线。
+\solutionanswer
+椭圆切向量为\((-a\sin t,b\cos t)\)。\(t=\pi/4\)处切线为\(x/a+y/b=\sqrt2\)；\(t=0\)处切向量为\((0,b)\)，切线为\(x=a\)。换参后\(r(2s)\)对\(s\)的导数为\(2r'(2s)\)，对应位置分别是\(s=\pi/8,0\)。切向量变为两倍，方向及切线均不变。
+
+
+% ITEM: calculus-exercise-05-01
+\solutionitem{calculus-exercise-05-01}{习题5.5（1）}
+求导：\(x^2e^{-x}\)，\(\sin(x^2)\)，\(\sin^2x\)，\(\ln(\ln x)\)，\(\arctan\sqrt x\)。
+\solutionanswer
+依次为\(e^{-x}(2x-x^2)\)、\(2x\cos(x^2)\)、\(2\sin x\cos x\)、\(1/(x\ln x)\)、\(1/[2\sqrt x(1+x)]\)。后两式分别在\(x>1\)、\(x>0\)处使用。
+
+
+% ITEM: calculus-exercise-05-02
+\solutionitem{calculus-exercise-05-02}{习题5.5（2）}
+设\(y=(1+x^2)^{\sin x}\)，用指数表示和对数求导两种方法求导。
+\solutionanswer
+写成\(e^{\sin x\ln(1+x^2)}\)，链式法则给出
+\[
+ y'=(1+x^2)^{\sin x}\left[\cos x\ln(1+x^2)+\frac{2x\sin x}{1+x^2}\right].
+\]
+若先取对数，\(\ln y=\sin x\ln(1+x^2)\)，求导后得到括号内等于\(y'/y\)，再乘\(y\)即为同一结果。
+
+
+% ITEM: calculus-exercise-05-03
+\solutionitem{calculus-exercise-05-03}{习题5.5（3）}
+设\(f\)可导，求\(f(x^2+1)\)及\([f(x)]^2\)的导数。两式中的\(f'\)分别在哪里取值？
+\solutionanswer
+导数分别为\(2xf'(x^2+1)\)、\(2f(x)f'(x)\)。第一式的\(f'\)在内层输出\(x^2+1\)处取值，第二式在\(x\)处取值。
+
+
+% ITEM: calculus-exercise-05-04
+\solutionitem{calculus-exercise-05-04}{习题5.5（4）}
+设\(f(1)=2\)、\(f'(1)=3\)，且\(f\)在\(1\)附近有可导反函数\(g\)。求\(g'(2)\)及\(\left.\frac d{dx}g(x^2+1)\right|_{x=1}\)。
+\solutionanswer
+反函数公式给出\(g'(2)=1/f'(1)=1/3\)。复合求导在\(x=1\)给出\(2g'(2)=2/3\)。
+
+
+% ITEM: calculus-exercise-05-05
+\solutionitem{calculus-exercise-05-05}{习题5.5（5）}
+参数曲线\(x=t^2\)、\(y=t^3\)在\(t=1\)处的切线是什么？在\(t=0\)处，坐标导数同时为零，此时能否仍由割线极限判断切线？
+\solutionanswer
+在\(1\)处切向量为\((2,3)\)，切线为\(3(x-1)-2(y-1)=0\)。在\(0\)处切向量为零，但非零参数的割线方向\((t^2,t^3)\)可写成\((1,t)\)，极限方向为水平，切线为\(y=0\)。不能把\(y'/x'\)在该处当作普通的\(0/0\)相除。
+
+
+% ITEM: calculus-exercise-05-06
+\solutionitem{calculus-exercise-05-06}{习题5.5（6）}
+设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x^2\sin(1/x)\)。求\(f'\)，并判断\(f'\)在原点是否连续。
+\solutionanswer
+\(x\ne0\)时\(f'(x)=2x\sin(1/x)-\cos(1/x)\)，而\(f'(0)=\lim_{h\to0}h\sin(1/h)=0\)。第一项趋零，第二项沿\(x_n=1/(2n\pi)\)、\(z_n=1/((2n+1)\pi)\)分别为\(-1,1\)，故\(f'\)在原点不连续。
+
+
+% ITEM: calculus-exercise-05-07
+\solutionitem{calculus-exercise-05-07}{习题5.5（7）}
+（2013年广东卷理科第10题）若曲线\(y=kx+\ln x\)在点\((1,k)\)处的切线平行于\(x\)轴，求\(k\)。
+\solutionanswer
+\(y'=k+1/x\)，水平切线要求\(k+1=0\)，故\(k=-1\)。
+
+
+% ITEM: calculus-exercise-05-08
+\solutionitem{calculus-exercise-05-08}{习题5.5（8）}
+（2024年全国甲卷文科第7题改编）设\(f(x)=(e^x+2\sin x)/(1+x^2)\)。求曲线\(y=f(x)\)在点\((0,1)\)处的切线与两坐标轴所围成的三角形面积。
+\solutionanswer
+商法则给出\(f'(0)=3\)，切线\(y=3x+1\)，两轴截距为\(-1/3,1\)，三角形面积为\(1/6\)。
+
+
+% ITEM: calculus-exercise-05-09
+\solutionitem{calculus-exercise-05-09}{习题5.5（9）}
+（2024年新课标I卷第13题）若曲线\(y=e^x+x\)在点\((0,1)\)处的切线也是曲线\(y=\ln(x+1)+a\)的切线，求\(a\)。
+\solutionanswer
+第一条曲线的切线为\(y=2x+1\)。若它在第二条曲线的\(x=t\)处相切，则\(1/(t+1)=2\)，得\(t=-1/2\)。切点还必须在直线上，所以\(-\ln2+a=0\)，即\(a=\ln2\)。斜率相等与切点在同一直线上缺一不可。
+
+
+% ITEM: calculus-exercise-05-10
+\solutionitem{calculus-exercise-05-10}{习题5.5（10）}
+设\(y=x^2\sqrt{1+x^2}/(1+x)^3\)，\(x>0\)。用对数求导法求\(y'/y\)，再求\(y'(1)\)。比较这种方法与直接使用乘积、商法则的计算。
+\solutionanswer
+取对数得\(\ln y=2\ln x+\frac12\ln(1+x^2)-3\ln(1+x)\)，故
+\[
+ \frac{y'}y=\frac2x+\frac{x}{1+x^2}-\frac3{1+x}.
+\]
+在\(1\)处右端等于\(1\)，\(y(1)=\sqrt2/8\)，所以\(y'(1)=\sqrt2/8\)。此法把乘除与幂转成和差；直接乘积、商法则仍可计算，但要同时整理多个因子的导数。
+
+
+% ITEM: calculus-exercise-05-11
+\solutionitem{calculus-exercise-05-11}{习题5.5（11）}
+由双曲函数的指数表达式求\((\tanh x)'\)、\((\coth x)'\)。再对恒等式\(\cosh^2x-\sinh^2x=1\)求导，核对\(\sinh x\)、\(\cosh x\)的导数公式。
+\solutionanswer
+由指数定义求商的导数，或先用已经从指数定义得到的\(\sinh' =\cosh,\cosh'=\sinh\)，均得\(\tanh'=1/\cosh^2x\)、\(\coth'=-1/\sinh^2x\)。对恒等式求导为\(2\cosh x\sinh x-2\sinh x\cosh x=0\)，与两公式一致；恒等式本身的求导不能单独确定两个未知导数。
+
+
+% ITEM: calculus-exercise-05-12
+\solutionitem{calculus-exercise-05-12}{习题5.5（12）}
+（2012年新课标卷文科第13题）求曲线\(y=x(3\ln x+1)\)在点\((1,1)\)处的切线方程。
+\solutionanswer
+\(y'=3\ln x+4\)，在\(1\)处为\(4\)，切线\(y=4x-3\)。
+
+
+% ITEM: calculus-exercise-05-13
+\solutionitem{calculus-exercise-05-13}{习题5.5（13）}
+（2013年福建卷理科第17题第（1）问）设\(f(x)=x-2\ln x\)，求曲线在\((1,f(1))\)处的切线方程。
+\solutionanswer
+\(f(1)=1,f'(1)=-1\)，故切线为\(y=2-x\)。
+
+
+% ITEM: calculus-exercise-05-14
+\solutionitem{calculus-exercise-05-14}{习题5.5（14）}
+（2013年新课标I卷理科第21题第（1）问）设\(f(x)=x^2+ax+b\)、\(g(x)=e^x(cx+d)\)。两曲线都过\(P=(0,2)\)，且在该点有相同的切线\(y=4x+2\)，求\(a,b,c,d\)。
+\solutionanswer
+过点给出\(b=d=2\)。斜率条件\(f'(0)=a=4\)、\(g'(0)=c+d=4\)，故\(a=4,b=2,c=2,d=2\)。
+
+
+% ITEM: calculus-exercise-05-15
+\solutionitem{calculus-exercise-05-15}{习题5.5（15）}
+由\(x^2+xy+y^2=3\)确定经过\((1,1)\)的局部可导曲线，求该点处的切线与法线。再用隐式求导计算椭圆\(x^2/a^2+y^2/b^2=1\)在\(y\ne0\)处的斜率，与参数求导核对。
+\solutionanswer
+对原式求导，得\(2x+y+(x+2y)y'=0\)。在\((1,1)\)处\(y'=-1\)，切线\(x+y=2\)，法线\(y=x\)。对椭圆隐式求导得\(y'=-b^2x/(a^2y)\)；参数法给出\(dy/dx=-b\cos t/(a\sin t)\)，代入\(x=a\cos t,y=b\sin t\)后完全相同。
+
+
+% ITEM: calculus-exercise-05-16
+\solutionitem{calculus-exercise-05-16}{习题5.5（16）}
+设可导函数\(f\)满足\(f(2x)=2f(x)\)，对等式求导。再设\(f\)在零点可导，利用\(f(x)=2^nf(x/2^n)\)证明\(f(x)=f'(0)x\)。
+\solutionanswer
+求导得\(2f'(2x)=2f'(x)\)，即\(f'(2x)=f'(x)\)。由原式还得\(f(0)=0\)。对\(x\ne0\)，
+\[
+ f(x)=2^nf(x/2^n)=x\frac{f(x/2^n)-f(0)}{x/2^n}\longrightarrow xf'(0).
+\]
+左端与\(n\)无关，所以\(f(x)=f'(0)x\)，零点处也成立。
+
+
+% ITEM: calculus-exercise-06-01
+\solutionitem{calculus-exercise-06-01}{习题5.6（1） *}
+设\(f(u)=u^2\)、\(g(x)=1+x^3\)。分别求\(g\)在\(1\)处、\(f\)在\(g(1)\)处的线性主部，再复合得到\(f\circ g\)在\(1\)处的线性主部。
+\solutionanswer
+在\(1\)处，\(L_g(h)=3h\)；\(g(1)=2\)，在\(2\)处\(L_f(k)=4k\)。复合主部为\(L_f(L_g(h))=12h\)，基点须与前一映射的输出相对应。
+
+
+% ITEM: calculus-exercise-06-02
+\solutionitem{calculus-exercise-06-02}{习题5.6（2） *}
+设平面可逆线性变换\(A\)作用在参数曲线\(r(t)\)上。由一次近似证明，像曲线的切向量为\(Ar'(t)\)，并与第四章仿射变换保持切线的结论联系起来。
+\solutionanswer
+写\(r(t_0+h)=r(t_0)+hr'(t_0)+R(h)\)，\(|R(h)|/|h|\to0\)。作用\(A\)后，余项为\(AR(h)\)。有限维线性映射有\(|AR|\le C|R|\)，故余项条件保持，切向量为\(Ar'(t_0)\)。可逆性保证非零切向量仍非零，因此切线映为像曲线切线；仿射平移只改变基点，不改变这个线性主部。
+
+
+% ITEM: calculus-exercise-06-03
+\solutionitem{calculus-exercise-06-03}{习题5.6（3） *}
+设\(f(a)=a\)、\(f'(a)=\lambda\)，记\(F_n\)为\(f\)与自身复合\(n\)次所得的函数。求\(F_n\)在\(a\)处的线性主部，并说明不动点条件在复合中的作用。
+\solutionanswer
+由\(f(a)=a\)，每次复合的基点都回到\(a\)。链式法则给出\(F_n'(a)=\lambda^n\)，所以线性主部为\(h\mapsto\lambda^nh\)。若没有不动点条件，各次导数要在不同的迭代位置取值，不能统一写成同一个\(\lambda\)的幂。
+
+
+% ITEM: calculus-exercise-06-04
+\solutionitem{calculus-exercise-06-04}{习题5.6（4） *}
+设\(f(a)=a\)、\(f'(a)\ne0\)，且\(f\)在\(a\)附近有可导反函数\(g\)。用线性主部的加法与求逆证明\(|(f+g)'(a)|\ge2\)，并确定等号成立的条件。
+\solutionanswer
+设\(\lambda=f'(a)\ne0\)。不动点条件给出\(g(a)=a\)，反函数的线性主部系数为\(1/\lambda\)，相加得\((f+g)'(a)=\lambda+1/\lambda\)。其平方减\(4\)为\((\lambda-1/\lambda)^2\ge0\)，故绝对值不小于\(2\)。等号当且仅当\(\lambda=1\)或\(-1\)。
+\par

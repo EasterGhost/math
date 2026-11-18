@@ -1,0 +1,78 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{回归模型}
+
+% ITEM: probability-example-035
+\solutionitem{probability-example-035}{例6.35}
+（据2025年上海卷改编）
+沿用例6.29的十个游泳成绩，已知成绩\(y\)关于年份\(x\)的最小二乘回归直线为\(y=-0.311x+\widehat b\)，年份的样本均值为2006。求\(\widehat b\)，并预测2028年的成绩，精确到0.01秒。说明此预测与观测数据、趋势延续假设之间的关系。
+\solutionanswer
+最小二乘直线经过样本均值点\((2006,211.399)\)，所以截距\(\widehat b=211.399+0.311\times2006=835.265\)。2028年的预测\(211.399-0.311(2028-2006)=204.557\)秒，保留两位为\(204.56\)秒。这是已有年份与成绩的线性趋势继续保持时的外推，不是由十条记录必然决定的未来成绩。
+
+
+% ITEM: probability-exercise-27-01
+\solutionitem{probability-exercise-27-01}{习题6.27（1）}
+对数据\((1,2),(2,3),(3,5),(4,4)\)，求均值、样本相关系数与最小二乘直线，列出残差并核对残差和。
+\solutionanswer
+\(\bar x=2.5,\bar y=3.5\)，\(S_{xx}=S_{yy}=5,S_{xy}=4\)。故\(r=4/5=0.8\)，回归直线\(\widehat y=1.5+0.8x\)。残差依次为\(-0.3,-0.1,1.1,-0.7\)，和为零；还可核对\(\sum x_ie_i=0\)。
+
+
+% ITEM: probability-exercise-27-02
+\solutionitem{probability-exercise-27-02}{习题6.27（2）}
+（据2026年上海卷第17题改编）颗粒物密度关于年份\(x\)的拟合式为\(\widehat y_1=106.544e^{-0.461(x-2014)}\)、\(\widehat y_2=a(x-2014)+83.743\)，其中\(\bar x=2018\)、\(\bar y=301.49/9\)。求\(a\)及两模型对2023年实测值3.88的绝对误差（保留两位小数）。可否据此决定今后的模型？
+\solutionanswer
+线性拟合式经过均值点，所以\(a=[301.49/9-83.743]/4\approx-12.56103\)。在2023年，两个模型预测分别为\(106.544e^{-0.461\times9}\approx1.68128\)、\(9a+83.743=-29.30625\)。与3.88的绝对误差分别为\(2.20,33.19\)。本次指数模型误差更小，线性外推甚至给出负密度；但一年的单点比较不能独自决定以后趋势，应结合更多观测、拟合残差及模型在实际范围内的适用性。
+
+
+% ITEM: probability-exercise-27-03
+\solutionitem{probability-exercise-27-03}{习题6.27（3）}
+某正值数据满足\(y_i=C e^{kx_i}\)，且\(x_i\)不全相同。证明对数线性拟合能恢复\(\ln C,k\)。若各\(y_i\)含不同误差，为什么两种平方误差任务通常给出不同结果？
+\solutionanswer
+取对数得\(\ln y_i=\ln C+kx_i\)，已有一条残差平方和为零的直线。\(x_i\)不全相同使\(\boldsymbol1,\boldsymbol x\)线性无关，零残差拟合系数唯一，故恢复\(\ln C,k\)。有误差时，对数尺度最小化\(\sum[\ln(y_i/\widehat y_i)]^2\)，原尺度最小化\(\sum(y_i-\widehat y_i)^2\)，二者对不同量级的偏差赋予不同权重，通常不是同一个最优拟合。
+
+
+% ITEM: probability-exercise-27-04
+\solutionitem{probability-exercise-27-04}{习题6.27（4）}
+两列数据均不恒定。分别拟合\(y\)关于\(x\)及\(x\)关于\(y\)的最小二乘直线，证明两条直线的斜率乘积为\(r^2\)。当\(0<|r|<1\)时，后一拟合能否由前一条直线直接反解得到？
+\solutionanswer
+两条斜率分别为\(S_{xy}/S_{xx}\)、\(S_{xy}/S_{yy}\)，乘积为\(S_{xy}^2/(S_{xx}S_{yy})=r^2\)。\(0<|r|<1\)时乘积小于1，而将一条直线反解所得斜率与原斜率乘积为1，所以不能直接反解。两种拟合分别最小化纵向和横向残差平方和。
+
+
+% ITEM: probability-exercise-27-05
+\solutionitem{probability-exercise-27-05}{习题6.27（5）}
+教学数据的解释变量为\(1,2,3,4,5\)；固定解释变量模型\(Y_i=a+bx_i+\varepsilon_i\)，误差相互独立、均值零、方差\(\sigma^2\)。
+在固定解释变量的随机模型中取\(\sigma^2=4\)，使用教学数据的五个\(x\)值，求斜率估计的标准差。若在每个\(x\)值处各独立观测四次，新斜率估计的标准差是多少？
+\solutionanswer
+教学数据\(x=1,2,3,4,5\)有\(S_{xx}=10\)，故斜率估计标准差\(\sqrt{4/10}=2/\sqrt{10}\approx0.63246\)。各位置独立重复四次后，中心仍为3，\(S_{xx}=40\)，新标准差\(\sqrt{4/40}=1/\sqrt{10}\approx0.31623\)，减半。
+
+
+% ITEM: probability-exercise-28-01
+\solutionitem{probability-exercise-28-01}{习题6.28（1） *}
+对两个解释变量\(x,z\)，拟合\(\widehat y=a+bx+cz\)。由残差与\(\boldsymbol1,\boldsymbol x,\boldsymbol z\)正交写出三个方程。说明这三个向量线性无关时系数为何唯一。
+\solutionanswer
+记残差\(e_i=y_i-a-bx_i-cz_i\)。正交条件为\(\sum e_i=\sum x_ie_i=\sum z_ie_i=0\)，即
+\[
+ \begin{pmatrix}n&\sum x_i&\sum z_i\\\sum x_i&\sum x_i^2&\sum x_iz_i\\\sum z_i&\sum x_iz_i&\sum z_i^2\end{pmatrix}
+ \begin{pmatrix}a\\b\\c\end{pmatrix}
+ =\begin{pmatrix}\sum y_i\\\sum x_iy_i\\\sum z_iy_i\end{pmatrix}.
+\]
+若三个解释向量线性无关，对任意非零系数向量\(v\)，左侧Gram矩阵的二次型为对应非零线性组合的模平方，严格正，所以矩阵可逆。投影存在且在这组基下有唯一系数。
+
+
+% ITEM: probability-exercise-28-02
+\solutionitem{probability-exercise-28-02}{习题6.28（2） *}
+证明给全部\(y_i\)加同一常数，不改变回归斜率、残差和\(R^2\)。
+\solutionanswer
+给全部响应加\(d\)，\(\bar y\)增加\(d\)，中心化响应与\(S_{xy},S_{yy}\)都不变，所以斜率不变、截距增加\(d\)。各拟合值也增加\(d\)，残差不变；残差平方和和总平方变差均不变，因此\(R^2\)不变。
+
+
+% ITEM: probability-exercise-28-03
+\solutionitem{probability-exercise-28-03}{习题6.28（3） *}
+给每对记录指定正权重\(w_i\)，改为最小化\(\sum_iw_i(y_i-a-bx_i)^2\)。推导残差所满足的两个方程，并用加权内积说明它仍然是正交投影问题。
+\solutionanswer
+令\(\langle u,v\rangle_w=\sum_iw_iu_iv_i\)。正权重使其为内积，拟合空间仍是\(\operatorname{span}\{\boldsymbol1,\boldsymbol x\}\)。残差正交条件为\(\sum_iw_ie_i=0\)、\(\sum_iw_ix_ie_i=0\)，亦可由平方和对\(a,b\)求导得到。令\(\bar x_w=\sum w_ix_i/\sum w_i\)、\(\bar y_w=\sum w_iy_i/\sum w_i\)，解得
+\[
+ b=\frac{\sum_iw_i(x_i-\bar x_w)(y_i-\bar y_w)}{\sum_iw_i(x_i-\bar x_w)^2},\qquad a=\bar y_w-b\bar x_w.
+\]
+勾股分解说明这个正交投影确使加权平方误差最小。
+\par

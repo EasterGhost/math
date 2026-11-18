@@ -1,0 +1,349 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{向量}
+
+\label{sol:sec:vector:1}
+
+% ITEM: vector-vector-addition
+\solutionitem{vector-vector-addition}{例3.1}
+设\(O,A,B,C,D\)为任意五点。将下列各式化为单个向量，并用有向线段说明结果。计算时，哪些向量需要先平移或反向？
+
+（1）\(\vec{AB}+\vec{BC}+\vec{CD}\)；\quad
+（2）\(\vec{AB}-\vec{AC}+\vec{DC}\)；\quad
+（3）\(\vec{OA}+\vec{BC}-\vec{OC}\)。
+\solutionanswer
+（1）各向量已首尾相接，由三角形法则连续合成，得到
+\[
+\vec{AB}+\vec{BC}+\vec{CD}=\vec{AD}.
+\]
+（2）先将被减去的向量反向，再调换相加次序：
+\[
+\vec{AB}-\vec{AC}+\vec{DC}
+=\vec{CA}+\vec{AB}+\vec{DC}
+=\vec{CB}+\vec{DC}=\vec{DB}.
+\]
+最后一步也可先写成\(\vec{DC}+\vec{CB}\)，沿\(D\to C\to B\)观察。
+
+（3）同样把减法改为加负向量：
+\[
+\vec{OA}+\vec{BC}-\vec{OC}
+=\vec{BC}+\vec{CO}+\vec{OA}
+=\vec{BA}.
+\]
+这里沿\(B\to C\to O\to A\)合成。第二式须将\(\vec{AC}\)反向，第三式须将\(\vec{OC}\)反向；按上述次序排列后，都能直接首尾相接。若坚持从其他起点画出同一个向量，只需将相应的有向线段平移。
+
+
+% ITEM: vector-division-centroid
+\solutionitem{vector-division-centroid}{例3.2}
+设\(\triangle ABC\)，任取点\(O\)。若\(\vec{AP}=t\vec{AB}\)，用\(\vec{OA},\vec{OB}\)表示\(\vec{OP}\)，并确定\(P\)在线段\(AB\)上时\(t\)的范围。
+
+据此分别表示\(AB\)的中点\(M\)与\(\triangle ABC\)的重心\(G\)的位置向量，并说明改变起点\(O\)后，这些关系为什么仍然成立。
+\solutionanswer
+由\(\vec{AB}=\vec{OB}-\vec{OA}\)，有
+\[
+\vec{OP}=\vec{OA}+t\vec{AB}
+=(1-t)\vec{OA}+t\vec{OB}.
+\]
+\(P\)在线段\(AB\)上当且仅当\(0\le t\le1\)。特别地，中点对应\(t=1/2\)，所以
+\[
+\vec{OM}=\frac{\vec{OA}+\vec{OB}}2.
+\]
+设\(N\)是\(BC\)的中点。重心将中线\(AN\)按\(AG:GN=2:1\)分割，因此
+\[
+\vec{OG}=\frac13\vec{OA}+\frac23\vec{ON}
+=\frac{\vec{OA}+\vec{OB}+\vec{OC}}3.
+\]
+同一表达式也位于其余两条中线上，从而确定三条中线的交点。
+
+若改用起点\(O'\)，每个位置向量都增加同一个\(\vec{O'O}\)。上述表达式右边的系数之和都是\(1\)，所以右边也只增加\(\vec{O'O}\)，恰与左边的改变一致。
+
+
+% ITEM: vector-angle-bisector
+\solutionitem{vector-angle-bisector}{例3.3}
+（1）已知\(\triangle ABC\)及其两边长\(|AB|,|AC|\)。怎样用向量的语言描述：点\(P\)在\(\angle BAC\)的角平分线上。
+
+（2）\(O\)是平面上一定点，\(A,B,C\)是平面上不共线的三个点，动点\(P\)满足
+\[
+ \vec{OP}=\vec{OA}+\lambda\left(\frac{\vec{AB}}{|AB|}+\frac{\vec{AC}}{|AC|}\right),
+ \qquad\lambda\in[0,+\infty),
+\]
+则\(P\)点的轨迹一定过\(\triangle ABC\)的
+
+（A）外心\quad （B）内心\quad （C）重心\quad （D）垂心。
+\solutionanswer
+（1）令
+\[
+u=\frac{\vec{AB}}{|AB|},\qquad v=\frac{\vec{AC}}{|AC|}.
+\]
+从\(A\)出发作单位向量\(u,v\)，它们构成的菱形的对角线平分夹角。因此，内角平分线的方向是\(u+v\)，相应的射线可写为
+\[
+\vec{AP}=\lambda(u+v),\qquad \lambda\ge0.
+\]
+这里的参数范围同时指定了射线的方向。
+
+（2）题设等价于\(\vec{AP}=\lambda(u+v)\)，故轨迹是\(\angle BAC\)的内角平分线射线。它一定经过三角形的内心，选（B）。
+
+
+% ITEM: vector-dot-calculation
+\solutionitem{vector-dot-calculation}{例3.4}
+已知\(|\vec a|=2,|\vec b|=3\)，两向量夹角为\(\pi/3\)。求\(|\vec a+\vec b|\)、\(|2\vec a-\vec b|\)及\((\vec a+\vec b)\cdot(2\vec a-\vec b)\)。
+\solutionanswer
+先由夹角求数量积：
+\[
+\vec a\cdot\vec b=2\cdot3\cos\frac\pi3=3.
+\]
+再按分配律展开：
+\[
+\begin{aligned}
+|\vec a+\vec b|^2&=4+2\cdot3+9=19,\\
+|2\vec a-\vec b|^2&=4\cdot4-4\cdot3+9=13,\\
+(\vec a+\vec b)\cdot(2\vec a-\vec b)&=2\cdot4+3-9=2.
+\end{aligned}
+\]
+所以所求依次为\(\sqrt{19},\sqrt{13},2\)。
+
+
+% ITEM: vector-cosine-law
+\solutionitem{vector-cosine-law}{例3.5}
+对任意向量\(\vec a,\vec b\)，证明\((\vec a-\vec b)^2=\vec a^{\,2}+\vec b^{\,2}-2\vec a\cdot\vec b\)，并对\(\vec a,\vec b\)不平行的情形解释这个公式的几何意义。
+\solutionanswer
+由数量积的分配律、交换律及数乘关系，
+\[
+\begin{aligned}
+(\vec a-\vec b)^2
+&=(\vec a-\vec b)\cdot(\vec a-\vec b)\\
+&=\vec a^{\,2}-\vec a\cdot\vec b-\vec b\cdot\vec a+\vec b^{\,2}\\
+&=\vec a^{\,2}+\vec b^{\,2}-2\vec a\cdot\vec b.
+\end{aligned}
+\]
+将两个向量移到同一起点，记为\(\vec{OA}=\vec a,\vec{OB}=\vec b\)，则\(\vec a-\vec b=\vec{BA}\)。不平行时，\(O,A,B\)构成三角形，上式成为
+\[
+|AB|^2=|OA|^2+|OB|^2-2|OA|\,|OB|\cos\angle AOB,
+\]
+这正是余弦定理。
+
+
+% ITEM: vector-square-expansion-laws
+\solutionitem{vector-square-expansion-laws}{思考：平方展开的运算律}
+上述平方展开使用了哪些运算律？
+\solutionanswer
+先将向量的平方理解为数量积，再用分配律展开；数乘关系将负号提出，交换律使两个交叉项能够合并。这里使用的是数量积的这些运算律，展开后的各项都是实数。
+
+
+% ITEM: vector-orthogonal-diagonals
+\solutionitem{vector-orthogonal-diagonals}{例3.6}
+设\(A,B,C,D\)是三维空间中不重合的任意四点。求证：\(AC\perp BD\)当且仅当\(|AB|^2+|CD|^2=|BC|^2+|DA|^2\)。
+\solutionanswer
+以\(A\)为起点，记\(\vec{AB}=u,\vec{AC}=v,\vec{AD}=w\)。四条边的平方满足
+\[
+\begin{aligned}
+|AB|^2+|CD|^2-|BC|^2-|DA|^2
+&=|u|^2+|w-v|^2-|v-u|^2-|w|^2\\
+&=2v\cdot(u-w)\\
+&=-2\vec{AC}\cdot\vec{BD}.
+\end{aligned}
+\]
+因此，左边为零当且仅当两条对角线的方向向量数量积为零，也就是\(AC\perp BD\)。
+
+
+% ITEM: vector-tetrahedron-equal-edges
+\solutionitem{vector-tetrahedron-equal-edges}{例3.7}
+\(ABCD\)是四面体，\(\angle BAC=\angle ACD\)，\(\angle ABD=\angle BDC\)。求证：\(|AB|=|CD|\)。
+\solutionanswer
+把相等的角转化为相等的投影。记
+\[
+p=|AB|,\quad q=|CD|,\quad
+u=\frac{\vec{AB}}p,\quad v=\frac{\vec{CD}}q.
+\]
+由\(\angle BAC=\angle ACD\)，约去公共边\(AC\)的长度，得到
+\[
+u\cdot\vec{AC}=-v\cdot\vec{AC}.
+\]
+由\(\angle ABD=\angle BDC\)，同样得到
+\[
+-u\cdot\vec{BD}=v\cdot\vec{BD}.
+\]
+所以\(u+v\)同时垂直于\(\vec{AC}\)和\(\vec{BD}\)，进而
+\[
+0=(u+v)\cdot(\vec{AC}-\vec{BD})
+=(u+v)\cdot(pu-qv)
+=(p-q)(1+u\cdot v).
+\]
+其中用到了\(\vec{AC}+\vec{CD}=\vec{AB}+\vec{BD}\)。
+
+四面体的两条对棱不平行，故两个单位向量\(u,v\)不反向，\(1+u\cdot v>0\)。于是\(p=q\)，即\(|AB|=|CD|\)。
+
+
+% ITEM: vector-change-geometric-basis
+\solutionitem{vector-change-geometric-basis}{例3.8}
+设\(\vec e_1,\vec e_2\)是平面的一组基，\(\vec f_1=\vec e_1+\vec e_2,\vec f_2=\vec e_1-\vec e_2\)。证明\(\vec f_1,\vec f_2\)也是一组基，并分别求\(\vec a=3\vec e_1+\vec e_2\)在这两组基下的坐标。
+\solutionanswer
+反过来解出原来的基向量：
+\[
+\vec e_1=\frac{\vec f_1+\vec f_2}2,\qquad
+\vec e_2=\frac{\vec f_1-\vec f_2}2.
+\]
+因此，每个向量都可由\(\vec f_1,\vec f_2\)表示。若
+\(s\vec f_1+t\vec f_2=\vec0\)，则
+\[
+(s+t)\vec e_1+(s-t)\vec e_2=\vec0.
+\]
+由原基下表示的唯一性，\(s+t=s-t=0\)，从而\(s=t=0\)，所以新向量组也是一组基。
+
+\(\vec a\)在原基下的坐标为\((3,1)\)，而
+\[
+\vec a=3\vec e_1+\vec e_2=2\vec f_1+\vec f_2,
+\]
+故在新基下的坐标为\((2,1)\)。
+
+
+% ITEM: vector-basis-combination
+\solutionitem{vector-basis-combination}{习题3.1（1）}
+设\(\vec a=2\vec e_1-\vec e_2,\vec b=\vec e_1+3\vec e_2\)，其中\(\vec e_1,\vec e_2\)不共线。求\(3\vec a-2\vec b\)在基\((\vec e_1,\vec e_2)\)下的坐标，并求使\(\vec a+t\vec b\)与\(\vec e_1\)平行的\(t\)。
+\solutionanswer
+按基向量合并系数：
+\[
+3\vec a-2\vec b=4\vec e_1-9\vec e_2.
+\]
+所以坐标为\((4,-9)\)。又
+\[
+\vec a+t\vec b=(2+t)\vec e_1+(-1+3t)\vec e_2.
+\]
+由于两个基向量不共线，与\(\vec e_1\)平行当且仅当第二个系数为零，故\(t=1/3\)。
+
+
+% ITEM: vector-midpoint-theorem
+\solutionitem{vector-midpoint-theorem}{习题3.1（2）}
+\(M,N\)分别为\(\triangle ABC\)的边\(AB,AC\)的中点。用\(\vec{AB},\vec{AC}\)表示\(\vec{MN}\)，证明\(MN\parallel BC\)且\(|MN|=|BC|/2\)。
+\solutionanswer
+以\(A\)为起点，由中点关系，
+\[
+\vec{AM}=\frac12\vec{AB},\qquad
+\vec{AN}=\frac12\vec{AC}.
+\]
+相减得
+\[
+\vec{MN}=\frac12(\vec{AC}-\vec{AB})=\frac12\vec{BC}.
+\]
+所以\(MN\parallel BC\)，且\(|MN|=|BC|/2\)。
+
+
+% ITEM: vector-perpendicular-parameter
+\solutionitem{vector-perpendicular-parameter}{习题3.1（3）}
+已知\(|\vec a|=|\vec b|=1\)、\(\vec a\cdot\vec b=1/2\)。求使\((\vec a+t\vec b)\perp(\vec a-\vec b)\)的\(t\)，并求此时\(|\vec a+t\vec b|\)。
+\solutionanswer
+垂直条件等价于
+\[
+0=(\vec a+t\vec b)\cdot(\vec a-\vec b)
+=1-\frac12+t\left(\frac12-1\right)=\frac{1-t}2.
+\]
+故\(t=1\)。此时
+\[
+|\vec a+\vec b|=\sqrt{1+1+2\cdot\frac12}=\sqrt3.
+\]
+
+
+% ITEM: vector-line-equation
+\solutionitem{vector-line-equation}{习题3.1（4）}
+设\(A,B,C\)为实数，\(A,B\)不全为0，求方程\(Ax+By+C=0\)的图像。
+\solutionanswer
+记\(n=(A,B)\)，取点
+\[
+Q=\left(-\frac{AC}{A^2+B^2},-\frac{BC}{A^2+B^2}\right).
+\]
+它满足原方程。对任意点\(P=(x,y)\)，有
+\[
+Ax+By+C=0\quad\Longleftrightarrow\quad n\cdot\vec{QP}=0.
+\]
+因此图像是经过\(Q\)、以\(n\)为法向量的直线。其方向向量可取\((-B,A)\)，也可写成
+\[
+(x,y)=Q+t(-B,A),\qquad t\in\mathbb R.
+\]
+
+
+% ITEM: vector-line-angle-normal
+\solutionitem{vector-line-angle-normal}{习题3.1（5）}
+已知直线\(l_1:A_1x+B_1y+C_1=0\)、\(l_2:A_2x+B_2y+C_2=0\)。求两直线的夹角\(\theta\)及\(l_1\perp l_2\)的充分必要条件。
+\solutionanswer
+取方向向量\(d_1=(-B_1,A_1),d_2=(-B_2,A_2)\)。直线夹角取\(0\le\theta\le\pi/2\)，因此
+\[
+\cos\theta=
+\frac{|A_1A_2+B_1B_2|}
+{\sqrt{A_1^2+B_1^2}\sqrt{A_2^2+B_2^2}}.
+\]
+两直线垂直的充分必要条件为
+\[
+A_1A_2+B_1B_2=0.
+\]
+
+
+% ITEM: vector-line-angle-slope
+\solutionitem{vector-line-angle-slope}{习题3.1（6）}
+已知直线\(l_1,l_2\)的斜率分别为\(k_1,k_2\)，求两直线的夹角\(\theta\)及\(l_1\perp l_2\)的充分必要条件。
+\solutionanswer
+斜率存在时，可取方向向量\(d_1=(1,k_1),d_2=(1,k_2)\)，故
+\[
+\cos\theta=\frac{|1+k_1k_2|}{\sqrt{1+k_1^2}\sqrt{1+k_2^2}},
+\qquad 0\le\theta\le\frac\pi2.
+\]
+所以\(l_1\perp l_2\)当且仅当\(k_1k_2=-1\)。
+
+
+% ITEM: vector-trig-sum-ratio
+\solutionitem{vector-trig-sum-ratio}{习题3.1（7）}
+设\(\alpha\)为任意角、\(n\)为正整数。化简\(\dfrac{\sum_{k=1}^n\sin k\alpha}{\sum_{k=1}^n\cos k\alpha}\)（分母不为0）。
+\solutionanswer
+记分子为\(S\)、分母为\(C\)。若\(\alpha\)不是\(2\pi\)的整数倍，利用积化和差并将相邻项相消，得到
+\[
+\begin{aligned}
+2\sin\frac\alpha2\,S
+&=\cos\frac\alpha2-\cos\frac{(2n+1)\alpha}2\\
+&=2\sin\frac{n\alpha}2\sin\frac{(n+1)\alpha}2,\\
+2\sin\frac\alpha2\,C
+&=\sin\frac{(2n+1)\alpha}2-\sin\frac\alpha2\\
+&=2\sin\frac{n\alpha}2\cos\frac{(n+1)\alpha}2.
+\end{aligned}
+\]
+由\(C\ne0\)，相除时所约去的因子非零，故
+\[
+\frac SC=\tan\frac{(n+1)\alpha}2.
+\]
+当\(\alpha=2m\pi\)时，原式为\(0/n=0\)，右边也为零。因此在题设范围内，统一结果就是上述正切值。
+
+
+% ITEM: vector-cube-angles
+\solutionitem{vector-cube-angles}{习题3.2}
+\noindent\begin{minipage}[t]{.58\linewidth}
+\setlength{\parskip}{6pt}
+已知正方体\(ABCD-A'B'C'D'\)如图\ref{sol:fig:vector-cube}，求：
+
+（1）直线\(AB\)与平面\(BDA'\)所成的角；
+
+（2）平面\(A'B'CD\)与\(BDD'B'\)的夹角。
+\end{minipage}\hfill
+\begin{minipage}[t]{.34\linewidth}
+\centering
+\adjustbox{valign=t}{\begin{minipage}{.92\linewidth}
+\centering
+\includegraphics[width=.94\linewidth]{vector-cube}
+\setlength{\abovecaptionskip}{3pt}
+\captionof{figure}{正方体示意图}\label{sol:fig:vector-cube}
+\end{minipage}}
+\end{minipage}
+\solutionanswer
+取棱长为\(1\)，以\(A\)为原点，\(AB,AD,AA'\)为三个坐标轴的正向，则
+\[
+B=(1,0,0),\quad D=(0,1,0),\quad A'=(0,0,1),\quad C=(1,1,0).
+\]
+（1）平面\(BDA'\)的方程为\(x+y+z=1\)，法向量可取\(n=(1,1,1)\)。直线\(AB\)的方向向量为\(d=(1,0,0)\)，故所成角\(\alpha\)满足
+\[
+\sin\alpha=\frac{|d\cdot n|}{|d|\,|n|}=\frac1{\sqrt3}.
+\]
+所以\(\alpha=\arcsin(1/\sqrt3)\)。
+
+（2）平面\(A'B'CD\)的方程为\(y+z=1\)，法向量可取\(n_1=(0,1,1)\)；平面\(BDD'B'\)的方程为\(x+y=1\)，法向量可取\(n_2=(1,1,0)\)。两平面夹角\(\beta\)满足
+\[
+\cos\beta=\frac{|n_1\cdot n_2|}{|n_1|\,|n_2|}=\frac12,
+\]
+故\(\beta=\pi/3\)。
+\par

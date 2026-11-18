@@ -1,0 +1,29 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{初等函数的基本性质}
+
+\label{sol:sec:functions:4}
+
+% ITEM: functions-trig-monotonicity
+\solutionitem{functions-trig-monotonicity}{思考：其余三角函数的单调性（2.4.2）}
+对于\(\sin x\)函数，容易知道在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上，取\(x_{1} , x_{2} \in \left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)，如果\(x_{1} < x_{2}\)，恒有\(f(x_{1}) \le f(x_{2})\)。故\(\sin x\)在区间\(\left[ - \frac{\pi}{2} , \frac{\pi}{2} \right]\)上单调递增，类似地，在\(\left[ \frac{\pi}{2} , \frac{3 \pi}{2} \right]\)上递减。对于其他的三角函数，可以通过对\(\sin x\)的变换得到，留作思考题。
+\solutionanswer
+余弦由\(\cos x=\sin(\pi/2-x)\)得到：在\([-\pi,0]\)上严格递增，在\([0,\pi]\)上严格递减，再按周期\(2\pi\)平移。
+
+对正切、余切，比较同一连续分支内的两点\(u<v\)：
+\[
+\tan v-\tan u=\frac{\sin(v-u)}{\cos u\cos v},\qquad
+\cot v-\cot u=-\frac{\sin(v-u)}{\sin u\sin v}.
+\]
+正切分支\((-\pi/2+k\pi,\pi/2+k\pi)\)内，分母乘积为正，且\(0<v-u<\pi\)，故正切严格递增；余切分支\((k\pi,(k+1)\pi)\)内同理严格递减。
+
+正割、余割取倒数时，在原函数不变号的区间上反转单调方向。一个周期内的最大单调区间为
+\[
+\begin{array}{c|c|c}
+\text{函数}&\text{递增区间}&\text{递减区间}\\\hline
+\sec x&[0,\pi/2),\ (\pi/2,\pi]&(-\pi/2,0],\ [\pi,3\pi/2)\\
+\csc x&[\pi/2,\pi),\ (\pi,3\pi/2]&(0,\pi/2],\ [3\pi/2,2\pi)
+\end{array}
+\]
+这些区间再分别平移\(2k\pi\)即可；没有定义的点始终排除，不能把隔着这些点的两个区间合成一个单调区间。
+\par

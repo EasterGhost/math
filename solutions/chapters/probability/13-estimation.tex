@@ -1,0 +1,103 @@
+\par\addvspace{12pt}\Needspace{9\baselineskip}
+
+\section{参数估计}
+
+% ITEM: probability-example-031
+\solutionitem{probability-example-031}{例6.31}
+从\(U(0,\theta)\)独立抽取\(n\)个观测，用\(2\bar X\)估计\(\theta\)。求这个估计量的期望与方差，并由Chebyshev界说明它随样本量增大趋近\(\theta\)的依据。
+\solutionanswer
+先以有限平均求均匀分布的矩。将\([0,\theta]\)等分为\(m\)段，以各段左端点记录\(X_m\)，每个值概率\(1/m\)。平方和公式给
+\[
+ EX_m=\frac{\theta(m-1)}{2m},\qquad E(X_m^2)=\frac{\theta^2(m-1)(2m-1)}{6m^2}.
+\]
+又\(|X-X_m|\le\theta/m\)、\(|X^2-X_m^2|\le2\theta^2/m\)，相应平均误差也不超过这两个统一界。令\(m\to\infty\)，得\(EX=\theta/2,E(X^2)=\theta^2/3\)，故\(\operatorname{Var}X=\theta^2/12\)。这一步只需有限求和及极限。
+于是\(E(2\bar X)=\theta\)，\(\operatorname{Var}(2\bar X)=4\theta^2/(12n)=\theta^2/(3n)\)。因此对任意固定\(\varepsilon>0\)，\(P(|2\bar X-\theta|\ge\varepsilon)\le\theta^2/(3n\varepsilon^2)\to0\)，所以估计量依概率趋于真参数。
+
+
+% ITEM: probability-example-032
+\solutionitem{probability-example-032}{例6.32}
+设\(K\sim B(n,p)\)，比较估计量\(T_1=K/n\)与\(T_2=(K+1)/(n+2)\)。求各自的偏差和均方误差。取\(n=10\)，分别在\(p=0.5\)与\(p=0.1\)时比较，判断是否能仅凭无偏性决定优劣。
+\solutionanswer
+\(T_1\)偏差零，均方误差\(p(1-p)/n\)。\(T_2\)偏差\((1-2p)/(n+2)\)，方差\(np(1-p)/(n+2)^2\)，故
+\[
+ \operatorname{MSE}(T_2)=\frac{np(1-p)+(1-2p)^2}{(n+2)^2}.
+\]
+\(n=10,p=0.5\)时，两个均方误差为\(0.025,0.017361\)，\(T_2\)较小；\(p=0.1\)时为\(0.009,0.010694\)，\(T_1\)较小。偏差与方差共同决定均方误差，不能仅凭无偏性比较优劣。
+
+
+% ITEM: probability-exercise-22-01
+\solutionitem{probability-exercise-22-01}{习题6.22（1）}
+估计量\(T\)的偏差为\(0.2\)，方差为\(0.04\)，求均方误差。另一无偏估计量的方差为\(0.1\)，按均方误差比较二者。
+\solutionanswer
+\(\operatorname{MSE}(T)=0.04+0.2^2=0.08\)，小于另一估计量的\(0.1\)，故按均方误差应选\(T\)，尽管它有偏。
+
+
+% ITEM: probability-exercise-22-02
+\solutionitem{probability-exercise-22-02}{习题6.22（2）}
+从均值\(\mu\)、方差\(\sigma^2\)的模型中取独立样本。比较只用\(X_1\)与使用\(\bar X\)估计\(\mu\)时的偏差与均方误差。
+\solutionanswer
+两者均无偏。只用\(X_1\)的均方误差\(\sigma^2\)，使用\(\bar X\)的为\(\sigma^2/n\)。独立样本的平均保留了相同期望，同时减少了方差。
+
+
+% ITEM: probability-exercise-22-03
+\solutionitem{probability-exercise-22-03}{习题6.22（3）}
+独立抽检100件产品，发现6件不合格，以样本比例估计不合格率。方案甲逐件检验，检验费2元，不合格品另付更换费10元；方案乙免检出售，每件不合格品赔付50元。比较估计的逐件期望费用，并求两方案期望费用相同的临界不合格率。
+\solutionanswer
+不合格率估计为\(\widehat p=0.06\)。逐件估计期望费用：方案甲\(2+10\widehat p=2.6\)元，方案乙\(50\widehat p=3\)元，故当前估计支持甲。临界率由\(2+10p=50p\)得\(p=0.05\)；低于此值乙便宜，高于此值甲便宜。
+
+
+% ITEM: probability-exercise-22-04
+\solutionitem{probability-exercise-22-04}{习题6.22（4）}
+从\(U(0,\theta)\)独立抽样，使样本最大值距\(\theta\)不足\(0.1\theta\)的概率至少为\(0.95\)，最少需多少个观测？若只用\(X_1\)估计端点，增加样本总量能否减小误差？
+\solutionanswer
+\(P(M_n>0.9\theta)=1-0.9^n\)。要求至少\(0.95\)，最小样本量\(\lceil\ln0.05/\ln0.9\rceil=29\)。若估计量始终只取\(X_1\)，其误差分布不随其他观测增加而改变，不能借样本总量变大来改善它。
+
+
+% ITEM: probability-exercise-22-05
+\solutionitem{probability-exercise-22-05}{习题6.22（5）}
+设\(E\bar X=\mu\)、\(\operatorname{Var}\bar X=1\)。用\(T=\bar X/2\)估计\(\mu\)，求使它的均方误差小于\(\bar X\)的全部\(\mu\)值。说明这种比较为什么依赖参数所在的范围。
+\solutionanswer
+\(T\)偏差\(-\mu/2\)，方差\(1/4\)，均方误差\((1+\mu^2)/4\)。\(\bar X\)无偏，均方误差\(1\)。故\(T\)更小当且仅当\(|\mu|<\sqrt3\)。缩小估计量减少方差，却引入随参数变化的偏差，所以优劣依赖参数范围。
+
+
+% ITEM: probability-exercise-22-06
+\solutionitem{probability-exercise-22-06}{习题6.22（6）}
+独立同分布样本的均值为\(\mu\)、方差为\(\sigma^2\)。令\(T_n=\bar X+1/\sqrt n\)，求其偏差、均方误差，证明它仍依概率收敛于\(\mu\)。
+\solutionanswer
+偏差\(1/\sqrt n\)，方差\(\sigma^2/n\)，均方误差\((\sigma^2+1)/n\)。对非负变量\((T_n-\mu)^2\)用Markov界，\(P(|T_n-\mu|\ge\varepsilon)\le(\sigma^2+1)/(n\varepsilon^2)\to0\)，因此虽每个有限\(n\)有偏，仍依概率趋于\(\mu\)。
+
+
+% ITEM: probability-exercise-23-01
+\solutionitem{probability-exercise-23-01}{习题6.23 *}
+独立试验20次，观察到7次成功。写出似然函数，求极大似然估计，并比较\(p=0.2\)、\(p=0.35\)、\(p=0.5\)时的似然。说明这里哪一部分是已固定的数据。
+\solutionanswer
+若数据只记录成功总数，似然\(L(p)=\binom{20}7p^7(1-p)^{13}\)；若保留具体序列，可去掉与\(p\)无关的组合因子，最大点不变。对数导数\(7/p-13/(1-p)=(7-20p)/[p(1-p)]\)，故唯一最大点\(\widehat p=7/20=0.35\)。按总数似然计算，\(L(0.2)\approx0.05455,L(0.35)\approx0.18440,L(0.5)\approx0.07393\)，次序为\(L(0.35)>L(0.5)>L(0.2)\)。20次中7次成功已固定，变化的是用来解释这一记录的参数\(p\)。
+
+
+% ITEM: probability-exercise-24-01
+\solutionitem{probability-exercise-24-01}{习题6.24（1） *}
+独立正态样本量为100，总体标准差已知为2，观测均值为12.3。分别写出95\%正态置信区间及由方差界得到的95\%保守区间。
+\solutionanswer
+标准误\(2/\sqrt{100}=0.2\)。95\%正态区间为\(12.3\pm1.96(0.2)\)，即\([11.908,12.692]\)。Chebyshev保守区间为\(12.3\pm\sqrt{4/(100\times0.05)}\)，约\([11.4056,13.1944]\)。后一构造只依赖方差界，因而更宽。
+
+
+% ITEM: probability-exercise-24-02
+\solutionitem{probability-exercise-24-02}{习题6.24（2） *}
+在已知标准差的正态模型下，要将区间长度减半，样本量应怎样改变？保持样本量不变，把置信水平从95\%提高到99\%，区间怎样变化？
+\solutionanswer
+区间长度与\(1/\sqrt n\)成正比，减半需将样本量变为四倍。样本量不变时，99\%采用临界值\(2.576\)而非\(1.96\)，区间扩大，长度约乘\(2.576/1.96\approx1.314\)。
+
+
+% ITEM: probability-exercise-24-03
+\solutionitem{probability-exercise-24-03}{习题6.24（3） *}
+解释“这套区间构造的覆盖率为95\%”与“这一次取得的区间包含未知参数”分别是哪一种陈述。
+\solutionanswer
+95\%覆盖率是关于重复抽样程序的概率陈述：固定参数下，随机区间包含它的概率为95\%。一次观测后区间已固定，包含或不包含参数是确定事实，只是我们可能不知道是哪一种。不能将前一个程序概率直接改成这一次固定区间中参数的概率分配。
+
+
+% ITEM: probability-exercise-24-04
+\solutionitem{probability-exercise-24-04}{习题6.24（4） *}
+设\(K\sim B(n,p)\)、\(\widehat p=K/n\)。由\(\operatorname{Var}\widehat p\le1/(4n)\)构造覆盖率至少为\(1-\alpha\)的\(p\)区间。将该区间与\([0,1]\)取交，是否会降低覆盖率？
+\solutionanswer
+取\(\varepsilon=1/(2\sqrt{n\alpha})\)。由统一方差界，\(P(|\widehat p-p|\ge\varepsilon)\le\alpha\)，故\([\widehat p-\varepsilon,\widehat p+\varepsilon]\)的覆盖率至少\(1-\alpha\)。因为真参数必在\([0,1]\)，与\([0,1]\)取交不改变“包含真参数”的事件，因此不会降低覆盖率。
+\par
