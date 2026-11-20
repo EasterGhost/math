@@ -239,8 +239,20 @@ Euler值为\((1+h)^{1/h}\)，三种步长依次给\(2,9/4,625/256\)，均小于\
 \solutionitem{calculus-exercise-66-03}{习题5.66（3） *}
 设\(\omega,\nu>0\)。用\(G\)求\(y''+\omega^2y=\sin\nu t\)、\(y(0)=y'(0)=0\)的解，比较\(\nu\ne\omega\)与\(\nu=\omega\)时解的有界性，解释相同频率的持续输入怎样改变运动。
 \solutionanswer
-\(Gf=\omega^{-1}\int_0^t\sin[\omega(t-s)]\sin\nu s\,ds\)。展开三角函数并积分，\(\nu\ne\omega\)时
-\(y=[\sin\nu t-(\nu/\omega)\sin\omega t]/(\omega^2-\nu^2)\)，有界。\(\nu=\omega\)时\(y=\sin\omega t/(2\omega^2)-t\cos\omega t/(2\omega)\)，无界。同频输入使某一相位的贡献持续累积，产生线性增长的振幅。
+将输入 \(f(s)=\sin(\nu s)\) 代入 \(G\)，积化和差得
+\[
+ y(t)=\frac1\omega\int_0^t\sin[\omega(t-s)]\sin(\nu s)\,ds
+ =\frac1{2\omega}\int_0^t
+ \bigl\{\cos[\omega t-(\omega+\nu)s]-\cos[\omega t-(\omega-\nu)s]\bigr\}\,ds .
+\]
+若 \(\nu\ne\omega\)，两项都随 \(s\) 振荡，积分得
+\(y(t)=[\sin(\nu t)-(\nu/\omega)\sin(\omega t)]/(\omega^2-\nu^2)\)，故解有界。
+
+若 \(\nu=\omega\)，第二个余弦在整个积分区间上恒为 \(\cos(\omega t)\)，积分便多出因子 \(t\)：
+\[
+ y(t)=\frac{\sin(\omega t)}{2\omega^2}-\frac{t\cos(\omega t)}{2\omega}.
+\]
+在 \(t=2n\pi/\omega\) 处，解的绝对值随 \(n\) 增大而无界。这个线性增长项正是同频输入逐次累积的结果。
 
 
 % ITEM: calculus-exercise-67-01

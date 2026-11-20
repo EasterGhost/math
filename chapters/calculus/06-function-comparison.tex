@@ -88,6 +88,12 @@
 （3）设\(a>0\)，函数\(f(x)=-\ln x-ax^2+x\)有两个极值点\(c_1,c_2\)。先确定\(a\)的范围，再用韦达关系将\(f(c_1)+f(c_2)\)表示为\(a\)的函数。
 
 （4）对正文中的\(f_a\)，若\(a\)只在\([1,e+2]\)内变化，确定最小值点的范围。说明先求\(c\)的范围，再研究\((1-c)e^c-c^2\)，怎样避免同时保留两个独立变量。
+
+（5）（2017年江苏卷第20题，节选）已知函数 \(f(x)=x^3+ax^2+bx+1\)（\(a>0,\ b\in\mathbb R\)）有极值，且 \(f'\) 的极值点是 \(f\) 的零点。
+
+\exercisesubitem{1}将 \(b\) 表示为 \(a\) 的函数，并写出定义域；
+
+\exercisesubitem{2}若 \(f\) 与 \(f'\) 的所有极值之和不小于 \(-7/2\)，求 \(a\) 的取值范围。
 \end{exercise}
 
 \subsection{减少变量}
@@ -98,21 +104,15 @@
 \begin{equation}\label{eq:calculus-equal-level-log}
  v-u=\ln\frac vu.
 \end{equation}
-若选择比值\(t=v/u>1\)，由\(u(t-1)=\ln t\)，得到
+若取比值\(t=v/u>1\)，则\(u(t-1)=\ln t\)；若取差\(d=v-u>0\)，则\(v=e^du\)。分别解得
 \begin{equation*}
- u=\frac{\ln t}{t-1},\qquad v=\frac{t\ln t}{t-1}.
+ (u,v)=\frac{\ln t}{t-1}(1,t),
+ \qquad
+ (u,v)=\frac{d}{e^d-1}(1,e^d).
 \end{equation*}
-若选择差\(d=v-u>0\)，则\(v=e^du\)，从而
-\begin{equation*}
- u=\frac d{e^d-1},\qquad v=\frac{de^d}{e^d-1}.
-\end{equation*}
-两种选择都利用了\(v-u=\ln(v/u)\)：比值确定了差，差也确定了比值。两种表示满足\(t=e^d\)；将所求的和、积等表达式代入后，都可以转为单变量问题。
+两式由\(t=e^d\)联系：比值确定了差，差也确定了比值。\(u+v\)、\(uv\)等量便都可以用一个变量表示。
 
-参数有时也可以通过换元从等值关系中消去。设\(k>0\)、\(F_k(x)=x-k\ln x\)，令\(x=kt\)，则
-\begin{equation*}
- F_k(kt)=k\bigl(t-\ln t-\ln k\bigr).
-\end{equation*}
-若\(F_k(u)=F_k(v)\)，令\(u=kr\)、\(v=ks\)，即得\(r-\ln r=s-\ln s\)。参数只引起平移、伸缩；再由\(u+v=k(r+s)\)、\(uv=k^2rs\)还原两点的和、积。
+换元也能从等值关系中消去参数。设\(k>0\)、\(F_k(x)=x-k\ln x\)，则\(F_k(kt)=k(t-\ln t-\ln k)\)。若\(F_k(u)=F_k(v)\)，令\(u=kr\)、\(v=ks\)，即得\(r-\ln r=s-\ln s\)。参数只引起平移、伸缩；再由\(u+v=k(r+s)\)、\(uv=k^2rs\)还原两点的和、积。
 
 若只给出\(0<u<v\)，则不能擅自加入式\eqref{eq:calculus-equal-level-log}这样的等式。此时可以固定\(u\)，研究\(v\)怎样变化。例如，令\(H(v)=\ln(v/u)-(v-u)/u\)，有\(H(u)=0\)、\(H'(v)=1/v-1/u<0\)，故\(\ln(v/u)<(v-u)/u\)。这里仍需保证所得结论对每个允许的\(u\)成立。
 
