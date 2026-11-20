@@ -101,14 +101,14 @@ y(t)=\frac{K}{1+(K/y_0-1)e^{-kt}}.
 
 % ITEM: calculus-exercise-63-04
 \solutionitem{calculus-exercise-63-04}{习题5.63（4）}
-设\(p,q\)在\([0,T]\)上连续，且\(q\ge0\)。利用式\textup{(5.64)}证明，\(y_0\ge0\)时，解在整个区间上非负；若\(y_0>0\)，则始终为正。
+设\(p,q\)在\([0,T]\)上连续，\(q\ge0\)，且\(y(0)=y_0\)。利用式\textup{(5.64)}证明，\(y_0\ge0\)时，解在整个区间上非负；若\(y_0>0\)，则始终为正。
 
 \par\smallskip\noindent 正文所引关系为：
 \begin{equation*}
 y(t)=e^{-P(t)}\left(y_0+\int_{t_0}^t e^{P(s)}q(s)\,ds\right).
 \end{equation*}
 \solutionanswer
-令\(\mu(t)=e^{\int_0^tp(s)ds}>0\)，解为\(y=\mu^{-1}[y_0+\int_0^t\mu(s)q(s)ds]\)。方括号非负，故\(y\ge0\)；\(y_0>0\)时方括号严格为正，因此始终正。
+在式\textup{(5.64)}中取 \(t_0=0\)。对 \(0\le t\le T\)，被积函数 \(e^{P(s)}q(s)\ge0\)，故 \(y(t)\ge e^{-P(t)}y_0\)。右边与 \(y_0\) 同号，两结论即得。
 
 
 % ITEM: calculus-exercise-63-05

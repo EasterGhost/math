@@ -63,16 +63,22 @@
 \solutionitem{probability-exercise-28-02}{习题6.28（2） *}
 证明给全部\(y_i\)加同一常数，不改变回归斜率、残差和\(R^2\)。
 \solutionanswer
-给全部响应加\(d\)，\(\bar y\)增加\(d\)，中心化响应与\(S_{xy},S_{yy}\)都不变，所以斜率不变、截距增加\(d\)。各拟合值也增加\(d\)，残差不变；残差平方和和总平方变差均不变，因此\(R^2\)不变。
+设响应变为 \(y_i+d\)。对任一直线 \(a+bx\)，平移后的直线 \((a+d)+bx\) 给出完全相同的残差，因为
+\[
+ (y_i+d)-[(a+d)+bx_i]=y_i-(a+bx_i).
+\]
+这给出平移前后最小二乘解的一一对应。若 \(S_{xx}>0\)，回归线唯一，故斜率不变，截距增加 \(d\)；若所有 \(x_i\) 相同，斜率原本就不唯一，但可取的斜率集合仍不变。两种情形下，拟合值都增加 \(d\)，残差不变。又因 \(y_i-\bar y\) 不变，\(S_{yy}>0\) 时 \(R^2\) 不变；若响应为常数，平移前后 \(R^2\) 均无定义。
 
 
 % ITEM: probability-exercise-28-03
 \solutionitem{probability-exercise-28-03}{习题6.28（3） *}
 给每对记录指定正权重\(w_i\)，改为最小化\(\sum_iw_i(y_i-a-bx_i)^2\)。推导残差所满足的两个方程，并用加权内积说明它仍然是正交投影问题。
 \solutionanswer
-令\(\langle u,v\rangle_w=\sum_iw_iu_iv_i\)。正权重使其为内积，拟合空间仍是\(\operatorname{span}\{\boldsymbol1,\boldsymbol x\}\)。残差正交条件为\(\sum_iw_ie_i=0\)、\(\sum_iw_ix_ie_i=0\)，亦可由平方和对\(a,b\)求导得到。令\(\bar x_w=\sum w_ix_i/\sum w_i\)、\(\bar y_w=\sum w_iy_i/\sum w_i\)，解得
+令\(\langle u,v\rangle_w=\sum_iw_iu_iv_i\)。正权重使其为内积，拟合空间是\(\operatorname{span}\{\boldsymbol1,\boldsymbol x\}\)。残差与两个生成向量正交，即\(\sum_iw_ie_i=0\)、\(\sum_iw_ix_ie_i=0\)。由勾股定理，正交投影是唯一使加权平方误差最小的拟合向量。
+
+记\(\bar x_w=\sum_i w_ix_i/\sum_i w_i\)，\(\bar y_w\)同理。第一式给出\(a+b\bar x_w=\bar y_w\)。若各\(x_i\)不全相同，则\(\sum_iw_i(x_i-\bar x_w)^2>0\)，代入第二式得
 \[
  b=\frac{\sum_iw_i(x_i-\bar x_w)(y_i-\bar y_w)}{\sum_iw_i(x_i-\bar x_w)^2},\qquad a=\bar y_w-b\bar x_w.
 \]
-勾股分解说明这个正交投影确使加权平方误差最小。
+若各\(x_i=c\)，第二式就是第一式的\(c\)倍。此时拟合值全为\(\bar y_w\)，任何满足\(a+bc=\bar y_w\)的系数都给出这个投影。
 \par
