@@ -10,28 +10,28 @@
 
 
 % ITEM: calculus-exercise-11-01
-\solutionitem{calculus-exercise-11-01}{习题5.11（1）}
+\solutionitem{calculus-exercise-11-01}{习题5.12（1）}
 求\(x e^{-x}\)与\(\ln x/x\)的单调区间。
 \solutionanswer
 \((xe^{-x})'=e^{-x}(1-x)\)，所以在\(( -\infty,1]\)增、\([1,+\infty)\)减。\((\ln x/x)'=(1-\ln x)/x^2\)，所以在\((0,e]\)增、\([e,+\infty)\)减。
 
 
 % ITEM: calculus-exercise-11-02
-\solutionitem{calculus-exercise-11-02}{习题5.11（2）}
+\solutionitem{calculus-exercise-11-02}{习题5.12（2）}
 证明\(f(x)=x-\sin x\)在\(\mathbb R\)上严格递增。导数在无穷多个点为零是否妨碍结论？可在任意两点之间选取导数为正的一小段进行比较。
 \solutionanswer
 导数\(1-\cos x\ge0\)，故函数单调不减。任取\(a<b\)，其中存在一小段\([u,v]\subset(a,b)\)不含\(2\pi\)的整数倍，该段上导数严格为正。由中值定理及两侧单调不减性，\(f(b)\ge f(v)>f(u)\ge f(a)\)，所以严格递增。孤立的导数零点不妨碍任意两点间的严格比较。
 
 
 % ITEM: calculus-exercise-11-03
-\solutionitem{calculus-exercise-11-03}{习题5.11（3）}
+\solutionitem{calculus-exercise-11-03}{习题5.12（3）}
 求实数\(a\)的范围，使\(x^3-3ax\)在\(\mathbb R\)上单调不减。
 \solutionanswer
 单调不减的可导函数必有\(f'\ge0\)，这里要求\(3(x^2-a)\ge0\)对所有\(x\)成立，等价于\(a\le0\)。反过来此条件保证导数非负，故充分。
 
 
 % ITEM: calculus-exercise-11-04
-\solutionitem{calculus-exercise-11-04}{习题5.11（4）}
+\solutionitem{calculus-exercise-11-04}{习题5.12（4）}
 （2024年新课标I卷第6题改编）设
 \begin{equation*}
  f(x)=\begin{cases}-x^2-2ax-a,&x<0,\\ e^x+\ln(x+1),&x\ge0.\end{cases}
@@ -59,28 +59,28 @@
 
 
 % ITEM: calculus-exercise-12-01
-\solutionitem{calculus-exercise-12-01}{习题5.12（1）}
+\solutionitem{calculus-exercise-12-01}{习题5.13（1）}
 求\(f(x)=x^4-2x^2\)的极值及其在\([-2,1]\)上的最值。
 \solutionanswer
 导数为\(4x(x-1)(x+1)\)，故在\(\pm1\)处极小值为\(-1\)，在\(0\)处极大值为\(0\)。在\([-2,1]\)再比较端点\(f(-2)=8,f(1)=-1\)，最大\(8\)在\(-2\)，最小\(-1\)在\(\pm1\)。
 
 
 % ITEM: calculus-exercise-12-02
-\solutionitem{calculus-exercise-12-02}{习题5.12（2）}
+\solutionitem{calculus-exercise-12-02}{习题5.13（2）}
 求\(x e^{-x}\)在\([0,+\infty)\)上的最值，并判断哪些值可以取到。
 \solutionanswer
 导数\(e^{-x}(1-x)\)在\(1\)前正后负，最大值\(1/e\)在\(1\)取得。函数在\(x>0\)为正，在\(0\)为零，所以最小值\(0\)在\(0\)取得；无穷远处也趋零，但不需要在那里取值。
 
 
 % ITEM: calculus-exercise-12-03
-\solutionitem{calculus-exercise-12-03}{习题5.12（3）}
+\solutionitem{calculus-exercise-12-03}{习题5.13（3）}
 设\(f(x)=x^{1/3}\)。它在原点没有有限导数，是否在原点取得极值？结合\(|x|\)比较。
 \solutionanswer
 \(x^{1/3}\)严格递增，零点左负右正，因此在零点没有极值。\(|x|\)同样在原点无有限导数，却有极小值；不可导不能单独决定是否有极值。
 
 
 % ITEM: calculus-exercise-12-04
-\solutionitem{calculus-exercise-12-04}{习题5.12（4）}
+\solutionitem{calculus-exercise-12-04}{习题5.13（4）}
 （2024年新课标I卷第10题）设\(f(x)=(x-1)^2(x-4)\)，判断下列结论。
 
 （A）\(x=3\)是\(f\)的极小值点；（B）当\(0<x<1\)时，\(f(x)<f(x^2)\)；（C）当\(1<x<2\)时，\(-4<f(2x-1)<0\)；（D）当\(-1<x<0\)时，\(f(2-x)>f(x)\)。
@@ -112,28 +112,28 @@
 
 
 % ITEM: calculus-exercise-13-01
-\solutionitem{calculus-exercise-13-01}{习题5.13（1）}
+\solutionitem{calculus-exercise-13-01}{习题5.14（1）}
 讨论方程\(e^x=ax\)的实根个数。
 \solutionanswer
-\(a=0\) 时无根。若 \(a\ne0\)，原方程即 \(xe^{-x}=1/a\)。由习题5.11（1），\(xe^{-x}\) 在 \((-\infty,1]\) 从负无穷严格增到 \(1/e\)，在 \([1,+\infty)\) 严格减到零。考察水平线 \(y=1/a\)：\(a<0\) 时只交左支，有一根；\(0<a<e\) 时高于最高点，无根；\(a=e\) 时只有根 \(x=1\)；\(a>e\) 时两支各有一根。
+\(a=0\) 时无根。若 \(a\ne0\)，原方程即 \(xe^{-x}=1/a\)。由习题5.12（1），\(xe^{-x}\) 在 \((-\infty,1]\) 从负无穷严格增到 \(1/e\)，在 \([1,+\infty)\) 严格减到零。考察水平线 \(y=1/a\)：\(a<0\) 时只交左支，有一根；\(0<a<e\) 时高于最高点，无根；\(a=e\) 时只有根 \(x=1\)；\(a>e\) 时两支各有一根。
 
 
 % ITEM: calculus-exercise-13-02
-\solutionitem{calculus-exercise-13-02}{习题5.13（2）}
+\solutionitem{calculus-exercise-13-02}{习题5.14（2）}
 证明\(x^3+x=\cos x\)有且只有一个实根，并确定一个长度不超过\(1\)的有根区间。
 \solutionanswer
 令\(F=x^3+x-\cos x\)，则\(F'=3x^2+1+\sin x>0\)：非零点由\(3x^2>0\)保证，零点导数为\(1\)。又\(F(0)=-1<0,F(1)=2-\cos1>0\)，所以在\((0,1)\)内恰有一根。
 
 
 % ITEM: calculus-exercise-13-03
-\solutionitem{calculus-exercise-13-03}{习题5.13（3）}
+\solutionitem{calculus-exercise-13-03}{习题5.14（3）}
 设\(f\)在开区间\(I\)上可导且\(f'\)严格递增。证明\(f\)在\(I\)内至多有两个不同零点。
 \solutionanswer
 若在该区间内部有三个不同零点，在相邻零点间分别应用Rolle定理，就得到两个不同的\(f'\)零点，与\(f'\)严格递增矛盾。
 
 
 % ITEM: calculus-exercise-13-04
-\solutionitem{calculus-exercise-13-04}{习题5.13（4）}
+\solutionitem{calculus-exercise-13-04}{习题5.14（4）}
 （2014年新课标II卷文科第21题）设\(f(x)=x^3-3x^2+ax+2\)，曲线在点\((0,2)\)处的切线与\(x\)轴交点的横坐标为\(-2\)。求\(a\)，并证明当\(k<1\)时，曲线与直线\(y=kx-2\)只有一个交点。
 \solutionanswer
 切线为\(y=ax+2\)，其横截距\(-2\)给出\(a=1\)。交点满足
@@ -152,21 +152,21 @@
 
 
 % ITEM: calculus-exercise-14-01
-\solutionitem{calculus-exercise-14-01}{习题5.14（1）}
+\solutionitem{calculus-exercise-14-01}{习题5.15（1）}
 求\(a\)的范围，使\(\ln x\le a(x-1)\)对所有\(x>0\)成立。
 \solutionanswer
 若不等式恒成立，\(F(x)=a(x-1)-\ln x\)在内点\(1\)取最小值零，故\(F'(1)=a-1=0\)。所以只能\(a=1\)，而\(\ln x\le x-1\)保证它充分。
 
 
 % ITEM: calculus-exercise-14-02
-\solutionitem{calculus-exercise-14-02}{习题5.14（2）}
+\solutionitem{calculus-exercise-14-02}{习题5.15（2）}
 分别求\(a\)的范围，使\(e^x-ax\ge0\)对所有实数\(x\)成立，以及使存在实数\(x\)满足\(e^x-ax<0\)。
 \solutionanswer
 \(a<0\)时\(e^x-ax\to-\infty\)（\(x\to-\infty\)），所以存在负值。\(a=0\)时始终为正。\(a>0\)时最小值为\(a(1-\ln a)\)，故恒非负当且仅当\(a\le e\)。两问答案依次为\(a\in[0,e]\)、\(a\in(-\infty,0)\cup(e,+\infty)\)。
 
 
 % ITEM: calculus-exercise-14-03
-\solutionitem{calculus-exercise-14-03}{习题5.14（3）}
+\solutionitem{calculus-exercise-14-03}{习题5.15（3）}
 求\(t\)的范围，使对每个\(x\in[1,e]\)，都存在\(y\in[0,1]\)满足\(\ln x-t\le y-y^2\)。
 \solutionanswer
 \(y-y^2\)在\([0,1]\)的最大值为\(1/4\)，所以存在\(y\)等价于\(\ln x-t\le1/4\)。再对所有\(x\in[1,e]\)要求成立，即\(1-t\le1/4\)。故\(t\ge3/4\)，取\(y=1/2\)就能同时验证充分性。
@@ -189,21 +189,21 @@
 
 
 % ITEM: calculus-exercise-15-01
-\solutionitem{calculus-exercise-15-01}{习题5.15（1）}
+\solutionitem{calculus-exercise-15-01}{习题5.16（1）}
 讨论\(f_a(x)=x^3-3ax\)在\([0,1]\)上的最值，并指出需要分类的参数位置。
 \solutionanswer
 \(f_a'=3(x^2-a)\)。\(a\le0\)时递增，最小\(0\)、最大\(1-3a\)；\(0<a<1\)时在\(\sqrt a\)取最小值\(-2a^{3/2}\)，最大值须比较\(f(0)=0\)、\(f(1)=1-3a\)；\(a\ge1\)时递减，最小\(1-3a\)、最大\(0\)。因此中间情形的最大值在\(a<1/3\)时为\(1-3a\)，在\(a>1/3\)时为\(0\)，\(a=1/3\)时两端同为最大值。\(a=0,1\)来自驻点进入区间，\(a=1/3\)来自端点函数值交换大小。
 
 
 % ITEM: calculus-exercise-15-02
-\solutionitem{calculus-exercise-15-02}{习题5.15（2）}
+\solutionitem{calculus-exercise-15-02}{习题5.16（2）}
 设\(f_a(x)=\ln x-ax\)。讨论其单调性，并判断不同\(a\)下\(f_a(x)=0\)的根数。
 \solutionanswer
 \(a\le0\)时，\(f_a'(x)=1/x-a>0\)，函数在\((0,+\infty)\)上从\(-\infty\)增至\(+\infty\)，恰有一根。\(a>0\)时，函数在\((0,1/a)\)上递增，在\((1/a,+\infty)\)上递减，最大值为\(-\ln a-1\)。当\(x\to0^+\)时，\(f_a(x)\to-\infty\)；当\(x\to+\infty\)时，由\(\ln x/x\to0\)，亦有\(f_a(x)=x(\ln x/x-a)\to-\infty\)。所以\(0<a<1/e\)时，由连续性和两支的严格单调性，每支各有一根；\(a=1/e\)时只有最大值点这一根；\(a>1/e\)时无根。
 
 
 % ITEM: calculus-exercise-15-03
-\solutionitem{calculus-exercise-15-03}{习题5.15（3）}
+\solutionitem{calculus-exercise-15-03}{习题5.16（3）}
 （2024年新课标I卷第18题）已知\(f(x)=\ln\frac{x}{2-x}+ax+b(x-1)^3\)。
 
 \exercisesubitem{1}若\(b=0\)且\(f'(x)\ge0\)，求\(a\)的最小值；
@@ -229,21 +229,21 @@
 
 
 % ITEM: calculus-exercise-16-01
-\solutionitem{calculus-exercise-16-01}{习题5.16（1）}
+\solutionitem{calculus-exercise-16-01}{习题5.17（1）}
 求\(y=e^x\)上平行于\(y=2x\)的切线。
 \solutionanswer
 切点满足\(e^t=2\)，即\(t=\ln2\)，切线为\(y=2x+2-2\ln2\)。
 
 
 % ITEM: calculus-exercise-16-02
-\solutionitem{calculus-exercise-16-02}{习题5.16（2）}
+\solutionitem{calculus-exercise-16-02}{习题5.17（2）}
 求\(y=x^2\)与\(y=-(x-2)^2\)的公共切线。
 \solutionanswer
 设公共切线\(y=mx+n\)。与第一条抛物线相切给出\(n=-m^2/4\)，与第二条相切给出\(n=m^2/4-2m\)。所以\(m(m-4)=0\)，两条公共切线为\(y=0\)、\(y=4x-4\)，两边的切点一般不同。
 
 
 % ITEM: calculus-exercise-16-03
-\solutionitem{calculus-exercise-16-03}{习题5.16（3）}
+\solutionitem{calculus-exercise-16-03}{习题5.17（3）}
 求实数\(a\)，使\(y=\ln x\)与\(y=ax^2\)有公共点，且在该公共点处切线相同。
 \solutionanswer
 设公共切点横坐标\(t>0\)，函数值与斜率分别相等，得\(\ln t=at^2\)、\(1/t=2at\)。故\(\ln t=1/2,t=\sqrt e,a=1/(2e)\)。反向代回两条件成立，公共切线为\(y=x/\sqrt e-1/2\)。
@@ -268,21 +268,21 @@
 
 
 % ITEM: calculus-exercise-17-01
-\solutionitem{calculus-exercise-17-01}{习题5.17（1）}
+\solutionitem{calculus-exercise-17-01}{习题5.18（1）}
 制作一个体积为\(V>0\)的无盖圆柱容器，侧面与底面的单位面积成本相同。求用料最少时的底面半径与高的关系。
 \solutionanswer
 \(h=V/(\pi r^2)\)，用料面积\(S=\pi r^2+2V/r\)。导数\(S'=2\pi r-2V/r^2\)，在\(r=(V/\pi)^{1/3}\)前负后正，所以该处最省料，且\(h=r\)。
 
 
 % ITEM: calculus-exercise-17-02
-\solutionitem{calculus-exercise-17-02}{习题5.17（2）}
+\solutionitem{calculus-exercise-17-02}{习题5.18（2）}
 在曲线\(y=1/x\)的第一象限部分上取点\(P\)，使\(P\)到原点的距离最小。求\(P\)，并解释为什么可以改为研究距离的平方。
 \solutionanswer
 距离为正，平方函数在正数上递增，最小距离与最小距离平方在同一点取得。令\(F=x^2+x^{-2}\)，\(x>0\)，则\(F'=2x-2x^{-3}\)，唯一驻点\(x=1\)，前负后正。故\(P=(1,1)\)，最小距离\(\sqrt2\)。
 
 
 % ITEM: calculus-exercise-17-03
-\solutionitem{calculus-exercise-17-03}{习题5.17（3）}
+\solutionitem{calculus-exercise-17-03}{习题5.18（3）}
 设\(a>0\)，点\(A=(0,a)\)、\(B=(1,0)\)。在\(x\)轴上取\(P=(t,0)\)，\(0\le t\le1\)，求\(|AP|+\tfrac12|PB|\)的最小值。驻点不在研究区间内时，应怎样完成判断？
 \solutionanswer
 目标函数为\(F(t)=\sqrt{t^2+a^2}+(1-t)/2\)，导数\(t/\sqrt{t^2+a^2}-1/2\)，零点为\(a/\sqrt3\)，前负后正。若\(0<a\le\sqrt3\)，最小值为\((1+\sqrt3a)/2\)，在\(t=a/\sqrt3\)取得。若\(a>\sqrt3\)，驻点在区间外，\(F\)在全区间递减，最小值为\(\sqrt{1+a^2}\)，在\(t=1\)取得。

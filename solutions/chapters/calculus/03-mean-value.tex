@@ -58,35 +58,35 @@
 
 
 % ITEM: calculus-exercise-07-01
-\solutionitem{calculus-exercise-07-01}{习题5.7（1）}
+\solutionitem{calculus-exercise-07-01}{习题5.8（1）}
 证明\(|\arctan x-\arctan y|\le|x-y|\)。
 \solutionanswer
 若\(x\ne y\)，中值定理给出\(\arctan x-\arctan y=(x-y)/(1+\xi^2)\)，取绝对值即得；\(x=y\)时成立。
 
 
 % ITEM: calculus-exercise-07-02
-\solutionitem{calculus-exercise-07-02}{习题5.7（2）}
+\solutionitem{calculus-exercise-07-02}{习题5.8（2）}
 设\(f\)在\([0,1]\)连续、内部可导，且\(f(0)=0\)、\(1\le f'(x)\le2\)。估计\(f(1)\)及\(f(3/4)-f(1/4)\)。
 \solutionanswer
 分别在\([0,1]\)、\([1/4,3/4]\)用中值定理，得到\(1\le f(1)\le2\)、\(1/2\le f(3/4)-f(1/4)\le1\)。
 
 
 % ITEM: calculus-exercise-07-03
-\solutionitem{calculus-exercise-07-03}{习题5.7（3）}
+\solutionitem{calculus-exercise-07-03}{习题5.8（3）}
 证明\(e^x=1+x\)只有一个实根。可先用Rolle定理控制根数，再判断函数值。
 \solutionanswer
 \(0\)是一个根。若还有非零根\(c\)，Rolle定理会在\(0,c\)之间给出\(e^\xi-1=0\)，即\(\xi=0\)，不在两端之间，矛盾。因此根只有\(0\)。
 
 
 % ITEM: calculus-exercise-07-04
-\solutionitem{calculus-exercise-07-04}{习题5.7（4）}
+\solutionitem{calculus-exercise-07-04}{习题5.8（4）}
 若\(f\)在\(\mathbb R\)上可导且有周期\(T>0\)，证明任意长度为\(T\)的开区间内至少有一个\(f'\)的零点。
 \solutionanswer
 任取区间\((a,a+T)\)，周期性给出两端值相等，Rolle定理就在其内部给出导数零点。
 
 
 % ITEM: calculus-exercise-07-05
-\solutionitem{calculus-exercise-07-05}{习题5.7（5）}
+\solutionitem{calculus-exercise-07-05}{习题5.8（5）}
 设\(f\)在\(\mathbb R\)上可导。证明：\(f'\)为偶函数，当且仅当\(f(x)-f(0)\)为奇函数；\(f'\)为奇函数，当且仅当\(f\)为偶函数。结合例5.13，说明函数值\(f(0)\)的作用。
 \solutionanswer
 若\(f'\)偶，令\(H(x)=f(x)+f(-x)-2f(0)\)，则\(H'=f'(x)-f'(-x)=0\)，且\(H(0)=0\)，故\(f(x)-f(0)\)为奇函数。反过来对这个奇函数关系求导，即得\(f'\)偶。若\(f'\)奇，令\(K(x)=f(x)-f(-x)\)，则\(K'=f'(x)+f'(-x)=0\)，由\(K(0)=0\)得\(f\)偶；逆向仍由求导得到。
@@ -94,14 +94,14 @@
 
 
 % ITEM: calculus-exercise-07-06
-\solutionitem{calculus-exercise-07-06}{习题5.7（6）}
+\solutionitem{calculus-exercise-07-06}{习题5.8（6）}
 对\(0<a<b\)，证明\(\dfrac{b-a}{b}<\ln\dfrac ba<\dfrac{b-a}{a}\)，并据此估计\(\ln\dfrac{101}{100}\)。
 \solutionanswer
 对\(\ln x\)在\([a,b]\)用中值定理，\(\ln(b/a)=(b-a)/\xi\)，\(a<\xi<b\)，故两严格不等式成立。取\(a=100,b=101\)，得\(1/101<\ln(101/100)<1/100\)。
 
 
 % ITEM: calculus-exercise-07-07
-\solutionitem{calculus-exercise-07-07}{习题5.7（7）}
+\solutionitem{calculus-exercise-07-07}{习题5.8（7）}
 设\(f\)在\([a,b]\)上连续、内部可导，且\(|f'|\le K\)。若\(f(a)=f(b)=0\)，证明
 \begin{equation*}
  |f(x)|\le K\min\{x-a,b-x\}\le\frac{K(b-a)}2\qquad(x\in[a,b]).
@@ -111,56 +111,56 @@
 
 
 % ITEM: calculus-exercise-07-08
-\solutionitem{calculus-exercise-07-08}{习题5.7（8）}
+\solutionitem{calculus-exercise-07-08}{习题5.8（8）}
 设区间\(I\)上\(f'\ge m>0\)，且\(f(\alpha)=0\)。证明\(|x-\alpha|\le|f(x)|/m\)（\(x\in I\)），并解释它对估计近似根误差的作用。
 \solutionanswer
 当\(x\ne\alpha\)时，\(f(x)=f'(\xi)(x-\alpha)\)，所以\(|f(x)|\ge m|x-\alpha|\)。它把可以算出的函数残差\(|f(x)|\)转为根的距离误差上界；\(x=\alpha\)时也成立。
 
 
 % ITEM: calculus-exercise-07-09
-\solutionitem{calculus-exercise-07-09}{习题5.7（9）}
+\solutionitem{calculus-exercise-07-09}{习题5.8（9）}
 （2013年北京卷理科第18题第（2）问）曲线\(y=\ln x/x\)在\((1,0)\)处的切线为\(y=x-1\)。证明除切点外，曲线都位于这条直线的下方。可先用中值定理比较\(\ln x\)与\(x-1\)。
 \solutionanswer
 由中值定理，\(\ln x=(x-1)/\xi\)，其中 \(\xi\) 介于 \(1\) 与 \(x\) 之间。当 \(x\ne1\) 时，\(\ln x-(x-1)=(x-1)(1-\xi)/\xi<0\)。又 \(x(x-1)-(x-1)=(x-1)^2\ge0\)，故 \(\ln x<x(x-1)\)。两边除以 \(x>0\) 即得结论。
 
 
 % ITEM: calculus-exercise-07-10
-\solutionitem{calculus-exercise-07-10}{习题5.7（10）}
+\solutionitem{calculus-exercise-07-10}{习题5.8（10）}
 设\(f\)在\([a,b]\)上连续、内部可导，且有三个不同零点。证明\(f'\)至少有两个不同零点。若\(f'\)也可导，证明它的导函数至少有一个零点。
 \solutionanswer
 将三个零点排成\(x_1<x_2<x_3\)，在两个相邻区间用Rolle定理，得到\(u\in(x_1,x_2),v\in(x_2,x_3)\)，满足\(f'(u)=f'(v)=0\)。若\(f'\)可导，再在\([u,v]\)用Rolle定理，得到\(f''\)的零点。
 
 
 % ITEM: calculus-exercise-07-11
-\solutionitem{calculus-exercise-07-11}{习题5.7（11）}
+\solutionitem{calculus-exercise-07-11}{习题5.8（11）}
 设\(f\)在\([0,1]\)上连续、内部可导，且\(f(0)=f(1)=0\)、\(f(1/2)=1\)。证明存在\(u\in(0,1/2)\)、\(v\in(1/2,1)\)，使\(f'(u)-f'(v)=4\)。
 \solutionanswer
 分别在\([0,1/2]\)、\([1/2,1]\)使用中值定理，得到\(f'(u)=2,f'(v)=-2\)，故差为\(4\)。
 
 
 % ITEM: calculus-exercise-07-12
-\solutionitem{calculus-exercise-07-12}{习题5.7（12）}
+\solutionitem{calculus-exercise-07-12}{习题5.8（12）}
 设\(f\)在\([0,1]\)上连续、内部可导，且\(f(0)=0\)、\(f(1)=1\)。证明存在\(\xi\in(0,1)\)，使\(f'(\xi)=2\xi\)。说明应先从\(f\)中减去哪个函数，再使用Rolle定理。
 \solutionanswer
 取\(F(x)=f(x)-x^2\)，则\(F(0)=F(1)=0\)。Rolle定理给出\(F'(\xi)=f'(\xi)-2\xi=0\)。减去的函数同时匹配两端值，并让导数成为目标中的\(2x\)。
 
 
 % ITEM: calculus-exercise-07-13
-\solutionitem{calculus-exercise-07-13}{习题5.7（13）}
+\solutionitem{calculus-exercise-07-13}{习题5.8（13）}
 设\(f\)将\([0,1]\)映入自身，在该区间连续、内部可导，且\(|f'|\le q<1\)。证明方程\(f(x)=x\)有且只有一个解，分别指出连续性与导数上界的作用。
 \solutionanswer
 令\(F(x)=f(x)-x\)。有\(F(0)\ge0,F(1)\le0\)，连续性及介值定理保证零点存在。若\(u<v\)都是不动点，中值定理会给出\(1=[f(v)-f(u)]/(v-u)=f'(\xi)\)，与\(|f'|\le q<1\)矛盾。连续性负责存在，导数上界负责唯一。
 
 
 % ITEM: calculus-exercise-07-14
-\solutionitem{calculus-exercise-07-14}{习题5.7（14）}
+\solutionitem{calculus-exercise-07-14}{习题5.8（14）}
 设\(f\)在\([0,1]\)上连续、内部可导，两端的函数值为零。证明存在\(\xi\in(0,1)\)，使\(f'(\xi)=f(\xi)\)。
 \solutionanswer
 为使导数出现\(f'-f\)，取\(F(x)=e^{-x}f(x)\)。两端值为零，Rolle定理给出\(e^{-\xi}(f'(\xi)-f(\xi))=0\)，即所求。
 
 
 % ITEM: calculus-exercise-07-15
-\solutionitem{calculus-exercise-07-15}{习题5.7（15）}
+\solutionitem{calculus-exercise-07-15}{习题5.8（15）}
 若区间上\(f'\ne0\)，证明\(f\)至多有一个零点。
 \solutionanswer
 若有两个不同零点，Rolle定理必在其间产生\(f'\)的零点，与题设矛盾。
@@ -174,28 +174,28 @@
 
 
 % ITEM: calculus-exercise-08-01
-\solutionitem{calculus-exercise-08-01}{习题5.8（1） *}
+\solutionitem{calculus-exercise-08-01}{习题5.9（1） *}
 设\(f(x)=e^x-1\)（\(x<0\)），\(f(x)=ax\)（\(x\ge0\)）。分别用差商与导数极限定理，求\(f\)在零点可导的条件。
 \solutionanswer
 \(f\)在零点连续。差商的左极限为\(1\)，右极限为\(a\)，故可导当且仅当\(a=1\)。另一方法：零点两侧导函数分别为\(e^x\)、\(a\)，极限为\(1,a\)，用导数极限定理的单侧版本得到同样的条件。
 
 
 % ITEM: calculus-exercise-08-02
-\solutionitem{calculus-exercise-08-02}{习题5.8（2） *}
+\solutionitem{calculus-exercise-08-02}{习题5.9（2） *}
 设区间上可导函数\(f\)的导数只取\(-1\)、\(1\)中的值。证明\(f\)必为\(x+C\)或\(-x+C\)，其中\(C\)为常数。
 \solutionanswer
 若导数取过两个不同值，Darboux定理要求它也取\(0\)，矛盾。因此\(f'\)恒为\(1\)或恒为\(-1\)，由中值定理得\(f=x+C\)或\(f=-x+C\)。
 
 
 % ITEM: calculus-exercise-08-03
-\solutionitem{calculus-exercise-08-03}{习题5.8（3） *}
+\solutionitem{calculus-exercise-08-03}{习题5.9（3） *}
 若\(f\)在开区间内可导，且\(f'\)单调，证明\(f'\)连续。可以先在任意内点的两侧建立单调函数的单侧极限，再使用导数极限定理。
 \solutionanswer
 以内点\(c\)为例，单调性使\(f'\)在两侧有极限，且被邻近两点的有限导数值夹住，所以均有限。\(f\)在\(c\)连续，单侧导数极限定理分别说明这两个极限都等于\(f'(c)\)，故\(f'\)在\(c\)连续。
 
 
 % ITEM: calculus-exercise-09-01
-\solutionitem{calculus-exercise-09-01}{习题5.9 *}
+\solutionitem{calculus-exercise-09-01}{习题5.10 *}
 对\(0<a<b\)，取\(f(x)=\ln x\)、\(g(x)=x^2\)，证明存在\(\xi\in(a,b)\)，使\(\ln(b/a)/(b^2-a^2)=1/(2\xi^2)\)，并据此给出该比值的上下界。
 \solutionanswer
 Cauchy中值定理给出\((\ln b-\ln a)2\xi=(b^2-a^2)/\xi\)，所以所求比值为\(1/(2\xi^2)\)。由\(a<\xi<b\)，得
@@ -212,28 +212,28 @@ Cauchy中值定理给出\((\ln b-\ln a)2\xi=(b^2-a^2)/\xi\)，所以所求比值
 
 
 % ITEM: calculus-exercise-10-01
-\solutionitem{calculus-exercise-10-01}{习题5.10（1） *}
+\solutionitem{calculus-exercise-10-01}{习题5.11（1） *}
 求\(\lim_{x\to0}(x-\sin x)/x^3\)及\(\lim_{x\to0}(\ln(1+x)-x)/x^2\)。
 \solutionanswer
 第一式连续用洛必达法则，化为\(\lim(1-\cos x)/(3x^2)=\lim\sin x/(6x)=1/6\)；第二式化为\(\lim[-x/(1+x)]/(2x)=-1/2\)。
 
 
 % ITEM: calculus-exercise-10-02
-\solutionitem{calculus-exercise-10-02}{习题5.10（2） *}
+\solutionitem{calculus-exercise-10-02}{习题5.11（2） *}
 求\(\lim_{x\to+\infty}x e^{-x}\)与\(\lim_{x\to0^+}x\ln x\)。
 \solutionanswer
 第一式为\(x/e^x\)，洛必达给出\(1/e^x\to0\)。第二式写成\(\ln x/(1/x)\)，导数比为\(-x\to0\)，所以极限也为\(0\)。
 
 
 % ITEM: calculus-exercise-10-03
-\solutionitem{calculus-exercise-10-03}{习题5.10（3） *}
+\solutionitem{calculus-exercise-10-03}{习题5.11（3） *}
 计算\(\lim_{x\to0}(1+x)^{1/x}\)。说明若用对数求导和洛必达法则，这个计算为什么只是核对已有结论，不能反过来承担本章指数、对数求导公式的最初建立。
 \solutionanswer
 取对数为\(\ln(1+x)/x\)，洛必达后极限为\(1\)，原极限为\(e\)。但本章对数、指数的导数已依赖于此前建立的指数极限及\(e\)的理论；此处是在这些结果基础上核对，不能把依赖它们的法则再当作它们的首次证明。
 
 
 % ITEM: calculus-exercise-10-04
-\solutionitem{calculus-exercise-10-04}{习题5.10（4） *}
+\solutionitem{calculus-exercise-10-04}{习题5.11（4） *}
 令\(f(x)=x+\sin x\)、\(g(x)=x\)。比较\(x\to+\infty\)时原比值与导数比的极限。
 \solutionanswer
 原比值为\(1+\sin x/x\to1\)，导数比为\(1+\cos x\)，没有极限。这说明原比值收敛不要求导数比收敛，不能逆用洛必达法则。

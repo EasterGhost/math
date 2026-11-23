@@ -1,11 +1,11 @@
 \chapter{常用记号}
 \label{app:notation}
 
-本附录汇集阅读正文时常见的记号。具体问题中已经给出的对象、定义域和约定，仍由该问题确定。
+本附录汇集正文常用的记号；各题中的定义域和约定以题设为准。
 
 \section{数集与集合运算}
 \begingroup
-\renewcommand{\arraystretch}{1.1}
+\renewcommand{\arraystretch}{1}
 \begin{longtable}{@{}p{.30\linewidth}p{.64\linewidth}@{}}
 \toprule
 记号 & 含义 \\
@@ -30,10 +30,8 @@
 
 相对于已经确定的全集\(\Omega\)，集合\(A\)的补集为\(\Omega\setminus A\)。常用关系为
 \begin{equation*}
- \begin{aligned}
- \Omega\setminus(A\cup B)&=(\Omega\setminus A)\cap(\Omega\setminus B),\\
- \Omega\setminus(A\cap B)&=(\Omega\setminus A)\cup(\Omega\setminus B).
- \end{aligned}
+ \Omega\setminus(A\cup B)=(\Omega\setminus A)\cap(\Omega\setminus B),\quad
+ \Omega\setminus(A\cap B)=(\Omega\setminus A)\cup(\Omega\setminus B).
 \end{equation*}
 
 \section{逻辑用语}
@@ -47,7 +45,9 @@
 \end{equation*}
 蕴含命题的否定为\(P\land\neg Q\)，所以反驳一个全称蕴含命题，需要找到满足前提、却不满足结论的反例。
 
-\(\forall\)读作“对任意”，\(\exists\)读作“存在”。否定时，
+{\heiti{}量词}\quad \(\forall\)是全称量词，读作“对任意”；\(\exists\)是存在量词，读作“存在”。量词的次序决定后选的量可以依赖谁。例如，\(\exists M\,\forall n,\ |a_n|\le M\)要求同一个\(M\)控制全部项；\(\forall n\,\exists M,\ |a_n|\le M\)则允许每项另取一个界。取\(a_n=n\)，后一句成立，前一句不成立。
+
+否定带量词的命题时，量词逐个对换，同时否定它们所限定的结论：
 \begin{equation*}
  \begin{aligned}
  \neg\bigl(\forall x\in A,\ P(x)\bigr)
@@ -56,7 +56,7 @@
  &\Leftrightarrow\forall x\in A,\ \neg P(x).
  \end{aligned}
 \end{equation*}
-量词的次序记录选择之间的依赖。例如，\(\exists M\,\forall n,\ |a_n|\le M\)要求同一个\(M\)控制全部项；\(\forall n\,\exists M,\ |a_n|\le M\)则允许每项另取一个界。
+对照第一章的极限定义\eqref{eq:analysis-sequence-limit-definition}，“\(a_n\)不收敛于\(a\)”是说：存在一个固定的\(\varepsilon_0>0\)，无论取多大的正整数\(N\)，总能找到某个\(n>N\)，使\(|a_n-a|\geq\varepsilon_0\)。
 
 \section{函数与线性运算}
 

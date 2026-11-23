@@ -347,3 +347,26 @@ B=(1,0,0),\quad D=(0,1,0),\quad A'=(0,0,1),\quad C=(1,1,0).
 \]
 故\(\beta=\pi/3\)。
 \par
+
+% ITEM: vector-position-segment
+\solutionitem{vector-position-segment}{例3.9}
+设 \(A,B\) 是两个不同的点，位置向量分别为 \(\vec a,\vec b\)。令 \(\vec r(t)=\vec a+t(\vec b-\vec a)\)，\(\vec s(t)=\vec r(t^2)\)，其中 \(0\leq t\leq 1\)。两个动点的轨迹是否相同？它们何时经过线段 \(AB\) 的中点？
+\solutionanswer
+从 \(A\) 出发，两个动点分别走过了全程的 \(t\) 和 \(t^2\)。由于 \(t\) 和 \(t^2\) 都取遍 \([0,1]\)，二者的轨迹都是整条线段 \(AB\)。到达中点时走过全程的一半，故前者在 \(t=\tfrac12\) 时到达，后者在 \(t^2=\tfrac12\)，即 \(t=\tfrac1{\sqrt2}\) 时到达。
+
+% ITEM: vector-position-meeting
+\solutionitem{vector-position-meeting}{习题3.3（1）}
+时刻 \(t\in[0,1]\)，甲、乙的位置向量分别为 \((t,t)\)、\((1-t,t)\)。丙比乙晚半个时间单位出发，其余运动过程相同。求三者轨迹的交点，判断甲分别能否与乙、丙在该点相遇。
+\solutionanswer
+甲沿 \(y=x\) 运动，乙和丙都沿 \(x+y=1\) 上的同一条线段运动。联立得公共点 \((\tfrac12,\tfrac12)\)。甲、乙到达该点的时刻同为 \(t=\tfrac12\)，所以相遇。丙到达该点时已是 \(t=1\)，此时甲已到 \((1,1)\)，故甲、丙不相遇。
+
+% ITEM: vector-position-direction-limit
+\solutionitem{vector-position-direction-limit}{习题3.3（2）}
+设 \(\vec r(t)=(t,t^2)\)。当 \(t\to0\) 时，\(\vec r(t)\to\vec0\)。从原点指向动点的单位向量是否也有极限？
+\solutionanswer
+当 \(t\ne0\) 时，将 \(\vec r(t)=t(1,t)\) 除以它的模，得
+\[
+ \frac{\vec r(t)}{|\vec r(t)|}
+ =\frac{t}{|t|}\,\frac{(1,t)}{\sqrt{1+t^2}}.
+\]
+第二个因子趋于 \((1,0)\)，而第一个因子在原点左侧为 \(-1\)，右侧为 \(1\)。故单位向量的左极限为 \((-1,0)\)，右极限为 \((1,0)\)，极限不存在。

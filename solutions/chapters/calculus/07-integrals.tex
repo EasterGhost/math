@@ -10,7 +10,7 @@
 
 
 % ITEM: calculus-exercise-31-01
-\solutionitem{calculus-exercise-31-01}{习题5.31（1）}
+\solutionitem{calculus-exercise-31-01}{习题5.32（1）}
 用定义求\(\int_a^b(kx+c)\,dx\)，并给出取样和误差关于\(\|P\|\)的界。
 \solutionanswer
 令\(J=k(b^2-a^2)/2+c(b-a)\)。因\(\sum_i[(x_{i-1}+x_i)/2]\Delta x_i=(b^2-a^2)/2\)，
@@ -21,14 +21,14 @@
 
 
 % ITEM: calculus-exercise-31-02
-\solutionitem{calculus-exercise-31-02}{习题5.31（2）}
+\solutionitem{calculus-exercise-31-02}{习题5.32（2）}
 设分割\(P_n\)始终保留\([0,1/2]\)这一整段，只将\([1/2,1]\)不断细分。分段数趋于无穷时，\(\|P_n\|\)是否趋零？对\(f(x)=x\)，改变第一段的取样能否产生不消失的差异？
 \solutionanswer
 不趋零，最大段长始终至少\(1/2\)。保持其余取样不变，第一段分别选\(0\)、\(1/2\)，两和始终相差\((1/2-0)/2=1/4\)。增加分段数不能代替每段都趋短。
 
 
 % ITEM: calculus-exercise-31-03
-\solutionitem{calculus-exercise-31-03}{习题5.31（3）}
+\solutionitem{calculus-exercise-31-03}{习题5.32（3）}
 对\(f(x)=x^2\)，计算\([0,1]\)上等分分割的左右端点和及其极限。区分这个计算与证明一般定义所需完成的任务。
 \solutionanswer
 左和为\((n-1)n(2n-1)/(6n^3)\)，右和为\(n(n+1)(2n+1)/(6n^3)\)，均趋\(1/3\)。这只计算了两列特定和；一般定义还要求任意足够细的分割和任意取样都趋同一数。连续函数可积性可以补足这一步。
@@ -42,7 +42,7 @@
 
 
 % ITEM: calculus-exercise-32-01
-\solutionitem{calculus-exercise-32-01}{习题5.32（1）}
+\solutionitem{calculus-exercise-32-01}{习题5.33（1）}
 本题中\(g(0)=0\)，且当\(1/(n+1)<x\le1/n\)、\(n\ge1\)时\(g(x)=1/n\)。
 画出上述\(g\)在\([1/4,1]\)上的图像，证明它单调不减，并判断在零点是否连续。
 \solutionanswer
@@ -55,14 +55,14 @@
 
 
 % ITEM: calculus-exercise-32-02
-\solutionitem{calculus-exercise-32-02}{习题5.32（2）}
+\solutionitem{calculus-exercise-32-02}{习题5.33（2）}
 在\([0,1]\)上，令\(h(1/2)=1\)，其余位置\(h(x)=0\)。用取样和定义证明\(h\)可积且积分为零。
 \solutionanswer
 非零取样只能来自包含\(1/2\)的小段，至多两段，总长不超过\(2\|P\|\)。故\(0\le S(h;P,\xi)\le2\|P\|\to0\)，按定义可积，积分为零。
 
 
 % ITEM: calculus-exercise-32-03
-\solutionitem{calculus-exercise-32-03}{习题5.32（3）}
+\solutionitem{calculus-exercise-32-03}{习题5.33（3）}
 分别说明“连续”“只有有限个间断点”“单调”“有界”与Riemann可积之间已经建立的蕴含关系，指出哪些条件不能反过来推得。
 \solutionanswer
 闭区间连续、有限个间断点且有界、闭区间单调，分别都蕴含Riemann可积；可积必有界。有界不能推出可积，如Dirichlet函数；可积不能推出连续，如阶跃函数，不能推出间断点有限，如无穷阶梯函数，也不能推出单调，如\(x(1-x)\)。连续不保证单调，单调不保证连续；可积性的共同要求是取样误差能统一控制。
@@ -87,35 +87,35 @@
 
 
 % ITEM: calculus-exercise-33-01
-\solutionitem{calculus-exercise-33-01}{习题5.33（1）}
+\solutionitem{calculus-exercise-33-01}{习题5.34（1）}
 已知\(\int_0^1f=2\)、\(\int_1^3f=-1\)，求\(\int_0^3f\)、\(\int_3^0f\)及\(\int_0^1(3f-2)\)。
 \solutionanswer
 依次为\(1,-1,4\)，分别由区间可加性、反向积分及线性性得到。
 
 
 % ITEM: calculus-exercise-33-02
-\solutionitem{calculus-exercise-33-02}{习题5.33（2）}
+\solutionitem{calculus-exercise-33-02}{习题5.34（2）}
 设\(f\)连续且\(1\le f(x)\le3\)，\(x\in[0,2]\)。估计其积分和平均值。若积分等于\(2\)，能否确定\(f\)？
 \solutionanswer
 积分在\([2,6]\)，平均值在\([1,3]\)。若积分等于\(2\)，则连续非负函数\(f-1\)积分为零。若它某点为正，连续性保证一小段上有正下界，会使积分为正，矛盾。因此\(f\equiv1\)。
 
 
 % ITEM: calculus-exercise-33-03
-\solutionitem{calculus-exercise-33-03}{习题5.33（3）}
+\solutionitem{calculus-exercise-33-03}{习题5.34（3）}
 设\(f\)在\([a,b]\)上连续。证明\(\int_a^b f^2=0\)当且仅当\(f\equiv0\)。
 \solutionanswer
 \(f\equiv0\)显然充分。反之，若\(f(c)\ne0\)，由连续性在\(c\)附近的一段正长度区间内\(f^2\ge f(c)^2/4>0\)，故总积分为正，矛盾。端点处取单侧小区间即可。
 
 
 % ITEM: calculus-exercise-33-04
-\solutionitem{calculus-exercise-33-04}{习题5.33（4）}
+\solutionitem{calculus-exercise-33-04}{习题5.34（4）}
 若\(|f(x)-g(x)|\le10^{-3}\)，\(x\in[-2,3]\)，估计两积分之差。若只知道某一点的误差很小，能否得到同样结论？
 \solutionanswer
 由积分绝对值估计，差不超过\(5\times10^{-3}\)。单点误差小不足以控制整体：例如\(f(x)-g(x)=M(x+2)\)在\(-2\)处为零，而积分差为\(25M/2\)，可任意大。
 
 
 % ITEM: calculus-exercise-33-05
-\solutionitem{calculus-exercise-33-05}{习题5.33（5）}
+\solutionitem{calculus-exercise-33-05}{习题5.34（5）}
 构造一个有界的分段常值函数，其平均值不等于任何一点的函数值，说明积分中值定理中连续性的作用。
 \solutionanswer
 在\([0,1/2)\)取\(0\)，其余位置取\(1\)。积分及平均值都是\(1/2\)，却没有任何点的函数值是\(1/2\)。连续性在积分中值定理中负责保证平均值属于实际值域。

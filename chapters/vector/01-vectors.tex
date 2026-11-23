@@ -278,3 +278,38 @@
 \end{exercise}
 
 \newpage
+\subsection{向量值函数}\label{subsec:vector-valued-functions}
+
+第二章用 \(\mathbf r(t)=(t,t^2)\) 描述一个动点的位置。一般地，设 \(I\) 是一个实数区间，若每个 \(t\in I\) 都对应一个确定的向量 \(\vec r(t)\)，便得到一个{\heiti 向量值函数}。在平面上取定基 \((\vec e_1,\vec e_2)\)，便可写成
+\[
+ \vec r(t)=x(t)\vec e_1+y(t)\vec e_2.
+\]
+这里 \(x,y\) 是两个实值函数，称为这组基下的{\heiti 分量函数}。换一组基，分量函数可以改变，它们所表示的向量仍是同一个。
+
+\begin{example}\label{ex:vector-position-segment}
+设 \(A,B\) 是两个不同的点，位置向量分别为 \(\vec a,\vec b\)。令 \(\vec r(t)=\vec a+t(\vec b-\vec a)\)，\(\vec s(t)=\vec r(t^2)\)，其中 \(0\leq t\leq 1\)。两个动点的轨迹是否相同？它们何时经过线段 \(AB\) 的中点？
+\end{example}
+
+当 \(t\) 从 \(0\) 增到 \(1\) 时，\(t^2\) 也从 \(0\) 增到 \(1\)，两个动点都沿线段从 \(A\) 走到 \(B\)。前者在时刻 \(t=\tfrac12\) 到达中点，后者此时只走过全程的四分之一，要到 \(t=\tfrac1{\sqrt2}\) 才到中点。由 \(\vec r(t_2)-\vec r(t_1)=(t_2-t_1)(\vec b-\vec a)\) 还可看出，前者在相等时间内的位移相等。位置函数既给出轨迹，也给出动点何时到达轨迹上的各个位置。
+
+对于实值函数，我们用差的绝对值衡量函数值与极限的接近程度；对于向量，只须用差向量的模。称 \(\vec r(t)\) 在 \(t\to t_0\) 时{\heiti 趋于} \(\vec c\)，是指
+\[
+ |\vec r(t)-\vec c|\longrightarrow 0\qquad(t\to t_0).
+\]
+在平面直角坐标系中写 \(\vec r(t)=(x(t),y(t))\)，\(\vec c=(a,b)\)。由
+\[
+ \max\{|x(t)-a|,|y(t)-b|\}
+ \leq |\vec r(t)-\vec c|
+ \leq |x(t)-a|+|y(t)-b|
+\]
+可知，\(\vec r(t)\to\vec c\) 当且仅当 \(x(t)\to a\) 且 \(y(t)\to b\)。因此，向量值函数的极限可以逐分量求出。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）时刻 \(t\in[0,1]\)，甲、乙的位置向量分别为 \((t,t)\)、\((1-t,t)\)。丙比乙晚半个时间单位出发，其余运动过程相同。求三者轨迹的交点，判断甲分别能否与乙、丙在该点相遇。
+
+（2）设 \(\vec r(t)=(t,t^2)\)。当 \(t\to0\) 时，\(\vec r(t)\to\vec0\)。从原点指向动点的单位向量是否也有极限？
+\end{exercise}
+
+\newpage

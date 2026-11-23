@@ -10,21 +10,21 @@
 
 
 % ITEM: calculus-exercise-34-01
-\solutionitem{calculus-exercise-34-01}{习题5.34（1） *}
+\solutionitem{calculus-exercise-34-01}{习题5.35（1） *}
 设\(|f(u)-f(v)|\le C\sqrt{|u-v|}\)。给出上下和之差关于\(\|P\|\)的界，并证明可积性。
 \solutionanswer
 每段振幅\(\omega_i\le C\sqrt{\Delta x_i}\le C\sqrt{\|P\|}\)，于是\(U-L\le C(b-a)\sqrt{\|P\|}\to0\)。条件也使\(f\)有界，Darboux判据给出可积性。
 
 
 % ITEM: calculus-exercise-34-02
-\solutionitem{calculus-exercise-34-02}{习题5.34（2） *}
+\solutionitem{calculus-exercise-34-02}{习题5.35（2） *}
 用上题的方法处理\(f(x)=\sqrt{x}\)、\(0\le x\le1\)。为什么不能直接在整个区间上使用一个有限的导数上界？
 \solutionanswer
 \(|\sqrt u-\sqrt v|\le\sqrt{|u-v|}\)，故\(U-L\le\sqrt{\|P\|}\to0\)。\(f'(x)=1/(2\sqrt x)\)在零点附近无界，不能使用整个区间统一的有限导数界；函数值的平方根变化界却仍有效。
 
 
 % ITEM: calculus-exercise-34-03
-\solutionitem{calculus-exercise-34-03}{习题5.34（3） *}
+\solutionitem{calculus-exercise-34-03}{习题5.35（3） *}
 对\(f(x)=|x-1/2|\)、\(0\le x\le1\)，估计\(n\)等分时的上下和之差，并求使任意两组取样和相差小于\(10^{-3}\)的一个充分条件。
 \solutionanswer
 绝对值三角不等式给出\(|f(u)-f(v)|\le|u-v|\)。在\(n\)等分下\(U-L\le1/n\)，所以任意两组取样和之差不超过\(1/n\)。取整数\(n\ge1001\)即可严格小于\(10^{-3}\)。
@@ -40,35 +40,35 @@
 
 
 % ITEM: calculus-exercise-35-01
-\solutionitem{calculus-exercise-35-01}{习题5.35（1） *}
+\solutionitem{calculus-exercise-35-01}{习题5.36（1） *}
 对\(f(x)=\sin(1/x)\)、\(x>0\)，零点补零，具体说明怎样先选\([0,\ell]\)，再在\([\ell,1]\)上细分，使上下和之差小于给定误差。
 \solutionanswer
 给定\(\varepsilon>0\)，先取\(0<\ell<\min(1,\varepsilon/4)\)，使第一段贡献\(2\ell<\varepsilon/2\)。在\([\ell,1]\)，导数绝对值不超过\(1/\ell^2\)，故将该段细分至最大段长\(\delta<\varepsilon\ell^2/[2(1-\ell)]\)（若剩余段非空），其上下和之差小于\(\varepsilon/2\)。总差小于\(\varepsilon\)。
 
 
 % ITEM: calculus-exercise-35-02
-\solutionitem{calculus-exercise-35-02}{习题5.35（2） *}
+\solutionitem{calculus-exercise-35-02}{习题5.36（2） *}
 某函数除有限个点外等于\(x^2\)。证明它在\([0,1]\)上可积并求积分。若改为所有有理点处任意改变取值，原结论是否还必然成立？
 \solutionanswer
 与\(x^2\)之差只在有限\(N\)点非零，设该差绝对值不超过\(B\)，则任意取样和的差不超过\(2NB\|P\|\to0\)。因此可积，积分仍为\(1/3\)。若在全部有理点将值改为\(x^2+1\)，保持无理点值为\(x^2\)，每段上有至少\(1\)的振幅，便不可积；无限稠密的改变不能照搬有限点的论证。
 
 
 % ITEM: calculus-exercise-36-01
-\solutionitem{calculus-exercise-36-01}{习题5.36（1） *}
+\solutionitem{calculus-exercise-36-01}{习题5.37（1） *}
 若\(f,g\)可积，证明\(|f-g|\)、\((f+g)^2\)可积。说明积分\(\int fg\)与\((\int f)(\int g)\)一般没有相等关系。
 \solutionanswer
 线性组合\(f-g,f+g\)可积，再由绝对值与乘积可积性，\(|f-g|\)、\((f+g)^2\)可积。在\([0,1]\)取\(f=g=x\)，则\(\int fg=1/3\)，而\((\int f)(\int g)=1/4\)，一般不相等。
 
 
 % ITEM: calculus-exercise-36-02
-\solutionitem{calculus-exercise-36-02}{习题5.36（2） *}
+\solutionitem{calculus-exercise-36-02}{习题5.37（2） *}
 构造不可积函数\(h\)，使\(|h|\)和\(h^2\)都可积。可考虑在有理点、无理点取不同符号。
 \solutionanswer
 在有理点取\(h=1\)，无理点取\(h=-1\)。任意非零长度小段振幅均为\(2\)，所以不可积；但\(|h|=h^2=1\)是常值函数，都可积。
 
 
 % ITEM: calculus-exercise-36-03
-\solutionitem{calculus-exercise-36-03}{习题5.36（3） *}
+\solutionitem{calculus-exercise-36-03}{习题5.37（3） *}
 本题\(D(x)=1\)（\(x\in\mathbb Q\)），\(D(x)=0\)（\(x\notin\mathbb Q\)），定义于\([0,1]\)。
 对上一节的\(D\)，直接求任意分割的上和与下和，用判据再次说明它不可积。
 \solutionanswer

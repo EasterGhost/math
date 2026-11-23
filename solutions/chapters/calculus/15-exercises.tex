@@ -3,91 +3,91 @@
 \section{综合习题}
 
 % ITEM: calculus-exercise-69-01
-\solutionitem{calculus-exercise-69-01}{习题5.69（1）}
+\solutionitem{calculus-exercise-69-01}{习题5.70（1）}
 设\(f\)在\(a\)处可导。求\(\displaystyle\lim_{h\to0}\frac{f(a+3h)-f(a-2h)}h\)，并用微分解释各增量的作用。
 \solutionanswer
 可导性给\(f(a+3h)=f(a)+3hf'(a)+r_1(h)\)、\(f(a-2h)=f(a)-2hf'(a)+r_2(h)\)，其中\(r_i(h)/h\to0\)。相减除以\(h\)，极限为\(5f'(a)\)。两个有向增量分别贡献\(3f'(a)\)、\(-2f'(a)\)，在差中合成\(5f'(a)\)。
 
 
 % ITEM: calculus-exercise-69-02
-\solutionitem{calculus-exercise-69-02}{习题5.69（2）}
+\solutionitem{calculus-exercise-69-02}{习题5.70（2）}
 设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x^2\sin(1/x)\)。判断它的连续性、可导性及导函数在零点的连续性。再与\(g(0)=0\)、\(g(x)=x\sin(1/x)\)比较，说明函数增量与差商分别需要怎样的控制。
 \solutionanswer
 两函数均连续，因为分别被\(x^2\)、\(|x|\)控制。\(f'(0)=\lim x\sin(1/x)=0\)，但\(x\ne0\)时\(f'=2x\sin(1/x)-\cos(1/x)\)，导函数在零点不连续。\(g\)的零点差商为\(\sin(1/x)\)，无极限，故不可导。连续性只控制增量趋零，可导性还要求除以增量后仍有确定极限。
 
 
 % ITEM: calculus-exercise-69-03
-\solutionitem{calculus-exercise-69-03}{习题5.69（3）}
+\solutionitem{calculus-exercise-69-03}{习题5.70（3）}
 设\(f(x)=x^3+x\)，反函数为\(g\)。求\(g'(2)\)，再求\(\int_0^2g'(x)\,dx\)。第二问是否必须先求出\(g\)的显式表达式？
 \solutionanswer
 \(f(1)=2\)，反函数求导得\(g'(2)=1/f'(1)=1/4\)。基本定理给\(\int_0^2g'=g(2)-g(0)=1\)，无需显式求出反函数。
 
 
 % ITEM: calculus-exercise-69-04
-\solutionitem{calculus-exercise-69-04}{习题5.69（4）}
+\solutionitem{calculus-exercise-69-04}{习题5.70（4）}
 讨论\(f_a(x)=e^x-ax\)在\(\mathbb R\)上的单调性、最小值及零点个数，并确定\(f_a(x)\ge0\)恒成立的参数范围。
 \solutionanswer
 \(a<0\)时\(f_a'>0\)，两端分别趋负、正无穷，恰有一个零点，无最小值。\(a=0\)时严格递增、恒正，无零点，也不取得最小值。\(a>0\)时在\(\ln a\)前减后增，最小值\(a(1-\ln a)\)，两端趋正无穷。因此\(0<a<e\)无根，\(a=e\)一根，\(a>e\)两根。全实轴非负的范围为\(0\le a\le e\)。
 
 
 % ITEM: calculus-exercise-69-05
-\solutionitem{calculus-exercise-69-05}{习题5.69（5）}
+\solutionitem{calculus-exercise-69-05}{习题5.70（5）}
 设\(f\)在\([0,1]\)上连续、内部可导，且\(f(0)=f(1)=0\)、\(|f'|\le2\)。估计\(|f(x)|\)以及\(\int_0^1|f(x)|\,dx\)，并构造达到积分上界的连续分段线性函数。比较这个函数与原题可导要求的关系。
 \solutionanswer
 分别对两个端点用中值定理，得\(|f(x)|\le2x\)、\(|f(x)|\le2(1-x)\)，所以\(|f(x)|\le2\min\{x,1-x\}\)，积分不超过\(1/2\)。帐篷函数\(F=2\min\{x,1-x\}\)达到该积分界，却在\(1/2\)不可导，不属于原题的函数类。若原题中达到等号，连续非负差的零积分会迫使\(|f|=F\)，进而\(f=F\)或\(-F\)，同样在中点不可导。因此原函数类实际不能达到\(1/2\)，它是可任意逼近的上确界，可将帐篷顶端平滑近似。
 
 
 % ITEM: calculus-exercise-69-06
-\solutionitem{calculus-exercise-69-06}{习题5.69（6）}
+\solutionitem{calculus-exercise-69-06}{习题5.70（6）}
 以2024年新课标I卷第10题的函数\(f(x)=(x-1)^2(x-4)\)为研究对象：求其单调区间与极值，讨论方程\(f(x)=k\)的不同实根个数，再求图像在\([1,4]\)上与横轴围成的面积。
 \solutionanswer
 \(f'=3(x-1)(x-3)\)，在\(( -\infty,1]\)、\([3,+\infty)\)递增，在\([1,3]\)递减，极大值\(0\)、极小值\(-4\)。故\(-4<k<0\)时三根，\(k=-4,0\)时两个不同根，其他\(k\)一根。\([1,4]\)上函数非正，面积\(-\int_1^4f=27/4\)。
 
 
 % ITEM: calculus-exercise-69-07
-\solutionitem{calculus-exercise-69-07}{习题5.69（7）}
+\solutionitem{calculus-exercise-69-07}{习题5.70（7）}
 求\(y=e^x\)与\(y=-e^{-x}\)的公共切线。分别设两个切点，比较公共切线与公共点处相切的条件。
 \solutionanswer
 设两切点横坐标\(u,v\)，共同斜率要求\(e^u=e^{-v}=m>0\)，故\(v=-u\)。两个截距分别为\(m(1-u)\)、\(-m(1+v)\)，相等推出\(u=1,v=-1\)。所以唯一公共切线为\(y=ex\)。两条曲线没有公共点，公共切线只要求同一条直线在各自的点相切，不要求切点重合。
 
 
 % ITEM: calculus-exercise-69-08
-\solutionitem{calculus-exercise-69-08}{习题5.69（8）}
+\solutionitem{calculus-exercise-69-08}{习题5.70（8）}
 设\(A(x)=\int_0^x(t^2-2t)\,dt\)，\(0\le x\le3\)。求其单调区间、最值与零点，并解释\(A\)的增减为何不由\(t^2-2t\)本身的单调性直接决定。
 \solutionanswer
 \(A'=x(x-2)\)，故在\([0,2]\)减、\([2,3]\)增。\(A=x^3/3-x^2\)，最小值\(-4/3\)在\(2\)，最大值\(0\)在\(0,3\)，零点也是\(0,3\)。累积量的增减由当前被积函数的正负决定，被积函数自身的增减只关系到累积斜率怎样变化。
 
 
 % ITEM: calculus-exercise-69-09
-\solutionitem{calculus-exercise-69-09}{习题5.69（9）}
+\solutionitem{calculus-exercise-69-09}{习题5.70（9）}
 设\(f\)在\([0,1]\)上连续，且\(f(x)+f(1-x)=1\)。求\(\int_0^1f(x)\,dx\)。\(\int_0^1xf(x)\,dx\)能否仅由这些条件唯一确定？举例或证明。
 \solutionanswer
 反射换元后两积分相同，故\(2\int_0^1f=1\)，积分为\(1/2\)。加权积分不唯一：\(f=1/2\)给出\(1/4\)，\(f=x\)给出\(1/3\)，均满足原条件。
 
 
 % ITEM: calculus-exercise-69-10
-\solutionitem{calculus-exercise-69-10}{习题5.69（10）}
+\solutionitem{calculus-exercise-69-10}{习题5.70（10）}
 计算\(\int_0^1 x/(1+x^2)\,dx\)、\(\int_0^{\pi/2}x\cos x\,dx\)和\(\int_{-1}^2|x^2-x|\,dx\)，说明各自选择换元、分部或区间拆分的依据。
 \solutionanswer
 分别为\(\frac12\ln2\)、\(\pi/2-1\)、\(11/6\)。第一式令\(u=1+x^2\)，第二式以\(u=x,dv=\cos xdx\)分部，第三式在\(0,1\)处分段消去绝对值。
 
 
 % ITEM: calculus-exercise-69-11
-\solutionitem{calculus-exercise-69-11}{习题5.69（11）}
+\solutionitem{calculus-exercise-69-11}{习题5.70（11）}
 设\(f\)在\([0,1]\)上连续可导。证明\(\int_0^1f(x)\,dx=f(1)-\int_0^1xf'(x)\,dx\)。若\(f(0)=0\)、\(0\le f'\le1\)，估计\(\int_0^1 f\)。
 \solutionanswer
 分部得\(\int_0^1f=[xf]_0^1-\int_0^1xf'=f(1)-\int_0^1xf'\)。若附加条件成立，由\(f(x)=\int_0^xf'\)有\(0\le f(x)\le x\)，故\(0\le\int_0^1f\le1/2\)，两端分别由\(f=0,f=x\)达到。
 
 
 % ITEM: calculus-exercise-69-12
-\solutionitem{calculus-exercise-69-12}{习题5.69（12）}
+\solutionitem{calculus-exercise-69-12}{习题5.70（12）}
 用四等分的中点与梯形公式估计\(\int_0^1dx/(1+x)\)。利用凸性判断上下界，再由\(\ln2\)核对。若只知道函数的单调性，能够得到哪些估计？
 \solutionanswer
 \(M_4=2(1/9+1/11+1/13+1/15)\)，\(T_4=\frac18[1+2(4/5+2/3+4/7)+1/2]\)。凸性给\(M_4\le\ln2\le T_4\)，分别约\(0.69122,0.69702\)。仅用递减性可得\(R_4=\frac14(4/5+2/3+4/7+1/2)\le\ln2\le L_4=\frac14(1+4/5+2/3+4/7)\)，两界差\(1/8\)，梯形平均的误差不超过\(1/16\)，但不能只靠单调性确定它偏大还是偏小。
 
 
 % ITEM: calculus-exercise-69-13
-\solutionitem{calculus-exercise-69-13}{习题5.69（13）}
+\solutionitem{calculus-exercise-69-13}{习题5.70（13）}
 细杆位于\([0,1]\)，线密度为\(\rho(x)=1+cx\)，其中\(c\ge0\)。求总质量和质心坐标，讨论质心怎样随\(c\)变化，并判断能否位于\(x=3/4\)。
 \solutionanswer
 总质量 \(m=\int_0^1(1+cx)\,dx=1+c/2\)，关于原点的一阶矩为 \(1/2+c/3\)。质心坐标为
@@ -98,28 +98,28 @@
 
 
 % ITEM: calculus-exercise-69-14
-\solutionitem{calculus-exercise-69-14}{习题5.69（14）}
+\solutionitem{calculus-exercise-69-14}{习题5.70（14）}
 设\(f\)在\([0,1]\)上连续。证明存在\(\xi\in[0,1]\)，使\(\int_0^1xf(x)\,dx=f(\xi)/2\)。再说明把权函数\(x\)换成可能变号的函数时，结论为何未必成立。
 \solutionanswer
 设\(m\le f\le M\)，乘非负权\(x\)并积分得\(m/2\le\int_0^1xf\le M/2\)。由连续函数的介值性质，存在\(f(\xi)=2\int_0^1xf\)。变号权可能抵消：取\(w=2x-1,f=x\)，则\(\int w=0\)但\(\int fw=1/6\)，不可能等于任何\(f(\xi)\int w\)。
 
 
 % ITEM: calculus-exercise-69-15
-\solutionitem{calculus-exercise-69-15}{习题5.69（15）}
+\solutionitem{calculus-exercise-69-15}{习题5.70（15）}
 设\(f\)在\([0,1]\)上有界，且只有有限个间断点。它的累积函数是否一定连续？是否一定处处可导？分别说明依据并给出适当例子。
 \solutionanswer
 这些条件保证Riemann可积，累积函数满足\(|A(y)-A(x)|\le M|y-x|\)，所以必连续。不能保证处处可导；例如在\(1/2\)跳跃的\(0,1\)阶跃函数，其累积函数在跳点左右斜率分别为\(0,1\)。
 
 
 % ITEM: calculus-exercise-69-16
-\solutionitem{calculus-exercise-69-16}{习题5.69（16）}
+\solutionitem{calculus-exercise-69-16}{习题5.70（16）}
 分别构造：有无穷多个间断点但可积的函数；有界却不可积的函数；非零但绝对值积分为零的可积函数。比较这些例子与连续函数类的性质。
 \solutionanswer
 第一例取\(g(0)=0\)，在\(1/(n+1)<x\le1/n\)取\(1/n\)，有界单调因而可积，但有无穷跳点。第二例取有理点为\(1\)、无理点为零的Dirichlet函数，不可积。第三例取某单点值为\(1\)、其余为零的函数，非零却有\(\int|f|=0\)。连续函数则没有第三种现象，并且其闭区间可积性总有保证。
 
 
 % ITEM: calculus-exercise-69-17
-\solutionitem{calculus-exercise-69-17}{习题5.69（17）}
+\solutionitem{calculus-exercise-69-17}{习题5.70（17）}
 （2025年北京卷第20题）已知函数\(f\)的定义域为\((-1,+\infty)\)，\(f(0)=0\)，且\(f'(x)=\ln(1+x)/(1+x)\)。设\(l_1\)是曲线在点\(A(a,f(a))\)、\(a\ne0\)处的切线。
 
 \quad \exercisesubitem{1}求\(f'(x)\)的最大值；\exercisesubitem{2}当\(-1<a<0\)时，证明除切点外，曲线在\(l_1\)上方；\exercisesubitem{3}设过\(A\)且垂直于\(l_1\)的直线为\(l_2\)，\(l_1,l_2\)与横轴交点的横坐标分别为\(x_1,x_2\)。若\(a>0\)，求\((2a-x_1-x_2)/(x_2-x_1)\)的取值范围。
@@ -130,7 +130,7 @@
 
 
 % ITEM: calculus-exercise-69-18
-\solutionitem{calculus-exercise-69-18}{习题5.69（18）}
+\solutionitem{calculus-exercise-69-18}{习题5.70（18）}
 （2022年新高考I卷第22题）已知函数\(f(x)=e^x-ax\)和\(g(x)=ax-\ln x\)有相同的最小值。
 
 \quad \exercisesubitem{1}求\(a\)；\exercisesubitem{2}证明存在直线\(y=b\)，其与两条曲线\(y=f(x)\)、\(y=g(x)\)共有三个不同的交点，并且从左到右的三个交点的横坐标成等差数列。
@@ -144,7 +144,7 @@
 
 
 % ITEM: calculus-exercise-69-19
-\solutionitem{calculus-exercise-69-19}{习题5.69（19）}
+\solutionitem{calculus-exercise-69-19}{习题5.70（19）}
 （2025年新课标II卷第18题）已知\(f(x)=\ln(1+x)-x+x^2/2-kx^3\)，其中\(0<k<1/3\)。
 
 \quad \exercisesubitem{1}证明\(f\)在\((0,+\infty)\)内存在唯一的极值点和唯一的零点；\exercisesubitem{2}记它们分别为\(x_1,x_2\)，令\(g(t)=f(x_1+t)-f(x_1-t)\)。证明\(g\)在\((0,x_1)\)上单调递减，并比较\(2x_1\)与\(x_2\)的大小，证明你的结论。
@@ -158,7 +158,7 @@
 
 
 % ITEM: calculus-exercise-69-20
-\solutionitem{calculus-exercise-69-20}{习题5.69（20）}
+\solutionitem{calculus-exercise-69-20}{习题5.70（20）}
 （2025年新课标I卷第19题）\exercisesubitem{1}求\(f(x)=5\cos x-\cos5x\)在\([0,\pi/4]\)上的最大值；\exercisesubitem{2}给定\(\theta\in(0,\pi)\)和\(a\in\mathbb R\)，证明存在\(y\in[a-\theta,a+\theta]\)，使\(\cos y\le\cos\theta\)；\exercisesubitem{3}设\(b\in\mathbb R\)，若存在\(\varphi\in\mathbb R\)，使\(5\cos x-\cos(5x+\varphi)\le b\)对所有实数\(x\)恒成立，求\(b\)的最小值。
 \solutionanswer
 （1）\(f'=10\cos3x\sin2x\)，在\((0,\pi/6)\)正、\((\pi/6,\pi/4)\)负，故最大值\(f(\pi/6)=3\sqrt3\)。
@@ -167,56 +167,56 @@
 
 
 % ITEM: calculus-exercise-70-01
-\solutionitem{calculus-exercise-70-01}{习题5.70（1） *}
+\solutionitem{calculus-exercise-70-01}{习题5.71（1） *}
 设\(f(a)=a\)、\(f'(a)=\lambda\)，其中\(|\lambda|<1\)。由导数定义证明，存在\(q<1\)及\(a\)的一个邻域，使\(|f(x)-a|\le q|x-a|\)。据此研究从邻域内出发的迭代\(x_{n+1}=f(x_n)\)，给出收敛与误差估计，接回第一章的迭代数列。
 \solutionanswer
 取\(|\lambda|<q<1\)。导数定义保证充分靠近\(a\)时\(|(f(x)-f(a))/(x-a)|\le q\)。因\(f(a)=a\)，得到题给收缩界。取闭邻域半径\(\delta\)，此界保证下一点距\(a\)至多\(q\delta<\delta\)，因而迭代始终留在邻域。归纳得\(|x_n-a|\le q^{n-1}|x_1-a|\to0\)，既证明收敛，也给出误差界。
 
 
 % ITEM: calculus-exercise-70-02
-\solutionitem{calculus-exercise-70-02}{习题5.70（2） *}
+\solutionitem{calculus-exercise-70-02}{习题5.71（2） *}
 对\(f(x)=\ln(1+x)\)，用二阶Taylor公式估计\(\ln1.1\)，并给出误差上界。再用\(\int_1^{1.1}dt/t\)的中点公式估计同一个数，比较两种误差控制所需的信息。
 \solutionanswer
 二阶Taylor近似\(0.1-0.1^2/2=0.095\)，三阶导数绝对值在\([0,0.1]\)不超过\(2\)，误差不超过\(1/3000\)。积分中点近似为\(0.1/1.05=2/21\)，\((1/t)''=2/t^3\le2\)，误差不超过\(2(0.1)^3/24=1/12000\)。前者用函数在基点的导数及三阶界，后者用被积函数在中点的值及二阶界，本例后一个保证更紧。
 
 
 % ITEM: calculus-exercise-70-03
-\solutionitem{calculus-exercise-70-03}{习题5.70（3） *}
+\solutionitem{calculus-exercise-70-03}{习题5.71（3） *}
 设\(f_n(x)=x^n\)，\(0\le x\le1\)。求逐点极限，证明不一致收敛，并计算\(\lim_n\int_0^1 f_n\)。这个例子能否说明“一致收敛是积分极限关系成立的必要条件”？
 \solutionanswer
 逐点极限在\([0,1)\)为零、在\(1\)为\(1\)，全区间误差上确界为\(1\)，故不一致。\(\int_0^1x^n dx=1/(n+1)\to0\)，极限函数也可积且积分零。因此此例说明积分极限关系可以在没有一致收敛时成立，一致收敛不是必要条件。
 
 
 % ITEM: calculus-exercise-70-04
-\solutionitem{calculus-exercise-70-04}{习题5.70（4） *}
+\solutionitem{calculus-exercise-70-04}{习题5.71（4） *}
 设\(f_n\)是\([0,1]\)上的连续非负函数，\(\int_0^1f_n\to0\)。是否必有\(\|f_n\|_\infty\to0\)？尝试构造高度不变、宽度缩小的三角形图像，并解释面积误差与最大误差的区别。
 \solutionanswer
 取\(f_n(x)=\max\{1-nx,0\}\)。它连续非负，最大值恒为\(1\)，而积分为\(1/(2n)\to0\)。面积误差可由支撑宽度缩小而趋零，最大误差却不会因此减小。
 
 
 % ITEM: calculus-exercise-70-05
-\solutionitem{calculus-exercise-70-05}{习题5.70（5） *}
+\solutionitem{calculus-exercise-70-05}{习题5.71（5） *}
 设\(F\in C^1[0,1]\)。证明\(F(x)=F(0)+\int_0^xF'(t)\,dt\)，并估计\(\|F\|_\infty\)。对\(F,G\)写出对应差值的估计，说明同时控制初值与导函数为什么能控制整个函数。
 \solutionanswer
 Newton--Leibniz公式给出题中恒等式，所以\(\|F\|_\infty\le|F(0)|+\|F'\|_\infty\)。对差值同理得\(\|F-G\|_\infty\le|F(0)-G(0)|+\|F'-G'\|_\infty\)。导数控制相对变化，初值补回一个常数，两者合起来控制整个函数。
 
 
 % ITEM: calculus-exercise-70-06
-\solutionitem{calculus-exercise-70-06}{习题5.70（6） *}
+\solutionitem{calculus-exercise-70-06}{习题5.71（6） *}
 用极坐标面积公式计算\(r=1+\cos\theta\)围成的面积，再把它写成平面参数曲线，用参数面积公式核对。说明两种局部贡献的表达为何不同。
 \solutionanswer
 极坐标面积\(\frac12\int_0^{2\pi}(1+\cos\theta)^2d\theta=3\pi/2\)。参数式为\(x=(1+\cos t)\cos t,y=(1+\cos t)\sin t\)。一般地\(xy'-yx'=r^2\)，含\(r'\)的两项抵消，所以参数面积也为\(\frac12\int r^2dt=3\pi/2\)。一个公式从小扇形出发，一个从边界的有向面积元出发，代入极坐标后两种表达一致。
 
 
 % ITEM: calculus-exercise-70-07
-\solutionitem{calculus-exercise-70-07}{习题5.70（7） *}
+\solutionitem{calculus-exercise-70-07}{习题5.71（7） *}
 讨论\(\int_1^{+\infty}dx/[x(1+x^p)]\)的敛散性，其中\(p\in\mathbb R\)。收敛时给出尾部估计，再用积分判别法研究相应级数。
 \solutionanswer
 \(p>0\)时比较\(x^{-p-1}\)可知收敛；其从\(R\ge1\)开始的尾部实际为\(p^{-1}\ln(1+R^{-p})\le R^{-p}/p\)，整体积分\(\ln2/p\)。\(p\le0\)时被积函数至少为\(1/(2x)\)，故发散。\(p>0\)时函数正且递减，积分判别法说明相应级数收敛；\(p\le0\)时同样由调和级数比较发散。
 
 
 % ITEM: calculus-exercise-70-08
-\solutionitem{calculus-exercise-70-08}{习题5.70（8） *}
+\solutionitem{calculus-exercise-70-08}{习题5.71（8） *}
 设连续函数\(f_n,f\)定义在\([0,+\infty)\)，在每个有限区间上\(f_n\)一致收敛于\(f\)，且\(|f_n(x)|\le e^{-x}\)。证明\(f\)的反常积分绝对收敛，且\(\int_0^{+\infty}f_n\to\int_0^{+\infty}f\)。先固定截断位置控制有限范围，再统一估计尾部。
 \solutionanswer
 逐点取极限保留\(|f(x)|\le e^{-x}\)，故\(f\)绝对可积。对任意\(R>0\)，
@@ -227,14 +227,14 @@ Newton--Leibniz公式给出题中恒等式，所以\(\|F\|_\infty\le|F(0)|+\|F'\
 
 
 % ITEM: calculus-exercise-70-09
-\solutionitem{calculus-exercise-70-09}{习题5.70（9） *}
+\solutionitem{calculus-exercise-70-09}{习题5.71（9） *}
 设\(f\)在\([a,b]\)上有界、只有有限个间断点。用Darboux判据证明可积性，并说明“间断点附近缩小总长度”与“连续部分统一控制振幅”分别解决了什么问题。
 \solutionanswer
 设\(|f|\le B\)，以总长小于\(\ell\)的有限小区间覆盖全部间断点；剩下是有限个闭区间，\(f\)在其上连续，可统一细分使振幅不超过\(\eta\)。合并分点后\(U-L\le2B\ell+\eta(b-a)\)。先取\(\ell\)、再取\(\eta\)使总和小于任意\(\varepsilon\)，Darboux判据给可积性。前一项不要求振幅小，只缩小坏点附近的长度；后一项保留全部好区间，却由一致连续性控制振幅。
 
 
 % ITEM: calculus-exercise-70-10
-\solutionitem{calculus-exercise-70-10}{习题5.70（10） *}
+\solutionitem{calculus-exercise-70-10}{习题5.71（10） *}
 设\(f\)二阶连续可导，\(m\le f''\le M\)。用积分余项证明图像与任意切线之间的二次误差界，再由它推导中点数值积分在各小段上的误差界。
 \solutionanswer
 令\(h=x-a\)，积分余项换元为
