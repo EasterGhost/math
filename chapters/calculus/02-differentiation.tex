@@ -107,31 +107,29 @@
 \newpage
 \subsection{反函数的导数}
 
-第二章已经证明，区间上的连续严格单调函数有连续反函数。现在比较对应位置附近的变化率。
+第二章已证明，区间上的连续严格单调函数有连续反函数。现在比较对应点处的导数。
 
 \begin{theorem}\label{thm:calculus-inverse-derivative}
-设\(f\)在区间上连续且严格单调，在内点\(x_0\)处可导，且\(f'(x_0)\ne0\)。令\(y_0=f(x_0)\)，则反函数在\(y_0\)处可导，且
-\begin{equation*}
- (f^{-1})'(y_0)=\frac1{f'(x_0)}.
-\end{equation*}
+设\(f\)在区间上连续且严格单调，在内点\(x_0\)处可导，且\(f'(x_0)\ne0\)。令\(y_0=f(x_0)\)，则反函数在\(y_0\)处可导，且 \((f^{-1})'(y_0)=1/f'(x_0)\)。
 \end{theorem}
 
+\noindent\begin{minipage}[c]{.57\linewidth}
 \begin{proof}
-令\(x=f^{-1}(y)\)。由反函数连续性，\(y\to y_0\)时\(x\to x_0\)，且\(y\ne y_0\)时\(x\ne x_0\)。所以
+令 \(x=f^{-1}(y)\)。由反函数连续性，\(y\to y_0\) 时 \(x\to x_0\)；若 \(y\ne y_0\)，则 \(x\ne x_0\)。于是
 \begin{equation*}
  \frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}
  =\frac{x-x_0}{f(x)-f(x_0)}\longrightarrow\frac1{f'(x_0)}.\qedhere
 \end{equation*}
 \end{proof}
 
-原函数与反函数的导数在对应点互为倒数。得到可导性之后，也可以对恒等式\(f(f^{-1}(y))=y\)求导，整理出同一关系。
-
-\begin{figure}[!ht]
+图\ref{fig:calculus-inverse}中的两条切线关于 \(y=x\) 对称，斜率互为倒数。得到反函数的可导性后，对 \(f(f^{-1}(y))=y\) 求导也得同一关系。
+\end{minipage}\hfill%
+\begin{minipage}[c]{.40\linewidth}
 \centering
-\includegraphics[width=.45\linewidth]{calculus-inverse}
-\caption{\(x>0\)时的平方函数及其反函数：图像和对应切线均关于\(y=x\)对称，切线斜率互为倒数。}
+\includegraphics[width=\linewidth]{calculus-inverse}
+\captionof{figure}{平方函数（\(x>0\)）及其反函数}
 \label{fig:calculus-inverse}
-\end{figure}
+\end{minipage}\par
 
 \begin{example}
 设\(f(x)=x^3+x\)，其反函数为\(g\)。不求\(g\)的显式表达式，求\(g'(2)\)，并写出\(y=g(x)\)在\(x=2\)处的切线。
@@ -144,7 +142,7 @@
  \sin h<h<\tan h,
  \qquad \cos h<\frac{\sin h}{h}<1.
 \end{equation*}
-由夹逼及奇偶性，
+由夹逼及 \(\sin h/h\) 的偶性，
 \begin{equation}\label{eq:calculus-sine-limit}
  \lim_{h\to0}\frac{\sin h}{h}=1.
 \end{equation}
@@ -156,9 +154,8 @@
 对余弦作相同展开，得到\((\cos x)'=-\sin x\)。其余由商法则和倒数法则直接推出：
 \begin{equation*}
  \begin{aligned}
- (\sin x)'&=\cos x,&(\cos x)'&=-\sin x,\\
- (\tan x)'&=\frac1{\cos^2x},&(\cot x)'&=-\frac1{\sin^2x},\\
- (\sec x)'&=\sec x\tan x,&(\csc x)'&=-\csc x\cot x.
+ (\sin x)'&=\cos x,& (\tan x)'&=\frac1{\cos^2x},& (\sec x)'&=\sec x\tan x,\\
+ (\cos x)'&=-\sin x,& (\cot x)'&=-\frac1{\sin^2x},& (\csc x)'&=-\csc x\cot x.
  \end{aligned}
 \end{equation*}
 例如，\((\tan x)'=(\cos^2x+\sin^2x)/\cos^2x\)，化简即得。
@@ -167,6 +164,7 @@
 求\(y=\sin(2x+\pi/3)\)、\(y=x\cos x\)及\(y=\tan^2x\)的导数。
 \end{example}
 
+\newpage
 \subsection{指数函数与对数函数的导数}
 
 第一章以数列\(e_n=(1+1/n)^n\)的极限定义了\(e\)。求导时需要的是连续变化的增量，因此先把这一数列极限转为函数极限。
@@ -203,7 +201,7 @@
 \end{example}
 
 \begin{example}
-根据第二章的指数表示，求\(\sinh x\)、\(\cosh x\)、\(\tanh x\)、\(\coth x\)的导数，并用双曲函数表示结果。
+求\(\sinh x\)、\(\cosh x\)、\(\tanh x\)、\(\coth x\)的导数，并用双曲函数表示结果。
 \end{example}
 
 \begin{example}[2014年广东卷理科第10题]
@@ -262,18 +260,31 @@
 在双曲线\(x^2/4-y^2=1\)的点\((2\sqrt2,1)\)附近求\(dy/dx\)，并确定该点处的切线。再用\(y\)作为自变量，说明圆在\((R,0)\)处的切线方向。
 \end{example}
 
-\subsection{参数方程求导}
+\subsection{向量值函数的求导法则}
 
-设\(x=\varphi(t)\)、\(y=\psi(t)\)，两个函数在\(t_0\)附近可导，且\(\varphi\)有连续的局部反函数。当\(\varphi'(t_0)\ne0\)时，链式法则与反函数公式给出
-\begin{equation*}
- \left.\frac{dy}{dx}\right|_{t=t_0}=\frac{\psi'(t_0)}{\varphi'(t_0)}.
-\end{equation*}
-若坐标导数连续且\(\varphi'(t_0)\ne0\)，则它在附近同号，后面的单调性判据保证所需的局部反函数存在。
+由第\ref{subsec:calculus-vector-differential}小节，向量值函数可以逐分量求导。设 \(\vec u,\vec v\) 为可导的向量值函数，\(f\) 为可导的实值函数。对各分量分别用和与积的求导法则，便有
+\[
+ (\vec u+\vec v)'=\vec u\,'+\vec v\,',\qquad
+ (f\vec u)'=f'\vec u+f\vec u\,'.
+\]
+在正交单位坐标系中，内积是对应分量乘积之和，逐项求导得
+\[
+ (\vec u\cdot\vec v)'=\vec u\,'\cdot\vec v+\vec u\cdot\vec v\,'.
+\]
+例如，动点到原点的距离不变时，\(\vec r\cdot\vec r\) 为常数，故 \(2\vec r\cdot\vec r\,'=0\)：圆周上运动的点，其速度垂直于半径，无须先写出圆的参数方程。
 
-坐标的一次近似表明，非零向量\((\varphi'(t_0),\psi'(t_0))\)给出切线方向，也适用于斜率不存在的位置。例如，椭圆\(x=a\cos t\)、\(y=b\sin t\)的切向量为\((-a\sin t,b\cos t)\)。
+再看复合。对 \(\vec r(u(s))\) 的每一分量用链式法则，得 \(\dfrac{d}{ds}\vec r(u(s))=\vec r\,'(u(s))\,u'(s)\)。换参时，非零的 \(u'(s)\) 只将切向量伸缩或反向，切线不变。
+
+{\heiti 参数方程求导}\quad 设平面曲线为 \(\vec r(t)=(\varphi(t),\psi(t))\)。若 \(\vec r\,'(t_0)\ne\vec 0\)，则切线为 \((x,y)=\vec r(t_0)+\lambda\vec r\,'(t_0)\)，其中 \(\lambda\in\mathbb R\)。若 \(\varphi\) 在 \(t_0\) 附近有连续反函数且 \(\varphi'(t_0)\ne0\)，对 \(y=\psi(\varphi^{-1}(x))\) 求导，得到切线斜率
+\[
+ \left.\frac{dy}{dx}\right|_{t=t_0}
+ =\left.\frac{dy/dt}{dx/dt}\right|_{t=t_0}
+ =\frac{\psi'(t_0)}{\varphi'(t_0)}.
+\]
+若切向量的横分量为零，向量方程直接给出竖直切线 \(x=\varphi(t_0)\)。
 
 \begin{example}
-用参数求导求上述椭圆在\(t=\pi/4\)和\(t=0\)处的切线。再将参数换为\(t=2s\)，比较对应位置的切向量与切线。
+求椭圆 \(x=a\cos t\)、\(y=b\sin t\) 在 \(t=\pi/4\) 和 \(t=0\) 处的切线。再将参数换为 \(t=2s\)，比较对应位置的切向量与切线。
 \end{example}
 
 \subsection{求导方法整理}
@@ -288,6 +299,7 @@
 \end{equation*}
 这种先取对数再求导的方法，称为{\heiti{}对数求导法}。它也适合整理若干正因子的乘积。
 
+\newpage
 \begin{exercise}[本节习题]
 \mbox{}\par\nobreak
 
@@ -299,7 +311,7 @@
 
 （4）设\(f(1)=2\)、\(f'(1)=3\)，且\(f\)在\(1\)附近有可导反函数\(g\)。求\(g'(2)\)及\(\left.\frac d{dx}g(x^2+1)\right|_{x=1}\)。
 
-（5）参数曲线\(x=t^2\)、\(y=t^3\)在\(t=1\)处的切线是什么？在\(t=0\)处，坐标导数同时为零，此时能否仍由割线极限判断切线？
+（5）设 \(\vec r(t)=(x(t),y(t))\)。换参 \(t=u(s)\) 后，用链式法则求新导向量。对抛物线 \(\vec r(t)=(t,t^2)\) 取 \(t=s^3\)，说明为何新导向量在原点为零，而切线仍是水平的。
 
 （6）设\(f(0)=0\)，\(x\ne0\)时\(f(x)=x^2\sin(1/x)\)。求\(f'\)，并判断\(f'\)在原点是否连续。
 
