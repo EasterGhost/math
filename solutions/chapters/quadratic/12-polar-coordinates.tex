@@ -318,10 +318,12 @@ r^2-4r\cos\theta+2r\sin\theta-4=0,\qquad r\ge0.
 
 % ITEM: quadratic-exercise-58-08
 \solutionitem{quadratic-exercise-58-08}{习题4.58（8）}
-抛物线的焦点为\(S\)，\(P,Q\)在曲线上且\(SP\perp SQ\)。用\(p\)表示\(\triangle SPQ\)面积的最小值，其中抛物线的通径长为\(2p\)。提示：设两点的极角为\(\theta,\theta+\pi/2\)，研究\((1+\cos\theta)(1-\sin\theta)\)的最大值。
+（据2023年全国甲卷理科第20题）设\(F\)为抛物线\(y^2=2px\)（\(p>0\)）的焦点，曲线上两点\(M,N\)满足\(\overrightarrow{FM}\cdot\overrightarrow{FN}=0\)。用\(p\)表示\(\triangle MFN\)面积的最小值，并指出取等时两条射线的方向。若直线\(x-2y+1=0\)被抛物线截得的弦长为\(4\sqrt{15}\)，这个最小值是多少？
 \par
 \solutionanswer
-令两射线的极角为 \(\theta,\theta+\pi/2\)。由焦点极坐标式，面积为 \(p^2/[2(1+\cos\theta)(1-\sin\theta)]\)。两个分母因子非负，由均值不等式，\(\sqrt{(1+\cos\theta)(1-\sin\theta)}\le 1+(\cos\theta-\sin\theta)/2\le1+1/\sqrt2\)。取 \(\theta=-\pi/4\) 两次均等，故最小面积为 \(p^2(3-2\sqrt2)\)。
+数量积为零，故两条焦半径垂直。以焦点为极点、指向准线为极轴，适当交换\(M,N\)，令两射线的极角为\(\theta,\theta+\pi/2\)。由焦点极坐标式，面积为 \(p^2/[2(1+\cos\theta)(1-\sin\theta)]\)。两个分母因子非负，由均值不等式，\(\sqrt{(1+\cos\theta)(1-\sin\theta)}\le 1+(\cos\theta-\sin\theta)/2\le1+1/\sqrt2\)。取 \(\theta=-\pi/4\) 两次均等，此时两射线分居极轴两侧，各与极轴成\(\pi/4\)角，最小面积为\(p^2(3-2\sqrt2)\)。
+
+再将\(x=2y-1\)代入抛物线方程，交点的纵坐标满足\(y^2-4py+2p=0\)。弦长平方为\(5(y_1-y_2)^2=5(16p^2-8p)=240\)，得正根\(p=2\)，故所求最小值为\(12-8\sqrt2\)。
 
 
 % ITEM: quadratic-exercise-58-09
@@ -386,6 +388,19 @@ r^2-4r\cos\theta+2r\sin\theta-4=0,\qquad r\ge0.
 由上题分类，\(\varepsilon/L=(1-e^2\cos^2\theta)/(2\ell)\)，对两垂直方向相加即得所求式。\(e=2,\ell=6\)时，轴向与垂直轴向两弦长度为\(4,12\)，实际倒数和\(1/3\)；两方向成\(\pm\pi/4\)时各长\(12\)，实际倒数和\(1/6\)。加符号后的两组和则都为\(-1/6\)。
 
 
+% ITEM: quadratic-exercise-58-16
+\solutionitem{quadratic-exercise-58-16}{习题4.58（16）}
+（2022年新高考I卷第16题）椭圆的上顶点为\(A\)，左、右焦点分别为\(F_1,F_2\)，离心率为\(1/2\)。过\(F_1\)且垂直于\(AF_2\)的直线与椭圆交于\(D,E\)。已知\(|DE|=6\)，求\(\triangle ADE\)的周长。
+\par
+\solutionanswer
+因 \(AF_1=AF_2=a=2c\)，\(\triangle AF_1F_2\) 为等边三角形。直线 \(DE\) 是 \(AF_2\) 的垂直平分线，故 \(AD=DF_2,\ AE=EF_2\)。又 \(F_1\) 在弦内，三边可重新配成两组焦半径，周长即 \((DF_1+DF_2)+(EF_1+EF_2)=4a\)。
+
+焦弦与长轴的夹角为 \(30^\circ\)，半通径 \(\ell=a(1-e^2)=3a/4\)，故
+\[
+ 6=DE=\frac{2\ell}{1-e^2\cos^2 30^\circ}=\frac{24a}{13}.
+\]
+于是周长为 \(4a=13\)。
+
 % ITEM: quadratic-example-109
 \solutionitem{quadratic-example-109}{例4.109 *}
 以曲线\(5x^2+4xy+2y^2=1\)的中心为极点，写出\(r(\theta)\)，求半径长的最大值与最小值及相应方向。再证明任意两条互相垂直的中心半径满足\(r_1^{-2}+r_2^{-2}=7\)，将结果与旋转化简相比较。
@@ -403,11 +418,17 @@ r^2-4r\cos\theta+2r\sin\theta-4=0,\qquad r\ge0.
 
 % ITEM: quadratic-exercise-59-02
 \solutionitem{quadratic-exercise-59-02}{习题4.59（2） *}
-设\(\Phi(P)\ne0\)。证明径向方程的判别式为\(4(b_P(d)^2-a(d)c_P)\)。若某方向有二重实根，说明对应直线为何为切线，并证明切点在\(P\)的极线上。
+设\(\Phi(P)\ne0\)。证明径向方程的判别式为\(4(b_P(d)^2-a(d)c_P)\)。若某方向有二重实根，说明对应直线为何为切线，并证明切点在\(P\)的极线上。椭圆\(x^2+2y^2=4\)内有一点\(P=(0,1)\)。过\(P\)的直线交椭圆于\(A,B\)，求\(|PA||PB|\)与弦长\(|AB|\)各自的取值范围，并指出最长弦的方向。
 \par
 \solutionanswer
 记\(a=a(d),\ b=b_P(d),\ c=\Phi(P)\)。当\(a\ne0\)时，径向方程的判别式为\((2b)^2-4ac=4(b^2-ac)\)。若有二重实根\(t_0\)，因\(c\ne0\)，限制式必为二次式，且\(at^2+2bt+c=a(t-t_0)^2\)。因此直线与曲线的两个交点重合于\(P+t_0d\)，直线在此处相切。比较系数得\(b=-at_0,\ c=at_0^2\)，故\(c+bt_0=0\)，恰好说明切点在\(P\)的极线上。
 
+
+将\(P+t(\cos\theta,\sin\theta)\)代入椭圆方程，记\(s=\sin\theta\)，得\((1+s^2)t^2+4st-2=0\)。两根异号，故\(q=|PA||PB|=-t_1t_2=2/(1+s^2)\)取遍\([1,2]\)。由\(t_1+t_2=-2sq\)得
+\[
+ |AB|^2=(t_1+t_2)^2+4q=4s^2q^2+4q=9-(2q-3)^2.
+\]
+所以\(2\sqrt2\le |AB|\le3\)。最长弦对应\(q=3/2\)，即\(\sin^2\theta=1/3\)，其斜率为\(\pm1/\sqrt2\)；水平弦与竖直弦均取最小值。
 
 % ITEM: quadratic-exercise-59-03
 \solutionitem{quadratic-exercise-59-03}{习题4.59（3） *}
