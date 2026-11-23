@@ -2,7 +2,7 @@
 
 > It is not designed for everyone, but for the one who finds his place.
 
-当前版本为 **1.0 候选版（RC1）**。讲义与配套的《例题与习题解》分为两册，请在[发布页](https://github.com/EasterGhost/math/releases)选用同一版本的两份 PDF，以便按题号对照。
+当前版本为 **1.0 候选版（RC2）**，日期为 2026 年 11 月 24 日。讲义与配套的《例题与习题解》分为两册，请在[发布页](https://github.com/EasterGhost/math/releases)选用同一版本的两份 PDF，以便按题号对照。
 
 《从数字到数学》是一份面向高中生的数学讲义，服务于日常学习，也为复习和进一步探索提供材料。可以配合讲授用于首次学习，也可以在已有经验之后重新阅读。
 
