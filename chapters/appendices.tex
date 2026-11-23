@@ -4,7 +4,7 @@
   tocline={\protect\numberline{\thechapter}#2}}}
 \hypersetup{bookmarksnumbered=true}
 
-% 只调整目录及书签：附录作为父项，A--E作为次一级条目。
+% 只调整目录及书签：附录作为父项，A--F作为次一级条目。
 % 正文仍使用chapter及原有编号；各附录内部的节不写入目录。
 \makeatletter
 \let\mathnotes@appendix@addcontentsline\addcontentsline
@@ -30,6 +30,7 @@
   \fi}
 \makeatother
 
+\input{chapters/appendices/00-sets-logic}
 \input{chapters/appendices/01-notation}
 \input{chapters/appendices/02-inequalities}
 \input{chapters/appendices/03-formulas}

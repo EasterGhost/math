@@ -1,0 +1,104 @@
+\chapter{集合与常用逻辑用语}\label{app:sets-logic}
+\begingroup
+\fontsize{12pt}{20pt}\selectfont
+\setlength{\parskip}{4pt}
+
+\section{集合}
+把所讨论的对象看成一个整体，称为{\heiti{}集合}，其中的每一个对象称为集合的{\heiti{}元素}。\(x\in A\) 表示 \(x\) 属于 \(A\)，\(x\notin A\) 表示它不属于 \(A\)。给出一个集合，要能确定哪些对象属于它。例如，“小于 \(5\) 的正整数”确定一个集合，“很小的正整数”则还需说明多小算小。
+
+将元素逐个写出叫作{\heiti{}列举法}，如 \(\{1,2,3,4\}\)；规定元素的范围和条件叫作{\heiti{}描述法}，同一集合可以写成 \(\{n\in\mathbb N^*:n<5\}\)，冒号读作“使得”。本书用 \(\mathbb N,\mathbb N^*,\mathbb Z,\mathbb Q,\mathbb R\) 分别表示非负整数、正整数、整数、有理数、实数组成的集合。
+
+\begin{definition}
+若 \(A\) 的每个元素都是 \(B\) 的元素，称 \(A\) 是 \(B\) 的{\heiti{}子集}，记为 \(A\subseteq B\)。若两集合的元素完全相同，称它们相等，记为 \(A=B\)；若 \(A\subseteq B\) 且 \(A\ne B\)，则称 \(A\) 是 \(B\) 的{\heiti{}真子集}，记为 \(A\subsetneq B\)。
+\end{definition}
+所以证明 \(A=B\)，可以分别证明 \(A\subseteq B\) 和 \(B\subseteq A\)。元素的次序和书写次数均不改变集合，如 \(\{1,2\}=\{2,1,2\}\)。没有元素的集合叫作{\heiti{}空集}，记为 \(\varnothing\)。它是每个集合的子集，因为其中没有一个元素能够违反包含关系。注意 \(1\in\{1,2\}\) 说的是元素的归属，\(\{1\}\subseteq\{1,2\}\) 说的是两个集合的包含关系。
+
+\begin{example}
+写出所有既是整数又满足 \(x^2<5\) 的数。若把“整数”改为“实数”，所得集合还相同吗？
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设 \(A=\{x\in\mathbb Z:x=2k+1,\ k\in\mathbb Z\}\)，\(B=\{x\in\mathbb Z:x=2k-1,\ k\in\mathbb Z\}\)。证明 \(A=B\)。
+
+（2）列出 \(\{0,1\}\) 的全部子集。其中哪些以 \(0\) 为元素？
+\end{exercise}
+
+\section{集合的运算}
+设 \(A,B\) 是两个集合。把同时属于两者的元素取出，得到{\heiti{}交集} \(A\cap B\)；把至少属于其一的元素取出，得到{\heiti{}并集} \(A\cup B\)；从 \(A\) 中去掉属于 \(B\) 的元素，得到{\heiti{}差集} \(A\setminus B\)。交与并交换两个集合不影响结果，差集则要分清从哪个集合中取元素。
+
+在数轴上，一段连续取值的范围常用区间表示。以 \(a<b\) 为例，\([a,b]=\{x\in\mathbb R:a\le x\le b\}\)，\((a,b)=\{x\in\mathbb R:a<x<b\}\)。方括号表示取到相应端点，圆括号表示不取；例如 \((-\infty,b]\) 表示所有不大于 \(b\) 的实数。
+
+事先确定讨论的全体对象组成的集合 \(\Omega\)，称为{\heiti{}全集}。对 \(A\subseteq\Omega\)，集合 \(\Omega\setminus A\) 称为 \(A\) 在 \(\Omega\) 中的{\heiti{}补集}。同是偶数集，在整数集中的补集是奇数集，在实数集中的补集还含有 \(\tfrac12\) 等非整数。
+\begin{proposition}
+设 \(A,B\subseteq\Omega\)，则 \(\Omega\setminus(A\cup B)=(\Omega\setminus A)\cap(\Omega\setminus B)\)。
+\end{proposition}
+\begin{proof}
+任取 \(x\in\Omega\)。它属于左边，恰好是指它既不属于 \(A\)，也不属于 \(B\)；这又恰好是指它同时属于两个补集。因此等式两边有完全相同的元素。
+\end{proof}
+
+还有一种不同的运算。分别取 \(a\in A,b\in B\)，把两者依次配成有序对 \((a,b)\)。所有这样的有序对组成的集合称为{\heiti{}笛卡尔积} \(A\times B\)。平面直角坐标系中的坐标对全体便是 \(\mathbb R\times\mathbb R\)；交换两个坐标一般会得到另一个点。
+
+\begin{example}
+设 \(A=(-2,1]\)，\(B=[1,3)\)。求 \(A\cap B,\ A\cup B,\ A\setminus B\)，并说明 \(1\) 在三个集合中分别是否出现。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设 \(A,B\subseteq\Omega\)。证明 \(\Omega\setminus(A\cap B)=(\Omega\setminus A)\cup(\Omega\setminus B)\)。
+
+（2）设 \(A=\{0,1\}\)，\(B=\{1,2\}\)。列出 \(A\times B\) 的元素，并求 \((A\times B)\cap(B\times A)\)。
+\end{exercise}
+
+\section{命题与条件}
+可以判断真假的陈述句称为{\heiti{}命题}。例如“\(6\) 是偶数”是真命题，“所有的奇数都是质数”是假命题。“\(n\) 是偶数”还要看 \(n\) 取什么值；它给出了一个关于 \(n\) 的条件，可记为 \(P(n)\)。
+
+对命题 \(P,Q\)，\(\neg P\) 读作“非 \(P\)”，其真假与 \(P\) 相反；\(P\land Q\) 要求二者都真，\(P\lor Q\) 要求至少一个为真，也允许二者都真。因此否定“二者都真”，只须说至少一个不真；否定“至少一个真”，则须说二者都不真。这正是上一节两条补集公式中“且”与“或”互换的原因。
+
+\begin{definition}
+若 \(P\) 成立时 \(Q\) 必成立，记为 \(P\Rightarrow Q\)，称 \(P\) 是 \(Q\) 的{\heiti{}充分条件}，\(Q\) 是 \(P\) 的{\heiti{}必要条件}。若两方向均成立，记为 \(P\Leftrightarrow Q\)，称二者互为{\heiti{}充要条件}。
+\end{definition}
+给定范围 \(\Omega\)，设满足条件 \(P,Q\) 的元素分别组成 \(A,B\)。那么“对每个 \(x\in\Omega\)，由 \(P(x)\) 能推出 \(Q(x)\)”恰好是 \(A\subseteq B\)。若要推翻它，只需指出一个属于 \(A\) 却不属于 \(B\) 的元素。这就是{\heiti{}反例}：它必须满足前提，同时违反结论。
+
+交换前提和结论得到{\heiti{}逆命题} \(Q\Rightarrow P\)，未必与原命题同真同假。所有 \(4\) 的倍数都是偶数，但偶数 \(2\) 不是 \(4\) 的倍数。若同时否定前提和结论再交换位置，得到{\heiti{}逆否命题} \(\neg Q\Rightarrow\neg P\)。它与原命题等价，因为让两者不成立所需的反例完全相同：\(P\) 真而 \(Q\) 假。
+
+\begin{example}
+设 \(x\) 为实数。“\(x>1\)”是“\(x^2>1\)”的什么条件？增加对 \(x\) 的范围限制，使两者等价。
+\end{example}
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）设 \(a,b\) 是整数。写出“若 \(a+b\) 是奇数，则 \(a,b\) 中至少一个是奇数”的逆命题与逆否命题，并判断真假。
+
+（2）对于两个集合 \(A,B\)，证明 \(A\subseteq B\) 的一个充要条件是 \(A\cap B=A\)。
+\end{exercise}
+
+\section{量词}
+有两种常用的方法，可以从条件 \(P(x)\) 得到一个命题。\(\forall x\in A,\ P(x)\) 读作“对 \(A\) 中每个 \(x\)，\(P(x)\) 都成立”，其中 \(\forall\) 称为{\heiti{}全称量词}；\(\exists x\in A,\ P(x)\) 读作“在 \(A\) 中存在 \(x\)，使 \(P(x)\) 成立”，其中 \(\exists\) 称为{\heiti{}存在量词}。这里的“存在”指至少有一个；若还要求只有一个，须另证唯一性。
+
+量词涉及哪一范围，也是命题的一部分。例如，“存在 \(x\) 使 \(x^2=2\)”在整数集中为假，在实数集中为真。几个量词连用时，要从左向右读：后选的量可以依赖先给的量，先选的量必须对后面的选择都有效。
+
+\begin{example}
+比较“每个整数都有比它大的整数”和“有一个整数比所有整数都大”。用量词写出两句话，并分别判断真假。
+\end{example}
+
+要否定一个全称命题，只须找出一个例外；要否定一个存在命题，则要排除全部可能。因此
+\[
+ \neg(\forall x\in A,\ P(x))\ \Leftrightarrow\ \exists x\in A,\ \neg P(x),\qquad
+ \neg(\exists x\in A,\ P(x))\ \Leftrightarrow\ \forall x\in A,\ \neg P(x).
+\]
+有多层量词时逐层否定，原有的先后次序不变。例如，“每本书都有人读过”的否定是“有一本书谁都没读过”。
+
+学到第一章的式\eqref{eq:analysis-sequence-limit-definition}时，可以再用一次这个规则。数列收敛于 \(a\)，要求对每个 \(\varepsilon>0\) 都能选定 \(N\)，使所有 \(n>N\) 都满足 \(|a_n-a|<\varepsilon\)。它的否定是：存在一个固定的 \(\varepsilon_0>0\)，无论给出多大的 \(N\)，总能找到某个 \(n>N\)，使 \(|a_n-a|\geq\varepsilon_0\)。改变的是量词和末尾的不等式，\(N\) 与 \(n\) 的选择顺序始终相同。
+
+\begin{exercise}
+\mbox{}\par\nobreak
+
+（1）写出“对每个实数 \(x\)，都有 \(x^2\geq x\)”的否定，并给出一个使否定成立的数。
+
+（2）已知整数集 \(S\) 非空。用量词写出“\(S\) 有最大元素”，再把它的否定译成一句话。
+\end{exercise}
+\endgroup
